@@ -1,0 +1,50 @@
+{
+  "schema_version": 1,
+  "attempt_id": "20261026T093217.327585Z_83aecc5d44",
+  "label": "capture-selftest-timeout",
+  "started_utc": "2026-10-26T09:32:17.328587+00:00",
+  "command_argv": [
+    "C:\\Users\\Mahdi\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+    "-B",
+    "-X",
+    "utf8",
+    "-c",
+    "import time; print('before-timeout', flush=True); time.sleep(3)"
+  ],
+  "cwd": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-10-26\\partition_constraints_v2\\audit",
+  "timeout_seconds": 0.25,
+  "environment": {
+    "python_executable": "C:\\Users\\Mahdi\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+    "python_version": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]",
+    "python_implementation": "CPython",
+    "python_flags": "sys.flags(debug=0, inspect=0, interactive=0, optimize=0, dont_write_bytecode=1, no_user_site=0, no_site=0, ignore_environment=0, verbose=0, bytes_warning=0, quiet=0, hash_randomization=1, isolated=0, dev_mode=False, utf8_mode=1, warn_default_encoding=0, safe_path=False, int_max_str_digits=4300)",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "machine": "AMD64",
+    "preferred_encoding": "utf-8",
+    "cwd": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-10-26\\partition_constraints_v2\\audit",
+    "allowlisted_environment_values": {
+      "PYTHONUTF8": "1",
+      "PYTHONDONTWRITEBYTECODE": "1",
+      "LANG": "C.UTF-8",
+      "LC_ALL": "C.UTF-8",
+      "PROCESSOR_ARCHITECTURE": "AMD64"
+    },
+    "omitted_environment_variable_count": 68,
+    "environment_policy": "allowlisted values only; remaining values omitted"
+  },
+  "sources": [
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-10-26\\partition_constraints_v2\\audit\\capture.py",
+      "sha256": "c764c2a06a65414e0fa1d45fa92631246423192d54aa28a3f6f3e08a9b0c58a9",
+      "snapshot": "source_blobs\\c7\\c764c2a06a65414e0fa1d45fa92631246423192d54aa28a3f6f3e08a9b0c58a9",
+      "bytes": "8093"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-10-26\\partition_constraints_v2\\audit\\capture_selftest.py",
+      "sha256": "e286c7f96ca18f3c117acd098edd9e319ee3ed9d935c0c6aca612729922626a1",
+      "snapshot": "source_blobs\\e2\\e286c7f96ca18f3c117acd098edd9e319ee3ed9d935c0c6aca612729922626a1",
+      "bytes": "2314"
+    }
+  ],
+  "source_snapshot_error": null
+}

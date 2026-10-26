@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "C:\Users\Mahdi\Documents\ChatGPT\passive automata learning\results\2026-10-26\partition_constraints_v2\audit\verify_corpus.py", line 157, in <module>
+    print(json.dumps(verify(), ensure_ascii=False, sort_keys=True))
+                     ^^^^^^^^
+  File "C:\Users\Mahdi\Documents\ChatGPT\passive automata learning\results\2026-10-26\partition_constraints_v2\audit\verify_corpus.py", line 120, in verify
+    assert item["language"] == sorted(set(item["language"]))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError
