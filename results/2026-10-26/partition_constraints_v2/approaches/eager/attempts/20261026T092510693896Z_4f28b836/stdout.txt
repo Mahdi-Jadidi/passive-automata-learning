@@ -1,0 +1,29 @@
+{
+  "result": "all_candidate_smoke_checks_passed",
+  "examples": [
+    {
+      "input": "theory_ambiguous.json",
+      "status": "ambiguous",
+      "count": 2
+    },
+    {
+      "input": "theory_empty_graph_unique.json",
+      "status": "unique",
+      "count": 1
+    },
+    {
+      "input": "theory_graph_recovered.json",
+      "status": "unique",
+      "count": 1
+    },
+    {
+      "input": "theory_structural_graph_gap.json",
+      "status": "unique",
+      "count": 1
+    }
+  ],
+  "seeded_samples": 100,
+  "distinguisher_word_pairs": 169,
+  "distinguisher_blocks_per_pair": 8,
+  "note": "Independent auditor owns broader correctness/performance claims."
+}
