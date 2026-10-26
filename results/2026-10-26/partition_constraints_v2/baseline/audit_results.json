@@ -1,0 +1,171 @@
+{
+  "audit_name": "bounded_adversarial_alphabet_partition_audit",
+  "date": "2026-10-26",
+  "seed": null,
+  "seed_note": "No randomness; every reported finite range is exhaustively enumerated.",
+  "command": "python audit_partition.py",
+  "executed_command": "\"C:\\Users\\Mahdi\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe\" audit_partition.py",
+  "python_version": "3.12.14",
+  "elapsed_seconds": 33.298,
+  "sha256": {
+    "audit_partition.py": "16f1021a22110832f701c580db16acab898de52a781713d0012a3b780ddd907c",
+    "partition_solver.py": "b0572bf8115d9188a6dbf20b6b6c8c70126cdf0cf9c7de4554ce2b36efdc702c"
+  },
+  "scope": {
+    "finite_feasibility": "all 3^7 labeled subsets of the 7 words over {a,b} of length at most 2; candidate partition {{a},{b}}",
+    "generated_languages": "all 2-block partitions of {a,b,c}; for each block, all finite languages that are subsets of block words of length at most 2",
+    "generated_sample": "all words over {a,b,c} of length at most 4 that touch both true blocks, labeled by the complete generator",
+    "witness_check": "complete generator labels on words through length 6; all context words x,y over {a,b,c} each of length at most 2"
+  },
+  "finite_feasibility_boolean_exhaustion": {
+    "alphabet": "ab",
+    "words_length_at_most": 2,
+    "universe_words": 7,
+    "candidate_partition": [
+      [
+        "a"
+      ],
+      [
+        "b"
+      ]
+    ],
+    "labeled_samples_exhausted": 2187,
+    "boolean_assignments_checked_total": 91913,
+    "result": "projection criterion agrees with independent Boolean assignment enumeration"
+  },
+  "theory_solver_independent_crosscheck": {
+    "alphabet": "abc",
+    "word_universe": [
+      "",
+      "a",
+      "b",
+      "c"
+    ],
+    "labeled_samples_exhausted": 81,
+    "candidate_partitions_per_sample": 3,
+    "solver_calls_pruned_and_unpruned": 162,
+    "independent_boolean_assignments_checked_total": 4323,
+    "result": "partition_solver matches the independent Boolean assignment oracle, with and without graph pruning",
+    "theory_json_example_checks": {
+      "theory_ambiguous.json": {
+        "status": "ambiguous",
+        "feasible_partition_count": 2,
+        "pruned_equals_unpruned": true,
+        "graph_edges": 0,
+        "graph_components": 3
+      },
+      "theory_empty_graph_unique.json": {
+        "status": "unique",
+        "feasible_partition_count": 1,
+        "pruned_equals_unpruned": true,
+        "graph_edges": 0,
+        "graph_components": 4
+      },
+      "theory_graph_recovered.json": {
+        "status": "unique",
+        "feasible_partition_count": 1,
+        "pruned_equals_unpruned": true,
+        "graph_edges": 2,
+        "graph_components": 2
+      },
+      "theory_structural_graph_gap.json": {
+        "status": "unique",
+        "feasible_partition_count": 1,
+        "pruned_equals_unpruned": true,
+        "graph_edges": 0,
+        "graph_components": 3
+      }
+    }
+  },
+  "targeted_solver_witness_cases": {
+    "case_count": 6,
+    "independent_boolean_assignments_checked": 176,
+    "cases": {
+      "swap_forward": {
+        "rule": "swap",
+        "edge": [
+          "a",
+          "b"
+        ],
+        "payload_verified": true,
+        "feasible_partitions": 1,
+        "oracle_agrees_with_pruned_and_unpruned": true
+      },
+      "swap_reverse": {
+        "rule": "swap",
+        "edge": [
+          "a",
+          "b"
+        ],
+        "payload_verified": true,
+        "feasible_partitions": 1,
+        "oracle_agrees_with_pruned_and_unpruned": true
+      },
+      "rescue_parent_minimal": {
+        "rule": "insertion_rescue",
+        "edge": [
+          "a",
+          "b"
+        ],
+        "payload_verified": true,
+        "feasible_partitions": 1,
+        "oracle_agrees_with_pruned_and_unpruned": true
+      },
+      "rescue_forward_contextual": {
+        "rule": "insertion_rescue",
+        "edge": [
+          "a",
+          "b"
+        ],
+        "payload_verified": true,
+        "feasible_partitions": 1,
+        "oracle_agrees_with_pruned_and_unpruned": true
+      },
+      "rescue_reverse_contextual": {
+        "rule": "insertion_rescue",
+        "edge": [
+          "a",
+          "b"
+        ],
+        "payload_verified": true,
+        "feasible_partitions": 1,
+        "oracle_agrees_with_pruned_and_unpruned": true
+      },
+      "no_feasible_two_block_partition": {
+        "status": "infeasible",
+        "independent_oracle_feasible_count": 0,
+        "pruned_equals_unpruned": true
+      }
+    },
+    "result": "forward/reverse swap and insertion-rescue witnesses are extracted with valid payloads; infeasible case agrees with oracle"
+  },
+  "known_generator_exhaustion": {
+    "alphabet": "abc",
+    "known_k": 2,
+    "true_partitions": 3,
+    "local_language_domain": "all subsets of block words of length at most 2 (finite regular languages)",
+    "generator_pairs_exhausted": 3072,
+    "sample_words": "all words of length at most 4 touching both true blocks; labels from complete generator",
+    "witness_contexts": "all x,y over abc of length at most 2 each; labels queried from complete generator",
+    "context_pairs_per_symbol_pair": 169,
+    "witness_word_max_length": 6,
+    "must_link_edges_found_total": 1596,
+    "models_with_no_witness_edges": 1476,
+    "models_with_r_equal_k_and_exact_graph_recovery": 1596,
+    "models_where_full_bounded_sample_uniquely_feasible": 1764,
+    "models_where_sample_is_unique_but_graph_has_r_greater_than_k": 462,
+    "assertions": [
+      "every inferred edge lies inside the true generator block",
+      "graph components refine the true partition",
+      "r >= k for every enumerated generator",
+      "if r == k, graph components equal the true partition",
+      "the true partition is feasible for every generated finite sample"
+    ]
+  },
+  "claim_limitations": [
+    "A finite sample can be feasible under multiple incomparable partitions and multiple different target languages.",
+    "Pairwise projection/merge checks can miss a constraint that appears only when three letters form one block.",
+    "Graph soundness follows from the witness theorem; this bounded enumeration is corroboration, not the general proof.",
+    "r=k exact recovery is conditional on a true noise-free k-block target in the model class and correctly labeled witnesses for every graph edge used; complete-generator labels are used only in the generator audit, not required by the solver theorem."
+  ]
+}
