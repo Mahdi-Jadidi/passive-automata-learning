@@ -1,0 +1,59 @@
+{
+  "id": "B_SCOPED_REVIEW_COMPLETION",
+  "at_utc": "2026-10-26T12:29:23.8506405Z",
+  "completed": [
+    "Static review of eager shared rejecting side and complete F2",
+    "Algebraic counterexample B-TRAP-001 recorded before implementation",
+    "Reviewed source and document hashes matched"
+  ],
+  "manifest": "REVIEW_A_MANIFEST.json",
+  "all_hashes_match": true,
+  "checks": [
+    {
+      "path": "approaches/eager/eager_solver.py",
+      "expected_sha256": "e4f0c0b5228cde9207fe30a94f7b5e0dea13aa49c2cff23d8c291ffa4064f069",
+      "actual_sha256": "e4f0c0b5228cde9207fe30a94f7b5e0dea13aa49c2cff23d8c291ffa4064f069",
+      "matches": true
+    },
+    {
+      "path": "approaches/eager/PROOFS.md",
+      "expected_sha256": "7e361a5668f3bc7662986a0870f2cdaf562109866ff06490a714fbec377a171d",
+      "actual_sha256": "7e361a5668f3bc7662986a0870f2cdaf562109866ff06490a714fbec377a171d",
+      "matches": true
+    },
+    {
+      "path": "common/engine.py",
+      "expected_sha256": "5bcd3459bf98efea499dd1edc2f60c2db21fd89f9b84a9950685aba1f00d8468",
+      "actual_sha256": "5bcd3459bf98efea499dd1edc2f60c2db21fd89f9b84a9950685aba1f00d8468",
+      "matches": true
+    },
+    {
+      "path": "common/helpers.py",
+      "expected_sha256": "f9d905b79dea4740f7eecd3e586b1c8d7b093639f158b7b7757757da7b2904d1",
+      "actual_sha256": "f9d905b79dea4740f7eecd3e586b1c8d7b093639f158b7b7757757da7b2904d1",
+      "matches": true
+    },
+    {
+      "path": "approaches/lazy/REVIEW_A.md",
+      "expected_sha256": "d505ca49747de3cdcba2aca03a0f7f7986b33c953e07b23a4e440ff731af8edc",
+      "actual_sha256": "d505ca49747de3cdcba2aca03a0f7f7986b33c953e07b23a4e440ff731af8edc",
+      "matches": true
+    },
+    {
+      "path": "approaches/lazy/REJECTED_IDEAS.md",
+      "expected_sha256": "43967f236f02b8c9ad129f26ae0ad9e73456f96c4fa7e8faec1c4b86f4e2d2ac",
+      "actual_sha256": "43967f236f02b8c9ad129f26ae0ad9e73456f96c4fa7e8faec1c4b86f4e2d2ac",
+      "matches": true
+    }
+  ],
+  "code_modified": false,
+  "experiments_run": false,
+  "original_documents_preserved": true,
+  "scientific_status": "static_review_no_substantive_defect_found_under_fixed_assumptions",
+  "trap_status": "rejected_by_proof_before_implementation_not_experimental_failure",
+  "remaining": [
+    "Independent empirical correctness and performance audit is outside B scope",
+    "Bibliographic attribution was not independently reverified in this static review"
+  ],
+  "note": "No incomplete review content found; existing review and trap documents kept byte-for-byte."
+}

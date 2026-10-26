@@ -1,0 +1,86 @@
+{
+  "id": "A001",
+  "revision": 1,
+  "record_type": "immutable_idea_record",
+  "recorded_date": "2026-10-26",
+  "parent": "C002",
+  "parent_relation": {
+    "baseline": "../../baseline/partition_solver.py",
+    "baseline_theory": "../../baseline/THEORY_NOTE.md",
+    "baseline_sha256": "b0572bf8115d9188a6dbf20b6b6c8c70126cdf0cf9c7de4554ce2b36efdc702c",
+    "relation": "Alternative exact representation and search for the same full finite-sample F2 set; not a replacement of the baseline or a local DFA learner."
+  },
+  "hypothesis": {
+    "correctness": "The eager ownership formula, using one shared rejecting side per negative and singleton/pair distinguishers, has exactly the canonical ownership models corresponding to F2(S).",
+    "performance": "Materialized constraints may prune enough partial assignments to offset formula-construction overhead; this remains unmeasured in this idea record."
+  },
+  "motivation": "Move beyond the incomplete swap/insertion-rescue graph while preserving every sample-feasible two-block partition; investigate total cost rather than assuming fewer complete candidates implies a speedup.",
+  "assumptions": [
+    "Known alphabet of 2..10 distinct single-character symbols.",
+    "Exactly two nonempty disjoint ownership blocks.",
+    "Fixed finite positive and negative samples with correct, noncontradictory labels.",
+    "Global acceptance is conjunction of acceptance of block projections.",
+    "Unrestricted regular local factors; no state bound or prefix-closure assumption.",
+    "No extra labels, target-generator structure, active oracle or RPNI call is available to the solver."
+  ],
+  "primary_sources": [
+    {
+      "id": "Henry_et_al_arxiv2504.16624v3",
+      "url": "https://arxiv.org/html/2504.16624v3",
+      "sections": "Section 4.1 Proposition 5; Section 6.1 Corollary 12",
+      "role": "Prior-art product-observation consistency criterion specialized by the frozen baseline.",
+      "verification_record": "SOURCES.md"
+    },
+    {
+      "id": "Baumann_et_al_STACS2022_7",
+      "url": "https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.STACS.2022.7",
+      "sections": "Lemma 3.11, printed page 7:10",
+      "role": "Existing binary-projection word-reconstruction fact; the implementation explicitly covers singleton blocks.",
+      "verification_record": "SOURCES.md"
+    }
+  ],
+  "artifacts": {
+    "source_manifest": "CANDIDATE_MANIFEST.json",
+    "provider": "eager_solver.py",
+    "engine_candidate": "engine_candidate.py",
+    "helper_candidate": "common_helpers_candidate.py",
+    "driver_candidate": "driver_candidate.py",
+    "proof": "PROOFS.md",
+    "sources": "SOURCES.md",
+    "interface": "README.md",
+    "peer_review_received": "../lazy/REVIEW_A.md",
+    "peer_review_received_manifest": "../lazy/REVIEW_A_MANIFEST.json",
+    "peer_review_of_B": "REVIEW_B.md",
+    "independent_shared_primitive_review": "../../audit/engine-review.json",
+    "accepted_runtime": "../../coordination/runtime_manifest.json",
+    "artifact_integrity_verification": "SOURCE_VERIFICATION_20261026_A001.json",
+    "report_draft": "FINAL_REPORT_CANDIDATE_FA.md"
+  },
+  "initial_execution": {
+    "attempt_id": "20261026T092510693896Z_4f28b836",
+    "metadata": "attempts/20261026T092510693896Z_4f28b836/started.json",
+    "result": "attempts/20261026T092510693896Z_4f28b836/result.json",
+    "stdout": "attempts/20261026T092510693896Z_4f28b836/stdout.txt",
+    "stderr": "attempts/20261026T092510693896Z_4f28b836/stderr.txt",
+    "execution_status": "success",
+    "scope": "Four frozen theory examples, 100 seeded ternary samples, 169 word pairs across eight blocks, engine truth-value and empty-class/deadline controls.",
+    "scope_source": "smoke_candidate.py",
+    "seed": 20261026,
+    "interpretation": "Initial branch smoke evidence only; not the full independent provider audit or a performance comparison."
+  },
+  "scientific_status": "formal_derivation_and_initial_smoke_passed_full_independent_audit_pending",
+  "shared_primitive_status": "accepted_for_shared_promotion_as_C002_R1_per_audit_engine_review",
+  "execution_status": "initial_smoke_passed",
+  "performance_status": "not_established_here",
+  "novelty_status": "not_claimed",
+  "master_decision": "pending_full_independent_audit",
+  "failed_attempts_in_this_implementation": [],
+  "failed_attempts_note": "No failed algorithm implementation attempt occurred in this branch so far; no failure is invented. Historical refutations and orchestration incidents are preserved in the coordinator journal separately.",
+  "documentation_caveats": [
+    "Initial smoke README bytes differ from the expanded current README; the original snapshot remains intact.",
+    "Proofs, sources and later reviews do not imply additional executions.",
+    "The final report candidate remains a draft with empirical placeholders until actual auditor results are supplied.",
+    "The baseline adapter checks cooperative time before and after the immutable v1 call; the external runner must enforce the hard process limit."
+  ],
+  "immutability_policy": "Preserve this record and all linked attempt evidence; append a new versioned status record instead of overwriting it when audit results arrive."
+}

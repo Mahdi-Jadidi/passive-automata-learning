@@ -33,8 +33,14 @@ least one one, giving one representative per unordered nonempty bipartition.
 Graph equalities are the baseline's proved necessary conditions. A feasible model
 is emitted with a direct projection witness, then only its exact assignment is
 blocked by OR_i[x_i != assignment_i]. This removes no other model. Every infeasible
-candidate receives a sound cut excluding itself. No candidate recurs; at most
-2^(m-1)-1 candidates are processed before a final unsatisfiable search. Since cuts
+candidate receives a sound cut excluding itself. No ownership assignment proposed
+to the OUTER lazy loop recurs; at most 2^(m-1)-1 such proposed assignments are
+processed before a final unsatisfiable search. Each find_model call restarts its
+internal DFS at the root. Internal partial states and rejected full assignments
+can therefore be revisited. The bound on outer proposals is not a bound on
+nodes_visited, constraint_evaluations, or cumulative complete_assignments; these
+counters include all restarted work and can exceed the number of bipartitions.
+Since cuts
 preserve every unreported feasible model, termination enumerates exactly F2(S).
 An identical cached cut cannot be violated by a model satisfying all accumulated
 constraints; that situation is an implementation assertion failure, not a reason
@@ -55,6 +61,13 @@ additional lazy overhead. Repeated searches and answer blockers can make lazy
 slower than baseline or eager, especially when output is large. No efficiency or
 novelty claim is made. The reconstruction and feasibility literature is documented
 in ../eager/SOURCES.md and the frozen baseline literature review.
+
+In eager, preprocessing_seconds includes constructing the full formula; in lazy,
+it includes only the initial graph phase. Comparing these fields alone omits the
+lazy cut-generation and separation costs. The external end-to-end timing, including
+input parsing, every preprocessing and incremental phase, search, and output
+serialization, is authoritative for method comparison. Phase fields explain costs
+but are not interchangeable measurements of total preprocessing.
 
 An interrupted run retains already constructed witness records, reports
 complete=false, status=incomplete, feasible_partition_count=null, and a lower-bound

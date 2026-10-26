@@ -1,0 +1,180 @@
+{
+  "id": "A001-DOC-CHECK-001",
+  "kind": "read_only_sha256_artifact_verification",
+  "created_utc": "2026-10-26T12:34:14.9847192Z",
+  "runtime_version": "C002-R1",
+  "candidate_manifest_checks": [
+    {
+      "path": "engine_candidate.py",
+      "expected": "5bcd3459bf98efea499dd1edc2f60c2db21fd89f9b84a9950685aba1f00d8468",
+      "actual": "5bcd3459bf98efea499dd1edc2f60c2db21fd89f9b84a9950685aba1f00d8468",
+      "matches": true
+    },
+    {
+      "path": "common_helpers_candidate.py",
+      "expected": "f9d905b79dea4740f7eecd3e586b1c8d7b093639f158b7b7757757da7b2904d1",
+      "actual": "f9d905b79dea4740f7eecd3e586b1c8d7b093639f158b7b7757757da7b2904d1",
+      "matches": true
+    },
+    {
+      "path": "eager_solver.py",
+      "expected": "e4f0c0b5228cde9207fe30a94f7b5e0dea13aa49c2cff23d8c291ffa4064f069",
+      "actual": "e4f0c0b5228cde9207fe30a94f7b5e0dea13aa49c2cff23d8c291ffa4064f069",
+      "matches": true
+    },
+    {
+      "path": "driver_candidate.py",
+      "expected": "6801941c97ec0cd60200d01be540a357f0f16220c8c747289bd8dcbb44a37f36",
+      "actual": "6801941c97ec0cd60200d01be540a357f0f16220c8c747289bd8dcbb44a37f36",
+      "matches": true
+    },
+    {
+      "path": "PROOFS.md",
+      "expected": "7e361a5668f3bc7662986a0870f2cdaf562109866ff06490a714fbec377a171d",
+      "actual": "7e361a5668f3bc7662986a0870f2cdaf562109866ff06490a714fbec377a171d",
+      "matches": true
+    },
+    {
+      "path": "SOURCES.md",
+      "expected": "9a4e8d0cab52cec2dfb266719afb597dca1df5d6dc7d67d3b68e5230281be0eb",
+      "actual": "9a4e8d0cab52cec2dfb266719afb597dca1df5d6dc7d67d3b68e5230281be0eb",
+      "matches": true
+    },
+    {
+      "path": "README.md",
+      "expected": "a66f295c71d521678c9a1b72ab5abe0c6f0b1045163d7a918e4c24706e3ebc12",
+      "actual": "a66f295c71d521678c9a1b72ab5abe0c6f0b1045163d7a918e4c24706e3ebc12",
+      "matches": true
+    }
+  ],
+  "runtime_manifest_checks": [
+    {
+      "path": "solver.py",
+      "expected": "6801941c97ec0cd60200d01be540a357f0f16220c8c747289bd8dcbb44a37f36",
+      "actual": "6801941c97ec0cd60200d01be540a357f0f16220c8c747289bd8dcbb44a37f36",
+      "matches": true
+    },
+    {
+      "path": "common/engine.py",
+      "expected": "5bcd3459bf98efea499dd1edc2f60c2db21fd89f9b84a9950685aba1f00d8468",
+      "actual": "5bcd3459bf98efea499dd1edc2f60c2db21fd89f9b84a9950685aba1f00d8468",
+      "matches": true
+    },
+    {
+      "path": "common/helpers.py",
+      "expected": "f9d905b79dea4740f7eecd3e586b1c8d7b093639f158b7b7757757da7b2904d1",
+      "actual": "f9d905b79dea4740f7eecd3e586b1c8d7b093639f158b7b7757757da7b2904d1",
+      "matches": true
+    },
+    {
+      "path": "approaches/eager/eager_solver.py",
+      "expected": "e4f0c0b5228cde9207fe30a94f7b5e0dea13aa49c2cff23d8c291ffa4064f069",
+      "actual": "e4f0c0b5228cde9207fe30a94f7b5e0dea13aa49c2cff23d8c291ffa4064f069",
+      "matches": true
+    },
+    {
+      "path": "approaches/lazy/lazy_solver.py",
+      "expected": "3445dfc281c23b3434b71081c2c01e11959b9589c4174aad91d3e29f35ce7c24",
+      "actual": "3445dfc281c23b3434b71081c2c01e11959b9589c4174aad91d3e29f35ce7c24",
+      "matches": true
+    },
+    {
+      "path": "baseline/partition_solver.py",
+      "expected": "b0572bf8115d9188a6dbf20b6b6c8c70126cdf0cf9c7de4554ce2b36efdc702c",
+      "actual": "b0572bf8115d9188a6dbf20b6b6c8c70126cdf0cf9c7de4554ce2b36efdc702c",
+      "matches": true
+    }
+  ],
+  "initial_smoke_snapshot_checks": [
+    {
+      "path": "approaches\\eager\\common_helpers_candidate.py",
+      "expected": "f9d905b79dea4740f7eecd3e586b1c8d7b093639f158b7b7757757da7b2904d1",
+      "blob_matches": true,
+      "current_matches": true,
+      "classification": "source_code"
+    },
+    {
+      "path": "approaches\\eager\\driver_candidate.py",
+      "expected": "6801941c97ec0cd60200d01be540a357f0f16220c8c747289bd8dcbb44a37f36",
+      "blob_matches": true,
+      "current_matches": true,
+      "classification": "source_code"
+    },
+    {
+      "path": "approaches\\eager\\eager_solver.py",
+      "expected": "e4f0c0b5228cde9207fe30a94f7b5e0dea13aa49c2cff23d8c291ffa4064f069",
+      "blob_matches": true,
+      "current_matches": true,
+      "classification": "source_code"
+    },
+    {
+      "path": "approaches\\eager\\engine_candidate.py",
+      "expected": "5bcd3459bf98efea499dd1edc2f60c2db21fd89f9b84a9950685aba1f00d8468",
+      "blob_matches": true,
+      "current_matches": true,
+      "classification": "source_code"
+    },
+    {
+      "path": "approaches\\eager\\README.md",
+      "expected": "ae8c14136859081501f06b7967c679d13c2c708ca8f18f161c7d5006c74a416a",
+      "blob_matches": true,
+      "current_matches": false,
+      "classification": "documentation"
+    },
+    {
+      "path": "approaches\\eager\\record_attempt.py",
+      "expected": "f954ef918eee7e0a5b7deedc8f78ed101e22fb82366d5c3d30eedb1e42d6b48c",
+      "blob_matches": true,
+      "current_matches": true,
+      "classification": "source_code"
+    },
+    {
+      "path": "approaches\\eager\\smoke_candidate.py",
+      "expected": "5b6d59a4aa1dfc159ceeb2c72f347340ed42445711c823363e481418afa72c20",
+      "blob_matches": true,
+      "current_matches": true,
+      "classification": "source_code"
+    },
+    {
+      "path": "baseline\\partition_solver.py",
+      "expected": "b0572bf8115d9188a6dbf20b6b6c8c70126cdf0cf9c7de4554ce2b36efdc702c",
+      "blob_matches": true,
+      "current_matches": true,
+      "classification": "source_code"
+    },
+    {
+      "path": "baseline\\theory_ambiguous.json",
+      "expected": "bafd2c0820eb7f286b10780342210cafc5f26f21d48014ac1022612117b01c26",
+      "blob_matches": true,
+      "current_matches": true,
+      "classification": "input"
+    },
+    {
+      "path": "baseline\\theory_empty_graph_unique.json",
+      "expected": "d65b6010e31e5a0ad7be3a55f13be01839a8f60c403f8dbed965e9e41b272308",
+      "blob_matches": true,
+      "current_matches": true,
+      "classification": "input"
+    },
+    {
+      "path": "baseline\\theory_graph_recovered.json",
+      "expected": "c7d5ad0dd073de46c6cd4766c2ec9bf35f00b5995bbd455c5871c9e202ee336d",
+      "blob_matches": true,
+      "current_matches": true,
+      "classification": "input"
+    },
+    {
+      "path": "baseline\\theory_structural_graph_gap.json",
+      "expected": "b28a83633ba004d983e3586f1b5a01f72c2ec0e6e6fd2c024b54987d62fb1519",
+      "blob_matches": true,
+      "current_matches": true,
+      "classification": "input"
+    }
+  ],
+  "all_candidate_entries_match": true,
+  "all_runtime_entries_match": true,
+  "all_initial_blobs_intact": true,
+  "new_experiment_executed": false,
+  "runtime_or_shared_code_changed": false,
+  "documentation_caveat": "README.md was expanded after the initial smoke run; its original bytes remain in that run snapshot. Later proofs/reports are not evidence of extra executions."
+}
