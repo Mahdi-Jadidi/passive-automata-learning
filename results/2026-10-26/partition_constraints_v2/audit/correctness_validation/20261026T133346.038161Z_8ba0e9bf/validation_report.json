@@ -1,0 +1,228 @@
+{
+  "validation_id": "20261026T133346.038161Z_8ba0e9bf",
+  "source_correctness_run": "20261026T125503.860658Z_805e5494",
+  "scientific_status": "accepted_on_complete_cases_with_lazy_incomplete_censoring",
+  "execution_status": "success",
+  "python_optimization": 0,
+  "anchors": {
+    "corpus_manifest_sha256": "a4ef5c7124b9852cb30c5eb8e86f6e8bd1fa53bf3d4e9ab5d89d70f9b48efd13",
+    "legacy_extension_manifest_sha256": "d8cabac94e6fe9afbb2a93145c57fb987ddf803140638f1a18ddf48d3ed456d3",
+    "runtime_manifest_sha256": "b7a5b30974500ea610689a7d6ca627437508d6cf63a59fd5e8b6c5a18206859b",
+    "saved_correctness_summary_sha256": "6c8f36c0db61a3edebbf619d763052c007828bde291e085ccd1d055fa3045335",
+    "saved_result_file_sha256": {
+      "baseline": "22bfd704266034b3bf67e627197ad7d7dfd41472cbbfe386624625dde2f92313",
+      "baseline_unpruned": "25b034638e1361e5c0cdab9ace95b7f74a00caa808461f8dfcc753e50e582483",
+      "eager": "33d74d1eb694a9c8cc0fd090870420c0373612b530ebd90fdb330383cdd20082",
+      "lazy": "7d7c6e31d7371b92ed960a7400c8ffc02c07f9cd38ec556d935250ad0f0b14af"
+    },
+    "runtime_file_sha256": {
+      "solver.py": "6801941c97ec0cd60200d01be540a357f0f16220c8c747289bd8dcbb44a37f36",
+      "common/engine.py": "5bcd3459bf98efea499dd1edc2f60c2db21fd89f9b84a9950685aba1f00d8468",
+      "common/helpers.py": "f9d905b79dea4740f7eecd3e586b1c8d7b093639f158b7b7757757da7b2904d1",
+      "approaches/eager/eager_solver.py": "e4f0c0b5228cde9207fe30a94f7b5e0dea13aa49c2cff23d8c291ffa4064f069",
+      "approaches/lazy/lazy_solver.py": "3445dfc281c23b3434b71081c2c01e11959b9589c4174aad91d3e29f35ce7c24",
+      "baseline/partition_solver.py": "b0572bf8115d9188a6dbf20b6b6c8c70126cdf0cf9c7de4554ce2b36efdc702c"
+    }
+  },
+  "coverage": {
+    "dataset_counts": {
+      "prior_binary_2187": 2187,
+      "prior_abc_81": 81,
+      "prior_theory_4": 4,
+      "targeted_controls": 9,
+      "random_ternary_5000": 5000,
+      "finite_generator_140": 140,
+      "performance_100": 100,
+      "legacy_generator_extension_v1": 3072,
+      "supplemental_controls": 1
+    },
+    "total_input_cases": 10594,
+    "saved_rows_per_method": {
+      "baseline": 10594,
+      "baseline_unpruned": 8316,
+      "eager": 10594,
+      "lazy": 10594
+    },
+    "complete_set_comparisons": {
+      "baseline": 10594,
+      "eager": 10594,
+      "lazy": 10577
+    },
+    "incomplete_results": [
+      {
+        "dataset": "finite_generator_140",
+        "case_id": "finite_generator_140_m10_002",
+        "method": "lazy",
+        "elapsed_seconds": 30.00085500004934,
+        "found_partition_count": 213,
+        "partial_set_sha256": "89e3e07508262d1770b801cb5d005a672dd64e6856bb5aa6e138064c5e61f676"
+      },
+      {
+        "dataset": "finite_generator_140",
+        "case_id": "finite_generator_140_m10_004",
+        "method": "lazy",
+        "elapsed_seconds": 30.001491800008807,
+        "found_partition_count": 187,
+        "partial_set_sha256": "ae019c830f1e064613242a40faf90396778c5cca742daef039c3b60b74f887cb"
+      },
+      {
+        "dataset": "finite_generator_140",
+        "case_id": "finite_generator_140_m10_007",
+        "method": "lazy",
+        "elapsed_seconds": 30.000544900016394,
+        "found_partition_count": 158,
+        "partial_set_sha256": "524e503840a4973e37ba9e23309e2c5fb2c4b3f24988edb7fec49ee78e948289"
+      },
+      {
+        "dataset": "finite_generator_140",
+        "case_id": "finite_generator_140_m10_012",
+        "method": "lazy",
+        "elapsed_seconds": 30.000953900045715,
+        "found_partition_count": 184,
+        "partial_set_sha256": "85cbb5254c7930b560cfa95a4a9b8e77bf1b1f492c2c71ceaf7c12d91bb81078"
+      },
+      {
+        "dataset": "finite_generator_140",
+        "case_id": "finite_generator_140_m10_015",
+        "method": "lazy",
+        "elapsed_seconds": 30.00125749997096,
+        "found_partition_count": 187,
+        "partial_set_sha256": "05fdf8354fea9c60dfcb467b243d9cc9c80b2d31ba72cedbfa6a9f6e67626325"
+      },
+      {
+        "dataset": "finite_generator_140",
+        "case_id": "finite_generator_140_m10_016",
+        "method": "lazy",
+        "elapsed_seconds": 30.002482299983967,
+        "found_partition_count": 205,
+        "partial_set_sha256": "a58d9bc4d951ee1b530de83701b9a5e4909212d90a1a35d4f4a8a86a34f1da38"
+      },
+      {
+        "dataset": "finite_generator_140",
+        "case_id": "finite_generator_140_m10_017",
+        "method": "lazy",
+        "elapsed_seconds": 30.000647399981972,
+        "found_partition_count": 191,
+        "partial_set_sha256": "aafd5bb89033bd1da90ccc590cc404f80c20084e658ea76ac755a4f6778f5b3e"
+      },
+      {
+        "dataset": "finite_generator_140",
+        "case_id": "finite_generator_140_m10_018",
+        "method": "lazy",
+        "elapsed_seconds": 30.000682900019456,
+        "found_partition_count": 209,
+        "partial_set_sha256": "861824737236fe7c652a96cc758df2b20d5777a22ec965a0150711d87ae8c648"
+      },
+      {
+        "dataset": "finite_generator_140",
+        "case_id": "finite_generator_140_m10_019",
+        "method": "lazy",
+        "elapsed_seconds": 30.001295700029004,
+        "found_partition_count": 194,
+        "partial_set_sha256": "5e2f5df1ddf499824832fc788c2391e52aff1145e3aec5433d5c9c052a5ea1b7"
+      },
+      {
+        "dataset": "performance_100",
+        "case_id": "performance_100_m10_000",
+        "method": "lazy",
+        "elapsed_seconds": 30.000845700036734,
+        "found_partition_count": 194,
+        "partial_set_sha256": "02940032d986d884e22e97a2890d9cb367eccda05f4a33ba3c9e9302f477cbea"
+      },
+      {
+        "dataset": "performance_100",
+        "case_id": "performance_100_m10_004",
+        "method": "lazy",
+        "elapsed_seconds": 30.001332400017418,
+        "found_partition_count": 160,
+        "partial_set_sha256": "b9df58fd7afd95d4e4e66c221a15f16db35c1b967ead4ff977cf36af81c19284"
+      },
+      {
+        "dataset": "performance_100",
+        "case_id": "performance_100_m10_005",
+        "method": "lazy",
+        "elapsed_seconds": 30.00110220001079,
+        "found_partition_count": 146,
+        "partial_set_sha256": "debf07da03e78809155020265417d1e8c8eb9fdba95455d8a79b0b23ab44d5f6"
+      },
+      {
+        "dataset": "performance_100",
+        "case_id": "performance_100_m10_014",
+        "method": "lazy",
+        "elapsed_seconds": 30.00117709999904,
+        "found_partition_count": 155,
+        "partial_set_sha256": "5e9b58ea87b6b017339dda67a92006db28a71495390987a5acce886315936931"
+      },
+      {
+        "dataset": "performance_100",
+        "case_id": "performance_100_m10_015",
+        "method": "lazy",
+        "elapsed_seconds": 30.000821400026325,
+        "found_partition_count": 192,
+        "partial_set_sha256": "18670231bc4d8b32527b75956569b80b55bf1b30fa4f10d2b19dc89c754194cc"
+      },
+      {
+        "dataset": "performance_100",
+        "case_id": "performance_100_m10_017",
+        "method": "lazy",
+        "elapsed_seconds": 30.000661100028083,
+        "found_partition_count": 162,
+        "partial_set_sha256": "d806114a4098dd2a1da5c5908038fcfdd7f9f904baaad879f659fe28323717f5"
+      },
+      {
+        "dataset": "performance_100",
+        "case_id": "performance_100_m10_021",
+        "method": "lazy",
+        "elapsed_seconds": 30.001077199995052,
+        "found_partition_count": 192,
+        "partial_set_sha256": "e034b52eb70f200fd1c4eaa2672b3d99ab58a6538e6b1ecf4ea63f852aa0966a"
+      },
+      {
+        "dataset": "performance_100",
+        "case_id": "performance_100_m10_022",
+        "method": "lazy",
+        "elapsed_seconds": 30.00073930004146,
+        "found_partition_count": 220,
+        "partial_set_sha256": "89de131bc8d20ead5e9ebc43fcdd57863ab7bc08f1cbfb0dbf53d4cac9686596"
+      }
+    ],
+    "status_counts": {
+      "baseline": {
+        "complete": 10594
+      },
+      "eager": {
+        "complete": 10594
+      },
+      "lazy": {
+        "complete": 10577,
+        "incomplete": 17
+      }
+    },
+    "witness_records_validated": {
+      "baseline": 21673,
+      "eager": 21673,
+      "lazy": 21045,
+      "baseline_unpruned": 20174
+    },
+    "mismatch_count": 0,
+    "provider_error_count": 0,
+    "legacy_unique_inputs": 570,
+    "legacy_duplicate_records": 2502
+  },
+  "metamorphic_controls": {
+    "case_count": 3,
+    "method_count": 3,
+    "method_invocations": 9,
+    "full_set_checks": 9,
+    "witness_records_validated": 45,
+    "results_path": "metamorphic_results.json",
+    "results_sha256": "fb463ef5503f1487a0dbffd2c03f739cfb925462579134f99b15c412bac7eb2c",
+    "equivalent_label_sets": true
+  },
+  "method": "independent exhaustive two-block oracle plus independent output/witness validation",
+  "limitations": [
+    "17 saved lazy outputs are incomplete after the 30-second cooperative deadline; their partial sets are nonempty feasible subsets, not full-set equality evidence.",
+    "The frozen runtime and corpus are validated by their recorded hashes; no provider batch was rerun.",
+    "The three metamorphic controls use one fixed valid labeled sample under alphabet/order permutations and duplicate records."
+  ]
+}

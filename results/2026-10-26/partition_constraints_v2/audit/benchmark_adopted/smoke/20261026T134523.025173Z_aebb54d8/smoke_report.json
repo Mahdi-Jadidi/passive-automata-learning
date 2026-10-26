@@ -1,0 +1,514 @@
+{
+  "smoke_id": "20261026T134523.025173Z_aebb54d8",
+  "scientific_status": "harness_integration_smoke_passed",
+  "execution_status": "success",
+  "capture_backend": "B-CAPTURE-R1",
+  "original_candidate_hashes": {
+    "capture_candidate_sha256": "68ee700f391fb6a1cf135e4b55a11a247b45f25164553c917d1664f6fc4a31cf",
+    "benchmark_runner_sha256": "16876ce34ab9fe6f077e0925324770374a17964eadbb3b8bd97dfeca15b30d68",
+    "benchmark_worker_sha256": "f1bb4866244587ff02c31dccd7e23e7ba7451cdba3cdd901cab0379b5ae5b801"
+  },
+  "checks": {
+    "success_complete": {
+      "status": "complete",
+      "capture": {
+        "attempt_dir": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-10-26\\partition_constraints_v2\\audit\\attempts\\20261026T134523.161364Z_8277ef8cd8",
+        "schema_version": 1,
+        "attempt_id": "20261026T134523.161364Z_8277ef8cd8",
+        "label": "benchmark-integration-smoke-success",
+        "execution_status": "success",
+        "scientific_status": "not_assessed",
+        "exit_code": 0,
+        "duration_seconds": 0.4875395999988541,
+        "subprocess_seconds": 0.18507509998744354,
+        "child_pid": 6140,
+        "child_reaped": true,
+        "cleanup_scope": "direct_child_only",
+        "stdout_bytes": 7724,
+        "stderr_bytes": 0,
+        "stdout_sha256": "1ee26394660165c10ca90974b65e25179e85cf6384b7ee5b7d93895d985f65b1",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "finished_utc": "2026-10-26T13:45:23.650167+00:00"
+      },
+      "solver_result": {
+        "alphabet": [
+          "a",
+          "b",
+          "c",
+          "d"
+        ],
+        "k": 2,
+        "method": "baseline",
+        "complete": true,
+        "status": "unique",
+        "interpretation": "Unique sample-feasible partition; equals the true declared partition if a noise-free two-block target of this model exists.",
+        "sample_size": {
+          "positive": 18,
+          "negative": 32
+        },
+        "graph": {
+          "edges": [],
+          "components": [
+            [
+              "a"
+            ],
+            [
+              "b"
+            ],
+            [
+              "c"
+            ],
+            [
+              "d"
+            ]
+          ],
+          "component_count": 4,
+          "known_k_certificate": false,
+          "certificate_condition": "Requires a true noise-free two-block disjoint-alphabet target."
+        },
+        "search": {
+          "graph_pruning": true,
+          "candidates_checked": 7,
+          "all_symbol_bipartitions": 7
+        },
+        "feasible_partition_count": 1,
+        "found_partition_count": 1,
+        "feasible_partitions": [
+          {
+            "blocks": [
+              [
+                "a",
+                "c"
+              ],
+              [
+                "b",
+                "d"
+              ]
+            ],
+            "positive_projection_languages": [
+              [
+                "ac",
+                "ca",
+                "cc"
+              ],
+              [
+                "b",
+                "d"
+              ]
+            ],
+            "negative_witnesses": [
+              {
+                "negative": "aabb",
+                "block_index": 0,
+                "projection": "aa",
+                "all_unseen_block_indices": [
+                  0,
+                  1
+                ]
+              },
+              {
+                "negative": "aabd",
+                "block_index": 0,
+                "projection": "aa",
+                "all_unseen_block_indices": [
+                  0,
+                  1
+                ]
+              },
+              {
+                "negative": "aacd",
+                "block_index": 0,
+                "projection": "aac",
+                "all_unseen_block_indices": [
+                  0
+                ]
+              },
+              {
+                "negative": "abcb",
+                "block_index": 1,
+                "projection": "bb",
+                "all_unseen_block_indices": [
+                  1
+                ]
+              },
+              {
+                "negative": "abcc",
+                "block_index": 0,
+                "projection": "acc",
+                "all_unseen_block_indices": [
+                  0
+                ]
+              },
+              {
+                "negative": "abdb",
+                "block_index": 0,
+                "projection": "a",
+                "all_unseen_block_indices": [
+                  0,
+                  1
+                ]
+              },
+              {
+                "negative": "accb",
+                "block_index": 0,
+                "projection": "acc",
+                "all_unseen_block_indices": [
+                  0
+                ]
+              },
+              {
+                "negative": "acda",
+                "block_index": 0,
+                "projection": "aca",
+                "all_unseen_block_indices": [
+                  0
+                ]
+              },
+              {
+                "negative": "adaa",
+                "block_index": 0,
+                "projection": "aaa",
+                "all_unseen_block_indices": [
+                  0
+                ]
+              },
+              {
+                "negative": "adab",
+                "block_index": 0,
+                "projection": "aa",
+                "all_unseen_block_indices": [
+                  0,
+                  1
+                ]
+              },
+              {
+                "negative": "adbd",
+                "block_index": 0,
+                "projection": "a",
+                "all_unseen_block_indices": [
+                  0,
+                  1
+                ]
+              },
+              {
+                "negative": "baaa",
+                "block_index": 0,
+                "projection": "aaa",
+                "all_unseen_block_indices": [
+                  0
+                ]
+              },
+              {
+                "negative": "baba",
+                "block_index": 0,
+                "projection": "aa",
+                "all_unseen_block_indices": [
+                  0,
+                  1
+                ]
+              },
+              {
+                "negative": "bada",
+                "block_index": 0,
+                "projection": "aa",
+                "all_unseen_block_indices": [
+                  0,
+                  1
+                ]
+              },
+              {
+                "negative": "bcac",
+                "block_index": 0,
+                "projection": "cac",
+                "all_unseen_block_indices": [
+                  0
+                ]
+              },
+              {
+                "negative": "bcba",
+                "block_index": 1,
+                "projection": "bb",
+                "all_unseen_block_indices": [
+                  1
+                ]
+              },
+              {
+                "negative": "cadd",
+                "block_index": 1,
+                "projection": "dd",
+                "all_unseen_block_indices": [
+                  1
+                ]
+              },
+              {
+                "negative": "cbb",
+                "block_index": 0,
+                "projection": "c",
+                "all_unseen_block_indices": [
+                  0,
+                  1
+                ]
+              },
+              {
+                "negative": "cbdc",
+                "block_index": 1,
+                "projection": "bd",
+                "all_unseen_block_indices": [
+                  1
+                ]
+              },
+              {
+                "negative": "cbdd",
+                "block_index": 0,
+                "projection": "c",
+                "all_unseen_block_indices": [
+                  0,
+                  1
+                ]
+              },
+              {
+                "negative": "ccbc",
+                "block_index": 0,
+                "projection": "ccc",
+                "all_unseen_block_indices": [
+                  0
+                ]
+              },
+              {
+                "negative": "cdab",
+                "block_index": 1,
+                "projection": "db",
+                "all_unseen_block_indices": [
+                  1
+                ]
+              },
+              {
+                "negative": "cdac",
+                "block_index": 0,
+                "projection": "cac",
+                "all_unseen_block_indices": [
+                  0
+                ]
+              },
+              {
+                "negative": "cdcd",
+                "block_index": 1,
+                "projection": "dd",
+                "all_unseen_block_indices": [
+                  1
+                ]
+              },
+              {
+                "negative": "cdd",
+                "block_index": 0,
+                "projection": "c",
+                "all_unseen_block_indices": [
+                  0,
+                  1
+                ]
+              },
+              {
+                "negative": "cdda",
+                "block_index": 1,
+                "projection": "dd",
+                "all_unseen_block_indices": [
+                  1
+                ]
+              },
+              {
+                "negative": "daa",
+                "block_index": 0,
+                "projection": "aa",
+                "all_unseen_block_indices": [
+                  0
+                ]
+              },
+              {
+                "negative": "daaa",
+                "block_index": 0,
+                "projection": "aaa",
+                "all_unseen_block_indices": [
+                  0
+                ]
+              },
+              {
+                "negative": "dcad",
+                "block_index": 1,
+                "projection": "dd",
+                "all_unseen_block_indices": [
+                  1
+                ]
+              },
+              {
+                "negative": "dccc",
+                "block_index": 0,
+                "projection": "ccc",
+                "all_unseen_block_indices": [
+                  0
+                ]
+              },
+              {
+                "negative": "dcdd",
+                "block_index": 0,
+                "projection": "c",
+                "all_unseen_block_indices": [
+                  0,
+                  1
+                ]
+              },
+              {
+                "negative": "ddcc",
+                "block_index": 1,
+                "projection": "dd",
+                "all_unseen_block_indices": [
+                  1
+                ]
+              }
+            ]
+          }
+        ],
+        "metrics": {
+          "provider_seconds": 0.004678099998272955,
+          "baseline_engine": "immutable_v1",
+          "deadline_granularity": "before_and_after_v1_call",
+          "complete_assignments": 7,
+          "cli_seconds_before_serialization": 0.02773720002733171
+        },
+        "limitations": "Unbounded regular local factors; no local DFA recovery, distribution-free recovery, novelty, or efficiency guarantee."
+      },
+      "worker": {
+        "schema_version": 1,
+        "mode": "timing",
+        "method": "baseline",
+        "exit_code": 0,
+        "pipeline_seconds": 0.11103570001432672,
+        "pipeline_scope": "runpy import through unchanged driver and output flush",
+        "python_traced_current_bytes": null,
+        "python_traced_peak_bytes": null,
+        "worker_error": null,
+        "memory_scope": "Python tracemalloc allocations since start; excludes bootstrap, RSS and untraced native allocations"
+      }
+    },
+    "timeout_partial_output_and_reaping": {
+      "status": "timed_out",
+      "capture": {
+        "attempt_dir": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-10-26\\partition_constraints_v2\\audit\\attempts\\20261026T134523.667924Z_3de869919f",
+        "schema_version": 1,
+        "attempt_id": "20261026T134523.667924Z_3de869919f",
+        "label": "benchmark-integration-smoke-timeout",
+        "execution_status": "timed_out",
+        "scientific_status": "not_assessed",
+        "exit_code": 1,
+        "duration_seconds": 0.21314609999535605,
+        "subprocess_seconds": 0.12716819997876883,
+        "child_pid": 23496,
+        "child_reaped": true,
+        "cleanup_scope": "direct_child_only",
+        "stdout_bytes": 7,
+        "stderr_bytes": 12,
+        "stdout_sha256": "83e24203f3532a5d379e2dfcab2a0bffa0b0d059eddc22ab04155ed229343ef3",
+        "stderr_sha256": "e99c2db6865fb97b3f1f8fb6e78a33109251200cc4fad899488b6a6bdf5c8883",
+        "finished_utc": "2026-10-26T13:45:23.884246+00:00"
+      },
+      "stdout_sha256": "83e24203f3532a5d379e2dfcab2a0bffa0b0d059eddc22ab04155ed229343ef3",
+      "stderr_sha256": "e99c2db6865fb97b3f1f8fb6e78a33109251200cc4fad899488b6a6bdf5c8883",
+      "stdout": "ready\r\n",
+      "stderr": "diagnostic\r\n"
+    },
+    "incomplete_exit3": {
+      "status": "incomplete",
+      "capture": {
+        "attempt_dir": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-10-26\\partition_constraints_v2\\audit\\attempts\\20261026T134523.892342Z_90a70099a5",
+        "schema_version": 1,
+        "attempt_id": "20261026T134523.892342Z_90a70099a5",
+        "label": "benchmark-integration-smoke-incomplete",
+        "execution_status": "program_error",
+        "scientific_status": "not_assessed",
+        "exit_code": 3,
+        "duration_seconds": 0.37323040002956986,
+        "subprocess_seconds": 0.27445269998861477,
+        "child_pid": 22792,
+        "child_reaped": true,
+        "cleanup_scope": "direct_child_only",
+        "stdout_bytes": 1197,
+        "stderr_bytes": 0,
+        "stdout_sha256": "3bfa8b504babfbce99175f7520502e50c4984f7327abd616d3b00660ae39520d",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "finished_utc": "2026-10-26T13:45:24.268302+00:00"
+      },
+      "solver_result": {
+        "alphabet": [
+          "a",
+          "b",
+          "c"
+        ],
+        "k": 2,
+        "method": "baseline",
+        "complete": false,
+        "status": "incomplete",
+        "interpretation": "Interrupted enumeration: stored partitions are only a lower-bound set.",
+        "sample_size": {
+          "positive": 2,
+          "negative": 1
+        },
+        "graph": {
+          "edges": [],
+          "components": [
+            [
+              "a"
+            ],
+            [
+              "b"
+            ],
+            [
+              "c"
+            ]
+          ],
+          "component_count": 3,
+          "known_k_certificate": false,
+          "certificate_condition": "Requires a true noise-free two-block disjoint-alphabet target."
+        },
+        "search": {
+          "graph_pruning": true,
+          "candidates_checked": 0,
+          "all_symbol_bipartitions": 3
+        },
+        "feasible_partition_count": null,
+        "found_partition_count": 0,
+        "feasible_partitions": [],
+        "metrics": {
+          "provider_seconds": 0.006231400009710342,
+          "baseline_engine": "immutable_v1",
+          "deadline_granularity": "before_and_after_v1_call",
+          "cli_seconds_before_serialization": 0.0416253000148572
+        },
+        "limitations": "Unbounded regular local factors; no local DFA recovery, distribution-free recovery, novelty, or efficiency guarantee."
+      },
+      "worker": {
+        "schema_version": 1,
+        "mode": "timing",
+        "method": "baseline",
+        "exit_code": 3,
+        "pipeline_seconds": 0.1686858999892138,
+        "pipeline_scope": "runpy import through unchanged driver and output flush",
+        "python_traced_current_bytes": null,
+        "python_traced_peak_bytes": null,
+        "worker_error": null,
+        "memory_scope": "Python tracemalloc allocations since start; excludes bootstrap, RSS and untraced native allocations"
+      }
+    },
+    "interrupted_authoritative": {
+      "status": "interrupted"
+    },
+    "cleanup_failure_aborts": {
+      "abort_reason": "capture_cleanup_failure_child_may_still_be_running"
+    },
+    "invalid_clock_aborts": {
+      "abort_reason": "capture_subprocess_clock_invalid_method_budget_unchargeable"
+    }
+  },
+  "limitations": [
+    "Timeout and cleanup behavior controls the direct child only.",
+    "This smoke does not run the 1200-job performance suite or certify its outputs."
+  ]
+}

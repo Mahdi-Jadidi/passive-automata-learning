@@ -1,0 +1,84 @@
+{
+  "pending": [
+    "independent saved-output validation",
+    "master numeric publication approval",
+    "final H3/H5/H6 status"
+  ],
+  "tests_run_by_this_task": 0,
+  "execution_status": "documentation_only_no_new_experiment",
+  "evidence": [
+    {
+      "snapshot": "benchmark_summary.json",
+      "source": "audit/benchmark_adopted/runs/serial_20261026T140000Z/summary.json",
+      "sha256": "2428a0419bc70a68689cde8efb19cbc2bf44a3ec2e0db74805bce52a317acab1"
+    },
+    {
+      "snapshot": "benchmark_plan.json",
+      "source": "audit/benchmark_adopted/runs/serial_20261026T140000Z/plan.json",
+      "sha256": "fe6c598362695beef1961b55ae9ea9546ef944b44263f054995bf2d1b1565544"
+    },
+    {
+      "snapshot": "benchmark_jobs.jsonl",
+      "source": "audit/benchmark_adopted/runs/serial_20261026T140000Z/jobs.jsonl",
+      "sha256": "4987e93a293b94ec117a2385e30cece4a5d13c9048f701b8d585f55419d81268"
+    },
+    {
+      "snapshot": "runtime_before.json",
+      "source": "audit/benchmark_adopted/runs/serial_20261026T140000Z/runtime_before.json",
+      "sha256": "306ee1f05f730450b49615a22e2a2419243576610c36ddacfd026889b23bcf26"
+    },
+    {
+      "snapshot": "runtime_after.json",
+      "source": "audit/benchmark_adopted/runs/serial_20261026T140000Z/runtime_after.json",
+      "sha256": "306ee1f05f730450b49615a22e2a2419243576610c36ddacfd026889b23bcf26"
+    },
+    {
+      "snapshot": "support_sources_before.json",
+      "source": "audit/benchmark_adopted/runs/serial_20261026T140000Z/support_sources_before.json",
+      "sha256": "0005f47e4547ecc39a8ebdd5793349649d780b2508d4d14173f6f5e3298ef776"
+    },
+    {
+      "snapshot": "support_sources_after.json",
+      "source": "audit/benchmark_adopted/runs/serial_20261026T140000Z/support_sources_after.json",
+      "sha256": "0005f47e4547ecc39a8ebdd5793349649d780b2508d4d14173f6f5e3298ef776"
+    },
+    {
+      "snapshot": "ADOPTED_README.md",
+      "source": "audit/benchmark_adopted/README.md",
+      "sha256": "5665c204200c4faa20697f21dab915dc65f96baf73c3937ef0a0674f101fe779"
+    },
+    {
+      "snapshot": "adopted_runner.py",
+      "source": "audit/benchmark_adopted/runner.py",
+      "sha256": "f9cfc110293a365797e8ca6f02e82caafd9d233ba2773e9086edc3fd89948586"
+    },
+    {
+      "snapshot": "adopted_worker.py",
+      "source": "audit/benchmark_adopted/worker.py",
+      "sha256": "f1bb4866244587ff02c31dccd7e23e7ba7451cdba3cdd901cab0379b5ae5b801"
+    },
+    {
+      "snapshot": "PARENT_REV2_FA.md",
+      "source": "approaches/eager/FINAL_REPORT_CANDIDATE_FA_REV2.md",
+      "sha256": "46dbf686321eded52691424d86ded428008c31c69b6748375b1d123fb89648eb"
+    }
+  ],
+  "created_utc": "2026-10-26T14:24:56.2555091Z",
+  "report_sha256": "e1c38e52ca9000c660dc70b6c7172ff88218d47d3dd8037c5c0e58766e428341",
+  "parent_preserved_sha256": "46dbf686321eded52691424d86ded428008c31c69b6748375b1d123fb89648eb",
+  "shared_or_git_changes": false,
+  "parent_draft": "../FINAL_REPORT_CANDIDATE_FA_REV2.md",
+  "scientific_status": "conditional_on_independent_saved_output_validation",
+  "benchmarks_run_by_this_task": 0,
+  "report": "../FINAL_REPORT_CANDIDATE_FA_REV3.md",
+  "id": "A-REPORT-DRAFT-REV3",
+  "preliminary_findings": [
+    "eager reduces median complete assignments 47 to19 but median paired pipeline ratio baseline/eager0.55543024",
+    "100 paired eager timing cases and100 paired eager memory cases",
+    "lazy199 complete individual timing jobs but only3 cases have all3 complete repetitions",
+    "lazy5 external timeouts:4 with30s wait cap,1 shortened to1.1330473s remaining method budget",
+    "lazy96 timing and100 memory budget-skipped; no lazy memory comparison",
+    "proposals incremental traversal and graph-variable quotient are untested"
+  ],
+  "prior_correctness_evidence": "../report_evidence_REV2/MANIFEST.json"
+}

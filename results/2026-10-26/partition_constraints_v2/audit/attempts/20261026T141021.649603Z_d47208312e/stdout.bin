@@ -1,0 +1,377 @@
+{
+  "alphabet": [
+    "a",
+    "b",
+    "c",
+    "d"
+  ],
+  "k": 2,
+  "method": "eager",
+  "complete": true,
+  "status": "unique",
+  "interpretation": "Unique sample-feasible partition; equals the true declared partition if a noise-free two-block target of this model exists.",
+  "sample_size": {
+    "positive": 28,
+    "negative": 32
+  },
+  "graph": {
+    "edges": [
+      {
+        "symbols": [
+          "a",
+          "b"
+        ],
+        "witness": {
+          "rule": "swap",
+          "positive": [
+            "dabc"
+          ],
+          "negative": "dbac",
+          "position": 1
+        }
+      },
+      {
+        "symbols": [
+          "c",
+          "d"
+        ],
+        "witness": {
+          "rule": "swap",
+          "positive": [
+            "dcab"
+          ],
+          "negative": "cdab",
+          "position": 0
+        }
+      }
+    ],
+    "components": [
+      [
+        "a",
+        "b"
+      ],
+      [
+        "c",
+        "d"
+      ]
+    ],
+    "component_count": 2,
+    "known_k_certificate": true,
+    "certificate_condition": "Requires a true noise-free two-block disjoint-alphabet target."
+  },
+  "search": {
+    "graph_pruning": true,
+    "candidates_checked": 3,
+    "all_symbol_bipartitions": 7
+  },
+  "feasible_partition_count": 1,
+  "found_partition_count": 1,
+  "feasible_partitions": [
+    {
+      "blocks": [
+        [
+          "a",
+          "b"
+        ],
+        [
+          "c",
+          "d"
+        ]
+      ],
+      "positive_projection_languages": [
+        [
+          "ab",
+          "b"
+        ],
+        [
+          "c",
+          "cc",
+          "d",
+          "dc"
+        ]
+      ],
+      "negative_witnesses": [
+        {
+          "negative": "aac",
+          "block_index": 0,
+          "projection": "aa",
+          "all_unseen_block_indices": [
+            0
+          ]
+        },
+        {
+          "negative": "aada",
+          "block_index": 0,
+          "projection": "aaa",
+          "all_unseen_block_indices": [
+            0
+          ]
+        },
+        {
+          "negative": "aadc",
+          "block_index": 0,
+          "projection": "aa",
+          "all_unseen_block_indices": [
+            0
+          ]
+        },
+        {
+          "negative": "abad",
+          "block_index": 0,
+          "projection": "aba",
+          "all_unseen_block_indices": [
+            0
+          ]
+        },
+        {
+          "negative": "abcb",
+          "block_index": 0,
+          "projection": "abb",
+          "all_unseen_block_indices": [
+            0
+          ]
+        },
+        {
+          "negative": "abdb",
+          "block_index": 0,
+          "projection": "abb",
+          "all_unseen_block_indices": [
+            0
+          ]
+        },
+        {
+          "negative": "accc",
+          "block_index": 0,
+          "projection": "a",
+          "all_unseen_block_indices": [
+            0,
+            1
+          ]
+        },
+        {
+          "negative": "acdd",
+          "block_index": 0,
+          "projection": "a",
+          "all_unseen_block_indices": [
+            0,
+            1
+          ]
+        },
+        {
+          "negative": "adaa",
+          "block_index": 0,
+          "projection": "aaa",
+          "all_unseen_block_indices": [
+            0
+          ]
+        },
+        {
+          "negative": "adab",
+          "block_index": 0,
+          "projection": "aab",
+          "all_unseen_block_indices": [
+            0
+          ]
+        },
+        {
+          "negative": "badb",
+          "block_index": 0,
+          "projection": "bab",
+          "all_unseen_block_indices": [
+            0
+          ]
+        },
+        {
+          "negative": "bbad",
+          "block_index": 0,
+          "projection": "bba",
+          "all_unseen_block_indices": [
+            0
+          ]
+        },
+        {
+          "negative": "bbcb",
+          "block_index": 0,
+          "projection": "bbb",
+          "all_unseen_block_indices": [
+            0
+          ]
+        },
+        {
+          "negative": "bcab",
+          "block_index": 0,
+          "projection": "bab",
+          "all_unseen_block_indices": [
+            0
+          ]
+        },
+        {
+          "negative": "bcda",
+          "block_index": 0,
+          "projection": "ba",
+          "all_unseen_block_indices": [
+            0,
+            1
+          ]
+        },
+        {
+          "negative": "bdb",
+          "block_index": 0,
+          "projection": "bb",
+          "all_unseen_block_indices": [
+            0
+          ]
+        },
+        {
+          "negative": "bdbc",
+          "block_index": 0,
+          "projection": "bb",
+          "all_unseen_block_indices": [
+            0
+          ]
+        },
+        {
+          "negative": "bdcc",
+          "block_index": 1,
+          "projection": "dcc",
+          "all_unseen_block_indices": [
+            1
+          ]
+        },
+        {
+          "negative": "bddb",
+          "block_index": 0,
+          "projection": "bb",
+          "all_unseen_block_indices": [
+            0,
+            1
+          ]
+        },
+        {
+          "negative": "bddc",
+          "block_index": 1,
+          "projection": "ddc",
+          "all_unseen_block_indices": [
+            1
+          ]
+        },
+        {
+          "negative": "cbaa",
+          "block_index": 0,
+          "projection": "baa",
+          "all_unseen_block_indices": [
+            0
+          ]
+        },
+        {
+          "negative": "cbbd",
+          "block_index": 0,
+          "projection": "bb",
+          "all_unseen_block_indices": [
+            0,
+            1
+          ]
+        },
+        {
+          "negative": "cbda",
+          "block_index": 0,
+          "projection": "ba",
+          "all_unseen_block_indices": [
+            0,
+            1
+          ]
+        },
+        {
+          "negative": "cda",
+          "block_index": 0,
+          "projection": "a",
+          "all_unseen_block_indices": [
+            0,
+            1
+          ]
+        },
+        {
+          "negative": "cdab",
+          "block_index": 1,
+          "projection": "cd",
+          "all_unseen_block_indices": [
+            1
+          ]
+        },
+        {
+          "negative": "dada",
+          "block_index": 0,
+          "projection": "aa",
+          "all_unseen_block_indices": [
+            0,
+            1
+          ]
+        },
+        {
+          "negative": "dbac",
+          "block_index": 0,
+          "projection": "ba",
+          "all_unseen_block_indices": [
+            0
+          ]
+        },
+        {
+          "negative": "dbdb",
+          "block_index": 0,
+          "projection": "bb",
+          "all_unseen_block_indices": [
+            0,
+            1
+          ]
+        },
+        {
+          "negative": "dcbc",
+          "block_index": 1,
+          "projection": "dcc",
+          "all_unseen_block_indices": [
+            1
+          ]
+        },
+        {
+          "negative": "dcbd",
+          "block_index": 1,
+          "projection": "dcd",
+          "all_unseen_block_indices": [
+            1
+          ]
+        },
+        {
+          "negative": "ddbd",
+          "block_index": 1,
+          "projection": "ddd",
+          "all_unseen_block_indices": [
+            1
+          ]
+        },
+        {
+          "negative": "ddcb",
+          "block_index": 1,
+          "projection": "ddc",
+          "all_unseen_block_indices": [
+            1
+          ]
+        }
+      ]
+    }
+  ],
+  "metrics": {
+    "negative_constraints": 32,
+    "distinguisher_calls": 896,
+    "distinguisher_terms": 2534,
+    "direct_record_checks": 1,
+    "preprocessing_seconds": 0.029806199949234724,
+    "constraints_stored": 34,
+    "provider_seconds": 0.04260219994466752,
+    "nodes_visited": 9,
+    "complete_assignments": 3,
+    "pruned_nodes": 4,
+    "constraint_evaluations": 175,
+    "cli_seconds_before_serialization": 0.0804156000376679
+  },
+  "limitations": "Unbounded regular local factors; no local DFA recovery, distribution-free recovery, novelty, or efficiency guarantee."
+}

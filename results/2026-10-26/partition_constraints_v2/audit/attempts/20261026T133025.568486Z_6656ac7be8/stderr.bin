@@ -1,0 +1,17 @@
+Traceback (most recent call last):
+  File "C:\Users\Mahdi\Documents\ChatGPT\passive automata learning\results\2026-10-26\partition_constraints_v2\audit\validate_saved_correctness.py", line 454, in <module>
+    raise SystemExit(main())
+                     ^^^^^^
+  File "C:\Users\Mahdi\Documents\ChatGPT\passive automata learning\results\2026-10-26\partition_constraints_v2\audit\validate_saved_correctness.py", line 413, in main
+    metamorphic = run_metamorphic_controls(output_dir)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mahdi\Documents\ChatGPT\passive automata learning\results\2026-10-26\partition_constraints_v2\audit\validate_saved_correctness.py", line 204, in run_metamorphic_controls
+    eager = load_module(CYCLE / "approaches" / "eager" / "eager_solver.py", "saved_audit_eager")
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mahdi\Documents\ChatGPT\passive automata learning\results\2026-10-26\partition_constraints_v2\audit\validate_saved_correctness.py", line 198, in load_module
+    spec.loader.exec_module(module)
+  File "<frozen importlib._bootstrap_external>", line 999, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "C:\Users\Mahdi\Documents\ChatGPT\passive automata learning\results\2026-10-26\partition_constraints_v2\approaches\eager\eager_solver.py", line 6, in <module>
+    from common.engine import SearchInterrupted, check_deadline, iter_models
+ModuleNotFoundError: No module named 'common'

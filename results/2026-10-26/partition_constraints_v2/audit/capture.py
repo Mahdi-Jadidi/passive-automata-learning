@@ -9,7 +9,10 @@ The source paths are resolved from the caller's current directory. The capture
 script is always snapshotted. Attempt folders are unique and never overwritten;
 source snapshots are stored in content-addressed blobs. stdout/stderr are saved
 as raw bytes so output is lossless. Environment values are recorded only from a
-small allowlist; all other environment variable names are listed without values.
+small allowlist; other environment values are omitted. The direct child only is
+terminated/reaped on timeout or cooperative interruption. Abrupt capture-process
+kills may leave a started attempt without final metadata. Child-buffered bytes
+not yet flushed by the child cannot be recovered.
 """
 from __future__ import annotations
 
@@ -126,11 +129,17 @@ def capture(label: str, command: list[str], *, cwd: Path | str | None = None,
     }
     _write_json(run_dir / "manifest.json", manifest)
 
-    stdout = b""
-    stderr = b""
     exit_code: int | None = None
     execution_status = "capture_error"
     capture_error = None
+    cleanup_error = None
+    process = None
+    process_started = None
+    subprocess_seconds = 0.0
+    stdout_path, stderr_path = run_dir / "stdout.bin", run_dir / "stderr.bin"
+    # Create durable destinations before launching; no parent PIPE buffers.
+    stdout_path.touch(exist_ok=False)
+    stderr_path.touch(exist_ok=False)
     try:
         manifest["sources"] = _source_manifest(
             [Path(path) for path in (source_paths or [])])
@@ -138,29 +147,47 @@ def capture(label: str, command: list[str], *, cwd: Path | str | None = None,
         child_env = os.environ.copy()
         child_env.setdefault("PYTHONDONTWRITEBYTECODE", "1")
         child_env.setdefault("PYTHONUTF8", "1")
-        try:
-            completed = subprocess.run(
-                args, cwd=workdir, env=child_env, stdout=subprocess.PIPE,
-                stderr=subprocess.PIPE, timeout=timeout_seconds, check=False,
-                shell=False)
-            stdout, stderr, exit_code = completed.stdout, completed.stderr, completed.returncode
-            execution_status = "success" if exit_code == 0 else "program_error"
-        except subprocess.TimeoutExpired as error:
-            stdout = error.stdout or b""
-            stderr = error.stderr or b""
-            execution_status = "timed_out"
-        except OSError as error:
-            stderr = repr(error).encode("utf-8", errors="replace")
-            execution_status = "environment_error"
-            capture_error = repr(error)
+        with stdout_path.open("ab", buffering=0) as out, stderr_path.open("ab", buffering=0) as err:
+            process_started = time.perf_counter()
+            try:
+                try:
+                    process = subprocess.Popen(args, cwd=workdir, env=child_env,
+                                               stdout=out, stderr=err, shell=False)
+                except OSError as error:
+                    execution_status = "environment_error"
+                    capture_error = repr(error)
+                    err.write(repr(error).encode("utf-8", errors="replace"))
+                else:
+                    try:
+                        exit_code = process.wait(timeout=timeout_seconds)
+                        execution_status = "success" if exit_code == 0 else "program_error"
+                    except subprocess.TimeoutExpired:
+                        execution_status = "timed_out"
+                    except KeyboardInterrupt:
+                        execution_status = "interrupted"
+            finally:
+                if process is not None:
+                    try:
+                        _terminate_and_reap(process)
+                        exit_code = process.returncode
+                    except Exception as error:
+                        cleanup_error = repr(error)
+                subprocess_seconds = time.perf_counter() - process_started
+                os.fsync(out.fileno())
+                os.fsync(err.fileno())
+    except KeyboardInterrupt:
+        execution_status = "interrupted"
     except Exception as error:
-        stderr = repr(error).encode("utf-8", errors="replace")
         execution_status = "capture_error"
         capture_error = repr(error)
-        manifest["source_snapshot_error"] = capture_error
+        if not manifest["sources"]:
+            manifest["source_snapshot_error"] = capture_error
+        with stderr_path.open("ab", buffering=0) as err:
+            err.write(repr(error).encode("utf-8", errors="replace"))
+            os.fsync(err.fileno())
 
-    (run_dir / "stdout.bin").write_bytes(stdout)
-    (run_dir / "stderr.bin").write_bytes(stderr)
+    _write_json(run_dir / "manifest.json", manifest)
+    stdout, stderr = stdout_path.read_bytes(), stderr_path.read_bytes()
     result: dict[str, object] = {
         "schema_version": 1,
         "attempt_id": run_id,
@@ -169,6 +196,10 @@ def capture(label: str, command: list[str], *, cwd: Path | str | None = None,
         "scientific_status": "not_assessed",
         "exit_code": exit_code,
         "duration_seconds": time.perf_counter() - started_clock,
+        "subprocess_seconds": subprocess_seconds,
+        "child_pid": process.pid if process is not None else None,
+        "child_reaped": process.returncode is not None if process is not None else None,
+        "cleanup_scope": "direct_child_only",
         "stdout_bytes": len(stdout),
         "stderr_bytes": len(stderr),
         "stdout_sha256": _sha256(stdout),
@@ -177,8 +208,31 @@ def capture(label: str, command: list[str], *, cwd: Path | str | None = None,
     }
     if capture_error is not None:
         result["capture_error"] = capture_error
+    if cleanup_error is not None:
+        result["cleanup_error"] = cleanup_error
+        result["primary_execution_status"] = execution_status
+        result["execution_status"] = "capture_error"
     _write_json(run_dir / "result.json", result)
     return {"attempt_dir": str(run_dir), **result}
+
+
+def _terminate_and_reap(process: subprocess.Popen) -> None:
+    """Clean up only this capture's direct child; retry cooperative interrupts."""
+    while True:
+        try:
+            if process.poll() is None:
+                process.terminate()
+                try:
+                    process.wait(timeout=1.0)
+                except subprocess.TimeoutExpired:
+                    process.kill()
+                    process.wait()
+            else:
+                process.wait()
+            return
+        except KeyboardInterrupt:
+            # A repeated Ctrl-C must not abandon a still-running owned child.
+            continue
 
 
 def _cli() -> int:
@@ -198,7 +252,8 @@ def _cli() -> int:
                      source_paths=args.source)
     print(json.dumps(record, ensure_ascii=False, sort_keys=True))
     return {"success": 0, "program_error": 1, "timed_out": 3,
-            "environment_error": 4, "capture_error": 5}[record["execution_status"]]
+            "environment_error": 4, "capture_error": 5,
+            "interrupted": 130}[record["execution_status"]]
 
 
 if __name__ == "__main__":

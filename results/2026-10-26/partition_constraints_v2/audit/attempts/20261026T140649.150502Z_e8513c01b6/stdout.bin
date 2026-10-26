@@ -1,0 +1,374 @@
+{
+  "alphabet": [
+    "a",
+    "b",
+    "c",
+    "d"
+  ],
+  "k": 2,
+  "method": "baseline",
+  "complete": true,
+  "status": "unique",
+  "interpretation": "Unique sample-feasible partition; equals the true declared partition if a noise-free two-block target of this model exists.",
+  "sample_size": {
+    "positive": 21,
+    "negative": 32
+  },
+  "graph": {
+    "edges": [
+      {
+        "symbols": [
+          "a",
+          "c"
+        ],
+        "witness": {
+          "rule": "swap",
+          "positive": [
+            "cabb"
+          ],
+          "negative": "acbb",
+          "position": 0
+        }
+      }
+    ],
+    "components": [
+      [
+        "a",
+        "c"
+      ],
+      [
+        "b"
+      ],
+      [
+        "d"
+      ]
+    ],
+    "component_count": 3,
+    "known_k_certificate": false,
+    "certificate_condition": "Requires a true noise-free two-block disjoint-alphabet target."
+  },
+  "search": {
+    "graph_pruning": true,
+    "candidates_checked": 3,
+    "all_symbol_bipartitions": 7
+  },
+  "feasible_partition_count": 1,
+  "found_partition_count": 1,
+  "feasible_partitions": [
+    {
+      "blocks": [
+        [
+          "a",
+          "c",
+          "d"
+        ],
+        [
+          "b"
+        ]
+      ],
+      "positive_projection_languages": [
+        [
+          "aa",
+          "ca",
+          "d",
+          "da"
+        ],
+        [
+          "bb"
+        ]
+      ],
+      "negative_witnesses": [
+        {
+          "negative": "abac",
+          "block_index": 0,
+          "projection": "aac",
+          "all_unseen_block_indices": [
+            0,
+            1
+          ]
+        },
+        {
+          "negative": "abcc",
+          "block_index": 0,
+          "projection": "acc",
+          "all_unseen_block_indices": [
+            0,
+            1
+          ]
+        },
+        {
+          "negative": "acbb",
+          "block_index": 0,
+          "projection": "ac",
+          "all_unseen_block_indices": [
+            0
+          ]
+        },
+        {
+          "negative": "adbc",
+          "block_index": 0,
+          "projection": "adc",
+          "all_unseen_block_indices": [
+            0,
+            1
+          ]
+        },
+        {
+          "negative": "adcb",
+          "block_index": 0,
+          "projection": "adc",
+          "all_unseen_block_indices": [
+            0,
+            1
+          ]
+        },
+        {
+          "negative": "babd",
+          "block_index": 0,
+          "projection": "ad",
+          "all_unseen_block_indices": [
+            0
+          ]
+        },
+        {
+          "negative": "bacd",
+          "block_index": 0,
+          "projection": "acd",
+          "all_unseen_block_indices": [
+            0,
+            1
+          ]
+        },
+        {
+          "negative": "bada",
+          "block_index": 0,
+          "projection": "ada",
+          "all_unseen_block_indices": [
+            0,
+            1
+          ]
+        },
+        {
+          "negative": "bbcc",
+          "block_index": 0,
+          "projection": "cc",
+          "all_unseen_block_indices": [
+            0
+          ]
+        },
+        {
+          "negative": "bbcd",
+          "block_index": 0,
+          "projection": "cd",
+          "all_unseen_block_indices": [
+            0
+          ]
+        },
+        {
+          "negative": "bc",
+          "block_index": 0,
+          "projection": "c",
+          "all_unseen_block_indices": [
+            0,
+            1
+          ]
+        },
+        {
+          "negative": "bcac",
+          "block_index": 0,
+          "projection": "cac",
+          "all_unseen_block_indices": [
+            0,
+            1
+          ]
+        },
+        {
+          "negative": "bccd",
+          "block_index": 0,
+          "projection": "ccd",
+          "all_unseen_block_indices": [
+            0,
+            1
+          ]
+        },
+        {
+          "negative": "bcd",
+          "block_index": 0,
+          "projection": "cd",
+          "all_unseen_block_indices": [
+            0,
+            1
+          ]
+        },
+        {
+          "negative": "bdca",
+          "block_index": 0,
+          "projection": "dca",
+          "all_unseen_block_indices": [
+            0,
+            1
+          ]
+        },
+        {
+          "negative": "bdcd",
+          "block_index": 0,
+          "projection": "dcd",
+          "all_unseen_block_indices": [
+            0,
+            1
+          ]
+        },
+        {
+          "negative": "cab",
+          "block_index": 1,
+          "projection": "b",
+          "all_unseen_block_indices": [
+            1
+          ]
+        },
+        {
+          "negative": "cbac",
+          "block_index": 0,
+          "projection": "cac",
+          "all_unseen_block_indices": [
+            0,
+            1
+          ]
+        },
+        {
+          "negative": "cbc",
+          "block_index": 0,
+          "projection": "cc",
+          "all_unseen_block_indices": [
+            0,
+            1
+          ]
+        },
+        {
+          "negative": "cbcd",
+          "block_index": 0,
+          "projection": "ccd",
+          "all_unseen_block_indices": [
+            0,
+            1
+          ]
+        },
+        {
+          "negative": "cbdd",
+          "block_index": 0,
+          "projection": "cdd",
+          "all_unseen_block_indices": [
+            0,
+            1
+          ]
+        },
+        {
+          "negative": "ccab",
+          "block_index": 0,
+          "projection": "cca",
+          "all_unseen_block_indices": [
+            0,
+            1
+          ]
+        },
+        {
+          "negative": "ccdb",
+          "block_index": 0,
+          "projection": "ccd",
+          "all_unseen_block_indices": [
+            0,
+            1
+          ]
+        },
+        {
+          "negative": "cdab",
+          "block_index": 0,
+          "projection": "cda",
+          "all_unseen_block_indices": [
+            0,
+            1
+          ]
+        },
+        {
+          "negative": "cdba",
+          "block_index": 0,
+          "projection": "cda",
+          "all_unseen_block_indices": [
+            0,
+            1
+          ]
+        },
+        {
+          "negative": "cdbc",
+          "block_index": 0,
+          "projection": "cdc",
+          "all_unseen_block_indices": [
+            0,
+            1
+          ]
+        },
+        {
+          "negative": "dacb",
+          "block_index": 0,
+          "projection": "dac",
+          "all_unseen_block_indices": [
+            0,
+            1
+          ]
+        },
+        {
+          "negative": "dcab",
+          "block_index": 0,
+          "projection": "dca",
+          "all_unseen_block_indices": [
+            0,
+            1
+          ]
+        },
+        {
+          "negative": "dcb",
+          "block_index": 0,
+          "projection": "dc",
+          "all_unseen_block_indices": [
+            0,
+            1
+          ]
+        },
+        {
+          "negative": "dcbb",
+          "block_index": 0,
+          "projection": "dc",
+          "all_unseen_block_indices": [
+            0
+          ]
+        },
+        {
+          "negative": "ddba",
+          "block_index": 0,
+          "projection": "dda",
+          "all_unseen_block_indices": [
+            0,
+            1
+          ]
+        },
+        {
+          "negative": "ddbd",
+          "block_index": 0,
+          "projection": "ddd",
+          "all_unseen_block_indices": [
+            0,
+            1
+          ]
+        }
+      ]
+    }
+  ],
+  "metrics": {
+    "provider_seconds": 0.007126699958462268,
+    "baseline_engine": "immutable_v1",
+    "deadline_granularity": "before_and_after_v1_call",
+    "complete_assignments": 3,
+    "cli_seconds_before_serialization": 0.0413084999890998
+  },
+  "limitations": "Unbounded regular local factors; no local DFA recovery, distribution-free recovery, novelty, or efficiency guarantee."
+}

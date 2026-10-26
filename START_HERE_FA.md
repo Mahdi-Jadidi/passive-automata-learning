@@ -1,12 +1,20 @@
 # شروع و ادامهٔ پژوهش یادگیری غیرفعال اتوماتا
 
-آخرین دورهٔ پژوهش: **۲۰۲۶/۱۰/۲۶**. بستهٔ ثابتِ تحلیل هزینهٔ قبلی مربوط به **۲۰۲۶/۱۰/۲۴** و مبنای علمی **۲۰۲۶/۱۰/۲۲** است.
+آخرین دورهٔ پژوهش: **۲۰۲۶/۱۰/۲۶، دور دوم قیود افراز**. بستهٔ ثابتِ تحلیل هزینهٔ قبلی مربوط به **۲۰۲۶/۱۰/۲۴** و مبنای علمی **۲۰۲۶/۱۰/۲۲** است.
+
+دور دوم، روش‌های دقیق `baseline`، `eager` و `lazy` را با حفظ کل مجموعهٔ افرازهای سازگار مقایسه کرده است. کد، اثبات‌ها، ممیزی مستقل و مقایسهٔ کارایی تکمیل و نتیجه‌های منفی حفظ شده‌اند. حل‌گر قبلی پیش‌فرض باقی می‌ماند.
+
+- [راهنمای اجرای دور دوم و مسیر شواهد](results/2026-10-26/partition_constraints_v2/README_FA.md)
+- [گزارش نهایی فارسی دور دوم](results/2026-10-26/partition_constraints_v2/RESEARCH_REPORT_FA.md)
+- [تصمیم مستر و پیشنهاد ادامه](results/2026-10-26/partition_constraints_v2/MASTER_DECISION_FA.md)
+- [گزارش وضعیت موقت و نخستین نتیجهٔ منفی](results/2026-10-26/partition_constraints_v2/coordination/STATUS_02_FA.md)
+- [دفتر کامل پژوهش و رخدادها](results/2026-10-26/partition_constraints_v2/coordination/journal.jsonl)
 
 مسیر پژوهشی جاری، **کشف افراز مجهول الفبا پیش از یادگیری غیرفعال DFA** است. مدل اولیه دو مؤلفهٔ مستقل با الفباهای مجزا و نمونه‌های مثبت و منفیِ بدون نویز دارد؛ این مسیر با تحلیل هزینهٔ قبلی که افراز را معلوم می‌گرفت متفاوت است.
 
-- [راهنمای دورهٔ جاری و اجرای نمونه‌ها](results/2026-10-26/alphabet_partition_research/README_FA.md)
-- [گزارش پژوهشی فارسی](results/2026-10-26/alphabet_partition_research/RESEARCH_REPORT_FA.md)
-- [یادداشت نظری و اثبات‌ها](results/2026-10-26/alphabet_partition_research/THEORY_NOTE.md)
+- [راهنمای دور اول و اجرای نمونه‌ها](results/2026-10-26/alphabet_partition_research/README_FA.md)
+- [گزارش پژوهشی فارسی دور اول](results/2026-10-26/alphabet_partition_research/RESEARCH_REPORT_FA.md)
+- [یادداشت نظری و اثبات‌های دور اول](results/2026-10-26/alphabet_partition_research/THEORY_NOTE.md)
 
 بستهٔ ثابت قبلی و سوابق آن:
 

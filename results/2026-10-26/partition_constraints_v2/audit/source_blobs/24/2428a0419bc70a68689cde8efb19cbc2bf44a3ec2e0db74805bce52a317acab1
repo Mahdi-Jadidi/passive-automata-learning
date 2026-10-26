@@ -1,0 +1,772 @@
+{
+  "scientific_status": "independent_output_validation_required",
+  "status_counts": {
+    "timing/baseline": {
+      "complete": 300
+    },
+    "timing/eager": {
+      "complete": 300
+    },
+    "timing/lazy": {
+      "complete": 199,
+      "timed_out": 5,
+      "budget_skipped": 96
+    },
+    "memory/baseline": {
+      "complete": 100
+    },
+    "memory/eager": {
+      "complete": 100
+    },
+    "memory/lazy": {
+      "budget_skipped": 100
+    }
+  },
+  "paired_complete_only": [
+    {
+      "mode": "timing",
+      "method": "eager",
+      "metric": "pipeline_seconds",
+      "requires_independent_output_validation_before_publication": true,
+      "case_ids": [
+        "performance_100_m10_000",
+        "performance_100_m10_001",
+        "performance_100_m10_002",
+        "performance_100_m10_003",
+        "performance_100_m10_004",
+        "performance_100_m10_005",
+        "performance_100_m10_006",
+        "performance_100_m10_007",
+        "performance_100_m10_008",
+        "performance_100_m10_009",
+        "performance_100_m10_010",
+        "performance_100_m10_011",
+        "performance_100_m10_012",
+        "performance_100_m10_013",
+        "performance_100_m10_014",
+        "performance_100_m10_015",
+        "performance_100_m10_016",
+        "performance_100_m10_017",
+        "performance_100_m10_018",
+        "performance_100_m10_019",
+        "performance_100_m10_020",
+        "performance_100_m10_021",
+        "performance_100_m10_022",
+        "performance_100_m10_023",
+        "performance_100_m10_024",
+        "performance_100_m4_000",
+        "performance_100_m4_001",
+        "performance_100_m4_002",
+        "performance_100_m4_003",
+        "performance_100_m4_004",
+        "performance_100_m4_005",
+        "performance_100_m4_006",
+        "performance_100_m4_007",
+        "performance_100_m4_008",
+        "performance_100_m4_009",
+        "performance_100_m4_010",
+        "performance_100_m4_011",
+        "performance_100_m4_012",
+        "performance_100_m4_013",
+        "performance_100_m4_014",
+        "performance_100_m4_015",
+        "performance_100_m4_016",
+        "performance_100_m4_017",
+        "performance_100_m4_018",
+        "performance_100_m4_019",
+        "performance_100_m4_020",
+        "performance_100_m4_021",
+        "performance_100_m4_022",
+        "performance_100_m4_023",
+        "performance_100_m4_024",
+        "performance_100_m6_000",
+        "performance_100_m6_001",
+        "performance_100_m6_002",
+        "performance_100_m6_003",
+        "performance_100_m6_004",
+        "performance_100_m6_005",
+        "performance_100_m6_006",
+        "performance_100_m6_007",
+        "performance_100_m6_008",
+        "performance_100_m6_009",
+        "performance_100_m6_010",
+        "performance_100_m6_011",
+        "performance_100_m6_012",
+        "performance_100_m6_013",
+        "performance_100_m6_014",
+        "performance_100_m6_015",
+        "performance_100_m6_016",
+        "performance_100_m6_017",
+        "performance_100_m6_018",
+        "performance_100_m6_019",
+        "performance_100_m6_020",
+        "performance_100_m6_021",
+        "performance_100_m6_022",
+        "performance_100_m6_023",
+        "performance_100_m6_024",
+        "performance_100_m8_000",
+        "performance_100_m8_001",
+        "performance_100_m8_002",
+        "performance_100_m8_003",
+        "performance_100_m8_004",
+        "performance_100_m8_005",
+        "performance_100_m8_006",
+        "performance_100_m8_007",
+        "performance_100_m8_008",
+        "performance_100_m8_009",
+        "performance_100_m8_010",
+        "performance_100_m8_011",
+        "performance_100_m8_012",
+        "performance_100_m8_013",
+        "performance_100_m8_014",
+        "performance_100_m8_015",
+        "performance_100_m8_016",
+        "performance_100_m8_017",
+        "performance_100_m8_018",
+        "performance_100_m8_019",
+        "performance_100_m8_020",
+        "performance_100_m8_021",
+        "performance_100_m8_022",
+        "performance_100_m8_023",
+        "performance_100_m8_024"
+      ],
+      "case_count": 100,
+      "per_case_aggregation": "median of all required complete repetitions",
+      "baseline": {
+        "n": 100,
+        "min": 0.11209789995336905,
+        "median": 0.17180934999487363,
+        "max": 0.39780059998156503
+      },
+      "candidate": {
+        "n": 100,
+        "min": 0.12629200000083074,
+        "median": 0.29716689998167567,
+        "max": 1.9777818999718875
+      },
+      "baseline_over_candidate_ratio": {
+        "n": 100,
+        "min": 0.14113224518529266,
+        "median": 0.5554302438477734,
+        "max": 1.3399415640750152
+      },
+      "resource_distributions_per_case_medians": {
+        "baseline": {
+          "nodes_visited": {
+            "n": 0
+          },
+          "complete_assignments": {
+            "n": 100,
+            "min": 1,
+            "median": 47.0,
+            "max": 511
+          },
+          "constraints_stored": {
+            "n": 0
+          },
+          "output_bytes": {
+            "n": 100,
+            "min": 7653,
+            "median": 69925.5,
+            "max": 2090371
+          },
+          "found_partition_count": {
+            "n": 100,
+            "min": 1,
+            "median": 10.0,
+            "max": 295
+          },
+          "process_elapsed_seconds": {
+            "n": 100,
+            "min": 0.19142380001721904,
+            "median": 0.2722387000103481,
+            "max": 0.48543629999039695
+          },
+          "preprocessing_seconds": {
+            "n": 0
+          },
+          "separation_seconds": {
+            "n": 0
+          },
+          "cut_generation_seconds": {
+            "n": 0
+          },
+          "lazy_cuts": {
+            "n": 0
+          },
+          "answer_blockers": {
+            "n": 0
+          },
+          "search_restarts": {
+            "n": 0
+          }
+        },
+        "eager": {
+          "nodes_visited": {
+            "n": 100,
+            "min": 9,
+            "median": 56.0,
+            "max": 841
+          },
+          "complete_assignments": {
+            "n": 100,
+            "min": 1,
+            "median": 19.0,
+            "max": 373
+          },
+          "constraints_stored": {
+            "n": 100,
+            "min": 32,
+            "median": 32.0,
+            "max": 34
+          },
+          "output_bytes": {
+            "n": 100,
+            "min": 7853,
+            "median": 70125.5,
+            "max": 2090577
+          },
+          "found_partition_count": {
+            "n": 100,
+            "min": 1,
+            "median": 10.0,
+            "max": 295
+          },
+          "process_elapsed_seconds": {
+            "n": 100,
+            "min": 0.22012199996970594,
+            "median": 0.3949267999851145,
+            "max": 2.088475800002925
+          },
+          "preprocessing_seconds": {
+            "n": 100,
+            "min": 0.0038766000070609152,
+            "median": 0.04432844996335916,
+            "max": 0.10139710002113134
+          },
+          "separation_seconds": {
+            "n": 0
+          },
+          "cut_generation_seconds": {
+            "n": 0
+          },
+          "lazy_cuts": {
+            "n": 0
+          },
+          "answer_blockers": {
+            "n": 0
+          },
+          "search_restarts": {
+            "n": 0
+          }
+        }
+      },
+      "resource_note": "Missing metrics have n=0, not a zero measurement. Preprocessing/online phases have distinct scopes; memory-mode times are diagnostic only."
+    },
+    {
+      "mode": "timing",
+      "method": "lazy",
+      "metric": "pipeline_seconds",
+      "requires_independent_output_validation_before_publication": true,
+      "case_ids": [
+        "performance_100_m10_000",
+        "performance_100_m10_001",
+        "performance_100_m10_002"
+      ],
+      "case_count": 3,
+      "per_case_aggregation": "median of all required complete repetitions",
+      "baseline": {
+        "n": 3,
+        "min": 0.24217389995465055,
+        "median": 0.2507630999898538,
+        "max": 0.3489356000209227
+      },
+      "candidate": {
+        "n": 3,
+        "min": 3.2370924999704584,
+        "median": 9.922101199976169,
+        "max": 27.820543100009672
+      },
+      "baseline_over_candidate_ratio": {
+        "n": 3,
+        "min": 0.012542371971911699,
+        "median": 0.025273185078021187,
+        "max": 0.0748121655333793
+      },
+      "resource_distributions_per_case_medians": {
+        "baseline": {
+          "nodes_visited": {
+            "n": 0
+          },
+          "complete_assignments": {
+            "n": 3,
+            "min": 511,
+            "median": 511,
+            "max": 511
+          },
+          "constraints_stored": {
+            "n": 0
+          },
+          "output_bytes": {
+            "n": 3,
+            "min": 470196,
+            "median": 512268,
+            "max": 1397595
+          },
+          "found_partition_count": {
+            "n": 3,
+            "min": 67,
+            "median": 73,
+            "max": 200
+          },
+          "process_elapsed_seconds": {
+            "n": 3,
+            "min": 0.3400432000053115,
+            "median": 0.34889989998191595,
+            "max": 0.4445558000006713
+          },
+          "preprocessing_seconds": {
+            "n": 0
+          },
+          "separation_seconds": {
+            "n": 0
+          },
+          "cut_generation_seconds": {
+            "n": 0
+          },
+          "lazy_cuts": {
+            "n": 0
+          },
+          "answer_blockers": {
+            "n": 0
+          },
+          "search_restarts": {
+            "n": 0
+          }
+        },
+        "lazy": {
+          "nodes_visited": {
+            "n": 3,
+            "min": 26584,
+            "median": 37810,
+            "max": 77110
+          },
+          "complete_assignments": {
+            "n": 3,
+            "min": 6889,
+            "median": 12083,
+            "max": 30665
+          },
+          "constraints_stored": {
+            "n": 3,
+            "min": 113,
+            "median": 133,
+            "max": 238
+          },
+          "output_bytes": {
+            "n": 3,
+            "min": 470618,
+            "median": 512690,
+            "max": 1398019
+          },
+          "found_partition_count": {
+            "n": 3,
+            "min": 67,
+            "median": 73,
+            "max": 200
+          },
+          "process_elapsed_seconds": {
+            "n": 3,
+            "min": 3.3519215999986045,
+            "median": 10.03537579998374,
+            "max": 27.93112530000508
+          },
+          "preprocessing_seconds": {
+            "n": 3,
+            "min": 0.0041105999844148755,
+            "median": 0.006143600039649755,
+            "max": 0.006601399974897504
+          },
+          "separation_seconds": {
+            "n": 3,
+            "min": 0.03465869976207614,
+            "median": 0.04981260001659393,
+            "max": 0.09596730006160215
+          },
+          "cut_generation_seconds": {
+            "n": 3,
+            "min": 0.0047605000436306,
+            "median": 0.005367999896407127,
+            "max": 0.008392500225454569
+          },
+          "lazy_cuts": {
+            "n": 3,
+            "min": 38,
+            "median": 40,
+            "max": 66
+          },
+          "answer_blockers": {
+            "n": 3,
+            "min": 67,
+            "median": 73,
+            "max": 200
+          },
+          "search_restarts": {
+            "n": 3,
+            "min": 113,
+            "median": 133,
+            "max": 238
+          }
+        }
+      },
+      "resource_note": "Missing metrics have n=0, not a zero measurement. Preprocessing/online phases have distinct scopes; memory-mode times are diagnostic only."
+    },
+    {
+      "mode": "memory",
+      "method": "eager",
+      "metric": "python_traced_peak_bytes",
+      "requires_independent_output_validation_before_publication": true,
+      "case_ids": [
+        "performance_100_m10_000",
+        "performance_100_m10_001",
+        "performance_100_m10_002",
+        "performance_100_m10_003",
+        "performance_100_m10_004",
+        "performance_100_m10_005",
+        "performance_100_m10_006",
+        "performance_100_m10_007",
+        "performance_100_m10_008",
+        "performance_100_m10_009",
+        "performance_100_m10_010",
+        "performance_100_m10_011",
+        "performance_100_m10_012",
+        "performance_100_m10_013",
+        "performance_100_m10_014",
+        "performance_100_m10_015",
+        "performance_100_m10_016",
+        "performance_100_m10_017",
+        "performance_100_m10_018",
+        "performance_100_m10_019",
+        "performance_100_m10_020",
+        "performance_100_m10_021",
+        "performance_100_m10_022",
+        "performance_100_m10_023",
+        "performance_100_m10_024",
+        "performance_100_m4_000",
+        "performance_100_m4_001",
+        "performance_100_m4_002",
+        "performance_100_m4_003",
+        "performance_100_m4_004",
+        "performance_100_m4_005",
+        "performance_100_m4_006",
+        "performance_100_m4_007",
+        "performance_100_m4_008",
+        "performance_100_m4_009",
+        "performance_100_m4_010",
+        "performance_100_m4_011",
+        "performance_100_m4_012",
+        "performance_100_m4_013",
+        "performance_100_m4_014",
+        "performance_100_m4_015",
+        "performance_100_m4_016",
+        "performance_100_m4_017",
+        "performance_100_m4_018",
+        "performance_100_m4_019",
+        "performance_100_m4_020",
+        "performance_100_m4_021",
+        "performance_100_m4_022",
+        "performance_100_m4_023",
+        "performance_100_m4_024",
+        "performance_100_m6_000",
+        "performance_100_m6_001",
+        "performance_100_m6_002",
+        "performance_100_m6_003",
+        "performance_100_m6_004",
+        "performance_100_m6_005",
+        "performance_100_m6_006",
+        "performance_100_m6_007",
+        "performance_100_m6_008",
+        "performance_100_m6_009",
+        "performance_100_m6_010",
+        "performance_100_m6_011",
+        "performance_100_m6_012",
+        "performance_100_m6_013",
+        "performance_100_m6_014",
+        "performance_100_m6_015",
+        "performance_100_m6_016",
+        "performance_100_m6_017",
+        "performance_100_m6_018",
+        "performance_100_m6_019",
+        "performance_100_m6_020",
+        "performance_100_m6_021",
+        "performance_100_m6_022",
+        "performance_100_m6_023",
+        "performance_100_m6_024",
+        "performance_100_m8_000",
+        "performance_100_m8_001",
+        "performance_100_m8_002",
+        "performance_100_m8_003",
+        "performance_100_m8_004",
+        "performance_100_m8_005",
+        "performance_100_m8_006",
+        "performance_100_m8_007",
+        "performance_100_m8_008",
+        "performance_100_m8_009",
+        "performance_100_m8_010",
+        "performance_100_m8_011",
+        "performance_100_m8_012",
+        "performance_100_m8_013",
+        "performance_100_m8_014",
+        "performance_100_m8_015",
+        "performance_100_m8_016",
+        "performance_100_m8_017",
+        "performance_100_m8_018",
+        "performance_100_m8_019",
+        "performance_100_m8_020",
+        "performance_100_m8_021",
+        "performance_100_m8_022",
+        "performance_100_m8_023",
+        "performance_100_m8_024"
+      ],
+      "case_count": 100,
+      "per_case_aggregation": "median of all required complete repetitions",
+      "baseline": {
+        "n": 100,
+        "min": 3061195,
+        "median": 3062926.5,
+        "max": 17458126
+      },
+      "candidate": {
+        "n": 100,
+        "min": 3070020,
+        "median": 4773962.5,
+        "max": 19508109
+      },
+      "baseline_over_candidate_ratio": {
+        "n": 100,
+        "min": 0.6166869418910341,
+        "median": 0.765067654886415,
+        "max": 0.9972726837020599
+      },
+      "resource_distributions_per_case_medians": {
+        "baseline": {
+          "nodes_visited": {
+            "n": 0
+          },
+          "complete_assignments": {
+            "n": 100,
+            "min": 1,
+            "median": 47.0,
+            "max": 511
+          },
+          "constraints_stored": {
+            "n": 0
+          },
+          "output_bytes": {
+            "n": 100,
+            "min": 7653,
+            "median": 69922.5,
+            "max": 2090369
+          },
+          "found_partition_count": {
+            "n": 100,
+            "min": 1,
+            "median": 10.0,
+            "max": 295
+          },
+          "process_elapsed_seconds": {
+            "n": 100,
+            "min": 0.31656439998187125,
+            "median": 0.6352653499925509,
+            "max": 1.95395469997311
+          },
+          "preprocessing_seconds": {
+            "n": 0
+          },
+          "separation_seconds": {
+            "n": 0
+          },
+          "cut_generation_seconds": {
+            "n": 0
+          },
+          "lazy_cuts": {
+            "n": 0
+          },
+          "answer_blockers": {
+            "n": 0
+          },
+          "search_restarts": {
+            "n": 0
+          }
+        },
+        "eager": {
+          "nodes_visited": {
+            "n": 100,
+            "min": 9,
+            "median": 56.0,
+            "max": 841
+          },
+          "complete_assignments": {
+            "n": 100,
+            "min": 1,
+            "median": 19.0,
+            "max": 373
+          },
+          "constraints_stored": {
+            "n": 100,
+            "min": 32,
+            "median": 32.0,
+            "max": 34
+          },
+          "output_bytes": {
+            "n": 100,
+            "min": 7852,
+            "median": 70124.5,
+            "max": 2090574
+          },
+          "found_partition_count": {
+            "n": 100,
+            "min": 1,
+            "median": 10.0,
+            "max": 295
+          },
+          "process_elapsed_seconds": {
+            "n": 100,
+            "min": 0.3429452999844216,
+            "median": 1.445711600012146,
+            "max": 7.679625699995086
+          },
+          "preprocessing_seconds": {
+            "n": 100,
+            "min": 0.010174399998504668,
+            "median": 0.2477095000213012,
+            "max": 0.9180197999812663
+          },
+          "separation_seconds": {
+            "n": 0
+          },
+          "cut_generation_seconds": {
+            "n": 0
+          },
+          "lazy_cuts": {
+            "n": 0
+          },
+          "answer_blockers": {
+            "n": 0
+          },
+          "search_restarts": {
+            "n": 0
+          }
+        }
+      },
+      "resource_note": "Missing metrics have n=0, not a zero measurement. Preprocessing/online phases have distinct scopes; memory-mode times are diagnostic only."
+    },
+    {
+      "mode": "memory",
+      "method": "lazy",
+      "metric": "python_traced_peak_bytes",
+      "requires_independent_output_validation_before_publication": true,
+      "case_ids": [],
+      "case_count": 0,
+      "per_case_aggregation": "median of all required complete repetitions",
+      "baseline": {
+        "n": 0
+      },
+      "candidate": {
+        "n": 0
+      },
+      "baseline_over_candidate_ratio": {
+        "n": 0
+      },
+      "resource_distributions_per_case_medians": {
+        "baseline": {
+          "nodes_visited": {
+            "n": 0
+          },
+          "complete_assignments": {
+            "n": 0
+          },
+          "constraints_stored": {
+            "n": 0
+          },
+          "output_bytes": {
+            "n": 0
+          },
+          "found_partition_count": {
+            "n": 0
+          },
+          "process_elapsed_seconds": {
+            "n": 0
+          },
+          "preprocessing_seconds": {
+            "n": 0
+          },
+          "separation_seconds": {
+            "n": 0
+          },
+          "cut_generation_seconds": {
+            "n": 0
+          },
+          "lazy_cuts": {
+            "n": 0
+          },
+          "answer_blockers": {
+            "n": 0
+          },
+          "search_restarts": {
+            "n": 0
+          }
+        },
+        "lazy": {
+          "nodes_visited": {
+            "n": 0
+          },
+          "complete_assignments": {
+            "n": 0
+          },
+          "constraints_stored": {
+            "n": 0
+          },
+          "output_bytes": {
+            "n": 0
+          },
+          "found_partition_count": {
+            "n": 0
+          },
+          "process_elapsed_seconds": {
+            "n": 0
+          },
+          "preprocessing_seconds": {
+            "n": 0
+          },
+          "separation_seconds": {
+            "n": 0
+          },
+          "cut_generation_seconds": {
+            "n": 0
+          },
+          "lazy_cuts": {
+            "n": 0
+          },
+          "answer_blockers": {
+            "n": 0
+          },
+          "search_restarts": {
+            "n": 0
+          }
+        }
+      },
+      "resource_note": "Missing metrics have n=0, not a zero measurement. Preprocessing/online phases have distinct scopes; memory-mode times are diagnostic only."
+    }
+  ],
+  "censoring_policy": "No replacement of incomplete/timeout/skipped by a time estimate; no instrumented speed comparisons.",
+  "abort_reason": null,
+  "total_harness_seconds": 1619.4176592000294,
+  "subprocess_seconds_by_method": {
+    "baseline": 168.7510604998679,
+    "eager": 427.9555489990162,
+    "lazy": 900.0250037000515
+  },
+  "capture_backend": "B-CAPTURE-R1",
+  "warning": "capture raw exit3 program_error is reclassified as incomplete only with valid contract; no speed claim before independent correctness verification"
+}

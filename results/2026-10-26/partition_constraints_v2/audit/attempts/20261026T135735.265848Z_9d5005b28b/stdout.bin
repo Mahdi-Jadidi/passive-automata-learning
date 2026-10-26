@@ -1,0 +1,366 @@
+{
+  "alphabet": [
+    "a",
+    "b",
+    "c",
+    "d"
+  ],
+  "k": 2,
+  "method": "eager",
+  "complete": true,
+  "status": "unique",
+  "interpretation": "Unique sample-feasible partition; equals the true declared partition if a noise-free two-block target of this model exists.",
+  "sample_size": {
+    "positive": 32,
+    "negative": 32
+  },
+  "graph": {
+    "edges": [
+      {
+        "symbols": [
+          "b",
+          "c"
+        ],
+        "witness": {
+          "rule": "swap",
+          "positive": [
+            "adcb"
+          ],
+          "negative": "adbc",
+          "position": 2
+        }
+      }
+    ],
+    "components": [
+      [
+        "a"
+      ],
+      [
+        "b",
+        "c"
+      ],
+      [
+        "d"
+      ]
+    ],
+    "component_count": 3,
+    "known_k_certificate": false,
+    "certificate_condition": "Requires a true noise-free two-block disjoint-alphabet target."
+  },
+  "search": {
+    "graph_pruning": true,
+    "candidates_checked": 3,
+    "all_symbol_bipartitions": 7
+  },
+  "feasible_partition_count": 1,
+  "found_partition_count": 1,
+  "feasible_partitions": [
+    {
+      "blocks": [
+        [
+          "a",
+          "d"
+        ],
+        [
+          "b",
+          "c"
+        ]
+      ],
+      "positive_projection_languages": [
+        [
+          "a",
+          "aa",
+          "ad",
+          "d",
+          "dd"
+        ],
+        [
+          "bb",
+          "cb",
+          "cc"
+        ]
+      ],
+      "negative_witnesses": [
+        {
+          "negative": "aba",
+          "block_index": 1,
+          "projection": "b",
+          "all_unseen_block_indices": [
+            1
+          ]
+        },
+        {
+          "negative": "abaa",
+          "block_index": 0,
+          "projection": "aaa",
+          "all_unseen_block_indices": [
+            0,
+            1
+          ]
+        },
+        {
+          "negative": "abbc",
+          "block_index": 1,
+          "projection": "bbc",
+          "all_unseen_block_indices": [
+            1
+          ]
+        },
+        {
+          "negative": "abca",
+          "block_index": 1,
+          "projection": "bc",
+          "all_unseen_block_indices": [
+            1
+          ]
+        },
+        {
+          "negative": "acd",
+          "block_index": 1,
+          "projection": "c",
+          "all_unseen_block_indices": [
+            1
+          ]
+        },
+        {
+          "negative": "adbc",
+          "block_index": 1,
+          "projection": "bc",
+          "all_unseen_block_indices": [
+            1
+          ]
+        },
+        {
+          "negative": "ba",
+          "block_index": 1,
+          "projection": "b",
+          "all_unseen_block_indices": [
+            1
+          ]
+        },
+        {
+          "negative": "baa",
+          "block_index": 1,
+          "projection": "b",
+          "all_unseen_block_indices": [
+            1
+          ]
+        },
+        {
+          "negative": "baad",
+          "block_index": 0,
+          "projection": "aad",
+          "all_unseen_block_indices": [
+            0,
+            1
+          ]
+        },
+        {
+          "negative": "bacb",
+          "block_index": 1,
+          "projection": "bcb",
+          "all_unseen_block_indices": [
+            1
+          ]
+        },
+        {
+          "negative": "badd",
+          "block_index": 0,
+          "projection": "add",
+          "all_unseen_block_indices": [
+            0,
+            1
+          ]
+        },
+        {
+          "negative": "bbbd",
+          "block_index": 1,
+          "projection": "bbb",
+          "all_unseen_block_indices": [
+            1
+          ]
+        },
+        {
+          "negative": "bcab",
+          "block_index": 1,
+          "projection": "bcb",
+          "all_unseen_block_indices": [
+            1
+          ]
+        },
+        {
+          "negative": "bccd",
+          "block_index": 1,
+          "projection": "bcc",
+          "all_unseen_block_indices": [
+            1
+          ]
+        },
+        {
+          "negative": "bcdb",
+          "block_index": 1,
+          "projection": "bcb",
+          "all_unseen_block_indices": [
+            1
+          ]
+        },
+        {
+          "negative": "bcdc",
+          "block_index": 1,
+          "projection": "bcc",
+          "all_unseen_block_indices": [
+            1
+          ]
+        },
+        {
+          "negative": "bd",
+          "block_index": 1,
+          "projection": "b",
+          "all_unseen_block_indices": [
+            1
+          ]
+        },
+        {
+          "negative": "caa",
+          "block_index": 1,
+          "projection": "c",
+          "all_unseen_block_indices": [
+            1
+          ]
+        },
+        {
+          "negative": "caaa",
+          "block_index": 0,
+          "projection": "aaa",
+          "all_unseen_block_indices": [
+            0,
+            1
+          ]
+        },
+        {
+          "negative": "cad",
+          "block_index": 1,
+          "projection": "c",
+          "all_unseen_block_indices": [
+            1
+          ]
+        },
+        {
+          "negative": "ccbd",
+          "block_index": 1,
+          "projection": "ccb",
+          "all_unseen_block_indices": [
+            1
+          ]
+        },
+        {
+          "negative": "cdaa",
+          "block_index": 0,
+          "projection": "daa",
+          "all_unseen_block_indices": [
+            0,
+            1
+          ]
+        },
+        {
+          "negative": "cdcb",
+          "block_index": 1,
+          "projection": "ccb",
+          "all_unseen_block_indices": [
+            1
+          ]
+        },
+        {
+          "negative": "daba",
+          "block_index": 0,
+          "projection": "daa",
+          "all_unseen_block_indices": [
+            0,
+            1
+          ]
+        },
+        {
+          "negative": "dbab",
+          "block_index": 0,
+          "projection": "da",
+          "all_unseen_block_indices": [
+            0
+          ]
+        },
+        {
+          "negative": "dbbb",
+          "block_index": 1,
+          "projection": "bbb",
+          "all_unseen_block_indices": [
+            1
+          ]
+        },
+        {
+          "negative": "dbcb",
+          "block_index": 1,
+          "projection": "bcb",
+          "all_unseen_block_indices": [
+            1
+          ]
+        },
+        {
+          "negative": "dcab",
+          "block_index": 0,
+          "projection": "da",
+          "all_unseen_block_indices": [
+            0
+          ]
+        },
+        {
+          "negative": "dcbb",
+          "block_index": 1,
+          "projection": "cbb",
+          "all_unseen_block_indices": [
+            1
+          ]
+        },
+        {
+          "negative": "ddbd",
+          "block_index": 0,
+          "projection": "ddd",
+          "all_unseen_block_indices": [
+            0,
+            1
+          ]
+        },
+        {
+          "negative": "ddc",
+          "block_index": 1,
+          "projection": "c",
+          "all_unseen_block_indices": [
+            1
+          ]
+        },
+        {
+          "negative": "ddca",
+          "block_index": 0,
+          "projection": "dda",
+          "all_unseen_block_indices": [
+            0,
+            1
+          ]
+        }
+      ]
+    }
+  ],
+  "metrics": {
+    "negative_constraints": 32,
+    "distinguisher_calls": 1024,
+    "distinguisher_terms": 2907,
+    "direct_record_checks": 1,
+    "preprocessing_seconds": 0.02018689998658374,
+    "constraints_stored": 33,
+    "provider_seconds": 0.034481999988202006,
+    "nodes_visited": 11,
+    "complete_assignments": 3,
+    "pruned_nodes": 5,
+    "constraint_evaluations": 255,
+    "cli_seconds_before_serialization": 0.061549299978651106
+  },
+  "limitations": "Unbounded regular local factors; no local DFA recovery, distribution-free recovery, novelty, or efficiency guarantee."
+}

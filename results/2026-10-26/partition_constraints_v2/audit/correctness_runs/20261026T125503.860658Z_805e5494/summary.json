@@ -1,0 +1,962 @@
+{
+  "run_id": "20261026T125503.860658Z_805e5494",
+  "created_utc": "2026-10-26T13:15:41.185332+00:00",
+  "scientific_status": "incomplete_due_to_provider_timeout",
+  "execution_status": "success",
+  "runtime_version": "C002-R1",
+  "runtime_manifest_sha256": "b7a5b30974500ea610689a7d6ca627437508d6cf63a59fd5e8b6c5a18206859b",
+  "corpus_manifest_sha256": "a4ef5c7124b9852cb30c5eb8e86f6e8bd1fa53bf3d4e9ab5d89d70f9b48efd13",
+  "legacy_extension_manifest_sha256": "d8cabac94e6fe9afbb2a93145c57fb987ddf803140638f1a18ddf48d3ed456d3",
+  "legacy_extension_inputs_sha256": "4db795870740d4b32cea6e81b3f0773a9dd0ca6a99e26bcff8e2823df530728d",
+  "previous_run_id": "20261026T123752.173646Z_dd9ca0cd",
+  "previous_capture_attempt_id": "20261026T123751.304862Z_11599e4f62",
+  "previous_failure_artifact_sha256": "66b22a2e34df52578bc9fa205c260eeb9a3d25f483ed9025f06367161c9931d2",
+  "previous_capture_execution_status": "program_error",
+  "elapsed_seconds": 1236.9177893999731,
+  "counts": {
+    "case_count": 10594,
+    "resumed_records": {
+      "baseline": 123,
+      "baseline_unpruned": 123,
+      "eager": 123,
+      "lazy": 122
+    },
+    "replayed_cases": 491,
+    "executed_provider_calls": 31414,
+    "by_dataset": {
+      "finite_generator_140": 140,
+      "performance_100": 100,
+      "prior_abc_81": 81,
+      "prior_binary_2187": 2187,
+      "prior_theory_4": 4,
+      "random_ternary_5000": 5000,
+      "targeted_controls": 9,
+      "legacy_generator_extension_v1": 3072,
+      "supplemental_controls": 1
+    },
+    "reference_counts": {
+      "baseline_unpruned": 8316,
+      "boolean_oracle": 2278
+    },
+    "status_counts": {
+      "baseline": {
+        "unique": 4772,
+        "ambiguous": 2461,
+        "infeasible": 3361
+      },
+      "eager": {
+        "unique": 4772,
+        "ambiguous": 2461,
+        "infeasible": 3361
+      },
+      "lazy": {
+        "unique": 4772,
+        "ambiguous": 2444,
+        "incomplete": 17,
+        "infeasible": 3361
+      }
+    },
+    "complete_set_comparisons": {
+      "baseline": 10594,
+      "eager": 10594,
+      "lazy": 10577
+    },
+    "incomplete_results": [
+      {
+        "case_id": "finite_generator_140_m10_002",
+        "dataset": "finite_generator_140",
+        "method": "lazy",
+        "found_partition_count": 213,
+        "elapsed_seconds": 30.00085500004934
+      },
+      {
+        "case_id": "finite_generator_140_m10_004",
+        "dataset": "finite_generator_140",
+        "method": "lazy",
+        "found_partition_count": 187,
+        "elapsed_seconds": 30.001491800008807
+      },
+      {
+        "case_id": "finite_generator_140_m10_007",
+        "dataset": "finite_generator_140",
+        "method": "lazy",
+        "found_partition_count": 158,
+        "elapsed_seconds": 30.000544900016394
+      },
+      {
+        "case_id": "finite_generator_140_m10_012",
+        "dataset": "finite_generator_140",
+        "method": "lazy",
+        "found_partition_count": 184,
+        "elapsed_seconds": 30.000953900045715
+      },
+      {
+        "case_id": "finite_generator_140_m10_015",
+        "dataset": "finite_generator_140",
+        "method": "lazy",
+        "found_partition_count": 187,
+        "elapsed_seconds": 30.00125749997096
+      },
+      {
+        "case_id": "finite_generator_140_m10_016",
+        "dataset": "finite_generator_140",
+        "method": "lazy",
+        "found_partition_count": 205,
+        "elapsed_seconds": 30.002482299983967
+      },
+      {
+        "case_id": "finite_generator_140_m10_017",
+        "dataset": "finite_generator_140",
+        "method": "lazy",
+        "found_partition_count": 191,
+        "elapsed_seconds": 30.000647399981972
+      },
+      {
+        "case_id": "finite_generator_140_m10_018",
+        "dataset": "finite_generator_140",
+        "method": "lazy",
+        "found_partition_count": 209,
+        "elapsed_seconds": 30.000682900019456
+      },
+      {
+        "case_id": "finite_generator_140_m10_019",
+        "dataset": "finite_generator_140",
+        "method": "lazy",
+        "found_partition_count": 194,
+        "elapsed_seconds": 30.001295700029004
+      },
+      {
+        "case_id": "performance_100_m10_000",
+        "dataset": "performance_100",
+        "method": "lazy",
+        "found_partition_count": 194,
+        "elapsed_seconds": 30.000845700036734
+      },
+      {
+        "case_id": "performance_100_m10_004",
+        "dataset": "performance_100",
+        "method": "lazy",
+        "found_partition_count": 160,
+        "elapsed_seconds": 30.001332400017418
+      },
+      {
+        "case_id": "performance_100_m10_005",
+        "dataset": "performance_100",
+        "method": "lazy",
+        "found_partition_count": 146,
+        "elapsed_seconds": 30.00110220001079
+      },
+      {
+        "case_id": "performance_100_m10_014",
+        "dataset": "performance_100",
+        "method": "lazy",
+        "found_partition_count": 155,
+        "elapsed_seconds": 30.00117709999904
+      },
+      {
+        "case_id": "performance_100_m10_015",
+        "dataset": "performance_100",
+        "method": "lazy",
+        "found_partition_count": 192,
+        "elapsed_seconds": 30.000821400026325
+      },
+      {
+        "case_id": "performance_100_m10_017",
+        "dataset": "performance_100",
+        "method": "lazy",
+        "found_partition_count": 162,
+        "elapsed_seconds": 30.000661100028083
+      },
+      {
+        "case_id": "performance_100_m10_021",
+        "dataset": "performance_100",
+        "method": "lazy",
+        "found_partition_count": 192,
+        "elapsed_seconds": 30.001077199995052
+      },
+      {
+        "case_id": "performance_100_m10_022",
+        "dataset": "performance_100",
+        "method": "lazy",
+        "found_partition_count": 220,
+        "elapsed_seconds": 30.00073930004146
+      }
+    ],
+    "over_30_second_results": [
+      {
+        "case_id": "finite_generator_140_m10_002",
+        "dataset": "finite_generator_140",
+        "method": "lazy",
+        "elapsed_seconds": 30.00085500004934
+      },
+      {
+        "case_id": "finite_generator_140_m10_004",
+        "dataset": "finite_generator_140",
+        "method": "lazy",
+        "elapsed_seconds": 30.001491800008807
+      },
+      {
+        "case_id": "finite_generator_140_m10_007",
+        "dataset": "finite_generator_140",
+        "method": "lazy",
+        "elapsed_seconds": 30.000544900016394
+      },
+      {
+        "case_id": "finite_generator_140_m10_012",
+        "dataset": "finite_generator_140",
+        "method": "lazy",
+        "elapsed_seconds": 30.000953900045715
+      },
+      {
+        "case_id": "finite_generator_140_m10_015",
+        "dataset": "finite_generator_140",
+        "method": "lazy",
+        "elapsed_seconds": 30.00125749997096
+      },
+      {
+        "case_id": "finite_generator_140_m10_016",
+        "dataset": "finite_generator_140",
+        "method": "lazy",
+        "elapsed_seconds": 30.002482299983967
+      },
+      {
+        "case_id": "finite_generator_140_m10_017",
+        "dataset": "finite_generator_140",
+        "method": "lazy",
+        "elapsed_seconds": 30.000647399981972
+      },
+      {
+        "case_id": "finite_generator_140_m10_018",
+        "dataset": "finite_generator_140",
+        "method": "lazy",
+        "elapsed_seconds": 30.000682900019456
+      },
+      {
+        "case_id": "finite_generator_140_m10_019",
+        "dataset": "finite_generator_140",
+        "method": "lazy",
+        "elapsed_seconds": 30.001295700029004
+      },
+      {
+        "case_id": "performance_100_m10_000",
+        "dataset": "performance_100",
+        "method": "lazy",
+        "elapsed_seconds": 30.000845700036734
+      },
+      {
+        "case_id": "performance_100_m10_004",
+        "dataset": "performance_100",
+        "method": "lazy",
+        "elapsed_seconds": 30.001332400017418
+      },
+      {
+        "case_id": "performance_100_m10_005",
+        "dataset": "performance_100",
+        "method": "lazy",
+        "elapsed_seconds": 30.00110220001079
+      },
+      {
+        "case_id": "performance_100_m10_014",
+        "dataset": "performance_100",
+        "method": "lazy",
+        "elapsed_seconds": 30.00117709999904
+      },
+      {
+        "case_id": "performance_100_m10_015",
+        "dataset": "performance_100",
+        "method": "lazy",
+        "elapsed_seconds": 30.000821400026325
+      },
+      {
+        "case_id": "performance_100_m10_017",
+        "dataset": "performance_100",
+        "method": "lazy",
+        "elapsed_seconds": 30.000661100028083
+      },
+      {
+        "case_id": "performance_100_m10_021",
+        "dataset": "performance_100",
+        "method": "lazy",
+        "elapsed_seconds": 30.001077199995052
+      },
+      {
+        "case_id": "performance_100_m10_022",
+        "dataset": "performance_100",
+        "method": "lazy",
+        "elapsed_seconds": 30.00073930004146
+      }
+    ],
+    "witness_records_validated": 64391,
+    "true_partition_checks": 3312,
+    "boolean_oracle_cases": 2278,
+    "direct_projection_crosschecks": 10594,
+    "mismatch_count": 0,
+    "provider_error_count": 0
+  },
+  "cooperative_deadline_results": {
+    "baseline": {
+      "result": {
+        "alphabet": [
+          "a",
+          "b",
+          "c"
+        ],
+        "k": 2,
+        "method": "baseline",
+        "complete": false,
+        "status": "incomplete",
+        "interpretation": "Interrupted enumeration: stored partitions are only a lower-bound set.",
+        "sample_size": {
+          "positive": 2,
+          "negative": 1
+        },
+        "graph": {
+          "edges": [],
+          "components": [
+            [
+              "a"
+            ],
+            [
+              "b"
+            ],
+            [
+              "c"
+            ]
+          ],
+          "component_count": 3,
+          "known_k_certificate": false,
+          "certificate_condition": "Requires a true noise-free two-block disjoint-alphabet target."
+        },
+        "search": {
+          "graph_pruning": true,
+          "candidates_checked": 0,
+          "all_symbol_bipartitions": 3
+        },
+        "feasible_partition_count": null,
+        "found_partition_count": 0,
+        "feasible_partitions": [],
+        "metrics": {
+          "provider_seconds": 8.379999781027436e-05,
+          "baseline_engine": "immutable_v1",
+          "deadline_granularity": "before_and_after_v1_call"
+        },
+        "limitations": "Unbounded regular local factors; no local DFA recovery, distribution-free recovery, novelty, or efficiency guarantee."
+      },
+      "interpreted_status": "incomplete"
+    },
+    "eager": {
+      "result": {
+        "alphabet": [
+          "a",
+          "b",
+          "c"
+        ],
+        "k": 2,
+        "method": "eager",
+        "complete": false,
+        "status": "incomplete",
+        "interpretation": "Interrupted enumeration: stored partitions are only a lower-bound set.",
+        "sample_size": {
+          "positive": 2,
+          "negative": 1
+        },
+        "graph": {
+          "edges": [],
+          "components": [
+            [
+              "a"
+            ],
+            [
+              "b"
+            ],
+            [
+              "c"
+            ]
+          ],
+          "component_count": 3,
+          "known_k_certificate": false,
+          "certificate_condition": "Requires a true noise-free two-block disjoint-alphabet target."
+        },
+        "search": {
+          "graph_pruning": true,
+          "candidates_checked": 0,
+          "all_symbol_bipartitions": 3
+        },
+        "feasible_partition_count": null,
+        "found_partition_count": 0,
+        "feasible_partitions": [],
+        "metrics": {
+          "negative_constraints": 0,
+          "distinguisher_calls": 0,
+          "distinguisher_terms": 0,
+          "direct_record_checks": 0,
+          "preprocessing_seconds": 4.970002919435501e-05,
+          "constraints_stored": 0,
+          "provider_seconds": 5.2799994591623545e-05,
+          "nodes_visited": 0,
+          "complete_assignments": 0,
+          "pruned_nodes": 0,
+          "constraint_evaluations": 0
+        },
+        "limitations": "Unbounded regular local factors; no local DFA recovery, distribution-free recovery, novelty, or efficiency guarantee."
+      },
+      "interpreted_status": "incomplete"
+    },
+    "lazy": {
+      "result": {
+        "alphabet": [
+          "a",
+          "b",
+          "c"
+        ],
+        "k": 2,
+        "method": "lazy",
+        "complete": false,
+        "status": "incomplete",
+        "interpretation": "Interrupted enumeration: stored partitions are only a lower-bound set.",
+        "sample_size": {
+          "positive": 2,
+          "negative": 1
+        },
+        "graph": {
+          "edges": [],
+          "components": [
+            [
+              "a"
+            ],
+            [
+              "b"
+            ],
+            [
+              "c"
+            ]
+          ],
+          "component_count": 3,
+          "known_k_certificate": false,
+          "certificate_condition": "Requires a true noise-free two-block disjoint-alphabet target."
+        },
+        "search": {
+          "graph_pruning": true,
+          "candidates_checked": 0,
+          "all_symbol_bipartitions": 3
+        },
+        "feasible_partition_count": null,
+        "found_partition_count": 0,
+        "feasible_partitions": [],
+        "metrics": {
+          "search_calls": 0,
+          "lazy_cuts": 0,
+          "answer_blockers": 0,
+          "distinguisher_calls": 0,
+          "distinguisher_cache_hits": 0,
+          "distinguisher_terms": 0,
+          "direct_record_checks": 0,
+          "preprocessing_seconds": 4.6900007873773575e-05,
+          "separation_seconds": 0.0,
+          "cut_generation_seconds": 0.0,
+          "constraints_stored": 0,
+          "provider_seconds": 4.929996794089675e-05,
+          "search_restarts": 0,
+          "nodes_visited": 0,
+          "complete_assignments": 0,
+          "pruned_nodes": 0,
+          "constraint_evaluations": 0
+        },
+        "limitations": "Unbounded regular local factors; no local DFA recovery, distribution-free recovery, novelty, or efficiency guarantee."
+      },
+      "interpreted_status": "incomplete"
+    }
+  },
+  "invalid_cli_results": [
+    {
+      "case_id": "invalid_0",
+      "method": "baseline",
+      "input": {
+        "alphabet": [
+          "a",
+          "b"
+        ],
+        "positive": [
+          "ab"
+        ],
+        "negative": [
+          "ab"
+        ]
+      },
+      "input_sha256": "c462db9e60ceddba23f4b1807e31fdd338ba0b3a2688c70e5479caab6b9b82d2",
+      "exit_code": 2,
+      "stdout": {
+        "status": "invalid_input",
+        "error": "A word cannot have both labels"
+      }
+    },
+    {
+      "case_id": "invalid_0",
+      "method": "eager",
+      "input": {
+        "alphabet": [
+          "a",
+          "b"
+        ],
+        "positive": [
+          "ab"
+        ],
+        "negative": [
+          "ab"
+        ]
+      },
+      "input_sha256": "c462db9e60ceddba23f4b1807e31fdd338ba0b3a2688c70e5479caab6b9b82d2",
+      "exit_code": 2,
+      "stdout": {
+        "status": "invalid_input",
+        "error": "A word cannot have both labels"
+      }
+    },
+    {
+      "case_id": "invalid_0",
+      "method": "lazy",
+      "input": {
+        "alphabet": [
+          "a",
+          "b"
+        ],
+        "positive": [
+          "ab"
+        ],
+        "negative": [
+          "ab"
+        ]
+      },
+      "input_sha256": "c462db9e60ceddba23f4b1807e31fdd338ba0b3a2688c70e5479caab6b9b82d2",
+      "exit_code": 2,
+      "stdout": {
+        "status": "invalid_input",
+        "error": "A word cannot have both labels"
+      }
+    },
+    {
+      "case_id": "invalid_1",
+      "method": "baseline",
+      "input": {
+        "alphabet": [
+          "a",
+          "b"
+        ],
+        "positive": [
+          "ac"
+        ],
+        "negative": []
+      },
+      "input_sha256": "6cf0dfd1391867e04001dee1f5f23da63d90e9fc7b1eae7187b7e7778cc9426e",
+      "exit_code": 2,
+      "stdout": {
+        "status": "invalid_input",
+        "error": "positive contains a symbol outside alphabet"
+      }
+    },
+    {
+      "case_id": "invalid_1",
+      "method": "eager",
+      "input": {
+        "alphabet": [
+          "a",
+          "b"
+        ],
+        "positive": [
+          "ac"
+        ],
+        "negative": []
+      },
+      "input_sha256": "6cf0dfd1391867e04001dee1f5f23da63d90e9fc7b1eae7187b7e7778cc9426e",
+      "exit_code": 2,
+      "stdout": {
+        "status": "invalid_input",
+        "error": "positive contains a symbol outside alphabet"
+      }
+    },
+    {
+      "case_id": "invalid_1",
+      "method": "lazy",
+      "input": {
+        "alphabet": [
+          "a",
+          "b"
+        ],
+        "positive": [
+          "ac"
+        ],
+        "negative": []
+      },
+      "input_sha256": "6cf0dfd1391867e04001dee1f5f23da63d90e9fc7b1eae7187b7e7778cc9426e",
+      "exit_code": 2,
+      "stdout": {
+        "status": "invalid_input",
+        "error": "positive contains a symbol outside alphabet"
+      }
+    },
+    {
+      "case_id": "invalid_2",
+      "method": "baseline",
+      "input": {
+        "alphabet": [
+          "a",
+          "a"
+        ],
+        "positive": [],
+        "negative": []
+      },
+      "input_sha256": "57ef6c58be10c8a2900327efd07261d5da3ee508ab8c9782ab9ee30f964e4b16",
+      "exit_code": 2,
+      "stdout": {
+        "status": "invalid_input",
+        "error": "alphabet must list 2..10 distinct one-character strings"
+      }
+    },
+    {
+      "case_id": "invalid_2",
+      "method": "eager",
+      "input": {
+        "alphabet": [
+          "a",
+          "a"
+        ],
+        "positive": [],
+        "negative": []
+      },
+      "input_sha256": "57ef6c58be10c8a2900327efd07261d5da3ee508ab8c9782ab9ee30f964e4b16",
+      "exit_code": 2,
+      "stdout": {
+        "status": "invalid_input",
+        "error": "alphabet must list 2..10 distinct one-character strings"
+      }
+    },
+    {
+      "case_id": "invalid_2",
+      "method": "lazy",
+      "input": {
+        "alphabet": [
+          "a",
+          "a"
+        ],
+        "positive": [],
+        "negative": []
+      },
+      "input_sha256": "57ef6c58be10c8a2900327efd07261d5da3ee508ab8c9782ab9ee30f964e4b16",
+      "exit_code": 2,
+      "stdout": {
+        "status": "invalid_input",
+        "error": "alphabet must list 2..10 distinct one-character strings"
+      }
+    },
+    {
+      "case_id": "invalid_3",
+      "method": "baseline",
+      "input": {
+        "alphabet": [
+          "a"
+        ],
+        "positive": [],
+        "negative": []
+      },
+      "input_sha256": "17e2553044020ac4fad9912d4f1576de5c7ee64604430b6c9e7794fa7b044fa2",
+      "exit_code": 2,
+      "stdout": {
+        "status": "invalid_input",
+        "error": "alphabet must list 2..10 distinct one-character strings"
+      }
+    },
+    {
+      "case_id": "invalid_3",
+      "method": "eager",
+      "input": {
+        "alphabet": [
+          "a"
+        ],
+        "positive": [],
+        "negative": []
+      },
+      "input_sha256": "17e2553044020ac4fad9912d4f1576de5c7ee64604430b6c9e7794fa7b044fa2",
+      "exit_code": 2,
+      "stdout": {
+        "status": "invalid_input",
+        "error": "alphabet must list 2..10 distinct one-character strings"
+      }
+    },
+    {
+      "case_id": "invalid_3",
+      "method": "lazy",
+      "input": {
+        "alphabet": [
+          "a"
+        ],
+        "positive": [],
+        "negative": []
+      },
+      "input_sha256": "17e2553044020ac4fad9912d4f1576de5c7ee64604430b6c9e7794fa7b044fa2",
+      "exit_code": 2,
+      "stdout": {
+        "status": "invalid_input",
+        "error": "alphabet must list 2..10 distinct one-character strings"
+      }
+    },
+    {
+      "case_id": "invalid_4",
+      "method": "baseline",
+      "input": {
+        "alphabet": [
+          "a",
+          "b"
+        ],
+        "positive": "ab",
+        "negative": []
+      },
+      "input_sha256": "96203e11b63e07eb5cb501256e7d537ac52ad5c94e8d242eb6c5f31bbe5541f6",
+      "exit_code": 2,
+      "stdout": {
+        "status": "invalid_input",
+        "error": "positive must be a list of strings"
+      }
+    },
+    {
+      "case_id": "invalid_4",
+      "method": "eager",
+      "input": {
+        "alphabet": [
+          "a",
+          "b"
+        ],
+        "positive": "ab",
+        "negative": []
+      },
+      "input_sha256": "96203e11b63e07eb5cb501256e7d537ac52ad5c94e8d242eb6c5f31bbe5541f6",
+      "exit_code": 2,
+      "stdout": {
+        "status": "invalid_input",
+        "error": "positive must be a list of strings"
+      }
+    },
+    {
+      "case_id": "invalid_4",
+      "method": "lazy",
+      "input": {
+        "alphabet": [
+          "a",
+          "b"
+        ],
+        "positive": "ab",
+        "negative": []
+      },
+      "input_sha256": "96203e11b63e07eb5cb501256e7d537ac52ad5c94e8d242eb6c5f31bbe5541f6",
+      "exit_code": 2,
+      "stdout": {
+        "status": "invalid_input",
+        "error": "positive must be a list of strings"
+      }
+    }
+  ],
+  "cli_deadline_results": [
+    {
+      "method": "baseline",
+      "raw_exit_code": 3,
+      "raw_process_status": "program_error",
+      "interpreted_solver_status": "incomplete",
+      "result": {
+        "alphabet": [
+          "a",
+          "b",
+          "c"
+        ],
+        "k": 2,
+        "method": "baseline",
+        "complete": false,
+        "status": "incomplete",
+        "interpretation": "Interrupted enumeration: stored partitions are only a lower-bound set.",
+        "sample_size": {
+          "positive": 2,
+          "negative": 1
+        },
+        "graph": {
+          "edges": [],
+          "components": [
+            [
+              "a"
+            ],
+            [
+              "b"
+            ],
+            [
+              "c"
+            ]
+          ],
+          "component_count": 3,
+          "known_k_certificate": false,
+          "certificate_condition": "Requires a true noise-free two-block disjoint-alphabet target."
+        },
+        "search": {
+          "graph_pruning": true,
+          "candidates_checked": 0,
+          "all_symbol_bipartitions": 3
+        },
+        "feasible_partition_count": null,
+        "found_partition_count": 0,
+        "feasible_partitions": [],
+        "metrics": {
+          "provider_seconds": 6.089999806135893e-05,
+          "baseline_engine": "immutable_v1",
+          "deadline_granularity": "before_and_after_v1_call",
+          "cli_seconds_before_serialization": 0.006711199996061623
+        },
+        "limitations": "Unbounded regular local factors; no local DFA recovery, distribution-free recovery, novelty, or efficiency guarantee."
+      }
+    },
+    {
+      "method": "eager",
+      "raw_exit_code": 3,
+      "raw_process_status": "program_error",
+      "interpreted_solver_status": "incomplete",
+      "result": {
+        "alphabet": [
+          "a",
+          "b",
+          "c"
+        ],
+        "k": 2,
+        "method": "eager",
+        "complete": false,
+        "status": "incomplete",
+        "interpretation": "Interrupted enumeration: stored partitions are only a lower-bound set.",
+        "sample_size": {
+          "positive": 2,
+          "negative": 1
+        },
+        "graph": {
+          "edges": [],
+          "components": [
+            [
+              "a"
+            ],
+            [
+              "b"
+            ],
+            [
+              "c"
+            ]
+          ],
+          "component_count": 3,
+          "known_k_certificate": false,
+          "certificate_condition": "Requires a true noise-free two-block disjoint-alphabet target."
+        },
+        "search": {
+          "graph_pruning": true,
+          "candidates_checked": 0,
+          "all_symbol_bipartitions": 3
+        },
+        "feasible_partition_count": null,
+        "found_partition_count": 0,
+        "feasible_partitions": [],
+        "metrics": {
+          "negative_constraints": 0,
+          "distinguisher_calls": 0,
+          "distinguisher_terms": 0,
+          "direct_record_checks": 0,
+          "preprocessing_seconds": 4.7200010158121586e-05,
+          "constraints_stored": 0,
+          "provider_seconds": 4.989997250959277e-05,
+          "nodes_visited": 0,
+          "complete_assignments": 0,
+          "pruned_nodes": 0,
+          "constraint_evaluations": 0,
+          "cli_seconds_before_serialization": 0.005989100027363747
+        },
+        "limitations": "Unbounded regular local factors; no local DFA recovery, distribution-free recovery, novelty, or efficiency guarantee."
+      }
+    },
+    {
+      "method": "lazy",
+      "raw_exit_code": 3,
+      "raw_process_status": "program_error",
+      "interpreted_solver_status": "incomplete",
+      "result": {
+        "alphabet": [
+          "a",
+          "b",
+          "c"
+        ],
+        "k": 2,
+        "method": "lazy",
+        "complete": false,
+        "status": "incomplete",
+        "interpretation": "Interrupted enumeration: stored partitions are only a lower-bound set.",
+        "sample_size": {
+          "positive": 2,
+          "negative": 1
+        },
+        "graph": {
+          "edges": [],
+          "components": [
+            [
+              "a"
+            ],
+            [
+              "b"
+            ],
+            [
+              "c"
+            ]
+          ],
+          "component_count": 3,
+          "known_k_certificate": false,
+          "certificate_condition": "Requires a true noise-free two-block disjoint-alphabet target."
+        },
+        "search": {
+          "graph_pruning": true,
+          "candidates_checked": 0,
+          "all_symbol_bipartitions": 3
+        },
+        "feasible_partition_count": null,
+        "found_partition_count": 0,
+        "feasible_partitions": [],
+        "metrics": {
+          "search_calls": 0,
+          "lazy_cuts": 0,
+          "answer_blockers": 0,
+          "distinguisher_calls": 0,
+          "distinguisher_cache_hits": 0,
+          "distinguisher_terms": 0,
+          "direct_record_checks": 0,
+          "preprocessing_seconds": 5.2099989261478186e-05,
+          "separation_seconds": 0.0,
+          "cut_generation_seconds": 0.0,
+          "constraints_stored": 0,
+          "provider_seconds": 5.519995465874672e-05,
+          "search_restarts": 0,
+          "nodes_visited": 0,
+          "complete_assignments": 0,
+          "pruned_nodes": 0,
+          "constraint_evaluations": 0,
+          "cli_seconds_before_serialization": 0.006896300008520484
+        },
+        "limitations": "Unbounded regular local factors; no local DFA recovery, distribution-free recovery, novelty, or efficiency guarantee."
+      }
+    }
+  ],
+  "result_files": {
+    "baseline": "baseline.jsonl.gz",
+    "baseline_unpruned": "baseline_unpruned.jsonl.gz",
+    "eager": "eager.jsonl.gz",
+    "lazy": "lazy.jsonl.gz"
+  },
+  "result_file_sha256": {
+    "baseline": "22bfd704266034b3bf67e627197ad7d7dfd41472cbbfe386624625dde2f92313",
+    "baseline_unpruned": "25b034638e1361e5c0cdab9ace95b7f74a00caa808461f8dfcc753e50e582483",
+    "eager": "33d74d1eb694a9c8cc0fd090870420c0373612b530ebd90fdb330383cdd20082",
+    "lazy": "7d7c6e31d7371b92ed960a7400c8ffc02c07f9cd38ec556d935250ad0f0b14af"
+  },
+  "mismatches": [],
+  "provider_errors": [],
+  "limitations": [
+    "Correctness executes providers in one process and is not timing evidence.",
+    "A provider result with complete=false is preserved and does not count as a complete-set comparison.",
+    "Hard 30-second per-process limits are measured in the separate fresh-process benchmark."
+  ]
+}

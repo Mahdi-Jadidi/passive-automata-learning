@@ -1,0 +1,2849 @@
+[
+  {
+    "case_id": "canonical",
+    "method": "baseline",
+    "raw_input": {
+      "case_id": "canonical",
+      "alphabet": [
+        "a",
+        "b",
+        "c",
+        "d"
+      ],
+      "positive": [
+        "ab",
+        "ac",
+        "bd",
+        "cd"
+      ],
+      "negative": [
+        "abcd",
+        "ad"
+      ]
+    },
+    "raw_input_sha256": "1e63ea7ce46c27fecd4e9a02bbe1413ab5a749c9c97f3eb3fb17ff91a8cf6045",
+    "normalized_input": {
+      "alphabet": [
+        "a",
+        "b",
+        "c",
+        "d"
+      ],
+      "positive": [
+        "ab",
+        "ac",
+        "bd",
+        "cd"
+      ],
+      "negative": [
+        "abcd",
+        "ad"
+      ]
+    },
+    "result": {
+      "alphabet": [
+        "a",
+        "b",
+        "c",
+        "d"
+      ],
+      "k": 2,
+      "method": "baseline",
+      "complete": true,
+      "status": "ambiguous",
+      "interpretation": "Several two-block partitions fit; the sample does not identify a unique declared partition.",
+      "sample_size": {
+        "positive": 4,
+        "negative": 2
+      },
+      "graph": {
+        "edges": [],
+        "components": [
+          [
+            "a"
+          ],
+          [
+            "b"
+          ],
+          [
+            "c"
+          ],
+          [
+            "d"
+          ]
+        ],
+        "component_count": 4,
+        "known_k_certificate": false,
+        "certificate_condition": "Requires a true noise-free two-block disjoint-alphabet target."
+      },
+      "search": {
+        "graph_pruning": true,
+        "candidates_checked": 7,
+        "all_symbol_bipartitions": 7
+      },
+      "feasible_partition_count": 5,
+      "found_partition_count": 5,
+      "feasible_partitions": [
+        {
+          "blocks": [
+            [
+              "a"
+            ],
+            [
+              "b",
+              "c",
+              "d"
+            ]
+          ],
+          "positive_projection_languages": [
+            [
+              "",
+              "a"
+            ],
+            [
+              "b",
+              "bd",
+              "c",
+              "cd"
+            ]
+          ],
+          "negative_witnesses": [
+            {
+              "negative": "abcd",
+              "block_index": 1,
+              "projection": "bcd",
+              "all_unseen_block_indices": [
+                1
+              ]
+            },
+            {
+              "negative": "ad",
+              "block_index": 1,
+              "projection": "d",
+              "all_unseen_block_indices": [
+                1
+              ]
+            }
+          ]
+        },
+        {
+          "blocks": [
+            [
+              "a",
+              "b",
+              "c"
+            ],
+            [
+              "d"
+            ]
+          ],
+          "positive_projection_languages": [
+            [
+              "ab",
+              "ac",
+              "b",
+              "c"
+            ],
+            [
+              "",
+              "d"
+            ]
+          ],
+          "negative_witnesses": [
+            {
+              "negative": "abcd",
+              "block_index": 0,
+              "projection": "abc",
+              "all_unseen_block_indices": [
+                0
+              ]
+            },
+            {
+              "negative": "ad",
+              "block_index": 0,
+              "projection": "a",
+              "all_unseen_block_indices": [
+                0
+              ]
+            }
+          ]
+        },
+        {
+          "blocks": [
+            [
+              "a",
+              "b",
+              "d"
+            ],
+            [
+              "c"
+            ]
+          ],
+          "positive_projection_languages": [
+            [
+              "a",
+              "ab",
+              "bd",
+              "d"
+            ],
+            [
+              "",
+              "c"
+            ]
+          ],
+          "negative_witnesses": [
+            {
+              "negative": "abcd",
+              "block_index": 0,
+              "projection": "abd",
+              "all_unseen_block_indices": [
+                0
+              ]
+            },
+            {
+              "negative": "ad",
+              "block_index": 0,
+              "projection": "ad",
+              "all_unseen_block_indices": [
+                0
+              ]
+            }
+          ]
+        },
+        {
+          "blocks": [
+            [
+              "a",
+              "c",
+              "d"
+            ],
+            [
+              "b"
+            ]
+          ],
+          "positive_projection_languages": [
+            [
+              "a",
+              "ac",
+              "cd",
+              "d"
+            ],
+            [
+              "",
+              "b"
+            ]
+          ],
+          "negative_witnesses": [
+            {
+              "negative": "abcd",
+              "block_index": 0,
+              "projection": "acd",
+              "all_unseen_block_indices": [
+                0
+              ]
+            },
+            {
+              "negative": "ad",
+              "block_index": 0,
+              "projection": "ad",
+              "all_unseen_block_indices": [
+                0
+              ]
+            }
+          ]
+        },
+        {
+          "blocks": [
+            [
+              "a",
+              "d"
+            ],
+            [
+              "b",
+              "c"
+            ]
+          ],
+          "positive_projection_languages": [
+            [
+              "a",
+              "d"
+            ],
+            [
+              "b",
+              "c"
+            ]
+          ],
+          "negative_witnesses": [
+            {
+              "negative": "abcd",
+              "block_index": 0,
+              "projection": "ad",
+              "all_unseen_block_indices": [
+                0,
+                1
+              ]
+            },
+            {
+              "negative": "ad",
+              "block_index": 0,
+              "projection": "ad",
+              "all_unseen_block_indices": [
+                0,
+                1
+              ]
+            }
+          ]
+        }
+      ],
+      "metrics": {
+        "provider_seconds": 0.018978199979756027,
+        "baseline_engine": "immutable_v1",
+        "deadline_granularity": "before_and_after_v1_call",
+        "complete_assignments": 7
+      },
+      "limitations": "Unbounded regular local factors; no local DFA recovery, distribution-free recovery, novelty, or efficiency guarantee."
+    },
+    "elapsed_seconds": 0.019025799992959946,
+    "validated_status": "complete",
+    "witness_records_validated": 5
+  },
+  {
+    "case_id": "canonical",
+    "method": "eager",
+    "raw_input": {
+      "case_id": "canonical",
+      "alphabet": [
+        "a",
+        "b",
+        "c",
+        "d"
+      ],
+      "positive": [
+        "ab",
+        "ac",
+        "bd",
+        "cd"
+      ],
+      "negative": [
+        "abcd",
+        "ad"
+      ]
+    },
+    "raw_input_sha256": "1e63ea7ce46c27fecd4e9a02bbe1413ab5a749c9c97f3eb3fb17ff91a8cf6045",
+    "normalized_input": {
+      "alphabet": [
+        "a",
+        "b",
+        "c",
+        "d"
+      ],
+      "positive": [
+        "ab",
+        "ac",
+        "bd",
+        "cd"
+      ],
+      "negative": [
+        "abcd",
+        "ad"
+      ]
+    },
+    "result": {
+      "alphabet": [
+        "a",
+        "b",
+        "c",
+        "d"
+      ],
+      "k": 2,
+      "method": "eager",
+      "complete": true,
+      "status": "ambiguous",
+      "interpretation": "Several two-block partitions fit; the sample does not identify a unique declared partition.",
+      "sample_size": {
+        "positive": 4,
+        "negative": 2
+      },
+      "graph": {
+        "edges": [],
+        "components": [
+          [
+            "a"
+          ],
+          [
+            "b"
+          ],
+          [
+            "c"
+          ],
+          [
+            "d"
+          ]
+        ],
+        "component_count": 4,
+        "known_k_certificate": false,
+        "certificate_condition": "Requires a true noise-free two-block disjoint-alphabet target."
+      },
+      "search": {
+        "graph_pruning": true,
+        "candidates_checked": 7,
+        "all_symbol_bipartitions": 7
+      },
+      "feasible_partition_count": 5,
+      "found_partition_count": 5,
+      "feasible_partitions": [
+        {
+          "blocks": [
+            [
+              "a"
+            ],
+            [
+              "b",
+              "c",
+              "d"
+            ]
+          ],
+          "positive_projection_languages": [
+            [
+              "",
+              "a"
+            ],
+            [
+              "b",
+              "bd",
+              "c",
+              "cd"
+            ]
+          ],
+          "negative_witnesses": [
+            {
+              "negative": "abcd",
+              "block_index": 1,
+              "projection": "bcd",
+              "all_unseen_block_indices": [
+                1
+              ]
+            },
+            {
+              "negative": "ad",
+              "block_index": 1,
+              "projection": "d",
+              "all_unseen_block_indices": [
+                1
+              ]
+            }
+          ]
+        },
+        {
+          "blocks": [
+            [
+              "a",
+              "b",
+              "c"
+            ],
+            [
+              "d"
+            ]
+          ],
+          "positive_projection_languages": [
+            [
+              "ab",
+              "ac",
+              "b",
+              "c"
+            ],
+            [
+              "",
+              "d"
+            ]
+          ],
+          "negative_witnesses": [
+            {
+              "negative": "abcd",
+              "block_index": 0,
+              "projection": "abc",
+              "all_unseen_block_indices": [
+                0
+              ]
+            },
+            {
+              "negative": "ad",
+              "block_index": 0,
+              "projection": "a",
+              "all_unseen_block_indices": [
+                0
+              ]
+            }
+          ]
+        },
+        {
+          "blocks": [
+            [
+              "a",
+              "b",
+              "d"
+            ],
+            [
+              "c"
+            ]
+          ],
+          "positive_projection_languages": [
+            [
+              "a",
+              "ab",
+              "bd",
+              "d"
+            ],
+            [
+              "",
+              "c"
+            ]
+          ],
+          "negative_witnesses": [
+            {
+              "negative": "abcd",
+              "block_index": 0,
+              "projection": "abd",
+              "all_unseen_block_indices": [
+                0
+              ]
+            },
+            {
+              "negative": "ad",
+              "block_index": 0,
+              "projection": "ad",
+              "all_unseen_block_indices": [
+                0
+              ]
+            }
+          ]
+        },
+        {
+          "blocks": [
+            [
+              "a",
+              "c",
+              "d"
+            ],
+            [
+              "b"
+            ]
+          ],
+          "positive_projection_languages": [
+            [
+              "a",
+              "ac",
+              "cd",
+              "d"
+            ],
+            [
+              "",
+              "b"
+            ]
+          ],
+          "negative_witnesses": [
+            {
+              "negative": "abcd",
+              "block_index": 0,
+              "projection": "acd",
+              "all_unseen_block_indices": [
+                0
+              ]
+            },
+            {
+              "negative": "ad",
+              "block_index": 0,
+              "projection": "ad",
+              "all_unseen_block_indices": [
+                0
+              ]
+            }
+          ]
+        },
+        {
+          "blocks": [
+            [
+              "a",
+              "d"
+            ],
+            [
+              "b",
+              "c"
+            ]
+          ],
+          "positive_projection_languages": [
+            [
+              "a",
+              "d"
+            ],
+            [
+              "b",
+              "c"
+            ]
+          ],
+          "negative_witnesses": [
+            {
+              "negative": "abcd",
+              "block_index": 0,
+              "projection": "ad",
+              "all_unseen_block_indices": [
+                0,
+                1
+              ]
+            },
+            {
+              "negative": "ad",
+              "block_index": 0,
+              "projection": "ad",
+              "all_unseen_block_indices": [
+                0,
+                1
+              ]
+            }
+          ]
+        }
+      ],
+      "metrics": {
+        "negative_constraints": 2,
+        "distinguisher_calls": 8,
+        "distinguisher_terms": 16,
+        "direct_record_checks": 5,
+        "preprocessing_seconds": 0.0002943999716080725,
+        "constraints_stored": 2,
+        "provider_seconds": 0.0011273999698460102,
+        "nodes_visited": 15,
+        "complete_assignments": 7,
+        "pruned_nodes": 3,
+        "constraint_evaluations": 26
+      },
+      "limitations": "Unbounded regular local factors; no local DFA recovery, distribution-free recovery, novelty, or efficiency guarantee."
+    },
+    "elapsed_seconds": 0.0011636000126600266,
+    "validated_status": "complete",
+    "witness_records_validated": 5
+  },
+  {
+    "case_id": "canonical",
+    "method": "lazy",
+    "raw_input": {
+      "case_id": "canonical",
+      "alphabet": [
+        "a",
+        "b",
+        "c",
+        "d"
+      ],
+      "positive": [
+        "ab",
+        "ac",
+        "bd",
+        "cd"
+      ],
+      "negative": [
+        "abcd",
+        "ad"
+      ]
+    },
+    "raw_input_sha256": "1e63ea7ce46c27fecd4e9a02bbe1413ab5a749c9c97f3eb3fb17ff91a8cf6045",
+    "normalized_input": {
+      "alphabet": [
+        "a",
+        "b",
+        "c",
+        "d"
+      ],
+      "positive": [
+        "ab",
+        "ac",
+        "bd",
+        "cd"
+      ],
+      "negative": [
+        "abcd",
+        "ad"
+      ]
+    },
+    "result": {
+      "alphabet": [
+        "a",
+        "b",
+        "c",
+        "d"
+      ],
+      "k": 2,
+      "method": "lazy",
+      "complete": true,
+      "status": "ambiguous",
+      "interpretation": "Several two-block partitions fit; the sample does not identify a unique declared partition.",
+      "sample_size": {
+        "positive": 4,
+        "negative": 2
+      },
+      "graph": {
+        "edges": [],
+        "components": [
+          [
+            "a"
+          ],
+          [
+            "b"
+          ],
+          [
+            "c"
+          ],
+          [
+            "d"
+          ]
+        ],
+        "component_count": 4,
+        "known_k_certificate": false,
+        "certificate_condition": "Requires a true noise-free two-block disjoint-alphabet target."
+      },
+      "search": {
+        "graph_pruning": true,
+        "candidates_checked": 35,
+        "all_symbol_bipartitions": 7
+      },
+      "feasible_partition_count": 5,
+      "found_partition_count": 5,
+      "feasible_partitions": [
+        {
+          "blocks": [
+            [
+              "a"
+            ],
+            [
+              "b",
+              "c",
+              "d"
+            ]
+          ],
+          "positive_projection_languages": [
+            [
+              "",
+              "a"
+            ],
+            [
+              "b",
+              "bd",
+              "c",
+              "cd"
+            ]
+          ],
+          "negative_witnesses": [
+            {
+              "negative": "abcd",
+              "block_index": 1,
+              "projection": "bcd",
+              "all_unseen_block_indices": [
+                1
+              ]
+            },
+            {
+              "negative": "ad",
+              "block_index": 1,
+              "projection": "d",
+              "all_unseen_block_indices": [
+                1
+              ]
+            }
+          ]
+        },
+        {
+          "blocks": [
+            [
+              "a",
+              "b",
+              "c"
+            ],
+            [
+              "d"
+            ]
+          ],
+          "positive_projection_languages": [
+            [
+              "ab",
+              "ac",
+              "b",
+              "c"
+            ],
+            [
+              "",
+              "d"
+            ]
+          ],
+          "negative_witnesses": [
+            {
+              "negative": "abcd",
+              "block_index": 0,
+              "projection": "abc",
+              "all_unseen_block_indices": [
+                0
+              ]
+            },
+            {
+              "negative": "ad",
+              "block_index": 0,
+              "projection": "a",
+              "all_unseen_block_indices": [
+                0
+              ]
+            }
+          ]
+        },
+        {
+          "blocks": [
+            [
+              "a",
+              "b",
+              "d"
+            ],
+            [
+              "c"
+            ]
+          ],
+          "positive_projection_languages": [
+            [
+              "a",
+              "ab",
+              "bd",
+              "d"
+            ],
+            [
+              "",
+              "c"
+            ]
+          ],
+          "negative_witnesses": [
+            {
+              "negative": "abcd",
+              "block_index": 0,
+              "projection": "abd",
+              "all_unseen_block_indices": [
+                0
+              ]
+            },
+            {
+              "negative": "ad",
+              "block_index": 0,
+              "projection": "ad",
+              "all_unseen_block_indices": [
+                0
+              ]
+            }
+          ]
+        },
+        {
+          "blocks": [
+            [
+              "a",
+              "c",
+              "d"
+            ],
+            [
+              "b"
+            ]
+          ],
+          "positive_projection_languages": [
+            [
+              "a",
+              "ac",
+              "cd",
+              "d"
+            ],
+            [
+              "",
+              "b"
+            ]
+          ],
+          "negative_witnesses": [
+            {
+              "negative": "abcd",
+              "block_index": 0,
+              "projection": "acd",
+              "all_unseen_block_indices": [
+                0
+              ]
+            },
+            {
+              "negative": "ad",
+              "block_index": 0,
+              "projection": "ad",
+              "all_unseen_block_indices": [
+                0
+              ]
+            }
+          ]
+        },
+        {
+          "blocks": [
+            [
+              "a",
+              "d"
+            ],
+            [
+              "b",
+              "c"
+            ]
+          ],
+          "positive_projection_languages": [
+            [
+              "a",
+              "d"
+            ],
+            [
+              "b",
+              "c"
+            ]
+          ],
+          "negative_witnesses": [
+            {
+              "negative": "abcd",
+              "block_index": 0,
+              "projection": "ad",
+              "all_unseen_block_indices": [
+                0,
+                1
+              ]
+            },
+            {
+              "negative": "ad",
+              "block_index": 0,
+              "projection": "ad",
+              "all_unseen_block_indices": [
+                0,
+                1
+              ]
+            }
+          ]
+        }
+      ],
+      "metrics": {
+        "search_calls": 8,
+        "lazy_cuts": 2,
+        "answer_blockers": 5,
+        "distinguisher_calls": 4,
+        "distinguisher_cache_hits": 0,
+        "distinguisher_terms": 8,
+        "direct_record_checks": 7,
+        "preprocessing_seconds": 8.000002708286047e-05,
+        "separation_seconds": 0.000384500075597316,
+        "cut_generation_seconds": 0.00010529998689889908,
+        "constraints_stored": 7,
+        "provider_seconds": 0.0016441000043414533,
+        "search_restarts": 7,
+        "nodes_visited": 87,
+        "complete_assignments": 35,
+        "pruned_nodes": 36,
+        "constraint_evaluations": 285
+      },
+      "limitations": "Unbounded regular local factors; no local DFA recovery, distribution-free recovery, novelty, or efficiency guarantee."
+    },
+    "elapsed_seconds": 0.001677699969150126,
+    "validated_status": "complete",
+    "witness_records_validated": 5
+  },
+  {
+    "case_id": "permuted_duplicates_1",
+    "method": "baseline",
+    "raw_input": {
+      "case_id": "permuted_duplicates_1",
+      "alphabet": [
+        "d",
+        "b",
+        "a",
+        "c"
+      ],
+      "positive": [
+        "cd",
+        "ab",
+        "ac",
+        "bd",
+        "ab",
+        "ac"
+      ],
+      "negative": [
+        "abcd",
+        "ad",
+        "ad"
+      ]
+    },
+    "raw_input_sha256": "9f3c0ab5ba3397b6374334d7ea7b76315177c63ab4d06076ace561d895c77d65",
+    "normalized_input": {
+      "alphabet": [
+        "a",
+        "b",
+        "c",
+        "d"
+      ],
+      "positive": [
+        "ab",
+        "ac",
+        "bd",
+        "cd"
+      ],
+      "negative": [
+        "abcd",
+        "ad"
+      ]
+    },
+    "result": {
+      "alphabet": [
+        "a",
+        "b",
+        "c",
+        "d"
+      ],
+      "k": 2,
+      "method": "baseline",
+      "complete": true,
+      "status": "ambiguous",
+      "interpretation": "Several two-block partitions fit; the sample does not identify a unique declared partition.",
+      "sample_size": {
+        "positive": 4,
+        "negative": 2
+      },
+      "graph": {
+        "edges": [],
+        "components": [
+          [
+            "a"
+          ],
+          [
+            "b"
+          ],
+          [
+            "c"
+          ],
+          [
+            "d"
+          ]
+        ],
+        "component_count": 4,
+        "known_k_certificate": false,
+        "certificate_condition": "Requires a true noise-free two-block disjoint-alphabet target."
+      },
+      "search": {
+        "graph_pruning": true,
+        "candidates_checked": 7,
+        "all_symbol_bipartitions": 7
+      },
+      "feasible_partition_count": 5,
+      "found_partition_count": 5,
+      "feasible_partitions": [
+        {
+          "blocks": [
+            [
+              "a"
+            ],
+            [
+              "b",
+              "c",
+              "d"
+            ]
+          ],
+          "positive_projection_languages": [
+            [
+              "",
+              "a"
+            ],
+            [
+              "b",
+              "bd",
+              "c",
+              "cd"
+            ]
+          ],
+          "negative_witnesses": [
+            {
+              "negative": "abcd",
+              "block_index": 1,
+              "projection": "bcd",
+              "all_unseen_block_indices": [
+                1
+              ]
+            },
+            {
+              "negative": "ad",
+              "block_index": 1,
+              "projection": "d",
+              "all_unseen_block_indices": [
+                1
+              ]
+            }
+          ]
+        },
+        {
+          "blocks": [
+            [
+              "a",
+              "b",
+              "c"
+            ],
+            [
+              "d"
+            ]
+          ],
+          "positive_projection_languages": [
+            [
+              "ab",
+              "ac",
+              "b",
+              "c"
+            ],
+            [
+              "",
+              "d"
+            ]
+          ],
+          "negative_witnesses": [
+            {
+              "negative": "abcd",
+              "block_index": 0,
+              "projection": "abc",
+              "all_unseen_block_indices": [
+                0
+              ]
+            },
+            {
+              "negative": "ad",
+              "block_index": 0,
+              "projection": "a",
+              "all_unseen_block_indices": [
+                0
+              ]
+            }
+          ]
+        },
+        {
+          "blocks": [
+            [
+              "a",
+              "b",
+              "d"
+            ],
+            [
+              "c"
+            ]
+          ],
+          "positive_projection_languages": [
+            [
+              "a",
+              "ab",
+              "bd",
+              "d"
+            ],
+            [
+              "",
+              "c"
+            ]
+          ],
+          "negative_witnesses": [
+            {
+              "negative": "abcd",
+              "block_index": 0,
+              "projection": "abd",
+              "all_unseen_block_indices": [
+                0
+              ]
+            },
+            {
+              "negative": "ad",
+              "block_index": 0,
+              "projection": "ad",
+              "all_unseen_block_indices": [
+                0
+              ]
+            }
+          ]
+        },
+        {
+          "blocks": [
+            [
+              "a",
+              "c",
+              "d"
+            ],
+            [
+              "b"
+            ]
+          ],
+          "positive_projection_languages": [
+            [
+              "a",
+              "ac",
+              "cd",
+              "d"
+            ],
+            [
+              "",
+              "b"
+            ]
+          ],
+          "negative_witnesses": [
+            {
+              "negative": "abcd",
+              "block_index": 0,
+              "projection": "acd",
+              "all_unseen_block_indices": [
+                0
+              ]
+            },
+            {
+              "negative": "ad",
+              "block_index": 0,
+              "projection": "ad",
+              "all_unseen_block_indices": [
+                0
+              ]
+            }
+          ]
+        },
+        {
+          "blocks": [
+            [
+              "a",
+              "d"
+            ],
+            [
+              "b",
+              "c"
+            ]
+          ],
+          "positive_projection_languages": [
+            [
+              "a",
+              "d"
+            ],
+            [
+              "b",
+              "c"
+            ]
+          ],
+          "negative_witnesses": [
+            {
+              "negative": "abcd",
+              "block_index": 0,
+              "projection": "ad",
+              "all_unseen_block_indices": [
+                0,
+                1
+              ]
+            },
+            {
+              "negative": "ad",
+              "block_index": 0,
+              "projection": "ad",
+              "all_unseen_block_indices": [
+                0,
+                1
+              ]
+            }
+          ]
+        }
+      ],
+      "metrics": {
+        "provider_seconds": 0.000311999989207834,
+        "baseline_engine": "immutable_v1",
+        "deadline_granularity": "before_and_after_v1_call",
+        "complete_assignments": 7
+      },
+      "limitations": "Unbounded regular local factors; no local DFA recovery, distribution-free recovery, novelty, or efficiency guarantee."
+    },
+    "elapsed_seconds": 0.00034660001983866096,
+    "validated_status": "complete",
+    "witness_records_validated": 5
+  },
+  {
+    "case_id": "permuted_duplicates_1",
+    "method": "eager",
+    "raw_input": {
+      "case_id": "permuted_duplicates_1",
+      "alphabet": [
+        "d",
+        "b",
+        "a",
+        "c"
+      ],
+      "positive": [
+        "cd",
+        "ab",
+        "ac",
+        "bd",
+        "ab",
+        "ac"
+      ],
+      "negative": [
+        "abcd",
+        "ad",
+        "ad"
+      ]
+    },
+    "raw_input_sha256": "9f3c0ab5ba3397b6374334d7ea7b76315177c63ab4d06076ace561d895c77d65",
+    "normalized_input": {
+      "alphabet": [
+        "a",
+        "b",
+        "c",
+        "d"
+      ],
+      "positive": [
+        "ab",
+        "ac",
+        "bd",
+        "cd"
+      ],
+      "negative": [
+        "abcd",
+        "ad"
+      ]
+    },
+    "result": {
+      "alphabet": [
+        "a",
+        "b",
+        "c",
+        "d"
+      ],
+      "k": 2,
+      "method": "eager",
+      "complete": true,
+      "status": "ambiguous",
+      "interpretation": "Several two-block partitions fit; the sample does not identify a unique declared partition.",
+      "sample_size": {
+        "positive": 4,
+        "negative": 2
+      },
+      "graph": {
+        "edges": [],
+        "components": [
+          [
+            "a"
+          ],
+          [
+            "b"
+          ],
+          [
+            "c"
+          ],
+          [
+            "d"
+          ]
+        ],
+        "component_count": 4,
+        "known_k_certificate": false,
+        "certificate_condition": "Requires a true noise-free two-block disjoint-alphabet target."
+      },
+      "search": {
+        "graph_pruning": true,
+        "candidates_checked": 7,
+        "all_symbol_bipartitions": 7
+      },
+      "feasible_partition_count": 5,
+      "found_partition_count": 5,
+      "feasible_partitions": [
+        {
+          "blocks": [
+            [
+              "a"
+            ],
+            [
+              "b",
+              "c",
+              "d"
+            ]
+          ],
+          "positive_projection_languages": [
+            [
+              "",
+              "a"
+            ],
+            [
+              "b",
+              "bd",
+              "c",
+              "cd"
+            ]
+          ],
+          "negative_witnesses": [
+            {
+              "negative": "abcd",
+              "block_index": 1,
+              "projection": "bcd",
+              "all_unseen_block_indices": [
+                1
+              ]
+            },
+            {
+              "negative": "ad",
+              "block_index": 1,
+              "projection": "d",
+              "all_unseen_block_indices": [
+                1
+              ]
+            }
+          ]
+        },
+        {
+          "blocks": [
+            [
+              "a",
+              "b",
+              "c"
+            ],
+            [
+              "d"
+            ]
+          ],
+          "positive_projection_languages": [
+            [
+              "ab",
+              "ac",
+              "b",
+              "c"
+            ],
+            [
+              "",
+              "d"
+            ]
+          ],
+          "negative_witnesses": [
+            {
+              "negative": "abcd",
+              "block_index": 0,
+              "projection": "abc",
+              "all_unseen_block_indices": [
+                0
+              ]
+            },
+            {
+              "negative": "ad",
+              "block_index": 0,
+              "projection": "a",
+              "all_unseen_block_indices": [
+                0
+              ]
+            }
+          ]
+        },
+        {
+          "blocks": [
+            [
+              "a",
+              "b",
+              "d"
+            ],
+            [
+              "c"
+            ]
+          ],
+          "positive_projection_languages": [
+            [
+              "a",
+              "ab",
+              "bd",
+              "d"
+            ],
+            [
+              "",
+              "c"
+            ]
+          ],
+          "negative_witnesses": [
+            {
+              "negative": "abcd",
+              "block_index": 0,
+              "projection": "abd",
+              "all_unseen_block_indices": [
+                0
+              ]
+            },
+            {
+              "negative": "ad",
+              "block_index": 0,
+              "projection": "ad",
+              "all_unseen_block_indices": [
+                0
+              ]
+            }
+          ]
+        },
+        {
+          "blocks": [
+            [
+              "a",
+              "c",
+              "d"
+            ],
+            [
+              "b"
+            ]
+          ],
+          "positive_projection_languages": [
+            [
+              "a",
+              "ac",
+              "cd",
+              "d"
+            ],
+            [
+              "",
+              "b"
+            ]
+          ],
+          "negative_witnesses": [
+            {
+              "negative": "abcd",
+              "block_index": 0,
+              "projection": "acd",
+              "all_unseen_block_indices": [
+                0
+              ]
+            },
+            {
+              "negative": "ad",
+              "block_index": 0,
+              "projection": "ad",
+              "all_unseen_block_indices": [
+                0
+              ]
+            }
+          ]
+        },
+        {
+          "blocks": [
+            [
+              "a",
+              "d"
+            ],
+            [
+              "b",
+              "c"
+            ]
+          ],
+          "positive_projection_languages": [
+            [
+              "a",
+              "d"
+            ],
+            [
+              "b",
+              "c"
+            ]
+          ],
+          "negative_witnesses": [
+            {
+              "negative": "abcd",
+              "block_index": 0,
+              "projection": "ad",
+              "all_unseen_block_indices": [
+                0,
+                1
+              ]
+            },
+            {
+              "negative": "ad",
+              "block_index": 0,
+              "projection": "ad",
+              "all_unseen_block_indices": [
+                0,
+                1
+              ]
+            }
+          ]
+        }
+      ],
+      "metrics": {
+        "negative_constraints": 2,
+        "distinguisher_calls": 8,
+        "distinguisher_terms": 16,
+        "direct_record_checks": 5,
+        "preprocessing_seconds": 0.00026619998971000314,
+        "constraints_stored": 2,
+        "provider_seconds": 0.0010786000057123601,
+        "nodes_visited": 15,
+        "complete_assignments": 7,
+        "pruned_nodes": 3,
+        "constraint_evaluations": 26
+      },
+      "limitations": "Unbounded regular local factors; no local DFA recovery, distribution-free recovery, novelty, or efficiency guarantee."
+    },
+    "elapsed_seconds": 0.0011100000119768083,
+    "validated_status": "complete",
+    "witness_records_validated": 5
+  },
+  {
+    "case_id": "permuted_duplicates_1",
+    "method": "lazy",
+    "raw_input": {
+      "case_id": "permuted_duplicates_1",
+      "alphabet": [
+        "d",
+        "b",
+        "a",
+        "c"
+      ],
+      "positive": [
+        "cd",
+        "ab",
+        "ac",
+        "bd",
+        "ab",
+        "ac"
+      ],
+      "negative": [
+        "abcd",
+        "ad",
+        "ad"
+      ]
+    },
+    "raw_input_sha256": "9f3c0ab5ba3397b6374334d7ea7b76315177c63ab4d06076ace561d895c77d65",
+    "normalized_input": {
+      "alphabet": [
+        "a",
+        "b",
+        "c",
+        "d"
+      ],
+      "positive": [
+        "ab",
+        "ac",
+        "bd",
+        "cd"
+      ],
+      "negative": [
+        "abcd",
+        "ad"
+      ]
+    },
+    "result": {
+      "alphabet": [
+        "a",
+        "b",
+        "c",
+        "d"
+      ],
+      "k": 2,
+      "method": "lazy",
+      "complete": true,
+      "status": "ambiguous",
+      "interpretation": "Several two-block partitions fit; the sample does not identify a unique declared partition.",
+      "sample_size": {
+        "positive": 4,
+        "negative": 2
+      },
+      "graph": {
+        "edges": [],
+        "components": [
+          [
+            "a"
+          ],
+          [
+            "b"
+          ],
+          [
+            "c"
+          ],
+          [
+            "d"
+          ]
+        ],
+        "component_count": 4,
+        "known_k_certificate": false,
+        "certificate_condition": "Requires a true noise-free two-block disjoint-alphabet target."
+      },
+      "search": {
+        "graph_pruning": true,
+        "candidates_checked": 35,
+        "all_symbol_bipartitions": 7
+      },
+      "feasible_partition_count": 5,
+      "found_partition_count": 5,
+      "feasible_partitions": [
+        {
+          "blocks": [
+            [
+              "a"
+            ],
+            [
+              "b",
+              "c",
+              "d"
+            ]
+          ],
+          "positive_projection_languages": [
+            [
+              "",
+              "a"
+            ],
+            [
+              "b",
+              "bd",
+              "c",
+              "cd"
+            ]
+          ],
+          "negative_witnesses": [
+            {
+              "negative": "abcd",
+              "block_index": 1,
+              "projection": "bcd",
+              "all_unseen_block_indices": [
+                1
+              ]
+            },
+            {
+              "negative": "ad",
+              "block_index": 1,
+              "projection": "d",
+              "all_unseen_block_indices": [
+                1
+              ]
+            }
+          ]
+        },
+        {
+          "blocks": [
+            [
+              "a",
+              "b",
+              "c"
+            ],
+            [
+              "d"
+            ]
+          ],
+          "positive_projection_languages": [
+            [
+              "ab",
+              "ac",
+              "b",
+              "c"
+            ],
+            [
+              "",
+              "d"
+            ]
+          ],
+          "negative_witnesses": [
+            {
+              "negative": "abcd",
+              "block_index": 0,
+              "projection": "abc",
+              "all_unseen_block_indices": [
+                0
+              ]
+            },
+            {
+              "negative": "ad",
+              "block_index": 0,
+              "projection": "a",
+              "all_unseen_block_indices": [
+                0
+              ]
+            }
+          ]
+        },
+        {
+          "blocks": [
+            [
+              "a",
+              "b",
+              "d"
+            ],
+            [
+              "c"
+            ]
+          ],
+          "positive_projection_languages": [
+            [
+              "a",
+              "ab",
+              "bd",
+              "d"
+            ],
+            [
+              "",
+              "c"
+            ]
+          ],
+          "negative_witnesses": [
+            {
+              "negative": "abcd",
+              "block_index": 0,
+              "projection": "abd",
+              "all_unseen_block_indices": [
+                0
+              ]
+            },
+            {
+              "negative": "ad",
+              "block_index": 0,
+              "projection": "ad",
+              "all_unseen_block_indices": [
+                0
+              ]
+            }
+          ]
+        },
+        {
+          "blocks": [
+            [
+              "a",
+              "c",
+              "d"
+            ],
+            [
+              "b"
+            ]
+          ],
+          "positive_projection_languages": [
+            [
+              "a",
+              "ac",
+              "cd",
+              "d"
+            ],
+            [
+              "",
+              "b"
+            ]
+          ],
+          "negative_witnesses": [
+            {
+              "negative": "abcd",
+              "block_index": 0,
+              "projection": "acd",
+              "all_unseen_block_indices": [
+                0
+              ]
+            },
+            {
+              "negative": "ad",
+              "block_index": 0,
+              "projection": "ad",
+              "all_unseen_block_indices": [
+                0
+              ]
+            }
+          ]
+        },
+        {
+          "blocks": [
+            [
+              "a",
+              "d"
+            ],
+            [
+              "b",
+              "c"
+            ]
+          ],
+          "positive_projection_languages": [
+            [
+              "a",
+              "d"
+            ],
+            [
+              "b",
+              "c"
+            ]
+          ],
+          "negative_witnesses": [
+            {
+              "negative": "abcd",
+              "block_index": 0,
+              "projection": "ad",
+              "all_unseen_block_indices": [
+                0,
+                1
+              ]
+            },
+            {
+              "negative": "ad",
+              "block_index": 0,
+              "projection": "ad",
+              "all_unseen_block_indices": [
+                0,
+                1
+              ]
+            }
+          ]
+        }
+      ],
+      "metrics": {
+        "search_calls": 8,
+        "lazy_cuts": 2,
+        "answer_blockers": 5,
+        "distinguisher_calls": 4,
+        "distinguisher_cache_hits": 0,
+        "distinguisher_terms": 8,
+        "direct_record_checks": 7,
+        "preprocessing_seconds": 7.940002251416445e-05,
+        "separation_seconds": 0.00036370003363117576,
+        "cut_generation_seconds": 9.589997353032231e-05,
+        "constraints_stored": 7,
+        "provider_seconds": 0.0015980000025592744,
+        "search_restarts": 7,
+        "nodes_visited": 87,
+        "complete_assignments": 35,
+        "pruned_nodes": 36,
+        "constraint_evaluations": 285
+      },
+      "limitations": "Unbounded regular local factors; no local DFA recovery, distribution-free recovery, novelty, or efficiency guarantee."
+    },
+    "elapsed_seconds": 0.0016298999544233084,
+    "validated_status": "complete",
+    "witness_records_validated": 5
+  },
+  {
+    "case_id": "permuted_duplicates_2",
+    "method": "baseline",
+    "raw_input": {
+      "case_id": "permuted_duplicates_2",
+      "alphabet": [
+        "b",
+        "d",
+        "c",
+        "a"
+      ],
+      "positive": [
+        "bd",
+        "cd",
+        "ab",
+        "ac",
+        "cd"
+      ],
+      "negative": [
+        "ad",
+        "abcd",
+        "abcd"
+      ]
+    },
+    "raw_input_sha256": "5cfa4b2d143f5cd4a777c25f9b4b7239cd15d627ba3b8496c1a827ad6b450ce2",
+    "normalized_input": {
+      "alphabet": [
+        "a",
+        "b",
+        "c",
+        "d"
+      ],
+      "positive": [
+        "ab",
+        "ac",
+        "bd",
+        "cd"
+      ],
+      "negative": [
+        "abcd",
+        "ad"
+      ]
+    },
+    "result": {
+      "alphabet": [
+        "a",
+        "b",
+        "c",
+        "d"
+      ],
+      "k": 2,
+      "method": "baseline",
+      "complete": true,
+      "status": "ambiguous",
+      "interpretation": "Several two-block partitions fit; the sample does not identify a unique declared partition.",
+      "sample_size": {
+        "positive": 4,
+        "negative": 2
+      },
+      "graph": {
+        "edges": [],
+        "components": [
+          [
+            "a"
+          ],
+          [
+            "b"
+          ],
+          [
+            "c"
+          ],
+          [
+            "d"
+          ]
+        ],
+        "component_count": 4,
+        "known_k_certificate": false,
+        "certificate_condition": "Requires a true noise-free two-block disjoint-alphabet target."
+      },
+      "search": {
+        "graph_pruning": true,
+        "candidates_checked": 7,
+        "all_symbol_bipartitions": 7
+      },
+      "feasible_partition_count": 5,
+      "found_partition_count": 5,
+      "feasible_partitions": [
+        {
+          "blocks": [
+            [
+              "a"
+            ],
+            [
+              "b",
+              "c",
+              "d"
+            ]
+          ],
+          "positive_projection_languages": [
+            [
+              "",
+              "a"
+            ],
+            [
+              "b",
+              "bd",
+              "c",
+              "cd"
+            ]
+          ],
+          "negative_witnesses": [
+            {
+              "negative": "abcd",
+              "block_index": 1,
+              "projection": "bcd",
+              "all_unseen_block_indices": [
+                1
+              ]
+            },
+            {
+              "negative": "ad",
+              "block_index": 1,
+              "projection": "d",
+              "all_unseen_block_indices": [
+                1
+              ]
+            }
+          ]
+        },
+        {
+          "blocks": [
+            [
+              "a",
+              "b",
+              "c"
+            ],
+            [
+              "d"
+            ]
+          ],
+          "positive_projection_languages": [
+            [
+              "ab",
+              "ac",
+              "b",
+              "c"
+            ],
+            [
+              "",
+              "d"
+            ]
+          ],
+          "negative_witnesses": [
+            {
+              "negative": "abcd",
+              "block_index": 0,
+              "projection": "abc",
+              "all_unseen_block_indices": [
+                0
+              ]
+            },
+            {
+              "negative": "ad",
+              "block_index": 0,
+              "projection": "a",
+              "all_unseen_block_indices": [
+                0
+              ]
+            }
+          ]
+        },
+        {
+          "blocks": [
+            [
+              "a",
+              "b",
+              "d"
+            ],
+            [
+              "c"
+            ]
+          ],
+          "positive_projection_languages": [
+            [
+              "a",
+              "ab",
+              "bd",
+              "d"
+            ],
+            [
+              "",
+              "c"
+            ]
+          ],
+          "negative_witnesses": [
+            {
+              "negative": "abcd",
+              "block_index": 0,
+              "projection": "abd",
+              "all_unseen_block_indices": [
+                0
+              ]
+            },
+            {
+              "negative": "ad",
+              "block_index": 0,
+              "projection": "ad",
+              "all_unseen_block_indices": [
+                0
+              ]
+            }
+          ]
+        },
+        {
+          "blocks": [
+            [
+              "a",
+              "c",
+              "d"
+            ],
+            [
+              "b"
+            ]
+          ],
+          "positive_projection_languages": [
+            [
+              "a",
+              "ac",
+              "cd",
+              "d"
+            ],
+            [
+              "",
+              "b"
+            ]
+          ],
+          "negative_witnesses": [
+            {
+              "negative": "abcd",
+              "block_index": 0,
+              "projection": "acd",
+              "all_unseen_block_indices": [
+                0
+              ]
+            },
+            {
+              "negative": "ad",
+              "block_index": 0,
+              "projection": "ad",
+              "all_unseen_block_indices": [
+                0
+              ]
+            }
+          ]
+        },
+        {
+          "blocks": [
+            [
+              "a",
+              "d"
+            ],
+            [
+              "b",
+              "c"
+            ]
+          ],
+          "positive_projection_languages": [
+            [
+              "a",
+              "d"
+            ],
+            [
+              "b",
+              "c"
+            ]
+          ],
+          "negative_witnesses": [
+            {
+              "negative": "abcd",
+              "block_index": 0,
+              "projection": "ad",
+              "all_unseen_block_indices": [
+                0,
+                1
+              ]
+            },
+            {
+              "negative": "ad",
+              "block_index": 0,
+              "projection": "ad",
+              "all_unseen_block_indices": [
+                0,
+                1
+              ]
+            }
+          ]
+        }
+      ],
+      "metrics": {
+        "provider_seconds": 0.0003011000226251781,
+        "baseline_engine": "immutable_v1",
+        "deadline_granularity": "before_and_after_v1_call",
+        "complete_assignments": 7
+      },
+      "limitations": "Unbounded regular local factors; no local DFA recovery, distribution-free recovery, novelty, or efficiency guarantee."
+    },
+    "elapsed_seconds": 0.00033250002888962626,
+    "validated_status": "complete",
+    "witness_records_validated": 5
+  },
+  {
+    "case_id": "permuted_duplicates_2",
+    "method": "eager",
+    "raw_input": {
+      "case_id": "permuted_duplicates_2",
+      "alphabet": [
+        "b",
+        "d",
+        "c",
+        "a"
+      ],
+      "positive": [
+        "bd",
+        "cd",
+        "ab",
+        "ac",
+        "cd"
+      ],
+      "negative": [
+        "ad",
+        "abcd",
+        "abcd"
+      ]
+    },
+    "raw_input_sha256": "5cfa4b2d143f5cd4a777c25f9b4b7239cd15d627ba3b8496c1a827ad6b450ce2",
+    "normalized_input": {
+      "alphabet": [
+        "a",
+        "b",
+        "c",
+        "d"
+      ],
+      "positive": [
+        "ab",
+        "ac",
+        "bd",
+        "cd"
+      ],
+      "negative": [
+        "abcd",
+        "ad"
+      ]
+    },
+    "result": {
+      "alphabet": [
+        "a",
+        "b",
+        "c",
+        "d"
+      ],
+      "k": 2,
+      "method": "eager",
+      "complete": true,
+      "status": "ambiguous",
+      "interpretation": "Several two-block partitions fit; the sample does not identify a unique declared partition.",
+      "sample_size": {
+        "positive": 4,
+        "negative": 2
+      },
+      "graph": {
+        "edges": [],
+        "components": [
+          [
+            "a"
+          ],
+          [
+            "b"
+          ],
+          [
+            "c"
+          ],
+          [
+            "d"
+          ]
+        ],
+        "component_count": 4,
+        "known_k_certificate": false,
+        "certificate_condition": "Requires a true noise-free two-block disjoint-alphabet target."
+      },
+      "search": {
+        "graph_pruning": true,
+        "candidates_checked": 7,
+        "all_symbol_bipartitions": 7
+      },
+      "feasible_partition_count": 5,
+      "found_partition_count": 5,
+      "feasible_partitions": [
+        {
+          "blocks": [
+            [
+              "a"
+            ],
+            [
+              "b",
+              "c",
+              "d"
+            ]
+          ],
+          "positive_projection_languages": [
+            [
+              "",
+              "a"
+            ],
+            [
+              "b",
+              "bd",
+              "c",
+              "cd"
+            ]
+          ],
+          "negative_witnesses": [
+            {
+              "negative": "abcd",
+              "block_index": 1,
+              "projection": "bcd",
+              "all_unseen_block_indices": [
+                1
+              ]
+            },
+            {
+              "negative": "ad",
+              "block_index": 1,
+              "projection": "d",
+              "all_unseen_block_indices": [
+                1
+              ]
+            }
+          ]
+        },
+        {
+          "blocks": [
+            [
+              "a",
+              "b",
+              "c"
+            ],
+            [
+              "d"
+            ]
+          ],
+          "positive_projection_languages": [
+            [
+              "ab",
+              "ac",
+              "b",
+              "c"
+            ],
+            [
+              "",
+              "d"
+            ]
+          ],
+          "negative_witnesses": [
+            {
+              "negative": "abcd",
+              "block_index": 0,
+              "projection": "abc",
+              "all_unseen_block_indices": [
+                0
+              ]
+            },
+            {
+              "negative": "ad",
+              "block_index": 0,
+              "projection": "a",
+              "all_unseen_block_indices": [
+                0
+              ]
+            }
+          ]
+        },
+        {
+          "blocks": [
+            [
+              "a",
+              "b",
+              "d"
+            ],
+            [
+              "c"
+            ]
+          ],
+          "positive_projection_languages": [
+            [
+              "a",
+              "ab",
+              "bd",
+              "d"
+            ],
+            [
+              "",
+              "c"
+            ]
+          ],
+          "negative_witnesses": [
+            {
+              "negative": "abcd",
+              "block_index": 0,
+              "projection": "abd",
+              "all_unseen_block_indices": [
+                0
+              ]
+            },
+            {
+              "negative": "ad",
+              "block_index": 0,
+              "projection": "ad",
+              "all_unseen_block_indices": [
+                0
+              ]
+            }
+          ]
+        },
+        {
+          "blocks": [
+            [
+              "a",
+              "c",
+              "d"
+            ],
+            [
+              "b"
+            ]
+          ],
+          "positive_projection_languages": [
+            [
+              "a",
+              "ac",
+              "cd",
+              "d"
+            ],
+            [
+              "",
+              "b"
+            ]
+          ],
+          "negative_witnesses": [
+            {
+              "negative": "abcd",
+              "block_index": 0,
+              "projection": "acd",
+              "all_unseen_block_indices": [
+                0
+              ]
+            },
+            {
+              "negative": "ad",
+              "block_index": 0,
+              "projection": "ad",
+              "all_unseen_block_indices": [
+                0
+              ]
+            }
+          ]
+        },
+        {
+          "blocks": [
+            [
+              "a",
+              "d"
+            ],
+            [
+              "b",
+              "c"
+            ]
+          ],
+          "positive_projection_languages": [
+            [
+              "a",
+              "d"
+            ],
+            [
+              "b",
+              "c"
+            ]
+          ],
+          "negative_witnesses": [
+            {
+              "negative": "abcd",
+              "block_index": 0,
+              "projection": "ad",
+              "all_unseen_block_indices": [
+                0,
+                1
+              ]
+            },
+            {
+              "negative": "ad",
+              "block_index": 0,
+              "projection": "ad",
+              "all_unseen_block_indices": [
+                0,
+                1
+              ]
+            }
+          ]
+        }
+      ],
+      "metrics": {
+        "negative_constraints": 2,
+        "distinguisher_calls": 8,
+        "distinguisher_terms": 16,
+        "direct_record_checks": 5,
+        "preprocessing_seconds": 0.00023960001999512315,
+        "constraints_stored": 2,
+        "provider_seconds": 0.0008487000013701618,
+        "nodes_visited": 15,
+        "complete_assignments": 7,
+        "pruned_nodes": 3,
+        "constraint_evaluations": 26
+      },
+      "limitations": "Unbounded regular local factors; no local DFA recovery, distribution-free recovery, novelty, or efficiency guarantee."
+    },
+    "elapsed_seconds": 0.0008844000403769314,
+    "validated_status": "complete",
+    "witness_records_validated": 5
+  },
+  {
+    "case_id": "permuted_duplicates_2",
+    "method": "lazy",
+    "raw_input": {
+      "case_id": "permuted_duplicates_2",
+      "alphabet": [
+        "b",
+        "d",
+        "c",
+        "a"
+      ],
+      "positive": [
+        "bd",
+        "cd",
+        "ab",
+        "ac",
+        "cd"
+      ],
+      "negative": [
+        "ad",
+        "abcd",
+        "abcd"
+      ]
+    },
+    "raw_input_sha256": "5cfa4b2d143f5cd4a777c25f9b4b7239cd15d627ba3b8496c1a827ad6b450ce2",
+    "normalized_input": {
+      "alphabet": [
+        "a",
+        "b",
+        "c",
+        "d"
+      ],
+      "positive": [
+        "ab",
+        "ac",
+        "bd",
+        "cd"
+      ],
+      "negative": [
+        "abcd",
+        "ad"
+      ]
+    },
+    "result": {
+      "alphabet": [
+        "a",
+        "b",
+        "c",
+        "d"
+      ],
+      "k": 2,
+      "method": "lazy",
+      "complete": true,
+      "status": "ambiguous",
+      "interpretation": "Several two-block partitions fit; the sample does not identify a unique declared partition.",
+      "sample_size": {
+        "positive": 4,
+        "negative": 2
+      },
+      "graph": {
+        "edges": [],
+        "components": [
+          [
+            "a"
+          ],
+          [
+            "b"
+          ],
+          [
+            "c"
+          ],
+          [
+            "d"
+          ]
+        ],
+        "component_count": 4,
+        "known_k_certificate": false,
+        "certificate_condition": "Requires a true noise-free two-block disjoint-alphabet target."
+      },
+      "search": {
+        "graph_pruning": true,
+        "candidates_checked": 35,
+        "all_symbol_bipartitions": 7
+      },
+      "feasible_partition_count": 5,
+      "found_partition_count": 5,
+      "feasible_partitions": [
+        {
+          "blocks": [
+            [
+              "a"
+            ],
+            [
+              "b",
+              "c",
+              "d"
+            ]
+          ],
+          "positive_projection_languages": [
+            [
+              "",
+              "a"
+            ],
+            [
+              "b",
+              "bd",
+              "c",
+              "cd"
+            ]
+          ],
+          "negative_witnesses": [
+            {
+              "negative": "abcd",
+              "block_index": 1,
+              "projection": "bcd",
+              "all_unseen_block_indices": [
+                1
+              ]
+            },
+            {
+              "negative": "ad",
+              "block_index": 1,
+              "projection": "d",
+              "all_unseen_block_indices": [
+                1
+              ]
+            }
+          ]
+        },
+        {
+          "blocks": [
+            [
+              "a",
+              "b",
+              "c"
+            ],
+            [
+              "d"
+            ]
+          ],
+          "positive_projection_languages": [
+            [
+              "ab",
+              "ac",
+              "b",
+              "c"
+            ],
+            [
+              "",
+              "d"
+            ]
+          ],
+          "negative_witnesses": [
+            {
+              "negative": "abcd",
+              "block_index": 0,
+              "projection": "abc",
+              "all_unseen_block_indices": [
+                0
+              ]
+            },
+            {
+              "negative": "ad",
+              "block_index": 0,
+              "projection": "a",
+              "all_unseen_block_indices": [
+                0
+              ]
+            }
+          ]
+        },
+        {
+          "blocks": [
+            [
+              "a",
+              "b",
+              "d"
+            ],
+            [
+              "c"
+            ]
+          ],
+          "positive_projection_languages": [
+            [
+              "a",
+              "ab",
+              "bd",
+              "d"
+            ],
+            [
+              "",
+              "c"
+            ]
+          ],
+          "negative_witnesses": [
+            {
+              "negative": "abcd",
+              "block_index": 0,
+              "projection": "abd",
+              "all_unseen_block_indices": [
+                0
+              ]
+            },
+            {
+              "negative": "ad",
+              "block_index": 0,
+              "projection": "ad",
+              "all_unseen_block_indices": [
+                0
+              ]
+            }
+          ]
+        },
+        {
+          "blocks": [
+            [
+              "a",
+              "c",
+              "d"
+            ],
+            [
+              "b"
+            ]
+          ],
+          "positive_projection_languages": [
+            [
+              "a",
+              "ac",
+              "cd",
+              "d"
+            ],
+            [
+              "",
+              "b"
+            ]
+          ],
+          "negative_witnesses": [
+            {
+              "negative": "abcd",
+              "block_index": 0,
+              "projection": "acd",
+              "all_unseen_block_indices": [
+                0
+              ]
+            },
+            {
+              "negative": "ad",
+              "block_index": 0,
+              "projection": "ad",
+              "all_unseen_block_indices": [
+                0
+              ]
+            }
+          ]
+        },
+        {
+          "blocks": [
+            [
+              "a",
+              "d"
+            ],
+            [
+              "b",
+              "c"
+            ]
+          ],
+          "positive_projection_languages": [
+            [
+              "a",
+              "d"
+            ],
+            [
+              "b",
+              "c"
+            ]
+          ],
+          "negative_witnesses": [
+            {
+              "negative": "abcd",
+              "block_index": 0,
+              "projection": "ad",
+              "all_unseen_block_indices": [
+                0,
+                1
+              ]
+            },
+            {
+              "negative": "ad",
+              "block_index": 0,
+              "projection": "ad",
+              "all_unseen_block_indices": [
+                0,
+                1
+              ]
+            }
+          ]
+        }
+      ],
+      "metrics": {
+        "search_calls": 8,
+        "lazy_cuts": 2,
+        "answer_blockers": 5,
+        "distinguisher_calls": 4,
+        "distinguisher_cache_hits": 0,
+        "distinguisher_terms": 8,
+        "direct_record_checks": 7,
+        "preprocessing_seconds": 7.110001752153039e-05,
+        "separation_seconds": 0.0006353998905979097,
+        "cut_generation_seconds": 0.00010110001312568784,
+        "constraints_stored": 7,
+        "provider_seconds": 0.0019258999964222312,
+        "search_restarts": 7,
+        "nodes_visited": 87,
+        "complete_assignments": 35,
+        "pruned_nodes": 36,
+        "constraint_evaluations": 285
+      },
+      "limitations": "Unbounded regular local factors; no local DFA recovery, distribution-free recovery, novelty, or efficiency guarantee."
+    },
+    "elapsed_seconds": 0.0019592000171542168,
+    "validated_status": "complete",
+    "witness_records_validated": 5
+  }
+]

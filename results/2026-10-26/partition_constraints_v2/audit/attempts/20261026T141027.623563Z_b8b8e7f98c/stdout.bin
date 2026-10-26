@@ -1,0 +1,972 @@
+{
+  "alphabet": [
+    "a",
+    "b",
+    "c",
+    "d",
+    "e",
+    "f"
+  ],
+  "k": 2,
+  "method": "baseline",
+  "complete": true,
+  "status": "ambiguous",
+  "interpretation": "Several two-block partitions fit; the sample does not identify a unique declared partition.",
+  "sample_size": {
+    "positive": 32,
+    "negative": 32
+  },
+  "graph": {
+    "edges": [],
+    "components": [
+      [
+        "a"
+      ],
+      [
+        "b"
+      ],
+      [
+        "c"
+      ],
+      [
+        "d"
+      ],
+      [
+        "e"
+      ],
+      [
+        "f"
+      ]
+    ],
+    "component_count": 6,
+    "known_k_certificate": false,
+    "certificate_condition": "Requires a true noise-free two-block disjoint-alphabet target."
+  },
+  "search": {
+    "graph_pruning": true,
+    "candidates_checked": 31,
+    "all_symbol_bipartitions": 31
+  },
+  "feasible_partition_count": 3,
+  "found_partition_count": 3,
+  "feasible_partitions": [
+    {
+      "blocks": [
+        [
+          "a",
+          "b",
+          "c",
+          "d",
+          "e"
+        ],
+        [
+          "f"
+        ]
+      ],
+      "positive_projection_languages": [
+        [
+          "abdd",
+          "acdd",
+          "adbd",
+          "adda",
+          "addb",
+          "aeb",
+          "aebd",
+          "aec",
+          "aecd",
+          "aedc",
+          "bdd",
+          "bdea",
+          "be",
+          "ccdd",
+          "cdd",
+          "cddb",
+          "daae",
+          "dabd",
+          "dada",
+          "dcbd",
+          "dcdb",
+          "ddaa",
+          "ddb",
+          "eac",
+          "eba",
+          "ebad",
+          "ebd",
+          "ec",
+          "eccd",
+          "ecd",
+          "edc"
+        ],
+        [
+          "",
+          "f"
+        ]
+      ],
+      "negative_witnesses": [
+        {
+          "negative": "abef",
+          "block_index": 0,
+          "projection": "abe",
+          "all_unseen_block_indices": [
+            0
+          ]
+        },
+        {
+          "negative": "accd",
+          "block_index": 0,
+          "projection": "accd",
+          "all_unseen_block_indices": [
+            0
+          ]
+        },
+        {
+          "negative": "aeaa",
+          "block_index": 0,
+          "projection": "aeaa",
+          "all_unseen_block_indices": [
+            0
+          ]
+        },
+        {
+          "negative": "aebe",
+          "block_index": 0,
+          "projection": "aebe",
+          "all_unseen_block_indices": [
+            0
+          ]
+        },
+        {
+          "negative": "aefe",
+          "block_index": 0,
+          "projection": "aee",
+          "all_unseen_block_indices": [
+            0
+          ]
+        },
+        {
+          "negative": "baeb",
+          "block_index": 0,
+          "projection": "baeb",
+          "all_unseen_block_indices": [
+            0
+          ]
+        },
+        {
+          "negative": "bbce",
+          "block_index": 0,
+          "projection": "bbce",
+          "all_unseen_block_indices": [
+            0
+          ]
+        },
+        {
+          "negative": "bbdd",
+          "block_index": 0,
+          "projection": "bbdd",
+          "all_unseen_block_indices": [
+            0
+          ]
+        },
+        {
+          "negative": "bbed",
+          "block_index": 0,
+          "projection": "bbed",
+          "all_unseen_block_indices": [
+            0
+          ]
+        },
+        {
+          "negative": "bceb",
+          "block_index": 0,
+          "projection": "bceb",
+          "all_unseen_block_indices": [
+            0
+          ]
+        },
+        {
+          "negative": "bcec",
+          "block_index": 0,
+          "projection": "bcec",
+          "all_unseen_block_indices": [
+            0
+          ]
+        },
+        {
+          "negative": "bda",
+          "block_index": 0,
+          "projection": "bda",
+          "all_unseen_block_indices": [
+            0
+          ]
+        },
+        {
+          "negative": "bebc",
+          "block_index": 0,
+          "projection": "bebc",
+          "all_unseen_block_indices": [
+            0
+          ]
+        },
+        {
+          "negative": "becb",
+          "block_index": 0,
+          "projection": "becb",
+          "all_unseen_block_indices": [
+            0
+          ]
+        },
+        {
+          "negative": "becc",
+          "block_index": 0,
+          "projection": "becc",
+          "all_unseen_block_indices": [
+            0
+          ]
+        },
+        {
+          "negative": "cde",
+          "block_index": 0,
+          "projection": "cde",
+          "all_unseen_block_indices": [
+            0
+          ]
+        },
+        {
+          "negative": "dbef",
+          "block_index": 0,
+          "projection": "dbe",
+          "all_unseen_block_indices": [
+            0
+          ]
+        },
+        {
+          "negative": "ebab",
+          "block_index": 0,
+          "projection": "ebab",
+          "all_unseen_block_indices": [
+            0
+          ]
+        },
+        {
+          "negative": "ecaa",
+          "block_index": 0,
+          "projection": "ecaa",
+          "all_unseen_block_indices": [
+            0
+          ]
+        },
+        {
+          "negative": "eced",
+          "block_index": 0,
+          "projection": "eced",
+          "all_unseen_block_indices": [
+            0
+          ]
+        },
+        {
+          "negative": "edfa",
+          "block_index": 0,
+          "projection": "eda",
+          "all_unseen_block_indices": [
+            0
+          ]
+        },
+        {
+          "negative": "eeab",
+          "block_index": 0,
+          "projection": "eeab",
+          "all_unseen_block_indices": [
+            0
+          ]
+        },
+        {
+          "negative": "eecf",
+          "block_index": 0,
+          "projection": "eec",
+          "all_unseen_block_indices": [
+            0
+          ]
+        },
+        {
+          "negative": "efad",
+          "block_index": 0,
+          "projection": "ead",
+          "all_unseen_block_indices": [
+            0
+          ]
+        },
+        {
+          "negative": "efeb",
+          "block_index": 0,
+          "projection": "eeb",
+          "all_unseen_block_indices": [
+            0
+          ]
+        },
+        {
+          "negative": "effa",
+          "block_index": 0,
+          "projection": "ea",
+          "all_unseen_block_indices": [
+            0,
+            1
+          ]
+        },
+        {
+          "negative": "face",
+          "block_index": 0,
+          "projection": "ace",
+          "all_unseen_block_indices": [
+            0
+          ]
+        },
+        {
+          "negative": "fadf",
+          "block_index": 0,
+          "projection": "ad",
+          "all_unseen_block_indices": [
+            0,
+            1
+          ]
+        },
+        {
+          "negative": "fbea",
+          "block_index": 0,
+          "projection": "bea",
+          "all_unseen_block_indices": [
+            0
+          ]
+        },
+        {
+          "negative": "fdca",
+          "block_index": 0,
+          "projection": "dca",
+          "all_unseen_block_indices": [
+            0
+          ]
+        },
+        {
+          "negative": "fdd",
+          "block_index": 0,
+          "projection": "dd",
+          "all_unseen_block_indices": [
+            0
+          ]
+        },
+        {
+          "negative": "ffce",
+          "block_index": 0,
+          "projection": "ce",
+          "all_unseen_block_indices": [
+            0,
+            1
+          ]
+        }
+      ]
+    },
+    {
+      "blocks": [
+        [
+          "a",
+          "b",
+          "c",
+          "e",
+          "f"
+        ],
+        [
+          "d"
+        ]
+      ],
+      "positive_projection_languages": [
+        [
+          "aa",
+          "aae",
+          "ab",
+          "ac",
+          "aeb",
+          "aec",
+          "bea",
+          "cb",
+          "cc",
+          "eac",
+          "eba",
+          "ecc",
+          "ecf",
+          "efb",
+          "efc",
+          "fb",
+          "fbe",
+          "fc",
+          "fec"
+        ],
+        [
+          "",
+          "d",
+          "dd"
+        ]
+      ],
+      "negative_witnesses": [
+        {
+          "negative": "abef",
+          "block_index": 0,
+          "projection": "abef",
+          "all_unseen_block_indices": [
+            0
+          ]
+        },
+        {
+          "negative": "accd",
+          "block_index": 0,
+          "projection": "acc",
+          "all_unseen_block_indices": [
+            0
+          ]
+        },
+        {
+          "negative": "aeaa",
+          "block_index": 0,
+          "projection": "aeaa",
+          "all_unseen_block_indices": [
+            0
+          ]
+        },
+        {
+          "negative": "aebe",
+          "block_index": 0,
+          "projection": "aebe",
+          "all_unseen_block_indices": [
+            0
+          ]
+        },
+        {
+          "negative": "aefe",
+          "block_index": 0,
+          "projection": "aefe",
+          "all_unseen_block_indices": [
+            0
+          ]
+        },
+        {
+          "negative": "baeb",
+          "block_index": 0,
+          "projection": "baeb",
+          "all_unseen_block_indices": [
+            0
+          ]
+        },
+        {
+          "negative": "bbce",
+          "block_index": 0,
+          "projection": "bbce",
+          "all_unseen_block_indices": [
+            0
+          ]
+        },
+        {
+          "negative": "bbdd",
+          "block_index": 0,
+          "projection": "bb",
+          "all_unseen_block_indices": [
+            0
+          ]
+        },
+        {
+          "negative": "bbed",
+          "block_index": 0,
+          "projection": "bbe",
+          "all_unseen_block_indices": [
+            0
+          ]
+        },
+        {
+          "negative": "bceb",
+          "block_index": 0,
+          "projection": "bceb",
+          "all_unseen_block_indices": [
+            0
+          ]
+        },
+        {
+          "negative": "bcec",
+          "block_index": 0,
+          "projection": "bcec",
+          "all_unseen_block_indices": [
+            0
+          ]
+        },
+        {
+          "negative": "bda",
+          "block_index": 0,
+          "projection": "ba",
+          "all_unseen_block_indices": [
+            0
+          ]
+        },
+        {
+          "negative": "bebc",
+          "block_index": 0,
+          "projection": "bebc",
+          "all_unseen_block_indices": [
+            0
+          ]
+        },
+        {
+          "negative": "becb",
+          "block_index": 0,
+          "projection": "becb",
+          "all_unseen_block_indices": [
+            0
+          ]
+        },
+        {
+          "negative": "becc",
+          "block_index": 0,
+          "projection": "becc",
+          "all_unseen_block_indices": [
+            0
+          ]
+        },
+        {
+          "negative": "cde",
+          "block_index": 0,
+          "projection": "ce",
+          "all_unseen_block_indices": [
+            0
+          ]
+        },
+        {
+          "negative": "dbef",
+          "block_index": 0,
+          "projection": "bef",
+          "all_unseen_block_indices": [
+            0
+          ]
+        },
+        {
+          "negative": "ebab",
+          "block_index": 0,
+          "projection": "ebab",
+          "all_unseen_block_indices": [
+            0
+          ]
+        },
+        {
+          "negative": "ecaa",
+          "block_index": 0,
+          "projection": "ecaa",
+          "all_unseen_block_indices": [
+            0
+          ]
+        },
+        {
+          "negative": "eced",
+          "block_index": 0,
+          "projection": "ece",
+          "all_unseen_block_indices": [
+            0
+          ]
+        },
+        {
+          "negative": "edfa",
+          "block_index": 0,
+          "projection": "efa",
+          "all_unseen_block_indices": [
+            0
+          ]
+        },
+        {
+          "negative": "eeab",
+          "block_index": 0,
+          "projection": "eeab",
+          "all_unseen_block_indices": [
+            0
+          ]
+        },
+        {
+          "negative": "eecf",
+          "block_index": 0,
+          "projection": "eecf",
+          "all_unseen_block_indices": [
+            0
+          ]
+        },
+        {
+          "negative": "efad",
+          "block_index": 0,
+          "projection": "efa",
+          "all_unseen_block_indices": [
+            0
+          ]
+        },
+        {
+          "negative": "efeb",
+          "block_index": 0,
+          "projection": "efeb",
+          "all_unseen_block_indices": [
+            0
+          ]
+        },
+        {
+          "negative": "effa",
+          "block_index": 0,
+          "projection": "effa",
+          "all_unseen_block_indices": [
+            0
+          ]
+        },
+        {
+          "negative": "face",
+          "block_index": 0,
+          "projection": "face",
+          "all_unseen_block_indices": [
+            0
+          ]
+        },
+        {
+          "negative": "fadf",
+          "block_index": 0,
+          "projection": "faf",
+          "all_unseen_block_indices": [
+            0
+          ]
+        },
+        {
+          "negative": "fbea",
+          "block_index": 0,
+          "projection": "fbea",
+          "all_unseen_block_indices": [
+            0
+          ]
+        },
+        {
+          "negative": "fdca",
+          "block_index": 0,
+          "projection": "fca",
+          "all_unseen_block_indices": [
+            0
+          ]
+        },
+        {
+          "negative": "fdd",
+          "block_index": 0,
+          "projection": "f",
+          "all_unseen_block_indices": [
+            0
+          ]
+        },
+        {
+          "negative": "ffce",
+          "block_index": 0,
+          "projection": "ffce",
+          "all_unseen_block_indices": [
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "blocks": [
+        [
+          "a",
+          "b",
+          "c",
+          "f"
+        ],
+        [
+          "d",
+          "e"
+        ]
+      ],
+      "positive_projection_languages": [
+        [
+          "aa",
+          "ab",
+          "ac",
+          "ba",
+          "cb",
+          "cc",
+          "cf",
+          "fb",
+          "fc"
+        ],
+        [
+          "dd",
+          "de",
+          "e",
+          "ed"
+        ]
+      ],
+      "negative_witnesses": [
+        {
+          "negative": "abef",
+          "block_index": 0,
+          "projection": "abf",
+          "all_unseen_block_indices": [
+            0
+          ]
+        },
+        {
+          "negative": "accd",
+          "block_index": 0,
+          "projection": "acc",
+          "all_unseen_block_indices": [
+            0,
+            1
+          ]
+        },
+        {
+          "negative": "aeaa",
+          "block_index": 0,
+          "projection": "aaa",
+          "all_unseen_block_indices": [
+            0
+          ]
+        },
+        {
+          "negative": "aebe",
+          "block_index": 1,
+          "projection": "ee",
+          "all_unseen_block_indices": [
+            1
+          ]
+        },
+        {
+          "negative": "aefe",
+          "block_index": 0,
+          "projection": "af",
+          "all_unseen_block_indices": [
+            0,
+            1
+          ]
+        },
+        {
+          "negative": "baeb",
+          "block_index": 0,
+          "projection": "bab",
+          "all_unseen_block_indices": [
+            0
+          ]
+        },
+        {
+          "negative": "bbce",
+          "block_index": 0,
+          "projection": "bbc",
+          "all_unseen_block_indices": [
+            0
+          ]
+        },
+        {
+          "negative": "bbdd",
+          "block_index": 0,
+          "projection": "bb",
+          "all_unseen_block_indices": [
+            0
+          ]
+        },
+        {
+          "negative": "bbed",
+          "block_index": 0,
+          "projection": "bb",
+          "all_unseen_block_indices": [
+            0
+          ]
+        },
+        {
+          "negative": "bceb",
+          "block_index": 0,
+          "projection": "bcb",
+          "all_unseen_block_indices": [
+            0
+          ]
+        },
+        {
+          "negative": "bcec",
+          "block_index": 0,
+          "projection": "bcc",
+          "all_unseen_block_indices": [
+            0
+          ]
+        },
+        {
+          "negative": "bda",
+          "block_index": 1,
+          "projection": "d",
+          "all_unseen_block_indices": [
+            1
+          ]
+        },
+        {
+          "negative": "bebc",
+          "block_index": 0,
+          "projection": "bbc",
+          "all_unseen_block_indices": [
+            0
+          ]
+        },
+        {
+          "negative": "becb",
+          "block_index": 0,
+          "projection": "bcb",
+          "all_unseen_block_indices": [
+            0
+          ]
+        },
+        {
+          "negative": "becc",
+          "block_index": 0,
+          "projection": "bcc",
+          "all_unseen_block_indices": [
+            0
+          ]
+        },
+        {
+          "negative": "cde",
+          "block_index": 0,
+          "projection": "c",
+          "all_unseen_block_indices": [
+            0
+          ]
+        },
+        {
+          "negative": "dbef",
+          "block_index": 0,
+          "projection": "bf",
+          "all_unseen_block_indices": [
+            0
+          ]
+        },
+        {
+          "negative": "ebab",
+          "block_index": 0,
+          "projection": "bab",
+          "all_unseen_block_indices": [
+            0
+          ]
+        },
+        {
+          "negative": "ecaa",
+          "block_index": 0,
+          "projection": "caa",
+          "all_unseen_block_indices": [
+            0
+          ]
+        },
+        {
+          "negative": "eced",
+          "block_index": 0,
+          "projection": "c",
+          "all_unseen_block_indices": [
+            0,
+            1
+          ]
+        },
+        {
+          "negative": "edfa",
+          "block_index": 0,
+          "projection": "fa",
+          "all_unseen_block_indices": [
+            0
+          ]
+        },
+        {
+          "negative": "eeab",
+          "block_index": 1,
+          "projection": "ee",
+          "all_unseen_block_indices": [
+            1
+          ]
+        },
+        {
+          "negative": "eecf",
+          "block_index": 1,
+          "projection": "ee",
+          "all_unseen_block_indices": [
+            1
+          ]
+        },
+        {
+          "negative": "efad",
+          "block_index": 0,
+          "projection": "fa",
+          "all_unseen_block_indices": [
+            0
+          ]
+        },
+        {
+          "negative": "efeb",
+          "block_index": 1,
+          "projection": "ee",
+          "all_unseen_block_indices": [
+            1
+          ]
+        },
+        {
+          "negative": "effa",
+          "block_index": 0,
+          "projection": "ffa",
+          "all_unseen_block_indices": [
+            0
+          ]
+        },
+        {
+          "negative": "face",
+          "block_index": 0,
+          "projection": "fac",
+          "all_unseen_block_indices": [
+            0
+          ]
+        },
+        {
+          "negative": "fadf",
+          "block_index": 0,
+          "projection": "faf",
+          "all_unseen_block_indices": [
+            0,
+            1
+          ]
+        },
+        {
+          "negative": "fbea",
+          "block_index": 0,
+          "projection": "fba",
+          "all_unseen_block_indices": [
+            0
+          ]
+        },
+        {
+          "negative": "fdca",
+          "block_index": 0,
+          "projection": "fca",
+          "all_unseen_block_indices": [
+            0,
+            1
+          ]
+        },
+        {
+          "negative": "fdd",
+          "block_index": 0,
+          "projection": "f",
+          "all_unseen_block_indices": [
+            0
+          ]
+        },
+        {
+          "negative": "ffce",
+          "block_index": 0,
+          "projection": "ffc",
+          "all_unseen_block_indices": [
+            0
+          ]
+        }
+      ]
+    }
+  ],
+  "metrics": {
+    "provider_seconds": 0.01367949997074902,
+    "baseline_engine": "immutable_v1",
+    "deadline_granularity": "before_and_after_v1_call",
+    "complete_assignments": 31,
+    "cli_seconds_before_serialization": 0.04747920000227168
+  },
+  "limitations": "Unbounded regular local factors; no local DFA recovery, distribution-free recovery, novelty, or efficiency guarantee."
+}

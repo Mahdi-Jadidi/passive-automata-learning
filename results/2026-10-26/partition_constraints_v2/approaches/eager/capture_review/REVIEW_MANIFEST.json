@@ -1,0 +1,43 @@
+{
+  "decision": "blocked_for_direct_integration_with_reviewed_A_runner",
+  "external_or_shared_files_modified": false,
+  "requested_capture_sha256": "68ee700f391fb6a1cf135e4b55a11a247b45f25164553c917d1664f6fc4a31cf",
+  "id": "CAPREVIEW-A001",
+  "report": "REVIEW.md",
+  "tests_run": 0,
+  "created_utc": "2026-10-26T13:12:15.2109432Z",
+  "adoption_owner": "independent_auditor",
+  "scope": "static source inspection only",
+  "files": [
+    {
+      "source": "approaches/lazy/capture_support/capture_candidate.py",
+      "snapshot_sha256": "68ee700f391fb6a1cf135e4b55a11a247b45f25164553c917d1664f6fc4a31cf",
+      "snapshot": "snapshots/capture_candidate.py",
+      "matches": true,
+      "source_sha256": "68ee700f391fb6a1cf135e4b55a11a247b45f25164553c917d1664f6fc4a31cf"
+    },
+    {
+      "source": "approaches/lazy/capture_support/HANDOFF.md",
+      "snapshot_sha256": "daa3b3b74478b031848653a7ee9a51c0184aa6846839b8f23383c984af8c49b3",
+      "snapshot": "snapshots/HANDOFF.md",
+      "matches": true,
+      "source_sha256": "daa3b3b74478b031848653a7ee9a51c0184aa6846839b8f23383c984af8c49b3"
+    },
+    {
+      "source": "approaches/eager/benchmark_support/runner.py",
+      "snapshot_sha256": "16876ce34ab9fe6f077e0925324770374a17964eadbb3b8bd97dfeca15b30d68",
+      "snapshot": "snapshots/runner.py",
+      "matches": true,
+      "source_sha256": "16876ce34ab9fe6f077e0925324770374a17964eadbb3b8bd97dfeca15b30d68"
+    }
+  ],
+  "implementation_changes": false,
+  "report_sha256": "67885ece5bd6c8e31fb9fd363da868c4af0f5332a19e5e8f679406b2e19fa3e2",
+  "findings": [
+    "R1_P1_missing_Popen_proxy",
+    "R2_P1_zero_method_budget_charge",
+    "R3_P2_interrupted_status_not_preserved",
+    "R4_P2_cleanup_failure_requires_supervisor_abort",
+    "R5_P3_duration_boundary_documentation"
+  ]
+}

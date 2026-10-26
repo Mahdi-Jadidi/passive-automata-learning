@@ -1,0 +1,29 @@
+{
+  "id": "BMARK-A001-PREP-001",
+  "created_utc": "2026-10-26T13:03:59.745118+00:00",
+  "scope": "static syntax and content hashes only",
+  "checks": [
+    {
+      "file": "runner.py",
+      "sha256": "16876ce34ab9fe6f077e0925324770374a17964eadbb3b8bd97dfeca15b30d68",
+      "syntax": "ast_parse_passed",
+      "executed": false
+    },
+    {
+      "file": "worker.py",
+      "sha256": "f1bb4866244587ff02c31dccd7e23e7ba7451cdba3cdd901cab0379b5ae5b801",
+      "syntax": "ast_parse_passed",
+      "executed": false
+    },
+    {
+      "file": "README.md",
+      "sha256": "dc77b768d3de5f27b6c7a38d806454108d1eae59552b408c903165bb483478ce"
+    }
+  ],
+  "scientific_status": "unassessed_candidate_pending_independent_review",
+  "execution_status": "not_executed",
+  "benchmarks_run": 0,
+  "runtime_or_audit_sources_modified": false,
+  "development_history": "Initial candidate assembled through incremental apply_patch edits in this task; intermediate working text was not separately snapshotted. Tool patches are in the transcript. No failed benchmark or solver run occurred.",
+  "read_only_inspection_error": "PowerShell ConvertFrom-Json needed -AsHashtable for corpus empty-string property; corrected read succeeded. Separate raw shell log unavailable."
+}

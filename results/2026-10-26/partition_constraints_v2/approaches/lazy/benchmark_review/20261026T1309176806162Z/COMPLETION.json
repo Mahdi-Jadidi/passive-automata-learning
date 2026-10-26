@@ -1,0 +1,34 @@
+{
+  "id": "B_BENCHMARK_REVIEW_COMPLETE",
+  "at_utc": "2026-10-26T13:11:51.6479672Z",
+  "execution_status": "not_run_static_review_only",
+  "findings": [
+    "M1 durable capture Popen incompatible with runner namespace injection and process clock",
+    "M2 explicitly handle new raw interrupted status"
+  ],
+  "adoption_gate": "Resolve capture/runner API combination before suite",
+  "review": "FINDINGS.md",
+  "review_sha256": "61c41c96cc3ab56c934063789da3c057b449e90d9e8484546dae9cacdf684da3",
+  "freshness": [
+    {
+      "source": "approaches/eager/benchmark_support/runner.py",
+      "still_current": true
+    },
+    {
+      "source": "approaches/eager/benchmark_support/worker.py",
+      "still_current": true
+    },
+    {
+      "source": "approaches/eager/benchmark_support/PREPARATION_RECORD.json",
+      "still_current": true
+    },
+    {
+      "source": "approaches/eager/benchmark_support/README.md",
+      "still_current": true
+    }
+  ],
+  "runtime_modified": false,
+  "job_plan_static_count": 1200,
+  "performed_jobs": 0,
+  "scientific_acceptance": "Independent full-set/witness and timing-artifact validation required"
+}

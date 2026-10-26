@@ -1,0 +1,12 @@
+Traceback (most recent call last):
+  File "C:\Users\Mahdi\Documents\ChatGPT\passive automata learning\results\2026-10-26\partition_constraints_v2\audit\validate_saved_correctness.py", line 449, in <module>
+    raise SystemExit(main())
+                     ^^^^^^
+  File "C:\Users\Mahdi\Documents\ChatGPT\passive automata learning\results\2026-10-26\partition_constraints_v2\audit\validate_saved_correctness.py", line 375, in main
+    status, count = validate_result(baseline_ref, None, data, expected, allow_incomplete=False)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mahdi\Documents\ChatGPT\passive automata learning\results\2026-10-26\partition_constraints_v2\audit\validate_saved_correctness.py", line 173, in validate_result
+    require(allow_incomplete, f"unexpected incomplete {method} result")
+  File "C:\Users\Mahdi\Documents\ChatGPT\passive automata learning\results\2026-10-26\partition_constraints_v2\audit\validate_saved_correctness.py", line 46, in require
+    raise RuntimeError(message)
+RuntimeError: unexpected incomplete None result

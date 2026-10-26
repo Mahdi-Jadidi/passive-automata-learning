@@ -1,0 +1,287 @@
+[
+  {
+    "case_id": "invalid_0",
+    "method": "baseline",
+    "input": {
+      "alphabet": [
+        "a",
+        "b"
+      ],
+      "positive": [
+        "ab"
+      ],
+      "negative": [
+        "ab"
+      ]
+    },
+    "input_sha256": "c462db9e60ceddba23f4b1807e31fdd338ba0b3a2688c70e5479caab6b9b82d2",
+    "exit_code": 2,
+    "stdout": {
+      "status": "invalid_input",
+      "error": "A word cannot have both labels"
+    }
+  },
+  {
+    "case_id": "invalid_0",
+    "method": "eager",
+    "input": {
+      "alphabet": [
+        "a",
+        "b"
+      ],
+      "positive": [
+        "ab"
+      ],
+      "negative": [
+        "ab"
+      ]
+    },
+    "input_sha256": "c462db9e60ceddba23f4b1807e31fdd338ba0b3a2688c70e5479caab6b9b82d2",
+    "exit_code": 2,
+    "stdout": {
+      "status": "invalid_input",
+      "error": "A word cannot have both labels"
+    }
+  },
+  {
+    "case_id": "invalid_0",
+    "method": "lazy",
+    "input": {
+      "alphabet": [
+        "a",
+        "b"
+      ],
+      "positive": [
+        "ab"
+      ],
+      "negative": [
+        "ab"
+      ]
+    },
+    "input_sha256": "c462db9e60ceddba23f4b1807e31fdd338ba0b3a2688c70e5479caab6b9b82d2",
+    "exit_code": 2,
+    "stdout": {
+      "status": "invalid_input",
+      "error": "A word cannot have both labels"
+    }
+  },
+  {
+    "case_id": "invalid_1",
+    "method": "baseline",
+    "input": {
+      "alphabet": [
+        "a",
+        "b"
+      ],
+      "positive": [
+        "ac"
+      ],
+      "negative": []
+    },
+    "input_sha256": "6cf0dfd1391867e04001dee1f5f23da63d90e9fc7b1eae7187b7e7778cc9426e",
+    "exit_code": 2,
+    "stdout": {
+      "status": "invalid_input",
+      "error": "positive contains a symbol outside alphabet"
+    }
+  },
+  {
+    "case_id": "invalid_1",
+    "method": "eager",
+    "input": {
+      "alphabet": [
+        "a",
+        "b"
+      ],
+      "positive": [
+        "ac"
+      ],
+      "negative": []
+    },
+    "input_sha256": "6cf0dfd1391867e04001dee1f5f23da63d90e9fc7b1eae7187b7e7778cc9426e",
+    "exit_code": 2,
+    "stdout": {
+      "status": "invalid_input",
+      "error": "positive contains a symbol outside alphabet"
+    }
+  },
+  {
+    "case_id": "invalid_1",
+    "method": "lazy",
+    "input": {
+      "alphabet": [
+        "a",
+        "b"
+      ],
+      "positive": [
+        "ac"
+      ],
+      "negative": []
+    },
+    "input_sha256": "6cf0dfd1391867e04001dee1f5f23da63d90e9fc7b1eae7187b7e7778cc9426e",
+    "exit_code": 2,
+    "stdout": {
+      "status": "invalid_input",
+      "error": "positive contains a symbol outside alphabet"
+    }
+  },
+  {
+    "case_id": "invalid_2",
+    "method": "baseline",
+    "input": {
+      "alphabet": [
+        "a",
+        "a"
+      ],
+      "positive": [],
+      "negative": []
+    },
+    "input_sha256": "57ef6c58be10c8a2900327efd07261d5da3ee508ab8c9782ab9ee30f964e4b16",
+    "exit_code": 2,
+    "stdout": {
+      "status": "invalid_input",
+      "error": "alphabet must list 2..10 distinct one-character strings"
+    }
+  },
+  {
+    "case_id": "invalid_2",
+    "method": "eager",
+    "input": {
+      "alphabet": [
+        "a",
+        "a"
+      ],
+      "positive": [],
+      "negative": []
+    },
+    "input_sha256": "57ef6c58be10c8a2900327efd07261d5da3ee508ab8c9782ab9ee30f964e4b16",
+    "exit_code": 2,
+    "stdout": {
+      "status": "invalid_input",
+      "error": "alphabet must list 2..10 distinct one-character strings"
+    }
+  },
+  {
+    "case_id": "invalid_2",
+    "method": "lazy",
+    "input": {
+      "alphabet": [
+        "a",
+        "a"
+      ],
+      "positive": [],
+      "negative": []
+    },
+    "input_sha256": "57ef6c58be10c8a2900327efd07261d5da3ee508ab8c9782ab9ee30f964e4b16",
+    "exit_code": 2,
+    "stdout": {
+      "status": "invalid_input",
+      "error": "alphabet must list 2..10 distinct one-character strings"
+    }
+  },
+  {
+    "case_id": "invalid_3",
+    "method": "baseline",
+    "input": {
+      "alphabet": [
+        "a"
+      ],
+      "positive": [],
+      "negative": []
+    },
+    "input_sha256": "17e2553044020ac4fad9912d4f1576de5c7ee64604430b6c9e7794fa7b044fa2",
+    "exit_code": 2,
+    "stdout": {
+      "status": "invalid_input",
+      "error": "alphabet must list 2..10 distinct one-character strings"
+    }
+  },
+  {
+    "case_id": "invalid_3",
+    "method": "eager",
+    "input": {
+      "alphabet": [
+        "a"
+      ],
+      "positive": [],
+      "negative": []
+    },
+    "input_sha256": "17e2553044020ac4fad9912d4f1576de5c7ee64604430b6c9e7794fa7b044fa2",
+    "exit_code": 2,
+    "stdout": {
+      "status": "invalid_input",
+      "error": "alphabet must list 2..10 distinct one-character strings"
+    }
+  },
+  {
+    "case_id": "invalid_3",
+    "method": "lazy",
+    "input": {
+      "alphabet": [
+        "a"
+      ],
+      "positive": [],
+      "negative": []
+    },
+    "input_sha256": "17e2553044020ac4fad9912d4f1576de5c7ee64604430b6c9e7794fa7b044fa2",
+    "exit_code": 2,
+    "stdout": {
+      "status": "invalid_input",
+      "error": "alphabet must list 2..10 distinct one-character strings"
+    }
+  },
+  {
+    "case_id": "invalid_4",
+    "method": "baseline",
+    "input": {
+      "alphabet": [
+        "a",
+        "b"
+      ],
+      "positive": "ab",
+      "negative": []
+    },
+    "input_sha256": "96203e11b63e07eb5cb501256e7d537ac52ad5c94e8d242eb6c5f31bbe5541f6",
+    "exit_code": 2,
+    "stdout": {
+      "status": "invalid_input",
+      "error": "positive must be a list of strings"
+    }
+  },
+  {
+    "case_id": "invalid_4",
+    "method": "eager",
+    "input": {
+      "alphabet": [
+        "a",
+        "b"
+      ],
+      "positive": "ab",
+      "negative": []
+    },
+    "input_sha256": "96203e11b63e07eb5cb501256e7d537ac52ad5c94e8d242eb6c5f31bbe5541f6",
+    "exit_code": 2,
+    "stdout": {
+      "status": "invalid_input",
+      "error": "positive must be a list of strings"
+    }
+  },
+  {
+    "case_id": "invalid_4",
+    "method": "lazy",
+    "input": {
+      "alphabet": [
+        "a",
+        "b"
+      ],
+      "positive": "ab",
+      "negative": []
+    },
+    "input_sha256": "96203e11b63e07eb5cb501256e7d537ac52ad5c94e8d242eb6c5f31bbe5541f6",
+    "exit_code": 2,
+    "stdout": {
+      "status": "invalid_input",
+      "error": "positive must be a list of strings"
+    }
+  }
+]

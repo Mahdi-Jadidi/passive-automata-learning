@@ -1,0 +1,456 @@
+"""Independent audit of the frozen corpus, saved F2 outputs, and input normalization.
+
+This checker deliberately does not import the previous correctness runner's
+oracle or witness checker. The three small metamorphic controls are sent raw to
+the frozen runtime, then checked against their normalized labeled samples.
+"""
+from __future__ import annotations
+
+import gzip
+import hashlib
+import importlib.util
+import json
+import os
+import sys
+import time
+from collections import Counter
+from datetime import datetime, timezone
+from pathlib import Path
+from uuid import uuid4
+
+
+AUDIT = Path(__file__).resolve().parent
+CYCLE = AUDIT.parent
+CORPUS = AUDIT / "corpus" / "frozen_v1"
+LEGACY = AUDIT / "corpus" / "legacy_generator_extension_v1"
+RUNS = AUDIT / "correctness_runs"
+SOURCE_RUN = "20261026T125503.860658Z_805e5494"
+EXPECTED_CORPUS_SHA = "a4ef5c7124b9852cb30c5eb8e86f6e8bd1fa53bf3d4e9ab5d89d70f9b48efd13"
+EXPECTED_LEGACY_SHA = "d8cabac94e6fe9afbb2a93145c57fb987ddf803140638f1a18ddf48d3ed456d3"
+EXPECTED_RUNTIME_SHA = "b7a5b30974500ea610689a7d6ca627437508d6cf63a59fd5e8b6c5a18206859b"
+EXPECTED_COUNTS = {
+    "prior_binary_2187": 2187,
+    "prior_abc_81": 81,
+    "prior_theory_4": 4,
+    "targeted_controls": 9,
+    "random_ternary_5000": 5000,
+    "finite_generator_140": 140,
+    "performance_100": 100,
+    "legacy_generator_extension_v1": 3072,
+    "supplemental_controls": 1,
+}
+
+
+def require(condition: bool, message: str) -> None:
+    if not condition:
+        raise RuntimeError(message)
+
+
+def sha(raw: bytes) -> str:
+    return hashlib.sha256(raw).hexdigest()
+
+
+def canonical_json(value: object) -> bytes:
+    return json.dumps(value, ensure_ascii=False, sort_keys=True,
+                      separators=(",", ":")).encode("utf-8")
+
+
+def load_jsonl(path: Path) -> list[dict]:
+    return [json.loads(line) for line in path.read_text(encoding="utf-8").splitlines() if line]
+
+
+def normalize_input(raw: dict) -> dict:
+    require(isinstance(raw, dict), "input must be an object")
+    alphabet = raw.get("alphabet")
+    require(isinstance(alphabet, list) and 2 <= len(alphabet) <= 10,
+            "alphabet must be a list with 2..10 symbols")
+    require(all(isinstance(s, str) and len(s) == 1 for s in alphabet),
+            "alphabet symbols must be one-character strings")
+    require(len(set(alphabet)) == len(alphabet), "duplicate alphabet symbol")
+    sigma = set(alphabet)
+    normalized = {"alphabet": sorted(alphabet)}
+    for name in ("positive", "negative"):
+        words = raw.get(name)
+        require(isinstance(words, list) and all(isinstance(w, str) for w in words),
+                f"{name} must be a list of strings")
+        require(all(set(word) <= sigma for word in words), f"{name} uses an outside symbol")
+        normalized[name] = sorted(set(words))
+    require(not (set(normalized["positive"]) & set(normalized["negative"])),
+            "same word has both labels")
+    return normalized
+
+
+def project(word: str, block: list[str] | tuple[str, ...]) -> str:
+    allowed = set(block)
+    return "".join(symbol for symbol in word if symbol in allowed)
+
+
+def exact_f2(data: dict) -> set[tuple[tuple[str, ...], tuple[str, ...]]]:
+    """Exhaust the canonical two-block ownership assignments directly."""
+    alpha, positive, negative = data["alphabet"], data["positive"], data["negative"]
+    answer = set()
+    # The first sorted symbol is fixed on side 0 to avoid block-swap duplicates.
+    for mask in range(1, 1 << len(alpha)):
+        if not (mask & 1) or mask == (1 << len(alpha)) - 1:
+            continue
+        blocks = [tuple(a for i, a in enumerate(alpha) if mask & (1 << i)),
+                  tuple(a for i, a in enumerate(alpha) if not mask & (1 << i))]
+        pos_projection = [{project(word, block) for word in positive} for block in blocks]
+        feasible = True
+        for word in negative:
+            if not any(project(word, blocks[side]) not in pos_projection[side]
+                       for side in (0, 1)):
+                feasible = False
+                break
+        if feasible:
+            answer.add(tuple(sorted(blocks)))
+    return answer
+
+
+def partition_set(result: dict, alphabet: list[str]) -> tuple[list, set]:
+    records = result.get("feasible_partitions")
+    require(isinstance(records, list), "feasible_partitions must be a list")
+    normalized = []
+    for record in records:
+        blocks = record.get("blocks")
+        require(isinstance(blocks, list) and len(blocks) == 2, "partition must contain two blocks")
+        require(all(isinstance(block, list) and block for block in blocks), "blocks must be nonempty lists")
+        canonical = tuple(sorted(tuple(sorted(block)) for block in blocks))
+        flat = [symbol for block in canonical for symbol in block]
+        require(sorted(flat) == sorted(alphabet) and len(set(flat)) == len(alphabet),
+                "partition does not assign each alphabet symbol exactly once")
+        normalized.append(canonical)
+    require(len(normalized) == len(set(normalized)), "duplicate partition output")
+    return sorted(normalized), set(normalized)
+
+
+def verify_witnesses(result: dict, data: dict) -> int:
+    positive, negative = data["positive"], data["negative"]
+    records = result["feasible_partitions"]
+    for record in records:
+        blocks = record["blocks"]
+        pos_langs = [{project(word, block) for word in positive} for block in blocks]
+        require(record.get("positive_projection_languages") == [sorted(x) for x in pos_langs],
+                "positive projection language mismatch")
+        witnesses = record.get("negative_witnesses")
+        require(isinstance(witnesses, list) and len(witnesses) == len(negative),
+                "negative witness count mismatch")
+        require([w.get("negative") for w in witnesses] == negative,
+                "negative witnesses are not aligned to normalized negatives")
+        for witness in witnesses:
+            word = witness["negative"]
+            unseen = [side for side, block in enumerate(blocks)
+                      if project(word, block) not in pos_langs[side]]
+            require(unseen, "feasible partition has a negative accepted on both sides")
+            require(witness.get("all_unseen_block_indices") == unseen,
+                    "witness unseen-side list mismatch")
+            side = witness.get("block_index")
+            require(side in unseen, "witness chooses a side that accepts the negative")
+            require(witness.get("projection") == project(word, blocks[side]),
+                    "witness projection mismatch")
+            require(witness["projection"] not in pos_langs[side],
+                    "negative witness projection appears among positives")
+    return len(records)
+
+
+def validate_result(result: dict, method: str | None, data: dict, expected: set,
+                    *, allow_incomplete: bool) -> tuple[str, int]:
+    if method is not None:
+        require(result.get("method") == method, f"wrong method label for {method}")
+    require(result.get("alphabet") == data["alphabet"], "result alphabet mismatch")
+    require(result.get("k") == 2, "wrong block count")
+    _, actual = partition_set(result, data["alphabet"])
+    witness_count = verify_witnesses(result, data)
+    if result.get("complete") is True:
+        require(result.get("status") in {"unique", "ambiguous", "infeasible"},
+                "complete result has invalid status")
+        require(actual == expected, f"complete F2 mismatch for {method}")
+        require(result.get("feasible_partition_count") == len(expected), "complete count mismatch")
+        require(result.get("found_partition_count") == len(expected), "found count mismatch")
+        status = "infeasible" if not expected else "unique" if len(expected) == 1 else "ambiguous"
+        require(result["status"] == status, "complete status inconsistent with F2 cardinality")
+        return "complete", witness_count
+    require(allow_incomplete, f"unexpected incomplete {method} result")
+    require(result.get("complete") is False and result.get("status") == "incomplete",
+            "incomplete contract flags disagree")
+    require(result.get("feasible_partition_count") is None, "incomplete result claims total count")
+    require(result.get("found_partition_count") == len(actual), "partial found count mismatch")
+    require(actual <= expected, "partial output contains an infeasible partition")
+    require(len(actual) > 0, "expected nonempty partial witness set")
+    return "incomplete", witness_count
+
+
+def load_result_map(path: Path) -> dict[tuple[str, str], dict]:
+    result = {}
+    with gzip.open(path, "rt", encoding="utf-8") as stream:
+        for line in stream:
+            row = json.loads(line)
+            key = (row["dataset"], row["case_id"])
+            require(key not in result, f"duplicate saved output row {key}")
+            result[key] = row
+    return result
+
+
+def load_module(path: Path, name: str):
+    spec = importlib.util.spec_from_file_location(name, path)
+    module = importlib.util.module_from_spec(spec)
+    require(spec is not None and spec.loader is not None, f"cannot load {path}")
+    spec.loader.exec_module(module)
+    return module
+
+
+def run_metamorphic_controls(output_dir: Path) -> dict:
+    if str(CYCLE) not in sys.path:
+        sys.path.insert(0, str(CYCLE))
+    driver = load_module(CYCLE / "solver.py", "saved_audit_driver")
+    eager = load_module(CYCLE / "approaches" / "eager" / "eager_solver.py", "saved_audit_eager")
+    lazy = load_module(CYCLE / "approaches" / "lazy" / "lazy_solver.py", "saved_audit_lazy")
+    providers = {"baseline": lambda raw: driver.baseline_result(raw),
+                 "eager": eager.solve, "lazy": lazy.solve}
+    shared_positive = ["ab", "ac", "bd", "cd"]
+    shared_negative = ["ad", "abcd"]
+    controls = [
+        {"case_id": "canonical", "alphabet": ["a", "b", "c", "d"],
+         "positive": ["ab", "ac", "bd", "cd"], "negative": ["abcd", "ad"]},
+        {"case_id": "permuted_duplicates_1", "alphabet": ["d", "b", "a", "c"],
+         "positive": ["cd", "ab", "ac", "bd", "ab", "ac"],
+         "negative": ["abcd", "ad", "ad"]},
+        {"case_id": "permuted_duplicates_2", "alphabet": ["b", "d", "c", "a"],
+         "positive": ["bd", "cd", "ab", "ac", "cd"],
+         "negative": ["ad", "abcd", "abcd"]},
+    ]
+    all_results, sets_by_method = [], {name: [] for name in providers}
+    for raw in controls:
+        data = normalize_input(raw)
+        expected = exact_f2(data)
+        require(data["positive"] == sorted(set(shared_positive)), "metamorphic positive set changed")
+        require(data["negative"] == sorted(set(shared_negative)), "metamorphic negative set changed")
+        for method, solve in providers.items():
+            started = time.perf_counter()
+            result = solve(raw)
+            elapsed = time.perf_counter() - started
+            require(elapsed <= 30.0, f"metamorphic {method} exceeded 30 seconds")
+            status, witnesses = validate_result(result, method, data, expected,
+                                                allow_incomplete=False)
+            _, actual = partition_set(result, data["alphabet"])
+            sets_by_method[method].append(actual)
+            all_results.append({"case_id": raw["case_id"], "method": method,
+                                "raw_input": raw, "raw_input_sha256": sha(canonical_json(raw)),
+                                "normalized_input": data, "result": result,
+                                "elapsed_seconds": elapsed, "validated_status": status,
+                                "witness_records_validated": witnesses})
+    for method, sets in sets_by_method.items():
+        require(all(value == sets[0] for value in sets[1:]),
+                f"permutation/duplicate invariance failed for {method}")
+    path = output_dir / "metamorphic_results.json"
+    path.write_text(json.dumps(all_results, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    return {"case_count": len(controls), "method_count": len(providers),
+            "method_invocations": len(all_results), "full_set_checks": len(all_results),
+            "witness_records_validated": sum(x["witness_records_validated"] for x in all_results),
+            "results_path": path.name, "results_sha256": sha(path.read_bytes()),
+            "equivalent_label_sets": True}
+
+
+def main() -> int:
+    require(sys.flags.optimize == 0 and not os.environ.get("PYTHONOPTIMIZE"),
+            "Python optimization must be disabled so runtime assertions remain active")
+    run_path = RUNS / SOURCE_RUN
+    saved_summary_path = run_path / "summary.json"
+    saved_summary_raw = saved_summary_path.read_bytes()
+    summary = json.loads(saved_summary_raw)
+    require(summary["scientific_status"] == "incomplete_due_to_provider_timeout",
+            "saved correctness verdict changed unexpectedly")
+    require(summary["counts"]["case_count"] == 10594, "saved planned case count mismatch")
+
+    corpus_manifest_path = CORPUS / "manifest.json"
+    corpus_raw = corpus_manifest_path.read_bytes()
+    require(sha(corpus_raw) == EXPECTED_CORPUS_SHA, "frozen corpus manifest anchor mismatch")
+    corpus = json.loads(corpus_raw)
+    require(corpus.get("frozen_before_solver_runs") is True, "corpus was not frozen before runs")
+    datasets: dict[tuple[str, str], dict] = {}
+    raw_inputs: dict[tuple[str, str], dict] = {}
+    for name, count in EXPECTED_COUNTS.items():
+        if name == "legacy_generator_extension_v1" or name == "supplemental_controls":
+            continue
+        spec = corpus["datasets"][name]
+        file_path = CORPUS / spec["path"]
+        raw_bytes = file_path.read_bytes()
+        require(sha(raw_bytes) == spec["sha256"], f"dataset file hash mismatch {name}")
+        records = [json.loads(line) for line in raw_bytes.splitlines() if line]
+        require(len(records) == count == spec["count"], f"dataset count mismatch {name}")
+        for item in records:
+            data = item["input"]
+            require(sha(canonical_json(data)) == item["input_sha256"], f"input hash mismatch {item['case_id']}")
+            require(set(data) == {"alphabet", "positive", "negative"}, "unexpected solver input fields")
+            require(normalize_input(data) == data, f"frozen input is not normalized: {item['case_id']}")
+            key = (name, item["case_id"])
+            require(key not in datasets, f"duplicate case key {key}")
+            datasets[key] = data
+            raw_inputs[key] = data
+    expected_sidecar_hashes = {
+        name: spec["sha256"] for name, spec in corpus["truth_sidecars"].items()
+    }
+    for name, expected_hash in expected_sidecar_hashes.items():
+        spec = corpus["truth_sidecars"][name]
+        require(spec["forbidden_to_solver"] is True, f"truth sidecar not protected: {name}")
+        require(sha((CORPUS / spec["path"]).read_bytes()) == expected_hash,
+                f"truth sidecar hash mismatch {name}")
+
+    legacy_manifest_path = LEGACY / "manifest.json"
+    legacy_raw = legacy_manifest_path.read_bytes()
+    require(sha(legacy_raw) == EXPECTED_LEGACY_SHA, "legacy extension manifest anchor mismatch")
+    legacy_manifest = json.loads(legacy_raw)
+    require(legacy_manifest["count"] == 3072 and legacy_manifest["unique_solver_inputs"] == 570
+            and legacy_manifest["duplicate_solver_inputs"] == 2502, "legacy extension counts changed")
+    legacy_inputs = load_jsonl(LEGACY / "solver_inputs.jsonl")
+    legacy_truth = load_jsonl(LEGACY / "truth_sidecars.jsonl")
+    require(len(legacy_inputs) == len(legacy_truth) == 3072, "legacy extension row count mismatch")
+    for kind, records in (("solver_inputs.jsonl", legacy_inputs), ("truth_sidecars.jsonl", legacy_truth)):
+        spec = legacy_manifest["files"][kind]
+        raw = (LEGACY / kind).read_bytes()
+        require(sha(raw) == spec["sha256"], f"legacy file hash mismatch: {kind}")
+        require(len(records) == spec["count"], f"legacy count mismatch: {kind}")
+    legacy_input_digests = Counter()
+    for item in legacy_inputs:
+        data = item["input"]
+        digest = sha(canonical_json(data))
+        require(digest == item["input_sha256"], f"legacy input digest mismatch: {item['case_id']}")
+        require(set(data) == {"alphabet", "positive", "negative"}, "legacy solver input leaks extra data")
+        require(normalize_input(data) == data, f"legacy input not normalized: {item['case_id']}")
+        legacy_input_digests[digest] += 1
+        key = ("legacy_generator_extension_v1", item["case_id"])
+        require(key not in datasets, f"duplicate legacy case key {key}")
+        datasets[key] = data
+        raw_inputs[key] = data
+    require(len(legacy_input_digests) == 570, "legacy duplicate/unique structure changed")
+
+    same_side = {"alphabet": ["a", "b", "c"], "positive": ["a", "c"], "negative": ["ac"]}
+    same_side_id = "same_rejecting_side_regression"
+    datasets[("supplemental_controls", same_side_id)] = normalize_input(same_side)
+    raw_inputs[("supplemental_controls", same_side_id)] = same_side
+    require(len(datasets) == 10594, f"input coverage mismatch: {len(datasets)}")
+
+    runtime_path = CYCLE / "coordination" / "runtime_manifest.json"
+    runtime_raw = runtime_path.read_bytes()
+    require(sha(runtime_raw) == EXPECTED_RUNTIME_SHA, "runtime manifest anchor mismatch")
+    runtime = json.loads(runtime_raw)
+    require(runtime["runtime_version"] == "C002-R1", "unexpected runtime version")
+    runtime_hashes = {}
+    for item in runtime["files"]:
+        file_path = CYCLE / item["path"]
+        digest = sha(file_path.read_bytes())
+        require(digest == item["sha256"], f"runtime source drift: {item['path']}")
+        runtime_hashes[item["path"]] = digest
+
+    result_dir = RUNS / SOURCE_RUN
+    output_maps = {method: load_result_map(result_dir / f"{method}.jsonl.gz")
+                   for method in ("baseline", "baseline_unpruned", "eager", "lazy")}
+    expected_keys = set(datasets)
+    reference_only_from_unpruned = {key for key in expected_keys
+                                    if key[0] not in {"prior_binary_2187", "prior_abc_81",
+                                                       "targeted_controls", "supplemental_controls"}}
+    require(len(expected_keys - reference_only_from_unpruned) == 2278,
+            "boolean-oracle reference coverage changed")
+    for method, rows in output_maps.items():
+        method_keys = reference_only_from_unpruned if method == "baseline_unpruned" else expected_keys
+        require(set(rows) == method_keys,
+                f"saved result coverage mismatch {method}: expected {len(method_keys)}, got {len(rows)}")
+        for key, row in rows.items():
+            require(sha(canonical_json(row["input"])) == row["input_sha256"],
+                    f"saved raw input hash mismatch: {method} {key}")
+            require(row["input"] == raw_inputs[key],
+                    f"saved raw input differs from frozen record: {method} {key}")
+
+    comparison_counts = {"baseline": 0, "eager": 0, "lazy": 0}
+    witness_records = {"baseline": 0, "eager": 0, "lazy": 0, "baseline_unpruned": 0}
+    status_counts = {method: Counter() for method in comparison_counts}
+    incomplete = []
+    same_target = (("a",), ("b", "c"))
+    for key, raw_data in datasets.items():
+        data = normalize_input(raw_data)
+        expected = exact_f2(data)
+        if key == ("supplemental_controls", same_side_id):
+            require(tuple(sorted(same_target)) not in expected,
+                    "same-rejecting-side regression failed to exclude target")
+        if key in output_maps["baseline_unpruned"]:
+            baseline_ref = output_maps["baseline_unpruned"][key]["result"]
+            _, reference_set = partition_set(baseline_ref, data["alphabet"])
+            require(reference_set == expected, "saved unpruned reference differs from independent F2")
+            require(baseline_ref.get("feasible_partition_count") == len(expected),
+                    "saved unpruned reference count mismatch")
+            reference_status = "infeasible" if not expected else "unique" if len(expected) == 1 else "ambiguous"
+            require(baseline_ref.get("status") == reference_status,
+                    "saved unpruned reference status mismatch")
+            witness_records["baseline_unpruned"] += verify_witnesses(baseline_ref, data)
+        for method in comparison_counts:
+            row = output_maps[method][key]
+            result = row["result"]
+            allow_incomplete = method == "lazy"
+            status, count = validate_result(result, method, data, expected,
+                                            allow_incomplete=allow_incomplete)
+            status_counts[method][status] += 1
+            witness_records[method] += count
+            if status == "complete":
+                comparison_counts[method] += 1
+            else:
+                incomplete.append({"dataset": key[0], "case_id": key[1], "method": method,
+                                   "elapsed_seconds": row.get("execution", {}).get("elapsed_seconds"),
+                                   "found_partition_count": result["found_partition_count"],
+                                   "partial_set_sha256": sha(canonical_json(sorted(partition_set(result, data["alphabet"])[1])))})
+
+    require(comparison_counts == {"baseline": 10594, "eager": 10594, "lazy": 10577},
+            f"saved complete comparison totals disagree: {comparison_counts}")
+    require(len(incomplete) == 17 and all(x["method"] == "lazy" for x in incomplete),
+            "saved partial-output count or method differs")
+    require(all(x["found_partition_count"] > 0 for x in incomplete),
+            "one or more saved partial lazy results have no witnesses")
+    require(summary["counts"]["mismatch_count"] == 0 and summary["counts"]["provider_error_count"] == 0,
+            "saved runner recorded mismatches/provider errors")
+    require(summary["counts"]["complete_set_comparisons"] == comparison_counts,
+            "saved runner complete comparison totals differ from independent checker")
+
+    output_dir = AUDIT / "correctness_validation" / (
+        datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%S.%fZ") + "_" + uuid4().hex[:8])
+    output_dir.mkdir(parents=True, exist_ok=False)
+    metamorphic = run_metamorphic_controls(output_dir)
+    report = {
+        "validation_id": output_dir.name,
+        "source_correctness_run": SOURCE_RUN,
+        "scientific_status": "accepted_on_complete_cases_with_lazy_incomplete_censoring",
+        "execution_status": "success",
+        "python_optimization": sys.flags.optimize,
+        "anchors": {
+            "corpus_manifest_sha256": sha(corpus_raw),
+            "legacy_extension_manifest_sha256": sha(legacy_raw),
+            "runtime_manifest_sha256": sha(runtime_raw),
+            "saved_correctness_summary_sha256": sha(saved_summary_raw),
+            "saved_result_file_sha256": {name: sha((result_dir / f"{name}.jsonl.gz").read_bytes())
+                                          for name in output_maps},
+            "runtime_file_sha256": runtime_hashes,
+        },
+        "coverage": {"dataset_counts": EXPECTED_COUNTS, "total_input_cases": len(datasets),
+                     "saved_rows_per_method": {name: len(rows) for name, rows in output_maps.items()},
+                     "complete_set_comparisons": comparison_counts,
+                     "incomplete_results": incomplete,
+                     "status_counts": {method: dict(counts) for method, counts in status_counts.items()},
+                     "witness_records_validated": witness_records,
+                     "mismatch_count": 0, "provider_error_count": 0,
+                     "legacy_unique_inputs": len(legacy_input_digests),
+                     "legacy_duplicate_records": 3072 - len(legacy_input_digests)},
+        "metamorphic_controls": metamorphic,
+        "method": "independent exhaustive two-block oracle plus independent output/witness validation",
+        "limitations": ["17 saved lazy outputs are incomplete after the 30-second cooperative deadline; their partial sets are nonempty feasible subsets, not full-set equality evidence.",
+                        "The frozen runtime and corpus are validated by their recorded hashes; no provider batch was rerun.",
+                        "The three metamorphic controls use one fixed valid labeled sample under alphabet/order permutations and duplicate records."],
+    }
+    report_path = output_dir / "validation_report.json"
+    report_path.write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    print(json.dumps({"validation_report": str(report_path), "report_sha256": sha(report_path.read_bytes()),
+                      "metamorphic_results_sha256": metamorphic["results_sha256"],
+                      "coverage": report["coverage"], "scientific_status": report["scientific_status"]},
+                     ensure_ascii=False, sort_keys=True))
+    return 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())

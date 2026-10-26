@@ -1,0 +1,68 @@
+{
+  "limitations": [
+    "Performance conclusions restricted to100 frozen performance inputs and this implementation/environment",
+    "No full-set equality claim for17 cooperative lazy incomplete correctness outputs",
+    "No readable output available for5 external benchmark timeouts",
+    "No memory comparison for lazy",
+    "Three fully repeated lazy cases cannot support extrapolation",
+    "Original first incomplete payload remains unavailable",
+    "Continuation proposals untested"
+  ],
+  "baseline_remains_default": true,
+  "tests_run": 0,
+  "correctness_complete_set_matches": {
+    "lazy": 10577,
+    "eager": 10594,
+    "baseline": 10594
+  },
+  "publication_status": "numeric_evidence_validated_final_project_promotion_by_master",
+  "benchmark_validation": {
+    "budget_skipped": 196,
+    "eager_paired_timing_inputs": 100,
+    "failures": 0,
+    "source_manifest_errors": 0,
+    "planned": 1200,
+    "valid_witness_records": 43020,
+    "eager_paired_memory_inputs": 100,
+    "unparseable_timed_out": 5,
+    "valid_complete_full_F2_equal": 999,
+    "lazy_paired_memory_inputs": 0,
+    "lazy_paired_timing_inputs": 3,
+    "errors": 0
+  },
+  "evidence": [
+    {
+      "sha256": "a1ebf3cc8f7d371d74168751a4b1016fe0276c2b92ac092d30f7c18c6642e14e",
+      "matches_reviewed_hash": true,
+      "source": "audit/benchmark_validation/20261026T142254.406767Z_079436eb/validation_report.json",
+      "snapshot": "benchmark_validation_report.json"
+    },
+    {
+      "sha256": "e7e29dc172a47cb4ab9632ccdf556794548fe0452ebf4d37d31585f356e284e2",
+      "matches_reviewed_hash": true,
+      "source": "audit/correctness_validation/20261026T133346.038161Z_8ba0e9bf/validation_report.json",
+      "snapshot": "correctness_validation_report.json"
+    },
+    {
+      "sha256": "e1c38e52ca9000c660dc70b6c7172ff88218d47d3dd8037c5c0e58766e428341",
+      "matches_reviewed_hash": true,
+      "source": "approaches/eager/FINAL_REPORT_CANDIDATE_FA_REV3.md",
+      "snapshot": "PARENT_REV3_FA.md"
+    }
+  ],
+  "report": "../FINAL_REPORT_CANDIDATE_FA_REV4.md",
+  "execution_status": "documentation_only",
+  "H3_H5_H6_status": "closed_within_saved_correctness_validator_scope",
+  "correctness_lazy_valid_nonempty_partial_outputs": 17,
+  "report_sha256": "1ff78d603fd00cdfd86094244c280ec53f19ccc35620cea5a1161cecccb3a550",
+  "parent_revision_preserved": true,
+  "scientific_status": "independent_saved_correctness_and_serial_benchmark_validation_accepted_with_censoring",
+  "id": "A-REPORT-FINAL-CANDIDATE-REV4",
+  "shared_or_git_changes": false,
+  "prior_evidence": [
+    "../report_evidence_REV3/MANIFEST.json",
+    "../report_evidence_REV2/MANIFEST.json"
+  ],
+  "new_experiments": 0,
+  "created_utc": "2026-10-26T14:30:43.2712980Z"
+}

@@ -1,0 +1,35 @@
+{
+  "id": "B_HARNESS_REVIEW_COMPLETED",
+  "at_utc": "2026-10-26T12:41:33.9196215Z",
+  "execution_status": "static_review_no_experiments",
+  "decision": "blocking_harness_defects_in_reviewed_version",
+  "blocking_findings": [
+    "H1 summary hashes call read_bytes on string filenames",
+    "H2 failing returned outputs are validated before archival"
+  ],
+  "additional_gaps": [
+    "H3 normalization permutations and duplicate negatives",
+    "H4 interrupted capture path",
+    "H5 frozen corpus hash anchoring",
+    "H6 nonempty partial output and progress/error counters"
+  ],
+  "report": "FINDINGS.md",
+  "report_sha256": "45baec869052acb1dbf30028d12c339cf88d25839515b847aa665203223b301f",
+  "source_freshness": [
+    {
+      "path": "audit/run_correctness.py",
+      "reviewed_sha256": "ebb457f740b7e13ac4778c6322d4ee2009a74a17b84bbadcaa95d47a430b105a",
+      "current_sha256": "ebb457f740b7e13ac4778c6322d4ee2009a74a17b84bbadcaa95d47a430b105a",
+      "still_current": true
+    },
+    {
+      "path": "audit/capture.py",
+      "reviewed_sha256": "c764c2a06a65414e0fa1d45fa92631246423192d54aa28a3f6f3e08a9b0c58a9",
+      "current_sha256": "c764c2a06a65414e0fa1d45fa92631246423192d54aa28a3f6f3e08a9b0c58a9",
+      "still_current": true
+    }
+  ],
+  "runtime_modified": false,
+  "scientific_refutation_of_solver": false,
+  "note": "Findings are version-specific; later auditor changes require a fresh review."
+}
