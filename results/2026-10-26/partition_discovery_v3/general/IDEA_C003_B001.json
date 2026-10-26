@@ -1,0 +1,17 @@
+{
+  "id": "C003-B001",
+  "parent": "C002-B001",
+  "hypothesis": "Continuing DFS over necessary graph components can construct first/second sample-compatible partitions without lazy root restarts.",
+  "motivation": "Match the requested construction task and isolate learned-cut value against a fair equally limited comparator.",
+  "assumptions": ["known distinct single-character alphabet size at least two", "two independent disjoint nonempty blocks", "noise-free finite labels", "unrestricted regular local factors"],
+  "sources": ["PROOFS.md", "../../partition_constraints_v2/approaches/lazy/PROOFS.md", "../../partition_constraints_v2/approaches/eager/SOURCES.md", "../../partition_constraints_v2/baseline/THEORY_NOTE.md"],
+  "scientific_status": "derivation_and_initial_smoke_passed_independent_audit_pending",
+  "execution_status": "success",
+  "performance_status": "not_measured",
+  "novelty_status": "not_claimed",
+  "master_decision": "pending",
+  "attempt": "../audit/attempts/20261026T191237.446567Z_4d9c55ac32",
+  "seed": 2026102603,
+  "failed_experiments": [],
+  "note": "The fair comparator shares support.py and is not independent correctness evidence; old full exact references supply the smoke oracle."
+}

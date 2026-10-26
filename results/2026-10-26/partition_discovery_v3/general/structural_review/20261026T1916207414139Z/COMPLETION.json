@@ -1,0 +1,25 @@
+{
+  "id": "C003_B_STATIC_STRUCTURAL_REVIEW_COMPLETE",
+  "at_utc": "2026-10-26T19:17:30.6756211Z",
+  "decision": "no_substantive_static_correctness_blocker_found",
+  "execution_status": "no_tests_static_only",
+  "review": "FINDINGS.md",
+  "review_sha256": "2671239c12479751f6e25409b2fee9c28b4ad2c0dc3e5f91aca1d6e8c539a263",
+  "freshness": [
+    {
+      "source": "structural/fixed_word_solver.py",
+      "reviewed_sha256": "110fa33dd42e43ab57ee4e255e0d19bb82a43495e43f82c21723ebea69d4aa2a",
+      "current_sha256": "110fa33dd42e43ab57ee4e255e0d19bb82a43495e43f82c21723ebea69d4aa2a",
+      "still_current": true
+    },
+    {
+      "source": "structural/PROOFS.md",
+      "reviewed_sha256": "469c5ffd37bee9c3d8e1f1fffcd102aa99e24e2e8c0a509a6885708c80eda86b",
+      "current_sha256": "469c5ffd37bee9c3d8e1f1fffcd102aa99e24e2e8c0a509a6885708c80eda86b",
+      "still_current": true
+    }
+  ],
+  "runtime_modified": false,
+  "remaining": "Independent empirical audit, source freeze and master acceptance",
+  "limitation": "Exact saved code/proof versions only; no novelty/performance certification"
+}

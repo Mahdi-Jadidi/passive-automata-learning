@@ -1,0 +1,20 @@
+{
+  "case_id": "malformed_1",
+  "input": {
+    "alphabet": [
+      "a",
+      "b"
+    ],
+    "positive": [
+      "ac"
+    ],
+    "negative": []
+  },
+  "kwargs": {
+    "max_solutions": 1,
+    "deadline": 304162.316563
+  },
+  "expected_status": "ValueError",
+  "exception_type": "ValueError",
+  "exception": "ValueError('positive contains a symbol outside alphabet')"
+}

@@ -1,0 +1,1832 @@
+{
+  "fixture_id": "C003-S001-SMOKE-v1",
+  "seed": 20261026,
+  "cases": [
+    {
+      "case_id": "repeated_small",
+      "input": {
+        "alphabet": [
+          "a",
+          "b",
+          "c"
+        ],
+        "positive": [
+          "aabbcc",
+          "ccaabb"
+        ],
+        "negative": [
+          "aabcc",
+          "abacbc"
+        ]
+      },
+      "expected_status": "found"
+    },
+    {
+      "case_id": "singleton_blocks",
+      "input": {
+        "alphabet": [
+          "a",
+          "b"
+        ],
+        "positive": [
+          "aabbb",
+          "bbbaa"
+        ],
+        "negative": [
+          "ab"
+        ]
+      },
+      "expected_status": "found"
+    },
+    {
+      "case_id": "class_unique_not_general",
+      "input": {
+        "alphabet": [
+          "a",
+          "b",
+          "c"
+        ],
+        "positive": [
+          "abc",
+          "cab"
+        ],
+        "negative": []
+      },
+      "expected_status": "found",
+      "general_count": 3
+    },
+    {
+      "case_id": "no_positive",
+      "input": {
+        "alphabet": [
+          "a",
+          "b",
+          "c"
+        ],
+        "positive": [],
+        "negative": [
+          ""
+        ]
+      },
+      "expected_status": "insufficient_coverage"
+    },
+    {
+      "case_id": "one_positive_unique_but_no_certificate",
+      "input": {
+        "alphabet": [
+          "a",
+          "b"
+        ],
+        "positive": [
+          "ab"
+        ],
+        "negative": []
+      },
+      "expected_status": "insufficient_coverage",
+      "fixed_count": 1
+    },
+    {
+      "case_id": "duplicates_add_no_coverage",
+      "input": {
+        "alphabet": [
+          "a",
+          "b",
+          "c"
+        ],
+        "positive": [
+          "abc",
+          "abc"
+        ],
+        "negative": []
+      },
+      "expected_status": "insufficient_coverage"
+    },
+    {
+      "case_id": "absent_symbol",
+      "input": {
+        "alphabet": [
+          "a",
+          "b",
+          "c"
+        ],
+        "positive": [
+          "ab",
+          "ba"
+        ],
+        "negative": []
+      },
+      "expected_status": "insufficient_coverage"
+    },
+    {
+      "case_id": "empty_local_words",
+      "input": {
+        "alphabet": [
+          "a",
+          "b",
+          "c"
+        ],
+        "positive": [
+          ""
+        ],
+        "negative": [
+          "a"
+        ]
+      },
+      "expected_status": "insufficient_coverage"
+    },
+    {
+      "case_id": "count_inconsistency",
+      "input": {
+        "alphabet": [
+          "a",
+          "b",
+          "c"
+        ],
+        "positive": [
+          "a",
+          "aa"
+        ],
+        "negative": []
+      },
+      "expected_status": "assumption_violation",
+      "fixed_count": 0
+    },
+    {
+      "case_id": "odd_cycle",
+      "input": {
+        "alphabet": [
+          "a",
+          "b",
+          "c"
+        ],
+        "positive": [
+          "abc",
+          "bca",
+          "cab"
+        ],
+        "negative": []
+      },
+      "expected_status": "assumption_violation",
+      "fixed_count": 0
+    },
+    {
+      "case_id": "negative_conflict",
+      "input": {
+        "alphabet": [
+          "a",
+          "b",
+          "c"
+        ],
+        "positive": [
+          "abc",
+          "cab"
+        ],
+        "negative": [
+          "acb"
+        ]
+      },
+      "expected_status": "assumption_violation",
+      "fixed_count": 0
+    },
+    {
+      "case_id": "normalize_duplicate_words",
+      "input": {
+        "alphabet": [
+          "c",
+          "b",
+          "a"
+        ],
+        "positive": [
+          "cab",
+          "abc",
+          "cab"
+        ],
+        "negative": [
+          "aa",
+          "",
+          "aa"
+        ]
+      },
+      "expected_status": "found"
+    },
+    {
+      "case_id": "limit_2",
+      "input": {
+        "alphabet": [
+          "a",
+          "b",
+          "c"
+        ],
+        "positive": [
+          "abc",
+          "cab"
+        ],
+        "negative": []
+      },
+      "expected_status": "found",
+      "max_solutions": 2
+    },
+    {
+      "case_id": "limit_None",
+      "input": {
+        "alphabet": [
+          "a",
+          "b",
+          "c"
+        ],
+        "positive": [
+          "abc",
+          "cab"
+        ],
+        "negative": []
+      },
+      "expected_status": "found",
+      "max_solutions": null
+    },
+    {
+      "case_id": "expired_deadline",
+      "input": {
+        "alphabet": [
+          "a",
+          "b",
+          "c"
+        ],
+        "positive": [
+          "abc",
+          "cab"
+        ],
+        "negative": []
+      },
+      "expected_status": "incomplete",
+      "expired_deadline": true
+    },
+    {
+      "case_id": "malformed_0",
+      "input": {
+        "alphabet": [
+          "a",
+          "a",
+          "b"
+        ],
+        "positive": [
+          "ab"
+        ],
+        "negative": []
+      },
+      "expected_status": "ValueError"
+    },
+    {
+      "case_id": "malformed_1",
+      "input": {
+        "alphabet": [
+          "a",
+          "b"
+        ],
+        "positive": [
+          "ac"
+        ],
+        "negative": []
+      },
+      "expected_status": "ValueError"
+    },
+    {
+      "case_id": "malformed_2",
+      "input": {
+        "alphabet": [
+          "a",
+          "b"
+        ],
+        "positive": [
+          "ab"
+        ],
+        "negative": [
+          "ab"
+        ]
+      },
+      "expected_status": "ValueError"
+    },
+    {
+      "case_id": "malformed_3",
+      "input": {
+        "alphabet": [
+          "a"
+        ],
+        "positive": [
+          "a"
+        ],
+        "negative": []
+      },
+      "expected_status": "ValueError"
+    },
+    {
+      "case_id": "malformed_4",
+      "input": {
+        "alphabet": [
+          "a",
+          "b"
+        ],
+        "positive": "ab",
+        "negative": []
+      },
+      "expected_status": "ValueError"
+    },
+    {
+      "case_id": "malformed_5",
+      "input": null,
+      "expected_status": "ValueError"
+    },
+    {
+      "case_id": "invalid_limit_bool",
+      "input": {
+        "alphabet": [
+          "a",
+          "b"
+        ],
+        "positive": [
+          "ab"
+        ],
+        "negative": []
+      },
+      "expected_status": "ValueError",
+      "max_solutions": true
+    },
+    {
+      "case_id": "invalid_limit_zero",
+      "input": {
+        "alphabet": [
+          "a",
+          "b"
+        ],
+        "positive": [
+          "ab"
+        ],
+        "negative": []
+      },
+      "expected_status": "ValueError",
+      "max_solutions": 0
+    },
+    {
+      "case_id": "constructive_small_00",
+      "input": {
+        "alphabet": [
+          "a",
+          "b"
+        ],
+        "positive": [
+          "bbaa",
+          "aabb"
+        ],
+        "negative": [
+          "bba"
+        ]
+      },
+      "expected_status": "found",
+      "target_blocks": [
+        [
+          "b"
+        ],
+        [
+          "a"
+        ]
+      ]
+    },
+    {
+      "case_id": "constructive_small_01",
+      "input": {
+        "alphabet": [
+          "a",
+          "b",
+          "c",
+          "d",
+          "e",
+          "f"
+        ],
+        "positive": [
+          "eebcccdddffaa",
+          "dddffaaeebccc"
+        ],
+        "negative": [
+          "eebcccdddffa"
+        ]
+      },
+      "expected_status": "found",
+      "target_blocks": [
+        [
+          "b",
+          "c",
+          "e"
+        ],
+        [
+          "a",
+          "d",
+          "f"
+        ]
+      ]
+    },
+    {
+      "case_id": "constructive_small_02",
+      "input": {
+        "alphabet": [
+          "a",
+          "b",
+          "c",
+          "d"
+        ],
+        "positive": [
+          "bbdddacc",
+          "accbbddd"
+        ],
+        "negative": [
+          "bbdddac"
+        ]
+      },
+      "expected_status": "found",
+      "target_blocks": [
+        [
+          "b",
+          "d"
+        ],
+        [
+          "a",
+          "c"
+        ]
+      ]
+    },
+    {
+      "case_id": "constructive_small_03",
+      "input": {
+        "alphabet": [
+          "a",
+          "b",
+          "c"
+        ],
+        "positive": [
+          "acccbb",
+          "bbaccc"
+        ],
+        "negative": [
+          "acccb"
+        ]
+      },
+      "expected_status": "found",
+      "target_blocks": [
+        [
+          "a",
+          "c"
+        ],
+        [
+          "b"
+        ]
+      ]
+    },
+    {
+      "case_id": "constructive_small_04",
+      "input": {
+        "alphabet": [
+          "a",
+          "b",
+          "c",
+          "d",
+          "e"
+        ],
+        "positive": [
+          "dbbaaeeccc",
+          "eecccdbbaa"
+        ],
+        "negative": [
+          "dbbaaeecc"
+        ]
+      },
+      "expected_status": "found",
+      "target_blocks": [
+        [
+          "a",
+          "b",
+          "d"
+        ],
+        [
+          "c",
+          "e"
+        ]
+      ]
+    },
+    {
+      "case_id": "constructive_small_05",
+      "input": {
+        "alphabet": [
+          "a",
+          "b",
+          "c",
+          "d",
+          "e"
+        ],
+        "positive": [
+          "eaaabdddc",
+          "aaabdddce"
+        ],
+        "negative": [
+          "eaaabddd"
+        ]
+      },
+      "expected_status": "found",
+      "target_blocks": [
+        [
+          "e"
+        ],
+        [
+          "a",
+          "b",
+          "c",
+          "d"
+        ]
+      ]
+    },
+    {
+      "case_id": "constructive_small_06",
+      "input": {
+        "alphabet": [
+          "a",
+          "b",
+          "c"
+        ],
+        "positive": [
+          "ccaaabb",
+          "aaabbcc"
+        ],
+        "negative": [
+          "ccaaab"
+        ]
+      },
+      "expected_status": "found",
+      "target_blocks": [
+        [
+          "c"
+        ],
+        [
+          "a",
+          "b"
+        ]
+      ]
+    },
+    {
+      "case_id": "constructive_small_07",
+      "input": {
+        "alphabet": [
+          "a",
+          "b"
+        ],
+        "positive": [
+          "aaabbb",
+          "bbbaaa"
+        ],
+        "negative": [
+          "aaabb"
+        ]
+      },
+      "expected_status": "found",
+      "target_blocks": [
+        [
+          "a"
+        ],
+        [
+          "b"
+        ]
+      ]
+    },
+    {
+      "case_id": "constructive_small_08",
+      "input": {
+        "alphabet": [
+          "a",
+          "b"
+        ],
+        "positive": [
+          "bbaaa",
+          "aaabb"
+        ],
+        "negative": [
+          "bbaa"
+        ]
+      },
+      "expected_status": "found",
+      "target_blocks": [
+        [
+          "b"
+        ],
+        [
+          "a"
+        ]
+      ]
+    },
+    {
+      "case_id": "constructive_small_09",
+      "input": {
+        "alphabet": [
+          "a",
+          "b",
+          "c"
+        ],
+        "positive": [
+          "ccaaabb",
+          "aaabbcc"
+        ],
+        "negative": [
+          "ccaaab"
+        ]
+      },
+      "expected_status": "found",
+      "target_blocks": [
+        [
+          "c"
+        ],
+        [
+          "a",
+          "b"
+        ]
+      ]
+    },
+    {
+      "case_id": "constructive_small_10",
+      "input": {
+        "alphabet": [
+          "a",
+          "b",
+          "c",
+          "d",
+          "e",
+          "f"
+        ],
+        "positive": [
+          "bbbeeddcccaaaff",
+          "ffbbbeeddcccaaa"
+        ],
+        "negative": [
+          "bbbeeddcccaaaf"
+        ]
+      },
+      "expected_status": "found",
+      "target_blocks": [
+        [
+          "a",
+          "b",
+          "c",
+          "d",
+          "e"
+        ],
+        [
+          "f"
+        ]
+      ]
+    },
+    {
+      "case_id": "constructive_small_11",
+      "input": {
+        "alphabet": [
+          "a",
+          "b"
+        ],
+        "positive": [
+          "aab",
+          "baa"
+        ],
+        "negative": [
+          "aa"
+        ]
+      },
+      "expected_status": "found",
+      "target_blocks": [
+        [
+          "a"
+        ],
+        [
+          "b"
+        ]
+      ]
+    },
+    {
+      "case_id": "constructive_small_12",
+      "input": {
+        "alphabet": [
+          "a",
+          "b",
+          "c",
+          "d"
+        ],
+        "positive": [
+          "dddbaccc",
+          "cccdddba"
+        ],
+        "negative": [
+          "dddbacc"
+        ]
+      },
+      "expected_status": "found",
+      "target_blocks": [
+        [
+          "a",
+          "b",
+          "d"
+        ],
+        [
+          "c"
+        ]
+      ]
+    },
+    {
+      "case_id": "constructive_small_13",
+      "input": {
+        "alphabet": [
+          "a",
+          "b"
+        ],
+        "positive": [
+          "bbba",
+          "abbb"
+        ],
+        "negative": [
+          "bbb"
+        ]
+      },
+      "expected_status": "found",
+      "target_blocks": [
+        [
+          "b"
+        ],
+        [
+          "a"
+        ]
+      ]
+    },
+    {
+      "case_id": "constructive_small_14",
+      "input": {
+        "alphabet": [
+          "a",
+          "b",
+          "c",
+          "d",
+          "e"
+        ],
+        "positive": [
+          "eaabbdddcc",
+          "bbdddcceaa"
+        ],
+        "negative": [
+          "eaabbdddc"
+        ]
+      },
+      "expected_status": "found",
+      "target_blocks": [
+        [
+          "a",
+          "e"
+        ],
+        [
+          "b",
+          "c",
+          "d"
+        ]
+      ]
+    },
+    {
+      "case_id": "constructive_small_15",
+      "input": {
+        "alphabet": [
+          "a",
+          "b",
+          "c",
+          "d",
+          "e"
+        ],
+        "positive": [
+          "aacceebbbdd",
+          "ddaacceebbb"
+        ],
+        "negative": [
+          "aacceebbbd"
+        ]
+      },
+      "expected_status": "found",
+      "target_blocks": [
+        [
+          "a",
+          "b",
+          "c",
+          "e"
+        ],
+        [
+          "d"
+        ]
+      ]
+    },
+    {
+      "case_id": "constructive_small_16",
+      "input": {
+        "alphabet": [
+          "a",
+          "b"
+        ],
+        "positive": [
+          "bba",
+          "abb"
+        ],
+        "negative": [
+          "bb"
+        ]
+      },
+      "expected_status": "found",
+      "target_blocks": [
+        [
+          "b"
+        ],
+        [
+          "a"
+        ]
+      ]
+    },
+    {
+      "case_id": "constructive_small_17",
+      "input": {
+        "alphabet": [
+          "a",
+          "b"
+        ],
+        "positive": [
+          "aaabb",
+          "bbaaa"
+        ],
+        "negative": [
+          "aaab"
+        ]
+      },
+      "expected_status": "found",
+      "target_blocks": [
+        [
+          "a"
+        ],
+        [
+          "b"
+        ]
+      ]
+    },
+    {
+      "case_id": "constructive_small_18",
+      "input": {
+        "alphabet": [
+          "a",
+          "b",
+          "c"
+        ],
+        "positive": [
+          "aaaccb",
+          "baaacc"
+        ],
+        "negative": [
+          "aaacc"
+        ]
+      },
+      "expected_status": "found",
+      "target_blocks": [
+        [
+          "a",
+          "c"
+        ],
+        [
+          "b"
+        ]
+      ]
+    },
+    {
+      "case_id": "constructive_small_19",
+      "input": {
+        "alphabet": [
+          "a",
+          "b",
+          "c",
+          "d"
+        ],
+        "positive": [
+          "aabbdccc",
+          "cccaabbd"
+        ],
+        "negative": [
+          "aabbdcc"
+        ]
+      },
+      "expected_status": "found",
+      "target_blocks": [
+        [
+          "a",
+          "b",
+          "d"
+        ],
+        [
+          "c"
+        ]
+      ]
+    },
+    {
+      "case_id": "constructive_small_20",
+      "input": {
+        "alphabet": [
+          "a",
+          "b",
+          "c",
+          "d"
+        ],
+        "positive": [
+          "abbbcccdd",
+          "ddabbbccc"
+        ],
+        "negative": [
+          "abbbcccd"
+        ]
+      },
+      "expected_status": "found",
+      "target_blocks": [
+        [
+          "a",
+          "b",
+          "c"
+        ],
+        [
+          "d"
+        ]
+      ]
+    },
+    {
+      "case_id": "constructive_small_21",
+      "input": {
+        "alphabet": [
+          "a",
+          "b",
+          "c",
+          "d",
+          "e"
+        ],
+        "positive": [
+          "eccddbbbaa",
+          "aaeccddbbb"
+        ],
+        "negative": [
+          "eccddbbba"
+        ]
+      },
+      "expected_status": "found",
+      "target_blocks": [
+        [
+          "b",
+          "c",
+          "d",
+          "e"
+        ],
+        [
+          "a"
+        ]
+      ]
+    },
+    {
+      "case_id": "constructive_small_22",
+      "input": {
+        "alphabet": [
+          "a",
+          "b",
+          "c",
+          "d"
+        ],
+        "positive": [
+          "adccbbb",
+          "dccbbba"
+        ],
+        "negative": [
+          "adccbb"
+        ]
+      },
+      "expected_status": "found",
+      "target_blocks": [
+        [
+          "a"
+        ],
+        [
+          "b",
+          "c",
+          "d"
+        ]
+      ]
+    },
+    {
+      "case_id": "constructive_small_23",
+      "input": {
+        "alphabet": [
+          "a",
+          "b",
+          "c",
+          "d"
+        ],
+        "positive": [
+          "ddaacccbb",
+          "bbddaaccc"
+        ],
+        "negative": [
+          "ddaacccb"
+        ]
+      },
+      "expected_status": "found",
+      "target_blocks": [
+        [
+          "a",
+          "c",
+          "d"
+        ],
+        [
+          "b"
+        ]
+      ]
+    },
+    {
+      "case_id": "constructive_small_24",
+      "input": {
+        "alphabet": [
+          "a",
+          "b",
+          "c",
+          "d",
+          "e",
+          "f"
+        ],
+        "positive": [
+          "bbbfffaaaddcee",
+          "eebbbfffaaaddc"
+        ],
+        "negative": [
+          "bbbfffaaaddce"
+        ]
+      },
+      "expected_status": "found",
+      "target_blocks": [
+        [
+          "a",
+          "b",
+          "c",
+          "d",
+          "f"
+        ],
+        [
+          "e"
+        ]
+      ]
+    },
+    {
+      "case_id": "constructive_small_25",
+      "input": {
+        "alphabet": [
+          "a",
+          "b",
+          "c",
+          "d",
+          "e"
+        ],
+        "positive": [
+          "cccdabee",
+          "dabeeccc"
+        ],
+        "negative": [
+          "cccdabe"
+        ]
+      },
+      "expected_status": "found",
+      "target_blocks": [
+        [
+          "c"
+        ],
+        [
+          "a",
+          "b",
+          "d",
+          "e"
+        ]
+      ]
+    },
+    {
+      "case_id": "constructive_small_26",
+      "input": {
+        "alphabet": [
+          "a",
+          "b",
+          "c"
+        ],
+        "positive": [
+          "ccaaabb",
+          "aaabbcc"
+        ],
+        "negative": [
+          "ccaaab"
+        ]
+      },
+      "expected_status": "found",
+      "target_blocks": [
+        [
+          "c"
+        ],
+        [
+          "a",
+          "b"
+        ]
+      ]
+    },
+    {
+      "case_id": "constructive_small_27",
+      "input": {
+        "alphabet": [
+          "a",
+          "b",
+          "c"
+        ],
+        "positive": [
+          "bbbca",
+          "cabbb"
+        ],
+        "negative": [
+          "bbbc"
+        ]
+      },
+      "expected_status": "found",
+      "target_blocks": [
+        [
+          "b"
+        ],
+        [
+          "a",
+          "c"
+        ]
+      ]
+    },
+    {
+      "case_id": "constructive_small_28",
+      "input": {
+        "alphabet": [
+          "a",
+          "b"
+        ],
+        "positive": [
+          "ab",
+          "ba"
+        ],
+        "negative": [
+          "a"
+        ]
+      },
+      "expected_status": "found",
+      "target_blocks": [
+        [
+          "a"
+        ],
+        [
+          "b"
+        ]
+      ]
+    },
+    {
+      "case_id": "constructive_small_29",
+      "input": {
+        "alphabet": [
+          "a",
+          "b"
+        ],
+        "positive": [
+          "aabb",
+          "bbaa"
+        ],
+        "negative": [
+          "aab"
+        ]
+      },
+      "expected_status": "found",
+      "target_blocks": [
+        [
+          "a"
+        ],
+        [
+          "b"
+        ]
+      ]
+    },
+    {
+      "case_id": "constructive_small_30",
+      "input": {
+        "alphabet": [
+          "a",
+          "b",
+          "c",
+          "d",
+          "e"
+        ],
+        "positive": [
+          "dddeeebbccaaa",
+          "aaadddeeebbcc"
+        ],
+        "negative": [
+          "dddeeebbccaa"
+        ]
+      },
+      "expected_status": "found",
+      "target_blocks": [
+        [
+          "b",
+          "c",
+          "d",
+          "e"
+        ],
+        [
+          "a"
+        ]
+      ]
+    },
+    {
+      "case_id": "constructive_small_31",
+      "input": {
+        "alphabet": [
+          "a",
+          "b",
+          "c",
+          "d",
+          "e"
+        ],
+        "positive": [
+          "dddecccbaaa",
+          "cccbaaaddde"
+        ],
+        "negative": [
+          "dddecccbaa"
+        ]
+      },
+      "expected_status": "found",
+      "target_blocks": [
+        [
+          "d",
+          "e"
+        ],
+        [
+          "a",
+          "b",
+          "c"
+        ]
+      ]
+    },
+    {
+      "case_id": "balanced_128",
+      "input": {
+        "alphabet": [
+          "Ѐ",
+          "Ё",
+          "Ђ",
+          "Ѓ",
+          "Є",
+          "Ѕ",
+          "І",
+          "Ї",
+          "Ј",
+          "Љ",
+          "Њ",
+          "Ћ",
+          "Ќ",
+          "Ѝ",
+          "Ў",
+          "Џ",
+          "А",
+          "Б",
+          "В",
+          "Г",
+          "Д",
+          "Е",
+          "Ж",
+          "З",
+          "И",
+          "Й",
+          "К",
+          "Л",
+          "М",
+          "Н",
+          "О",
+          "П",
+          "Р",
+          "С",
+          "Т",
+          "У",
+          "Ф",
+          "Х",
+          "Ц",
+          "Ч",
+          "Ш",
+          "Щ",
+          "Ъ",
+          "Ы",
+          "Ь",
+          "Э",
+          "Ю",
+          "Я",
+          "а",
+          "б",
+          "в",
+          "г",
+          "д",
+          "е",
+          "ж",
+          "з",
+          "и",
+          "й",
+          "к",
+          "л",
+          "м",
+          "н",
+          "о",
+          "п",
+          "р",
+          "с",
+          "т",
+          "у",
+          "ф",
+          "х",
+          "ц",
+          "ч",
+          "ш",
+          "щ",
+          "ъ",
+          "ы",
+          "ь",
+          "э",
+          "ю",
+          "я",
+          "ѐ",
+          "ё",
+          "ђ",
+          "ѓ",
+          "є",
+          "ѕ",
+          "і",
+          "ї",
+          "ј",
+          "љ",
+          "њ",
+          "ћ",
+          "ќ",
+          "ѝ",
+          "ў",
+          "џ",
+          "Ѡ",
+          "ѡ",
+          "Ѣ",
+          "ѣ",
+          "Ѥ",
+          "ѥ",
+          "Ѧ",
+          "ѧ",
+          "Ѩ",
+          "ѩ",
+          "Ѫ",
+          "ѫ",
+          "Ѭ",
+          "ѭ",
+          "Ѯ",
+          "ѯ",
+          "Ѱ",
+          "ѱ",
+          "Ѳ",
+          "ѳ",
+          "Ѵ",
+          "ѵ",
+          "Ѷ",
+          "ѷ",
+          "Ѹ",
+          "ѹ",
+          "Ѻ",
+          "ѻ",
+          "Ѽ",
+          "ѽ",
+          "Ѿ",
+          "ѿ"
+        ],
+        "positive": [
+          "ЀЁЂЃЄЅІЇЈЉЊЋЌЍЎЏАБВГДЕЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯабвгдежзийклмноппонмлкйизжедгвбаЯЮЭЬЫЪЩШЧЦХФУТСРПОНМЛКЙИЗЖЕДГВБАЏЎЍЌЋЊЉЈЇІЅЄЃЂЁЀрстуфхцчшщъыьэюяѐёђѓєѕіїјљњћќѝўџѠѡѢѣѤѥѦѧѨѩѪѫѬѭѮѯѰѱѲѳѴѵѶѷѸѹѺѻѼѽѾѿрстуфхцчшщъыьэюяѐёђѓєѕіїјљњћќѝўџѠѡѢѣѤѥѦѧѨѩѪѫѬѭѮѯѰѱѲѳѴѵѶѷѸѹѺѻѼѽѾѿрстуфхцчшщъыьэюяѐёђѓєѕіїјљњћќѝўџѠѡѢѣѤѥѦѧѨѩѪѫѬѭѮѯѰѱѲѳѴѵѶѷѸѹѺѻѼѽѾѿ",
+          "рстуфхцчшщъыьэюяѐёђѓєѕіїјљњћќѝўџѠѡѢѣѤѥѦѧѨѩѪѫѬѭѮѯѰѱѲѳѴѵѶѷѸѹѺѻѼѽѾѿрстуфхцчшщъыьэюяѐёђѓєѕіїјљњћќѝўџѠѡѢѣѤѥѦѧѨѩѪѫѬѭѮѯѰѱѲѳѴѵѶѷѸѹѺѻѼѽѾѿрстуфхцчшщъыьэюяѐёђѓєѕіїјљњћќѝўџѠѡѢѣѤѥѦѧѨѩѪѫѬѭѮѯѰѱѲѳѴѵѶѷѸѹѺѻѼѽѾѿЀЁЂЃЄЅІЇЈЉЊЋЌЍЎЏАБВГДЕЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯабвгдежзийклмноппонмлкйизжедгвбаЯЮЭЬЫЪЩШЧЦХФУТСРПОНМЛКЙИЗЖЕДГВБАЏЎЍЌЋЊЉЈЇІЅЄЃЂЁЀ"
+        ],
+        "negative": [
+          "ЀЁЂЃЄЅІЇЈЉЊЋЌЍЎЏАБВГДЕЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯабвгдежзийклмноппонмлкйизжедгвбаЯЮЭЬЫЪЩШЧЦХФУТСРПОНМЛКЙИЗЖЕДГВБАЏЎЍЌЋЊЉЈЇІЅЄЃЂЁЀрстуфхцчшщъыьэюяѐёђѓєѕіїјљњћќѝўџѠѡѢѣѤѥѦѧѨѩѪѫѬѭѮѯѰѱѲѳѴѵѶѷѸѹѺѻѼѽѾѿрстуфхцчшщъыьэюяѐёђѓєѕіїјљњћќѝўџѠѡѢѣѤѥѦѧѨѩѪѫѬѭѮѯѰѱѲѳѴѵѶѷѸѹѺѻѼѽѾѿрстуфхцчшщъыьэюяѐёђѓєѕіїјљњћќѝўџѠѡѢѣѤѥѦѧѨѩѪѫѬѭѮѯѰѱѲѳѴѵѶѷѸѹѺѻѼѽѾ"
+        ]
+      },
+      "expected_status": "found",
+      "target_blocks": [
+        [
+          "Ѐ",
+          "Ё",
+          "Ђ",
+          "Ѓ",
+          "Є",
+          "Ѕ",
+          "І",
+          "Ї",
+          "Ј",
+          "Љ",
+          "Њ",
+          "Ћ",
+          "Ќ",
+          "Ѝ",
+          "Ў",
+          "Џ",
+          "А",
+          "Б",
+          "В",
+          "Г",
+          "Д",
+          "Е",
+          "Ж",
+          "З",
+          "И",
+          "Й",
+          "К",
+          "Л",
+          "М",
+          "Н",
+          "О",
+          "П",
+          "Р",
+          "С",
+          "Т",
+          "У",
+          "Ф",
+          "Х",
+          "Ц",
+          "Ч",
+          "Ш",
+          "Щ",
+          "Ъ",
+          "Ы",
+          "Ь",
+          "Э",
+          "Ю",
+          "Я",
+          "а",
+          "б",
+          "в",
+          "г",
+          "д",
+          "е",
+          "ж",
+          "з",
+          "и",
+          "й",
+          "к",
+          "л",
+          "м",
+          "н",
+          "о",
+          "п"
+        ],
+        [
+          "р",
+          "с",
+          "т",
+          "у",
+          "ф",
+          "х",
+          "ц",
+          "ч",
+          "ш",
+          "щ",
+          "ъ",
+          "ы",
+          "ь",
+          "э",
+          "ю",
+          "я",
+          "ѐ",
+          "ё",
+          "ђ",
+          "ѓ",
+          "є",
+          "ѕ",
+          "і",
+          "ї",
+          "ј",
+          "љ",
+          "њ",
+          "ћ",
+          "ќ",
+          "ѝ",
+          "ў",
+          "џ",
+          "Ѡ",
+          "ѡ",
+          "Ѣ",
+          "ѣ",
+          "Ѥ",
+          "ѥ",
+          "Ѧ",
+          "ѧ",
+          "Ѩ",
+          "ѩ",
+          "Ѫ",
+          "ѫ",
+          "Ѭ",
+          "ѭ",
+          "Ѯ",
+          "ѯ",
+          "Ѱ",
+          "ѱ",
+          "Ѳ",
+          "ѳ",
+          "Ѵ",
+          "ѵ",
+          "Ѷ",
+          "ѷ",
+          "Ѹ",
+          "ѹ",
+          "Ѻ",
+          "ѻ",
+          "Ѽ",
+          "ѽ",
+          "Ѿ",
+          "ѿ"
+        ]
+      ]
+    },
+    {
+      "case_id": "singleton_128",
+      "input": {
+        "alphabet": [
+          "Ѐ",
+          "Ё",
+          "Ђ",
+          "Ѓ",
+          "Є",
+          "Ѕ",
+          "І",
+          "Ї",
+          "Ј",
+          "Љ",
+          "Њ",
+          "Ћ",
+          "Ќ",
+          "Ѝ",
+          "Ў",
+          "Џ",
+          "А",
+          "Б",
+          "В",
+          "Г",
+          "Д",
+          "Е",
+          "Ж",
+          "З",
+          "И",
+          "Й",
+          "К",
+          "Л",
+          "М",
+          "Н",
+          "О",
+          "П",
+          "Р",
+          "С",
+          "Т",
+          "У",
+          "Ф",
+          "Х",
+          "Ц",
+          "Ч",
+          "Ш",
+          "Щ",
+          "Ъ",
+          "Ы",
+          "Ь",
+          "Э",
+          "Ю",
+          "Я",
+          "а",
+          "б",
+          "в",
+          "г",
+          "д",
+          "е",
+          "ж",
+          "з",
+          "и",
+          "й",
+          "к",
+          "л",
+          "м",
+          "н",
+          "о",
+          "п",
+          "р",
+          "с",
+          "т",
+          "у",
+          "ф",
+          "х",
+          "ц",
+          "ч",
+          "ш",
+          "щ",
+          "ъ",
+          "ы",
+          "ь",
+          "э",
+          "ю",
+          "я",
+          "ѐ",
+          "ё",
+          "ђ",
+          "ѓ",
+          "є",
+          "ѕ",
+          "і",
+          "ї",
+          "ј",
+          "љ",
+          "њ",
+          "ћ",
+          "ќ",
+          "ѝ",
+          "ў",
+          "џ",
+          "Ѡ",
+          "ѡ",
+          "Ѣ",
+          "ѣ",
+          "Ѥ",
+          "ѥ",
+          "Ѧ",
+          "ѧ",
+          "Ѩ",
+          "ѩ",
+          "Ѫ",
+          "ѫ",
+          "Ѭ",
+          "ѭ",
+          "Ѯ",
+          "ѯ",
+          "Ѱ",
+          "ѱ",
+          "Ѳ",
+          "ѳ",
+          "Ѵ",
+          "ѵ",
+          "Ѷ",
+          "ѷ",
+          "Ѹ",
+          "ѹ",
+          "Ѻ",
+          "ѻ",
+          "Ѽ",
+          "ѽ",
+          "Ѿ",
+          "ѿ"
+        ],
+        "positive": [
+          "ЀЀЁЂЃЄЅІЇЈЉЊЋЌЍЎЏАБВГДЕЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯабвгдежзийклмнопрстуфхцчшщъыьэюяѐёђѓєѕіїјљњћќѝўџѠѡѢѣѤѥѦѧѨѩѪѫѬѭѮѯѰѱѲѳѴѵѶѷѸѹѺѻѼѽѾѿЁЂЃЄЅІЇЈЉЊЋЌЍЎЏАБВГДЕЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯабвгдежзийклмнопрстуфхцчшщъыьэюяѐёђѓєѕіїјљњћќѝўџѠѡѢѣѤѥѦѧѨѩѪѫѬѭѮѯѰѱѲѳѴѵѶѷѸѹѺѻѼѽѾѿЁЂЃЄЅІЇЈЉЊЋЌЍЎЏАБВГДЕЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯабвгдежзийклмнопрстуфхцчшщъыьэюяѐёђѓєѕіїјљњћќѝўџѠѡѢѣѤѥѦѧѨѩѪѫѬѭѮѯѰѱѲѳѴѵѶѷѸѹѺѻѼѽѾѿ",
+          "ЁЂЃЄЅІЇЈЉЊЋЌЍЎЏАБВГДЕЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯабвгдежзийклмнопрстуфхцчшщъыьэюяѐёђѓєѕіїјљњћќѝўџѠѡѢѣѤѥѦѧѨѩѪѫѬѭѮѯѰѱѲѳѴѵѶѷѸѹѺѻѼѽѾѿЁЂЃЄЅІЇЈЉЊЋЌЍЎЏАБВГДЕЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯабвгдежзийклмнопрстуфхцчшщъыьэюяѐёђѓєѕіїјљњћќѝўџѠѡѢѣѤѥѦѧѨѩѪѫѬѭѮѯѰѱѲѳѴѵѶѷѸѹѺѻѼѽѾѿЁЂЃЄЅІЇЈЉЊЋЌЍЎЏАБВГДЕЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯабвгдежзийклмнопрстуфхцчшщъыьэюяѐёђѓєѕіїјљњћќѝўџѠѡѢѣѤѥѦѧѨѩѪѫѬѭѮѯѰѱѲѳѴѵѶѷѸѹѺѻѼѽѾѿЀЀ"
+        ],
+        "negative": [
+          "ЀЀЁЂЃЄЅІЇЈЉЊЋЌЍЎЏАБВГДЕЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯабвгдежзийклмнопрстуфхцчшщъыьэюяѐёђѓєѕіїјљњћќѝўџѠѡѢѣѤѥѦѧѨѩѪѫѬѭѮѯѰѱѲѳѴѵѶѷѸѹѺѻѼѽѾѿЁЂЃЄЅІЇЈЉЊЋЌЍЎЏАБВГДЕЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯабвгдежзийклмнопрстуфхцчшщъыьэюяѐёђѓєѕіїјљњћќѝўџѠѡѢѣѤѥѦѧѨѩѪѫѬѭѮѯѰѱѲѳѴѵѶѷѸѹѺѻѼѽѾѿЁЂЃЄЅІЇЈЉЊЋЌЍЎЏАБВГДЕЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯабвгдежзийклмнопрстуфхцчшщъыьэюяѐёђѓєѕіїјљњћќѝўџѠѡѢѣѤѥѦѧѨѩѪѫѬѭѮѯѰѱѲѳѴѵѶѷѸѹѺѻѼѽѾ"
+        ]
+      },
+      "expected_status": "found",
+      "target_blocks": [
+        [
+          "Ѐ"
+        ],
+        [
+          "Ё",
+          "Ђ",
+          "Ѓ",
+          "Є",
+          "Ѕ",
+          "І",
+          "Ї",
+          "Ј",
+          "Љ",
+          "Њ",
+          "Ћ",
+          "Ќ",
+          "Ѝ",
+          "Ў",
+          "Џ",
+          "А",
+          "Б",
+          "В",
+          "Г",
+          "Д",
+          "Е",
+          "Ж",
+          "З",
+          "И",
+          "Й",
+          "К",
+          "Л",
+          "М",
+          "Н",
+          "О",
+          "П",
+          "Р",
+          "С",
+          "Т",
+          "У",
+          "Ф",
+          "Х",
+          "Ц",
+          "Ч",
+          "Ш",
+          "Щ",
+          "Ъ",
+          "Ы",
+          "Ь",
+          "Э",
+          "Ю",
+          "Я",
+          "а",
+          "б",
+          "в",
+          "г",
+          "д",
+          "е",
+          "ж",
+          "з",
+          "и",
+          "й",
+          "к",
+          "л",
+          "м",
+          "н",
+          "о",
+          "п",
+          "р",
+          "с",
+          "т",
+          "у",
+          "ф",
+          "х",
+          "ц",
+          "ч",
+          "ш",
+          "щ",
+          "ъ",
+          "ы",
+          "ь",
+          "э",
+          "ю",
+          "я",
+          "ѐ",
+          "ё",
+          "ђ",
+          "ѓ",
+          "є",
+          "ѕ",
+          "і",
+          "ї",
+          "ј",
+          "љ",
+          "њ",
+          "ћ",
+          "ќ",
+          "ѝ",
+          "ў",
+          "џ",
+          "Ѡ",
+          "ѡ",
+          "Ѣ",
+          "ѣ",
+          "Ѥ",
+          "ѥ",
+          "Ѧ",
+          "ѧ",
+          "Ѩ",
+          "ѩ",
+          "Ѫ",
+          "ѫ",
+          "Ѭ",
+          "ѭ",
+          "Ѯ",
+          "ѯ",
+          "Ѱ",
+          "ѱ",
+          "Ѳ",
+          "ѳ",
+          "Ѵ",
+          "ѵ",
+          "Ѷ",
+          "ѷ",
+          "Ѹ",
+          "ѹ",
+          "Ѻ",
+          "ѻ",
+          "Ѽ",
+          "ѽ",
+          "Ѿ",
+          "ѿ"
+        ]
+      ]
+    }
+  ],
+  "solver_input_policy": "Only case.input is passed to solve."
+}

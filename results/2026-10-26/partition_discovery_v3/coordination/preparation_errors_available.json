@@ -1,0 +1,32 @@
+{
+  "scope": "Auditor read-only preparation shell errors observed by master",
+  "scientific_status": "not_a_scientific_refutation",
+  "preservation": "Tool-returned excerpts preserved exactly; truncated:true means full raw output is unavailable in this file, not reconstructed",
+  "errors": [
+    {
+      "command": "\"C:\\\\Users\\\\Mahdi\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command '$base='\"'results/2026-10-26/partition_discovery_v3'; \"'$files=@('\"'audit/capture.py','solver.py','general/general_solver.py','general/fair_reference.py','general/support.py','structural/fixed_word_solver.py','general/PROOFS.md','structural/PROOFS.md'); foreach(\"'$f in $files){$p=Join-Path $base $f; if(Test-Path -LiteralPath $p){$h=Get-FileHash -LiteralPath $p -Algorithm SHA256; [pscustomobject]@{path=$f;bytes=(Get-Item -LiteralPath $p).Length;sha256=$h.Hash.ToLowerInvariant()}} else {[pscustomobject]@{path=$f;missing=$true}}} | ConvertTo-Json -Depth 4'",
+      "exit_code": 1,
+      "output": {
+        "text": "ParserError: \r\nLine |\r\n   2 |  . ariant()}} else {[pscustomobject]@{path=$f;missing=$true}}} | Convert .\r\n     |                                                                ~\r\n     | An empty pipe element is not allowed.\r\n",
+        "truncated": false
+      }
+    },
+    {
+      "command": "\"C:\\\\Users\\\\Mahdi\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command 'Get-ChildItem results/2026-10-26/partition_constraints_v2/audit -Directory | Select-Object Name; Get-Content results/2026-10-26/partition_constraints_v2/audit/corpus/frozen_v1/manifest.json -Raw | ConvertFrom-Json | Select-Object -ExpandProperty datasets | Get-Member -MemberType NoteProperty | Select-Object Name'",
+      "exit_code": 1,
+      "output": {
+        "text": "\r\nName\r\n----\r\n__pycache__\r\nattempts\r\nbenchmark_adopted\r\nbenchmark_validation\r\ncapture_versions\r\ncorpus\r\ncorrectness_runs\r\ncorrectness_validation\r\nsource_blobs\r\nConvertFrom-Json: \r\nLine |\r\n   2 |  … /audit/corpus/frozen_v1/manifest.json -Raw | ConvertFrom-Json | Selec …\r\n     |                                                 ~~~~~~~~~~~~~~~~\r\n     | The provided JSON includes a property whose name is an empty string, this is only supported using the -AsHashTable switch.\r\n\r\n",
+        "truncated": false
+      }
+    },
+    {
+      "command": "\"C:\\\\Users\\\\Mahdi\\\\.cache\\\\codex-runtimes\\\\codex-primary-runtime\\\\dependencies\\\\native\\\\powershell\\\\pwsh.exe\" -Command \"Get-Content results/2026-10-26/partition_discovery_v3/general/general_solver.py; Get-Content results/2026-10-26/partition_discovery_v3/structural/fixed_word_solver.py -TotalCount 200; python -B -X utf8 -c \\\"import gzip,json,pathlib; p=pathlib.Path('results/2026-10-26/partition_constraints_v2/audit/correctness_runs/20261026T125503.860658Z_805e5494/baseline.jsonl.gz'); f=gzip.open(p,'rt',encoding='utf8'); print(next(f)[:2000])\\\" \"",
+      "exit_code": 1,
+      "output": {
+        "text": "\"\"\"Graph-quotient continuing DFS with proved sound two-match cuts.\"\"\"\r\nimport importlib.util\r\nfrom pathlib import Path\r\n\r\n_spec = importlib.util.spec_from_file_location('c003_general_support', Path(__file__).with_name('support.py'))\r\n_support = importlib.util.module_from_spec(_spec)\r\n_spec.loader.exec_module(_support)\r\n\r\n\r\ndef solve(data, *, deadline=None, max_solutions=1):\r\n    return _support.search(data, deadline=deadline, max_solutions=max_solutions, learn=True)\r\n\"\"\"Recover a class-conditional partition from connected positive opposition.\r\n\r\nNo alphabet cap, no target/oracle queries and no general-regular uniqueness claim.\r\nDisconnected evidence is deliberately not enumerated: insufficient_coverage.\r\nMalformed input/unsupported parameter values raise ValueError for the root CLI.\r\n\"\"\"\r\nfrom __future__ import annotations\r\n\r\nfrom collections import deque\r\nimport math\r\nimport time\r\n\r\n\r\nclass _Interrupted(Exception):\r\n    pass\r\n\r\n\r\ndef _check(deadline):\r\n    if deadline is not None and time.perf_counter() >= deadline:\r\n        raise _Interrupted\r\n\r\n\r\ndef _project(word, block, deadline):\r\n    out = []\r\n    for i, symbol in enumerate(word):\r\n        if i & 1023 == 0:\r\n            _check(deadline)\r\n        if symbol in block:\r\n            out.append(symbol)\r\n    return \"\".join(out)\r\n\r\n\r\ndef _validate(data, deadline):\r\n    if not isinstance(data, dict):\r\n        raise ValueError(\"input must be an object\")\r\n    raw = data.get(\"alphabet\")\r\n    if (not isinstance(raw, list) or len(raw) < 2\r\n            or any(not isinstance(a, str) or len(a) != 1 for a in raw)\r\n            or len(s",
+        "truncated": true,
+        "originalChars": 9565
+      }
+    }
+  ]
+}

@@ -1,0 +1,85 @@
+{
+  "case_id": "one_positive_unique_but_no_certificate",
+  "input": {
+    "alphabet": [
+      "a",
+      "b"
+    ],
+    "positive": [
+      "ab"
+    ],
+    "negative": []
+  },
+  "kwargs": {
+    "max_solutions": 1,
+    "deadline": 304162.2701899
+  },
+  "expected_status": "insufficient_coverage",
+  "result": {
+    "method": "fixed-word",
+    "model_class": "fixed_word_product",
+    "status": "insufficient_coverage",
+    "solutions": [],
+    "search_exhausted": false,
+    "decision_complete": false,
+    "uniqueness": "unknown",
+    "uniqueness_scope": "unordered_two_nonempty_block_partitions_within_fixed_word_product_class",
+    "assumptions": [
+      "exactly_two_nonempty_disjoint_alphabet_blocks",
+      "each_local_language_is_a_singleton_word_language",
+      "positives_are_complete_traces_not_prefixes",
+      "fixed_noise_free_labels",
+      "connected_positive_opposition_is_a_sufficient_coverage_condition"
+    ],
+    "reason": "opposition_graph_is_disconnected",
+    "metrics": {
+      "pair_tests": 1,
+      "pair_projection_calls": 1,
+      "positive_count_checks": 1,
+      "positive_projection_checks": 0,
+      "negative_checks": 0,
+      "candidate_checks": 0,
+      "alphabet_size": 2,
+      "positive_count": 1,
+      "negative_count": 0,
+      "opposition_edges": 0,
+      "opposition_components": 2,
+      "provider_seconds": 6.86999992467463e-05
+    },
+    "graph": {
+      "symbols": [
+        "a",
+        "b"
+      ],
+      "edges": [],
+      "edge_positive_indices": [],
+      "components": [
+        [
+          "a"
+        ],
+        [
+          "b"
+        ]
+      ],
+      "colors": [
+        0,
+        0
+      ],
+      "construction_complete": true,
+      "absent_symbols": [],
+      "reference_positive_index": 0,
+      "positive_order": "sorted unique input words",
+      "coloring_complete": true
+    },
+    "certificate": {
+      "kind": "unmet_sufficient_condition",
+      "component_count": 2,
+      "does_not_assert_multiple_solutions": true
+    },
+    "limitations": [
+      "No uniqueness claim for unrestricted regular factors.",
+      "Disconnected opposition returns insufficient_coverage, not general infeasibility.",
+      "Accepted max_solutions modes certify at most one answer; no disconnected enumeration."
+    ]
+  }
+}

@@ -1,0 +1,106 @@
+{
+  "case_id": "odd_cycle",
+  "input": {
+    "alphabet": [
+      "a",
+      "b",
+      "c"
+    ],
+    "positive": [
+      "abc",
+      "bca",
+      "cab"
+    ],
+    "negative": []
+  },
+  "kwargs": {
+    "max_solutions": 1,
+    "deadline": 304162.2911946
+  },
+  "expected_status": "assumption_violation",
+  "result": {
+    "method": "fixed-word",
+    "model_class": "fixed_word_product",
+    "status": "assumption_violation",
+    "solutions": [],
+    "search_exhausted": true,
+    "decision_complete": true,
+    "uniqueness": "unknown",
+    "uniqueness_scope": "unordered_two_nonempty_block_partitions_within_fixed_word_product_class",
+    "assumptions": [
+      "exactly_two_nonempty_disjoint_alphabet_blocks",
+      "each_local_language_is_a_singleton_word_language",
+      "positives_are_complete_traces_not_prefixes",
+      "fixed_noise_free_labels",
+      "connected_positive_opposition_is_a_sufficient_coverage_condition"
+    ],
+    "reason": "opposition_graph_has_odd_cycle",
+    "metrics": {
+      "pair_tests": 3,
+      "pair_projection_calls": 7,
+      "positive_count_checks": 3,
+      "positive_projection_checks": 0,
+      "negative_checks": 0,
+      "candidate_checks": 0,
+      "alphabet_size": 3,
+      "positive_count": 3,
+      "negative_count": 0,
+      "provider_seconds": 8.3099992480129e-05
+    },
+    "graph": {
+      "symbols": [
+        "a",
+        "b",
+        "c"
+      ],
+      "edges": [
+        [
+          "a",
+          "b"
+        ],
+        [
+          "a",
+          "c"
+        ],
+        [
+          "b",
+          "c"
+        ]
+      ],
+      "edge_positive_indices": [
+        1,
+        1,
+        2
+      ],
+      "components": [
+        [
+          "a",
+          "b"
+        ]
+      ],
+      "colors": [
+        0,
+        1,
+        1
+      ],
+      "construction_complete": true,
+      "absent_symbols": [],
+      "reference_positive_index": 0,
+      "positive_order": "sorted unique input words"
+    },
+    "certificate": {
+      "kind": "odd_opposition_cycle",
+      "symbols": [
+        "b",
+        "a",
+        "c",
+        "b"
+      ]
+    },
+    "limitations": [
+      "No uniqueness claim for unrestricted regular factors.",
+      "Disconnected opposition returns insufficient_coverage, not general infeasibility.",
+      "Accepted max_solutions modes certify at most one answer; no disconnected enumeration."
+    ]
+  }
+}

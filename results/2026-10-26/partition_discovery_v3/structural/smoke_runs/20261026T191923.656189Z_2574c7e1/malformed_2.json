@@ -1,0 +1,22 @@
+{
+  "case_id": "malformed_2",
+  "input": {
+    "alphabet": [
+      "a",
+      "b"
+    ],
+    "positive": [
+      "ab"
+    ],
+    "negative": [
+      "ab"
+    ]
+  },
+  "kwargs": {
+    "max_solutions": 1,
+    "deadline": 304162.3211826
+  },
+  "expected_status": "ValueError",
+  "exception_type": "ValueError",
+  "exception": "ValueError('a word cannot have both labels')"
+}
