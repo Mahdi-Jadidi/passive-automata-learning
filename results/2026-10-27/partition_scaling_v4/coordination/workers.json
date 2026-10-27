@@ -1,0 +1,14 @@
+{
+  "cycle": "C004",
+  "parent_commit": "f7ae918a",
+  "parent": "/root",
+  "shared_workspace": true,
+  "workers": [
+    {"id": "/root/structural", "model": "gpt-6.1-sol", "reasoning_effort": "medium", "owns": "structural/", "mission": "known-k singleton certificates, long-word algorithm, then weaker coverage"},
+    {"id": "/root/general", "model": "gpt-6-luna", "reasoning_effort": "high", "owns": "general/", "mission": "general exact-k search, contextual witnesses, then bounded local languages"},
+    {"id": "/root/auditor_v4", "model": "gpt-6-luna", "reasoning_effort": "xhigh", "owns": "audit/", "mission": "independent oracle, frozen inputs, source binding, scaling and assumption ablations"}
+  ],
+  "failed_agent_creation": {"requested_name": "audit", "result": "name already exists from earlier inactive context", "action": "created auditor_v4 instead; no research run occurred"},
+  "git_owner": "/root",
+  "stage2_requires_stage1_acceptance": true
+}
