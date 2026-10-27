@@ -1,0 +1,38 @@
+{
+  "id": "C003-S001",
+  "revision": 1,
+  "record_policy": "Immutable initial idea; execution and review updates use new linked records.",
+  "parent": "C003 FIXED_WORD target; C002 projection criterion and known word-reconstruction lemma",
+  "hypothesis": "Equal positive symbol counts plus connected bipartite pair-variation opposition determine one unordered two-block partition; direct verification of every label yields unique class-compatible recovery or a class-conditional assumption violation.",
+  "motivation": "Obtain an actual partition without exponential enumeration by strengthening local factors to singleton word languages and separating identification scope from general sample compatibility.",
+  "assumptions": [
+    "Known finite alphabet of at least two distinct one-character symbols; no artificial alphabet cap",
+    "Exactly two nonempty disjoint alphabet blocks",
+    "Each local language is exactly one word, possibly empty",
+    "Positive traces are complete shuffles of the same local words, not prefixes",
+    "Noise-free fixed finite observations with contradictions rejected as malformed",
+    "Repeated symbol occurrences allowed",
+    "Connected positive opposition is sufficient coverage, not a necessary condition"
+  ],
+  "constructive_coverage": "The two positives u.v and v.u yield the complete cross-block opposition graph if every declared block symbol occurs in its local word.",
+  "source": "fixed_word_solver.py",
+  "proof": "PROOFS.md",
+  "primary_sources": [
+    "https://drops.dagstuhl.de/storage/00lipics/lipics-vol219-stacs2022/LIPIcs.STACS.2022.7/LIPIcs.STACS.2022.7.pdf",
+    "https://www-igm.univ-mlv.fr/~berstel/Articles/2002ShuffleFactorizationUnique.pdf",
+    "https://www.sciencedirect.com/science/article/pii/S0304397512003234",
+    "https://arxiv.org/html/2504.16624v3"
+  ],
+  "source_scope_record": "SOURCES.md",
+  "rejected_or_limited_extensions": [
+    {"id": "C003-S001-R1", "claim": "Promote fixed-word uniqueness to unrestricted regular-factor uniqueness", "status": "refuted_by_theoretical_counterexample", "example": {"alphabet": ["a", "b", "c"], "positive": ["abc", "cab"], "negative": []}, "evidence": "PROOFS.md P7; fixed-word one partition versus three general-compatible partitions"},
+    {"id": "C003-S001-R2", "claim": "Equal counts alone suffice for fixed-word compatibility", "status": "refuted_by_theoretical_counterexample", "example": {"alphabet": ["a", "b", "c"], "positive": ["abc", "cba"], "negative": []}, "evidence": "Odd opposition triangle; PROOFS.md P7"},
+    {"id": "C003-S001-R3", "claim": "Connectedness is necessary for uniqueness", "status": "refuted_by_theoretical_counterexample", "example": {"alphabet": ["a", "b"], "positive": ["ab"], "negative": []}, "evidence": "Only one nonempty unordered partition, yet no opposition edge; PROOFS.md P7"},
+    {"id": "C003-S001-W1", "claim": "Disconnected orientation search using negatives may weaken coverage requirement", "status": "unimplemented_unassessed_extension", "evidence": "Not enabled; provider returns explicit insufficient_coverage"}
+  ],
+  "scientific_status": "proof_written_independent_audit_pending",
+  "execution_status": "not_executed_at_idea_creation",
+  "novelty_status": "not_claimed_targeted_primary_source_review_only",
+  "ownership": "structural only; shared capture append-only calls authorized; no orchestration or Git",
+  "preservation_limits": "Initial source assembled through tool patches before first execution; no intermediate runtime attempt exists. No missing historical logs fabricated."
+}

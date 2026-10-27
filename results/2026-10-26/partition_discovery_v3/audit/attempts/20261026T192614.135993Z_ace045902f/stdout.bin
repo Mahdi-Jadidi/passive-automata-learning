@@ -1,0 +1,73 @@
+{
+  "method": "fair-reference",
+  "model_class": "general_regular_product",
+  "status": "found",
+  "solutions": [
+    {
+      "blocks": [
+        [
+          "a"
+        ],
+        [
+          "b"
+        ]
+      ],
+      "positive_projection_languages": [
+        [
+          "a"
+        ],
+        [
+          "b"
+        ]
+      ],
+      "negative_witnesses": [
+        {
+          "negative": "aa",
+          "block_index": 0,
+          "projection": "aa",
+          "all_unseen_block_indices": [
+            0,
+            1
+          ]
+        }
+      ]
+    }
+  ],
+  "search_exhausted": true,
+  "decision_complete": true,
+  "uniqueness": "unique",
+  "uniqueness_scope": "sample_feasible_partitions_in_general_regular_product",
+  "assumptions": [
+    "exact labels",
+    "two nonempty disjoint alphabet blocks",
+    "unrestricted regular local factors"
+  ],
+  "alphabet": [
+    "a",
+    "b"
+  ],
+  "max_solutions": 1,
+  "graph": {
+    "components": [
+      [
+        "a"
+      ],
+      [
+        "b"
+      ]
+    ],
+    "edges": []
+  },
+  "metrics": {
+    "graph_components": 2,
+    "nodes": 3,
+    "leaves": 1,
+    "cuts": 0,
+    "pruned_nodes": 0,
+    "preprocessing_seconds": 0.0029078000225126743,
+    "separation_seconds": 1.8199963960796595e-05,
+    "cut_generation_seconds": 0.0,
+    "provider_seconds": 0.002935800002887845,
+    "cli_seconds_before_serialization": 0.021922999992966652
+  }
+}

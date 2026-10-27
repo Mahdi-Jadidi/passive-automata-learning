@@ -1,0 +1,50 @@
+{
+  "runtime_or_git_changes": false,
+  "timeouts": 0,
+  "performance_jobs": 1744,
+  "report": "../C003_RESEARCH_REPORT_CANDIDATE_FA_REV2.md",
+  "report_sha256": "8fddb1ceaf8fed81f629638bc708b1bdc85f14665da605723404724960f068a7",
+  "parent_report": "../C003_RESEARCH_REPORT_CANDIDATE_FA.md",
+  "new_tests": 0,
+  "new_experiments": 0,
+  "budget_skipped": 0,
+  "performance_found": 1744,
+  "created_utc": "2026-10-26T19:58:01.7873061Z",
+  "evidence": [
+    {
+      "snapshot": "ACCEPTED_performance_v4_report.json",
+      "sha256": "ff1df388e521e524cc5a53bd0c15ac476b2c930d858508612b05f458a60df913",
+      "source": "audit/validation/performance_v4/report.json"
+    },
+    {
+      "snapshot": "REJECTED_performance_v1_report.json",
+      "sha256": "de032df19955291ce72a4e414f5af3cce887b83a2bc2f161a416aca975b1708e",
+      "source": "audit/validation/performance_v1/report.json"
+    },
+    {
+      "snapshot": "REJECTED_performance_v3_report.json",
+      "sha256": "5ce066cdf21b9be7897c3bfa2946cb5a352690baa985fa3b03deb0720ddd3742",
+      "source": "audit/validation/performance_v3/report.json"
+    },
+    {
+      "snapshot": "aggregation_source_inspected_not_executed.py",
+      "sha256": "7fdb7d34b6ba06d4279134eb5cb20f4dd40e43322d5d287df8a8e6db34726256",
+      "source": "audit/validate_performance.py"
+    },
+    {
+      "snapshot": "PARENT_WHOLE_CYCLE_DRAFT_FA.md",
+      "sha256": "863b00b081615902fcae1f538a052b548ebd127eb540fbf9cecf2d7375d305ba",
+      "source": "structural/C003_RESEARCH_REPORT_CANDIDATE_FA.md"
+    }
+  ],
+  "scientific_status": "core_and_performance_outputs_accepted_infinite24_extension_pending",
+  "id": "C003-WHOLE-CYCLE-REPORT-DRAFT-002",
+  "pending": [
+    "independent infinite24 extension report",
+    "master final whole-cycle acceptance",
+    "per-input aggregation artifact if that specific statistic is required"
+  ],
+  "prior_core_evidence": "../cycle_report_draft_v1_evidence/MANIFEST.json",
+  "aggregation_correction": "Actual v4 timing medians are pooled over repetitions; by-size paired ratios are medians of75 repetition-pairs over25 inputs, not medians of25 per-input aggregated ratios. Source read statically; no reaggregation or rerun performed.",
+  "paired_answer_order_checks": 600
+}

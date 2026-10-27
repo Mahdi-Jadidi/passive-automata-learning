@@ -1,0 +1,161 @@
+{
+  "accepted": true,
+  "cases": 9,
+  "provider_calls": 9,
+  "oracle": "independent exhaustive fixed-word partitions, no candidate helpers",
+  "reports": [
+    {
+      "case_id": "odd_cycle",
+      "accepted": true,
+      "status": "assumption_violation",
+      "class_model_count": 0,
+      "class_partitions": []
+    },
+    {
+      "case_id": "count_variation",
+      "accepted": true,
+      "status": "assumption_violation",
+      "class_model_count": 0,
+      "class_partitions": []
+    },
+    {
+      "case_id": "forced_candidate_accepts_negative",
+      "accepted": true,
+      "status": "assumption_violation",
+      "class_model_count": 0,
+      "class_partitions": []
+    },
+    {
+      "case_id": "absent_symbol",
+      "accepted": true,
+      "status": "insufficient_coverage",
+      "class_model_count": 2,
+      "class_partitions": [
+        [
+          [
+            "a"
+          ],
+          [
+            "b",
+            "c"
+          ]
+        ],
+        [
+          [
+            "a",
+            "c"
+          ],
+          [
+            "b"
+          ]
+        ]
+      ]
+    },
+    {
+      "case_id": "single_positive_unique_disconnected",
+      "accepted": true,
+      "status": "insufficient_coverage",
+      "class_model_count": 1,
+      "class_partitions": [
+        [
+          [
+            "a"
+          ],
+          [
+            "b"
+          ]
+        ]
+      ]
+    },
+    {
+      "case_id": "empty_positive",
+      "accepted": true,
+      "status": "insufficient_coverage",
+      "class_model_count": 3,
+      "class_partitions": [
+        [
+          [
+            "a"
+          ],
+          [
+            "b",
+            "c"
+          ]
+        ],
+        [
+          [
+            "a",
+            "b"
+          ],
+          [
+            "c"
+          ]
+        ],
+        [
+          [
+            "a",
+            "c"
+          ],
+          [
+            "b"
+          ]
+        ]
+      ]
+    },
+    {
+      "case_id": "epsilon_positive",
+      "accepted": true,
+      "status": "insufficient_coverage",
+      "class_model_count": 1,
+      "class_partitions": [
+        [
+          [
+            "a"
+          ],
+          [
+            "b"
+          ]
+        ]
+      ]
+    },
+    {
+      "case_id": "permuted_duplicates",
+      "accepted": true,
+      "status": "found",
+      "class_model_count": 1,
+      "class_partitions": [
+        [
+          [
+            "a",
+            "b"
+          ],
+          [
+            "c"
+          ]
+        ]
+      ]
+    },
+    {
+      "case_id": "expired_deadline",
+      "accepted": true,
+      "status": "incomplete",
+      "class_model_count": 1,
+      "class_partitions": [
+        [
+          [
+            "a",
+            "b"
+          ],
+          [
+            "c"
+          ]
+        ]
+      ]
+    }
+  ],
+  "provider_sha256": "110fa33dd42e43ab57ee4e255e0d19bb82a43495e43f82c21723ebea69d4aa2a",
+  "input_sha256": "5b454c4b0c953b59a2e069d44ae09db69f0b1df6ed42aa868daf106a47211ea4",
+  "checker_sha256": "6a91a6ea8f68dbbab1df22b2d5478d1095ac756d9931674e2d1346cdc149836f",
+  "scope": "fixed_word_product exceptional branches only; no general model refutation implied",
+  "timing_benchmark": false
+}

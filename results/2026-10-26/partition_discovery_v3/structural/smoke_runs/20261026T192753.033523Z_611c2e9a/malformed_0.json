@@ -1,0 +1,21 @@
+{
+  "case_id": "malformed_0",
+  "input": {
+    "alphabet": [
+      "a",
+      "a",
+      "b"
+    ],
+    "positive": [
+      "ab"
+    ],
+    "negative": []
+  },
+  "kwargs": {
+    "max_solutions": 1,
+    "deadline": 304671.7217874
+  },
+  "expected_status": "ValueError",
+  "exception_type": "ValueError",
+  "exception": "ValueError('alphabet must list at least two distinct one-character strings')"
+}

@@ -1,0 +1,11 @@
+[
+  {"id":"odd_cycle","input":{"alphabet":["a","b","c"],"positive":["abc","bca","cab"],"negative":[]}},
+  {"id":"count_variation","input":{"alphabet":["a","b"],"positive":["ab","aab"],"negative":[]}},
+  {"id":"forced_candidate_accepts_negative","input":{"alphabet":["a","b","c"],"positive":["abc","cab"],"negative":["acb"]}},
+  {"id":"absent_symbol","input":{"alphabet":["a","b","c"],"positive":["ab","ba"],"negative":[]}},
+  {"id":"single_positive_unique_disconnected","input":{"alphabet":["a","b"],"positive":["ab"],"negative":[]}},
+  {"id":"empty_positive","input":{"alphabet":["a","b","c"],"positive":[],"negative":["","a","b"]}},
+  {"id":"epsilon_positive","input":{"alphabet":["a","b"],"positive":[""],"negative":["a"]}},
+  {"id":"permuted_duplicates","input":{"alphabet":["c","b","a"],"positive":["cab","abc","cab"],"negative":["ba","ac","ba"]}},
+  {"id":"expired_deadline","expired":true,"input":{"alphabet":["a","b","c"],"positive":["abc","cab"],"negative":[]}}
+]

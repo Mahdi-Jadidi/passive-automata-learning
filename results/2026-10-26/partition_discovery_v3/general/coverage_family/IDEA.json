@@ -1,0 +1,19 @@
+{
+  "id": "C003-B002",
+  "parent": "C003-B001 and prior r=k must-link graph theorem",
+  "hypothesis": "Linear-size epsilon/edge-positive and unary-negative coverage certifies the true alphabet partition of explicit infinite regular targets, uniquely even among unrestricted regular factors.",
+  "motivation": "Demonstrate constructive identification beyond singleton-word local languages under explicit informative sample coverage.",
+  "assumptions": ["exactly two nonempty disjoint known alphabet blocks", "noise-free complete-word labels", "epsilon positive", "one oriented positive per local spanning-tree edge", "every symbol is a unary negative", "infinite token-star hidden targets for this fixture family"],
+  "scientific_status": "conditional_derivation_complete_independent_review_pending",
+  "execution_status": "not_executed_benchmark_in_progress",
+  "novelty_status": "not_claimed_concrete_instantiation_of_prior_theorem",
+  "performance_status": "no_measurement",
+  "sources": ["PROOFS.md", "../PROOFS.md", "../../../partition_constraints_v2/baseline/THEORY_NOTE.md"],
+  "candidate_cases": 24,
+  "sizes": [4, 8, 16, 32, 64, 128],
+  "seed_base": 2026102604,
+  "counterexample": null,
+  "counterexample_search_executed": false,
+  "master_decision": "pending",
+  "limits": "The partition is identified from this sufficient coverage; the actual infinite languages and state counts are not learned from the finite sample."
+}

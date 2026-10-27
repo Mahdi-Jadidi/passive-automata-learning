@@ -1,0 +1,34 @@
+{
+  "id": "C003_B_STRUCTURAL_BOUNDARY_ACCEPTED",
+  "at_utc": "2026-10-26T20:07:16.7400057Z",
+  "accepted": true,
+  "cases": 9,
+  "provider_calls": 9,
+  "benchmark_calls": 0,
+  "capture_attempt": "../../audit/attempts/20261026T200614.006683Z_8f46830c80",
+  "report": "run_001/report.json",
+  "report_sha256": "13bc79daa920f3876a5155c670270d9f41b8b97ae4d0731647ac3232dc739e74",
+  "files": [
+    {
+      "path": "check.py",
+      "sha256": "6a91a6ea8f68dbbab1df22b2d5478d1095ac756d9931674e2d1346cdc149836f"
+    },
+    {
+      "path": "inputs.json",
+      "sha256": "5b454c4b0c953b59a2e069d44ae09db69f0b1df6ed42aa868daf106a47211ea4"
+    },
+    {
+      "path": "README.md",
+      "sha256": "30a580869dea99c608890a8de7c7e4709a8dd98b98b314c35db74dafd17c4fdf"
+    }
+  ],
+  "execution_status": "success",
+  "scientific_status": "nine_class_scoped_boundary_cases_independently_accepted",
+  "failures_observed": 0,
+  "runtime_modified": false,
+  "limitations": [
+    "Small targeted suite, not exhaustive input-space validation",
+    "Expired deadline only, not mid-run interruption",
+    "Insufficient-coverage cases directly exercised one/multiple class models, not a zero-model fixture"
+  ]
+}

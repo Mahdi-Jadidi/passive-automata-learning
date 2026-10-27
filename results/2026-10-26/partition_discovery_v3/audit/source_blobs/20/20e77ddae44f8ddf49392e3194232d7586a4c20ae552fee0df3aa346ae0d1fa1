@@ -1,0 +1,171 @@
+"""Independently validate captured C003-B002 general/fair provider outputs."""
+import argparse
+import hashlib
+import importlib.util
+import json
+from pathlib import Path
+
+
+def load_checker(path):
+    spec = importlib.util.spec_from_file_location("b002_fixture_checker", path)
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+    return module
+
+
+def canonical(value):
+    return (json.dumps(value, ensure_ascii=False, sort_keys=True,
+                       separators=(",", ":")) + "\n").encode("utf-8")
+
+
+def components(data):
+    sigma = set(data["alphabet"])
+    adjacency = {a: set() for a in sigma}
+    for word in data["positive"]:
+        if len(word) == 2 and word[0] != word[1]:
+            a, b = word
+            adjacency[a].add(b)
+            adjacency[b].add(a)
+    result, unseen = [], set(sigma)
+    while unseen:
+        todo = [min(unseen)]
+        block = set()
+        while todo:
+            a = todo.pop()
+            if a in block:
+                continue
+            block.add(a)
+            todo.extend(adjacency[a] - block)
+        result.append(block)
+        unseen -= block
+    return result
+
+
+def verify_declared_tree_edges(data, truth):
+    positives = set(data["positive"])
+    for block_list, edges in zip(truth["blocks"], truth["trees"]):
+        block = set(block_list)
+        adjacency = {a: set() for a in block}
+        for edge in edges:
+            assert len(edge) == 2 and edge[0] != edge[1]
+            a, b = edge
+            assert a in block and b in block
+            adjacency[a].add(b)
+            adjacency[b].add(a)
+            assert a + b in positives or b + a in positives
+        if len(block) == 1:
+            assert not edges
+            continue
+        assert len(edges) == len(block) - 1
+        seen, todo = set(), [min(block)]
+        while todo:
+            a = todo.pop()
+            if a in seen:
+                continue
+            seen.add(a)
+            todo.extend(adjacency[a] - seen)
+        assert seen == block
+        assert max(map(len, adjacency.values())) <= 2
+
+
+def read_records(path):
+    return [json.loads(line) for line in Path(path).read_text(encoding="utf-8").splitlines()
+            if line]
+
+
+def validate(args):
+    checker = load_checker(args.checker)
+    visible, hidden = read_records(args.inputs), read_records(args.truths)
+    assert len(visible) == len(hidden) == 24
+    truths = {row["case_id"]: row for row in hidden}
+    assert len(truths) == 24
+    outputs = {}
+    for method, limit, path in args.run:
+        records = read_records(path)
+        assert len(records) == 24, (method, limit, len(records))
+        indexed = {r["case_id"]: r for r in records}
+        assert len(indexed) == 24
+        assert set(indexed) == set(truths)
+        for source in visible:
+            record = indexed[source["case_id"]]
+            assert record["method"] == method
+            assert record["max_solutions"] == int(limit)
+            assert record["runner_error"] is None, record["runner_error"]
+            expected_hash = hashlib.sha256(canonical(source["input"])).hexdigest()
+            assert record["input_sha256"] == expected_hash
+            result = record["result"]
+            assert result is not None
+            checker.check_fixture(source, truths[source["case_id"]])
+            verify_declared_tree_edges(source["input"], truths[source["case_id"]])
+            checker.check_result(source["input"], truths[source["case_id"]], result)
+            # Independently derive the graph returned by the solver from visible labels.
+            derived = sorted((sorted(block) for block in components(source["input"])))
+            returned = sorted((sorted(block) for block in result["graph"]["components"]))
+            assert returned == derived, (source["case_id"], returned, derived)
+            assert result["status"] == "found"
+            assert result["decision_complete"] is True
+            assert result["search_exhausted"] is True
+            assert result["uniqueness"] == "unique"
+            assert result["max_solutions"] == int(limit)
+        outputs[(method, int(limit))] = indexed
+
+    for limit in (1, 2):
+        general = outputs[("general", limit)]
+        fair = outputs[("fair-reference", limit)]
+        for case_id in general:
+            left, right = general[case_id]["result"], fair[case_id]["result"]
+            assert checker.canonical_blocks(left["solutions"][0]["blocks"]) == \
+                   checker.canonical_blocks(right["solutions"][0]["blocks"])
+            assert left["solutions"] == right["solutions"]
+
+    counts = {}
+    edge_counts = {}
+    for row in visible:
+        size = len(row["input"]["alphabet"])
+        counts[size] = counts.get(size, 0) + 1
+        edge_counts[size] = edge_counts.get(size, 0) + len(
+            [w for w in row["input"]["positive"] if len(w) == 2 and w[0] != w[1]])
+    expected_sizes = [4, 8, 16, 32, 64, 128]
+    assert counts == {size: 4 for size in expected_sizes}
+    return {
+        "status": "accepted",
+        "cases": 24,
+        "cases_per_size": counts,
+        "jobs": 96,
+        "provider_rows": {"general_limit1": 24, "general_limit2": 24,
+                           "fair_limit1": 24, "fair_limit2": 24},
+        "all_complete_unique": True,
+        "independent_visible_graph_checks": 96,
+        "independent_partition_and_witness_checks": 96,
+        "declared_tree_edge_and_positive_coverage_checks": 96,
+        "cross_method_identical_solution_records": 48,
+        "unordered_edge_positive_counts_by_size": edge_counts,
+        "truth_sidecar_used_only_by_auditor": True,
+        "performance_claim": "none; correctness-only extension",
+    }
+
+
+def main():
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--inputs", type=Path, required=True)
+    parser.add_argument("--truths", type=Path, required=True)
+    parser.add_argument("--checker", type=Path, required=True)
+    parser.add_argument("--run", nargs=3, action="append", metavar=("METHOD", "LIMIT", "JSONL"), required=True)
+    parser.add_argument("--report", type=Path, required=True)
+    args = parser.parse_args()
+    report = validate(args)
+    report["input_sha256"] = hashlib.sha256(args.inputs.read_bytes()).hexdigest()
+    report["truth_sha256"] = hashlib.sha256(args.truths.read_bytes()).hexdigest()
+    report["checker_sha256"] = hashlib.sha256(args.checker.read_bytes()).hexdigest()
+    report["run_stream_sha256"] = {
+        f"{method}_limit{limit}": hashlib.sha256(Path(path).read_bytes()).hexdigest()
+        for method, limit, path in args.run
+    }
+    args.report.parent.mkdir(parents=True, exist_ok=True)
+    args.report.write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n",
+                           encoding="utf-8", newline="\n")
+    print(json.dumps(report, ensure_ascii=False, sort_keys=True), flush=True)
+
+
+if __name__ == "__main__":
+    main()

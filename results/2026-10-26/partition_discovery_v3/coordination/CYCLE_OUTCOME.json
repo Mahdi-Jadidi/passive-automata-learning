@@ -1,0 +1,102 @@
+{
+  "cycle": "C003",
+  "at_utc": "2026-10-27T07:59:42.244644+00:00",
+  "client_delivery_date": "2026-10-27",
+  "scientific_status": "verified_under_declared_assumptions",
+  "execution_status": "successful",
+  "research_round_complete": true,
+  "previous_cycle_replaced": false,
+  "accepted_reports": [
+    {
+      "path": "audit/validation/c002_full_v1/report.json",
+      "sha256": "d4385d9a63ed4ed46bd9eca838bf4f67de8e8792881996d4c85ef54e2aedfd1c"
+    },
+    {
+      "path": "audit/validation/generated_v1/report.json",
+      "sha256": "844e26463d484b1b71081d2cda541ce48898d1f7a3f47fa4ced62ca4bc36415b"
+    },
+    {
+      "path": "audit/validation/performance_v4/report.json",
+      "sha256": "ff1df388e521e524cc5a53bd0c15ac476b2c930d858508612b05f458a60df913"
+    },
+    {
+      "path": "audit/validation/coverage_family_infinite_v1/report_v2.json",
+      "sha256": "f1ce6425fc91686b9451a074b186c127221529f491ddd4e2c78a248e303ae3ce"
+    },
+    {
+      "path": "audit/validation/boundary_controls_v1/report.json",
+      "sha256": "d100a6cc9af76a38e7258ab3a8a54088b3b0872571c0be6ded39028bd6d9b9c4"
+    },
+    {
+      "path": "general/structural_boundary_audit/run_001/report.json",
+      "sha256": "13bc79daa920f3876a5155c670270d9f41b8b97ae4d0731647ac3232dc739e74"
+    }
+  ],
+  "delivery_artifacts": [
+    {
+      "path": "RESEARCH_REPORT_FA.md",
+      "sha256": "ec81d0e3fae82390b4576fda9359e8ecffe363ef37f20cc30d3ad0e362a37085"
+    },
+    {
+      "path": "MASTER_DECISION_FA.md",
+      "sha256": "701b5786e52f06e43e9d94998a6f95242e0b26f257fd1fb34bf8fc7cf2ede261"
+    },
+    {
+      "path": "README_FA.md",
+      "sha256": "ec1948c879b0bf96766aaa7ca36aabc1ffd7d7ef14389f0f35627ed416b37a88"
+    },
+    {
+      "path": "coordination/report_promotion.json",
+      "sha256": "0b03c83538f5501968f8353327a7825187976f6eb0f04aee82f6ba417727f811"
+    },
+    {
+      "path": "coordination/MASTER_THEORY_REVIEW.md",
+      "sha256": "a2baa04169423e4486b09dd1f87461920424929191c05c02b6164afd9f5b94b8"
+    },
+    {
+      "path": "coordination/AUDIT_ERRATA_FA.md",
+      "sha256": "89d7573494378e5bc5a50c3e5e056a769e18d2ed466eaaedde3d25e19fc44c35"
+    },
+    {
+      "path": "coordination/runtime_manifest.json",
+      "sha256": "ed931a34dc6f90b60ce8bf1048fed0c0d1a10d454ca88aa08f0491ffd42e536f"
+    },
+    {
+      "path": "coordination/parent_manifest.json",
+      "sha256": "ac302301c49236211daf54909ce9b3677e0d76e0508a2b2d482e4b6163a38b68"
+    }
+  ],
+  "integrity": {
+    "path": "coordination/integrity_runs/20261027T074859.860658Z_024a383b/result.json",
+    "sha256": "b6a1f0fdfd77ff17fa99655c2b390104df67e29f29b4fa9a8d2e83a5e921a94e"
+  },
+  "integrity_checks": 5595,
+  "checked_delivery_links": 65,
+  "independent_checks": {
+    "full_partition_set_cases_per_general_method": 7281,
+    "selected_regression_cases": 78,
+    "generated_regular_product_cases": 120,
+    "generated_regular_exact_full_set_cases": 80,
+    "generated_regular_constructive_feasible_only_cases": 40,
+    "fixed_word_recovered_true_partitions": 120,
+    "infinite_regular_coverage_cases": 24,
+    "infinite_regular_provider_results": 96,
+    "general_boundary_cases": 9,
+    "independent_fixed_word_boundary_cases": 9,
+    "validated_performance_processes": 1744,
+    "counts_not_additive_unique_input_totals": true
+  },
+  "conclusions": [
+    "Sound must-link graph with exactly two components plus feasibility certifies the partition in the unrestricted declared two-factor class.",
+    "A connected bipartite opposition graph plus sample checks certifies recovery under the fixed-word factor assumption.",
+    "True-partition interpretation requires a realizable target in the declared model.",
+    "Generic compatible-first-answer construction does not alone identify the true partition.",
+    "No overall speed advantage over fair-reference is established.",
+    "No RPNI experiment or empirical passive-learning speedup is claimed."
+  ],
+  "failed_paths_preserved": true,
+  "historical_records_not_reconstructed": true,
+  "next_research": "Relax the coverage or singleton-language assumptions in a separately specified cycle.",
+  "automatically_start_next_cycle": false,
+  "script_sha256": "fdbd4d136b6a8cdc7d4eee37b9711b951caef6c50334ebc2defe20ea22314637"
+}

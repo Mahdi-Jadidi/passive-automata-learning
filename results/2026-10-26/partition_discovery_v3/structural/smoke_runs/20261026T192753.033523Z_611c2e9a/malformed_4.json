@@ -1,0 +1,18 @@
+{
+  "case_id": "malformed_4",
+  "input": {
+    "alphabet": [
+      "a",
+      "b"
+    ],
+    "positive": "ab",
+    "negative": []
+  },
+  "kwargs": {
+    "max_solutions": 1,
+    "deadline": 304671.7476481
+  },
+  "expected_status": "ValueError",
+  "exception_type": "ValueError",
+  "exception": "ValueError('positive must be a list of strings')"
+}

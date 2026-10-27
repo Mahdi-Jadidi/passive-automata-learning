@@ -1,0 +1,66 @@
+{
+  "accepted": true,
+  "budget_skipped": 0,
+  "errors": [],
+  "ledger_sha256": "4128a5e617a072deba4ba1426682ed237be760bba6c243e38389e228d6925708",
+  "measurement_scope": {
+    "memory": "tracemalloc peak during provider.solve only; import, input parsing and serialization excluded; not RSS",
+    "timing": "capture subprocess_seconds includes Python startup, input read, solve, and CLI output serialization"
+  },
+  "metrics": {
+    "fair-reference:limit1": {
+      "memory_n": 100,
+      "timeouts": 0,
+      "timing_median_seconds": 0.16119674997753464,
+      "timing_n": 300,
+      "timing_p90_seconds": 0.2775436200259719,
+      "tracemalloc_peak_median_bytes": 585126.0
+    },
+    "fair-reference:limit2": {
+      "memory_n": 100,
+      "timeouts": 0,
+      "timing_median_seconds": 0.1642222499649506,
+      "timing_n": 300,
+      "timing_p90_seconds": 0.2591255599691067,
+      "tracemalloc_peak_median_bytes": 585134.0
+    },
+    "fixed-word:limit1": {
+      "memory_n": 18,
+      "timeouts": 0,
+      "timing_median_seconds": 0.17798140001832508,
+      "timing_n": 54,
+      "timing_p90_seconds": 2.9241638999956194,
+      "tracemalloc_peak_median_bytes": 23441.0
+    },
+    "fixed-word:limit2": {
+      "memory_n": 18,
+      "timeouts": 0,
+      "timing_median_seconds": 0.16841534999548458,
+      "timing_n": 54,
+      "timing_p90_seconds": 4.34893775000819,
+      "tracemalloc_peak_median_bytes": 23441.0
+    },
+    "general:limit1": {
+      "memory_n": 100,
+      "timeouts": 0,
+      "timing_median_seconds": 0.18993484997190535,
+      "timing_n": 300,
+      "timing_p90_seconds": 0.31373648004373533,
+      "tracemalloc_peak_median_bytes": 585126.0
+    },
+    "general:limit2": {
+      "memory_n": 100,
+      "timeouts": 0,
+      "timing_median_seconds": 0.20317110000178218,
+      "timing_n": 300,
+      "timing_p90_seconds": 0.33509234999073667,
+      "tracemalloc_peak_median_bytes": 585126.0
+    }
+  },
+  "paired_answer_order_checks": 600,
+  "planned_jobs": 1744,
+  "status_counts": {
+    "found": 1744
+  },
+  "validation_id": "C003-PERFORMANCE-AUDIT-v1"
+}

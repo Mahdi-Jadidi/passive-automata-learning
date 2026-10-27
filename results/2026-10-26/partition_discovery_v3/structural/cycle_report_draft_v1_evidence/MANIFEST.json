@@ -1,0 +1,95 @@
+{
+  "evidence": [
+    {
+      "sha256": "d4385d9a63ed4ed46bd9eca838bf4f67de8e8792881996d4c85ef54e2aedfd1c",
+      "source": "audit/validation/c002_full_v1/report.json",
+      "snapshot": "accepted_c002_full_v1_report.json"
+    },
+    {
+      "sha256": "844e26463d484b1b71081d2cda541ce48898d1f7a3f47fa4ced62ca4bc36415b",
+      "source": "audit/validation/generated_v1/report.json",
+      "snapshot": "accepted_generated_v1_report.json"
+    },
+    {
+      "sha256": "f8a6548c182dbc3c9f70b6a8850823a12cc4754a175ba1bfd3985c4c38cfe5c5",
+      "source": "solver.py",
+      "snapshot": "root_solver.py"
+    },
+    {
+      "sha256": "ed931a34dc6f90b60ce8bf1048fed0c0d1a10d454ca88aa08f0491ffd42e536f",
+      "source": "coordination/runtime_manifest.json",
+      "snapshot": "runtime_manifest.json"
+    },
+    {
+      "sha256": "bf50a7791a63b3101c7233a068d62acc842a0cbd14cb86a484095e6a081af9e6",
+      "source": "audit/PROTOCOL_FA.md",
+      "snapshot": "AUDIT_PROTOCOL_FA.md"
+    },
+    {
+      "sha256": "9235e2b1f559fea940b699e72430b1e25f7186b9877ddf2704cac608746cc216",
+      "source": "audit/performance_suite.py",
+      "snapshot": "performance_suite.py"
+    },
+    {
+      "sha256": "7ff9bdc0efc38e2f3bc7e69b27b167a1eaab4d29a5fbd315cdc46163516ed802",
+      "source": "audit/profile_one.py",
+      "snapshot": "profile_one.py"
+    },
+    {
+      "sha256": "4783f6edffdec6f6e1a603a490df7c5f20542233cc018208b935dc8e24b81313",
+      "source": "general/coverage_family/generate.py",
+      "snapshot": "UNDER_REVIEW_coverage_generate.py"
+    },
+    {
+      "sha256": "716d638a0781ecbb47ddbebd73bcb4e090c273c1b9611bd3f8de026f0d928b8a",
+      "source": "general/coverage_family/check.py",
+      "snapshot": "UNDER_REVIEW_coverage_check.py"
+    },
+    {
+      "sha256": "02d86e60415c5d9cca51f0ed6fec61851def9ece97f425e3ff5613eaaf2882d6",
+      "source": "structural/LOCAL_DFA_COROLLARY.md",
+      "snapshot": "PROOF_ONLY_LOCAL_DFA_COROLLARY.md"
+    },
+    {
+      "sha256": "7d93ad2ea11dcf7b2bf0bb007e9f4b269cfeca6525d62653da00cd0c703102c2",
+      "source": "structural/FINAL_REPORT_CANDIDATE_FA.md",
+      "snapshot": "INITIAL_STRUCTURAL_REPORT_FA.md"
+    },
+    {
+      "sha256": "007db144b5e549ded24b77272c5cfee3c61d4ef2216a78d79de3863e1f8b3d10",
+      "source": "structural/general_review/REVIEW_001/FINDINGS.md",
+      "snapshot": "GENERAL_STATIC_REVIEW.md"
+    }
+  ],
+  "new_benchmarks": 0,
+  "report_sha256": "863b00b081615902fcae1f538a052b548ebd127eb540fbf9cecf2d7375d305ba",
+  "scientific_status": "core_correctness_accepted_per_independent_reports_performance_and_coverage_extension_pending",
+  "execution_status": "documentation_only",
+  "measurement_scope": {
+    "timing": "process wall including startup and cleanup",
+    "memory": "allocations during provider.solve only, after input/provider load",
+    "comparison_rule": "same first/second task only, never old full-enumeration walltime",
+    "order_limitation": "method blocks general then fair-reference then fixed-word"
+  },
+  "accepted_counts": {
+    "dfa_larger_constructed_valid_cases_per_method": 40,
+    "fixed_word_true_partition_recoveries": 120,
+    "dfa_exact_oracle_cases_per_method": 80,
+    "dfa_samples_per_method": 120,
+    "full_F2_cases_per_general_and_fair": 7281,
+    "selected_regression_per_method": 78,
+    "fixed_word_max_alphabet": 128
+  },
+  "pending": [
+    "independently validated final performance metrics with complete/censored/skipped denominators",
+    "24 proposed infinite-regular coverage family extension audit",
+    "master final decision and promotion"
+  ],
+  "new_tests": 0,
+  "preservation": "Initial structural report and all old drafts unchanged. Under-review coverage sources are frozen here for documentary provenance, not certified outputs.",
+  "report": "../C003_RESEARCH_REPORT_CANDIDATE_FA.md",
+  "read_only_inspection_limitation": "Root README.md was absent during draft inspection; no contents or execution evidence were fabricated.",
+  "created_utc": "2026-10-26T19:52:51.2660072Z",
+  "id": "C003-WHOLE-CYCLE-REPORT-DRAFT-001",
+  "shared_runtime_or_git_edits": false
+}

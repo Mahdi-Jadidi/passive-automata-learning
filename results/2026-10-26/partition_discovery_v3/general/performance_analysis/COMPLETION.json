@@ -1,0 +1,44 @@
+{
+  "id": "C003_B_CASE_MEDIAN_ANALYSIS_COMPLETE",
+  "at_utc": "2026-10-26T19:59:47.8935427Z",
+  "execution_status": "captured_postprocessing_success",
+  "solver_calls": 0,
+  "benchmark_reruns": 0,
+  "input_rows": 1744,
+  "per_case_records": 436,
+  "capture_attempt": "../../audit/attempts/20261026T195844.779333Z_4c581b9bc5",
+  "output": "results_2124a70cd8ca49858010753d85e022c1",
+  "files": [
+    {
+      "path": "analyze.py",
+      "sha256": "9f79511f4f299a10e25e8906d96a8340a3d5f1abf3cfb39b9afa9b955742e94e"
+    },
+    {
+      "path": "launch.py",
+      "sha256": "16db50d2868139858363f5aadacf8685ae2d860a856d40aa27556c90a07d5699"
+    },
+    {
+      "path": "SUMMARY_FA.md",
+      "sha256": "aad1490e21af8523ff05811a7939e3e17ce712a487caeef12b84cc41a3ae1e19"
+    },
+    {
+      "path": "results_2124a70cd8ca49858010753d85e022c1/analysis.json",
+      "sha256": "e22c14729baafb57148be8e482036fad8680c977f8b8cfcc43927583009a7c82"
+    },
+    {
+      "path": "results_2124a70cd8ca49858010753d85e022c1/per_case.jsonl",
+      "sha256": "4c80858bd86b68682f42486b60aed0d1c66a4c849b626d5c7b8273e915642639"
+    }
+  ],
+  "general_faster_case_counts": {
+    "limit1": 36,
+    "limit2": 29
+  },
+  "general_over_fair_median_case_ratios": {
+    "limit1": 1.079547026099279,
+    "limit2": 1.110033893410825
+  },
+  "timing_caveat": "temporal method-block order, descriptive only",
+  "provider_memory_scope": "provider.solve traced allocations only",
+  "shared_sources_modified": false
+}

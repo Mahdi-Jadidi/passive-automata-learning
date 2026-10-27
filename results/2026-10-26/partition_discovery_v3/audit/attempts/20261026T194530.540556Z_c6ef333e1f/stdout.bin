@@ -1,0 +1,457 @@
+{
+  "method": "fixed-word",
+  "model_class": "fixed_word_product",
+  "status": "found",
+  "solutions": [
+    {
+      "blocks": [
+        [
+          "Ā",
+          "ā",
+          "Ă",
+          "ă",
+          "ą",
+          "Ć",
+          "ć",
+          "Ĉ",
+          "ĉ",
+          "Ċ",
+          "Č",
+          "č",
+          "ď"
+        ],
+        [
+          "Ą",
+          "ċ",
+          "Ď"
+        ]
+      ],
+      "positive_projection_languages": [
+        [
+          "ČāāĀĀĂăąąćĈĈĈččĆĆďďĊĉĉĉ"
+        ],
+        [
+          "ĎĄċċċ"
+        ]
+      ],
+      "negative_witnesses": [
+        {
+          "negative": "āĀċċāāąĊćāăďĀď",
+          "block_index": 0,
+          "projection": "āĀāāąĊćāăďĀď",
+          "all_unseen_block_indices": [
+            0,
+            1
+          ]
+        },
+        {
+          "negative": "āāčĄąčďĊĊĎąăČćĎăćĀČď",
+          "block_index": 0,
+          "projection": "āāčąčďĊĊąăČćăćĀČď",
+          "all_unseen_block_indices": [
+            0,
+            1
+          ]
+        },
+        {
+          "negative": "āċčċććĂĎĀăĀĈČċćĄčČĂĆăĊčĎĊčċąā",
+          "block_index": 0,
+          "projection": "āčććĂĀăĀĈČćčČĂĆăĊčĊčąā",
+          "all_unseen_block_indices": [
+            0,
+            1
+          ]
+        },
+        {
+          "negative": "ĄāĄĈĂăčĂĊćĊČďĆČĎĀĂ",
+          "block_index": 0,
+          "projection": "āĈĂăčĂĊćĊČďĆČĀĂ",
+          "all_unseen_block_indices": [
+            0,
+            1
+          ]
+        },
+        {
+          "negative": "ĆĀĄĄćĀďąĈĆčĈčďĊċĈĂăĉ",
+          "block_index": 0,
+          "projection": "ĆĀćĀďąĈĆčĈčďĊĈĂăĉ",
+          "all_unseen_block_indices": [
+            0,
+            1
+          ]
+        },
+        {
+          "negative": "ćčďĀĎăĀĂĊąĊċ",
+          "block_index": 0,
+          "projection": "ćčďĀăĀĂĊąĊ",
+          "all_unseen_block_indices": [
+            0,
+            1
+          ]
+        },
+        {
+          "negative": "ĉĄĆĂďĆċć",
+          "block_index": 0,
+          "projection": "ĉĆĂďĆć",
+          "all_unseen_block_indices": [
+            0,
+            1
+          ]
+        },
+        {
+          "negative": "ĉąĆčĆčČăāĄĊĉČĉāąĎĎĂāċĄă",
+          "block_index": 0,
+          "projection": "ĉąĆčĆčČăāĊĉČĉāąĂāă",
+          "all_unseen_block_indices": [
+            0,
+            1
+          ]
+        },
+        {
+          "negative": "ċăąĈĈĎċčĄąĈčąĊčćĆąĉ",
+          "block_index": 0,
+          "projection": "ăąĈĈčąĈčąĊčćĆąĉ",
+          "all_unseen_block_indices": [
+            0,
+            1
+          ]
+        },
+        {
+          "negative": "Čā",
+          "block_index": 0,
+          "projection": "Čā",
+          "all_unseen_block_indices": [
+            0,
+            1
+          ]
+        },
+        {
+          "negative": "čĉąĀĀčăāĈĈćĆďĊĄ",
+          "block_index": 0,
+          "projection": "čĉąĀĀčăāĈĈćĆďĊ",
+          "all_unseen_block_indices": [
+            0,
+            1
+          ]
+        },
+        {
+          "negative": "ĎĀĎĈĉċāāćČĎċĉă",
+          "block_index": 0,
+          "projection": "ĀĈĉāāćČĉă",
+          "all_unseen_block_indices": [
+            0,
+            1
+          ]
+        }
+      ],
+      "local_words": [
+        "ČāāĀĀĂăąąćĈĈĈččĆĆďďĊĉĉĉ",
+        "ĎĄċċċ"
+      ]
+    }
+  ],
+  "search_exhausted": true,
+  "decision_complete": true,
+  "uniqueness": "unique",
+  "uniqueness_scope": "unordered_two_nonempty_block_partitions_within_fixed_word_product_class",
+  "assumptions": [
+    "exactly_two_nonempty_disjoint_alphabet_blocks",
+    "each_local_language_is_a_singleton_word_language",
+    "positives_are_complete_traces_not_prefixes",
+    "fixed_noise_free_labels",
+    "connected_positive_opposition_is_a_sufficient_coverage_condition"
+  ],
+  "reason": "unique_partition_certified_within_fixed_word_class",
+  "metrics": {
+    "pair_tests": 120,
+    "pair_projection_calls": 578,
+    "positive_count_checks": 6,
+    "positive_projection_checks": 6,
+    "negative_checks": 12,
+    "candidate_checks": 1,
+    "alphabet_size": 16,
+    "positive_count": 6,
+    "negative_count": 12,
+    "opposition_edges": 39,
+    "opposition_components": 1,
+    "provider_seconds": 0.004671300004702061,
+    "cli_seconds_before_serialization": 0.030669500003568828
+  },
+  "graph": {
+    "symbols": [
+      "Ā",
+      "ā",
+      "Ă",
+      "ă",
+      "Ą",
+      "ą",
+      "Ć",
+      "ć",
+      "Ĉ",
+      "ĉ",
+      "Ċ",
+      "ċ",
+      "Č",
+      "č",
+      "Ď",
+      "ď"
+    ],
+    "edges": [
+      [
+        "Ā",
+        "Ą"
+      ],
+      [
+        "Ā",
+        "ċ"
+      ],
+      [
+        "Ā",
+        "Ď"
+      ],
+      [
+        "ā",
+        "Ą"
+      ],
+      [
+        "ā",
+        "ċ"
+      ],
+      [
+        "ā",
+        "Ď"
+      ],
+      [
+        "Ă",
+        "Ą"
+      ],
+      [
+        "Ă",
+        "ċ"
+      ],
+      [
+        "Ă",
+        "Ď"
+      ],
+      [
+        "ă",
+        "Ą"
+      ],
+      [
+        "ă",
+        "ċ"
+      ],
+      [
+        "ă",
+        "Ď"
+      ],
+      [
+        "Ą",
+        "ą"
+      ],
+      [
+        "Ą",
+        "Ć"
+      ],
+      [
+        "Ą",
+        "ć"
+      ],
+      [
+        "Ą",
+        "Ĉ"
+      ],
+      [
+        "Ą",
+        "ĉ"
+      ],
+      [
+        "Ą",
+        "Ċ"
+      ],
+      [
+        "Ą",
+        "Č"
+      ],
+      [
+        "Ą",
+        "č"
+      ],
+      [
+        "Ą",
+        "ď"
+      ],
+      [
+        "ą",
+        "ċ"
+      ],
+      [
+        "ą",
+        "Ď"
+      ],
+      [
+        "Ć",
+        "ċ"
+      ],
+      [
+        "Ć",
+        "Ď"
+      ],
+      [
+        "ć",
+        "ċ"
+      ],
+      [
+        "ć",
+        "Ď"
+      ],
+      [
+        "Ĉ",
+        "ċ"
+      ],
+      [
+        "Ĉ",
+        "Ď"
+      ],
+      [
+        "ĉ",
+        "ċ"
+      ],
+      [
+        "ĉ",
+        "Ď"
+      ],
+      [
+        "Ċ",
+        "ċ"
+      ],
+      [
+        "Ċ",
+        "Ď"
+      ],
+      [
+        "ċ",
+        "Č"
+      ],
+      [
+        "ċ",
+        "č"
+      ],
+      [
+        "ċ",
+        "ď"
+      ],
+      [
+        "Č",
+        "Ď"
+      ],
+      [
+        "č",
+        "Ď"
+      ],
+      [
+        "Ď",
+        "ď"
+      ]
+    ],
+    "edge_positive_indices": [
+      1,
+      2,
+      1,
+      1,
+      3,
+      1,
+      1,
+      2,
+      1,
+      1,
+      2,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      3,
+      1,
+      1,
+      2,
+      1,
+      1,
+      1,
+      2,
+      1,
+      2,
+      1,
+      1,
+      1,
+      1,
+      1,
+      3,
+      1,
+      1,
+      3,
+      1,
+      1
+    ],
+    "components": [
+      [
+        "Ā",
+        "ā",
+        "Ă",
+        "ă",
+        "Ą",
+        "ą",
+        "Ć",
+        "ć",
+        "Ĉ",
+        "ĉ",
+        "Ċ",
+        "ċ",
+        "Č",
+        "č",
+        "Ď",
+        "ď"
+      ]
+    ],
+    "colors": [
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      1,
+      0
+    ],
+    "construction_complete": true,
+    "absent_symbols": [],
+    "reference_positive_index": 0,
+    "positive_order": "sorted unique input words",
+    "coloring_complete": true
+  },
+  "certificate": {
+    "kind": "connected_bipartite_opposition",
+    "unique_positive_partition_up_to_swapping_sides": true,
+    "local_words": [
+      "ČāāĀĀĂăąąćĈĈĈččĆĆďďĊĉĉĉ",
+      "ĎĄċċċ"
+    ],
+    "all_positive_projections_checked": true,
+    "all_negative_projections_checked": true
+  },
+  "limitations": [
+    "No uniqueness claim for unrestricted regular factors.",
+    "Disconnected opposition returns insufficient_coverage, not general infeasibility.",
+    "Accepted max_solutions modes certify at most one answer; no disconnected enumeration."
+  ]
+}

@@ -1,0 +1,171 @@
+{
+  "case_id": "constructive_small_04",
+  "input": {
+    "alphabet": [
+      "a",
+      "b",
+      "c",
+      "d",
+      "e"
+    ],
+    "positive": [
+      "dbbaaeeccc",
+      "eecccdbbaa"
+    ],
+    "negative": [
+      "dbbaaeecc"
+    ]
+  },
+  "kwargs": {
+    "max_solutions": 1,
+    "deadline": 304671.8061137
+  },
+  "expected_status": "found",
+  "result": {
+    "method": "fixed-word",
+    "model_class": "fixed_word_product",
+    "status": "found",
+    "solutions": [
+      {
+        "blocks": [
+          [
+            "a",
+            "b",
+            "d"
+          ],
+          [
+            "c",
+            "e"
+          ]
+        ],
+        "positive_projection_languages": [
+          [
+            "dbbaa"
+          ],
+          [
+            "eeccc"
+          ]
+        ],
+        "negative_witnesses": [
+          {
+            "negative": "dbbaaeecc",
+            "block_index": 1,
+            "projection": "eecc",
+            "all_unseen_block_indices": [
+              1
+            ]
+          }
+        ],
+        "local_words": [
+          "dbbaa",
+          "eeccc"
+        ]
+      }
+    ],
+    "search_exhausted": true,
+    "decision_complete": true,
+    "uniqueness": "unique",
+    "uniqueness_scope": "unordered_two_nonempty_block_partitions_within_fixed_word_product_class",
+    "assumptions": [
+      "exactly_two_nonempty_disjoint_alphabet_blocks",
+      "each_local_language_is_a_singleton_word_language",
+      "positives_are_complete_traces_not_prefixes",
+      "fixed_noise_free_labels",
+      "connected_positive_opposition_is_a_sufficient_coverage_condition"
+    ],
+    "reason": "unique_partition_certified_within_fixed_word_class",
+    "metrics": {
+      "pair_tests": 10,
+      "pair_projection_calls": 20,
+      "positive_count_checks": 2,
+      "positive_projection_checks": 2,
+      "negative_checks": 1,
+      "candidate_checks": 1,
+      "alphabet_size": 5,
+      "positive_count": 2,
+      "negative_count": 1,
+      "opposition_edges": 6,
+      "opposition_components": 1,
+      "provider_seconds": 0.000374099996406585
+    },
+    "graph": {
+      "symbols": [
+        "a",
+        "b",
+        "c",
+        "d",
+        "e"
+      ],
+      "edges": [
+        [
+          "a",
+          "c"
+        ],
+        [
+          "a",
+          "e"
+        ],
+        [
+          "b",
+          "c"
+        ],
+        [
+          "b",
+          "e"
+        ],
+        [
+          "c",
+          "d"
+        ],
+        [
+          "d",
+          "e"
+        ]
+      ],
+      "edge_positive_indices": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "components": [
+        [
+          "a",
+          "b",
+          "c",
+          "d",
+          "e"
+        ]
+      ],
+      "colors": [
+        0,
+        0,
+        1,
+        0,
+        1
+      ],
+      "construction_complete": true,
+      "absent_symbols": [],
+      "reference_positive_index": 0,
+      "positive_order": "sorted unique input words",
+      "coloring_complete": true
+    },
+    "certificate": {
+      "kind": "connected_bipartite_opposition",
+      "unique_positive_partition_up_to_swapping_sides": true,
+      "local_words": [
+        "dbbaa",
+        "eeccc"
+      ],
+      "all_positive_projections_checked": true,
+      "all_negative_projections_checked": true
+    },
+    "limitations": [
+      "No uniqueness claim for unrestricted regular factors.",
+      "Disconnected opposition returns insufficient_coverage, not general infeasibility.",
+      "Accepted max_solutions modes certify at most one answer; no disconnected enumeration."
+    ]
+  }
+}

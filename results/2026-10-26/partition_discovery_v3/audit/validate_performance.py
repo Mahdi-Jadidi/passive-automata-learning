@@ -1,0 +1,170 @@
+"""Validate captured timed/memory outputs and compute paired performance summaries."""
+import gzip, hashlib, json, statistics
+from pathlib import Path
+
+HERE=Path(__file__).resolve().parent
+RUN=HERE/"performance_adopted/runs/serial_v1"
+OUT=HERE/"validation/performance_v4"
+LEDGER=RUN/"ledger.jsonl"
+
+def sha(b): return hashlib.sha256(b).hexdigest()
+def canon(blocks): return tuple(sorted(tuple(sorted(x)) for x in blocks))
+def project(word,block):
+    s=set(block); return "".join(c for c in word if c in s)
+def read_jsonl(path): return [json.loads(x) for x in path.read_text(encoding="utf-8").splitlines() if x]
+def check_solution(data,solution):
+    errors=[]; blocks=solution.get("blocks",[])
+    if len(blocks)!=2 or not all(blocks) or set(blocks[0])&set(blocks[1]) or set(blocks[0])|set(blocks[1])!=set(data["alphabet"]):
+        return ["invalid blocks"]
+    pos=sorted(set(data["positive"])); neg=sorted(set(data["negative"]))
+    langs=[sorted({project(w,b) for w in pos}) for b in blocks]
+    if solution.get("positive_projection_languages")!=langs: errors.append("positive projection languages mismatch")
+    ws={w.get("negative"):w for w in solution.get("negative_witnesses",[])}
+    if set(ws)!=set(neg): errors.append("negative witness coverage mismatch")
+    for n in neg:
+        w=ws.get(n)
+        if w is None: continue
+        i=w.get("block_index")
+        if i not in (0,1) or w.get("projection")!=project(n,blocks[i]) or w.get("projection") in langs[i]: errors.append(f"invalid witness:{n}")
+    return errors
+
+def main():
+    ledger=read_jsonl(LEDGER)
+    perf_rows=read_jsonl(Path(__file__).resolve().parents[2]/"partition_constraints_v2/audit/corpus/frozen_v1/solver_inputs/performance_100.jsonl")
+    inputs={r["case_id"]:r["input"] for r in perf_rows}
+    fixed={r["case_id"]:r["input"] for r in read_jsonl(HERE/"corpus/frozen_c003_v1/fixed_word_inputs.jsonl")}
+    inputs.update(fixed)
+    f2=json.loads((RUN/"baseline_f2.json").read_text(encoding="utf-8"))
+    errors=[]; records={}; timing={}; memory={}; status_counts={}; timing_by_size={}; memory_by_size={}; timing_times={}
+    expected_jobs=read_jsonl(HERE/"plans/plan_v2/jobs.jsonl")
+    expected_job_keys={ (r["method"],r["case_id"],r["max_solutions"],r["mode"],r.get("replicate"))
+               for r in expected_jobs if r["mode"] in ("timing","memory") }
+    observed=[]
+    runtime=json.loads((Path(__file__).resolve().parents[1]/"coordination/runtime_manifest.json").read_text(encoding="utf-8"))
+    runtime_expected={str((Path(__file__).resolve().parents[1]/f["path"]).resolve()):f["sha256"] for f in runtime["files"]}
+    for row in ledger:
+        key=row.get("job_id")
+        if row.get("execution_status")=="budget_skipped": continue
+        observed.append((row.get("method"),row.get("case_id"),row.get("max_solutions"),row.get("mode"),row.get("replicate")))
+        directory=Path(row["attempt_dir"]); raw_path=directory/"stdout.bin"
+        raw=raw_path.read_bytes() if raw_path.exists() else b""
+        if sha(raw)!=row.get("stdout_sha256"): errors.append({"job_id":key,"error":"captured stdout hash mismatch"})
+        stderr_path=directory/"stderr.bin"
+        stderr_raw=stderr_path.read_bytes() if stderr_path.exists() else b""
+        if sha(stderr_raw)!=row.get("stderr_sha256"): errors.append({"job_id":key,"error":"captured stderr hash mismatch"})
+        if row.get("child_reaped") is not True: errors.append({"job_id":key,"error":"child not confirmed reaped"})
+        manifest=json.loads((directory/"manifest.json").read_text(encoding="utf-8"))
+        if manifest.get("source_snapshot_error") is not None: errors.append({"job_id":key,"error":"source snapshot failure"})
+        sources={s["path"]:s["sha256"] for s in manifest.get("sources",[])}
+        for source_path,digest in runtime_expected.items():
+            if sources.get(source_path)!=digest: errors.append({"job_id":key,"error":"runtime source hash mismatch","path":source_path})
+        parsed=None
+        if raw.strip():
+            try: parsed=json.loads(raw.decode("utf-8"))
+            except Exception as e: errors.append({"job_id":key,"error":f"invalid JSON: {e!r}"})
+        if row.get("execution_status")=="timed_out":
+            status_counts["timed_out"]=status_counts.get("timed_out",0)+1
+            if parsed: errors.append({"job_id":key,"error":"unexpected complete JSON on timeout"})
+            continue
+        if parsed is None:
+            errors.append({"job_id":key,"error":"missing output JSON","execution_status":row.get("execution_status")}); continue
+        mode=row["mode"]; method=row["method"]; cid=row["case_id"]; limit=row["max_solutions"]
+        result=parsed.get("result") if mode=="memory" else parsed
+        if result is None: errors.append({"job_id":key,"error":"missing solver result"}); continue
+        status=result.get("status")
+        status_counts[status]=status_counts.get(status,0)+1
+        data=inputs[cid]
+        expected_input=(json.dumps(data,ensure_ascii=False,sort_keys=True,indent=2)+"\n").encode("utf-8")
+        input_path=(RUN/"inputs"/(cid+".json")).resolve()
+        input_source=sources.get(str(input_path))
+        try: actual_input=json.loads(input_path.read_text(encoding="utf-8"))
+        except Exception as e: actual_input=None; errors.append({"job_id":key,"error":f"cannot parse captured input source: {e!r}"})
+        if input_source!=sha(input_path.read_bytes()) or actual_input!=data:
+            errors.append({"job_id":key,"error":"per-case input snapshot does not match frozen corpus case"})
+        solutions=result.get("solutions",[])
+        if len(solutions)>limit: errors.append({"job_id":key,"error":"answer limit exceeded"})
+        for solution in solutions:
+            se=check_solution(data,solution)
+            if se: errors.append({"job_id":key,"errors":se})
+        if method in ("general","fair-reference"):
+            expected={canon(p["blocks"]) for p in f2[cid].get("feasible_partitions",[])}
+            actual=[canon(s["blocks"]) for s in solutions]
+            if any(p not in expected for p in actual): errors.append({"job_id":key,"error":"solution not in saved F2"})
+            if status=="infeasible" and (expected or not result.get("search_exhausted")):
+                errors.append({"job_id":key,"error":"invalid infeasible claim"})
+            if status=="found" and not expected: errors.append({"job_id":key,"error":"found but C002 F2 empty"})
+            if result.get("search_exhausted") and set(actual)!=expected:
+                errors.append({"job_id":key,"error":"exhausted limited search disagrees with saved F2"})
+        else:
+            if status!="found" or result.get("uniqueness")!="unique" or "fixed_word_product_class" not in result.get("uniqueness_scope",""):
+                errors.append({"job_id":key,"error":"fixed-word performance result lacks scoped certificate","status":status})
+        if not result.get("search_exhausted") and result.get("uniqueness")=="unique":
+            errors.append({"job_id":key,"error":"uniqueness asserted without exhausted search"})
+        records[(method,cid,limit,mode,row.get("replicate"))]=result
+        if mode=="timing" and row.get("execution_status")=="success" and row.get("exit_code")==0:
+            seconds=float(row["subprocess_seconds"])
+            timing.setdefault((method,limit),[]).append(seconds)
+            m=len(data["alphabet"]); timing_by_size.setdefault((method,m,limit),[]).append(seconds)
+            timing_times[(method,cid,limit,row.get("replicate"))]=seconds
+        if mode=="memory":
+            peak=parsed.get("tracemalloc_peak_bytes")
+            if not isinstance(peak,int) or peak<0: errors.append({"job_id":key,"error":"invalid tracemalloc peak"})
+            else:
+                memory.setdefault((method,limit),[]).append(peak)
+                memory_by_size.setdefault((method,len(data["alphabet"]),limit),[]).append(peak)
+
+    pair_checks=0
+    if len(observed)!=len(set(observed)): errors.append({"error":"duplicate semantic performance jobs","count":len(observed)-len(set(observed))})
+    if set(observed)!=expected_job_keys:
+        errors.append({"error":"performance jobs do not match frozen plan","expected":len(expected_job_keys),"observed":len(set(observed)),
+                       "missing":list(map(str,list(expected_job_keys-set(observed))[:10])),
+                       "extra":list(map(str,list(set(observed)-expected_job_keys)[:10]))})
+    for cid in [r["case_id"] for r in perf_rows]:
+        for limit in (1,2):
+            for rep in (1,2,3):
+                a=records.get(("general",cid,limit,"timing",rep)); b=records.get(("fair-reference",cid,limit,"timing",rep))
+                if a is not None and b is not None:
+                    aa=[canon(s["blocks"]) for s in a.get("solutions",[])]; bb=[canon(s["blocks"]) for s in b.get("solutions",[])]
+                    if aa!=bb: errors.append({"case_id":cid,"limit":limit,"replicate":rep,"error":"fair task answer/order differs"})
+                    else: pair_checks+=1
+    metric_summary={}
+    for method in ("general","fair-reference","fixed-word"):
+        for limit in (1,2):
+            ts=timing.get((method,limit),[]); ms=memory.get((method,limit),[])
+            metric_summary[f"{method}:limit{limit}"]={"timing_n":len(ts),"timing_median_seconds":statistics.median(ts) if ts else None,
+                "timing_p90_seconds":statistics.quantiles(ts,n=10)[8] if len(ts)>=2 else None,
+                "memory_n":len(ms),"tracemalloc_peak_median_bytes":statistics.median(ms) if ms else None,
+                "timeouts":sum(1 for r in ledger if r.get("method")==method and r.get("max_solutions")==limit and r.get("execution_status")=="timed_out")}
+    size_summary={}
+    for method in ("general","fair-reference","fixed-word"):
+        sizes=sorted({m for (meth,m,_lim) in set(timing_by_size)|set(memory_by_size) if meth==method})
+        for m in sizes:
+            for limit in (1,2):
+                ts=timing_by_size.get((method,m,limit),[]); ms=memory_by_size.get((method,m,limit),[])
+                size_summary[f"{method}:m{m}:limit{limit}"]={"timing_n":len(ts),"timing_median_seconds":statistics.median(ts) if ts else None,
+                    "memory_n":len(ms),"tracemalloc_peak_median_bytes":statistics.median(ms) if ms else None}
+    paired_by_size={}
+    for m in (4,6,8,10):
+        for limit in (1,2):
+            ratios=[]; paired=0
+            for case in perf_rows:
+                cid=case["case_id"]
+                if len(case["input"]["alphabet"])!=m: continue
+                for rep in (1,2,3):
+                    a=timing_times.get(("general",cid,limit,rep)); b=timing_times.get(("fair-reference",cid,limit,rep))
+                    if a is not None and b is not None and b>0: ratios.append(a/b); paired+=1
+            paired_by_size[f"m{m}:limit{limit}"]={"paired_repetitions":paired,"median_general_over_fair_time_ratio":statistics.median(ratios) if ratios else None}
+    report={"validation_id":"C003-PERFORMANCE-AUDIT-v1","ledger_sha256":sha(LEDGER.read_bytes()),
+        "planned_jobs":len(ledger),"budget_skipped":sum(r.get("execution_status")=="budget_skipped" for r in ledger),
+        "status_counts":status_counts,"paired_answer_order_checks":pair_checks,
+        "measurement_scope":{"timing":"capture subprocess_seconds includes Python startup, input read, solve, and CLI output serialization",
+            "memory":"tracemalloc peak during provider.solve only; import, input parsing and serialization excluded; not RSS"},
+        "metrics":metric_summary,"by_alphabet_size":size_summary,"paired_ratios_by_size":paired_by_size,
+        "errors":errors,"accepted":not errors}
+    OUT.mkdir(parents=True,exist_ok=False)
+    raw=(json.dumps(report,ensure_ascii=False,sort_keys=True,indent=2)+"\n").encode(); (OUT/"report.json").write_bytes(raw)
+    print(json.dumps({"accepted":not errors,"errors":len(errors),"planned_jobs":len(ledger),
+        "budget_skipped":report["budget_skipped"],"metrics":metric_summary,"by_alphabet_size":size_summary,
+        "paired_ratios_by_size":paired_by_size,"paired_answer_order_checks":pair_checks,
+        "report":str(OUT/"report.json"),"report_sha256":sha(raw),"first_errors":errors[:5]},ensure_ascii=False,indent=2))
+if __name__=="__main__": main()

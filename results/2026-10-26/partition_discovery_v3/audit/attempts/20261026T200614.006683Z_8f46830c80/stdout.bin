@@ -1,0 +1,170 @@
+{"case_id": "odd_cycle", "input": {"alphabet": ["a", "b", "c"], "positive": ["abc", "bca", "cab"], "negative": []}, "result": {"method": "fixed-word", "model_class": "fixed_word_product", "status": "assumption_violation", "solutions": [], "search_exhausted": true, "decision_complete": true, "uniqueness": "unknown", "uniqueness_scope": "unordered_two_nonempty_block_partitions_within_fixed_word_product_class", "assumptions": ["exactly_two_nonempty_disjoint_alphabet_blocks", "each_local_language_is_a_singleton_word_language", "positives_are_complete_traces_not_prefixes", "fixed_noise_free_labels", "connected_positive_opposition_is_a_sufficient_coverage_condition"], "reason": "opposition_graph_has_odd_cycle", "metrics": {"pair_tests": 3, "pair_projection_calls": 7, "positive_count_checks": 3, "positive_projection_checks": 0, "negative_checks": 0, "candidate_checks": 0, "alphabet_size": 3, "positive_count": 3, "negative_count": 0, "provider_seconds": 0.0014813999878242612}, "graph": {"symbols": ["a", "b", "c"], "edges": [["a", "b"], ["a", "c"], ["b", "c"]], "edge_positive_indices": [1, 1, 2], "components": [["a", "b"]], "colors": [0, 1, 1], "construction_complete": true, "absent_symbols": [], "reference_positive_index": 0, "positive_order": "sorted unique input words"}, "certificate": {"kind": "odd_opposition_cycle", "symbols": ["b", "a", "c", "b"]}, "limitations": ["No uniqueness claim for unrestricted regular factors.", "Disconnected opposition returns insufficient_coverage, not general infeasibility.", "Accepted max_solutions modes certify at most one answer; no disconnected enumeration."]}}
+{"case_id": "count_variation", "input": {"alphabet": ["a", "b"], "positive": ["ab", "aab"], "negative": []}, "result": {"method": "fixed-word", "model_class": "fixed_word_product", "status": "assumption_violation", "solutions": [], "search_exhausted": true, "decision_complete": true, "uniqueness": "unknown", "uniqueness_scope": "unordered_two_nonempty_block_partitions_within_fixed_word_product_class", "assumptions": ["exactly_two_nonempty_disjoint_alphabet_blocks", "each_local_language_is_a_singleton_word_language", "positives_are_complete_traces_not_prefixes", "fixed_noise_free_labels", "connected_positive_opposition_is_a_sufficient_coverage_condition"], "reason": "positive_symbol_count_inconsistency", "metrics": {"pair_tests": 0, "pair_projection_calls": 0, "positive_count_checks": 2, "positive_projection_checks": 0, "negative_checks": 0, "candidate_checks": 0, "alphabet_size": 2, "positive_count": 2, "negative_count": 0, "provider_seconds": 0.00018350000027567148}, "graph": {"symbols": ["a", "b"], "edges": [], "edge_positive_indices": [], "components": [], "colors": [], "construction_complete": false}, "certificate": {"kind": "count_inconsistency", "symbol": "a", "positive_indices": [0, 1], "counts": [2, 1]}, "limitations": ["No uniqueness claim for unrestricted regular factors.", "Disconnected opposition returns insufficient_coverage, not general infeasibility.", "Accepted max_solutions modes certify at most one answer; no disconnected enumeration."]}}
+{"case_id": "forced_candidate_accepts_negative", "input": {"alphabet": ["a", "b", "c"], "positive": ["abc", "cab"], "negative": ["acb"]}, "result": {"method": "fixed-word", "model_class": "fixed_word_product", "status": "assumption_violation", "solutions": [], "search_exhausted": true, "decision_complete": true, "uniqueness": "unknown", "uniqueness_scope": "unordered_two_nonempty_block_partitions_within_fixed_word_product_class", "assumptions": ["exactly_two_nonempty_disjoint_alphabet_blocks", "each_local_language_is_a_singleton_word_language", "positives_are_complete_traces_not_prefixes", "fixed_noise_free_labels", "connected_positive_opposition_is_a_sufficient_coverage_condition"], "reason": "unique_structural_candidate_violates_labels", "metrics": {"pair_tests": 3, "pair_projection_calls": 6, "positive_count_checks": 2, "positive_projection_checks": 2, "negative_checks": 1, "candidate_checks": 1, "alphabet_size": 3, "positive_count": 2, "negative_count": 1, "opposition_edges": 2, "opposition_components": 1, "provider_seconds": 0.0009988999809138477}, "graph": {"symbols": ["a", "b", "c"], "edges": [["a", "c"], ["b", "c"]], "edge_positive_indices": [1, 1], "components": [["a", "b", "c"]], "colors": [0, 0, 1], "construction_complete": true, "absent_symbols": [], "reference_positive_index": 0, "positive_order": "sorted unique input words", "coloring_complete": true}, "certificate": {"kind": "connected_bipartite_opposition", "unique_positive_partition_up_to_swapping_sides": true, "local_words": ["ab", "c"], "all_positive_projections_checked": true, "all_negative_projections_checked": true, "positive_conflict_indices": [], "accepted_negative_conflicts": ["acb"]}, "limitations": ["No uniqueness claim for unrestricted regular factors.", "Disconnected opposition returns insufficient_coverage, not general infeasibility.", "Accepted max_solutions modes certify at most one answer; no disconnected enumeration."]}}
+{"case_id": "absent_symbol", "input": {"alphabet": ["a", "b", "c"], "positive": ["ab", "ba"], "negative": []}, "result": {"method": "fixed-word", "model_class": "fixed_word_product", "status": "insufficient_coverage", "solutions": [], "search_exhausted": false, "decision_complete": false, "uniqueness": "unknown", "uniqueness_scope": "unordered_two_nonempty_block_partitions_within_fixed_word_product_class", "assumptions": ["exactly_two_nonempty_disjoint_alphabet_blocks", "each_local_language_is_a_singleton_word_language", "positives_are_complete_traces_not_prefixes", "fixed_noise_free_labels", "connected_positive_opposition_is_a_sufficient_coverage_condition"], "reason": "opposition_graph_is_disconnected", "metrics": {"pair_tests": 3, "pair_projection_calls": 6, "positive_count_checks": 2, "positive_projection_checks": 0, "negative_checks": 0, "candidate_checks": 0, "alphabet_size": 3, "positive_count": 2, "negative_count": 0, "opposition_edges": 1, "opposition_components": 2, "provider_seconds": 0.0002463000128045678}, "graph": {"symbols": ["a", "b", "c"], "edges": [["a", "b"]], "edge_positive_indices": [1], "components": [["a", "b"], ["c"]], "colors": [0, 1, 0], "construction_complete": true, "absent_symbols": ["c"], "reference_positive_index": 0, "positive_order": "sorted unique input words", "coloring_complete": true}, "certificate": {"kind": "unmet_sufficient_condition", "component_count": 2, "does_not_assert_multiple_solutions": true}, "limitations": ["No uniqueness claim for unrestricted regular factors.", "Disconnected opposition returns insufficient_coverage, not general infeasibility.", "Accepted max_solutions modes certify at most one answer; no disconnected enumeration."]}}
+{"case_id": "single_positive_unique_disconnected", "input": {"alphabet": ["a", "b"], "positive": ["ab"], "negative": []}, "result": {"method": "fixed-word", "model_class": "fixed_word_product", "status": "insufficient_coverage", "solutions": [], "search_exhausted": false, "decision_complete": false, "uniqueness": "unknown", "uniqueness_scope": "unordered_two_nonempty_block_partitions_within_fixed_word_product_class", "assumptions": ["exactly_two_nonempty_disjoint_alphabet_blocks", "each_local_language_is_a_singleton_word_language", "positives_are_complete_traces_not_prefixes", "fixed_noise_free_labels", "connected_positive_opposition_is_a_sufficient_coverage_condition"], "reason": "opposition_graph_is_disconnected", "metrics": {"pair_tests": 1, "pair_projection_calls": 1, "positive_count_checks": 1, "positive_projection_checks": 0, "negative_checks": 0, "candidate_checks": 0, "alphabet_size": 2, "positive_count": 1, "negative_count": 0, "opposition_edges": 0, "opposition_components": 2, "provider_seconds": 0.0001357999863103032}, "graph": {"symbols": ["a", "b"], "edges": [], "edge_positive_indices": [], "components": [["a"], ["b"]], "colors": [0, 0], "construction_complete": true, "absent_symbols": [], "reference_positive_index": 0, "positive_order": "sorted unique input words", "coloring_complete": true}, "certificate": {"kind": "unmet_sufficient_condition", "component_count": 2, "does_not_assert_multiple_solutions": true}, "limitations": ["No uniqueness claim for unrestricted regular factors.", "Disconnected opposition returns insufficient_coverage, not general infeasibility.", "Accepted max_solutions modes certify at most one answer; no disconnected enumeration."]}}
+{"case_id": "empty_positive", "input": {"alphabet": ["a", "b", "c"], "positive": [], "negative": ["", "a", "b"]}, "result": {"method": "fixed-word", "model_class": "fixed_word_product", "status": "insufficient_coverage", "solutions": [], "search_exhausted": false, "decision_complete": false, "uniqueness": "unknown", "uniqueness_scope": "unordered_two_nonempty_block_partitions_within_fixed_word_product_class", "assumptions": ["exactly_two_nonempty_disjoint_alphabet_blocks", "each_local_language_is_a_singleton_word_language", "positives_are_complete_traces_not_prefixes", "fixed_noise_free_labels", "connected_positive_opposition_is_a_sufficient_coverage_condition"], "reason": "no_positive_word_to_determine_local_factors", "metrics": {"pair_tests": 0, "pair_projection_calls": 0, "positive_count_checks": 0, "positive_projection_checks": 0, "negative_checks": 0, "candidate_checks": 0, "alphabet_size": 3, "positive_count": 0, "negative_count": 3, "provider_seconds": 7.100001676008105e-05}, "graph": {"symbols": ["a", "b", "c"], "edges": [], "edge_positive_indices": [], "components": [], "colors": [], "construction_complete": false}, "certificate": null, "limitations": ["No uniqueness claim for unrestricted regular factors.", "Disconnected opposition returns insufficient_coverage, not general infeasibility.", "Accepted max_solutions modes certify at most one answer; no disconnected enumeration."]}}
+{"case_id": "epsilon_positive", "input": {"alphabet": ["a", "b"], "positive": [""], "negative": ["a"]}, "result": {"method": "fixed-word", "model_class": "fixed_word_product", "status": "insufficient_coverage", "solutions": [], "search_exhausted": false, "decision_complete": false, "uniqueness": "unknown", "uniqueness_scope": "unordered_two_nonempty_block_partitions_within_fixed_word_product_class", "assumptions": ["exactly_two_nonempty_disjoint_alphabet_blocks", "each_local_language_is_a_singleton_word_language", "positives_are_complete_traces_not_prefixes", "fixed_noise_free_labels", "connected_positive_opposition_is_a_sufficient_coverage_condition"], "reason": "opposition_graph_is_disconnected", "metrics": {"pair_tests": 1, "pair_projection_calls": 1, "positive_count_checks": 1, "positive_projection_checks": 0, "negative_checks": 0, "candidate_checks": 0, "alphabet_size": 2, "positive_count": 1, "negative_count": 1, "opposition_edges": 0, "opposition_components": 2, "provider_seconds": 0.000125400023534894}, "graph": {"symbols": ["a", "b"], "edges": [], "edge_positive_indices": [], "components": [["a"], ["b"]], "colors": [0, 0], "construction_complete": true, "absent_symbols": ["a", "b"], "reference_positive_index": 0, "positive_order": "sorted unique input words", "coloring_complete": true}, "certificate": {"kind": "unmet_sufficient_condition", "component_count": 2, "does_not_assert_multiple_solutions": true}, "limitations": ["No uniqueness claim for unrestricted regular factors.", "Disconnected opposition returns insufficient_coverage, not general infeasibility.", "Accepted max_solutions modes certify at most one answer; no disconnected enumeration."]}}
+{"case_id": "permuted_duplicates", "input": {"alphabet": ["c", "b", "a"], "positive": ["cab", "abc", "cab"], "negative": ["ba", "ac", "ba"]}, "result": {"method": "fixed-word", "model_class": "fixed_word_product", "status": "found", "solutions": [{"blocks": [["a", "b"], ["c"]], "positive_projection_languages": [["ab"], ["c"]], "negative_witnesses": [{"negative": "ac", "block_index": 0, "projection": "a", "all_unseen_block_indices": [0]}, {"negative": "ba", "block_index": 0, "projection": "ba", "all_unseen_block_indices": [0, 1]}], "local_words": ["ab", "c"]}], "search_exhausted": true, "decision_complete": true, "uniqueness": "unique", "uniqueness_scope": "unordered_two_nonempty_block_partitions_within_fixed_word_product_class", "assumptions": ["exactly_two_nonempty_disjoint_alphabet_blocks", "each_local_language_is_a_singleton_word_language", "positives_are_complete_traces_not_prefixes", "fixed_noise_free_labels", "connected_positive_opposition_is_a_sufficient_coverage_condition"], "reason": "unique_partition_certified_within_fixed_word_class", "metrics": {"pair_tests": 3, "pair_projection_calls": 6, "positive_count_checks": 2, "positive_projection_checks": 2, "negative_checks": 2, "candidate_checks": 1, "alphabet_size": 3, "positive_count": 2, "negative_count": 2, "opposition_edges": 2, "opposition_components": 1, "provider_seconds": 0.0009409000049345195}, "graph": {"symbols": ["a", "b", "c"], "edges": [["a", "c"], ["b", "c"]], "edge_positive_indices": [1, 1], "components": [["a", "b", "c"]], "colors": [0, 0, 1], "construction_complete": true, "absent_symbols": [], "reference_positive_index": 0, "positive_order": "sorted unique input words", "coloring_complete": true}, "certificate": {"kind": "connected_bipartite_opposition", "unique_positive_partition_up_to_swapping_sides": true, "local_words": ["ab", "c"], "all_positive_projections_checked": true, "all_negative_projections_checked": true}, "limitations": ["No uniqueness claim for unrestricted regular factors.", "Disconnected opposition returns insufficient_coverage, not general infeasibility.", "Accepted max_solutions modes certify at most one answer; no disconnected enumeration."]}}
+{"case_id": "expired_deadline", "input": {"alphabet": ["a", "b", "c"], "positive": ["abc", "cab"], "negative": []}, "result": {"method": "fixed-word", "model_class": "fixed_word_product", "status": "incomplete", "solutions": [], "search_exhausted": false, "decision_complete": false, "uniqueness": "unknown", "uniqueness_scope": "unordered_two_nonempty_block_partitions_within_fixed_word_product_class", "assumptions": ["exactly_two_nonempty_disjoint_alphabet_blocks", "each_local_language_is_a_singleton_word_language", "positives_are_complete_traces_not_prefixes", "fixed_noise_free_labels", "connected_positive_opposition_is_a_sufficient_coverage_condition"], "reason": "deadline_or_interruption", "metrics": {"pair_tests": 0, "pair_projection_calls": 0, "positive_count_checks": 0, "positive_projection_checks": 0, "negative_checks": 0, "candidate_checks": 0, "provider_seconds": 3.120000474154949e-05}, "graph": {"symbols": [], "edges": [], "edge_positive_indices": [], "components": [], "colors": [], "construction_complete": false}, "certificate": null, "limitations": ["No uniqueness claim for unrestricted regular factors.", "Disconnected opposition returns insufficient_coverage, not general infeasibility.", "Accepted max_solutions modes certify at most one answer; no disconnected enumeration."]}}
+{
+  "accepted": true,
+  "cases": 9,
+  "provider_calls": 9,
+  "oracle": "independent exhaustive fixed-word partitions, no candidate helpers",
+  "reports": [
+    {
+      "case_id": "odd_cycle",
+      "accepted": true,
+      "status": "assumption_violation",
+      "class_model_count": 0,
+      "class_partitions": []
+    },
+    {
+      "case_id": "count_variation",
+      "accepted": true,
+      "status": "assumption_violation",
+      "class_model_count": 0,
+      "class_partitions": []
+    },
+    {
+      "case_id": "forced_candidate_accepts_negative",
+      "accepted": true,
+      "status": "assumption_violation",
+      "class_model_count": 0,
+      "class_partitions": []
+    },
+    {
+      "case_id": "absent_symbol",
+      "accepted": true,
+      "status": "insufficient_coverage",
+      "class_model_count": 2,
+      "class_partitions": [
+        [
+          [
+            "a"
+          ],
+          [
+            "b",
+            "c"
+          ]
+        ],
+        [
+          [
+            "a",
+            "c"
+          ],
+          [
+            "b"
+          ]
+        ]
+      ]
+    },
+    {
+      "case_id": "single_positive_unique_disconnected",
+      "accepted": true,
+      "status": "insufficient_coverage",
+      "class_model_count": 1,
+      "class_partitions": [
+        [
+          [
+            "a"
+          ],
+          [
+            "b"
+          ]
+        ]
+      ]
+    },
+    {
+      "case_id": "empty_positive",
+      "accepted": true,
+      "status": "insufficient_coverage",
+      "class_model_count": 3,
+      "class_partitions": [
+        [
+          [
+            "a"
+          ],
+          [
+            "b",
+            "c"
+          ]
+        ],
+        [
+          [
+            "a",
+            "b"
+          ],
+          [
+            "c"
+          ]
+        ],
+        [
+          [
+            "a",
+            "c"
+          ],
+          [
+            "b"
+          ]
+        ]
+      ]
+    },
+    {
+      "case_id": "epsilon_positive",
+      "accepted": true,
+      "status": "insufficient_coverage",
+      "class_model_count": 1,
+      "class_partitions": [
+        [
+          [
+            "a"
+          ],
+          [
+            "b"
+          ]
+        ]
+      ]
+    },
+    {
+      "case_id": "permuted_duplicates",
+      "accepted": true,
+      "status": "found",
+      "class_model_count": 1,
+      "class_partitions": [
+        [
+          [
+            "a",
+            "b"
+          ],
+          [
+            "c"
+          ]
+        ]
+      ]
+    },
+    {
+      "case_id": "expired_deadline",
+      "accepted": true,
+      "status": "incomplete",
+      "class_model_count": 1,
+      "class_partitions": [
+        [
+          [
+            "a",
+            "b"
+          ],
+          [
+            "c"
+          ]
+        ]
+      ]
+    }
+  ],
+  "provider_sha256": "110fa33dd42e43ab57ee4e255e0d19bb82a43495e43f82c21723ebea69d4aa2a",
+  "input_sha256": "5b454c4b0c953b59a2e069d44ae09db69f0b1df6ed42aa868daf106a47211ea4",
+  "checker_sha256": "6a91a6ea8f68dbbab1df22b2d5478d1095ac756d9931674e2d1346cdc149836f",
+  "scope": "fixed_word_product exceptional branches only; no general model refutation implied",
+  "timing_benchmark": false
+}

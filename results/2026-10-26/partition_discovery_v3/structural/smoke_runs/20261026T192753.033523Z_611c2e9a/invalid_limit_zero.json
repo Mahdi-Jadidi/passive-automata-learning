@@ -1,0 +1,20 @@
+{
+  "case_id": "invalid_limit_zero",
+  "input": {
+    "alphabet": [
+      "a",
+      "b"
+    ],
+    "positive": [
+      "ab"
+    ],
+    "negative": []
+  },
+  "kwargs": {
+    "max_solutions": 0,
+    "deadline": 304671.7710231
+  },
+  "expected_status": "ValueError",
+  "exception_type": "ValueError",
+  "exception": "ValueError('max_solutions must be a positive integer or None')"
+}

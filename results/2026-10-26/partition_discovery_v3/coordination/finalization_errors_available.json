@@ -1,0 +1,13 @@
+{
+  "event": "finalization_check_scope_error",
+  "client_date": "2026-10-27",
+  "command": "git diff --cached --check followed by staged summary commands",
+  "execution_status": "interrupted",
+  "scientific_status": "not_applicable_infrastructure_only",
+  "observation": "An unfiltered whitespace check treated immutable captured .bin streams with Windows CRLF as text and emitted excessive trailing-whitespace diagnostics. The session was interrupted with Ctrl-C and returned exit 1.",
+  "available_example": "audit/attempts/20261026T191237.446567Z_4d9c55ac32/stdout.bin:1: trailing whitespace",
+  "full_output": "not_available; tool output was truncated, no fabricated reconstruction",
+  "filesystem_mutations_by_failed_check": false,
+  "raw_evidence_modified": false,
+  "correction": "Preserve raw bytes. Check only delivery code and documents with CR-at-EOL accepted, and inspect staged path scope separately."
+}

@@ -1,0 +1,29 @@
+{
+  "created_utc": "2026-10-26T19:39:19.8908638Z",
+  "execution_status": "theory_only_no_experiment",
+  "general_passive_efficiency_claim": false,
+  "parent": "IDEA_C003_S001.json",
+  "tests_run": 0,
+  "source": "LOCAL_DFA_COROLLARY.md",
+  "primary_source": "https://www.cs.usask.ca/faculty/mcquillan/pubs/shuffle_automaton_size.pdf",
+  "runtime_changes": false,
+  "boundary_counterexample": {
+    "actual_accepted_word_count": 1,
+    "id": "C003-S001-COROLLARY-R1",
+    "status": "extension_to_overlapping_support_refuted_theoretically",
+    "u": "a",
+    "experiment_run": false,
+    "v": "a",
+    "actual_complete_minimal_global_states": 4
+  },
+  "scientific_status": "proved_under_explicit_fixed_word_disjoint_support_assumptions",
+  "claims": [
+    "local exact minimal complete sizes m+2 and n+2",
+    "global exact minimal complete size (m+1)(n+1)+1",
+    "accepted distinct word count binomial(m+n,m) with repeats allowed"
+  ],
+  "id": "C003-S001-COROLLARY-001",
+  "novelty_claim": false,
+  "RPNI_run": false,
+  "sha256": "02d86e60415c5d9cca51f0ed6fec61851def9ece97f425e3ff5613eaaf2882d6"
+}

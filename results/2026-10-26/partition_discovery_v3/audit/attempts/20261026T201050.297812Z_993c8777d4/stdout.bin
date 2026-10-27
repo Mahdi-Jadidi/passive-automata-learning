@@ -1,0 +1,135 @@
+{
+  "method": "general",
+  "model_class": "general_regular_product",
+  "status": "found",
+  "solutions": [
+    {
+      "blocks": [
+        [
+          "a",
+          "b"
+        ],
+        [
+          "c",
+          "d"
+        ]
+      ],
+      "positive_projection_languages": [
+        [
+          "",
+          "ab"
+        ],
+        [
+          "",
+          "cd"
+        ]
+      ],
+      "negative_witnesses": [
+        {
+          "negative": "a",
+          "block_index": 0,
+          "projection": "a",
+          "all_unseen_block_indices": [
+            0
+          ]
+        },
+        {
+          "negative": "b",
+          "block_index": 0,
+          "projection": "b",
+          "all_unseen_block_indices": [
+            0
+          ]
+        },
+        {
+          "negative": "c",
+          "block_index": 1,
+          "projection": "c",
+          "all_unseen_block_indices": [
+            1
+          ]
+        },
+        {
+          "negative": "d",
+          "block_index": 1,
+          "projection": "d",
+          "all_unseen_block_indices": [
+            1
+          ]
+        }
+      ]
+    }
+  ],
+  "search_exhausted": true,
+  "decision_complete": true,
+  "uniqueness": "unique",
+  "uniqueness_scope": "sample_feasible_partitions_in_general_regular_product",
+  "assumptions": [
+    "exact labels",
+    "two nonempty disjoint alphabet blocks",
+    "unrestricted regular local factors"
+  ],
+  "alphabet": [
+    "a",
+    "b",
+    "c",
+    "d"
+  ],
+  "max_solutions": 2,
+  "graph": {
+    "components": [
+      [
+        "a",
+        "b"
+      ],
+      [
+        "c",
+        "d"
+      ]
+    ],
+    "edges": [
+      {
+        "symbols": [
+          "a",
+          "b"
+        ],
+        "witness": {
+          "rule": "insertion_rescue",
+          "positive": [
+            "",
+            "ab"
+          ],
+          "negative": "a",
+          "position": 0
+        }
+      },
+      {
+        "symbols": [
+          "c",
+          "d"
+        ],
+        "witness": {
+          "rule": "insertion_rescue",
+          "positive": [
+            "",
+            "cd"
+          ],
+          "negative": "c",
+          "position": 0
+        }
+      }
+    ]
+  },
+  "metrics": {
+    "graph_components": 2,
+    "nodes": 3,
+    "leaves": 1,
+    "cuts": 0,
+    "pruned_nodes": 0,
+    "preprocessing_seconds": 0.003168799972627312,
+    "separation_seconds": 2.9399991035461426e-05,
+    "cut_generation_seconds": 0.0,
+    "provider_seconds": 0.003208799986168742,
+    "cli_seconds_before_serialization": 0.021881099964957684
+  }
+}

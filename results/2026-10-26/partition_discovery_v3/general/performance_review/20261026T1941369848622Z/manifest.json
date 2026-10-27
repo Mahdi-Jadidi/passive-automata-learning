@@ -1,0 +1,45 @@
+{
+  "id": "C003_B_PERFORMANCE_STATIC_REVIEW",
+  "at_utc": "2026-10-26T19:41:37.3210391Z",
+  "scope": "static source review only; no suite/test/provider execution",
+  "files": [
+    {
+      "source": "audit/performance_suite.py",
+      "snapshot": "performance_suite.py",
+      "bytes": 6625,
+      "sha256": "9235e2b1f559fea940b699e72430b1e25f7186b9877ddf2704cac608746cc216"
+    },
+    {
+      "source": "audit/profile_one.py",
+      "snapshot": "profile_one.py",
+      "bytes": 1267,
+      "sha256": "7ff9bdc0efc38e2f3bc7e69b27b167a1eaab4d29a5fbd315cdc46163516ed802"
+    },
+    {
+      "source": "audit/capture.py",
+      "snapshot": "capture.py",
+      "bytes": 10624,
+      "sha256": "68ee700f391fb6a1cf135e4b55a11a247b45f25164553c917d1664f6fc4a31cf"
+    },
+    {
+      "source": "audit/plans/plan_v2/manifest.json",
+      "snapshot": "plan_v2_manifest.json",
+      "bytes": 9857,
+      "sha256": "ade71b84661e22b49ada9ba82fbbc9287935146cb349f33158528f4c1555f09e"
+    },
+    {
+      "source": "audit/plans/plan_v2/jobs.jsonl",
+      "snapshot": "plan_v2_jobs.jsonl",
+      "bytes": 4188498,
+      "sha256": "13506129daa78fb96421e18115e538efbc26a5dca5e8da4f6f7bf7a36fc7fd6c"
+    },
+    {
+      "source": "coordination/runtime_manifest.json",
+      "snapshot": "runtime_manifest.json",
+      "bytes": 1296,
+      "sha256": "ed931a34dc6f90b60ce8bf1048fed0c0d1a10d454ca88aa08f0491ffd42e536f"
+    }
+  ],
+  "observed_execution_failure": false,
+  "limitation": "Version-specific review; future revisions and completed-run artifact verification are outside this task."
+}

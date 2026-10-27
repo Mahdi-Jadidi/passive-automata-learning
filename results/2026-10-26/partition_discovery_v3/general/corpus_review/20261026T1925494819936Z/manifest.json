@@ -1,0 +1,80 @@
+{
+  "id": "C003_B_CORPUS_STATIC_REVIEW",
+  "at_utc": "2026-10-26T19:25:49.6849578Z",
+  "scope": "static source and file-integrity inspection only, no generator/provider/test execution",
+  "source_snapshots": [
+    {
+      "source": "audit/freeze_corpora.py",
+      "snapshot": "freeze_corpora.py",
+      "bytes": 11082,
+      "sha256": "b0f27caa9c2c8b090e6217feed676b5f22e32ac55ea7054045add4d08a3f5d64"
+    },
+    {
+      "source": "audit/corpus/frozen_c003_v1/freeze_manifest.json",
+      "snapshot": "freeze_manifest.json",
+      "bytes": 1481,
+      "sha256": "145276692ac76037fd20a29c16b96f933a0e14f5674e353df45d8f792e129e79"
+    }
+  ],
+  "frozen_files": [
+    {
+      "path": "c002_regression_f2.jsonl",
+      "expected_sha256": "8438bd6e8db304700124edc76e0849459b94f3eba248fcab9eb11e9219ea1d9d",
+      "actual_sha256": "8438bd6e8db304700124edc76e0849459b94f3eba248fcab9eb11e9219ea1d9d",
+      "matches": true
+    },
+    {
+      "path": "c002_regression_inputs.jsonl",
+      "expected_sha256": "f8674d2da5f9ac1a137935b4729199befc3f08138ae2801313be98387f89a6c1",
+      "actual_sha256": "f8674d2da5f9ac1a137935b4729199befc3f08138ae2801313be98387f89a6c1",
+      "matches": true
+    },
+    {
+      "path": "fixed_word_inputs.jsonl",
+      "expected_sha256": "d35c4f2f9b2ac7668a90d32a19acf05f6df78e945457280921b9ca653f6de11f",
+      "actual_sha256": "d35c4f2f9b2ac7668a90d32a19acf05f6df78e945457280921b9ca653f6de11f",
+      "matches": true
+    },
+    {
+      "path": "fixed_word_truth.jsonl",
+      "expected_sha256": "a8d8b15cbd8bfed37f9bd2894502d7516fdc423df9483f362cbff870fe79d337",
+      "actual_sha256": "a8d8b15cbd8bfed37f9bd2894502d7516fdc423df9483f362cbff870fe79d337",
+      "matches": true
+    },
+    {
+      "path": "job_list.jsonl",
+      "expected_sha256": "23076efdf6943d4b3a6a4f467c9d844a4755163922da7510349691d61e5065eb",
+      "actual_sha256": "23076efdf6943d4b3a6a4f467c9d844a4755163922da7510349691d61e5065eb",
+      "matches": true
+    },
+    {
+      "path": "random_dfa_inputs.jsonl",
+      "expected_sha256": "e13b3eb19bb0ce02538197a36a14d37b76da4a901e7a9aaa026b448af9b62d37",
+      "actual_sha256": "e13b3eb19bb0ce02538197a36a14d37b76da4a901e7a9aaa026b448af9b62d37",
+      "matches": true
+    },
+    {
+      "path": "random_dfa_truth.jsonl",
+      "expected_sha256": "34166a4599664a844ddef626865ce90e629dba6de760e19d8f58f9c14db101bd",
+      "actual_sha256": "34166a4599664a844ddef626865ce90e629dba6de760e19d8f58f9c14db101bd",
+      "matches": true
+    }
+  ],
+  "original_reference_files": [
+    {
+      "source": "partition_constraints_v2/audit/corpus/frozen_v1/manifest.json",
+      "sha256": "a4ef5c7124b9852cb30c5eb8e86f6e8bd1fa53bf3d4e9ab5d89d70f9b48efd13"
+    },
+    {
+      "source": "partition_constraints_v2/audit/correctness_runs/20261026T125503.860658Z_805e5494/baseline.jsonl.gz",
+      "sha256": "22bfd704266034b3bf67e627197ad7d7dfd41472cbbfe386624625dde2f92313"
+    }
+  ],
+  "declared_counts": {
+    "c002_regression": 78,
+    "fixed_word": 120,
+    "jobs": 636,
+    "random_dfa": 120
+  },
+  "limitation": "Labels are reviewed from generator logic, not independently recomputed by this task."
+}

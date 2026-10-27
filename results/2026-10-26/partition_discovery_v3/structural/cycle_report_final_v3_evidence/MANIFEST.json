@@ -1,0 +1,112 @@
+{
+  "report_sha256": "de38873060720d590e3fb246ce03d8f553ed9990c15844d4a53782a0ec25fe2e",
+  "prior_failed_validator_reports": "../cycle_report_draft_v2_evidence/MANIFEST.json",
+  "recovery_routes": [
+    "unrestricted regular-product partition: observable must-link graph r=2 plus feasibility and true-model assumption; prior r=k theorem",
+    "fixed-word product: equal positive counts plus connected bipartite opposition plus direct all-label validation"
+  ],
+  "runtime_or_git_edits": false,
+  "previous_drafts_preserved": true,
+  "paired_case_performance": {
+    "cases_per_limit": 100,
+    "general_over_fair_median_ratio_limit2": 1.110033893410825,
+    "aggregation": "median of3 repetitions per input BEFORE paired ratios; captured postprocessing only, no rerun",
+    "general_over_fair_median_ratio_limit1": 1.079547026099279,
+    "general_faster_limit2": 29,
+    "general_faster_limit1": 36
+  },
+  "new_solver_calls": 0,
+  "accepted_counts": {
+    "selected_regression_per_method": 78,
+    "random_DFA_large_constructive_per_method": 40,
+    "performance_jobs": 1744,
+    "boundary_controls": 9,
+    "performance_timeouts": 0,
+    "infinite_regular_provider_results": 96,
+    "random_DFA_per_method": 120,
+    "fixed_word_true_recoveries": 120,
+    "paired_answer_order_checks": 600,
+    "infinite_regular_cases": 24,
+    "random_DFA_exact_oracle_per_method": 80,
+    "general_full_F2_per_method": 7281,
+    "performance_budget_skipped": 0
+  },
+  "remaining_limits": [
+    "General-compatible answer is not arbitrary true-target recovery",
+    "Infinite true local languages/DFAs are not identified",
+    "No general speed win; temporal method-block ordering",
+    "RPNI not run",
+    "Scope remains exactly two disjoint alphabets with noise-free labels",
+    "Example file is theoretical/executable but not newly run"
+  ],
+  "new_benchmarks": 0,
+  "evidence": [
+    {
+      "sha256": "f1ce6425fc91686b9451a074b186c127221529f491ddd4e2c78a248e303ae3ce",
+      "source": "audit/validation/coverage_family_infinite_v1/report_v2.json",
+      "snapshot": "ACCEPTED_infinite24_report_v2.json"
+    },
+    {
+      "sha256": "d100a6cc9af76a38e7258ab3a8a54088b3b0872571c0be6ded39028bd6d9b9c4",
+      "source": "audit/validation/boundary_controls_v1/report.json",
+      "snapshot": "ACCEPTED_boundary9_report.json"
+    },
+    {
+      "sha256": "ff1df388e521e524cc5a53bd0c15ac476b2c930d858508612b05f458a60df913",
+      "source": "audit/validation/performance_v4/report.json",
+      "snapshot": "ACCEPTED_performance_v4_report.json"
+    },
+    {
+      "sha256": "e22c14729baafb57148be8e482036fad8680c977f8b8cfcc43927583009a7c82",
+      "source": "general/performance_analysis/results_2124a70cd8ca49858010753d85e022c1/analysis.json",
+      "snapshot": "POSTPROCESSING_per_case_analysis.json"
+    },
+    {
+      "sha256": "4c80858bd86b68682f42486b60aed0d1c66a4c849b626d5c7b8273e915642639",
+      "source": "general/performance_analysis/results_2124a70cd8ca49858010753d85e022c1/per_case.jsonl",
+      "snapshot": "POSTPROCESSING_per_case.jsonl"
+    },
+    {
+      "sha256": "38b0f83e2bfbc71a56e01a158c7bfe275e37954e54ea52a5154f5424857b9cdb",
+      "source": "general/performance_analysis/COMPLETION.json",
+      "snapshot": "POSTPROCESSING_COMPLETION.json"
+    },
+    {
+      "sha256": "aad1490e21af8523ff05811a7939e3e17ce712a487caeef12b84cc41a3ae1e19",
+      "source": "general/performance_analysis/SUMMARY_FA.md",
+      "snapshot": "POSTPROCESSING_SUMMARY_FA.md"
+    },
+    {
+      "sha256": "907db9ae798b3984a75b2c6f68f8de3561be569f92fdf3c583d5c20a672cd46d",
+      "source": "audit/AUDIT_REPORT_FA.md",
+      "snapshot": "INDEPENDENT_AUDIT_REPORT_FA.md"
+    },
+    {
+      "sha256": "913a1df49b07c9dfc8e19a58cc1760be33ff5007c6862e6488c4180bb3a4ed57",
+      "source": "general/coverage_family/PROOFS.md",
+      "snapshot": "INFINITE_FAMILY_PROOFS.md"
+    },
+    {
+      "sha256": "a1dd3e475554623fedd56ae18e36fe6c9b12f71b14b9323efab7c42829189d81",
+      "source": "../partition_constraints_v2/baseline/THEORY_NOTE.md",
+      "snapshot": "READONLY_PRIOR_r_equals_k_THEORY_NOTE.md"
+    },
+    {
+      "sha256": "11fca4b6156e3342b54c8b38c6f22b63b1a1aea86dca391cd67218b93bab55e0",
+      "source": "structural/example_infinite_coverage_input.json",
+      "snapshot": "UNEXECUTED_example_infinite_coverage_input.json"
+    },
+    {
+      "sha256": "8fddb1ceaf8fed81f629638bc708b1bdc85f14665da605723404724960f068a7",
+      "source": "structural/C003_RESEARCH_REPORT_CANDIDATE_FA_REV2.md",
+      "snapshot": "PARENT_REV2_FA.md"
+    }
+  ],
+  "report": "../C003_RESEARCH_REPORT_CANDIDATE_FA_REV3_FINAL.md",
+  "id": "C003-WHOLE-CYCLE-FINAL-CANDIDATE-003",
+  "created_utc": "2026-10-26T20:04:36.1451156Z",
+  "new_tests": 0,
+  "prior_core_reports": "../cycle_report_draft_v1_evidence/MANIFEST.json",
+  "scientific_status": "all_declared_tiers_independently_accepted_with_documented_model_and_measurement_limits",
+  "publication_status": "final_candidate_for_master_integration"
+}

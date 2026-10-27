@@ -1,0 +1,206 @@
+{
+  "method": "fixed-word",
+  "model_class": "fixed_word_product",
+  "status": "found",
+  "solutions": [
+    {
+      "blocks": [
+        [
+          "Ā"
+        ],
+        [
+          "ā"
+        ]
+      ],
+      "positive_projection_languages": [
+        [
+          "ĀĀĀ"
+        ],
+        [
+          "ā"
+        ]
+      ],
+      "negative_witnesses": [
+        {
+          "negative": "Ā",
+          "block_index": 0,
+          "projection": "Ā",
+          "all_unseen_block_indices": [
+            0,
+            1
+          ]
+        },
+        {
+          "negative": "ĀĀĀ",
+          "block_index": 1,
+          "projection": "",
+          "all_unseen_block_indices": [
+            1
+          ]
+        },
+        {
+          "negative": "ĀĀā",
+          "block_index": 0,
+          "projection": "ĀĀ",
+          "all_unseen_block_indices": [
+            0
+          ]
+        },
+        {
+          "negative": "Āā",
+          "block_index": 0,
+          "projection": "Ā",
+          "all_unseen_block_indices": [
+            0
+          ]
+        },
+        {
+          "negative": "ĀāāĀĀā",
+          "block_index": 1,
+          "projection": "āāā",
+          "all_unseen_block_indices": [
+            1
+          ]
+        },
+        {
+          "negative": "ĀāāāāĀā",
+          "block_index": 0,
+          "projection": "ĀĀ",
+          "all_unseen_block_indices": [
+            0,
+            1
+          ]
+        },
+        {
+          "negative": "āĀĀ",
+          "block_index": 0,
+          "projection": "ĀĀ",
+          "all_unseen_block_indices": [
+            0
+          ]
+        },
+        {
+          "negative": "āĀĀĀĀā",
+          "block_index": 0,
+          "projection": "ĀĀĀĀ",
+          "all_unseen_block_indices": [
+            0,
+            1
+          ]
+        },
+        {
+          "negative": "āĀāĀĀāĀ",
+          "block_index": 0,
+          "projection": "ĀĀĀĀ",
+          "all_unseen_block_indices": [
+            0,
+            1
+          ]
+        },
+        {
+          "negative": "āĀāĀāā",
+          "block_index": 0,
+          "projection": "ĀĀ",
+          "all_unseen_block_indices": [
+            0,
+            1
+          ]
+        },
+        {
+          "negative": "āāĀ",
+          "block_index": 0,
+          "projection": "Ā",
+          "all_unseen_block_indices": [
+            0,
+            1
+          ]
+        },
+        {
+          "negative": "āāĀā",
+          "block_index": 0,
+          "projection": "Ā",
+          "all_unseen_block_indices": [
+            0,
+            1
+          ]
+        }
+      ],
+      "local_words": [
+        "ĀĀĀ",
+        "ā"
+      ]
+    }
+  ],
+  "search_exhausted": true,
+  "decision_complete": true,
+  "uniqueness": "unique",
+  "uniqueness_scope": "unordered_two_nonempty_block_partitions_within_fixed_word_product_class",
+  "assumptions": [
+    "exactly_two_nonempty_disjoint_alphabet_blocks",
+    "each_local_language_is_a_singleton_word_language",
+    "positives_are_complete_traces_not_prefixes",
+    "fixed_noise_free_labels",
+    "connected_positive_opposition_is_a_sufficient_coverage_condition"
+  ],
+  "reason": "unique_partition_certified_within_fixed_word_class",
+  "metrics": {
+    "pair_tests": 1,
+    "pair_projection_calls": 2,
+    "positive_count_checks": 2,
+    "positive_projection_checks": 2,
+    "negative_checks": 12,
+    "candidate_checks": 1,
+    "alphabet_size": 2,
+    "positive_count": 2,
+    "negative_count": 12,
+    "opposition_edges": 1,
+    "opposition_components": 1,
+    "provider_seconds": 0.0002447000006213784,
+    "cli_seconds_before_serialization": 0.028831200033891946
+  },
+  "graph": {
+    "symbols": [
+      "Ā",
+      "ā"
+    ],
+    "edges": [
+      [
+        "Ā",
+        "ā"
+      ]
+    ],
+    "edge_positive_indices": [
+      1
+    ],
+    "components": [
+      [
+        "Ā",
+        "ā"
+      ]
+    ],
+    "colors": [
+      0,
+      1
+    ],
+    "construction_complete": true,
+    "absent_symbols": [],
+    "reference_positive_index": 0,
+    "positive_order": "sorted unique input words",
+    "coloring_complete": true
+  },
+  "certificate": {
+    "kind": "connected_bipartite_opposition",
+    "unique_positive_partition_up_to_swapping_sides": true,
+    "local_words": [
+      "ĀĀĀ",
+      "ā"
+    ],
+    "all_positive_projections_checked": true,
+    "all_negative_projections_checked": true
+  },
+  "limitations": [
+    "No uniqueness claim for unrestricted regular factors.",
+    "Disconnected opposition returns insufficient_coverage, not general infeasibility.",
+    "Accepted max_solutions modes certify at most one answer; no disconnected enumeration."
+  ]
+}

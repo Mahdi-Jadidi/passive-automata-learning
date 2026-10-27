@@ -1,0 +1,55 @@
+{
+  "independent_empirical_acceptance": false,
+  "decision": "no_blocking_search_proof_defect_identified_static_review_only",
+  "finding_A2": "P3 invalid or nonfinite deadlines not rejected; valid finite-domain behavior unaffected",
+  "report": "FINDINGS.md",
+  "created_utc": "2026-10-26T19:26:18.0105521Z",
+  "report_sha256": "007db144b5e549ded24b77272c5cfee3c61d4ef2216a78d79de3863e1f8b3d10",
+  "orchestration_or_git": false,
+  "id": "C003-GENREVIEW-A001",
+  "implementation_changes": false,
+  "files": [
+    {
+      "source": "general/support.py",
+      "snapshot": "snapshots/support.py",
+      "sha256": "af28d3ae2c297ec520c4863716255c01196611a374f16e0a1616378306e81306"
+    },
+    {
+      "source": "general/general_solver.py",
+      "snapshot": "snapshots/general_solver.py",
+      "sha256": "d260eb9f9c1292734081fa251570d085a83801a784ca6f1d20ebcc695d1c47da"
+    },
+    {
+      "source": "general/fair_reference.py",
+      "snapshot": "snapshots/fair_reference.py",
+      "sha256": "ca606a712eed32e8c7dfb765084456e6629dda7eadcc82cf33e0b5c8fdd2328a"
+    },
+    {
+      "source": "general/PROOFS.md",
+      "snapshot": "snapshots/PROOFS.md",
+      "sha256": "83cd7b4073449b81feeaac799ec59e77920414824a08419e914f8233a4e5365f"
+    },
+    {
+      "source": "general/README.md",
+      "snapshot": "snapshots/README.md",
+      "sha256": "602606cb7f4eae9c4bd3009466073bea1bde1d591873c5290756a8d74f7ef833"
+    },
+    {
+      "source": "general/CANDIDATE_MANIFEST.json",
+      "snapshot": "snapshots/CANDIDATE_MANIFEST.json",
+      "sha256": "bbe5ebe3890bc9cd8b4700470a9c6cc97dec1a54755f40940409b22c68bd7469"
+    },
+    {
+      "source": "coordination/CONTRACT.md",
+      "snapshot": "snapshots/CONTRACT.md",
+      "sha256": "1c71d439a12fb27d5cffb88fff4444ee7b23c7b0b9b846bf110c09d0811cb834"
+    },
+    {
+      "source": "../partition_constraints_v2/baseline/partition_solver.py",
+      "snapshot": "snapshots/readonly_C002_graph_dependency.py",
+      "sha256": "b0572bf8115d9188a6dbf20b6b6c8c70126cdf0cf9c7de4554ce2b36efdc702c"
+    }
+  ],
+  "experiments": 0,
+  "finding_A1": "P2 validation KeyboardInterrupt outside handler; API documentation mismatch"
+}

@@ -1,0 +1,86 @@
+{
+  "accepted": true,
+  "corpus_manifest_sha256": "145276692ac76037fd20a29c16b96f933a0e14f5674e353df45d8f792e129e79",
+  "errors": [],
+  "runs": {
+    "dfa_fair": {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-10-26\\partition_discovery_v3\\audit\\attempts\\20261026T193156.823230Z_ac355f2832\\stdout.bin",
+      "stdout_sha256": "0e4d81200d401535da819a4363edff5ffb2776ca77db5e9033851e2dd73b1e7c"
+    },
+    "dfa_general": {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-10-26\\partition_discovery_v3\\audit\\attempts\\20261026T193140.989070Z_26908bb50e\\stdout.bin",
+      "stdout_sha256": "5d74988d387d1a6ec7d8e1dbd27ad7cee5006ee8718cbadff3fbb316ee60bcd7"
+    },
+    "fixed_word": {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-10-26\\partition_discovery_v3\\audit\\attempts\\20261026T193208.243374Z_d30ec97983\\stdout.bin",
+      "stdout_sha256": "99614ad132e156fb65f28fb85da61666069d5d693a46494d876bcb3d0aa214a0"
+    },
+    "selected_fair": {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-10-26\\partition_discovery_v3\\audit\\attempts\\20261026T193123.761411Z_25cf45f3e8\\stdout.bin",
+      "stdout_sha256": "ab0cdee367b5fc04ac3335e31cf668de4ac38e894f70a698238758e45bd556ad"
+    },
+    "selected_general": {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-10-26\\partition_discovery_v3\\audit\\attempts\\20261026T193117.638592Z_85534ddd1d\\stdout.bin",
+      "stdout_sha256": "3ae45b385a4cc2f8c82cdae85e7c7a38dee542b4ce21075391d07e6270548e32"
+    }
+  },
+  "summary": {
+    "dfa_fair": {
+      "by_m": {
+        "10": 20,
+        "12": 20,
+        "16": 20,
+        "4": 20,
+        "6": 20,
+        "8": 20
+      },
+      "high_m_found": 40,
+      "oracle_cases": 80,
+      "oracle_exact": 80,
+      "planted_feasible": 120,
+      "rows": 120,
+      "witnesses": 160716
+    },
+    "dfa_general": {
+      "by_m": {
+        "10": 20,
+        "12": 20,
+        "16": 20,
+        "4": 20,
+        "6": 20,
+        "8": 20
+      },
+      "high_m_found": 40,
+      "oracle_cases": 80,
+      "oracle_exact": 80,
+      "planted_feasible": 120,
+      "rows": 120,
+      "witnesses": 160716
+    },
+    "fixed_word": {
+      "by_m": {
+        "128": 20,
+        "16": 20,
+        "2": 20,
+        "32": 20,
+        "64": 20,
+        "8": 20
+      },
+      "rows": 120,
+      "true_targets_recovered": 120,
+      "unique_recoveries": 120,
+      "witnesses": 1440
+    },
+    "selected_fair": {
+      "exact_f2": 78,
+      "rows": 78,
+      "witnesses": 12594
+    },
+    "selected_general": {
+      "exact_f2": 78,
+      "rows": 78,
+      "witnesses": 12594
+    }
+  },
+  "validation_id": "C003-GENERATED-AND-REGRESSION-AUDIT-v1"
+}

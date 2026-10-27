@@ -1,0 +1,44 @@
+{
+  "id": "C003_B_PERFORMANCE_REVIEW_COMPLETE",
+  "at_utc": "2026-10-26T19:43:00.4275375Z",
+  "decision": "fair_task_shapes_static_but_independent_source_plan_and_output_acceptance_required",
+  "execution_status": "no_experiments_static_only",
+  "observed_execution_failure": false,
+  "report": "FINDINGS.md",
+  "report_sha256": "7e83ea727e9cd4b49623cd6c0e36e54add9925d3aeda1ad72ca31b584c06fed8",
+  "substantive_gates": [
+    "P1 compare captured sources/inputs and semantic job schedule to frozen artifacts before acceptance",
+    "P2 future cooperative interruption does not stop remaining suite scheduling"
+  ],
+  "memory_scope": "provider_call_traced_allocations_excludes_parse_imports_serialization",
+  "timing_scope": "capture_subprocess_wall_includes_startup",
+  "static_performance_jobs": 1744,
+  "freshness": [
+    {
+      "source": "audit/performance_suite.py",
+      "still_current": true
+    },
+    {
+      "source": "audit/profile_one.py",
+      "still_current": true
+    },
+    {
+      "source": "audit/capture.py",
+      "still_current": true
+    },
+    {
+      "source": "audit/plans/plan_v2/manifest.json",
+      "still_current": true
+    },
+    {
+      "source": "audit/plans/plan_v2/jobs.jsonl",
+      "still_current": true
+    },
+    {
+      "source": "coordination/runtime_manifest.json",
+      "still_current": true
+    }
+  ],
+  "runtime_modified": false,
+  "rerun_requested": false
+}

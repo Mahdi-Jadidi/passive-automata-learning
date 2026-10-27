@@ -1,0 +1,18 @@
+{
+  "id": "C003_B_CORPUS_REVIEW_COMPLETE",
+  "at_utc": "2026-10-26T19:27:27.8532478Z",
+  "execution_status": "static_review_no_experiments",
+  "decision": "original_job_plan_blocked_and_additional_validation_gates_required",
+  "findings": [
+    "C1 known duplicate job IDs, preserve v1 and correct plan separately",
+    "C2 reference row/input/hash binding absent from loader",
+    "C3 freeze generator permits in-place overwrite",
+    "C4 structural boundary/false-assumption controls absent from v1 jobs"
+  ],
+  "file_integrity": "All seven v1 file hashes and original C002 reference-file hashes match recorded manifest",
+  "report": "FINDINGS.md",
+  "report_sha256": "708c768f2d9c1c3957bb173389db0089ba0c534695bb49609863d6b9a143a375",
+  "labels": "reviewed by source reasoning only, not independently recomputed",
+  "runtime_or_frozen_corpus_modified": false,
+  "stale_scope": "exact source and manifest snapshots only, later fixes not reviewed"
+}

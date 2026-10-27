@@ -1,0 +1,96 @@
+{
+  "accepted": false,
+  "budget_skipped": 0,
+  "errors": [
+    {
+      "error": "performance jobs do not match frozen plan",
+      "expected": 71,
+      "extra": [
+        "('fair-reference', 'performance_100_m6_008', 2, 'timing', 2)",
+        "('fair-reference', 'performance_100_m10_001', 1, 'timing', 3)",
+        "('fair-reference', 'performance_100_m10_018', 1, 'memory', 1)",
+        "('fixed-word', 'fixed_word_m2_009', 2, 'timing', 3)",
+        "('fixed-word', 'fixed_word_m2_000', 2, 'timing', 2)",
+        "('fixed-word', 'fixed_word_m16_019', 2, 'timing', 1)",
+        "('general', 'performance_100_m10_002', 2, 'timing', 2)",
+        "('fair-reference', 'performance_100_m4_022', 1, 'memory', 1)",
+        "('fair-reference', 'performance_100_m4_009', 2, 'timing', 1)",
+        "('general', 'performance_100_m10_023', 2, 'timing', 3)"
+      ],
+      "missing": [
+        "(('a', 'b', 'c', 'e', 'g', 'h', 'i', 'j'), ('d', 'f'))",
+        "(('a', 'b', 'c', 'g', 'i', 'j'), ('d', 'e', 'f', 'h'))",
+        "(('a', 'd', 'f', 'j'), ('b', 'c', 'e', 'g', 'h', 'i'))",
+        "(('a', 'b', 'e', 'f', 'g', 'h'), ('c', 'd', 'i', 'j'))",
+        "(('a', 'b', 'c', 'g', 'j'), ('d', 'e', 'f', 'h', 'i'))",
+        "(('a', 'i', 'j'), ('b', 'c', 'd', 'e', 'f', 'g', 'h'))",
+        "(('a', 'b', 'd', 'e', 'f', 'g', 'h', 'i', 'j'), ('c',))",
+        "(('a', 'b', 'c', 'e', 'f', 'g', 'h', 'i'), ('d', 'j'))",
+        "(('a', 'c', 'd', 'j'), ('b', 'e', 'f', 'g', 'h', 'i'))",
+        "(('a', 'b', 'c', 'd', 'f', 'g', 'j'), ('e', 'h', 'i'))"
+      ],
+      "observed": 1744
+    }
+  ],
+  "ledger_sha256": "4128a5e617a072deba4ba1426682ed237be760bba6c243e38389e228d6925708",
+  "measurement_scope": {
+    "memory": "tracemalloc peak during provider.solve only; import, input parsing and serialization excluded; not RSS",
+    "timing": "capture subprocess_seconds includes Python startup, input read, solve, and CLI output serialization"
+  },
+  "metrics": {
+    "fair-reference:limit1": {
+      "memory_n": 100,
+      "timeouts": 0,
+      "timing_median_seconds": 0.16119674997753464,
+      "timing_n": 300,
+      "timing_p90_seconds": 0.2775436200259719,
+      "tracemalloc_peak_median_bytes": 585126.0
+    },
+    "fair-reference:limit2": {
+      "memory_n": 100,
+      "timeouts": 0,
+      "timing_median_seconds": 0.1642222499649506,
+      "timing_n": 300,
+      "timing_p90_seconds": 0.2591255599691067,
+      "tracemalloc_peak_median_bytes": 585134.0
+    },
+    "fixed-word:limit1": {
+      "memory_n": 18,
+      "timeouts": 0,
+      "timing_median_seconds": 0.17798140001832508,
+      "timing_n": 54,
+      "timing_p90_seconds": 2.9241638999956194,
+      "tracemalloc_peak_median_bytes": 23441.0
+    },
+    "fixed-word:limit2": {
+      "memory_n": 18,
+      "timeouts": 0,
+      "timing_median_seconds": 0.16841534999548458,
+      "timing_n": 54,
+      "timing_p90_seconds": 4.34893775000819,
+      "tracemalloc_peak_median_bytes": 23441.0
+    },
+    "general:limit1": {
+      "memory_n": 100,
+      "timeouts": 0,
+      "timing_median_seconds": 0.18993484997190535,
+      "timing_n": 300,
+      "timing_p90_seconds": 0.31373648004373533,
+      "tracemalloc_peak_median_bytes": 585126.0
+    },
+    "general:limit2": {
+      "memory_n": 100,
+      "timeouts": 0,
+      "timing_median_seconds": 0.20317110000178218,
+      "timing_n": 300,
+      "timing_p90_seconds": 0.33509234999073667,
+      "tracemalloc_peak_median_bytes": 585126.0
+    }
+  },
+  "paired_answer_order_checks": 600,
+  "planned_jobs": 1744,
+  "status_counts": {
+    "found": 1744
+  },
+  "validation_id": "C003-PERFORMANCE-AUDIT-v1"
+}
