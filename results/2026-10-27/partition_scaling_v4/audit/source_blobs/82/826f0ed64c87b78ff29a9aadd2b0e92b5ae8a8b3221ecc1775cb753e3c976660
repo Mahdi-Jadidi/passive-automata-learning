@@ -1,0 +1,25 @@
+{
+  "schema": "C004-infrastructure-event-v1",
+  "event": "service returned HTTP 404 during the interrupted audit session",
+  "reported_by": "coordinating parent at resume",
+  "provider_attempt_id": null,
+  "request_id": null,
+  "endpoint": null,
+  "raw_response_log_present": false,
+  "missing_evidence": [
+    "service response body",
+    "request or trace identifier",
+    "timestamp and endpoint for the failing service call"
+  ],
+  "classification": "infrastructure/service interruption; no candidate or provider mismatch is evidenced by the available record",
+  "completed_stage2_provider_evidence": [
+    "20261027T095541.862000Z_b9b2f56f4b",
+    "20261027T095602.864028Z_b2ea97b427",
+    "20261027T095635.509143Z_a6d0cbef31",
+    "20261027T095701.212969Z_e92c68de1d",
+    "20261027T101508.000830Z_8a16b55bc3",
+    "20261027T101326.526396Z_5339b06884",
+    "20261027T100140.139072Z_0d7074dab6"
+  ],
+  "handling": "preserved as an infrastructure event; provider gates were reconciled from existing raw captures and no provider was rerun"
+}

@@ -1,0 +1,14 @@
+Traceback (most recent call last):
+  File "C:\Users\Mahdi\Documents\ChatGPT\passive automata learning\results\2026-10-27\partition_scaling_v4\audit\stage1_small_audit_v1.py", line 300, in <module>
+    raise SystemExit(run())
+                     ^^^^^
+  File "C:\Users\Mahdi\Documents\ChatGPT\passive automata learning\results\2026-10-27\partition_scaling_v4\audit\stage1_small_audit_v1.py", line 179, in run
+    manifest = json.loads(MANIFEST.read_text(encoding="utf-8"))
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mahdi\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\pathlib.py", line 1027, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mahdi\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\pathlib.py", line 1013, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-10-27\\partition_scaling_v4\\audit\\results\\2026-10-27\\partition_scaling_v4\\audit\\corpora\\stage1_v4\\manifest.json'

@@ -1,0 +1,28 @@
+{
+  "schema": "C004-stage2-corpus-freeze-v1",
+  "manifest_sha256": "258ba6b97871d8e140c2076247edd6612e5faf01352ac32ea247d211e806493f",
+  "generator_sha256": "ab645e39c93fd147895dc785ed2d8acf88e5ba4529534f9ceba4e0ee62aa4528",
+  "stage1_manifest_sha256": "edccad4723c76c670ae8382f6353f7d45c27076e39dbc3a8d21dde22900268da",
+  "case_count": 106,
+  "input_file_count": 106,
+  "truth_file_count": 20,
+  "positive_only_q2_constructive_cases": [
+    "q2_positive_only_m8_k2",
+    "q2_positive_only_m16_k4",
+    "q2_positive_only_m32_k4",
+    "q2_positive_only_m128_k8"
+  ],
+  "long_contextual_cases": [
+    "context_pair_star_a32_k4_L128",
+    "context_pair_star_a32_k4_L1024",
+    "context_pair_star_a32_k8_L4096",
+    "context_pair_star_a128_k8_L1024"
+  ],
+  "root_cli_cases": [
+    "cli_infer_singleton_k",
+    "cli_sparse_three_color_ambiguous",
+    "cli_sparse_three_color_disambiguated",
+    "cli_three_factor_certificate",
+    "cli_three_factor_two_words"
+  ]
+}

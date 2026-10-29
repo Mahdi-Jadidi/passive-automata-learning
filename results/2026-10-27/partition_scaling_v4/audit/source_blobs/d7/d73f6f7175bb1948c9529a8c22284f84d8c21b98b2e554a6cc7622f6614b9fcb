@@ -1,0 +1,115 @@
+{
+  "schema": "C004-stage1-independent-gate-v1",
+  "gate": "accepted",
+  "stage1_correctness_complete": true,
+  "official_timing_started": false,
+  "stage2_started": false,
+  "source_freeze": {
+    "runtime_manifest": "../coordination/runtime_stage1.json",
+    "runtime_manifest_sha256": "24f48e9b50a821575d892894e89acabe74da3e0fa10c6fc7d2134cc29f3a7b3f",
+    "general_provider": {
+      "path": "../general/known_k_v3.py",
+      "sha256": "1519189883c8dcfa9dcfa8e309f8e2c942b46a53d1988720baae58c4ab817ed9"
+    },
+    "structural_provider": {
+      "path": "../structural/singleton_solver_v1.py",
+      "sha256": "16065fdfabf52d4280e3c0f5a7f427faff8990583579bd97b4ea64f70c5a023e"
+    },
+    "capture": {
+      "path": "capture.py",
+      "sha256": "68ee700f391fb6a1cf135e4b55a11a247b45f25164553c917d1664f6fc4a31cf"
+    },
+    "old_c003_fixed_word": {
+      "path": "../../../../2026-10-26/partition_discovery_v3/structural/fixed_word_solver.py",
+      "sha256": "110fa33dd42e43ab57ee4e255e0d19bb82a43495e43f82c21723ebea69d4aa2a"
+    },
+    "old_c003_general": {
+      "path": "../../../../2026-10-26/partition_discovery_v3/general/general_solver.py",
+      "sha256": "d260eb9f9c1292734081fa251570d085a83801a784ca6f1d20ebcc695d1c47da"
+    },
+    "old_c003_support": {
+      "path": "../../../../2026-10-26/partition_discovery_v3/general/support.py",
+      "sha256": "af28d3ae2c297ec520c4863716255c01196611a374f16e0a1616378306e81306"
+    },
+    "c002_graph_dependency": {
+      "path": "../../../../2026-10-26/partition_constraints_v2/baseline/partition_solver.py",
+      "sha256": "b0572bf8115d9188a6dbf20b6b6c8c70126cdf0cf9c7de4554ce2b36efdc702c"
+    }
+  },
+  "corpus_freeze": {
+    "manifest": "corpora/stage1_v4/manifest.json",
+    "manifest_sha256": "edccad4723c76c670ae8382f6353f7d45c27076e39dbc3a8d21dde22900268da",
+    "freeze_record": "corpora/stage1_v4/corpus_freeze_v2.json",
+    "case_count": 212,
+    "frozen_file_count": 406,
+    "input_count": 212,
+    "hidden_truth_sidecar_count": 193,
+    "solver_inputs_contain_no_truth": true
+  },
+  "scope": {
+    "full_small_alphabet_cases": 80,
+    "full_small_alphabet_max_symbols": 7,
+    "families": {
+      "small_general": 28,
+      "small_singleton": 28,
+      "small_random_dfa": 14,
+      "boundary_control": 10,
+      "invalid": 9,
+      "long_singleton": 45,
+      "long_random_dfa": 45,
+      "context_regular": 30,
+      "stress_16384": 3
+    },
+    "long_singleton_grid": {
+      "k": [2, 3, 4, 6, 8],
+      "alphabet_sizes": [8, 32, 128],
+      "trace_lengths": [128, 1024, 4096],
+      "cells": 45
+    },
+    "optional_stress_length": 16384
+  },
+  "findings": {
+    "general_full_solution_sets_match_oracle": true,
+    "general_q1_full_solution_sets_match_oracle": true,
+    "all_general_negative_witnesses_verified": true,
+    "general_must_link_witnesses_exactly_verified": true,
+    "c003_k2_small_full_solution_sets_match_oracle": true,
+    "c003_k2_small_case_count": 33,
+    "structural_certificates_equal_singleton_oracle": true,
+    "unresolved_status_not_treated_as_empty": true,
+    "long_s001_certificates_verified": 6,
+    "long_s001_unique_complete_k_partite_cases": 6,
+    "forced_hash_collision_modulus": 1,
+    "forced_hash_collision_base": 1,
+    "forced_hash_collision_preserved_edge_sets_and_answers": true,
+    "connected_k3_counterexample_general_solutions": 6,
+    "connected_k3_counterexample_q1_solutions": 3,
+    "connected_k3_counterexample_s001_status": "insufficient_coverage",
+    "empty_positive_general_q1_partitions": 3,
+    "empty_positive_exact_singleton_partitions": 3,
+    "invalid_input_and_options_audited": true,
+    "common_k_scope": "2 <= k <= alphabet size",
+    "structural_k1_extension": "accepted by structural provider only; outside common scope"
+  },
+  "censored": [
+    {
+      "attempt_id": "20261027T091318.427730Z_f3a21b622a",
+      "provider": "old C003 fixed-word",
+      "case": "long_singleton_a128_k2_l4096",
+      "result": "incomplete",
+      "solver_deadline_seconds": 25,
+      "classification": "censored; raw result preserved; not a mismatch and not a no-solution claim"
+    }
+  ],
+  "captured_evidence": [
+    "attempts/20261027T090921.128845Z_49e5a6d251/",
+    "attempts/20261027T091022.049489Z_71b08c4a1b/",
+    "attempts/20261027T091234.015723Z_6ca0f338b7/",
+    "attempts/20261027T091501.940115Z_ac128f5649/",
+    "attempts/20261027T091603.360112Z_bd65d62a86/",
+    "attempts/20261027T091758.479390Z_412e699711/",
+    "attempts/20261027T091318.427730Z_f3a21b622a/"
+  ],
+  "report_fa": "STAGE1_GATE_REPORT_FA.md",
+  "acceptance_note": "Stage-1 correctness is independently accepted for the frozen candidate hashes and corpus above. This does not authorize stage 2 or establish any performance ranking. Await master authorization for the serial benchmark window."
+}

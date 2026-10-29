@@ -1,0 +1,11 @@
+{
+  "schema": "C004-infrastructure-launch-failure-v1",
+  "event": "first read-only gate-aggregator launch was rejected before process start because the PowerShell argument vector exceeded the Windows command-line length limit",
+  "process_started": false,
+  "provider_started": false,
+  "capture_attempt_id": null,
+  "raw_capture_log_present": false,
+  "tool_error": "ResourceUnavailable: python.exe failed to run; The filename or extension is too long.",
+  "cause": "The source-snapshot paths were expanded into one long argv list.",
+  "resolution": "A small audit-owned capture wrapper now constructs the source snapshot list in Python and invokes only the read-only aggregator. No solver/provider was rerun."
+}

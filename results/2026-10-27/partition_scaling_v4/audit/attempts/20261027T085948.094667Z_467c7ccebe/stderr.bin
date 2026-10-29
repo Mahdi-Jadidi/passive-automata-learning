@@ -1,0 +1,11 @@
+Traceback (most recent call last):
+  File "C:\Users\Mahdi\Documents\ChatGPT\passive automata learning\results\2026-10-27\partition_scaling_v4\audit\build_corpus_v1.py", line 376, in <module>
+    main()
+  File "C:\Users\Mahdi\Documents\ChatGPT\passive automata learning\results\2026-10-27\partition_scaling_v4\audit\build_corpus_v1.py", line 338, in main
+    make_boundaries(records)
+  File "C:\Users\Mahdi\Documents\ChatGPT\passive automata learning\results\2026-10-27\partition_scaling_v4\audit\build_corpus_v1.py", line 331, in make_boundaries
+    write_case(records, case_id, "invalid", data, None)
+  File "C:\Users\Mahdi\Documents\ChatGPT\passive automata learning\results\2026-10-27\partition_scaling_v4\audit\build_corpus_v1.py", line 77, in write_case
+    "positive_lengths": sorted(set(map(len, data.get("positive", [])))),
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: object of type 'int' has no len()

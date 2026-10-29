@@ -1,0 +1,56 @@
+{
+  "at_utc": "2026-10-27T09:38:25.457371+00:00",
+  "version": "C004-stage2-R1",
+  "stage2_provider_execution": "authorized",
+  "stage1_correctness_accepted": "coordination/STAGE1_ACCEPTANCE.json",
+  "stage1_timing_window": "closed_after_auditor_reported_63_of_63_schedule_rows_complete",
+  "stage1_performance_aggregate": "reconciliation_pending_not_yet_final_acceptance",
+  "files": [
+    {
+      "path": "solver.py",
+      "sha256": "ae5148086c77303299d43ebcdcb11c54b218b33a5aa84b0c9bf4456f8665b0fa",
+      "bytes": 4156
+    },
+    {
+      "path": "general/known_k_v3.py",
+      "sha256": "1519189883c8dcfa9dcfa8e309f8e2c942b46a53d1988720baae58c4ab817ed9",
+      "bytes": 13470
+    },
+    {
+      "path": "structural/singleton_solver_v1.py",
+      "sha256": "16065fdfabf52d4280e3c0f5a7f427faff8990583579bd97b4ea64f70c5a023e",
+      "bytes": 10270
+    },
+    {
+      "path": "structural/singleton_solver_v2.py",
+      "sha256": "67899d186bd91dfa11cde576910378ae5a1d3e2606fa59cda6cb01e05e8c64ef",
+      "bytes": 5066
+    },
+    {
+      "path": "structural/singleton_solver_v3.py",
+      "sha256": "146898b89ac3df0878e8e156e60f4826b6b83b879473d6ebf19c9bad954c8ab0",
+      "bytes": 7514
+    },
+    {
+      "path": "structural/bounded_certificate_v1.py",
+      "sha256": "0a8e542d3d44650f454e779137a5c9ac1057cd863bc162c94b45519f253636d5",
+      "bytes": 8099
+    },
+    {
+      "path": "audit/capture.py",
+      "sha256": "68ee700f391fb6a1cf135e4b55a11a247b45f25164553c917d1664f6fc4a31cf",
+      "bytes": 10624
+    }
+  ],
+  "scientific_status": "new_candidates_pending_independent_audit",
+  "scopes": [
+    "sparse known-k singleton exact search",
+    "unknown-k singleton sufficient certificate",
+    "at-most-q local languages and q-opposition certificate",
+    "long contextual witness coverage for unrestricted known-k regular factors"
+  ],
+  "public_inference_input_must_omit_k": true,
+  "new_source_versions_required_for_bug_fixes": true,
+  "official_phase2_timings": "held_until_source_and_corpus_correctness_gate",
+  "script_sha256": "8b2390a3fec3e875fa8286cc2ec9b150763e951e4e381204d5f6a911c403ecd0"
+}

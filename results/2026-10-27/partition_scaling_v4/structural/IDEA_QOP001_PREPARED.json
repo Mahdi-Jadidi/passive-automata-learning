@@ -1,0 +1,16 @@
+{
+  "idea_id": "C004-QOP001",
+  "parents": ["C004-S001", "C004-general-cap-q"],
+  "scientific_status": "proof_prepared_pending_independent_review_and_execution",
+  "execution_status": "not_run_stage1_timing_window",
+  "assumptions": ["known_k", "disjoint_nonempty_alphabet_blocks", "at_most_q_local_words", "complete_words", "exact_labels"],
+  "candidate_source": "bounded_certificate_v1.py",
+  "imported_source": "singleton_solver_v1.py",
+  "proof": "PROOFS_QOP001_PREPARED.md",
+  "edge_rule": "strictly_more_than_q_distinct_positive_binary_projections",
+  "certificate": "unique_k_coloring_from_complete_k_partite_or_connected_bipartite_k2_graph_plus_direct_full_block_cap_and_negative_checks",
+  "unresolved": "insufficient_coverage_if_graph_certificate_absent_or_no_positives",
+  "novelty_claim": false,
+  "sources": ["SOURCES_S001.md", "LITERATURE_COMPOSITIONAL_S001.md"],
+  "failures_and_caveats": ["threshold_1_unsound_for_q2", "proper_graph_coloring_alone_does_not_imply_full_block_q_cap", "q_plus_1_entries_are_not_constant_byte_memory", "no_measured_outcome_yet"]
+}

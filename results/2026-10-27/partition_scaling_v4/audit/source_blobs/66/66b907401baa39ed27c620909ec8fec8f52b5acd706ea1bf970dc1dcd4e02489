@@ -1,0 +1,24 @@
+{
+  "schema": "C004-stage2-timing-orchestration-error-v1",
+  "event": "serial timing executor expected protocol.schedule; frozen protocol stores wall_schedule and memory_schedule separately",
+  "timestamp_utc": "2026-10-29T08:46:33.919417+00:00",
+  "provider_child_started": false,
+  "official_timing_jobs_started": 0,
+  "wall_jobs_affected": 0,
+  "memory_jobs_affected": 0,
+  "stdout_stderr": "wrapper traceback retained in parent tool transcript; failure occurred before the first capture call",
+  "handling": "preserved as a pre-run auditor orchestration error; wrapper corrected and protocol will be refrozen before provider execution",
+  "pre_refreeze_protocol_fingerprints": [
+    {
+      "protocol_sha256": "17944b096f04bee7d2a57619bbc713acb5ec4a027b1704072157b81706f1535d",
+      "freeze_record_sha256": "b478198ab0a7e812de0f0345c69be8e7b5264f0d2097748931af11c1d26e7d3f",
+      "reason": "executor/schema mismatch was corrected before any provider child started"
+    }
+  ],
+  "empty_failed_ledger_snapshot": {
+    "path": "stage2_timing_execution_ledger_pre_executor_fix_001.json",
+    "sha256": "e0ea35c392babc754e4dfff8380d953663775465df29524719d36252c141a993",
+    "jobs": 0,
+    "protocol_sha256": "17944b096f04bee7d2a57619bbc713acb5ec4a027b1704072157b81706f1535d"
+  }
+}

@@ -1,0 +1,793 @@
+{
+  "schema": "C004-stage1-performance-protocol-v1",
+  "status": "frozen_pending_master_start",
+  "created_from": {
+    "corpus_manifest_sha256": "edccad4723c76c670ae8382f6353f7d45c27076e39dbc3a8d21dde22900268da",
+    "corpus_freeze_record_sha256": "2091c264db8a7e292b473d9b487b653a1c947d76c954c156bd06dc373b279ea2",
+    "runtime_stage1_sha256": "24f48e9b50a821575d892894e89acabe74da3e0fa10c6fc7d2134cc29f3a7b3f",
+    "stage1_gate_report_sha256": "d73f6f7175bb1948c9529a8c22284f84d8c21b98b2e554a6cc7622f6614b9fcb",
+    "protocol_text_sha256": "360f5287d381e087602702d68df019202e3d6d0d3c59a6b961087ffe15b19741",
+    "capture_sha256": "68ee700f391fb6a1cf135e4b55a11a247b45f25164553c917d1664f6fc4a31cf"
+  },
+  "candidate_source_hashes": [
+    {
+      "path": "structural/singleton_solver_v1.py",
+      "sha256": "16065fdfabf52d4280e3c0f5a7f427faff8990583579bd97b4ea64f70c5a023e",
+      "bytes": 10270
+    },
+    {
+      "path": "general/known_k_v3.py",
+      "sha256": "1519189883c8dcfa9dcfa8e309f8e2c942b46a53d1988720baae58c4ab817ed9",
+      "bytes": 13470
+    },
+    {
+      "path": "audit/capture.py",
+      "sha256": "68ee700f391fb6a1cf135e4b55a11a247b45f25164553c917d1664f6fc4a31cf",
+      "bytes": 10624
+    },
+    {
+      "path": "results/2026-10-26/partition_discovery_v3/structural/fixed_word_solver.py",
+      "sha256": "110fa33dd42e43ab57ee4e255e0d19bb82a43495e43f82c21723ebea69d4aa2a",
+      "bytes": 12531
+    },
+    {
+      "path": "results/2026-10-26/partition_discovery_v3/general/general_solver.py",
+      "sha256": "d260eb9f9c1292734081fa251570d085a83801a784ca6f1d20ebcc695d1c47da",
+      "bytes": 461
+    },
+    {
+      "path": "results/2026-10-26/partition_discovery_v3/general/support.py",
+      "sha256": "af28d3ae2c297ec520c4863716255c01196611a374f16e0a1616378306e81306",
+      "bytes": 7617
+    },
+    {
+      "path": "results/2026-10-26/partition_constraints_v2/baseline/partition_solver.py",
+      "sha256": "b0572bf8115d9188a6dbf20b6b6c8c70126cdf0cf9c7de4554ce2b36efdc702c",
+      "bytes": 6648
+    }
+  ],
+  "source_dependencies_included_in_capture": [
+    "structural/singleton_solver_v1.py",
+    "general/known_k_v3.py",
+    "audit/capture.py",
+    "results/2026-10-26/partition_discovery_v3/structural/fixed_word_solver.py",
+    "results/2026-10-26/partition_discovery_v3/general/general_solver.py",
+    "results/2026-10-26/partition_discovery_v3/general/support.py",
+    "results/2026-10-26/partition_constraints_v2/baseline/partition_solver.py"
+  ],
+  "selected_inputs": [
+    {
+      "id": "context_regular_a128_k4_l4096_s223496",
+      "family": "context_regular",
+      "k": 4,
+      "alphabet_size": 128,
+      "positive_count": 3,
+      "negative_count": 2,
+      "positive_lengths": [
+        4096
+      ],
+      "negative_lengths": [
+        4096
+      ],
+      "input_path": "inputs/context_regular_a128_k4_l4096_s223496.json",
+      "input_sha256": "15ba9ee599a9b09f9062ab8fc84c0c4df69d6e20fd0ec35d9149a65074202d7f",
+      "truth_path": "hidden_truth/context_regular_a128_k4_l4096_s223496.json",
+      "truth_sha256": "ed1edfaa3a6ca787e6f8f5d184f7546eda39ac03085df7f9706484b6b3fbb79c"
+    },
+    {
+      "id": "context_regular_a32_k2_l4096_s127296",
+      "family": "context_regular",
+      "k": 2,
+      "alphabet_size": 32,
+      "positive_count": 3,
+      "negative_count": 2,
+      "positive_lengths": [
+        4096
+      ],
+      "negative_lengths": [
+        4096
+      ],
+      "input_path": "inputs/context_regular_a32_k2_l4096_s127296.json",
+      "input_sha256": "1fe1a2fed3ab00f4c854a91b34b8a92826acf95ed4cba492afadcba9339c2eee",
+      "truth_path": "hidden_truth/context_regular_a32_k2_l4096_s127296.json",
+      "truth_sha256": "b2dd783fff6343bc82686e3e20386c7378be96b05c7eb237729472bdbac9b2b5"
+    },
+    {
+      "id": "context_regular_a32_k8_l1024_s124824",
+      "family": "context_regular",
+      "k": 8,
+      "alphabet_size": 32,
+      "positive_count": 3,
+      "negative_count": 2,
+      "positive_lengths": [
+        1024
+      ],
+      "negative_lengths": [
+        1024
+      ],
+      "input_path": "inputs/context_regular_a32_k8_l1024_s124824.json",
+      "input_sha256": "2582fc7a7943cf04a3cf8b504092a4390d544807d2afef662c35ab1c45c8cb23",
+      "truth_path": "hidden_truth/context_regular_a32_k8_l1024_s124824.json",
+      "truth_sha256": "8ef60eba0a2478c5346b69be23f36f35cec46898a4a3912d77898540fbeb1cf1"
+    },
+    {
+      "id": "long_singleton_a128_k2_l1024",
+      "family": "long_singleton",
+      "k": 2,
+      "alphabet_size": 128,
+      "positive_count": 3,
+      "negative_count": 2,
+      "positive_lengths": [
+        1024
+      ],
+      "negative_lengths": [
+        1024
+      ],
+      "input_path": "inputs/long_singleton_a128_k2_l1024.json",
+      "input_sha256": "0339e8d4a92e85ba2f5b3fe7a3272bb18dfa64cdd4d482db7ec3a9bdb4ba1c6b",
+      "truth_path": "hidden_truth/long_singleton_a128_k2_l1024.json",
+      "truth_sha256": "84243dfec125326c3c0429e33a2a04ea78bfa21416df0f9b57730a519084032b"
+    },
+    {
+      "id": "long_singleton_a128_k2_l4096",
+      "family": "long_singleton",
+      "k": 2,
+      "alphabet_size": 128,
+      "positive_count": 3,
+      "negative_count": 2,
+      "positive_lengths": [
+        4096
+      ],
+      "negative_lengths": [
+        4096
+      ],
+      "input_path": "inputs/long_singleton_a128_k2_l4096.json",
+      "input_sha256": "fc7ffb2b3a7faa4675cb543842d997eb91c078c0ca3d7e1d78efd9cef02194dc",
+      "truth_path": "hidden_truth/long_singleton_a128_k2_l4096.json",
+      "truth_sha256": "f3e5c45f1a1911827e9eb806b62e51459a5a3340cdedb781de2ab59a68c3d89b"
+    },
+    {
+      "id": "long_singleton_a32_k2_l1024",
+      "family": "long_singleton",
+      "k": 2,
+      "alphabet_size": 32,
+      "positive_count": 3,
+      "negative_count": 2,
+      "positive_lengths": [
+        1024
+      ],
+      "negative_lengths": [
+        1024
+      ],
+      "input_path": "inputs/long_singleton_a32_k2_l1024.json",
+      "input_sha256": "f5f1752c61e604c4b27e023898227b4a9e134e96bef05295a9e23588d07d22fa",
+      "truth_path": "hidden_truth/long_singleton_a32_k2_l1024.json",
+      "truth_sha256": "8438c4fa1a6a1e7ce162b3498034b0e3d455148b03b7526844c09fc5959f5bfa"
+    },
+    {
+      "id": "long_singleton_a32_k2_l128",
+      "family": "long_singleton",
+      "k": 2,
+      "alphabet_size": 32,
+      "positive_count": 3,
+      "negative_count": 2,
+      "positive_lengths": [
+        128
+      ],
+      "negative_lengths": [
+        128
+      ],
+      "input_path": "inputs/long_singleton_a32_k2_l128.json",
+      "input_sha256": "0bb24254e31bace756a5556ad435c75388cfa757f5666b2c42d132e21ddbec38",
+      "truth_path": "hidden_truth/long_singleton_a32_k2_l128.json",
+      "truth_sha256": "d6361edebc84cf577f2dab3becffb6d39ddb46f29295be18fd0cd45921e6def7"
+    },
+    {
+      "id": "long_singleton_a32_k2_l4096",
+      "family": "long_singleton",
+      "k": 2,
+      "alphabet_size": 32,
+      "positive_count": 3,
+      "negative_count": 2,
+      "positive_lengths": [
+        4096
+      ],
+      "negative_lengths": [
+        4096
+      ],
+      "input_path": "inputs/long_singleton_a32_k2_l4096.json",
+      "input_sha256": "340e1673025be87945480301e465eea49c98c833043462a68526241c0be917b4",
+      "truth_path": "hidden_truth/long_singleton_a32_k2_l4096.json",
+      "truth_sha256": "96ecc92776847813f2f32bc406cd53dd0f2c71fa626523c777d8e38cf6130b4b"
+    },
+    {
+      "id": "long_singleton_a32_k3_l4096",
+      "family": "long_singleton",
+      "k": 3,
+      "alphabet_size": 32,
+      "positive_count": 3,
+      "negative_count": 2,
+      "positive_lengths": [
+        4096
+      ],
+      "negative_lengths": [
+        4096
+      ],
+      "input_path": "inputs/long_singleton_a32_k3_l4096.json",
+      "input_sha256": "1c4bd471353a3cbf3502280d909278d6364fc4afa619ba0d070f003e06ed7e7d",
+      "truth_path": "hidden_truth/long_singleton_a32_k3_l4096.json",
+      "truth_sha256": "f6c41c9589f42d2d395af33271b3682b00e4ebb1133534d260c96cbfef13149e"
+    },
+    {
+      "id": "long_singleton_a32_k4_l4096",
+      "family": "long_singleton",
+      "k": 4,
+      "alphabet_size": 32,
+      "positive_count": 3,
+      "negative_count": 2,
+      "positive_lengths": [
+        4096
+      ],
+      "negative_lengths": [
+        4096
+      ],
+      "input_path": "inputs/long_singleton_a32_k4_l4096.json",
+      "input_sha256": "4004a263efcf0d94525c5a4a564df82beffa99506e68a1bc7a291d7c730c3923",
+      "truth_path": "hidden_truth/long_singleton_a32_k4_l4096.json",
+      "truth_sha256": "d77ae17337119bdc49d055bf13630dfa25b7aad2658250217d8de42974f06a95"
+    },
+    {
+      "id": "long_singleton_a32_k6_l4096",
+      "family": "long_singleton",
+      "k": 6,
+      "alphabet_size": 32,
+      "positive_count": 3,
+      "negative_count": 2,
+      "positive_lengths": [
+        4096
+      ],
+      "negative_lengths": [
+        4096
+      ],
+      "input_path": "inputs/long_singleton_a32_k6_l4096.json",
+      "input_sha256": "9ecb0b6cc2a3a8bdc0a3704c7a754a61adf2cef238b0876e234c4beca0f6eb93",
+      "truth_path": "hidden_truth/long_singleton_a32_k6_l4096.json",
+      "truth_sha256": "59814c002ba8875d804ee78418605108a7b31fb4a2609b7a9ab7d71d58077e68"
+    },
+    {
+      "id": "long_singleton_a32_k8_l4096",
+      "family": "long_singleton",
+      "k": 8,
+      "alphabet_size": 32,
+      "positive_count": 3,
+      "negative_count": 2,
+      "positive_lengths": [
+        4096
+      ],
+      "negative_lengths": [
+        4096
+      ],
+      "input_path": "inputs/long_singleton_a32_k8_l4096.json",
+      "input_sha256": "61de14eb4bf0e7efe5c925fd72a1b3d4a84bbe3e17b2806f8daf25fb29a3208f",
+      "truth_path": "hidden_truth/long_singleton_a32_k8_l4096.json",
+      "truth_sha256": "c4f312fbe5178328d91d7a62de5ac3bd8054f59cc592edded83c89278b283353"
+    },
+    {
+      "id": "random_dfa_a128_k8_l128_s204928",
+      "family": "random_dfa",
+      "k": 8,
+      "alphabet_size": 128,
+      "positive_count": 3,
+      "negative_count": 2,
+      "positive_lengths": [
+        128
+      ],
+      "negative_lengths": [
+        128
+      ],
+      "input_path": "inputs/random_dfa_a128_k8_l128_s204928.json",
+      "input_sha256": "72034adde012d6b0818800197a3be5caeceb9e821a7b3ac4dfc4a78f00a88902",
+      "truth_path": "hidden_truth/random_dfa_a128_k8_l128_s204928.json",
+      "truth_sha256": "ed592cccd883d583f70cc57a7c204450427219e5b055cbf601e9cdd50a8aa52c"
+    },
+    {
+      "id": "random_dfa_a32_k4_l1024_s109424",
+      "family": "random_dfa",
+      "k": 4,
+      "alphabet_size": 32,
+      "positive_count": 3,
+      "negative_count": 2,
+      "positive_lengths": [
+        1024
+      ],
+      "negative_lengths": [
+        1024
+      ],
+      "input_path": "inputs/random_dfa_a32_k4_l1024_s109424.json",
+      "input_sha256": "da4a9ad2f43f0ac1e46fc9fd6668f3860ba8b4e4d16964f2b451247f5466ddc6",
+      "truth_path": "hidden_truth/random_dfa_a32_k4_l1024_s109424.json",
+      "truth_sha256": "9afaa02d6a3a29ed4baf37e93f2cbca55dc804658fb7477040e55f5193b4bbb5"
+    },
+    {
+      "id": "random_dfa_a8_k2_l4096_s88296",
+      "family": "random_dfa",
+      "k": 2,
+      "alphabet_size": 8,
+      "positive_count": 3,
+      "negative_count": 2,
+      "positive_lengths": [
+        4096
+      ],
+      "negative_lengths": [
+        4096
+      ],
+      "input_path": "inputs/random_dfa_a8_k2_l4096_s88296.json",
+      "input_sha256": "5092af72c666c338a990e40ed26d6d6aa5d1c49da8f92c6ce2b9449da0f2538a",
+      "truth_path": "hidden_truth/random_dfa_a8_k2_l4096_s88296.json",
+      "truth_sha256": "598ceb01da78520d4201e6d7083303f6e809502cdfe2dd0c75ad6ec19b2c249d"
+    },
+    {
+      "id": "stress_a128_k2_l16384",
+      "family": "stress_16384",
+      "k": 2,
+      "alphabet_size": 128,
+      "positive_count": 3,
+      "negative_count": 2,
+      "positive_lengths": [
+        16384
+      ],
+      "negative_lengths": [
+        16384
+      ],
+      "input_path": "inputs/stress_a128_k2_l16384.json",
+      "input_sha256": "2daed416bb4ae4aa8da92bd1b7131b1e7a857e080a558a503998130ea02ed906",
+      "truth_path": "hidden_truth/stress_a128_k2_l16384.json",
+      "truth_sha256": "e1f8a02ea3fe9ab893836839affacc147aa177def1433c2c58c4f19881acfb9d"
+    },
+    {
+      "id": "stress_a128_k4_l16384",
+      "family": "stress_16384",
+      "k": 4,
+      "alphabet_size": 128,
+      "positive_count": 3,
+      "negative_count": 2,
+      "positive_lengths": [
+        16384
+      ],
+      "negative_lengths": [
+        16384
+      ],
+      "input_path": "inputs/stress_a128_k4_l16384.json",
+      "input_sha256": "ea557f7e85b7c32876765f53b1ab80f58c36ab2f0ba742b7c216d87aea365f87",
+      "truth_path": "hidden_truth/stress_a128_k4_l16384.json",
+      "truth_sha256": "23ebcda10573d202f7b6c62be6e629e81f4b4097a3f3aa2241eea2224ba841e7"
+    },
+    {
+      "id": "stress_a128_k8_l16384",
+      "family": "stress_16384",
+      "k": 8,
+      "alphabet_size": 128,
+      "positive_count": 3,
+      "negative_count": 2,
+      "positive_lengths": [
+        16384
+      ],
+      "negative_lengths": [
+        16384
+      ],
+      "input_path": "inputs/stress_a128_k8_l16384.json",
+      "input_sha256": "4d6bf3a483d900b085520d25d06968c23225c9456d2009b9f7a7f1af782ae156",
+      "truth_path": "hidden_truth/stress_a128_k8_l16384.json",
+      "truth_sha256": "f06ea1f659b95789b04b659b8c6649b27bbb8dcd46449eec0f937789e4952425"
+    }
+  ],
+  "measured_budget": {
+    "hard_seconds_per_child": 30,
+    "provider_seconds_ceiling": 900,
+    "stress_seconds_ceiling": 180,
+    "measured_scope": "whole fresh child from Python startup through input read, provider import, solve and normalized summary serialization; capture source snapshots excluded; no concurrent provider jobs",
+    "internal_deadline_seconds": 29,
+    "standard_job_counts": {
+      "S001": 27,
+      "C003-fixed-word": 9,
+      "general-v3": 18
+    },
+    "stress_job_counts": {
+      "S001": 3,
+      "general-v3": 1
+    },
+    "memory_jobs_separate_from_timing": 5,
+    "memory_note": "tracemalloc peak is Python allocation data, not RSS",
+    "full_provider_outputs_and_independent_checks": "separate correctness captures; timed stdout contains identical normalized summary schema for compared methods"
+  },
+  "ordering": {
+    "seed": 20261027,
+    "common_pair_policy": "for each k=2 bridge cell and repetition, S001/C003 order is selected by deterministic seeded coin flip; all other standard jobs are deterministically shuffled after paired jobs",
+    "stress_order": "after every standard timed job",
+    "memory_seed": 20261028,
+    "standard_jobs": [
+      {
+        "provider": "S001",
+        "case": "long_singleton_a128_k2_l1024",
+        "repetition": 1,
+        "job_id": "S001--long_singleton_a128_k2_l1024--r1"
+      },
+      {
+        "provider": "C003-fixed-word",
+        "case": "long_singleton_a128_k2_l1024",
+        "repetition": 1,
+        "job_id": "C003-fixed-word--long_singleton_a128_k2_l1024--r1"
+      },
+      {
+        "provider": "C003-fixed-word",
+        "case": "long_singleton_a128_k2_l4096",
+        "repetition": 1,
+        "job_id": "C003-fixed-word--long_singleton_a128_k2_l4096--r1"
+      },
+      {
+        "provider": "S001",
+        "case": "long_singleton_a128_k2_l4096",
+        "repetition": 1,
+        "job_id": "S001--long_singleton_a128_k2_l4096--r1"
+      },
+      {
+        "provider": "C003-fixed-word",
+        "case": "long_singleton_a32_k2_l1024",
+        "repetition": 1,
+        "job_id": "C003-fixed-word--long_singleton_a32_k2_l1024--r1"
+      },
+      {
+        "provider": "S001",
+        "case": "long_singleton_a32_k2_l1024",
+        "repetition": 1,
+        "job_id": "S001--long_singleton_a32_k2_l1024--r1"
+      },
+      {
+        "provider": "C003-fixed-word",
+        "case": "long_singleton_a128_k2_l1024",
+        "repetition": 2,
+        "job_id": "C003-fixed-word--long_singleton_a128_k2_l1024--r2"
+      },
+      {
+        "provider": "S001",
+        "case": "long_singleton_a128_k2_l1024",
+        "repetition": 2,
+        "job_id": "S001--long_singleton_a128_k2_l1024--r2"
+      },
+      {
+        "provider": "C003-fixed-word",
+        "case": "long_singleton_a128_k2_l4096",
+        "repetition": 2,
+        "job_id": "C003-fixed-word--long_singleton_a128_k2_l4096--r2"
+      },
+      {
+        "provider": "S001",
+        "case": "long_singleton_a128_k2_l4096",
+        "repetition": 2,
+        "job_id": "S001--long_singleton_a128_k2_l4096--r2"
+      },
+      {
+        "provider": "C003-fixed-word",
+        "case": "long_singleton_a32_k2_l1024",
+        "repetition": 2,
+        "job_id": "C003-fixed-word--long_singleton_a32_k2_l1024--r2"
+      },
+      {
+        "provider": "S001",
+        "case": "long_singleton_a32_k2_l1024",
+        "repetition": 2,
+        "job_id": "S001--long_singleton_a32_k2_l1024--r2"
+      },
+      {
+        "provider": "S001",
+        "case": "long_singleton_a128_k2_l1024",
+        "repetition": 3,
+        "job_id": "S001--long_singleton_a128_k2_l1024--r3"
+      },
+      {
+        "provider": "C003-fixed-word",
+        "case": "long_singleton_a128_k2_l1024",
+        "repetition": 3,
+        "job_id": "C003-fixed-word--long_singleton_a128_k2_l1024--r3"
+      },
+      {
+        "provider": "C003-fixed-word",
+        "case": "long_singleton_a128_k2_l4096",
+        "repetition": 3,
+        "job_id": "C003-fixed-word--long_singleton_a128_k2_l4096--r3"
+      },
+      {
+        "provider": "S001",
+        "case": "long_singleton_a128_k2_l4096",
+        "repetition": 3,
+        "job_id": "S001--long_singleton_a128_k2_l4096--r3"
+      },
+      {
+        "provider": "C003-fixed-word",
+        "case": "long_singleton_a32_k2_l1024",
+        "repetition": 3,
+        "job_id": "C003-fixed-word--long_singleton_a32_k2_l1024--r3"
+      },
+      {
+        "provider": "S001",
+        "case": "long_singleton_a32_k2_l1024",
+        "repetition": 3,
+        "job_id": "S001--long_singleton_a32_k2_l1024--r3"
+      },
+      {
+        "provider": "general-v3",
+        "case": "context_regular_a32_k2_l4096_s127296",
+        "repetition": 2,
+        "job_id": "general-v3--context_regular_a32_k2_l4096_s127296--r2"
+      },
+      {
+        "provider": "general-v3",
+        "case": "random_dfa_a32_k4_l1024_s109424",
+        "repetition": 1,
+        "job_id": "general-v3--random_dfa_a32_k4_l1024_s109424--r1"
+      },
+      {
+        "provider": "general-v3",
+        "case": "random_dfa_a32_k4_l1024_s109424",
+        "repetition": 3,
+        "job_id": "general-v3--random_dfa_a32_k4_l1024_s109424--r3"
+      },
+      {
+        "provider": "general-v3",
+        "case": "context_regular_a128_k4_l4096_s223496",
+        "repetition": 2,
+        "job_id": "general-v3--context_regular_a128_k4_l4096_s223496--r2"
+      },
+      {
+        "provider": "S001",
+        "case": "long_singleton_a32_k8_l4096",
+        "repetition": 3,
+        "job_id": "S001--long_singleton_a32_k8_l4096--r3"
+      },
+      {
+        "provider": "S001",
+        "case": "long_singleton_a32_k4_l4096",
+        "repetition": 3,
+        "job_id": "S001--long_singleton_a32_k4_l4096--r3"
+      },
+      {
+        "provider": "general-v3",
+        "case": "random_dfa_a128_k8_l128_s204928",
+        "repetition": 2,
+        "job_id": "general-v3--random_dfa_a128_k8_l128_s204928--r2"
+      },
+      {
+        "provider": "S001",
+        "case": "long_singleton_a32_k3_l4096",
+        "repetition": 2,
+        "job_id": "S001--long_singleton_a32_k3_l4096--r2"
+      },
+      {
+        "provider": "S001",
+        "case": "long_singleton_a32_k8_l4096",
+        "repetition": 2,
+        "job_id": "S001--long_singleton_a32_k8_l4096--r2"
+      },
+      {
+        "provider": "S001",
+        "case": "long_singleton_a32_k8_l4096",
+        "repetition": 1,
+        "job_id": "S001--long_singleton_a32_k8_l4096--r1"
+      },
+      {
+        "provider": "general-v3",
+        "case": "context_regular_a32_k8_l1024_s124824",
+        "repetition": 3,
+        "job_id": "general-v3--context_regular_a32_k8_l1024_s124824--r3"
+      },
+      {
+        "provider": "general-v3",
+        "case": "random_dfa_a8_k2_l4096_s88296",
+        "repetition": 3,
+        "job_id": "general-v3--random_dfa_a8_k2_l4096_s88296--r3"
+      },
+      {
+        "provider": "general-v3",
+        "case": "context_regular_a32_k8_l1024_s124824",
+        "repetition": 2,
+        "job_id": "general-v3--context_regular_a32_k8_l1024_s124824--r2"
+      },
+      {
+        "provider": "S001",
+        "case": "long_singleton_a32_k3_l4096",
+        "repetition": 3,
+        "job_id": "S001--long_singleton_a32_k3_l4096--r3"
+      },
+      {
+        "provider": "S001",
+        "case": "long_singleton_a32_k2_l4096",
+        "repetition": 1,
+        "job_id": "S001--long_singleton_a32_k2_l4096--r1"
+      },
+      {
+        "provider": "general-v3",
+        "case": "random_dfa_a8_k2_l4096_s88296",
+        "repetition": 2,
+        "job_id": "general-v3--random_dfa_a8_k2_l4096_s88296--r2"
+      },
+      {
+        "provider": "general-v3",
+        "case": "random_dfa_a32_k4_l1024_s109424",
+        "repetition": 2,
+        "job_id": "general-v3--random_dfa_a32_k4_l1024_s109424--r2"
+      },
+      {
+        "provider": "general-v3",
+        "case": "context_regular_a32_k2_l4096_s127296",
+        "repetition": 1,
+        "job_id": "general-v3--context_regular_a32_k2_l4096_s127296--r1"
+      },
+      {
+        "provider": "S001",
+        "case": "long_singleton_a32_k2_l4096",
+        "repetition": 3,
+        "job_id": "S001--long_singleton_a32_k2_l4096--r3"
+      },
+      {
+        "provider": "general-v3",
+        "case": "random_dfa_a8_k2_l4096_s88296",
+        "repetition": 1,
+        "job_id": "general-v3--random_dfa_a8_k2_l4096_s88296--r1"
+      },
+      {
+        "provider": "S001",
+        "case": "long_singleton_a32_k4_l4096",
+        "repetition": 1,
+        "job_id": "S001--long_singleton_a32_k4_l4096--r1"
+      },
+      {
+        "provider": "S001",
+        "case": "long_singleton_a32_k2_l128",
+        "repetition": 1,
+        "job_id": "S001--long_singleton_a32_k2_l128--r1"
+      },
+      {
+        "provider": "S001",
+        "case": "long_singleton_a32_k3_l4096",
+        "repetition": 1,
+        "job_id": "S001--long_singleton_a32_k3_l4096--r1"
+      },
+      {
+        "provider": "S001",
+        "case": "long_singleton_a32_k6_l4096",
+        "repetition": 3,
+        "job_id": "S001--long_singleton_a32_k6_l4096--r3"
+      },
+      {
+        "provider": "general-v3",
+        "case": "random_dfa_a128_k8_l128_s204928",
+        "repetition": 3,
+        "job_id": "general-v3--random_dfa_a128_k8_l128_s204928--r3"
+      },
+      {
+        "provider": "general-v3",
+        "case": "random_dfa_a128_k8_l128_s204928",
+        "repetition": 1,
+        "job_id": "general-v3--random_dfa_a128_k8_l128_s204928--r1"
+      },
+      {
+        "provider": "S001",
+        "case": "long_singleton_a32_k6_l4096",
+        "repetition": 1,
+        "job_id": "S001--long_singleton_a32_k6_l4096--r1"
+      },
+      {
+        "provider": "general-v3",
+        "case": "context_regular_a128_k4_l4096_s223496",
+        "repetition": 3,
+        "job_id": "general-v3--context_regular_a128_k4_l4096_s223496--r3"
+      },
+      {
+        "provider": "general-v3",
+        "case": "context_regular_a32_k8_l1024_s124824",
+        "repetition": 1,
+        "job_id": "general-v3--context_regular_a32_k8_l1024_s124824--r1"
+      },
+      {
+        "provider": "general-v3",
+        "case": "context_regular_a32_k2_l4096_s127296",
+        "repetition": 3,
+        "job_id": "general-v3--context_regular_a32_k2_l4096_s127296--r3"
+      },
+      {
+        "provider": "S001",
+        "case": "long_singleton_a32_k4_l4096",
+        "repetition": 2,
+        "job_id": "S001--long_singleton_a32_k4_l4096--r2"
+      },
+      {
+        "provider": "S001",
+        "case": "long_singleton_a32_k2_l128",
+        "repetition": 2,
+        "job_id": "S001--long_singleton_a32_k2_l128--r2"
+      },
+      {
+        "provider": "general-v3",
+        "case": "context_regular_a128_k4_l4096_s223496",
+        "repetition": 1,
+        "job_id": "general-v3--context_regular_a128_k4_l4096_s223496--r1"
+      },
+      {
+        "provider": "S001",
+        "case": "long_singleton_a32_k2_l128",
+        "repetition": 3,
+        "job_id": "S001--long_singleton_a32_k2_l128--r3"
+      },
+      {
+        "provider": "S001",
+        "case": "long_singleton_a32_k6_l4096",
+        "repetition": 2,
+        "job_id": "S001--long_singleton_a32_k6_l4096--r2"
+      },
+      {
+        "provider": "S001",
+        "case": "long_singleton_a32_k2_l4096",
+        "repetition": 2,
+        "job_id": "S001--long_singleton_a32_k2_l4096--r2"
+      }
+    ],
+    "stress_jobs": [
+      {
+        "provider": "S001",
+        "case": "stress_a128_k2_l16384",
+        "repetition": 1,
+        "job_id": "S001--stress_a128_k2_l16384--stress-r1"
+      },
+      {
+        "provider": "S001",
+        "case": "stress_a128_k4_l16384",
+        "repetition": 1,
+        "job_id": "S001--stress_a128_k4_l16384--stress-r1"
+      },
+      {
+        "provider": "S001",
+        "case": "stress_a128_k8_l16384",
+        "repetition": 1,
+        "job_id": "S001--stress_a128_k8_l16384--stress-r1"
+      },
+      {
+        "provider": "general-v3",
+        "case": "stress_a128_k2_l16384",
+        "repetition": 1,
+        "job_id": "general-v3--stress_a128_k2_l16384--stress-r1"
+      }
+    ],
+    "memory_jobs": [
+      {
+        "job_id": "allocation--C003-fixed-word--long_singleton_a32_k2_l1024",
+        "provider": "C003-fixed-word",
+        "case": "long_singleton_a32_k2_l1024",
+        "measurement": "tracemalloc_peak_bytes"
+      },
+      {
+        "job_id": "allocation--C003-fixed-word--long_singleton_a128_k2_l1024",
+        "provider": "C003-fixed-word",
+        "case": "long_singleton_a128_k2_l1024",
+        "measurement": "tracemalloc_peak_bytes"
+      },
+      {
+        "job_id": "allocation--S001--long_singleton_a128_k2_l1024",
+        "provider": "S001",
+        "case": "long_singleton_a128_k2_l1024",
+        "measurement": "tracemalloc_peak_bytes"
+      },
+      {
+        "job_id": "allocation--S001--long_singleton_a32_k2_l1024",
+        "provider": "S001",
+        "case": "long_singleton_a32_k2_l1024",
+        "measurement": "tracemalloc_peak_bytes"
+      },
+      {
+        "job_id": "allocation--general-v3--random_dfa_a32_k4_l1024_s109424",
+        "provider": "general-v3",
+        "case": "random_dfa_a32_k4_l1024_s109424",
+        "measurement": "tracemalloc_peak_bytes"
+      }
+    ]
+  }
+}

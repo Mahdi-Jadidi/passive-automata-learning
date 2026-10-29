@@ -1,0 +1,50 @@
+# General known-k proof notes
+
+## Adjacent-swap must-link (regular factors, any k)
+
+Let a negative word be `n = u b a v` and a positive word be `p = u a b v`,
+where `a != b` and the displayed pair is adjacent. Suppose `a` and `b` are
+assigned to different alphabet blocks. For each block `B`, projection erases
+symbols outside `B` while preserving order. If `a` is in `B` and `b` is not,
+then both projections are `pi_B(u) a pi_B(v)`. If `b` is in `B` and `a` is
+not, both are `pi_B(u) b pi_B(v)`. For any other block, both are
+`pi_B(u) pi_B(v)`. Thus `pi_B(n) = pi_B(p)` for every one of the k blocks.
+
+Since `p` is positive, every local factor must accept `pi_B(p)`. Equality
+therefore makes every factor accept the corresponding projection of `n`, so
+the product accepts `n`, contradicting its negative label. Hence `a` and `b`
+must be in the same block. The argument is independent of k and works with
+unrestricted regular local languages and with any finite-language cap that
+contains all observed positive projections.
+
+This is a contextual family: `u` and `v` may both be nonempty and may have any
+length or symbols from the known alphabet. There is no dependency on an empty
+positive word or a short whole trace. The witness itself is local (one
+adjacent transposition); longer contexts do not change the equality proof.
+
+## Why insertion-rescue is excluded from this model
+
+The classic insertion-rescue pair is not a sound must-link under unrestricted
+regular factors. With alphabet `{a,b}`, positives `{epsilon,b}`, negative
+`{a}`, and k=2, the partition `{a}|{b}` fits: the first factor accepts
+`epsilon` and rejects `a`, and the second accepts the observed `epsilon`
+and `b` projections. A rescue contraction would merge `a,b` and incorrectly
+remove this feasible partition. Such a rule may be used only in a separately
+proved singleton-projection class where all positives constrain each factor
+to one local word.
+
+## Cap-q monotonicity
+
+At a search node, let `S` be the already assigned symbols of one block and
+`T` any extension (`S subseteq T`). If two positive words have different
+projections onto `S`, their projections onto `T` remain different: projecting
+both `T` projections back onto `S` recovers the original distinct strings.
+Therefore the number of distinct positive projections cannot decrease as a
+block grows. A partial block with more than q such projections can be pruned
+without losing a q-feasible completion. For a complete partition, choose each
+factor language to be exactly its finite set of observed positive projections.
+It has size at most q and accepts all positives; it rejects every negative
+precisely when at least one block has an unseen negative projection. This also
+defines the empty-positive case: all observed languages are empty and every
+negative projection is unseen. The provider makes no implication from this
+cap semantics to the singleton-exactly-one class.

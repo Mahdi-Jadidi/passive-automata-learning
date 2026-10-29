@@ -1,0 +1,2723 @@
+{
+  "schema": "C004-stage2-corpus-manifest-v1",
+  "case_count": 106,
+  "generator": "audit/generate_stage2_corpus_v1.py",
+  "cases": [
+    {
+      "id": "small_edge_rescue_counterexample",
+      "family": "small_fullset_import",
+      "input": "inputs/small_edge_rescue_counterexample.json",
+      "truth": null,
+      "alphabet_size": 2,
+      "k_input": 2,
+      "k_hidden": null,
+      "positive_count": 2,
+      "negative_count": 1,
+      "positive_lengths": [
+        0,
+        1
+      ],
+      "negative_lengths": [
+        1
+      ],
+      "notes": "Copied public input from stage1_v4 case edge_rescue_counterexample; no truth sidecar passed to solver.",
+      "input_sha256": "34139e15f0ce304fe785bf377081865f31bebdd6ea22333c0cb3e8954e82da69",
+      "input_bytes": 135
+    },
+    {
+      "id": "small_edge_rescue_true_control",
+      "family": "small_fullset_import",
+      "input": "inputs/small_edge_rescue_true_control.json",
+      "truth": null,
+      "alphabet_size": 2,
+      "k_input": 2,
+      "k_hidden": null,
+      "positive_count": 3,
+      "negative_count": 1,
+      "positive_lengths": [
+        0,
+        1,
+        2
+      ],
+      "negative_lengths": [
+        1
+      ],
+      "notes": "Copied public input from stage1_v4 case edge_rescue_true_control; no truth sidecar passed to solver.",
+      "input_sha256": "a4d44c798a30373c64646f4805b734618733345b3edb070aeb353c2e6a347c5b",
+      "input_bytes": 148
+    },
+    {
+      "id": "small_three_color_connected_nonunique",
+      "family": "small_fullset_import",
+      "input": "inputs/small_three_color_connected_nonunique.json",
+      "truth": null,
+      "alphabet_size": 4,
+      "k_input": 3,
+      "k_hidden": null,
+      "positive_count": 4,
+      "negative_count": 0,
+      "positive_lengths": [
+        4
+      ],
+      "negative_lengths": [],
+      "notes": "Copied public input from stage1_v4 case three_color_connected_nonunique; no truth sidecar passed to solver.",
+      "input_sha256": "9fa5b0a394164ef5c246c9b762afbb0528c452dd1b85e729d402e0943d23244e",
+      "input_bytes": 191
+    },
+    {
+      "id": "small_empty_both",
+      "family": "small_fullset_import",
+      "input": "inputs/small_empty_both.json",
+      "truth": null,
+      "alphabet_size": 3,
+      "k_input": 2,
+      "k_hidden": null,
+      "positive_count": 0,
+      "negative_count": 0,
+      "positive_lengths": [],
+      "negative_lengths": [],
+      "notes": "Copied public input from stage1_v4 case empty_both; no truth sidecar passed to solver.",
+      "input_sha256": "14146171b575d3127c0a157a963a36253eda44b6638e71c102e4b3819584ae80",
+      "input_bytes": 109
+    },
+    {
+      "id": "small_empty_positive_negative",
+      "family": "small_fullset_import",
+      "input": "inputs/small_empty_positive_negative.json",
+      "truth": null,
+      "alphabet_size": 3,
+      "k_input": 2,
+      "k_hidden": null,
+      "positive_count": 0,
+      "negative_count": 2,
+      "positive_lengths": [],
+      "negative_lengths": [
+        1,
+        2
+      ],
+      "notes": "Copied public input from stage1_v4 case empty_positive_negative; no truth sidecar passed to solver.",
+      "input_sha256": "51a22d2e29d2f446ac8e375c36a103fd6def4b018c8248d1384ef3e2e8e6d1c2",
+      "input_bytes": 136
+    },
+    {
+      "id": "small_empty_negative",
+      "family": "small_fullset_import",
+      "input": "inputs/small_empty_negative.json",
+      "truth": null,
+      "alphabet_size": 3,
+      "k_input": 2,
+      "k_hidden": null,
+      "positive_count": 2,
+      "negative_count": 0,
+      "positive_lengths": [
+        2
+      ],
+      "negative_lengths": [],
+      "notes": "Copied public input from stage1_v4 case empty_negative; no truth sidecar passed to solver.",
+      "input_sha256": "e14a078cc6c8d8d479b8b841cf0fff1ca71f64b58adb1db9e078e89252527e7e",
+      "input_bytes": 138
+    },
+    {
+      "id": "small_absent_symbols",
+      "family": "small_fullset_import",
+      "input": "inputs/small_absent_symbols.json",
+      "truth": null,
+      "alphabet_size": 4,
+      "k_input": 2,
+      "k_hidden": null,
+      "positive_count": 2,
+      "negative_count": 1,
+      "positive_lengths": [
+        2,
+        3
+      ],
+      "negative_lengths": [
+        2
+      ],
+      "notes": "Copied public input from stage1_v4 case absent_symbols; no truth sidecar passed to solver.",
+      "input_sha256": "7991dc7de22e2502d2dfd9f5c4867d9aa37ba21ed0c5da69c3901312c957e731",
+      "input_bytes": 167
+    },
+    {
+      "id": "small_epsilon_positive",
+      "family": "small_fullset_import",
+      "input": "inputs/small_epsilon_positive.json",
+      "truth": null,
+      "alphabet_size": 2,
+      "k_input": 2,
+      "k_hidden": null,
+      "positive_count": 1,
+      "negative_count": 1,
+      "positive_lengths": [
+        0
+      ],
+      "negative_lengths": [
+        1
+      ],
+      "notes": "Copied public input from stage1_v4 case epsilon_positive; no truth sidecar passed to solver.",
+      "input_sha256": "e945e14e2dbe41966afeff1e8e69d39c086f230b2654dae817e2f950b46b8903",
+      "input_bytes": 124
+    },
+    {
+      "id": "small_repeated_symbols",
+      "family": "small_fullset_import",
+      "input": "inputs/small_repeated_symbols.json",
+      "truth": null,
+      "alphabet_size": 4,
+      "k_input": 3,
+      "k_hidden": null,
+      "positive_count": 2,
+      "negative_count": 1,
+      "positive_lengths": [
+        5
+      ],
+      "negative_lengths": [
+        5
+      ],
+      "notes": "Copied public input from stage1_v4 case repeated_symbols; no truth sidecar passed to solver.",
+      "input_sha256": "097f0710d83b46d17de23fa325e16c42c85ec2c0c691a143cc9ae61874efbda0",
+      "input_bytes": 183
+    },
+    {
+      "id": "small_duplicate_samples",
+      "family": "small_fullset_import",
+      "input": "inputs/small_duplicate_samples.json",
+      "truth": null,
+      "alphabet_size": 3,
+      "k_input": 2,
+      "k_hidden": null,
+      "positive_count": 3,
+      "negative_count": 2,
+      "positive_lengths": [
+        2
+      ],
+      "negative_lengths": [
+        1
+      ],
+      "notes": "Copied public input from stage1_v4 case duplicate_samples; no truth sidecar passed to solver.",
+      "input_sha256": "1cfe00ac7686a4fe44e8a7a69f5c42d134811ebfcf3c1b444268581220cbc79b",
+      "input_bytes": 176
+    },
+    {
+      "id": "small_small_general_n3_k2_s44891",
+      "family": "small_fullset_import",
+      "input": "inputs/small_small_general_n3_k2_s44891.json",
+      "truth": null,
+      "alphabet_size": 3,
+      "k_input": 2,
+      "k_hidden": null,
+      "positive_count": 3,
+      "negative_count": 2,
+      "positive_lengths": [
+        3,
+        5
+      ],
+      "negative_lengths": [
+        6,
+        7
+      ],
+      "notes": "Copied public input from stage1_v4 case small_general_n3_k2_s44891; no truth sidecar passed to solver.",
+      "input_sha256": "6f71b11052d84e165410441ee55d5be93386f4166c672e7206947ef67484e71c",
+      "input_bytes": 212
+    },
+    {
+      "id": "small_small_singleton_n3_k2_s45391",
+      "family": "small_fullset_import",
+      "input": "inputs/small_small_singleton_n3_k2_s45391.json",
+      "truth": null,
+      "alphabet_size": 3,
+      "k_input": 2,
+      "k_hidden": null,
+      "positive_count": 2,
+      "negative_count": 2,
+      "positive_lengths": [
+        8
+      ],
+      "negative_lengths": [
+        8
+      ],
+      "notes": "Copied public input from stage1_v4 case small_singleton_n3_k2_s45391; no truth sidecar passed to solver.",
+      "input_sha256": "471e792dce5516649f1aba6e2d768e6b5f2fd2b7b59c62c975d599b40e7136b5",
+      "input_bytes": 215
+    },
+    {
+      "id": "small_random_dfa_small_a3_k2_l24_s67200",
+      "family": "small_fullset_import",
+      "input": "inputs/small_random_dfa_small_a3_k2_l24_s67200.json",
+      "truth": null,
+      "alphabet_size": 3,
+      "k_input": 2,
+      "k_hidden": null,
+      "positive_count": 3,
+      "negative_count": 2,
+      "positive_lengths": [
+        24
+      ],
+      "negative_lengths": [
+        24
+      ],
+      "notes": "Copied public input from stage1_v4 case random_dfa_small_a3_k2_l24_s67200; no truth sidecar passed to solver.",
+      "input_sha256": "938a94de27fbd6771ab230be0663292847befad9be3775345bdb93cf748ee537",
+      "input_bytes": 400
+    },
+    {
+      "id": "small_small_general_n3_k2_s44892",
+      "family": "small_fullset_import",
+      "input": "inputs/small_small_general_n3_k2_s44892.json",
+      "truth": null,
+      "alphabet_size": 3,
+      "k_input": 2,
+      "k_hidden": null,
+      "positive_count": 3,
+      "negative_count": 2,
+      "positive_lengths": [
+        1,
+        3,
+        4
+      ],
+      "negative_lengths": [
+        2
+      ],
+      "notes": "Copied public input from stage1_v4 case small_general_n3_k2_s44892; no truth sidecar passed to solver.",
+      "input_sha256": "83dd2f9a250223ee65455b9dd4b076d55e716017b8bf59b167cc65a47f9feae3",
+      "input_bytes": 184
+    },
+    {
+      "id": "small_small_singleton_n3_k2_s45392",
+      "family": "small_fullset_import",
+      "input": "inputs/small_small_singleton_n3_k2_s45392.json",
+      "truth": null,
+      "alphabet_size": 3,
+      "k_input": 2,
+      "k_hidden": null,
+      "positive_count": 2,
+      "negative_count": 2,
+      "positive_lengths": [
+        11
+      ],
+      "negative_lengths": [
+        11
+      ],
+      "notes": "Copied public input from stage1_v4 case small_singleton_n3_k2_s45392; no truth sidecar passed to solver.",
+      "input_sha256": "e459695611797519a5b8c17874d5a8d61c1db7dbe984899ededecf976d51e6d3",
+      "input_bytes": 239
+    },
+    {
+      "id": "small_small_general_n3_k3_s44968",
+      "family": "small_fullset_import",
+      "input": "inputs/small_small_general_n3_k3_s44968.json",
+      "truth": null,
+      "alphabet_size": 3,
+      "k_input": 3,
+      "k_hidden": null,
+      "positive_count": 5,
+      "negative_count": 2,
+      "positive_lengths": [
+        5,
+        6,
+        8
+      ],
+      "negative_lengths": [
+        1,
+        3
+      ],
+      "notes": "Copied public input from stage1_v4 case small_general_n3_k3_s44968; no truth sidecar passed to solver.",
+      "input_sha256": "4421a258f7832447461e5b4ef88591beeef5e4f583fa0f1deb60ebc922547623",
+      "input_bytes": 250
+    },
+    {
+      "id": "small_small_singleton_n3_k3_s45468",
+      "family": "small_fullset_import",
+      "input": "inputs/small_small_singleton_n3_k3_s45468.json",
+      "truth": null,
+      "alphabet_size": 3,
+      "k_input": 3,
+      "k_hidden": null,
+      "positive_count": 2,
+      "negative_count": 2,
+      "positive_lengths": [
+        11
+      ],
+      "negative_lengths": [
+        11
+      ],
+      "notes": "Copied public input from stage1_v4 case small_singleton_n3_k3_s45468; no truth sidecar passed to solver.",
+      "input_sha256": "90bdf5595bb3a17d2415cd58291cd6fa83938eb4812d8e6a31b310a21e49b3ce",
+      "input_bytes": 239
+    },
+    {
+      "id": "small_random_dfa_small_a3_k3_l24_s67300",
+      "family": "small_fullset_import",
+      "input": "inputs/small_random_dfa_small_a3_k3_l24_s67300.json",
+      "truth": null,
+      "alphabet_size": 3,
+      "k_input": 3,
+      "k_hidden": null,
+      "positive_count": 3,
+      "negative_count": 2,
+      "positive_lengths": [
+        24
+      ],
+      "negative_lengths": [
+        24
+      ],
+      "notes": "Copied public input from stage1_v4 case random_dfa_small_a3_k3_l24_s67300; no truth sidecar passed to solver.",
+      "input_sha256": "897e8c3a47ab4fab1b84baa6b478602be86b5fb349524b38eff35f75d972f333",
+      "input_bytes": 400
+    },
+    {
+      "id": "small_small_general_n3_k3_s44969",
+      "family": "small_fullset_import",
+      "input": "inputs/small_small_general_n3_k3_s44969.json",
+      "truth": null,
+      "alphabet_size": 3,
+      "k_input": 3,
+      "k_hidden": null,
+      "positive_count": 5,
+      "negative_count": 2,
+      "positive_lengths": [
+        4,
+        6,
+        9,
+        10
+      ],
+      "negative_lengths": [
+        0,
+        9
+      ],
+      "notes": "Copied public input from stage1_v4 case small_general_n3_k3_s44969; no truth sidecar passed to solver.",
+      "input_sha256": "c6bc855f85e808025d6820a608e9001e2b791a0f1ecc7b4e01123db0201d6c98",
+      "input_bytes": 266
+    },
+    {
+      "id": "small_small_singleton_n3_k3_s45469",
+      "family": "small_fullset_import",
+      "input": "inputs/small_small_singleton_n3_k3_s45469.json",
+      "truth": null,
+      "alphabet_size": 3,
+      "k_input": 3,
+      "k_hidden": null,
+      "positive_count": 4,
+      "negative_count": 2,
+      "positive_lengths": [
+        10
+      ],
+      "negative_lengths": [
+        10
+      ],
+      "notes": "Copied public input from stage1_v4 case small_singleton_n3_k3_s45469; no truth sidecar passed to solver.",
+      "input_sha256": "e5b7281d2e7ce5becf3affd781a7b92d5250d314d41ddb6dc3ec9f04a178aeb0",
+      "input_bytes": 289
+    },
+    {
+      "id": "small_small_general_n4_k2_s45100",
+      "family": "small_fullset_import",
+      "input": "inputs/small_small_general_n4_k2_s45100.json",
+      "truth": null,
+      "alphabet_size": 4,
+      "k_input": 2,
+      "k_hidden": null,
+      "positive_count": 4,
+      "negative_count": 2,
+      "positive_lengths": [
+        5,
+        8
+      ],
+      "negative_lengths": [
+        4,
+        5
+      ],
+      "notes": "Copied public input from stage1_v4 case small_general_n4_k2_s45100; no truth sidecar passed to solver.",
+      "input_sha256": "18dcce570c351b0d4a4859d4850f34eac84485b3597d94f879bc319bbd7f942a",
+      "input_bytes": 256
+    },
+    {
+      "id": "small_small_singleton_n4_k2_s45600",
+      "family": "small_fullset_import",
+      "input": "inputs/small_small_singleton_n4_k2_s45600.json",
+      "truth": null,
+      "alphabet_size": 4,
+      "k_input": 2,
+      "k_hidden": null,
+      "positive_count": 2,
+      "negative_count": 2,
+      "positive_lengths": [
+        9
+      ],
+      "negative_lengths": [
+        9
+      ],
+      "notes": "Copied public input from stage1_v4 case small_singleton_n4_k2_s45600; no truth sidecar passed to solver.",
+      "input_sha256": "b888a6284a2aa2c00e54700dd3fef70bf688f3969c8f1fe8d80ab307afc9df9f",
+      "input_bytes": 234
+    },
+    {
+      "id": "small_random_dfa_small_a4_k2_l24_s68200",
+      "family": "small_fullset_import",
+      "input": "inputs/small_random_dfa_small_a4_k2_l24_s68200.json",
+      "truth": null,
+      "alphabet_size": 4,
+      "k_input": 2,
+      "k_hidden": null,
+      "positive_count": 3,
+      "negative_count": 2,
+      "positive_lengths": [
+        24
+      ],
+      "negative_lengths": [
+        24
+      ],
+      "notes": "Copied public input from stage1_v4 case random_dfa_small_a4_k2_l24_s68200; no truth sidecar passed to solver.",
+      "input_sha256": "a4518381d3e6cacfffc926f0bb002f97d33d5a82b78a15d3494a2ceaee54dd74",
+      "input_bytes": 411
+    },
+    {
+      "id": "small_small_general_n4_k2_s45101",
+      "family": "small_fullset_import",
+      "input": "inputs/small_small_general_n4_k2_s45101.json",
+      "truth": null,
+      "alphabet_size": 4,
+      "k_input": 2,
+      "k_hidden": null,
+      "positive_count": 2,
+      "negative_count": 2,
+      "positive_lengths": [
+        3
+      ],
+      "negative_lengths": [
+        3
+      ],
+      "notes": "Copied public input from stage1_v4 case small_general_n4_k2_s45101; no truth sidecar passed to solver.",
+      "input_sha256": "b885804aea0c0463ab38fdbe3a77ad3335c73cf8b389dc70fc175629840dc486",
+      "input_bytes": 186
+    },
+    {
+      "id": "small_small_singleton_n4_k2_s45601",
+      "family": "small_fullset_import",
+      "input": "inputs/small_small_singleton_n4_k2_s45601.json",
+      "truth": null,
+      "alphabet_size": 4,
+      "k_input": 2,
+      "k_hidden": null,
+      "positive_count": 1,
+      "negative_count": 2,
+      "positive_lengths": [
+        7
+      ],
+      "negative_lengths": [
+        7
+      ],
+      "notes": "Copied public input from stage1_v4 case small_singleton_n4_k2_s45601; no truth sidecar passed to solver.",
+      "input_sha256": "8b1294bb17f6f368f0f6ccbc6c0c84f81811b0d6c04945e894c89659a9b814fe",
+      "input_bytes": 195
+    },
+    {
+      "id": "small_small_general_n4_k3_s45177",
+      "family": "small_fullset_import",
+      "input": "inputs/small_small_general_n4_k3_s45177.json",
+      "truth": null,
+      "alphabet_size": 4,
+      "k_input": 3,
+      "k_hidden": null,
+      "positive_count": 4,
+      "negative_count": 2,
+      "positive_lengths": [
+        4,
+        6,
+        9
+      ],
+      "negative_lengths": [
+        2,
+        9
+      ],
+      "notes": "Copied public input from stage1_v4 case small_general_n4_k3_s45177; no truth sidecar passed to solver.",
+      "input_sha256": "b919c4511c9c65124ce728e1a9485e3770b71c9a1ac6591308261f0b7a6c0747",
+      "input_bytes": 252
+    },
+    {
+      "id": "small_small_singleton_n4_k3_s45677",
+      "family": "small_fullset_import",
+      "input": "inputs/small_small_singleton_n4_k3_s45677.json",
+      "truth": null,
+      "alphabet_size": 4,
+      "k_input": 3,
+      "k_hidden": null,
+      "positive_count": 3,
+      "negative_count": 2,
+      "positive_lengths": [
+        17
+      ],
+      "negative_lengths": [
+        17
+      ],
+      "notes": "Copied public input from stage1_v4 case small_singleton_n4_k3_s45677; no truth sidecar passed to solver.",
+      "input_sha256": "d59710364c50bece5699030b685cc87a7c9aa4c595a5aba0adbd18bbaf3d9cc3",
+      "input_bytes": 341
+    },
+    {
+      "id": "small_random_dfa_small_a4_k3_l24_s68300",
+      "family": "small_fullset_import",
+      "input": "inputs/small_random_dfa_small_a4_k3_l24_s68300.json",
+      "truth": null,
+      "alphabet_size": 4,
+      "k_input": 3,
+      "k_hidden": null,
+      "positive_count": 3,
+      "negative_count": 2,
+      "positive_lengths": [
+        24
+      ],
+      "negative_lengths": [
+        24
+      ],
+      "notes": "Copied public input from stage1_v4 case random_dfa_small_a4_k3_l24_s68300; no truth sidecar passed to solver.",
+      "input_sha256": "737522b331e33e0d0cc1782200526bdf958b3194430ce6404b0a07b88749a194",
+      "input_bytes": 411
+    },
+    {
+      "id": "small_small_general_n4_k3_s45178",
+      "family": "small_fullset_import",
+      "input": "inputs/small_small_general_n4_k3_s45178.json",
+      "truth": null,
+      "alphabet_size": 4,
+      "k_input": 3,
+      "k_hidden": null,
+      "positive_count": 4,
+      "negative_count": 2,
+      "positive_lengths": [
+        8,
+        11
+      ],
+      "negative_lengths": [
+        1,
+        7
+      ],
+      "notes": "Copied public input from stage1_v4 case small_general_n4_k3_s45178; no truth sidecar passed to solver.",
+      "input_sha256": "4559a5c6f374f09dde8ecdda7afd7301c16efb35c44adfb901e47c96839ea3d2",
+      "input_bytes": 278
+    },
+    {
+      "id": "small_small_singleton_n4_k3_s45678",
+      "family": "small_fullset_import",
+      "input": "inputs/small_small_singleton_n4_k3_s45678.json",
+      "truth": null,
+      "alphabet_size": 4,
+      "k_input": 3,
+      "k_hidden": null,
+      "positive_count": 3,
+      "negative_count": 2,
+      "positive_lengths": [
+        7
+      ],
+      "negative_lengths": [
+        7
+      ],
+      "notes": "Copied public input from stage1_v4 case small_singleton_n4_k3_s45678; no truth sidecar passed to solver.",
+      "input_sha256": "56b20c42f8eed0af51063ace0242001f42463fb559db0939a4578471dd9268ee",
+      "input_bytes": 241
+    },
+    {
+      "id": "small_small_general_n4_k4_s45254",
+      "family": "small_fullset_import",
+      "input": "inputs/small_small_general_n4_k4_s45254.json",
+      "truth": null,
+      "alphabet_size": 4,
+      "k_input": 4,
+      "k_hidden": null,
+      "positive_count": 4,
+      "negative_count": 2,
+      "positive_lengths": [
+        7,
+        8,
+        9
+      ],
+      "negative_lengths": [
+        2,
+        4
+      ],
+      "notes": "Copied public input from stage1_v4 case small_general_n4_k4_s45254; no truth sidecar passed to solver.",
+      "input_sha256": "2782bd5a705d476ec792b526c6945ed2f84de632fc63e1215df7ce8c23d76e91",
+      "input_bytes": 258
+    },
+    {
+      "id": "small_small_singleton_n4_k4_s45754",
+      "family": "small_fullset_import",
+      "input": "inputs/small_small_singleton_n4_k4_s45754.json",
+      "truth": null,
+      "alphabet_size": 4,
+      "k_input": 4,
+      "k_hidden": null,
+      "positive_count": 4,
+      "negative_count": 2,
+      "positive_lengths": [
+        9
+      ],
+      "negative_lengths": [
+        9
+      ],
+      "notes": "Copied public input from stage1_v4 case small_singleton_n4_k4_s45754; no truth sidecar passed to solver.",
+      "input_sha256": "a36a510bd730a18dc49d44d150cf2f3acdc15abff92cf1108f5a72e8b83b12fb",
+      "input_bytes": 288
+    },
+    {
+      "id": "small_random_dfa_small_a4_k4_l24_s68400",
+      "family": "small_fullset_import",
+      "input": "inputs/small_random_dfa_small_a4_k4_l24_s68400.json",
+      "truth": null,
+      "alphabet_size": 4,
+      "k_input": 4,
+      "k_hidden": null,
+      "positive_count": 3,
+      "negative_count": 2,
+      "positive_lengths": [
+        24
+      ],
+      "negative_lengths": [
+        24
+      ],
+      "notes": "Copied public input from stage1_v4 case random_dfa_small_a4_k4_l24_s68400; no truth sidecar passed to solver.",
+      "input_sha256": "66b7fe7d7021c45c05937f5028b8f3f7bf86a1763b6a09a016c155a179645386",
+      "input_bytes": 411
+    },
+    {
+      "id": "small_small_general_n4_k4_s45255",
+      "family": "small_fullset_import",
+      "input": "inputs/small_small_general_n4_k4_s45255.json",
+      "truth": null,
+      "alphabet_size": 4,
+      "k_input": 4,
+      "k_hidden": null,
+      "positive_count": 5,
+      "negative_count": 2,
+      "positive_lengths": [
+        7,
+        9,
+        10,
+        11
+      ],
+      "negative_lengths": [
+        1,
+        3
+      ],
+      "notes": "Copied public input from stage1_v4 case small_general_n4_k4_s45255; no truth sidecar passed to solver.",
+      "input_sha256": "0d020ff258273f527a0e8367440bb016b13c243ea0a867b2b11b88139a5784f2",
+      "input_bytes": 291
+    },
+    {
+      "id": "small_small_singleton_n4_k4_s45755",
+      "family": "small_fullset_import",
+      "input": "inputs/small_small_singleton_n4_k4_s45755.json",
+      "truth": null,
+      "alphabet_size": 4,
+      "k_input": 4,
+      "k_hidden": null,
+      "positive_count": 3,
+      "negative_count": 2,
+      "positive_lengths": [
+        11
+      ],
+      "negative_lengths": [
+        11
+      ],
+      "notes": "Copied public input from stage1_v4 case small_singleton_n4_k4_s45755; no truth sidecar passed to solver.",
+      "input_sha256": "44928d047b09cc70079c74ade498c35c781dca0bf19598015b8b8fa84977aad4",
+      "input_bytes": 281
+    },
+    {
+      "id": "small_small_general_n5_k2_s45309",
+      "family": "small_fullset_import",
+      "input": "inputs/small_small_general_n5_k2_s45309.json",
+      "truth": null,
+      "alphabet_size": 5,
+      "k_input": 2,
+      "k_hidden": null,
+      "positive_count": 2,
+      "negative_count": 2,
+      "positive_lengths": [
+        4,
+        5
+      ],
+      "negative_lengths": [
+        1,
+        7
+      ],
+      "notes": "Copied public input from stage1_v4 case small_general_n5_k2_s45309; no truth sidecar passed to solver.",
+      "input_sha256": "a36384bd18812cc4d4ed12c937cb7b17547e17356e9a17d9adc624379b8711ac",
+      "input_bytes": 207
+    },
+    {
+      "id": "small_small_singleton_n5_k2_s45809",
+      "family": "small_fullset_import",
+      "input": "inputs/small_small_singleton_n5_k2_s45809.json",
+      "truth": null,
+      "alphabet_size": 5,
+      "k_input": 2,
+      "k_hidden": null,
+      "positive_count": 2,
+      "negative_count": 2,
+      "positive_lengths": [
+        12
+      ],
+      "negative_lengths": [
+        12
+      ],
+      "notes": "Copied public input from stage1_v4 case small_singleton_n5_k2_s45809; no truth sidecar passed to solver.",
+      "input_sha256": "c6d86a9abda77d6ed38c1b7eae9271653fed276a2828b3723bcbcbfb4ede582b",
+      "input_bytes": 269
+    },
+    {
+      "id": "small_random_dfa_small_a5_k2_l24_s69200",
+      "family": "small_fullset_import",
+      "input": "inputs/small_random_dfa_small_a5_k2_l24_s69200.json",
+      "truth": null,
+      "alphabet_size": 5,
+      "k_input": 2,
+      "k_hidden": null,
+      "positive_count": 3,
+      "negative_count": 2,
+      "positive_lengths": [
+        24
+      ],
+      "negative_lengths": [
+        24
+      ],
+      "notes": "Copied public input from stage1_v4 case random_dfa_small_a5_k2_l24_s69200; no truth sidecar passed to solver.",
+      "input_sha256": "d0e256bd670ae52ff24736d6e266738dc2d6c86176dfce1fc13df81c03a396a2",
+      "input_bytes": 422
+    },
+    {
+      "id": "small_small_general_n5_k2_s45310",
+      "family": "small_fullset_import",
+      "input": "inputs/small_small_general_n5_k2_s45310.json",
+      "truth": null,
+      "alphabet_size": 5,
+      "k_input": 2,
+      "k_hidden": null,
+      "positive_count": 3,
+      "negative_count": 2,
+      "positive_lengths": [
+        1,
+        2,
+        3
+      ],
+      "negative_lengths": [
+        5,
+        6
+      ],
+      "notes": "Copied public input from stage1_v4 case small_general_n5_k2_s45310; no truth sidecar passed to solver.",
+      "input_sha256": "62b952bc9301b458ac1ae259bc9a1e2c71670f92c1c2f5206ce18a268288d851",
+      "input_bytes": 216
+    },
+    {
+      "id": "small_small_singleton_n5_k2_s45810",
+      "family": "small_fullset_import",
+      "input": "inputs/small_small_singleton_n5_k2_s45810.json",
+      "truth": null,
+      "alphabet_size": 5,
+      "k_input": 2,
+      "k_hidden": null,
+      "positive_count": 2,
+      "negative_count": 2,
+      "positive_lengths": [
+        5
+      ],
+      "negative_lengths": [
+        5
+      ],
+      "notes": "Copied public input from stage1_v4 case small_singleton_n5_k2_s45810; no truth sidecar passed to solver.",
+      "input_sha256": "4c4e7d5332098be237e6fc5d2dae9010f9c9dc2ef1981485bd9f8c286a5e7d56",
+      "input_bytes": 213
+    },
+    {
+      "id": "small_small_general_n5_k3_s45386",
+      "family": "small_fullset_import",
+      "input": "inputs/small_small_general_n5_k3_s45386.json",
+      "truth": null,
+      "alphabet_size": 5,
+      "k_input": 3,
+      "k_hidden": null,
+      "positive_count": 3,
+      "negative_count": 2,
+      "positive_lengths": [
+        6,
+        7,
+        9
+      ],
+      "negative_lengths": [
+        0,
+        2
+      ],
+      "notes": "Copied public input from stage1_v4 case small_general_n5_k3_s45386; no truth sidecar passed to solver.",
+      "input_sha256": "e9a276ffa50966f4449b2a2864d5dd7651c3e178c5de4084d47cef3262744a92",
+      "input_bytes": 230
+    },
+    {
+      "id": "small_small_singleton_n5_k3_s45886",
+      "family": "small_fullset_import",
+      "input": "inputs/small_small_singleton_n5_k3_s45886.json",
+      "truth": null,
+      "alphabet_size": 5,
+      "k_input": 3,
+      "k_hidden": null,
+      "positive_count": 4,
+      "negative_count": 2,
+      "positive_lengths": [
+        13
+      ],
+      "negative_lengths": [
+        13
+      ],
+      "notes": "Copied public input from stage1_v4 case small_singleton_n5_k3_s45886; no truth sidecar passed to solver.",
+      "input_sha256": "768c56b5b672e2cae347b99bb89a6e049367f7dc249cf9adb00e87570a7d5ac0",
+      "input_bytes": 347
+    },
+    {
+      "id": "small_random_dfa_small_a5_k3_l24_s69300",
+      "family": "small_fullset_import",
+      "input": "inputs/small_random_dfa_small_a5_k3_l24_s69300.json",
+      "truth": null,
+      "alphabet_size": 5,
+      "k_input": 3,
+      "k_hidden": null,
+      "positive_count": 3,
+      "negative_count": 2,
+      "positive_lengths": [
+        24
+      ],
+      "negative_lengths": [
+        24
+      ],
+      "notes": "Copied public input from stage1_v4 case random_dfa_small_a5_k3_l24_s69300; no truth sidecar passed to solver.",
+      "input_sha256": "b4f92b8abb55f67d8789c71524394e5cbd3b7464312957d2e8ab9029f619d031",
+      "input_bytes": 422
+    },
+    {
+      "id": "small_small_general_n5_k3_s45387",
+      "family": "small_fullset_import",
+      "input": "inputs/small_small_general_n5_k3_s45387.json",
+      "truth": null,
+      "alphabet_size": 5,
+      "k_input": 3,
+      "k_hidden": null,
+      "positive_count": 3,
+      "negative_count": 2,
+      "positive_lengths": [
+        7
+      ],
+      "negative_lengths": [
+        1,
+        3
+      ],
+      "notes": "Copied public input from stage1_v4 case small_general_n5_k3_s45387; no truth sidecar passed to solver.",
+      "input_sha256": "7738d8aad3ac0f0dea277e7b52aaf64b0c3e241454eac44033f275ba0c3ec723",
+      "input_bytes": 232
+    },
+    {
+      "id": "small_small_singleton_n5_k3_s45887",
+      "family": "small_fullset_import",
+      "input": "inputs/small_small_singleton_n5_k3_s45887.json",
+      "truth": null,
+      "alphabet_size": 5,
+      "k_input": 3,
+      "k_hidden": null,
+      "positive_count": 3,
+      "negative_count": 2,
+      "positive_lengths": [
+        11
+      ],
+      "negative_lengths": [
+        11
+      ],
+      "notes": "Copied public input from stage1_v4 case small_singleton_n5_k3_s45887; no truth sidecar passed to solver.",
+      "input_sha256": "af6b99173b494c12a6126aaf201af8cde0878f65da52de02d7a6e7404bfd0806",
+      "input_bytes": 292
+    },
+    {
+      "id": "small_small_general_n5_k4_s45463",
+      "family": "small_fullset_import",
+      "input": "inputs/small_small_general_n5_k4_s45463.json",
+      "truth": null,
+      "alphabet_size": 5,
+      "k_input": 4,
+      "k_hidden": null,
+      "positive_count": 5,
+      "negative_count": 2,
+      "positive_lengths": [
+        7,
+        8,
+        11,
+        12
+      ],
+      "negative_lengths": [
+        1,
+        3
+      ],
+      "notes": "Copied public input from stage1_v4 case small_general_n5_k4_s45463; no truth sidecar passed to solver.",
+      "input_sha256": "7c32fa397750e27e32431e374039014f56ac84374f46f907be2b822232bc5055",
+      "input_bytes": 298
+    },
+    {
+      "id": "small_small_singleton_n5_k4_s45963",
+      "family": "small_fullset_import",
+      "input": "inputs/small_small_singleton_n5_k4_s45963.json",
+      "truth": null,
+      "alphabet_size": 5,
+      "k_input": 4,
+      "k_hidden": null,
+      "positive_count": 3,
+      "negative_count": 2,
+      "positive_lengths": [
+        14
+      ],
+      "negative_lengths": [
+        14
+      ],
+      "notes": "Copied public input from stage1_v4 case small_singleton_n5_k4_s45963; no truth sidecar passed to solver.",
+      "input_sha256": "1d46ca1766af9c2eaa4a55fb55c11b4bdab04a3abd6263b2926730176500fccb",
+      "input_bytes": 322
+    },
+    {
+      "id": "small_random_dfa_small_a5_k4_l24_s69400",
+      "family": "small_fullset_import",
+      "input": "inputs/small_random_dfa_small_a5_k4_l24_s69400.json",
+      "truth": null,
+      "alphabet_size": 5,
+      "k_input": 4,
+      "k_hidden": null,
+      "positive_count": 3,
+      "negative_count": 2,
+      "positive_lengths": [
+        24
+      ],
+      "negative_lengths": [
+        24
+      ],
+      "notes": "Copied public input from stage1_v4 case random_dfa_small_a5_k4_l24_s69400; no truth sidecar passed to solver.",
+      "input_sha256": "92efbdfe4c278a4f8b0186c301cefc663077bc1b36d0fa8677c25a6940dd4b6e",
+      "input_bytes": 422
+    },
+    {
+      "id": "small_small_general_n5_k4_s45464",
+      "family": "small_fullset_import",
+      "input": "inputs/small_small_general_n5_k4_s45464.json",
+      "truth": null,
+      "alphabet_size": 5,
+      "k_input": 4,
+      "k_hidden": null,
+      "positive_count": 4,
+      "negative_count": 2,
+      "positive_lengths": [
+        4,
+        5
+      ],
+      "negative_lengths": [
+        0,
+        7
+      ],
+      "notes": "Copied public input from stage1_v4 case small_general_n5_k4_s45464; no truth sidecar passed to solver.",
+      "input_sha256": "b45964078aeae01bd444c31009322b18ff057b689b44a206c6d9e0d19c39b936",
+      "input_bytes": 241
+    },
+    {
+      "id": "small_small_singleton_n5_k4_s45964",
+      "family": "small_fullset_import",
+      "input": "inputs/small_small_singleton_n5_k4_s45964.json",
+      "truth": null,
+      "alphabet_size": 5,
+      "k_input": 4,
+      "k_hidden": null,
+      "positive_count": 4,
+      "negative_count": 2,
+      "positive_lengths": [
+        18
+      ],
+      "negative_lengths": [
+        18
+      ],
+      "notes": "Copied public input from stage1_v4 case small_singleton_n5_k4_s45964; no truth sidecar passed to solver.",
+      "input_sha256": "12e7c16623383e61f357a4a01124bdd0244a8a85a632869d2ed9b7ad6417cece",
+      "input_bytes": 407
+    },
+    {
+      "id": "small_small_general_n6_k2_s45518",
+      "family": "small_fullset_import",
+      "input": "inputs/small_small_general_n6_k2_s45518.json",
+      "truth": null,
+      "alphabet_size": 6,
+      "k_input": 2,
+      "k_hidden": null,
+      "positive_count": 3,
+      "negative_count": 2,
+      "positive_lengths": [
+        1,
+        4,
+        5
+      ],
+      "negative_lengths": [
+        0,
+        6
+      ],
+      "notes": "Copied public input from stage1_v4 case small_general_n6_k2_s45518; no truth sidecar passed to solver.",
+      "input_sha256": "defb5d36ed223f56842f3019c5e661b6cbe7be27b25529ff7022939f4be6827e",
+      "input_bytes": 225
+    },
+    {
+      "id": "small_small_singleton_n6_k2_s46018",
+      "family": "small_fullset_import",
+      "input": "inputs/small_small_singleton_n6_k2_s46018.json",
+      "truth": null,
+      "alphabet_size": 6,
+      "k_input": 2,
+      "k_hidden": null,
+      "positive_count": 2,
+      "negative_count": 2,
+      "positive_lengths": [
+        6
+      ],
+      "negative_lengths": [
+        6
+      ],
+      "notes": "Copied public input from stage1_v4 case small_singleton_n6_k2_s46018; no truth sidecar passed to solver.",
+      "input_sha256": "b8649d9e7cab6295c4b4ba632cba73ed4f12367ead5fb09b5c2cd9e682e40e01",
+      "input_bytes": 232
+    },
+    {
+      "id": "small_random_dfa_small_a6_k2_l24_s70200",
+      "family": "small_fullset_import",
+      "input": "inputs/small_random_dfa_small_a6_k2_l24_s70200.json",
+      "truth": null,
+      "alphabet_size": 6,
+      "k_input": 2,
+      "k_hidden": null,
+      "positive_count": 3,
+      "negative_count": 2,
+      "positive_lengths": [
+        24
+      ],
+      "negative_lengths": [
+        24
+      ],
+      "notes": "Copied public input from stage1_v4 case random_dfa_small_a6_k2_l24_s70200; no truth sidecar passed to solver.",
+      "input_sha256": "b58cd3217e1d17c681f48fe280b89be81ead63b90cb7ac7727425cd688287e9c",
+      "input_bytes": 433
+    },
+    {
+      "id": "small_small_general_n6_k2_s45519",
+      "family": "small_fullset_import",
+      "input": "inputs/small_small_general_n6_k2_s45519.json",
+      "truth": null,
+      "alphabet_size": 6,
+      "k_input": 2,
+      "k_hidden": null,
+      "positive_count": 4,
+      "negative_count": 2,
+      "positive_lengths": [
+        2,
+        3,
+        6
+      ],
+      "negative_lengths": [
+        5
+      ],
+      "notes": "Copied public input from stage1_v4 case small_general_n6_k2_s45519; no truth sidecar passed to solver.",
+      "input_sha256": "9b195607589b663d133d8dc7fcb9d5597f9606c207b7c5d257cda74b5ac0f25d",
+      "input_bytes": 256
+    },
+    {
+      "id": "small_small_singleton_n6_k2_s46019",
+      "family": "small_fullset_import",
+      "input": "inputs/small_small_singleton_n6_k2_s46019.json",
+      "truth": null,
+      "alphabet_size": 6,
+      "k_input": 2,
+      "k_hidden": null,
+      "positive_count": 1,
+      "negative_count": 2,
+      "positive_lengths": [
+        9
+      ],
+      "negative_lengths": [
+        9
+      ],
+      "notes": "Copied public input from stage1_v4 case small_singleton_n6_k2_s46019; no truth sidecar passed to solver.",
+      "input_sha256": "61db87aa68f59ede943eff49b5491cae84826524acd01aba4f2fd70c38f0e3b9",
+      "input_bytes": 229
+    },
+    {
+      "id": "small_small_general_n6_k3_s45595",
+      "family": "small_fullset_import",
+      "input": "inputs/small_small_general_n6_k3_s45595.json",
+      "truth": null,
+      "alphabet_size": 6,
+      "k_input": 3,
+      "k_hidden": null,
+      "positive_count": 3,
+      "negative_count": 2,
+      "positive_lengths": [
+        4,
+        6,
+        7
+      ],
+      "negative_lengths": [
+        0,
+        1
+      ],
+      "notes": "Copied public input from stage1_v4 case small_general_n6_k3_s45595; no truth sidecar passed to solver.",
+      "input_sha256": "9bf551ef24f1627b3b2c97ff8220ca8cc2d5e853ac9f6ad21a056181979d25bf",
+      "input_bytes": 229
+    },
+    {
+      "id": "small_small_singleton_n6_k3_s46095",
+      "family": "small_fullset_import",
+      "input": "inputs/small_small_singleton_n6_k3_s46095.json",
+      "truth": null,
+      "alphabet_size": 6,
+      "k_input": 3,
+      "k_hidden": null,
+      "positive_count": 4,
+      "negative_count": 2,
+      "positive_lengths": [
+        9
+      ],
+      "negative_lengths": [
+        9
+      ],
+      "notes": "Copied public input from stage1_v4 case small_singleton_n6_k3_s46095; no truth sidecar passed to solver.",
+      "input_sha256": "e2ee77dfc64b099892682c96b56abd4127cc17b29736a8988a3784d4d5394a5a",
+      "input_bytes": 310
+    },
+    {
+      "id": "small_random_dfa_small_a6_k3_l24_s70300",
+      "family": "small_fullset_import",
+      "input": "inputs/small_random_dfa_small_a6_k3_l24_s70300.json",
+      "truth": null,
+      "alphabet_size": 6,
+      "k_input": 3,
+      "k_hidden": null,
+      "positive_count": 3,
+      "negative_count": 2,
+      "positive_lengths": [
+        24
+      ],
+      "negative_lengths": [
+        24
+      ],
+      "notes": "Copied public input from stage1_v4 case random_dfa_small_a6_k3_l24_s70300; no truth sidecar passed to solver.",
+      "input_sha256": "3eabd8aed6f0ad2548df9ee92d31266f31c2232d9ed9f2a1625d034b79371be9",
+      "input_bytes": 433
+    },
+    {
+      "id": "small_small_general_n6_k3_s45596",
+      "family": "small_fullset_import",
+      "input": "inputs/small_small_general_n6_k3_s45596.json",
+      "truth": null,
+      "alphabet_size": 6,
+      "k_input": 3,
+      "k_hidden": null,
+      "positive_count": 5,
+      "negative_count": 2,
+      "positive_lengths": [
+        4,
+        5,
+        7,
+        9
+      ],
+      "negative_lengths": [
+        7,
+        8
+      ],
+      "notes": "Copied public input from stage1_v4 case small_general_n6_k3_s45596; no truth sidecar passed to solver.",
+      "input_sha256": "e9645d3df1c030a7125c0ae9fe6b9563068e642901463352e8c4d34a09d92306",
+      "input_bytes": 299
+    },
+    {
+      "id": "small_small_singleton_n6_k3_s46096",
+      "family": "small_fullset_import",
+      "input": "inputs/small_small_singleton_n6_k3_s46096.json",
+      "truth": null,
+      "alphabet_size": 6,
+      "k_input": 3,
+      "k_hidden": null,
+      "positive_count": 3,
+      "negative_count": 2,
+      "positive_lengths": [
+        8
+      ],
+      "negative_lengths": [
+        8
+      ],
+      "notes": "Copied public input from stage1_v4 case small_singleton_n6_k3_s46096; no truth sidecar passed to solver.",
+      "input_sha256": "df8a5ae023feffdfbcf5393f8e4754e52ccb25c97787fd0f9f6530fa4a64240a",
+      "input_bytes": 273
+    },
+    {
+      "id": "small_small_general_n6_k4_s45672",
+      "family": "small_fullset_import",
+      "input": "inputs/small_small_general_n6_k4_s45672.json",
+      "truth": null,
+      "alphabet_size": 6,
+      "k_input": 4,
+      "k_hidden": null,
+      "positive_count": 4,
+      "negative_count": 2,
+      "positive_lengths": [
+        9,
+        10,
+        11
+      ],
+      "negative_lengths": [
+        1,
+        4
+      ],
+      "notes": "Copied public input from stage1_v4 case small_general_n6_k4_s45672; no truth sidecar passed to solver.",
+      "input_sha256": "85892e65002a2c362c45cd2be40f3408480de3dcfc4b8e64da5787d03267b2e8",
+      "input_bytes": 294
+    },
+    {
+      "id": "small_small_singleton_n6_k4_s46172",
+      "family": "small_fullset_import",
+      "input": "inputs/small_small_singleton_n6_k4_s46172.json",
+      "truth": null,
+      "alphabet_size": 6,
+      "k_input": 4,
+      "k_hidden": null,
+      "positive_count": 3,
+      "negative_count": 2,
+      "positive_lengths": [
+        11
+      ],
+      "negative_lengths": [
+        11
+      ],
+      "notes": "Copied public input from stage1_v4 case small_singleton_n6_k4_s46172; no truth sidecar passed to solver.",
+      "input_sha256": "b2ae5499f47eef688395bd073ac02030cf941761a312b93aeaf763c28b671e80",
+      "input_bytes": 303
+    },
+    {
+      "id": "small_random_dfa_small_a6_k4_l24_s70400",
+      "family": "small_fullset_import",
+      "input": "inputs/small_random_dfa_small_a6_k4_l24_s70400.json",
+      "truth": null,
+      "alphabet_size": 6,
+      "k_input": 4,
+      "k_hidden": null,
+      "positive_count": 3,
+      "negative_count": 2,
+      "positive_lengths": [
+        24
+      ],
+      "negative_lengths": [
+        24
+      ],
+      "notes": "Copied public input from stage1_v4 case random_dfa_small_a6_k4_l24_s70400; no truth sidecar passed to solver.",
+      "input_sha256": "19457ec54c15fb86c9f17c591820b911fb69c490cfdaa02300a1929b77806230",
+      "input_bytes": 433
+    },
+    {
+      "id": "small_small_general_n6_k4_s45673",
+      "family": "small_fullset_import",
+      "input": "inputs/small_small_general_n6_k4_s45673.json",
+      "truth": null,
+      "alphabet_size": 6,
+      "k_input": 4,
+      "k_hidden": null,
+      "positive_count": 5,
+      "negative_count": 2,
+      "positive_lengths": [
+        7,
+        9,
+        12,
+        13
+      ],
+      "negative_lengths": [
+        1,
+        2
+      ],
+      "notes": "Copied public input from stage1_v4 case small_general_n6_k4_s45673; no truth sidecar passed to solver.",
+      "input_sha256": "b82828d042643df7fe34f6918f52f6ba0bcdad6eae1902f02ad65ea67a6b296a",
+      "input_bytes": 323
+    },
+    {
+      "id": "small_small_singleton_n6_k4_s46173",
+      "family": "small_fullset_import",
+      "input": "inputs/small_small_singleton_n6_k4_s46173.json",
+      "truth": null,
+      "alphabet_size": 6,
+      "k_input": 4,
+      "k_hidden": null,
+      "positive_count": 4,
+      "negative_count": 2,
+      "positive_lengths": [
+        14
+      ],
+      "negative_lengths": [
+        14
+      ],
+      "notes": "Copied public input from stage1_v4 case small_singleton_n6_k4_s46173; no truth sidecar passed to solver.",
+      "input_sha256": "e2dc89ef81c284a754e7771eb7e0c26cfe05b7f7f72cea4bfcf590117b469a90",
+      "input_bytes": 370
+    },
+    {
+      "id": "small_small_general_n7_k2_s45727",
+      "family": "small_fullset_import",
+      "input": "inputs/small_small_general_n7_k2_s45727.json",
+      "truth": null,
+      "alphabet_size": 7,
+      "k_input": 2,
+      "k_hidden": null,
+      "positive_count": 2,
+      "negative_count": 2,
+      "positive_lengths": [
+        1,
+        6
+      ],
+      "negative_lengths": [
+        4,
+        5
+      ],
+      "notes": "Copied public input from stage1_v4 case small_general_n7_k2_s45727; no truth sidecar passed to solver.",
+      "input_sha256": "ddd1241fc4b6f74ced0a1928e10d0a495415b5004778f298301cdfaac902a05f",
+      "input_bytes": 227
+    },
+    {
+      "id": "small_small_singleton_n7_k2_s46227",
+      "family": "small_fullset_import",
+      "input": "inputs/small_small_singleton_n7_k2_s46227.json",
+      "truth": null,
+      "alphabet_size": 7,
+      "k_input": 2,
+      "k_hidden": null,
+      "positive_count": 1,
+      "negative_count": 2,
+      "positive_lengths": [
+        11
+      ],
+      "negative_lengths": [
+        11
+      ],
+      "notes": "Copied public input from stage1_v4 case small_singleton_n7_k2_s46227; no truth sidecar passed to solver.",
+      "input_sha256": "ef3361da18bce853f7d88bd9b67a7fcb280f3086b3c7543380408e8a626e67fc",
+      "input_bytes": 252
+    },
+    {
+      "id": "small_random_dfa_small_a7_k2_l24_s71200",
+      "family": "small_fullset_import",
+      "input": "inputs/small_random_dfa_small_a7_k2_l24_s71200.json",
+      "truth": null,
+      "alphabet_size": 7,
+      "k_input": 2,
+      "k_hidden": null,
+      "positive_count": 3,
+      "negative_count": 2,
+      "positive_lengths": [
+        24
+      ],
+      "negative_lengths": [
+        24
+      ],
+      "notes": "Copied public input from stage1_v4 case random_dfa_small_a7_k2_l24_s71200; no truth sidecar passed to solver.",
+      "input_sha256": "1b7f58ee08bd8bc554344fd8c896d1f3a033585246ea05585fac9b0a413719c6",
+      "input_bytes": 444
+    },
+    {
+      "id": "small_small_general_n7_k2_s45728",
+      "family": "small_fullset_import",
+      "input": "inputs/small_small_general_n7_k2_s45728.json",
+      "truth": null,
+      "alphabet_size": 7,
+      "k_input": 2,
+      "k_hidden": null,
+      "positive_count": 2,
+      "negative_count": 2,
+      "positive_lengths": [
+        2
+      ],
+      "negative_lengths": [
+        0,
+        8
+      ],
+      "notes": "Copied public input from stage1_v4 case small_general_n7_k2_s45728; no truth sidecar passed to solver.",
+      "input_sha256": "45c9fee2a9a191539f403e0b2143c4803e4c0b41a7322090f9ceae422ff3f62c",
+      "input_bytes": 219
+    },
+    {
+      "id": "small_small_singleton_n7_k2_s46228",
+      "family": "small_fullset_import",
+      "input": "inputs/small_small_singleton_n7_k2_s46228.json",
+      "truth": null,
+      "alphabet_size": 7,
+      "k_input": 2,
+      "k_hidden": null,
+      "positive_count": 2,
+      "negative_count": 2,
+      "positive_lengths": [
+        8
+      ],
+      "negative_lengths": [
+        8
+      ],
+      "notes": "Copied public input from stage1_v4 case small_singleton_n7_k2_s46228; no truth sidecar passed to solver.",
+      "input_sha256": "5f653dd68cb7f38ec668fb4c21188cbbfe7e7f0447a8bffca0844772701d9005",
+      "input_bytes": 259
+    },
+    {
+      "id": "small_small_general_n7_k3_s45804",
+      "family": "small_fullset_import",
+      "input": "inputs/small_small_general_n7_k3_s45804.json",
+      "truth": null,
+      "alphabet_size": 7,
+      "k_input": 3,
+      "k_hidden": null,
+      "positive_count": 5,
+      "negative_count": 2,
+      "positive_lengths": [
+        6,
+        7
+      ],
+      "negative_lengths": [
+        0,
+        3
+      ],
+      "notes": "Copied public input from stage1_v4 case small_general_n7_k3_s45804; no truth sidecar passed to solver.",
+      "input_sha256": "2ee87f9c0d1e1f48482da834cf20e8a0be49249ffab342db791f8463c64ab91a",
+      "input_bytes": 294
+    },
+    {
+      "id": "small_small_singleton_n7_k3_s46304",
+      "family": "small_fullset_import",
+      "input": "inputs/small_small_singleton_n7_k3_s46304.json",
+      "truth": null,
+      "alphabet_size": 7,
+      "k_input": 3,
+      "k_hidden": null,
+      "positive_count": 3,
+      "negative_count": 2,
+      "positive_lengths": [
+        11
+      ],
+      "negative_lengths": [
+        11
+      ],
+      "notes": "Copied public input from stage1_v4 case small_singleton_n7_k3_s46304; no truth sidecar passed to solver.",
+      "input_sha256": "78a19ec3c8a88b02f238bdf3099b9ecdc5cc347dac3820391a0aab39cd028633",
+      "input_bytes": 314
+    },
+    {
+      "id": "small_random_dfa_small_a7_k3_l24_s71300",
+      "family": "small_fullset_import",
+      "input": "inputs/small_random_dfa_small_a7_k3_l24_s71300.json",
+      "truth": null,
+      "alphabet_size": 7,
+      "k_input": 3,
+      "k_hidden": null,
+      "positive_count": 3,
+      "negative_count": 2,
+      "positive_lengths": [
+        24
+      ],
+      "negative_lengths": [
+        24
+      ],
+      "notes": "Copied public input from stage1_v4 case random_dfa_small_a7_k3_l24_s71300; no truth sidecar passed to solver.",
+      "input_sha256": "b8d6d7238fc62ac48abdf7b03e7701492c487c4bd85f69c5696797ffd6d09609",
+      "input_bytes": 444
+    },
+    {
+      "id": "small_small_general_n7_k3_s45805",
+      "family": "small_fullset_import",
+      "input": "inputs/small_small_general_n7_k3_s45805.json",
+      "truth": null,
+      "alphabet_size": 7,
+      "k_input": 3,
+      "k_hidden": null,
+      "positive_count": 3,
+      "negative_count": 2,
+      "positive_lengths": [
+        1,
+        2
+      ],
+      "negative_lengths": [
+        0,
+        2
+      ],
+      "notes": "Copied public input from stage1_v4 case small_general_n7_k3_s45805; no truth sidecar passed to solver.",
+      "input_sha256": "c455fcbfd1fd3ac869b0a0f0484537fd9e4e9f0cb1da006542ae5ecc664fba68",
+      "input_bytes": 218
+    },
+    {
+      "id": "small_small_singleton_n7_k3_s46305",
+      "family": "small_fullset_import",
+      "input": "inputs/small_small_singleton_n7_k3_s46305.json",
+      "truth": null,
+      "alphabet_size": 7,
+      "k_input": 3,
+      "k_hidden": null,
+      "positive_count": 2,
+      "negative_count": 2,
+      "positive_lengths": [
+        11
+      ],
+      "negative_lengths": [
+        11
+      ],
+      "notes": "Copied public input from stage1_v4 case small_singleton_n7_k3_s46305; no truth sidecar passed to solver.",
+      "input_sha256": "f8637b0c8edfcce340a8a274ec0e2a382a74d12561016b74873bd65a23dfe49f",
+      "input_bytes": 283
+    },
+    {
+      "id": "small_small_general_n7_k4_s45881",
+      "family": "small_fullset_import",
+      "input": "inputs/small_small_general_n7_k4_s45881.json",
+      "truth": null,
+      "alphabet_size": 7,
+      "k_input": 4,
+      "k_hidden": null,
+      "positive_count": 2,
+      "negative_count": 2,
+      "positive_lengths": [
+        2,
+        6
+      ],
+      "negative_lengths": [
+        0,
+        3
+      ],
+      "notes": "Copied public input from stage1_v4 case small_general_n7_k4_s45881; no truth sidecar passed to solver.",
+      "input_sha256": "a3bbf620ab939f2fd5fc647768fbbd47d9c004cbf92ba17c36bfeb4bb9515323",
+      "input_bytes": 217
+    },
+    {
+      "id": "small_small_singleton_n7_k4_s46381",
+      "family": "small_fullset_import",
+      "input": "inputs/small_small_singleton_n7_k4_s46381.json",
+      "truth": null,
+      "alphabet_size": 7,
+      "k_input": 4,
+      "k_hidden": null,
+      "positive_count": 4,
+      "negative_count": 2,
+      "positive_lengths": [
+        13
+      ],
+      "negative_lengths": [
+        13
+      ],
+      "notes": "Copied public input from stage1_v4 case small_singleton_n7_k4_s46381; no truth sidecar passed to solver.",
+      "input_sha256": "ecab2044f7de7bd813717edde236699155859367419879061b003dc802152560",
+      "input_bytes": 369
+    },
+    {
+      "id": "small_random_dfa_small_a7_k4_l24_s71400",
+      "family": "small_fullset_import",
+      "input": "inputs/small_random_dfa_small_a7_k4_l24_s71400.json",
+      "truth": null,
+      "alphabet_size": 7,
+      "k_input": 4,
+      "k_hidden": null,
+      "positive_count": 3,
+      "negative_count": 2,
+      "positive_lengths": [
+        24
+      ],
+      "negative_lengths": [
+        24
+      ],
+      "notes": "Copied public input from stage1_v4 case random_dfa_small_a7_k4_l24_s71400; no truth sidecar passed to solver.",
+      "input_sha256": "a05d0a68e6547b1214f7443a912fa93ae21f55c424749657597784bd3b49601a",
+      "input_bytes": 444
+    },
+    {
+      "id": "small_small_general_n7_k4_s45882",
+      "family": "small_fullset_import",
+      "input": "inputs/small_small_general_n7_k4_s45882.json",
+      "truth": null,
+      "alphabet_size": 7,
+      "k_input": 4,
+      "k_hidden": null,
+      "positive_count": 3,
+      "negative_count": 2,
+      "positive_lengths": [
+        4,
+        7,
+        8
+      ],
+      "negative_lengths": [
+        7,
+        9
+      ],
+      "notes": "Copied public input from stage1_v4 case small_general_n7_k4_s45882; no truth sidecar passed to solver.",
+      "input_sha256": "a4c765c1be4a12630f3421e289530eedaddbc9565404d8ebbed6a0f3860b58a6",
+      "input_bytes": 274
+    },
+    {
+      "id": "small_small_singleton_n7_k4_s46382",
+      "family": "small_fullset_import",
+      "input": "inputs/small_small_singleton_n7_k4_s46382.json",
+      "truth": null,
+      "alphabet_size": 7,
+      "k_input": 4,
+      "k_hidden": null,
+      "positive_count": 4,
+      "negative_count": 2,
+      "positive_lengths": [
+        15
+      ],
+      "negative_lengths": [
+        15
+      ],
+      "notes": "Copied public input from stage1_v4 case small_singleton_n7_k4_s46382; no truth sidecar passed to solver.",
+      "input_sha256": "0a112cda1fea9da026070ca138bae40f6677c70a49a973f2aec6096f0c00665a",
+      "input_bytes": 393
+    },
+    {
+      "id": "sparse_k3_ambiguous",
+      "family": "sparse_singleton_known_k",
+      "input": "inputs/sparse_k3_ambiguous.json",
+      "truth": "hidden_truth/sparse_k3_ambiguous.json",
+      "alphabet_size": 4,
+      "k_input": 3,
+      "k_hidden": 3,
+      "positive_count": 4,
+      "negative_count": 0,
+      "positive_lengths": [
+        4
+      ],
+      "negative_lengths": [],
+      "notes": "Connected opposition path; all unordered exact singleton solutions are independently enumerated.",
+      "input_sha256": "6d989255a11341611c33021f051818b2013b2c5bf0e4bd98fc79c35527a5d5ed",
+      "input_bytes": 171,
+      "truth_sha256": "38e262d004c3a239a02534fbd2b2d6f5593ff036bd8701573c4a73417aa0e906",
+      "truth_bytes": 133
+    },
+    {
+      "id": "sparse_k3_disambiguated",
+      "family": "sparse_singleton_known_k",
+      "input": "inputs/sparse_k3_disambiguated.json",
+      "truth": "hidden_truth/sparse_k3_disambiguated.json",
+      "alphabet_size": 4,
+      "k_input": 3,
+      "k_hidden": 3,
+      "positive_count": 4,
+      "negative_count": 1,
+      "positive_lengths": [
+        4
+      ],
+      "negative_lengths": [
+        4
+      ],
+      "notes": "Same sparse opposition path plus one negative; verify the exact full set.",
+      "input_sha256": "56b6b324a90bbc4a5aacaa91906367ef44abe28cc513d86813c42fe574f1bdaa",
+      "input_bytes": 187,
+      "truth_sha256": "7ba478b31cd1a21d03358ec68c41beec8fb2982868675ee7d20ef76dde6b71fa",
+      "truth_bytes": 133
+    },
+    {
+      "id": "q2_one_projection_control",
+      "family": "q2_small_control",
+      "input": "inputs/q2_one_projection_control.json",
+      "truth": "hidden_truth/q2_one_projection_control.json",
+      "alphabet_size": 2,
+      "k_input": 2,
+      "k_hidden": 2,
+      "positive_count": 2,
+      "negative_count": 1,
+      "positive_lengths": [
+        2
+      ],
+      "negative_lengths": [
+        2
+      ],
+      "notes": "Duplicate positive samples collapse to one projection per singleton block.",
+      "input_sha256": "092b17bcf3763c4fdcaf1cb0dd5368ab61e6e14530e644b293b8135703100edf",
+      "input_bytes": 135,
+      "truth_sha256": "ee40b7fce7dfda06820815a40239a702320da48c498ac2c31a7f1ecbd22d7fb4",
+      "truth_bytes": 95
+    },
+    {
+      "id": "q2_two_projection_control",
+      "family": "q2_small_control",
+      "input": "inputs/q2_two_projection_control.json",
+      "truth": "hidden_truth/q2_two_projection_control.json",
+      "alphabet_size": 2,
+      "k_input": 2,
+      "k_hidden": 2,
+      "positive_count": 2,
+      "negative_count": 1,
+      "positive_lengths": [
+        1
+      ],
+      "negative_lengths": [
+        2
+      ],
+      "notes": "At most two words fits; exactly-one local words do not.",
+      "input_sha256": "54d8646450cd5e1592e414ddb16689a0d499d733140ffd8557dad0a4f8b0206c",
+      "input_bytes": 133,
+      "truth_sha256": "ee40b7fce7dfda06820815a40239a702320da48c498ac2c31a7f1ecbd22d7fb4",
+      "truth_bytes": 95
+    },
+    {
+      "id": "q2_three_projection_violation",
+      "family": "q2_small_control",
+      "input": "inputs/q2_three_projection_violation.json",
+      "truth": "hidden_truth/q2_three_projection_violation.json",
+      "alphabet_size": 2,
+      "k_input": 2,
+      "k_hidden": 2,
+      "positive_count": 3,
+      "negative_count": 0,
+      "positive_lengths": [
+        0,
+        1,
+        2
+      ],
+      "negative_lengths": [],
+      "notes": "Unrestricted finite factors fit; q=2 is impossible because one block has three projections.",
+      "input_sha256": "7ed2d64227136ae3ea1e29e2997d12890126bbf7b9a15d1e6e0448adfb6976ae",
+      "input_bytes": 129,
+      "truth_sha256": "ee40b7fce7dfda06820815a40239a702320da48c498ac2c31a7f1ecbd22d7fb4",
+      "truth_bytes": 95
+    },
+    {
+      "id": "q2_empty_positive_boundary",
+      "family": "q2_small_control",
+      "input": "inputs/q2_empty_positive_boundary.json",
+      "truth": "hidden_truth/q2_empty_positive_boundary.json",
+      "alphabet_size": 2,
+      "k_input": 2,
+      "k_hidden": 2,
+      "positive_count": 0,
+      "negative_count": 1,
+      "positive_lengths": [],
+      "negative_lengths": [
+        1
+      ],
+      "notes": "At-most-q empty observed languages are distinct from exactly-one singleton recovery.",
+      "input_sha256": "420b2d2b405d945587be0d11ee3b502d03174a5ffbc20069731605e21b07b8db",
+      "input_bytes": 109,
+      "truth_sha256": "ee40b7fce7dfda06820815a40239a702320da48c498ac2c31a7f1ecbd22d7fb4",
+      "truth_bytes": 95
+    },
+    {
+      "id": "q2_repeated_projection_control",
+      "family": "q2_small_control",
+      "input": "inputs/q2_repeated_projection_control.json",
+      "truth": "hidden_truth/q2_repeated_projection_control.json",
+      "alphabet_size": 2,
+      "k_input": 2,
+      "k_hidden": 2,
+      "positive_count": 4,
+      "negative_count": 1,
+      "positive_lengths": [
+        1,
+        2,
+        3
+      ],
+      "negative_lengths": [
+        2
+      ],
+      "notes": "Repeated positive words and repeated local projections exercise deduplication.",
+      "input_sha256": "944cec3b82f15b5996339307577ab3a8b6963edbb65ad7c60d0f6fdc20a26ac5",
+      "input_bytes": 156,
+      "truth_sha256": "ee40b7fce7dfda06820815a40239a702320da48c498ac2c31a7f1ecbd22d7fb4",
+      "truth_bytes": 95
+    },
+    {
+      "id": "q2_negative_witness_control",
+      "family": "q2_small_control",
+      "input": "inputs/q2_negative_witness_control.json",
+      "truth": "hidden_truth/q2_negative_witness_control.json",
+      "alphabet_size": 2,
+      "k_input": 2,
+      "k_hidden": 2,
+      "positive_count": 2,
+      "negative_count": 1,
+      "positive_lengths": [
+        2
+      ],
+      "negative_lengths": [
+        2
+      ],
+      "notes": "Both factors have two observed projections; every negative needs a direct unseen projection witness.",
+      "input_sha256": "f286db12cc7e8045f6deb03ab784e4661be0c88680a6c6be98e628c89f03a0f4",
+      "input_bytes": 135,
+      "truth_sha256": "ee40b7fce7dfda06820815a40239a702320da48c498ac2c31a7f1ecbd22d7fb4",
+      "truth_bytes": 95
+    },
+    {
+      "id": "q2_naive_threshold_counterexample",
+      "family": "q2_small_control",
+      "input": "inputs/q2_naive_threshold_counterexample.json",
+      "truth": "hidden_truth/q2_naive_threshold_counterexample.json",
+      "alphabet_size": 3,
+      "k_input": 2,
+      "k_hidden": 2,
+      "positive_count": 2,
+      "negative_count": 0,
+      "positive_lengths": [
+        3
+      ],
+      "negative_lengths": [],
+      "notes": "The pair ab has exactly two projections and must not be marked opposed at q=2.",
+      "input_sha256": "ba4ce661120a82111f747ba1652957ed142b8627a792a6331e7c6844972cf878",
+      "input_bytes": 133,
+      "truth_sha256": "7720945445296dbec067fd9decb8c8d593c789cc95385699a73658d1682cd557",
+      "truth_bytes": 107
+    },
+    {
+      "id": "q2_pairwise_full_block_cap_failure",
+      "family": "q2_small_control",
+      "input": "inputs/q2_pairwise_full_block_cap_failure.json",
+      "truth": "hidden_truth/q2_pairwise_full_block_cap_failure.json",
+      "alphabet_size": 4,
+      "k_input": 2,
+      "k_hidden": 2,
+      "positive_count": 5,
+      "negative_count": 0,
+      "positive_lengths": [
+        8
+      ],
+      "negative_lengths": [],
+      "notes": "Pair q=2 opposition forces abc|d, but the full abc block has four projections; cap check must reject.",
+      "input_sha256": "7a82b461596f6b99f7d9267e324fbe9669f161cfa4cede9840cebae9a5147349",
+      "input_bytes": 204,
+      "truth_sha256": "50d4c9738d61c048d34ad1f188f0af7b2c2aa1f277f0ea9012a85b03c43620a2",
+      "truth_bytes": 119
+    },
+    {
+      "id": "q2_positive_only_m8_k2",
+      "family": "q2_positive_only_constructive",
+      "input": "inputs/q2_positive_only_m8_k2.json",
+      "truth": "hidden_truth/q2_positive_only_m8_k2.json",
+      "alphabet_size": 8,
+      "k_input": 2,
+      "k_hidden": 2,
+      "positive_count": 4,
+      "negative_count": 0,
+      "positive_lengths": [
+        16,
+        18
+      ],
+      "negative_lengths": [],
+      "notes": "Four positive constructions: forward, reverse, lockstep, and each repeated local word plus its first symbol; no negatives.",
+      "input_sha256": "146334f138f399c68bbea336bb53a9b5ded87f66067fce8dd9dc6514ebec0505",
+      "input_bytes": 261,
+      "truth_sha256": "cb4319c5c2aa70941b40a2f20ce3e14019c1c27e6e49602a3ef45e3d409a20fc",
+      "truth_bytes": 191
+    },
+    {
+      "id": "q2_positive_only_m16_k4",
+      "family": "q2_positive_only_constructive",
+      "input": "inputs/q2_positive_only_m16_k4.json",
+      "truth": "hidden_truth/q2_positive_only_m16_k4.json",
+      "alphabet_size": 16,
+      "k_input": 4,
+      "k_hidden": 4,
+      "positive_count": 4,
+      "negative_count": 0,
+      "positive_lengths": [
+        32,
+        36
+      ],
+      "negative_lengths": [],
+      "notes": "Four positive constructions: forward, reverse, lockstep, and each repeated local word plus its first symbol; no negatives.",
+      "input_sha256": "8ff3cac0f450622e2d12c0c6f055cdeaf0f38330465efe630fbde682bf789047",
+      "input_bytes": 407,
+      "truth_sha256": "e2f37d9e79f87b8118e814cdaadac10b6d228edda49282d84ad9f9bb417382cd",
+      "truth_bytes": 315
+    },
+    {
+      "id": "q2_positive_only_m32_k4",
+      "family": "q2_positive_only_constructive",
+      "input": "inputs/q2_positive_only_m32_k4.json",
+      "truth": "hidden_truth/q2_positive_only_m32_k4.json",
+      "alphabet_size": 32,
+      "k_input": 4,
+      "k_hidden": 4,
+      "positive_count": 4,
+      "negative_count": 0,
+      "positive_lengths": [
+        64,
+        68
+      ],
+      "negative_lengths": [],
+      "notes": "Four positive constructions: forward, reverse, lockstep, and each repeated local word plus its first symbol; no negatives.",
+      "input_sha256": "8296e56a4605118ea4176d171fbf1e4228d8fe5a2af03db34a1a1e67b5cbd426",
+      "input_bytes": 987,
+      "truth_sha256": "c16b03fa996d3365f70b9eb42b33e8bf745942a11f8445a89af9b011a7b1afe5",
+      "truth_bytes": 539
+    },
+    {
+      "id": "q2_positive_only_m128_k8",
+      "family": "q2_positive_only_constructive",
+      "input": "inputs/q2_positive_only_m128_k8.json",
+      "truth": "hidden_truth/q2_positive_only_m128_k8.json",
+      "alphabet_size": 128,
+      "k_input": 8,
+      "k_hidden": 8,
+      "positive_count": 4,
+      "negative_count": 0,
+      "positive_lengths": [
+        256,
+        264
+      ],
+      "negative_lengths": [],
+      "notes": "Four positive constructions: forward, reverse, lockstep, and each repeated local word plus its first symbol; no negatives.",
+      "input_sha256": "6ef08742b3a8b3cc9b140e5e15509ee3ea518a0169a343f653c9f30d391f73fe",
+      "input_bytes": 3587,
+      "truth_sha256": "aaa564960589c85c5303cea0c0184a6f0f9b89561dd7286ede2d0182663ce02f",
+      "truth_bytes": 1843
+    },
+    {
+      "id": "unknown_k_singleton_unique",
+      "family": "singleton_unknown_k",
+      "input": "inputs/unknown_k_singleton_unique.json",
+      "truth": "hidden_truth/unknown_k_singleton_unique.json",
+      "alphabet_size": 4,
+      "k_input": null,
+      "k_hidden": 2,
+      "positive_count": 2,
+      "negative_count": 2,
+      "positive_lengths": [
+        4
+      ],
+      "negative_lengths": [
+        4
+      ],
+      "notes": "No k field in public input; hidden target k remains only in this sidecar.",
+      "input_sha256": "b5a5a6aee020d81a8f411ea918f2c71cfc34f797d1c5544272e4ae9e86d4e750",
+      "input_bytes": 163,
+      "truth_sha256": "451fc176ecf6746ec97b8d19b11ace640f1aece32f13975fc27eb2f3db296c71",
+      "truth_bytes": 119
+    },
+    {
+      "id": "unknown_k_ambiguous_control",
+      "family": "singleton_unknown_k",
+      "input": "inputs/unknown_k_ambiguous_control.json",
+      "truth": null,
+      "alphabet_size": 3,
+      "k_input": null,
+      "k_hidden": null,
+      "positive_count": 2,
+      "negative_count": 0,
+      "positive_lengths": [
+        2
+      ],
+      "negative_lengths": [],
+      "notes": "No target k; singleton certificate should abstain without a quotient-clique proof.",
+      "input_sha256": "a227b26ba57f49388aaed06eb2661a80cad017ba29c1cb53afbc52ae1f2f04d6",
+      "input_bytes": 120
+    },
+    {
+      "id": "unknown_k_empty_positive_boundary",
+      "family": "singleton_unknown_k",
+      "input": "inputs/unknown_k_empty_positive_boundary.json",
+      "truth": null,
+      "alphabet_size": 3,
+      "k_input": null,
+      "k_hidden": null,
+      "positive_count": 0,
+      "negative_count": 1,
+      "positive_lengths": [],
+      "negative_lengths": [
+        0
+      ],
+      "notes": "No target k and no positive coverage; must remain unresolved.",
+      "input_sha256": "aa7d7fe605a24884a439c717848ba30e0cdb5f4decfcfeeaae2f021fd00c8bf7",
+      "input_bytes": 107
+    },
+    {
+      "id": "context_pair_star_a32_k4_L128",
+      "family": "contextual_tree_pair_star",
+      "input": "inputs/context_pair_star_a32_k4_L128.json",
+      "truth": "hidden_truth/context_pair_star_a32_k4_L128.json",
+      "alphabet_size": 32,
+      "k_input": 4,
+      "k_hidden": 4,
+      "positive_count": 29,
+      "negative_count": 28,
+      "positive_lengths": [
+        126,
+        128
+      ],
+      "negative_lengths": [
+        127
+      ],
+      "notes": "Every observed word is long and nonempty. The target is forced by one positive insertion-rescue and one negative per tree edge.",
+      "input_sha256": "6fcb64c2e73b829f5c1a050c0aad1f364d1c9f5b69b3f0fbac90d7d15ec6abc4",
+      "input_bytes": 15479,
+      "truth_sha256": "f96867df3587dc0cb9080729f6f869539fdd7b620e91615e8b61dc1cff0c6614",
+      "truth_bytes": 1953
+    },
+    {
+      "id": "context_pair_star_a32_k4_L1024",
+      "family": "contextual_tree_pair_star",
+      "input": "inputs/context_pair_star_a32_k4_L1024.json",
+      "truth": "hidden_truth/context_pair_star_a32_k4_L1024.json",
+      "alphabet_size": 32,
+      "k_input": 4,
+      "k_hidden": 4,
+      "positive_count": 29,
+      "negative_count": 28,
+      "positive_lengths": [
+        1022,
+        1024
+      ],
+      "negative_lengths": [
+        1023
+      ],
+      "notes": "Every observed word is long and nonempty. The target is forced by one positive insertion-rescue and one negative per tree edge.",
+      "input_sha256": "9b3974aeb703ef9203408db3627ca9ea6fb78117f29af999739f689602723a5d",
+      "input_bytes": 117623,
+      "truth_sha256": "52b4b7717b52ed063f1653bdb1ad65a7caf6f7fbfbdefcea3e5a869f6dff957e",
+      "truth_bytes": 3746
+    },
+    {
+      "id": "context_pair_star_a32_k8_L4096",
+      "family": "contextual_tree_pair_star",
+      "input": "inputs/context_pair_star_a32_k8_L4096.json",
+      "truth": "hidden_truth/context_pair_star_a32_k8_L4096.json",
+      "alphabet_size": 32,
+      "k_input": 8,
+      "k_hidden": 8,
+      "positive_count": 25,
+      "negative_count": 24,
+      "positive_lengths": [
+        4094,
+        4096
+      ],
+      "negative_lengths": [
+        4095
+      ],
+      "notes": "Every observed word is long and nonempty. The target is forced by one positive insertion-rescue and one negative per tree edge.",
+      "input_sha256": "2e3ab57886a5c28f8c58774024b92c22336b2ffc589d2f97c45df1a4a30e399d",
+      "input_bytes": 402231,
+      "truth_sha256": "1d0830ff692e79fac8d15ab30e98e68282381f7cf738f2fd6367789129812eac",
+      "truth_bytes": 9786
+    },
+    {
+      "id": "context_pair_star_a128_k8_L1024",
+      "family": "contextual_tree_pair_star",
+      "input": "inputs/context_pair_star_a128_k8_L1024.json",
+      "truth": "hidden_truth/context_pair_star_a128_k8_L1024.json",
+      "alphabet_size": 128,
+      "k_input": 8,
+      "k_hidden": 8,
+      "positive_count": 121,
+      "negative_count": 120,
+      "positive_lengths": [
+        1022,
+        1024
+      ],
+      "negative_lengths": [
+        1023
+      ],
+      "notes": "Every observed word is long and nonempty. The target is forced by one positive insertion-rescue and one negative per tree edge.",
+      "input_sha256": "30fcee76851f625a6e567ca6f1a1655f915e3d2b7efd216ec364779976de7fb7",
+      "input_bytes": 496983,
+      "truth_sha256": "ea16f0b6e3383c1470db2cd8ba63ff85b9e82f86e6e4d9fa31f82c05e2318966",
+      "truth_bytes": 8730
+    },
+    {
+      "id": "cli_infer_singleton_k",
+      "family": "root_cli_unknown_k",
+      "input": "inputs/cli_infer_singleton_k.json",
+      "truth": "hidden_truth/cli_infer_singleton_k.json",
+      "alphabet_size": 4,
+      "k_input": null,
+      "k_hidden": 2,
+      "positive_count": 2,
+      "negative_count": 2,
+      "positive_lengths": [
+        4
+      ],
+      "negative_lengths": [
+        4
+      ],
+      "notes": "Public inference CLI input has no k; hidden target is sidecar-only.",
+      "input_sha256": "b5a5a6aee020d81a8f411ea918f2c71cfc34f797d1c5544272e4ae9e86d4e750",
+      "input_bytes": 163,
+      "truth_sha256": "451fc176ecf6746ec97b8d19b11ace640f1aece32f13975fc27eb2f3db296c71",
+      "truth_bytes": 119
+    },
+    {
+      "id": "cli_sparse_three_color_ambiguous",
+      "family": "root_cli_example",
+      "input": "inputs/cli_sparse_three_color_ambiguous.json",
+      "truth": null,
+      "alphabet_size": 4,
+      "k_input": 3,
+      "k_hidden": null,
+      "positive_count": 4,
+      "negative_count": 0,
+      "positive_lengths": [
+        4
+      ],
+      "negative_lengths": [],
+      "notes": "Public CLI example copied from sparse_three_color_ambiguous.json; no target is passed to the solver.",
+      "input_sha256": "6d989255a11341611c33021f051818b2013b2c5bf0e4bd98fc79c35527a5d5ed",
+      "input_bytes": 171
+    },
+    {
+      "id": "cli_sparse_three_color_disambiguated",
+      "family": "root_cli_example",
+      "input": "inputs/cli_sparse_three_color_disambiguated.json",
+      "truth": null,
+      "alphabet_size": 4,
+      "k_input": 3,
+      "k_hidden": null,
+      "positive_count": 4,
+      "negative_count": 1,
+      "positive_lengths": [
+        4
+      ],
+      "negative_lengths": [
+        4
+      ],
+      "notes": "Public CLI example copied from sparse_three_color_disambiguated.json; no target is passed to the solver.",
+      "input_sha256": "56b6b324a90bbc4a5aacaa91906367ef44abe28cc513d86813c42fe574f1bdaa",
+      "input_bytes": 187
+    },
+    {
+      "id": "cli_three_factor_certificate",
+      "family": "root_cli_example",
+      "input": "inputs/cli_three_factor_certificate.json",
+      "truth": null,
+      "alphabet_size": 6,
+      "k_input": 3,
+      "k_hidden": null,
+      "positive_count": 2,
+      "negative_count": 3,
+      "positive_lengths": [
+        6
+      ],
+      "negative_lengths": [
+        6
+      ],
+      "notes": "Public CLI example copied from three_factor_certificate.json; no target is passed to the solver.",
+      "input_sha256": "6fa87ef7d84cd9696a004f94866525a018dc20348a920a77837a2e807ef4687c",
+      "input_bytes": 217
+    },
+    {
+      "id": "cli_three_factor_two_words",
+      "family": "root_cli_example",
+      "input": "inputs/cli_three_factor_two_words.json",
+      "truth": null,
+      "alphabet_size": 6,
+      "k_input": 3,
+      "k_hidden": null,
+      "positive_count": 2,
+      "negative_count": 3,
+      "positive_lengths": [
+        6,
+        7
+      ],
+      "negative_lengths": [
+        6
+      ],
+      "notes": "Public CLI example copied from three_factor_two_words.json; no target is passed to the solver.",
+      "input_sha256": "d9a0f467e5e738dbd7ee8149fd9bc0b5a5832ac4605980060e87ec7a50167eec",
+      "input_bytes": 218
+    }
+  ],
+  "borrowed_stage1_inputs": [
+    {
+      "source_id": "edge_rescue_counterexample",
+      "source_input": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-10-27\\partition_scaling_v4\\audit\\corpora\\stage1_v4\\inputs\\edge_rescue_counterexample.json",
+      "source_input_sha256": "70e7efacfb9ab7424a1ab3e05de9c89a66bb2b755f77e39e6b3f0cbec9a48fe6",
+      "stage2_id": "small_edge_rescue_counterexample"
+    },
+    {
+      "source_id": "edge_rescue_true_control",
+      "source_input": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-10-27\\partition_scaling_v4\\audit\\corpora\\stage1_v4\\inputs\\edge_rescue_true_control.json",
+      "source_input_sha256": "b255bb24628cd39439ec486cabc64a0c18875b59963b459df554e7e2a6bd119c",
+      "stage2_id": "small_edge_rescue_true_control"
+    },
+    {
+      "source_id": "three_color_connected_nonunique",
+      "source_input": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-10-27\\partition_scaling_v4\\audit\\corpora\\stage1_v4\\inputs\\three_color_connected_nonunique.json",
+      "source_input_sha256": "1c4f4286f3a52da48ba963363f01c375a6e33b5d527b0a00c2ba5bcc3b328312",
+      "stage2_id": "small_three_color_connected_nonunique"
+    },
+    {
+      "source_id": "empty_both",
+      "source_input": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-10-27\\partition_scaling_v4\\audit\\corpora\\stage1_v4\\inputs\\empty_both.json",
+      "source_input_sha256": "f7b8c50687f522f28cc8962e22ba8fb1233d210b638debb3b96a191bf98bffe7",
+      "stage2_id": "small_empty_both"
+    },
+    {
+      "source_id": "empty_positive_negative",
+      "source_input": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-10-27\\partition_scaling_v4\\audit\\corpora\\stage1_v4\\inputs\\empty_positive_negative.json",
+      "source_input_sha256": "3f7c4468534690e19c952a737cc312f9c1b3082fc9b0e54d3ddfff3b9e075c2d",
+      "stage2_id": "small_empty_positive_negative"
+    },
+    {
+      "source_id": "empty_negative",
+      "source_input": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-10-27\\partition_scaling_v4\\audit\\corpora\\stage1_v4\\inputs\\empty_negative.json",
+      "source_input_sha256": "535de64718b6f7f6e879de9b90be7c0ea8e8a8128bbdc31154992b9617faaf7e",
+      "stage2_id": "small_empty_negative"
+    },
+    {
+      "source_id": "absent_symbols",
+      "source_input": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-10-27\\partition_scaling_v4\\audit\\corpora\\stage1_v4\\inputs\\absent_symbols.json",
+      "source_input_sha256": "977984706c01b1d9667c2fa4ab1c19a6e8b5f0478515905172c593a1b50e6e9f",
+      "stage2_id": "small_absent_symbols"
+    },
+    {
+      "source_id": "epsilon_positive",
+      "source_input": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-10-27\\partition_scaling_v4\\audit\\corpora\\stage1_v4\\inputs\\epsilon_positive.json",
+      "source_input_sha256": "e7fd6e37e790d0e99fc6a7575ecd51cce272de5b1d6e3e27266338afcfe67763",
+      "stage2_id": "small_epsilon_positive"
+    },
+    {
+      "source_id": "repeated_symbols",
+      "source_input": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-10-27\\partition_scaling_v4\\audit\\corpora\\stage1_v4\\inputs\\repeated_symbols.json",
+      "source_input_sha256": "91a7505cda20ebfbecca5f2b6f8fa84cad017ecc27169eab736f0cfef91b67ca",
+      "stage2_id": "small_repeated_symbols"
+    },
+    {
+      "source_id": "duplicate_samples",
+      "source_input": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-10-27\\partition_scaling_v4\\audit\\corpora\\stage1_v4\\inputs\\duplicate_samples.json",
+      "source_input_sha256": "b657194f2ec86c64e698e83a256a764ed5f85ceebcdd6b9591e4f5c261e480a4",
+      "stage2_id": "small_duplicate_samples"
+    },
+    {
+      "source_id": "small_general_n3_k2_s44891",
+      "source_input": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-10-27\\partition_scaling_v4\\audit\\corpora\\stage1_v4\\inputs\\small_general_n3_k2_s44891.json",
+      "source_input_sha256": "15c7dcd6285c8f0d76fb1ee00f8afbdd5013ee1b631fc38437fbc396950b4e5a",
+      "stage2_id": "small_small_general_n3_k2_s44891"
+    },
+    {
+      "source_id": "small_singleton_n3_k2_s45391",
+      "source_input": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-10-27\\partition_scaling_v4\\audit\\corpora\\stage1_v4\\inputs\\small_singleton_n3_k2_s45391.json",
+      "source_input_sha256": "accdddfe0357f1d97747eb30943394edc93a68e2643a8d459be4b5cf74a28859",
+      "stage2_id": "small_small_singleton_n3_k2_s45391"
+    },
+    {
+      "source_id": "random_dfa_small_a3_k2_l24_s67200",
+      "source_input": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-10-27\\partition_scaling_v4\\audit\\corpora\\stage1_v4\\inputs\\random_dfa_small_a3_k2_l24_s67200.json",
+      "source_input_sha256": "bbb29fd20968e10bfb636cc055ff168166983af81ae532e2e882d5d353def7b3",
+      "stage2_id": "small_random_dfa_small_a3_k2_l24_s67200"
+    },
+    {
+      "source_id": "small_general_n3_k2_s44892",
+      "source_input": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-10-27\\partition_scaling_v4\\audit\\corpora\\stage1_v4\\inputs\\small_general_n3_k2_s44892.json",
+      "source_input_sha256": "7ed799df6473baeb17cafe85f317fadf44826df08fb5a8a90b5653055349c4c4",
+      "stage2_id": "small_small_general_n3_k2_s44892"
+    },
+    {
+      "source_id": "small_singleton_n3_k2_s45392",
+      "source_input": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-10-27\\partition_scaling_v4\\audit\\corpora\\stage1_v4\\inputs\\small_singleton_n3_k2_s45392.json",
+      "source_input_sha256": "e6d9e3f75c4a222900ed5743df3ede70bdf34c6a8395a36bbba08e7e25d0d213",
+      "stage2_id": "small_small_singleton_n3_k2_s45392"
+    },
+    {
+      "source_id": "small_general_n3_k3_s44968",
+      "source_input": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-10-27\\partition_scaling_v4\\audit\\corpora\\stage1_v4\\inputs\\small_general_n3_k3_s44968.json",
+      "source_input_sha256": "22c5963dc7cc9e7c6772fc6a0e8cf7dbf1880a1bef5293599b815dc4ab9b6a56",
+      "stage2_id": "small_small_general_n3_k3_s44968"
+    },
+    {
+      "source_id": "small_singleton_n3_k3_s45468",
+      "source_input": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-10-27\\partition_scaling_v4\\audit\\corpora\\stage1_v4\\inputs\\small_singleton_n3_k3_s45468.json",
+      "source_input_sha256": "3a9a439c05cc61bab5e2b4a1fafb7089e2f9ee664755354152f6e87d8a6ef2e0",
+      "stage2_id": "small_small_singleton_n3_k3_s45468"
+    },
+    {
+      "source_id": "random_dfa_small_a3_k3_l24_s67300",
+      "source_input": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-10-27\\partition_scaling_v4\\audit\\corpora\\stage1_v4\\inputs\\random_dfa_small_a3_k3_l24_s67300.json",
+      "source_input_sha256": "5ccddce1e3d4b0cf34e424b7e5386197eedfc0737a3a28882ddcbf9d18b9b3c7",
+      "stage2_id": "small_random_dfa_small_a3_k3_l24_s67300"
+    },
+    {
+      "source_id": "small_general_n3_k3_s44969",
+      "source_input": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-10-27\\partition_scaling_v4\\audit\\corpora\\stage1_v4\\inputs\\small_general_n3_k3_s44969.json",
+      "source_input_sha256": "053439d59b8dd81d742fbcecec4c9611e71dfb723b95c9087ea9f0841252dd0a",
+      "stage2_id": "small_small_general_n3_k3_s44969"
+    },
+    {
+      "source_id": "small_singleton_n3_k3_s45469",
+      "source_input": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-10-27\\partition_scaling_v4\\audit\\corpora\\stage1_v4\\inputs\\small_singleton_n3_k3_s45469.json",
+      "source_input_sha256": "91eb04664d86dac01b4e07afad82ca1e7613b95b372954b4cda9042928750a11",
+      "stage2_id": "small_small_singleton_n3_k3_s45469"
+    },
+    {
+      "source_id": "small_general_n4_k2_s45100",
+      "source_input": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-10-27\\partition_scaling_v4\\audit\\corpora\\stage1_v4\\inputs\\small_general_n4_k2_s45100.json",
+      "source_input_sha256": "9cded19a8234829fb3676d1026174846be7b2cd7442919267565734fd03ae662",
+      "stage2_id": "small_small_general_n4_k2_s45100"
+    },
+    {
+      "source_id": "small_singleton_n4_k2_s45600",
+      "source_input": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-10-27\\partition_scaling_v4\\audit\\corpora\\stage1_v4\\inputs\\small_singleton_n4_k2_s45600.json",
+      "source_input_sha256": "c6bcf50b8641029de7def4a4997303f3107598f3039a3c1510f351453c57fad7",
+      "stage2_id": "small_small_singleton_n4_k2_s45600"
+    },
+    {
+      "source_id": "random_dfa_small_a4_k2_l24_s68200",
+      "source_input": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-10-27\\partition_scaling_v4\\audit\\corpora\\stage1_v4\\inputs\\random_dfa_small_a4_k2_l24_s68200.json",
+      "source_input_sha256": "a37b044e5f6fa9b1484a6d2bc780c0f3068d85403dc71ea08714e4eea9952f5a",
+      "stage2_id": "small_random_dfa_small_a4_k2_l24_s68200"
+    },
+    {
+      "source_id": "small_general_n4_k2_s45101",
+      "source_input": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-10-27\\partition_scaling_v4\\audit\\corpora\\stage1_v4\\inputs\\small_general_n4_k2_s45101.json",
+      "source_input_sha256": "ad9625dca8e96a8adda05240b34027342ccc35556479d73ee033e83f10b52d4d",
+      "stage2_id": "small_small_general_n4_k2_s45101"
+    },
+    {
+      "source_id": "small_singleton_n4_k2_s45601",
+      "source_input": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-10-27\\partition_scaling_v4\\audit\\corpora\\stage1_v4\\inputs\\small_singleton_n4_k2_s45601.json",
+      "source_input_sha256": "d11374004734a9eb0049d36368badc8ca3d47879837b49ee7fdc1539e8d9ae43",
+      "stage2_id": "small_small_singleton_n4_k2_s45601"
+    },
+    {
+      "source_id": "small_general_n4_k3_s45177",
+      "source_input": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-10-27\\partition_scaling_v4\\audit\\corpora\\stage1_v4\\inputs\\small_general_n4_k3_s45177.json",
+      "source_input_sha256": "5908f1e53f1ec034f3c3984628b51395d06b4b1bba203b8345b8487b109f2d61",
+      "stage2_id": "small_small_general_n4_k3_s45177"
+    },
+    {
+      "source_id": "small_singleton_n4_k3_s45677",
+      "source_input": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-10-27\\partition_scaling_v4\\audit\\corpora\\stage1_v4\\inputs\\small_singleton_n4_k3_s45677.json",
+      "source_input_sha256": "1cdec23d285876d1959156c32a6937aa0a43330fadb3cb18241cec2630158219",
+      "stage2_id": "small_small_singleton_n4_k3_s45677"
+    },
+    {
+      "source_id": "random_dfa_small_a4_k3_l24_s68300",
+      "source_input": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-10-27\\partition_scaling_v4\\audit\\corpora\\stage1_v4\\inputs\\random_dfa_small_a4_k3_l24_s68300.json",
+      "source_input_sha256": "40fbd7f0240bb8fe72915d1fc249f7d55eed6eb32de031b5c269b3dbd30a375b",
+      "stage2_id": "small_random_dfa_small_a4_k3_l24_s68300"
+    },
+    {
+      "source_id": "small_general_n4_k3_s45178",
+      "source_input": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-10-27\\partition_scaling_v4\\audit\\corpora\\stage1_v4\\inputs\\small_general_n4_k3_s45178.json",
+      "source_input_sha256": "382fbd5d58f3f083fef5e998e1f500a1732f8d59c5d3ee58f5d722a658979b5f",
+      "stage2_id": "small_small_general_n4_k3_s45178"
+    },
+    {
+      "source_id": "small_singleton_n4_k3_s45678",
+      "source_input": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-10-27\\partition_scaling_v4\\audit\\corpora\\stage1_v4\\inputs\\small_singleton_n4_k3_s45678.json",
+      "source_input_sha256": "4063935b9139e0c1d265f29d3a901ac3ef9dbd24b2f5d6ed35838cd31cf947f7",
+      "stage2_id": "small_small_singleton_n4_k3_s45678"
+    },
+    {
+      "source_id": "small_general_n4_k4_s45254",
+      "source_input": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-10-27\\partition_scaling_v4\\audit\\corpora\\stage1_v4\\inputs\\small_general_n4_k4_s45254.json",
+      "source_input_sha256": "d64a414741edac6b6f2068574485dc2209d14ede397e3b1ab3e3834d7cf94297",
+      "stage2_id": "small_small_general_n4_k4_s45254"
+    },
+    {
+      "source_id": "small_singleton_n4_k4_s45754",
+      "source_input": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-10-27\\partition_scaling_v4\\audit\\corpora\\stage1_v4\\inputs\\small_singleton_n4_k4_s45754.json",
+      "source_input_sha256": "3a789cc0c7d83ae642b56ae16ca529628d7461ba16dc699cd79e8c95cf405b4f",
+      "stage2_id": "small_small_singleton_n4_k4_s45754"
+    },
+    {
+      "source_id": "random_dfa_small_a4_k4_l24_s68400",
+      "source_input": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-10-27\\partition_scaling_v4\\audit\\corpora\\stage1_v4\\inputs\\random_dfa_small_a4_k4_l24_s68400.json",
+      "source_input_sha256": "48eff481c93cbfecd447ace6ef0367e310b8776ea836ab2a860fb2c5e220f142",
+      "stage2_id": "small_random_dfa_small_a4_k4_l24_s68400"
+    },
+    {
+      "source_id": "small_general_n4_k4_s45255",
+      "source_input": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-10-27\\partition_scaling_v4\\audit\\corpora\\stage1_v4\\inputs\\small_general_n4_k4_s45255.json",
+      "source_input_sha256": "c0b1fb4e3413a2bd8ca9a3bd0123dc452f7436f37062dec9ca7168a5567f5986",
+      "stage2_id": "small_small_general_n4_k4_s45255"
+    },
+    {
+      "source_id": "small_singleton_n4_k4_s45755",
+      "source_input": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-10-27\\partition_scaling_v4\\audit\\corpora\\stage1_v4\\inputs\\small_singleton_n4_k4_s45755.json",
+      "source_input_sha256": "ee344a604bf2672c179f640b144afa652ce63e3e76d92ebaf9a592f215cb978d",
+      "stage2_id": "small_small_singleton_n4_k4_s45755"
+    },
+    {
+      "source_id": "small_general_n5_k2_s45309",
+      "source_input": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-10-27\\partition_scaling_v4\\audit\\corpora\\stage1_v4\\inputs\\small_general_n5_k2_s45309.json",
+      "source_input_sha256": "23aa5b172d246813e05d7b88626664645194f2f90749123d1dceefbf2ca13b82",
+      "stage2_id": "small_small_general_n5_k2_s45309"
+    },
+    {
+      "source_id": "small_singleton_n5_k2_s45809",
+      "source_input": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-10-27\\partition_scaling_v4\\audit\\corpora\\stage1_v4\\inputs\\small_singleton_n5_k2_s45809.json",
+      "source_input_sha256": "15f4846806b4b8da22e7204ce5ae0d6d2531913bcd4d78f741736b27b92601da",
+      "stage2_id": "small_small_singleton_n5_k2_s45809"
+    },
+    {
+      "source_id": "random_dfa_small_a5_k2_l24_s69200",
+      "source_input": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-10-27\\partition_scaling_v4\\audit\\corpora\\stage1_v4\\inputs\\random_dfa_small_a5_k2_l24_s69200.json",
+      "source_input_sha256": "4e2c78dc59ecdbed04f231d29ced8bb8c2396cbf150250ead4485ecdc54e4000",
+      "stage2_id": "small_random_dfa_small_a5_k2_l24_s69200"
+    },
+    {
+      "source_id": "small_general_n5_k2_s45310",
+      "source_input": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-10-27\\partition_scaling_v4\\audit\\corpora\\stage1_v4\\inputs\\small_general_n5_k2_s45310.json",
+      "source_input_sha256": "63cbf71e7b8ddbd06eb5188fa210739c7c7abdec4abb2c7acfb5953b1718b354",
+      "stage2_id": "small_small_general_n5_k2_s45310"
+    },
+    {
+      "source_id": "small_singleton_n5_k2_s45810",
+      "source_input": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-10-27\\partition_scaling_v4\\audit\\corpora\\stage1_v4\\inputs\\small_singleton_n5_k2_s45810.json",
+      "source_input_sha256": "9d50aeda35420663fd46c6197dee88f56a8d606e9cd358c79264e871866a2b68",
+      "stage2_id": "small_small_singleton_n5_k2_s45810"
+    },
+    {
+      "source_id": "small_general_n5_k3_s45386",
+      "source_input": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-10-27\\partition_scaling_v4\\audit\\corpora\\stage1_v4\\inputs\\small_general_n5_k3_s45386.json",
+      "source_input_sha256": "e0885c2c752732d5ed62cddf48f6eb7cf49bed24bb50c669c5ff7af55afde389",
+      "stage2_id": "small_small_general_n5_k3_s45386"
+    },
+    {
+      "source_id": "small_singleton_n5_k3_s45886",
+      "source_input": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-10-27\\partition_scaling_v4\\audit\\corpora\\stage1_v4\\inputs\\small_singleton_n5_k3_s45886.json",
+      "source_input_sha256": "f910e7b9bed7970f099cd4a89e4185735c6ff822e3fb1ede7ed7dc5798c32725",
+      "stage2_id": "small_small_singleton_n5_k3_s45886"
+    },
+    {
+      "source_id": "random_dfa_small_a5_k3_l24_s69300",
+      "source_input": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-10-27\\partition_scaling_v4\\audit\\corpora\\stage1_v4\\inputs\\random_dfa_small_a5_k3_l24_s69300.json",
+      "source_input_sha256": "9375d8e775b3d5d120ef763b4d3bc1eff3f5408ed017ff4b9cce0c1fb8dc2ad4",
+      "stage2_id": "small_random_dfa_small_a5_k3_l24_s69300"
+    },
+    {
+      "source_id": "small_general_n5_k3_s45387",
+      "source_input": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-10-27\\partition_scaling_v4\\audit\\corpora\\stage1_v4\\inputs\\small_general_n5_k3_s45387.json",
+      "source_input_sha256": "ed9c38366f1be080d05e1e6af9e98f85fdbbacbcbb73bfc3dbc30d4d0c657180",
+      "stage2_id": "small_small_general_n5_k3_s45387"
+    },
+    {
+      "source_id": "small_singleton_n5_k3_s45887",
+      "source_input": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-10-27\\partition_scaling_v4\\audit\\corpora\\stage1_v4\\inputs\\small_singleton_n5_k3_s45887.json",
+      "source_input_sha256": "4f609e7eef64d0c78d652fe4002c218fd2a51418f3a40c6ad91babd12866654b",
+      "stage2_id": "small_small_singleton_n5_k3_s45887"
+    },
+    {
+      "source_id": "small_general_n5_k4_s45463",
+      "source_input": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-10-27\\partition_scaling_v4\\audit\\corpora\\stage1_v4\\inputs\\small_general_n5_k4_s45463.json",
+      "source_input_sha256": "eeacc4a885cbd2cb04897367ed7a55d1c4ed3ab65c2cacfaeb70c6678d380b67",
+      "stage2_id": "small_small_general_n5_k4_s45463"
+    },
+    {
+      "source_id": "small_singleton_n5_k4_s45963",
+      "source_input": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-10-27\\partition_scaling_v4\\audit\\corpora\\stage1_v4\\inputs\\small_singleton_n5_k4_s45963.json",
+      "source_input_sha256": "2f2c7d604a54352a1e0737f51026a867d7da6e5a97e29c20fdc014aa47539c31",
+      "stage2_id": "small_small_singleton_n5_k4_s45963"
+    },
+    {
+      "source_id": "random_dfa_small_a5_k4_l24_s69400",
+      "source_input": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-10-27\\partition_scaling_v4\\audit\\corpora\\stage1_v4\\inputs\\random_dfa_small_a5_k4_l24_s69400.json",
+      "source_input_sha256": "32193e227dffd0475c5643258ddc5e127bb4015e2b5b8769b5edaaa5187c0031",
+      "stage2_id": "small_random_dfa_small_a5_k4_l24_s69400"
+    },
+    {
+      "source_id": "small_general_n5_k4_s45464",
+      "source_input": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-10-27\\partition_scaling_v4\\audit\\corpora\\stage1_v4\\inputs\\small_general_n5_k4_s45464.json",
+      "source_input_sha256": "6c429f74bf0d0a6bfd9199b1624c99f95ebd02353adb3fe55de2f5b019aa8029",
+      "stage2_id": "small_small_general_n5_k4_s45464"
+    },
+    {
+      "source_id": "small_singleton_n5_k4_s45964",
+      "source_input": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-10-27\\partition_scaling_v4\\audit\\corpora\\stage1_v4\\inputs\\small_singleton_n5_k4_s45964.json",
+      "source_input_sha256": "3b28e423c5b2fd7eee10cf19048406c374ec5121a3437e6163eed095ddceb162",
+      "stage2_id": "small_small_singleton_n5_k4_s45964"
+    },
+    {
+      "source_id": "small_general_n6_k2_s45518",
+      "source_input": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-10-27\\partition_scaling_v4\\audit\\corpora\\stage1_v4\\inputs\\small_general_n6_k2_s45518.json",
+      "source_input_sha256": "170588f16ec8acf5c7099e2e8377cd729a37e3136d42524c98d74ac0a844b284",
+      "stage2_id": "small_small_general_n6_k2_s45518"
+    },
+    {
+      "source_id": "small_singleton_n6_k2_s46018",
+      "source_input": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-10-27\\partition_scaling_v4\\audit\\corpora\\stage1_v4\\inputs\\small_singleton_n6_k2_s46018.json",
+      "source_input_sha256": "1955537eba66231f214993d437f17a0fc7b92612b3a697f1f32278736d90df19",
+      "stage2_id": "small_small_singleton_n6_k2_s46018"
+    },
+    {
+      "source_id": "random_dfa_small_a6_k2_l24_s70200",
+      "source_input": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-10-27\\partition_scaling_v4\\audit\\corpora\\stage1_v4\\inputs\\random_dfa_small_a6_k2_l24_s70200.json",
+      "source_input_sha256": "7856638d04a3f8a732b5394d9858c2788e6152c83dc5f88bab3198d87ae48426",
+      "stage2_id": "small_random_dfa_small_a6_k2_l24_s70200"
+    },
+    {
+      "source_id": "small_general_n6_k2_s45519",
+      "source_input": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-10-27\\partition_scaling_v4\\audit\\corpora\\stage1_v4\\inputs\\small_general_n6_k2_s45519.json",
+      "source_input_sha256": "f99bf139b1fd39c9b04896413bc583f10298efd64e5ea127530acbf53b541041",
+      "stage2_id": "small_small_general_n6_k2_s45519"
+    },
+    {
+      "source_id": "small_singleton_n6_k2_s46019",
+      "source_input": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-10-27\\partition_scaling_v4\\audit\\corpora\\stage1_v4\\inputs\\small_singleton_n6_k2_s46019.json",
+      "source_input_sha256": "f4af8a20133de919331b72e69fa5c0b36df30d1d1f888352c034ddcd86df59d5",
+      "stage2_id": "small_small_singleton_n6_k2_s46019"
+    },
+    {
+      "source_id": "small_general_n6_k3_s45595",
+      "source_input": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-10-27\\partition_scaling_v4\\audit\\corpora\\stage1_v4\\inputs\\small_general_n6_k3_s45595.json",
+      "source_input_sha256": "b8de37cfda83045ac337f3a22a896160940773ebdf78d9b97c9fa23532f28aec",
+      "stage2_id": "small_small_general_n6_k3_s45595"
+    },
+    {
+      "source_id": "small_singleton_n6_k3_s46095",
+      "source_input": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-10-27\\partition_scaling_v4\\audit\\corpora\\stage1_v4\\inputs\\small_singleton_n6_k3_s46095.json",
+      "source_input_sha256": "ab762e75a4ea2eb3b2c344f66ea783c8b6163493c1cf27acbc7fbb906151dda8",
+      "stage2_id": "small_small_singleton_n6_k3_s46095"
+    },
+    {
+      "source_id": "random_dfa_small_a6_k3_l24_s70300",
+      "source_input": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-10-27\\partition_scaling_v4\\audit\\corpora\\stage1_v4\\inputs\\random_dfa_small_a6_k3_l24_s70300.json",
+      "source_input_sha256": "f12b0d7ff06047be6bbb91c8f11a76431e1f0c0cf11cc3e049aa35759b626548",
+      "stage2_id": "small_random_dfa_small_a6_k3_l24_s70300"
+    },
+    {
+      "source_id": "small_general_n6_k3_s45596",
+      "source_input": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-10-27\\partition_scaling_v4\\audit\\corpora\\stage1_v4\\inputs\\small_general_n6_k3_s45596.json",
+      "source_input_sha256": "d3942966e7c2a5fab13c5ce030986fd2b97e511a23c7c805c91aeb4dd7f1ebd9",
+      "stage2_id": "small_small_general_n6_k3_s45596"
+    },
+    {
+      "source_id": "small_singleton_n6_k3_s46096",
+      "source_input": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-10-27\\partition_scaling_v4\\audit\\corpora\\stage1_v4\\inputs\\small_singleton_n6_k3_s46096.json",
+      "source_input_sha256": "d0c57dda1340f9be5aa189a441594017eaf8167049d9b84672a5c9da6722e501",
+      "stage2_id": "small_small_singleton_n6_k3_s46096"
+    },
+    {
+      "source_id": "small_general_n6_k4_s45672",
+      "source_input": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-10-27\\partition_scaling_v4\\audit\\corpora\\stage1_v4\\inputs\\small_general_n6_k4_s45672.json",
+      "source_input_sha256": "e0d14146f836b806945e185cdca154e10486c8e98555c44dc8b99d31e04ed626",
+      "stage2_id": "small_small_general_n6_k4_s45672"
+    },
+    {
+      "source_id": "small_singleton_n6_k4_s46172",
+      "source_input": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-10-27\\partition_scaling_v4\\audit\\corpora\\stage1_v4\\inputs\\small_singleton_n6_k4_s46172.json",
+      "source_input_sha256": "a9fa67aa83402ec7d3563b6f7eddfe0a85e1c1bc5f2b3dca24a3503783a1fbbe",
+      "stage2_id": "small_small_singleton_n6_k4_s46172"
+    },
+    {
+      "source_id": "random_dfa_small_a6_k4_l24_s70400",
+      "source_input": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-10-27\\partition_scaling_v4\\audit\\corpora\\stage1_v4\\inputs\\random_dfa_small_a6_k4_l24_s70400.json",
+      "source_input_sha256": "293171662732e411f98a71274d0abf9dd16d870f1c89b2979329f8cbb7b3b9f7",
+      "stage2_id": "small_random_dfa_small_a6_k4_l24_s70400"
+    },
+    {
+      "source_id": "small_general_n6_k4_s45673",
+      "source_input": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-10-27\\partition_scaling_v4\\audit\\corpora\\stage1_v4\\inputs\\small_general_n6_k4_s45673.json",
+      "source_input_sha256": "984dd8830ba316937e43da53486ca8cf7cf2edda63d18e09af401e2d35dea301",
+      "stage2_id": "small_small_general_n6_k4_s45673"
+    },
+    {
+      "source_id": "small_singleton_n6_k4_s46173",
+      "source_input": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-10-27\\partition_scaling_v4\\audit\\corpora\\stage1_v4\\inputs\\small_singleton_n6_k4_s46173.json",
+      "source_input_sha256": "e3d1c46a772e98b5580d7c3575b81fcf2b58ca7deb3f460f804231ed21c281ae",
+      "stage2_id": "small_small_singleton_n6_k4_s46173"
+    },
+    {
+      "source_id": "small_general_n7_k2_s45727",
+      "source_input": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-10-27\\partition_scaling_v4\\audit\\corpora\\stage1_v4\\inputs\\small_general_n7_k2_s45727.json",
+      "source_input_sha256": "14b7d8be68b75fdabe9c955b9d10f89eda1484c3371b2603a20e43f5e2968cec",
+      "stage2_id": "small_small_general_n7_k2_s45727"
+    },
+    {
+      "source_id": "small_singleton_n7_k2_s46227",
+      "source_input": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-10-27\\partition_scaling_v4\\audit\\corpora\\stage1_v4\\inputs\\small_singleton_n7_k2_s46227.json",
+      "source_input_sha256": "9f322f52b2675cb6d2c906e19e75cc54e79c202f2bf70d0684dfbf476dbd8a23",
+      "stage2_id": "small_small_singleton_n7_k2_s46227"
+    },
+    {
+      "source_id": "random_dfa_small_a7_k2_l24_s71200",
+      "source_input": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-10-27\\partition_scaling_v4\\audit\\corpora\\stage1_v4\\inputs\\random_dfa_small_a7_k2_l24_s71200.json",
+      "source_input_sha256": "658d15b56e695c71366a745fbdfd0ff5b55b9a86bd32b24e72129655ba5b03c4",
+      "stage2_id": "small_random_dfa_small_a7_k2_l24_s71200"
+    },
+    {
+      "source_id": "small_general_n7_k2_s45728",
+      "source_input": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-10-27\\partition_scaling_v4\\audit\\corpora\\stage1_v4\\inputs\\small_general_n7_k2_s45728.json",
+      "source_input_sha256": "7524afbcd4560dd10c5bb1a591d7c7f0bbda953f98bef61b37c0a1fcd208e002",
+      "stage2_id": "small_small_general_n7_k2_s45728"
+    },
+    {
+      "source_id": "small_singleton_n7_k2_s46228",
+      "source_input": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-10-27\\partition_scaling_v4\\audit\\corpora\\stage1_v4\\inputs\\small_singleton_n7_k2_s46228.json",
+      "source_input_sha256": "b4a62d863cafbd1a387448388b81a616b395a300721c9f3307d3d2e227b9a370",
+      "stage2_id": "small_small_singleton_n7_k2_s46228"
+    },
+    {
+      "source_id": "small_general_n7_k3_s45804",
+      "source_input": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-10-27\\partition_scaling_v4\\audit\\corpora\\stage1_v4\\inputs\\small_general_n7_k3_s45804.json",
+      "source_input_sha256": "b9d2d363c05778a4022ddb86905656e330c066995dee04a87dec1220935372d1",
+      "stage2_id": "small_small_general_n7_k3_s45804"
+    },
+    {
+      "source_id": "small_singleton_n7_k3_s46304",
+      "source_input": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-10-27\\partition_scaling_v4\\audit\\corpora\\stage1_v4\\inputs\\small_singleton_n7_k3_s46304.json",
+      "source_input_sha256": "e469b8e0b05589dd2b547f92ce6521ac0148cb888f91be4a16ca28b4b5faa8dd",
+      "stage2_id": "small_small_singleton_n7_k3_s46304"
+    },
+    {
+      "source_id": "random_dfa_small_a7_k3_l24_s71300",
+      "source_input": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-10-27\\partition_scaling_v4\\audit\\corpora\\stage1_v4\\inputs\\random_dfa_small_a7_k3_l24_s71300.json",
+      "source_input_sha256": "f42640e6b09fd0e69750bebd981f613319760aa4fe58a26389a821c6ed2e3f0f",
+      "stage2_id": "small_random_dfa_small_a7_k3_l24_s71300"
+    },
+    {
+      "source_id": "small_general_n7_k3_s45805",
+      "source_input": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-10-27\\partition_scaling_v4\\audit\\corpora\\stage1_v4\\inputs\\small_general_n7_k3_s45805.json",
+      "source_input_sha256": "bf91a09ac8c950ab8c1f4d2dbe2e67582e7c901342c9a0250b3e4cef4e33e995",
+      "stage2_id": "small_small_general_n7_k3_s45805"
+    },
+    {
+      "source_id": "small_singleton_n7_k3_s46305",
+      "source_input": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-10-27\\partition_scaling_v4\\audit\\corpora\\stage1_v4\\inputs\\small_singleton_n7_k3_s46305.json",
+      "source_input_sha256": "c8d0d061755ac1c170e6f49dc0f5c18da9afb2332ec39a87692ff55035e5d47e",
+      "stage2_id": "small_small_singleton_n7_k3_s46305"
+    },
+    {
+      "source_id": "small_general_n7_k4_s45881",
+      "source_input": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-10-27\\partition_scaling_v4\\audit\\corpora\\stage1_v4\\inputs\\small_general_n7_k4_s45881.json",
+      "source_input_sha256": "51b2abf1b490d87df40aed0d7b9dd02656d65defeb980f7957905a31dbef2292",
+      "stage2_id": "small_small_general_n7_k4_s45881"
+    },
+    {
+      "source_id": "small_singleton_n7_k4_s46381",
+      "source_input": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-10-27\\partition_scaling_v4\\audit\\corpora\\stage1_v4\\inputs\\small_singleton_n7_k4_s46381.json",
+      "source_input_sha256": "6ef4053b7b0cb8b8869917073dcb33994202659930da222df79fbe31ddddcbf8",
+      "stage2_id": "small_small_singleton_n7_k4_s46381"
+    },
+    {
+      "source_id": "random_dfa_small_a7_k4_l24_s71400",
+      "source_input": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-10-27\\partition_scaling_v4\\audit\\corpora\\stage1_v4\\inputs\\random_dfa_small_a7_k4_l24_s71400.json",
+      "source_input_sha256": "3073a78a693d97ed5eff1cecaef35222220bc29dfc33b9d6c529d6231bb5329f",
+      "stage2_id": "small_random_dfa_small_a7_k4_l24_s71400"
+    },
+    {
+      "source_id": "small_general_n7_k4_s45882",
+      "source_input": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-10-27\\partition_scaling_v4\\audit\\corpora\\stage1_v4\\inputs\\small_general_n7_k4_s45882.json",
+      "source_input_sha256": "b2324b83c9ab3951fbb0ea89a01a8f3f52d439a69976d053fc10dd3d52d0acfb",
+      "stage2_id": "small_small_general_n7_k4_s45882"
+    },
+    {
+      "source_id": "small_singleton_n7_k4_s46382",
+      "source_input": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-10-27\\partition_scaling_v4\\audit\\corpora\\stage1_v4\\inputs\\small_singleton_n7_k4_s46382.json",
+      "source_input_sha256": "6876d5c1c84a74429240cb688bac600119f7bd96abe001c516b2e4b095875337",
+      "stage2_id": "small_small_singleton_n7_k4_s46382"
+    }
+  ],
+  "q2_constructive_case_ids": [
+    "q2_positive_only_m8_k2",
+    "q2_positive_only_m16_k4",
+    "q2_positive_only_m32_k4",
+    "q2_positive_only_m128_k8"
+  ],
+  "contextual_case_ids": [
+    "context_pair_star_a32_k4_L128",
+    "context_pair_star_a32_k4_L1024",
+    "context_pair_star_a32_k8_L4096",
+    "context_pair_star_a128_k8_L1024"
+  ],
+  "root_cli_case_ids": [
+    "cli_infer_singleton_k",
+    "cli_sparse_three_color_ambiguous",
+    "cli_sparse_three_color_disambiguated",
+    "cli_three_factor_certificate",
+    "cli_three_factor_two_words"
+  ]
+}

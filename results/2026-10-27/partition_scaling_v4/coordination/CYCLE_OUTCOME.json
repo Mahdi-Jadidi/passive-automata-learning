@@ -1,0 +1,103 @@
+{
+  "cycle": "C004",
+  "at_utc": "2026-10-29T09:06:21.383729+00:00",
+  "client_delivery_date": "2026-10-29",
+  "research_round_complete": true,
+  "scientific_status": "verified_under_declared_assumptions",
+  "execution_status": "required_accepted_studies_complete",
+  "active_entrypoint": "solver_v2.py",
+  "runtime": {
+    "path": "coordination/runtime_final.json",
+    "sha256": "323470b338454f69d85de0074e22174fe0fc6ca936fb10572bf97ece92278330"
+  },
+  "accepted_reports": [
+    {
+      "path": "audit/stage1_gate_report_v1.json",
+      "sha256": "d73f6f7175bb1948c9529a8c22284f84d8c21b98b2e554a6cc7622f6614b9fcb"
+    },
+    {
+      "path": "audit/stage1_performance_report_v2.json",
+      "sha256": "e4f79008b1e84826d0ddc2999d35e76e98aeadc30f9a176357208dc432c637dc"
+    },
+    {
+      "path": "audit/stage2_gate_report_v1.json",
+      "sha256": "f1ab159020e3b16d8e6ce80e9989b68e3ec646d898e45cb323a1ed436883adcf"
+    },
+    {
+      "path": "audit/stage2_timing_gate_v1.json",
+      "sha256": "89bd39d109d3751e00951bcd5570294e6d2f69d84d22629555074bd4654a8d1e"
+    }
+  ],
+  "delivery_artifacts": [
+    {
+      "path": "RESEARCH_REPORT_FA.md",
+      "sha256": "e01a901c0a7b532640fdf26c45b2fcc778bd209cdb8d872201f9da0fa39a2525"
+    },
+    {
+      "path": "README_FA.md",
+      "sha256": "801e23c0ea7b10517ac35f0c9cffce7c89ce7a35294b6ea1da17bf0ac124e450"
+    },
+    {
+      "path": "MASTER_DECISION_FA.md",
+      "sha256": "a96972efa1cb42c3e84f98b093c8e172a4251190c741daee6a3ae8e3a92c6880"
+    },
+    {
+      "path": "coordination/report_promotion.json",
+      "sha256": "581161e9545b54a00e2d98092f781c57a9c93b72ba1ceb3eb6cc0a12d1dec724"
+    },
+    {
+      "path": "coordination/AUDIT_REPORTING_ERRATA.md",
+      "sha256": "c3d012c9f732a769534ff689db4823da90fbc10a0ac0f9b57a9a07a3100ec3c5"
+    }
+  ],
+  "byte_integrity": {
+    "path": "coordination/integrity_runs/20261029T090333.672199Z_8f85e63e/result.json",
+    "sha256": "532217ea17c558595b2e1cefcdd6097eb84d4fb0ce6da64cba1ee61637f719ff"
+  },
+  "byte_comparisons": 1534,
+  "delivery_links_checked": 87,
+  "scope_counts": {
+    "stage1_frozen_case_records": 212,
+    "stage1_small_full_sets": 80,
+    "stage1_parent_k2_bridges": 33,
+    "stage1_measured_rows": 63,
+    "stage1_validation_pass": 59,
+    "stage1_censored": 4,
+    "stage2_case_records": 107,
+    "stage2_canonical_payloads": 104,
+    "stage2_duplicate_payload_groups": 3,
+    "stage2_s002_full_sets": 82,
+    "stage2_general_q2_full_sets": 88,
+    "stage2_qop_scale_certificates": 4,
+    "stage2_long_context_unique_cases": 4,
+    "stage2_cli_command_checks": 12,
+    "stage2_matched_wall_jobs": 12,
+    "stage2_allocation_jobs": 3,
+    "stage2_incomplete_large_exact_wall_jobs": 3,
+    "counts_are_not_additive_independent_observations": true
+  },
+  "captured_attempt_statuses": {
+    "capture_error": 1,
+    "environment_error": 2,
+    "success": 134,
+    "program_error": 13
+  },
+  "unfinished_capture_records": [],
+  "all_measured_provider_invocations_have_captures": true,
+  "historical_pre_execution_archive_complete": false,
+  "explicit_archival_gap": {
+    "path": "audit/stage2_timing_preservation_inventory_v1.json",
+    "sha256": "413fd467e3613285ea7f1dff8e6d6d930a034d794dde662e847685fa96ed17cc"
+  },
+  "historical_bytes_reconstructed": false,
+  "previous_cycles_unchanged": true,
+  "future_unexecuted_ideas": "coordination/NEXT_IDEAS.json",
+  "automatic_new_cycle": false,
+  "limits": [
+    "class-conditional identification, not arbitrary passive DFA recovery",
+    "selected synthetic coverage families; exponential search remains possible",
+    "RPNI and empirical state-explosion reduction not tested",
+    "historical zero-job protocol/freeze/executor bytes missing, explicitly recorded"
+  ],
+  "script_sha256": "54ab910242da18d22bfc7487b9e2812a04a9340281d97590a66ba18d11ba60c9"
+}

@@ -1,0 +1,41 @@
+{
+  "at_utc": "2026-10-29T08:39:41.114060+00:00",
+  "client_acceptance_date": "2026-10-29",
+  "gate": "audit/stage2_gate_report_v1.json",
+  "gate_sha256": "f1ab159020e3b16d8e6ce80e9989b68e3ec646d898e45cb323a1ed436883adcf",
+  "scientific_status": "verified_under_declared_assumptions",
+  "case_records": 107,
+  "canonical_normalized_payloads": 104,
+  "duplicate_payload_groups": 3,
+  "active_entrypoint": "solver_v2.py",
+  "serial_timing_authorization": {
+    "worker": "/root/auditor_v4",
+    "class_name": "known-k finite local languages of at most two words",
+    "methods": [
+      "general V3 with local_word_cap=2",
+      "QOP001 bounded certificate"
+    ],
+    "max_solutions": 2,
+    "cells": [
+      {
+        "alphabet": 16,
+        "k": 4
+      },
+      {
+        "alphabet": 128,
+        "k": 8
+      }
+    ],
+    "repetitions": 3,
+    "wall_jobs": 12,
+    "allocation_jobs_at_most": 3,
+    "total_jobs_at_most": 15,
+    "output_scope": "full API result serialized in child; independent validation after raw capture",
+    "hard_seconds_per_job": 30,
+    "per_provider_budget_seconds": 900,
+    "allocation_scope": "separate runs; state exact tracemalloc scope, not RSS",
+    "censor_incomplete": true,
+    "other_worker_provider_runs": "not permitted during timing window"
+  },
+  "next": "Close measured subset, final report, one byte-integrity scan and scoped local Git commit."
+}

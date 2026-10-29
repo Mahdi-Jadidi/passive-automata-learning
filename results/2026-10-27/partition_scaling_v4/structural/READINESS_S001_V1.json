@@ -1,0 +1,40 @@
+{
+  "stage": 1,
+  "smoke_attempt": "20261027T085749.218619Z_77a38b329e",
+  "execution_status": "ready",
+  "source_files": [
+    {
+      "bytes": 10270,
+      "name": "singleton_solver_v1.py",
+      "sha256": "16065fdfabf52d4280e3c0f5a7f427faff8990583579bd97b4ea64f70c5a023e"
+    },
+    {
+      "bytes": 3847,
+      "name": "smoke_s001_v1.py",
+      "sha256": "b69015f65748adbc7eeac8d89401ec5bcea2edccb8b7cd2598b765e5a0b61168"
+    },
+    {
+      "bytes": 4573,
+      "name": "PROOFS_S001.md",
+      "sha256": "437167d2c294ef3c4ef13f2be8c3dafc4cd0c7dfd1ff0156ac738270ae9f1d84"
+    },
+    {
+      "bytes": 2644,
+      "name": "SOURCES_S001.md",
+      "sha256": "0183a6915965ff043de9487e1a0c8a6f4f3bb91b8a03f327f2b6a7c9dd6d0c53"
+    }
+  ],
+  "certificate_scope": "complete k-partite any k; connected bipartite k2 only",
+  "scientific_status": "proof_and_smoke_passed_pending_independent_audit",
+  "parents": [
+    "C003-S001@f7ae918a"
+  ],
+  "api": "solve(data, *, k=None, deadline=None, max_solutions=1)",
+  "idea_id": "C004-S001",
+  "official_performance": "not_run",
+  "limitations": [
+    "sparse opposition unresolved",
+    "no positives unresolved",
+    "no general regular uniqueness"
+  ]
+}

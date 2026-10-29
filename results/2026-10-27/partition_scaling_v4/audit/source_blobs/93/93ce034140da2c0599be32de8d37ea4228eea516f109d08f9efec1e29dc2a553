@@ -1,0 +1,821 @@
+"""Independent Stage-2 correctness, certificate, boundary, and CLI audit.
+
+Every provider result is written to stdout in full before its independent
+assertions. Capture this program through audit/run_captured_v2.py with all
+provider sources and corpus inputs supplied as source snapshots.
+"""
+from __future__ import annotations
+
+import argparse
+import contextlib
+import hashlib
+import importlib
+import importlib.util
+import io
+import json
+import math
+import subprocess
+import sys
+import time
+from pathlib import Path
+
+HERE = Path(__file__).resolve().parent
+PROJECT = HERE.parent
+CORPUS = HERE / "corpora" / "stage2_v1"
+QOP_ADDENDUM = HERE / "corpora" / "stage2_qop_addendum_v1"
+STAGE1_CORPUS = HERE / "corpora" / "stage1_v4"
+RUNTIME = PROJECT / "coordination" / "runtime_stage2_r2.json"
+KNOWN_V3 = PROJECT / "general" / "known_k_v3.py"
+S1 = PROJECT / "structural" / "singleton_solver_v1.py"
+S2 = PROJECT / "structural" / "singleton_solver_v2.py"
+S3 = PROJECT / "structural" / "singleton_solver_v3.py"
+S4 = PROJECT / "structural" / "singleton_solver_v4.py"
+QOP = PROJECT / "structural" / "bounded_certificate_v1.py"
+CLI = PROJECT / "solver_v2.py"
+PYTHON = Path(sys.executable)
+
+
+def digest(path: Path) -> str:
+    return hashlib.sha256(path.read_bytes()).hexdigest()
+
+
+def read_json(path: Path):
+    return json.loads(path.read_text(encoding="utf-8-sig"))
+
+
+def emit(value) -> None:
+    sys.stdout.write(json.dumps(value, ensure_ascii=False, sort_keys=True,
+                                 separators=(",", ":")) + "\n")
+    sys.stdout.flush()
+
+
+def canonical(blocks):
+    return tuple(sorted(tuple(sorted(block)) for block in blocks))
+
+
+def project(word: str, block) -> str:
+    members = set(block)
+    return "".join(ch for ch in word if ch in members)
+
+
+def partitions(alphabet, k):
+    alphabet = sorted(alphabet)
+    if not alphabet or not 1 <= k <= len(alphabet):
+        return
+    labels = [0]
+
+    def visit(highest):
+        pos = len(labels)
+        if pos == len(alphabet):
+            if highest + 1 == k:
+                yield [[a for a, label in zip(alphabet, labels) if label == side]
+                       for side in range(k)]
+            return
+        for side in range(min(highest + 1, k - 1) + 1):
+            labels.append(side)
+            yield from visit(max(highest, side))
+            labels.pop()
+
+    yield from visit(0)
+
+
+def oracle(data, k, q=None):
+    positives = sorted(set(data["positive"]))
+    negatives = sorted(set(data["negative"]))
+    answers = []
+    for blocks in partitions(data["alphabet"], k):
+        languages = [{project(word, block) for word in positives} for block in blocks]
+        if q is not None and any(len(language) > q for language in languages):
+            continue
+        if any(all(project(word, block) in language
+                   for block, language in zip(blocks, languages)) for word in negatives):
+            continue
+        answers.append(canonical(blocks))
+    return sorted(answers)
+
+
+def unknown_singleton_oracle(data):
+    if not data["positive"]:
+        return None
+    answers = []
+    for k in range(1, len(data["alphabet"]) + 1):
+        answers.extend(oracle(data, k, q=1))
+    return sorted(set(answers))
+
+
+def load_module(name, path):
+    spec = importlib.util.spec_from_file_location(name, path)
+    module = importlib.util.module_from_spec(spec)
+    sys.modules[name] = module
+    spec.loader.exec_module(module)
+    return module
+
+
+def providers():
+    structural_dir = str(PROJECT / "structural")
+    if structural_dir not in sys.path:
+        sys.path.insert(0, structural_dir)
+    s1 = importlib.import_module("singleton_solver_v1")
+    s2 = importlib.import_module("singleton_solver_v2")
+    s4 = importlib.import_module("singleton_solver_v4")
+    qop = importlib.import_module("bounded_certificate_v1")
+    general = load_module("c004_audit_known_k_v3", KNOWN_V3)
+    return {"s1": s1, "s2": s2, "s4": s4, "qop": qop, "general": general}
+
+
+def case_rows():
+    manifest = read_json(CORPUS / "manifest.json")
+    freeze = read_json(CORPUS / "freeze_v1.json")
+    if freeze["manifest_sha256"] != digest(CORPUS / "manifest.json"):
+        raise AssertionError("stage2 corpus manifest hash changed")
+    if freeze["generator_sha256"] != digest(HERE / "generate_stage2_corpus_v1.py"):
+        raise AssertionError("stage2 corpus generator hash changed")
+    rows = {row["id"]: row for row in manifest["cases"]}
+    for row in manifest["cases"]:
+        ip = CORPUS / row["input"]
+        if digest(ip) != row["input_sha256"]:
+            raise AssertionError(f"input hash mismatch: {row['id']}")
+        if row["truth"]:
+            tp = CORPUS / row["truth"]
+            if digest(tp) != row["truth_sha256"]:
+                raise AssertionError(f"truth hash mismatch: {row['id']}")
+    return manifest, rows
+
+
+def load_case(rows, case_id):
+    row = rows[case_id]
+    return read_json(CORPUS / row["input"]), row
+
+
+def solution_errors(data, solution, q=None):
+    errors = []
+    blocks = solution.get("blocks")
+    if not isinstance(blocks, list) or not blocks or any(not block for block in blocks):
+        return ["malformed_blocks"]
+    flat = [symbol for block in blocks for symbol in block]
+    if sorted(flat) != sorted(data["alphabet"]) or len(flat) != len(set(flat)):
+        errors.append("blocks_do_not_partition_alphabet")
+    positives = sorted(set(data["positive"]))
+    negatives = sorted(set(data["negative"]))
+    languages = [{project(word, block) for word in positives} for block in blocks]
+    if q is not None and any(len(language) > q for language in languages):
+        errors.append("full_block_q_cap_violated")
+    expected_languages = [sorted(language) for language in languages]
+    reported = solution.get("positive_projection_languages")
+    if reported is not None and reported != expected_languages:
+        errors.append("reported_positive_projection_sets_mismatch")
+    if solution.get("local_words") is not None:
+        local_words = solution["local_words"]
+        if len(local_words) != len(blocks):
+            errors.append("local_word_count_mismatch")
+        elif any(language != {local_words[i]} for i, language in enumerate(languages)):
+            errors.append("singleton_local_word_mismatch")
+    witness_by_word = {w.get("negative"): w for w in solution.get("negative_witnesses", [])}
+    if len(witness_by_word) != len(solution.get("negative_witnesses", [])):
+        errors.append("duplicate_negative_witness")
+    if set(witness_by_word) != set(negatives):
+        errors.append("negative_witness_coverage_mismatch")
+    for word in negatives:
+        unseen = [i for i, block in enumerate(blocks)
+                  if project(word, block) not in languages[i]]
+        if not unseen:
+            errors.append("returned_partition_accepts_negative")
+            continue
+        witness = witness_by_word.get(word)
+        if witness is None:
+            continue
+        index = witness.get("block_index")
+        if not isinstance(index, int) or index not in unseen:
+            errors.append("negative_witness_block_invalid")
+        elif witness.get("projection") != project(word, blocks[index]):
+            errors.append("negative_witness_projection_invalid")
+        if sorted(witness.get("all_unseen_block_indices", [])) != unseen:
+            errors.append("negative_witness_unseen_set_invalid")
+    return errors
+
+
+def result_errors(data, result, expected, q=None, require_exhausted=True):
+    errors = []
+    if result.get("status") not in ("found", "infeasible"):
+        errors.append("unexpected_nonterminal_status:" + str(result.get("status")))
+    if require_exhausted and not result.get("search_exhausted"):
+        errors.append("expected_complete_search")
+    solutions = result.get("solutions", [])
+    got = sorted(canonical(solution.get("blocks", [])) for solution in solutions)
+    if got != expected:
+        errors.append("full_partition_set_mismatch")
+    if len(got) != len(set(got)):
+        errors.append("duplicate_partition_output")
+    for solution in solutions:
+        errors.extend(solution_errors(data, solution, q=q))
+    return errors
+
+
+def truth_blocks(rows, case_id):
+    row = rows[case_id]
+    if not row.get("truth"):
+        return None
+    return canonical(read_json(CORPUS / row["truth"]).get("target_blocks", []))
+
+
+def verified_source_bindings():
+    runtime = read_json(RUNTIME)
+    errors = []
+    hashes = {}
+    for record in runtime["files"]:
+        path = PROJECT / record["path"]
+        actual = digest(path)
+        hashes[record["path"]] = actual
+        if actual != record["sha256"]:
+            errors.append(f"runtime_hash_mismatch:{record['path']}")
+    if digest(S3) != "146898b89ac3df0878e8e156e60f4826b6b83b879473d6ebf19c9bad954c8ab0":
+        errors.append("historical_v3_hash_mismatch")
+    return hashes, errors
+
+
+def qop_graph_errors(data, result, q, target_blocks=None):
+    errors = []
+    positives = sorted(set(data["positive"]))
+    alphabet = sorted(data["alphabet"])
+    actual_edges = set()
+    for i, a in enumerate(alphabet):
+        for b in alphabet[i + 1:]:
+            values = {project(word, [a, b]) for word in positives}
+            if len(values) > q:
+                actual_edges.add((a, b))
+    reported_edges = {tuple(sorted(edge)) for edge in result.get("graph", {}).get("edges", [])}
+    if reported_edges != actual_edges:
+        errors.append("q_opposition_edge_set_mismatch")
+    witnesses = result.get("graph", {}).get("edge_witnesses", [])
+    by_edge = {tuple(sorted(row.get("symbols", []))): row for row in witnesses}
+    if set(by_edge) != reported_edges:
+        errors.append("q_opposition_edge_witness_coverage_mismatch")
+    for edge in sorted(reported_edges):
+        witness = by_edge.get(edge, {})
+        indices = witness.get("positive_indices", [])
+        values = witness.get("pair_projections", [])
+        if len(indices) != q + 1 or len(values) != q + 1 or len(set(values)) != q + 1:
+            errors.append("q_opposition_witness_threshold_invalid:" + "".join(edge))
+            continue
+        if any(not isinstance(index, int) or not 0 <= index < len(positives)
+               for index in indices):
+            errors.append("q_opposition_witness_index_invalid:" + "".join(edge))
+            continue
+        for index, value in zip(indices, values):
+            if project(positives[index], edge) != value:
+                errors.append("q_opposition_witness_projection_invalid:" + "".join(edge))
+                break
+    if target_blocks is not None:
+        owner = {symbol: i for i, block in enumerate(target_blocks) for symbol in block}
+        expected = {tuple(sorted((a, b))) for i, a in enumerate(alphabet)
+                    for b in alphabet[i + 1:] if owner[a] != owner[b]}
+        if reported_edges != expected:
+            errors.append("target_not_exact_complete_k_partite_q_graph")
+    return errors
+
+
+def run_sparse(prov, manifest, rows):
+    failures, summary = [], []
+    selected = [row for row in manifest["cases"] if row["family"] == "small_fullset_import"]
+    selected += [rows["sparse_k3_ambiguous"], rows["sparse_k3_disambiguated"]]
+    for row in selected:
+        data = read_json(CORPUS / row["input"])
+        if data["positive"]:
+            expected = oracle(data, data["k"], q=1)
+            result = prov["s2"].solve(data, k=data["k"], max_solutions=None)
+            check = result_errors(data, result, expected, q=1)
+        else:
+            expected = None
+            result = prov["s2"].solve(data, k=data["k"], max_solutions=None)
+            check = [] if result.get("status") == "insufficient_coverage" and not result.get("solutions") else ["empty_positive_should_be_unresolved"]
+        record = {"kind": "S002-known-k-singleton-fullset", "case": row["id"],
+                  "input_sha256": row["input_sha256"], "oracle_count": len(expected) if expected is not None else None,
+                  "oracle_partitions": expected, "raw_result": result, "check_errors": check}
+        emit(record)
+        if check:
+            failures.extend(f"{row['id']}:{error}" for error in check)
+        if row["id"] == "sparse_k3_ambiguous" and expected is not None and len(expected) != 3:
+            failures.append("sparse_k3_ambiguous_expected_three")
+        if row["id"] == "sparse_k3_disambiguated" and expected is not None and len(expected) != 1:
+            failures.append("sparse_k3_disambiguated_expected_one")
+        summary.append({"case": row["id"], "oracle_count": len(expected) if expected is not None else None,
+                        "status": result.get("status"), "exhausted": result.get("search_exhausted"),
+                        "check_errors": check})
+    return failures, summary
+
+
+def run_q2_small(prov, manifest, rows):
+    failures, summary = [], []
+    selected = [row for row in manifest["cases"] if row["family"] == "small_fullset_import"]
+    selected += [row for row in manifest["cases"] if row["family"] == "q2_small_control"]
+    for row in selected:
+        data = read_json(CORPUS / row["input"])
+        expected = oracle(data, data["k"], q=2)
+        result = prov["general"].solve(data, k=data["k"], max_solutions=None, local_word_cap=2)
+        check = result_errors(data, result, expected, q=2)
+        record = {"kind": "general-v3-q2-fullset", "case": row["id"],
+                  "input_sha256": row["input_sha256"], "oracle_count": len(expected),
+                  "oracle_partitions": expected, "raw_result": result, "check_errors": check}
+        emit(record)
+        if check:
+            failures.extend(f"{row['id']}:{error}" for error in check)
+        summary.append({"case": row["id"], "oracle_count": len(expected),
+                        "provider_status": result.get("status"), "check_errors": check})
+    # q=1 and q=2 differ on positive-only controls; compare both complete sets.
+    for case_id in ("q2_one_projection_control", "q2_two_projection_control",
+                    "q2_three_projection_violation", "q2_repeated_projection_control",
+                    "q2_naive_threshold_counterexample", "q2_pairwise_full_block_cap_failure"):
+        data, row = load_case(rows, case_id)
+        expected = oracle(data, data["k"], q=1)
+        result = prov["general"].solve(data, k=data["k"], max_solutions=None, local_word_cap=1)
+        check = result_errors(data, result, expected, q=1)
+        emit({"kind": "general-v3-q1-fullset-control", "case": case_id,
+              "oracle_count": len(expected), "oracle_partitions": expected,
+              "raw_result": result, "check_errors": check})
+        if check:
+            failures.extend(f"{case_id}:{error}" for error in check)
+    return failures, summary
+
+
+def run_qop_controls(prov, rows):
+    failures, summary = [], []
+    for row in (row for row in rows.values() if row["family"] == "q2_small_control"):
+        data = read_json(CORPUS / row["input"])
+        expected = oracle(data, data["k"], q=2)
+        result = prov["qop"].solve(data, k=data["k"], local_word_cap=2, max_solutions=None)
+        check = qop_graph_errors(data, result, q=2)
+        if result.get("status") == "found":
+            check.extend(result_errors(data, result, expected, q=2, require_exhausted=True))
+            if result.get("uniqueness") != "unique" or len(expected) != 1:
+                check.append("qop_claimed_unique_without_singleton_oracle_set")
+        elif result.get("status") == "infeasible":
+            if expected:
+                check.append("qop_infeasible_but_oracle_has_solution")
+            if row["id"] == "q2_pairwise_full_block_cap_failure":
+                if result.get("reason") != "forced_candidate_exceeds_q_full_block_words":
+                    check.append("full_block_cap_failure_control_did_not_reach_cap_check")
+        elif result.get("status") == "insufficient_coverage":
+            if result.get("solutions"):
+                check.append("qop_insufficient_coverage_returned_solution")
+        else:
+            check.append("unexpected_qop_status:" + str(result.get("status")))
+        record = {"kind": "QOP001-q2-certificate-control", "case": row["id"],
+                  "input_sha256": row["input_sha256"], "oracle_count": len(expected),
+                  "oracle_partitions": expected, "raw_result": result, "check_errors": check}
+        emit(record)
+        if check:
+            failures.extend(f"{row['id']}:{error}" for error in check)
+        summary.append({"case": row["id"], "oracle_count": len(expected),
+                        "status": result.get("status"), "check_errors": check})
+    return failures, summary
+
+
+def run_q2_large(prov, manifest, rows):
+    failures, summary = [], []
+    for case_id in manifest["q2_constructive_case_ids"]:
+        data, row = load_case(rows, case_id)
+        hidden = read_json(CORPUS / row["truth"])
+        target = canonical(hidden["target_blocks"])
+        cert = prov["qop"].solve(data, k=data["k"], local_word_cap=2, max_solutions=1)
+        errors = qop_graph_errors(data, cert, q=2, target_blocks=hidden["target_blocks"])
+        errors.extend(solution_errors(data, cert["solutions"][0], q=2)
+                      if len(cert.get("solutions", [])) == 1 else ["certificate_answer_missing"])
+        if cert.get("status") != "found" or cert.get("uniqueness") != "unique":
+            errors.append("q2_constructive_certificate_not_unique")
+        elif canonical(cert["solutions"][0]["blocks"]) != target:
+            errors.append("q2_certificate_wrong_hidden_target")
+        record = {"kind": "QOP001-positive-only-constructive", "case": case_id,
+                  "input_sha256": row["input_sha256"], "target_sidecar_sha256": row["truth_sha256"],
+                  "raw_result": cert, "check_errors": errors}
+        emit(record)
+        if errors:
+            failures.extend(f"{case_id}:{error}" for error in errors)
+        summary.append({"case": case_id, "status": cert.get("status"),
+                        "uniqueness": cert.get("uniqueness"), "edges": len(cert.get("graph", {}).get("edges", [])),
+                        "errors": errors})
+        # General capped search: exhaustive only for the affordable m=8 cell;
+        # larger cells are bounded first-answer checks and may honestly time out.
+        deadline = time.perf_counter() + (10 if row["alphabet_size"] <= 32 else 8)
+        max_solutions = None if row["alphabet_size"] == 8 else 2
+        general = prov["general"].solve(data, k=data["k"], local_word_cap=2,
+                                        max_solutions=max_solutions, deadline=deadline)
+        expected = oracle(data, data["k"], q=2) if row["alphabet_size"] == 8 else None
+        general_errors = []
+        if expected is not None:
+            general_errors = result_errors(data, general, expected, q=2)
+        else:
+            for solution in general.get("solutions", []):
+                general_errors.extend(solution_errors(data, solution, q=2))
+                if canonical(solution.get("blocks", [])) != target:
+                    general_errors.append("large_q2_search_answer_conflicts_with_unique_certificate")
+            if general.get("status") == "infeasible" and general.get("search_exhausted"):
+                general_errors.append("large_q2_exact_search_refuted_certified_constructive_fit")
+        emit({"kind": "general-v3-q2-constructive-search", "case": case_id,
+              "max_solutions": max_solutions, "oracle_count": len(expected) if expected is not None else None,
+              "oracle_partitions": expected, "raw_result": general, "check_errors": general_errors})
+        if general_errors:
+            failures.extend(f"{case_id}:general:{error}" for error in general_errors)
+        # q=1 is checked exhaustively only on the m=8 sample; cap one is
+        # refuted on every positive-only cell by the varied local projection.
+        if row["alphabet_size"] == 8:
+            q1_expected = oracle(data, data["k"], q=1)
+            q1 = prov["general"].solve(data, k=data["k"], max_solutions=None,
+                                       local_word_cap=1, deadline=time.perf_counter()+10)
+            q1_errors = result_errors(data, q1, q1_expected, q=1)
+            if q1_expected:
+                q1_errors.append("unexpected_q1_fit_for_two_local_word_constructor")
+            emit({"kind": "general-v3-q1-constructive-control", "case": case_id,
+                  "oracle_count": len(q1_expected), "raw_result": q1, "check_errors": q1_errors})
+            if q1_errors:
+                failures.extend(f"{case_id}:q1:{error}" for error in q1_errors)
+
+    # Public tiny example: independently establish 1 q2 solution, no q1
+    # solution, and all 7 unrestricted k=2 partitions.
+    add_manifest = read_json(QOP_ADDENDUM / "manifest.json")
+    add_freeze = read_json(QOP_ADDENDUM / "freeze_v1.json")
+    if add_freeze["manifest_sha256"] != digest(QOP_ADDENDUM / "manifest.json"):
+        failures.append("qop_addendum_manifest_hash_mismatch")
+    add_path = QOP_ADDENDUM / add_manifest["input"]
+    if digest(add_path) != add_manifest["input_sha256"]:
+        failures.append("qop_addendum_input_hash_mismatch")
+    data = read_json(add_path)
+    target = canonical(read_json(QOP_ADDENDUM / add_manifest["truth"])["target_blocks"])
+    expected_q2 = oracle(data, data["k"], q=2)
+    expected_q1 = oracle(data, data["k"], q=1)
+    expected_any = oracle(data, data["k"], q=None)
+    qcert = prov["qop"].solve(data, k=data["k"], local_word_cap=2, max_solutions=1)
+    qcert_errors = qop_graph_errors(data, qcert, q=2, target_blocks=[["a", "b"], ["c", "d"]])
+    qcert_errors.extend(result_errors(data, qcert, expected_q2, q=2))
+    if len(expected_q2) != 1 or expected_q2[0] != target:
+        qcert_errors.append("tiny_q2_oracle_not_unique_target")
+    if expected_q1 or len(expected_any) != 7:
+        qcert_errors.append("tiny_q1_or_unrestricted_scope_control_invalid")
+    bounded = prov["general"].solve(data, k=data["k"], max_solutions=None, local_word_cap=2)
+    bounded_errors = result_errors(data, bounded, expected_q2, q=2)
+    unrestricted = prov["general"].solve(data, k=data["k"], max_solutions=None, local_word_cap=None)
+    unrestricted_errors = result_errors(data, unrestricted, expected_any, q=None)
+    q1 = prov["general"].solve(data, k=data["k"], max_solutions=None, local_word_cap=1)
+    q1_errors = result_errors(data, q1, expected_q1, q=1)
+    emit({"kind": "tiny_qop_public_example", "input_sha256": add_manifest["input_sha256"],
+          "oracle_q2": expected_q2, "oracle_q1": expected_q1, "oracle_unrestricted": expected_any,
+          "q_certificate": qcert, "q_certificate_errors": qcert_errors,
+          "general_q2": bounded, "general_q2_errors": bounded_errors,
+          "general_q1": q1, "general_q1_errors": q1_errors,
+          "general_unrestricted": unrestricted, "general_unrestricted_errors": unrestricted_errors})
+    failures.extend("tiny_qop_certificate:" + e for e in qcert_errors)
+    failures.extend("tiny_qop_bounded:" + e for e in bounded_errors)
+    failures.extend("tiny_qop_q1:" + e for e in q1_errors)
+    failures.extend("tiny_qop_unrestricted:" + e for e in unrestricted_errors)
+    summary.append({"case": "tiny_qop_public_example", "q2_count": len(expected_q2),
+                    "q1_count": len(expected_q1), "unrestricted_count": len(expected_any),
+                    "errors": qcert_errors + bounded_errors + q1_errors + unrestricted_errors})
+    return failures, summary
+
+
+def run_context(prov, manifest, rows):
+    failures, summary = [], []
+    for case_id in manifest["contextual_case_ids"]:
+        data, row = load_case(rows, case_id)
+        hidden = read_json(CORPUS / row["truth"])
+        blocks = hidden["target_blocks"]
+        target = canonical(blocks)
+        positives = sorted(set(data["positive"]))
+        negatives = sorted(set(data["negative"]))
+        edges_expected = {tuple(sorted(edge)) for edge in hidden["tree_edges"]}
+        theorem_errors = []
+        if len(positives) != 1 + len(edges_expected) or len(negatives) != len(edges_expected):
+            theorem_errors.append("tree_pair_star_sample_counts_mismatch")
+        base = hidden["base"]
+        if len(base) != hidden["max_word_length"] - 2 or set(data["alphabet"]) - set(base):
+            theorem_errors.append("context_base_length_or_symbol_coverage_mismatch")
+        if min(map(len, positives + negatives), default=0) < 100:
+            theorem_errors.append("context_trace_not_long_enough")
+        # Verify each independent insertion-rescue forcing witness directly.
+        for a, b in edges_expected:
+            negative = base + a
+            rescued = base + a + b
+            if negative not in negatives or rescued not in positives or base not in positives:
+                theorem_errors.append("context_edge_source_words_missing:" + a + b)
+                continue
+            position = len(base)
+            if negative[:position] + negative[position + 1:] != base:
+                theorem_errors.append("context_negative_delete_not_base:" + a + b)
+            if rescued[:position + 1] + rescued[position + 2:] != negative:
+                theorem_errors.append("context_positive_insert_not_negative:" + a + b)
+            # If a and b are separated, n=C+a projects exactly like p=C+ab
+            # on a's block and like C on every other block, so n is accepted.
+        tree_components = []
+        parent = {symbol: symbol for symbol in data["alphabet"]}
+
+        def find(symbol):
+            while parent[symbol] != symbol:
+                parent[symbol] = parent[parent[symbol]]
+                symbol = parent[symbol]
+            return symbol
+
+        for a, b in edges_expected:
+            parent[find(b)] = find(a)
+        groups = {}
+        for symbol in data["alphabet"]:
+            groups.setdefault(find(symbol), []).append(symbol)
+        tree_components = canonical(groups.values())
+        if tree_components != target or len(tree_components) != data["k"]:
+            theorem_errors.append("tree_edges_do_not_force_target_exact_k_blocks")
+        result = prov["general"].solve(data, k=data["k"], max_solutions=None,
+                                       deadline=time.perf_counter()+20)
+        answer_errors = []
+        if result.get("status") != "found" or not result.get("search_exhausted"):
+            answer_errors.append("context_known_k_search_not_complete_found")
+        if len(result.get("solutions", [])) != 1:
+            answer_errors.append("context_answer_not_unique")
+        elif canonical(result["solutions"][0]["blocks"]) != target:
+            answer_errors.append("context_hidden_target_not_recovered")
+        elif solution_errors(data, result["solutions"][0]):
+            answer_errors.extend(solution_errors(data, result["solutions"][0]))
+        graph_edges = {}
+        for entry in result.get("graph", {}).get("edges", []):
+            graph_edges[tuple(sorted(entry.get("symbols", [])))] = entry.get("witness", {})
+        if set(graph_edges) != edges_expected:
+            answer_errors.append("context_general_must_link_graph_differs_from_tree")
+        for a, b in edges_expected:
+            witness = graph_edges.get((a, b), {})
+            if witness.get("rule") != "insertion_rescue":
+                answer_errors.append("context_edge_not_reported_as_insertion_rescue:" + a + b)
+                continue
+            base_positive, rescued_positive = witness.get("positive", [None, None])
+            negative = witness.get("negative")
+            position = witness.get("position")
+            if (base_positive != base or rescued_positive != base + a + b
+                    or negative != base + a or position != len(base)):
+                answer_errors.append("context_raw_rescue_witness_invalid:" + a + b)
+        errors = theorem_errors + answer_errors
+        emit({"kind": "long-context-pair-star", "case": case_id,
+              "input_sha256": row["input_sha256"], "truth_sidecar_sha256": row["truth_sha256"],
+              "forced_components": [list(x) for x in tree_components],
+              "unique_partition_proof": "every within-target-tree edge is a verified insertion-rescue must-link; the tree components equal k, so exact-k nonempty blocks leave one partition",
+              "raw_result": result, "check_errors": errors})
+        if errors:
+            failures.extend(f"{case_id}:{error}" for error in errors)
+        summary.append({"case": case_id, "alpha": row["alphabet_size"], "k": row["k_input"],
+                        "max_word_length": hidden["max_word_length"], "positives": row["positive_count"],
+                        "negatives": row["negative_count"], "status": result.get("status"),
+                        "search_exhausted": result.get("search_exhausted"), "errors": errors})
+    return failures, summary
+
+
+def run_unknown(prov, rows):
+    failures, summary = [], []
+    data, row = load_case(rows, "unknown_k_singleton_unique")
+    if "k" in data:
+        failures.append("unknown_k_public_input_leaks_k")
+    expected = unknown_singleton_oracle(data)
+    result = prov["s4"].solve(data, k=None, max_solutions=1, infer_k=True)
+    unique_result_status = result.get("status")
+    errors = []
+    if result.get("status") != "found" or result.get("uniqueness") != "unique" or not result.get("search_exhausted"):
+        errors.append("unknown_k_v4_did_not_certify_unique")
+    if len(expected or []) != 1 or len(result.get("solutions", [])) != 1:
+        errors.append("unknown_k_oracle_not_unique")
+    elif canonical(result["solutions"][0]["blocks"]) != expected[0]:
+        errors.append("unknown_k_partition_set_mismatch")
+    elif result.get("k") != len(expected[0]):
+        errors.append("unknown_k_inferred_count_mismatch")
+    elif solution_errors(data, result["solutions"][0], q=1):
+        errors.extend(solution_errors(data, result["solutions"][0], q=1))
+    emit({"kind": "unknown-k-singleton-exact-oracle", "case": "unknown_k_singleton_unique",
+          "input_sha256": row["input_sha256"], "input_has_k": "k" in data,
+          "oracle_partitions_across_k": expected, "raw_result": result, "check_errors": errors})
+    if errors:
+        failures.extend("unknown_unique:" + e for e in errors)
+    unique_expected_count = len(expected or [])
+
+    for case_id in ("unknown_k_ambiguous_control", "unknown_k_empty_positive_boundary"):
+        data, row = load_case(rows, case_id)
+        if "k" in data:
+            failures.append(f"{case_id}:public_input_leaks_k")
+        expected = unknown_singleton_oracle(data)
+        result = prov["s4"].solve(data, k=None, max_solutions=1, infer_k=True)
+        check = []
+        if result.get("status") != "insufficient_coverage" or result.get("uniqueness") != "unknown":
+            check.append("unknown_k_noncertificate_must_abstain")
+        if expected is not None and len(expected) < 2:
+            check.append("ambiguous_control_oracle_not_ambiguous")
+        emit({"kind": "unknown-k-abstention-control", "case": case_id,
+              "input_sha256": row["input_sha256"], "oracle_partition_count": len(expected) if expected is not None else None,
+              "raw_result": result, "check_errors": check})
+        if check:
+            failures.extend(f"{case_id}:{e}" for e in check)
+
+    # Fault injection models one asynchronous KeyboardInterrupt during S001
+    # preprocessing. V3 is historical and expected to fail; v4 must preserve
+    # the base incomplete status without continuing on partial graph fields.
+    fault_data = data = read_json(CORPUS / rows["unknown_k_singleton_unique"]["input"])
+    original_check = prov["s1"].check
+    state = {"raised": False}
+
+    def interrupt_once(deadline):
+        if not state["raised"]:
+            state["raised"] = True
+            raise KeyboardInterrupt()
+        return original_check(deadline)
+
+    v3 = load_module("c004_audit_singleton_v3_historical", S3)
+    prov["s1"].check = interrupt_once
+    v3_exception = None
+    try:
+        v3_result = v3.solve(fault_data, k=None, max_solutions=1, infer_k=True)
+    except Exception as error:  # raw defect evidence, intentionally retained
+        v3_result = None
+        v3_exception = {"type": type(error).__name__, "message": str(error)}
+    finally:
+        prov["s1"].check = original_check
+    emit({"kind": "historical-v3-interruption-regression", "source_sha256": digest(S3),
+          "injected_interrupt": state["raised"], "result": v3_result,
+          "exception": v3_exception, "expected_historical_defect": "KeyError after incomplete base preprocessing"})
+
+    state = {"raised": False}
+
+    def interrupt_once_v4(deadline):
+        if not state["raised"]:
+            state["raised"] = True
+            raise KeyboardInterrupt()
+        return original_check(deadline)
+
+    prov["s1"].check = interrupt_once_v4
+    try:
+        v4_result = prov["s4"].solve(fault_data, k=None, max_solutions=1, infer_k=True)
+        v4_exception = None
+    except Exception as error:
+        v4_result = None
+        v4_exception = {"type": type(error).__name__, "message": str(error)}
+    finally:
+        prov["s1"].check = original_check
+    v4_errors = []
+    if not state["raised"]:
+        v4_errors.append("fault_injection_did_not_interrupt_base")
+    if v4_exception is not None:
+        v4_errors.append("v4_raised_after_base_interruption")
+    if v4_result is None or v4_result.get("status") != "incomplete" or v4_result.get("search_exhausted"):
+        v4_errors.append("v4_did_not_preserve_incomplete_status")
+    emit({"kind": "v4_interruption_regression", "source_sha256": digest(S4),
+          "injected_interrupt": state["raised"], "raw_result": v4_result,
+          "exception": v4_exception, "check_errors": v4_errors})
+    if v4_errors:
+        failures.extend("v4_interrupt:" + e for e in v4_errors)
+
+    summary.extend([{"case": "unknown_k_singleton_unique", "oracle_count": unique_expected_count,
+                     "result_status": unique_result_status, "errors": errors},
+                    {"case": "s003_interruption", "v3_exception": v3_exception,
+                     "v4_status": v4_result.get("status") if v4_result else None,
+                     "errors": v4_errors}])
+    return failures, summary
+
+
+def run_cli(rows):
+    failures, summary = [], []
+    def invoke(name, example, args, expected_mode=None, q=None, expected_status=None,
+               expected_exit=None, expected_count=None):
+        path = PROJECT / "examples" / example
+        proc = subprocess.run([str(PYTHON), "-B", "-X", "utf8", str(CLI), str(path), *args],
+                              cwd=PROJECT, stdout=subprocess.PIPE, stderr=subprocess.PIPE,
+                              text=True, encoding="utf-8", errors="replace", timeout=30)
+        payload = None
+        parse_error = None
+        try:
+            if proc.stdout.strip():
+                payload = json.loads(proc.stdout)
+        except Exception as error:
+            parse_error = repr(error)
+        check = []
+        if expected_exit is not None and proc.returncode != expected_exit:
+            check.append(f"exit:{proc.returncode}!={expected_exit}")
+        if expected_status is not None and (payload or {}).get("status") != expected_status:
+            check.append(f"status:{(payload or {}).get('status')}!={expected_status}")
+        if expected_mode is not None and payload and payload.get("status") in ("found", "infeasible"):
+            data = read_json(path)
+            k = data.get("k", 2)
+            expected = oracle(data, k, q=q)
+            check.extend(result_errors(data, payload, expected, q=q))
+            if expected_count is not None and len(expected) != expected_count:
+                check.append(f"oracle_count:{len(expected)}!={expected_count}")
+        if proc.returncode == 2 and (payload or {}).get("status") != "invalid_input":
+            check.append("input_error_not_reported_as_invalid_input")
+        emit({"kind": "root-cli-r2", "name": name, "entrypoint_sha256": digest(CLI),
+              "argv": [example, *args], "exit_code": proc.returncode,
+              "stdout": proc.stdout, "stderr": proc.stderr,
+              "parsed_result": payload, "parse_error": parse_error,
+              "check_errors": check})
+        if check:
+            failures.extend(f"cli_{name}:{error}" for error in check)
+        summary.append({"name": name, "exit_code": proc.returncode,
+                        "status": (payload or {}).get("status"), "errors": check})
+        return payload
+
+    # Public example full-set gates.
+    invoke("three_factor_singleton_certificate", "three_factor_certificate.json",
+           ["--method", "singleton-certificate", "--max-solutions", "all"],
+           expected_mode="exact", q=1, expected_status="found", expected_exit=0,
+           expected_count=1)
+    invoke("sparse_path_all_solutions", "sparse_three_color_ambiguous.json",
+           ["--method", "singleton-search", "--max-solutions", "all"],
+           expected_mode="exact", q=1, expected_status="found", expected_exit=0,
+           expected_count=3)
+    invoke("sparse_path_negative_disambiguation", "sparse_three_color_disambiguated.json",
+           ["--method", "singleton-search", "--max-solutions", "all"],
+           expected_mode="exact", q=1, expected_status="found", expected_exit=0,
+           expected_count=1)
+    infer_payload = invoke("unknown_k_no_leak", "infer_singleton_k.json",
+                           ["--method", "singleton-search", "--infer-k", "--max-solutions", "all"],
+                           expected_status="found", expected_exit=0, expected_count=1)
+    if infer_payload and infer_payload.get("k") != 2:
+        failures.append("cli_unknown_k_no_leak:inferred_k_not_2")
+    invoke("bounded_q2_example", "three_factor_two_words.json",
+           ["--method", "bounded", "--q", "2", "--max-solutions", "all"],
+           expected_mode="bounded", q=2, expected_status="found", expected_exit=0,
+           expected_count=1)
+
+    # Master-provided transparent q=2 / q=1 / unrestricted contrast.
+    tiny_path = PROJECT / "examples" / "two_word_positive_only_certificate.json"
+    tiny_proc = subprocess.run([str(PYTHON), "-B", "-X", "utf8", str(CLI), str(tiny_path),
+                                "--method", "bounded-certificate", "--q", "2", "--max-solutions", "all"],
+                               cwd=PROJECT, stdout=subprocess.PIPE, stderr=subprocess.PIPE,
+                               text=True, encoding="utf-8", errors="replace", timeout=30)
+    tiny_payload = json.loads(tiny_proc.stdout) if tiny_proc.stdout.strip() else None
+    tiny_data = read_json(tiny_path)
+    tiny_truth = oracle(tiny_data, 2, q=2)
+    tiny_errors = []
+    if tiny_proc.returncode != 0 or not tiny_payload or tiny_payload.get("status") != "found":
+        tiny_errors.append("bounded_certificate_cli_not_found")
+    elif canonical(tiny_payload["solutions"][0]["blocks"]) not in tiny_truth:
+        tiny_errors.append("bounded_certificate_cli_wrong_partition")
+    if len(tiny_truth) != 1 or len(oracle(tiny_data, 2, q=1)) != 0 or len(oracle(tiny_data, 2)) != 7:
+        tiny_errors.append("tiny_example_oracle_scope_counts_wrong")
+    emit({"kind": "root-cli-r2", "name": "tiny_qop_certificate", "entrypoint_sha256": digest(CLI),
+          "argv": [str(tiny_path), "--method", "bounded-certificate", "--q", "2", "--max-solutions", "all"],
+          "exit_code": tiny_proc.returncode, "stdout": tiny_proc.stdout, "stderr": tiny_proc.stderr,
+          "parsed_result": tiny_payload, "oracle_q2": tiny_truth,
+          "oracle_q1_count": len(oracle(tiny_data, 2, q=1)),
+          "oracle_unrestricted_count": len(oracle(tiny_data, 2)), "check_errors": tiny_errors})
+    if tiny_errors:
+        failures.extend("cli_tiny_qop:" + error for error in tiny_errors)
+    summary.append({"name": "tiny_qop_certificate", "exit_code": tiny_proc.returncode,
+                    "status": (tiny_payload or {}).get("status"), "errors": tiny_errors})
+
+    # Root CLI boundary semantics and invalid method/option combinations.
+    invoke("zero_timeout", "infer_singleton_k.json",
+           ["--method", "singleton-search", "--infer-k", "--timeout-seconds", "0"],
+           expected_status="incomplete", expected_exit=3)
+    invoke("missing_q", "three_factor_two_words.json", ["--method", "bounded"],
+           expected_status="invalid_input", expected_exit=2)
+    invoke("q_on_general", "three_factor_certificate.json", ["--method", "general", "--q", "2"],
+           expected_status="invalid_input", expected_exit=2)
+    invoke("k_one", "three_factor_certificate.json", ["--method", "general", "--k", "1"],
+           expected_status="invalid_input", expected_exit=2)
+    invoke("infer_k_input_leak", "sparse_three_color_ambiguous.json",
+           ["--method", "singleton-search", "--infer-k"],
+           expected_status="invalid_input", expected_exit=2)
+    invoke("nan_timeout", "three_factor_certificate.json",
+           ["--method", "general", "--timeout-seconds", "NaN"],
+           expected_status="invalid_input", expected_exit=2)
+    return failures, summary
+
+
+def main():
+    parser = argparse.ArgumentParser()
+    parser.add_argument("mode", choices=("sparse", "q2-small", "q2-controls", "q2-large",
+                                         "context", "unknown", "cli"))
+    args = parser.parse_args()
+    manifest, rows = case_rows()
+    source_hashes, source_errors = verified_source_bindings()
+    emit({"kind": "stage2-audit-header", "mode": args.mode,
+          "stage2_manifest_sha256": digest(CORPUS / "manifest.json"),
+          "stage2_freeze_sha256": digest(CORPUS / "freeze_v1.json"),
+          "stage2_addendum_manifest_sha256": digest(QOP_ADDENDUM / "manifest.json"),
+          "runtime_manifest_sha256": digest(RUNTIME), "source_hashes": source_hashes,
+          "source_errors": source_errors, "case_count": manifest["case_count"]})
+    if source_errors:
+        raise AssertionError(source_errors)
+    prov = providers()
+    if args.mode == "sparse":
+        failures, summary = run_sparse(prov, manifest, rows)
+    elif args.mode == "q2-small":
+        failures, summary = run_q2_small(prov, manifest, rows)
+    elif args.mode == "q2-controls":
+        failures, summary = run_qop_controls(prov, rows)
+    elif args.mode == "q2-large":
+        failures, summary = run_q2_large(prov, manifest, rows)
+    elif args.mode == "context":
+        failures, summary = run_context(prov, manifest, rows)
+    elif args.mode == "unknown":
+        failures, summary = run_unknown(prov, rows)
+    else:
+        failures, summary = run_cli(rows)
+    emit({"kind": "stage2-audit-summary", "mode": args.mode,
+          "record_count": len(summary), "failures": failures, "summary": summary,
+          "benchmark": False})
+    if failures:
+        raise SystemExit(2)
+
+
+if __name__ == "__main__":
+    main()

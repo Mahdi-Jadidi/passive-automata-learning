@@ -1,0 +1,17 @@
+{
+  "id": "C004-QOP001",
+  "parent_ideas": ["C003-S001", "C004-S001"],
+  "proposed_by": "master",
+  "hypothesis": "A positive pair with more than q distinct projections must belong to different factors when every local factor language has at most q words. A complete k-partite graph of such pairs fixes a unique known-k partition, subject to direct full-block cap and negative checks.",
+  "motivation": "Relax the singleton-language assumption without unsoundly importing its variation threshold of one into the q=2 class; avoid exhaustive search on a sufficient-coverage family.",
+  "assumptions": ["known k nonempty disjoint alphabet blocks", "exact complete-word labels", "finite local languages of cardinality at most q", "nonempty positive evidence for the recovery certificate"],
+  "scientific_status": "under_investigation",
+  "execution_status": "proof_review_and_code_preparation_only_during_stage1_timing",
+  "novelty_claim": false,
+  "independent_review": "general/Q_OPPOSITION_REVIEW_001.md",
+  "implementation_owner": "structural/",
+  "audit_owner": "audit/",
+  "critical_guard": "Pair cardinalities are necessary constraints, not sufficient positive feasibility for q>=2; full candidate projection languages must be checked.",
+  "candidate_coverage": "Equal-size blocks; repeated local words; forward block order, reverse block order, lockstep interleaving; add a fourth positive with second local words. Only a proposed family until independently generated and checked.",
+  "experiment_gate": "No stage2 provider execution before stage1 serial timing ends and master go."
+}

@@ -1,0 +1,742 @@
+{
+  "schema": "C004-stage1-performance-report-v1",
+  "acceptance": "accepted",
+  "protocol_sha256": "ed501ae2321aded3bd828d936dbd2f12351ce7772ff32a3436ee7fc6c952aa1d",
+  "corpus_manifest_sha256": "edccad4723c76c670ae8382f6353f7d45c27076e39dbc3a8d21dde22900268da",
+  "corpus_freeze_record_sha256": "2091c264db8a7e292b473d9b487b653a1c947d76c954c156bd06dc373b279ea2",
+  "runtime_stage1_sha256": "24f48e9b50a821575d892894e89acabe74da3e0fa10c6fc7d2134cc29f3a7b3f",
+  "stage1_gate_report_sha256": "d73f6f7175bb1948c9529a8c22284f84d8c21b98b2e554a6cc7622f6614b9fcb",
+  "run_manifest_sha256": "eb1d3f08d637d1dafcaad5e879f643e014c489257b5a17a8e70cb911fc3fd1d8",
+  "ledger_sha256": "7c1ee94e7c415409efc8530614e38431f4d188e5de35ea4cec9da3cbec5483c6",
+  "runner_sha256": "3c360e1b77aab5f6df626caa0ca993b2b982515cced313faa0277f139338072f",
+  "aggregate_script_sha256": "3ed1324017ecfaf714eb2f374f1be56b4007dd62f12e882704b8f5acb9f4ab2b",
+  "counts": {
+    "expected": {
+      "standard": 54,
+      "stress": 4,
+      "memory": 5
+    },
+    "actual": {
+      "standard": 54,
+      "stress": 4,
+      "memory": 5
+    },
+    "independent_check_statuses": {
+      "pass": 59,
+      "censored_incomplete": 4
+    }
+  },
+  "measured_seconds": {
+    "standard_and_stress_by_provider": {
+      "S001": 24.09770040004514,
+      "C003-fixed-word": 121.12584630009951,
+      "general-v3": 11.922917199786752
+    },
+    "stress_total": 11.489450199936982,
+    "limits_seconds": {
+      "provider": 900,
+      "stress_total": 180
+    }
+  },
+  "gates": {
+    "expected_counts_match": true,
+    "all_expected_jobs_present_once": true,
+    "all_independent_checks_pass_or_censored": true,
+    "bridge_completed_answers_match": true,
+    "provider_and_stress_budgets_respected": true,
+    "ledger_rows": 63,
+    "missing_job_ids": [],
+    "unexpected_job_ids": [],
+    "duplicate_job_ids": [],
+    "disallowed_check_job_ids": []
+  },
+  "bridge": [
+    {
+      "case": "long_singleton_a128_k2_l1024",
+      "alpha": 128,
+      "k": 2,
+      "length": 1024,
+      "pairs": []
+    },
+    {
+      "case": "long_singleton_a128_k2_l4096",
+      "alpha": 128,
+      "k": 2,
+      "length": 4096,
+      "pairs": []
+    },
+    {
+      "case": "long_singleton_a32_k2_l1024",
+      "alpha": 32,
+      "k": 2,
+      "length": 1024,
+      "pairs": []
+    }
+  ],
+  "standard_cells": [
+    {
+      "provider": "S001",
+      "case": "long_singleton_a128_k2_l1024",
+      "family": "long_singleton",
+      "alphabet_size": 128,
+      "k": 2,
+      "word_length": 1024,
+      "positive_count": 3,
+      "negative_count": 2,
+      "repetitions": [
+        {
+          "job_id": "S001--long_singleton_a128_k2_l1024--r1",
+          "seconds": 0.584800600016024,
+          "status": "found",
+          "check": "pass"
+        },
+        {
+          "job_id": "S001--long_singleton_a128_k2_l1024--r2",
+          "seconds": 0.7478737000492401,
+          "status": "found",
+          "check": "pass"
+        },
+        {
+          "job_id": "S001--long_singleton_a128_k2_l1024--r3",
+          "seconds": 0.7376482000108808,
+          "status": "found",
+          "check": "pass"
+        }
+      ],
+      "observed_median_seconds": 0.7376482000108808,
+      "completed_median_seconds": 0.7376482000108808
+    },
+    {
+      "provider": "S001",
+      "case": "long_singleton_a128_k2_l4096",
+      "family": "long_singleton",
+      "alphabet_size": 128,
+      "k": 2,
+      "word_length": 4096,
+      "positive_count": 3,
+      "negative_count": 2,
+      "repetitions": [
+        {
+          "job_id": "S001--long_singleton_a128_k2_l4096--r1",
+          "seconds": 0.7714839999680407,
+          "status": "found",
+          "check": "pass"
+        },
+        {
+          "job_id": "S001--long_singleton_a128_k2_l4096--r2",
+          "seconds": 0.9796079000225291,
+          "status": "found",
+          "check": "pass"
+        },
+        {
+          "job_id": "S001--long_singleton_a128_k2_l4096--r3",
+          "seconds": 0.8728465999593027,
+          "status": "found",
+          "check": "pass"
+        }
+      ],
+      "observed_median_seconds": 0.8728465999593027,
+      "completed_median_seconds": 0.8728465999593027
+    },
+    {
+      "provider": "S001",
+      "case": "long_singleton_a32_k2_l1024",
+      "family": "long_singleton",
+      "alphabet_size": 32,
+      "k": 2,
+      "word_length": 1024,
+      "positive_count": 3,
+      "negative_count": 2,
+      "repetitions": [
+        {
+          "job_id": "S001--long_singleton_a32_k2_l1024--r1",
+          "seconds": 0.4466065000160597,
+          "status": "found",
+          "check": "pass"
+        },
+        {
+          "job_id": "S001--long_singleton_a32_k2_l1024--r2",
+          "seconds": 0.3807898000231944,
+          "status": "found",
+          "check": "pass"
+        },
+        {
+          "job_id": "S001--long_singleton_a32_k2_l1024--r3",
+          "seconds": 0.3217447000206448,
+          "status": "found",
+          "check": "pass"
+        }
+      ],
+      "observed_median_seconds": 0.3807898000231944,
+      "completed_median_seconds": 0.3807898000231944
+    },
+    {
+      "provider": "S001",
+      "case": "long_singleton_a32_k2_l128",
+      "family": "long_singleton",
+      "alphabet_size": 32,
+      "k": 2,
+      "word_length": 128,
+      "positive_count": 3,
+      "negative_count": 2,
+      "repetitions": [
+        {
+          "job_id": "S001--long_singleton_a32_k2_l128--r1",
+          "seconds": 0.3695564999943599,
+          "status": "found",
+          "check": "pass"
+        },
+        {
+          "job_id": "S001--long_singleton_a32_k2_l128--r2",
+          "seconds": 0.31309529999271035,
+          "status": "found",
+          "check": "pass"
+        },
+        {
+          "job_id": "S001--long_singleton_a32_k2_l128--r3",
+          "seconds": 0.4783805999904871,
+          "status": "found",
+          "check": "pass"
+        }
+      ],
+      "observed_median_seconds": 0.3695564999943599,
+      "completed_median_seconds": 0.3695564999943599
+    },
+    {
+      "provider": "S001",
+      "case": "long_singleton_a32_k2_l4096",
+      "family": "long_singleton",
+      "alphabet_size": 32,
+      "k": 2,
+      "word_length": 4096,
+      "positive_count": 3,
+      "negative_count": 2,
+      "repetitions": [
+        {
+          "job_id": "S001--long_singleton_a32_k2_l4096--r1",
+          "seconds": 0.47156530001666397,
+          "status": "found",
+          "check": "pass"
+        },
+        {
+          "job_id": "S001--long_singleton_a32_k2_l4096--r3",
+          "seconds": 0.5542169999680482,
+          "status": "found",
+          "check": "pass"
+        },
+        {
+          "job_id": "S001--long_singleton_a32_k2_l4096--r2",
+          "seconds": 0.5377037999569438,
+          "status": "found",
+          "check": "pass"
+        }
+      ],
+      "observed_median_seconds": 0.5377037999569438,
+      "completed_median_seconds": 0.5377037999569438
+    },
+    {
+      "provider": "S001",
+      "case": "long_singleton_a32_k3_l4096",
+      "family": "long_singleton",
+      "alphabet_size": 32,
+      "k": 3,
+      "word_length": 4096,
+      "positive_count": 3,
+      "negative_count": 2,
+      "repetitions": [
+        {
+          "job_id": "S001--long_singleton_a32_k3_l4096--r2",
+          "seconds": 0.5008427999564447,
+          "status": "found",
+          "check": "pass"
+        },
+        {
+          "job_id": "S001--long_singleton_a32_k3_l4096--r3",
+          "seconds": 0.5970626000198536,
+          "status": "found",
+          "check": "pass"
+        },
+        {
+          "job_id": "S001--long_singleton_a32_k3_l4096--r1",
+          "seconds": 0.6124803000129759,
+          "status": "found",
+          "check": "pass"
+        }
+      ],
+      "observed_median_seconds": 0.5970626000198536,
+      "completed_median_seconds": 0.5970626000198536
+    },
+    {
+      "provider": "S001",
+      "case": "long_singleton_a32_k4_l4096",
+      "family": "long_singleton",
+      "alphabet_size": 32,
+      "k": 4,
+      "word_length": 4096,
+      "positive_count": 3,
+      "negative_count": 2,
+      "repetitions": [
+        {
+          "job_id": "S001--long_singleton_a32_k4_l4096--r3",
+          "seconds": 0.5298350999946706,
+          "status": "found",
+          "check": "pass"
+        },
+        {
+          "job_id": "S001--long_singleton_a32_k4_l4096--r1",
+          "seconds": 0.48562049999600276,
+          "status": "found",
+          "check": "pass"
+        },
+        {
+          "job_id": "S001--long_singleton_a32_k4_l4096--r2",
+          "seconds": 0.5732817000243813,
+          "status": "found",
+          "check": "pass"
+        }
+      ],
+      "observed_median_seconds": 0.5298350999946706,
+      "completed_median_seconds": 0.5298350999946706
+    },
+    {
+      "provider": "S001",
+      "case": "long_singleton_a32_k6_l4096",
+      "family": "long_singleton",
+      "alphabet_size": 32,
+      "k": 6,
+      "word_length": 4096,
+      "positive_count": 3,
+      "negative_count": 2,
+      "repetitions": [
+        {
+          "job_id": "S001--long_singleton_a32_k6_l4096--r3",
+          "seconds": 0.5628998000174761,
+          "status": "found",
+          "check": "pass"
+        },
+        {
+          "job_id": "S001--long_singleton_a32_k6_l4096--r1",
+          "seconds": 0.46521020005457103,
+          "status": "found",
+          "check": "pass"
+        },
+        {
+          "job_id": "S001--long_singleton_a32_k6_l4096--r2",
+          "seconds": 0.4058027999708429,
+          "status": "found",
+          "check": "pass"
+        }
+      ],
+      "observed_median_seconds": 0.46521020005457103,
+      "completed_median_seconds": 0.46521020005457103
+    },
+    {
+      "provider": "S001",
+      "case": "long_singleton_a32_k8_l4096",
+      "family": "long_singleton",
+      "alphabet_size": 32,
+      "k": 8,
+      "word_length": 4096,
+      "positive_count": 3,
+      "negative_count": 2,
+      "repetitions": [
+        {
+          "job_id": "S001--long_singleton_a32_k8_l4096--r3",
+          "seconds": 0.4687901000143029,
+          "status": "found",
+          "check": "pass"
+        },
+        {
+          "job_id": "S001--long_singleton_a32_k8_l4096--r2",
+          "seconds": 0.47160560003248975,
+          "status": "found",
+          "check": "pass"
+        },
+        {
+          "job_id": "S001--long_singleton_a32_k8_l4096--r1",
+          "seconds": 0.4907771999714896,
+          "status": "found",
+          "check": "pass"
+        }
+      ],
+      "observed_median_seconds": 0.47160560003248975,
+      "completed_median_seconds": 0.47160560003248975
+    },
+    {
+      "provider": "C003-fixed-word",
+      "case": "long_singleton_a128_k2_l1024",
+      "family": "long_singleton",
+      "alphabet_size": 128,
+      "k": 2,
+      "word_length": 1024,
+      "positive_count": 3,
+      "negative_count": 2,
+      "repetitions": [
+        {
+          "job_id": "C003-fixed-word--long_singleton_a128_k2_l1024--r1",
+          "seconds": 10.388741000031587,
+          "status": "found",
+          "check": "pass"
+        },
+        {
+          "job_id": "C003-fixed-word--long_singleton_a128_k2_l1024--r2",
+          "seconds": 10.008638800005428,
+          "status": "found",
+          "check": "pass"
+        },
+        {
+          "job_id": "C003-fixed-word--long_singleton_a128_k2_l1024--r3",
+          "seconds": 9.775950900046155,
+          "status": "found",
+          "check": "pass"
+        }
+      ],
+      "observed_median_seconds": 10.008638800005428,
+      "completed_median_seconds": 10.008638800005428
+    },
+    {
+      "provider": "C003-fixed-word",
+      "case": "long_singleton_a128_k2_l4096",
+      "family": "long_singleton",
+      "alphabet_size": 128,
+      "k": 2,
+      "word_length": 4096,
+      "positive_count": 3,
+      "negative_count": 2,
+      "repetitions": [
+        {
+          "job_id": "C003-fixed-word--long_singleton_a128_k2_l4096--r1",
+          "seconds": 29.39396560000023,
+          "status": "incomplete",
+          "check": "censored_incomplete"
+        },
+        {
+          "job_id": "C003-fixed-word--long_singleton_a128_k2_l4096--r2",
+          "seconds": 29.282653599977493,
+          "status": "incomplete",
+          "check": "censored_incomplete"
+        },
+        {
+          "job_id": "C003-fixed-word--long_singleton_a128_k2_l4096--r3",
+          "seconds": 29.289088999968953,
+          "status": "incomplete",
+          "check": "censored_incomplete"
+        }
+      ],
+      "observed_median_seconds": 29.289088999968953,
+      "completed_median_seconds": null
+    },
+    {
+      "provider": "C003-fixed-word",
+      "case": "long_singleton_a32_k2_l1024",
+      "family": "long_singleton",
+      "alphabet_size": 32,
+      "k": 2,
+      "word_length": 1024,
+      "positive_count": 3,
+      "negative_count": 2,
+      "repetitions": [
+        {
+          "job_id": "C003-fixed-word--long_singleton_a32_k2_l1024--r1",
+          "seconds": 1.0563966000336222,
+          "status": "found",
+          "check": "pass"
+        },
+        {
+          "job_id": "C003-fixed-word--long_singleton_a32_k2_l1024--r2",
+          "seconds": 0.8653241000138223,
+          "status": "found",
+          "check": "pass"
+        },
+        {
+          "job_id": "C003-fixed-word--long_singleton_a32_k2_l1024--r3",
+          "seconds": 1.0650867000222206,
+          "status": "found",
+          "check": "pass"
+        }
+      ],
+      "observed_median_seconds": 1.0563966000336222,
+      "completed_median_seconds": 1.0563966000336222
+    },
+    {
+      "provider": "general-v3",
+      "case": "context_regular_a128_k4_l4096_s223496",
+      "family": "context_regular",
+      "alphabet_size": 128,
+      "k": 4,
+      "word_length": 4096,
+      "positive_count": 3,
+      "negative_count": 2,
+      "repetitions": [
+        {
+          "job_id": "general-v3--context_regular_a128_k4_l4096_s223496--r2",
+          "seconds": 0.6398037999751978,
+          "status": "found",
+          "check": "pass"
+        },
+        {
+          "job_id": "general-v3--context_regular_a128_k4_l4096_s223496--r3",
+          "seconds": 0.6775148999877274,
+          "status": "found",
+          "check": "pass"
+        },
+        {
+          "job_id": "general-v3--context_regular_a128_k4_l4096_s223496--r1",
+          "seconds": 0.6965764000196941,
+          "status": "found",
+          "check": "pass"
+        }
+      ],
+      "observed_median_seconds": 0.6775148999877274,
+      "completed_median_seconds": 0.6775148999877274
+    },
+    {
+      "provider": "general-v3",
+      "case": "context_regular_a32_k2_l4096_s127296",
+      "family": "context_regular",
+      "alphabet_size": 32,
+      "k": 2,
+      "word_length": 4096,
+      "positive_count": 3,
+      "negative_count": 2,
+      "repetitions": [
+        {
+          "job_id": "general-v3--context_regular_a32_k2_l4096_s127296--r2",
+          "seconds": 0.6342840999714099,
+          "status": "found",
+          "check": "pass"
+        },
+        {
+          "job_id": "general-v3--context_regular_a32_k2_l4096_s127296--r1",
+          "seconds": 0.608593299984932,
+          "status": "found",
+          "check": "pass"
+        },
+        {
+          "job_id": "general-v3--context_regular_a32_k2_l4096_s127296--r3",
+          "seconds": 0.6154919000109658,
+          "status": "found",
+          "check": "pass"
+        }
+      ],
+      "observed_median_seconds": 0.6154919000109658,
+      "completed_median_seconds": 0.6154919000109658
+    },
+    {
+      "provider": "general-v3",
+      "case": "context_regular_a32_k8_l1024_s124824",
+      "family": "context_regular",
+      "alphabet_size": 32,
+      "k": 8,
+      "word_length": 1024,
+      "positive_count": 3,
+      "negative_count": 2,
+      "repetitions": [
+        {
+          "job_id": "general-v3--context_regular_a32_k8_l1024_s124824--r3",
+          "seconds": 0.45892930001718923,
+          "status": "found",
+          "check": "pass"
+        },
+        {
+          "job_id": "general-v3--context_regular_a32_k8_l1024_s124824--r2",
+          "seconds": 0.3898519999929704,
+          "status": "found",
+          "check": "pass"
+        },
+        {
+          "job_id": "general-v3--context_regular_a32_k8_l1024_s124824--r1",
+          "seconds": 0.5464990999898873,
+          "status": "found",
+          "check": "pass"
+        }
+      ],
+      "observed_median_seconds": 0.45892930001718923,
+      "completed_median_seconds": 0.45892930001718923
+    },
+    {
+      "provider": "general-v3",
+      "case": "random_dfa_a128_k8_l128_s204928",
+      "family": "random_dfa",
+      "alphabet_size": 128,
+      "k": 8,
+      "word_length": 128,
+      "positive_count": 3,
+      "negative_count": 2,
+      "repetitions": [
+        {
+          "job_id": "general-v3--random_dfa_a128_k8_l128_s204928--r2",
+          "seconds": 0.4832954999874346,
+          "status": "found",
+          "check": "pass"
+        },
+        {
+          "job_id": "general-v3--random_dfa_a128_k8_l128_s204928--r3",
+          "seconds": 0.3133940999978222,
+          "status": "found",
+          "check": "pass"
+        },
+        {
+          "job_id": "general-v3--random_dfa_a128_k8_l128_s204928--r1",
+          "seconds": 0.4693822999834083,
+          "status": "found",
+          "check": "pass"
+        }
+      ],
+      "observed_median_seconds": 0.4693822999834083,
+      "completed_median_seconds": 0.4693822999834083
+    },
+    {
+      "provider": "general-v3",
+      "case": "random_dfa_a32_k4_l1024_s109424",
+      "family": "random_dfa",
+      "alphabet_size": 32,
+      "k": 4,
+      "word_length": 1024,
+      "positive_count": 3,
+      "negative_count": 2,
+      "repetitions": [
+        {
+          "job_id": "general-v3--random_dfa_a32_k4_l1024_s109424--r1",
+          "seconds": 0.5543729999917559,
+          "status": "found",
+          "check": "pass"
+        },
+        {
+          "job_id": "general-v3--random_dfa_a32_k4_l1024_s109424--r3",
+          "seconds": 0.3760426999651827,
+          "status": "found",
+          "check": "pass"
+        },
+        {
+          "job_id": "general-v3--random_dfa_a32_k4_l1024_s109424--r2",
+          "seconds": 0.3541903999866918,
+          "status": "found",
+          "check": "pass"
+        }
+      ],
+      "observed_median_seconds": 0.3760426999651827,
+      "completed_median_seconds": 0.3760426999651827
+    },
+    {
+      "provider": "general-v3",
+      "case": "random_dfa_a8_k2_l4096_s88296",
+      "family": "random_dfa",
+      "alphabet_size": 8,
+      "k": 2,
+      "word_length": 4096,
+      "positive_count": 3,
+      "negative_count": 2,
+      "repetitions": [
+        {
+          "job_id": "general-v3--random_dfa_a8_k2_l4096_s88296--r3",
+          "seconds": 0.5422706999816,
+          "status": "found",
+          "check": "pass"
+        },
+        {
+          "job_id": "general-v3--random_dfa_a8_k2_l4096_s88296--r2",
+          "seconds": 0.6384056999813765,
+          "status": "found",
+          "check": "pass"
+        },
+        {
+          "job_id": "general-v3--random_dfa_a8_k2_l4096_s88296--r1",
+          "seconds": 0.8001389999990351,
+          "status": "found",
+          "check": "pass"
+        }
+      ],
+      "observed_median_seconds": 0.6384056999813765,
+      "completed_median_seconds": 0.6384056999813765
+    }
+  ],
+  "stress_rows": [
+    {
+      "job_id": "S001--stress_a128_k2_l16384--stress-r1",
+      "provider": "S001",
+      "case": "stress_a128_k2_l16384",
+      "seconds": 2.7584707000060007,
+      "scientific_status": "found",
+      "check": "pass"
+    },
+    {
+      "job_id": "S001--stress_a128_k4_l16384--stress-r1",
+      "provider": "S001",
+      "case": "stress_a128_k4_l16384",
+      "seconds": 3.3333897999837063,
+      "scientific_status": "found",
+      "check": "pass"
+    },
+    {
+      "job_id": "S001--stress_a128_k8_l16384--stress-r1",
+      "provider": "S001",
+      "case": "stress_a128_k8_l16384",
+      "seconds": 3.273710699984804,
+      "scientific_status": "found",
+      "check": "pass"
+    },
+    {
+      "job_id": "general-v3--stress_a128_k2_l16384--stress-r1",
+      "provider": "general-v3",
+      "case": "stress_a128_k2_l16384",
+      "seconds": 2.1238789999624714,
+      "scientific_status": "found",
+      "check": "pass"
+    }
+  ],
+  "memory_rows": [
+    {
+      "job_id": "allocation--C003-fixed-word--long_singleton_a32_k2_l1024",
+      "provider": "C003-fixed-word",
+      "case": "long_singleton_a32_k2_l1024",
+      "seconds": 4.324087599990889,
+      "peak_traced_python_bytes": 1024002,
+      "scientific_status": "found",
+      "check": "pass"
+    },
+    {
+      "job_id": "allocation--C003-fixed-word--long_singleton_a128_k2_l1024",
+      "provider": "C003-fixed-word",
+      "case": "long_singleton_a128_k2_l1024",
+      "seconds": 29.294281200040132,
+      "peak_traced_python_bytes": 1030530,
+      "scientific_status": "incomplete",
+      "check": "censored_incomplete"
+    },
+    {
+      "job_id": "allocation--S001--long_singleton_a128_k2_l1024",
+      "provider": "S001",
+      "case": "long_singleton_a128_k2_l1024",
+      "seconds": 1.0075207999907434,
+      "peak_traced_python_bytes": 6322965,
+      "scientific_status": "found",
+      "check": "pass"
+    },
+    {
+      "job_id": "allocation--S001--long_singleton_a32_k2_l1024",
+      "provider": "S001",
+      "case": "long_singleton_a32_k2_l1024",
+      "seconds": 0.6050002000411041,
+      "peak_traced_python_bytes": 961189,
+      "scientific_status": "found",
+      "check": "pass"
+    },
+    {
+      "job_id": "allocation--general-v3--random_dfa_a32_k4_l1024_s109424",
+      "provider": "general-v3",
+      "case": "random_dfa_a32_k4_l1024_s109424",
+      "seconds": 1.8257111000129953,
+      "peak_traced_python_bytes": 1353122,
+      "scientific_status": "found",
+      "check": "pass"
+    }
+  ],
+  "interpretation_limits": [
+    "General-v3 rows are found first answers on finite samples; they do not establish global uniqueness.",
+    "Context-regular rows are sample-compatible scaling cases, not full contextual-witness recovery certificates.",
+    "The old fixed-word solver at alpha=128,length=4096 reached its internal deadline in all three repetitions; retain all as censored and do not compute a speed ratio for that cell.",
+    "Allocation measurements are tracemalloc Python allocation peaks, not process RSS.",
+    "General-v3 graph preprocessing has a worst-case quadratic negative-word materialization component; these measurements do not prove globally linear preprocessing."
+  ]
+}

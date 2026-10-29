@@ -1,0 +1,354 @@
+{
+  "schema": "C004-stage2-independent-gate-report-v1",
+  "acceptance": "accepted",
+  "performance_authorized": false,
+  "selected_entrypoint": "solver_v2.py",
+  "stage2_runtime_manifest_sha256": "e2a1d0fbff9294370e37a1244624fef79c177f397c5a88266cf3a8eaf6cc4ea8",
+  "source_bindings": {
+    "solver_v2.py": "d5e882cc229174461dd06811645a8181d1a19e858667ddb468f486528da3b52f",
+    "general/known_k_v3.py": "1519189883c8dcfa9dcfa8e309f8e2c942b46a53d1988720baae58c4ab817ed9",
+    "structural/singleton_solver_v1.py": "16065fdfabf52d4280e3c0f5a7f427faff8990583579bd97b4ea64f70c5a023e",
+    "structural/singleton_solver_v2.py": "67899d186bd91dfa11cde576910378ae5a1d3e2606fa59cda6cb01e05e8c64ef",
+    "structural/singleton_solver_v4.py": "5cc301477d10aad356b857e05df73ec326c2f94b2475a554348fb7eaf53b8958",
+    "structural/bounded_certificate_v1.py": "0a8e542d3d44650f454e779137a5c9ac1057cd863bc162c94b45519f253636d5",
+    "audit/capture.py": "68ee700f391fb6a1cf135e4b55a11a247b45f25164553c917d1664f6fc4a31cf"
+  },
+  "source_integrity_errors": [],
+  "stage2_corpus": {
+    "manifest_sha256": "258ba6b97871d8e140c2076247edd6612e5faf01352ac32ea247d211e806493f",
+    "freeze_sha256": "dc232d3cb866de9995a335a5c2b537d7ad20ab4787867908ca160f311d652779",
+    "case_records": 106,
+    "hidden_truth_sidecars": 20,
+    "family_counts": {
+      "small_fullset_import": 80,
+      "sparse_singleton_known_k": 2,
+      "q2_small_control": 8,
+      "q2_positive_only_constructive": 4,
+      "singleton_unknown_k": 3,
+      "contextual_tree_pair_star": 4,
+      "root_cli_unknown_k": 1,
+      "root_cli_example": 4
+    },
+    "input_records": 106,
+    "qop_addendum_manifest_sha256": "b146c0d38ae25b2c8cfbcb1a48acc8ef12d6188348536f9df2fa91c4f96a3912",
+    "qop_addendum_freeze_sha256": "494f4fc4efd5cbd6e08f117ea1761b30685e901caa8f43b1fa0fa715149ae221",
+    "qop_addendum_records": 1,
+    "records_across_freezes": 107,
+    "canonical_normalized_solver_payloads_across_freezes": 104,
+    "duplicate_payload_record_groups": 3
+  },
+  "contextual_regular_language_proof": {
+    "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-10-27\\partition_scaling_v4\\audit\\context_regular_target_proof_v1.json",
+    "sha256": "fcd1f5986482db72062cecadcf8b70547093be0e76791879623f90bebf8da5e0",
+    "case_count": 4,
+    "target_language": "L_i = u_i E_i*",
+    "positive_membership_and_negative_nonmembership_checked": true
+  },
+  "independent_gates": {
+    "s002_known_k_singleton": {
+      "case_records": 82,
+      "stage1_small_tier_imports": 80,
+      "sparse_k3_controls": 2,
+      "full_partition_sets_match_oracle": true
+    },
+    "general_q2": {
+      "small_fullset_rows": 88,
+      "small_q1_controls": 6,
+      "all_exact_sets_match_oracle": true
+    },
+    "qop_certificate": {
+      "small_controls": 8,
+      "positive_only_scale_certificates": 4,
+      "scale_cells": [
+        {
+          "case": "q2_positive_only_m8_k2",
+          "status": "found",
+          "uniqueness": "unique",
+          "edge_count": 16
+        },
+        {
+          "case": "q2_positive_only_m16_k4",
+          "status": "found",
+          "uniqueness": "unique",
+          "edge_count": 96
+        },
+        {
+          "case": "q2_positive_only_m32_k4",
+          "status": "found",
+          "uniqueness": "unique",
+          "edge_count": 384
+        },
+        {
+          "case": "q2_positive_only_m128_k8",
+          "status": "found",
+          "uniqueness": "unique",
+          "edge_count": 7168
+        }
+      ],
+      "tiny_public_example_oracle_counts": {
+        "q2": 1,
+        "q1": 0,
+        "unrestricted": 7
+      }
+    },
+    "general_q2_first_answer_search_statuses": {
+      "found": 2,
+      "incomplete": 2
+    },
+    "long_contextual_regular": [
+      {
+        "case": "context_pair_star_a32_k4_L128",
+        "input_sha256": "6fcb64c2e73b829f5c1a050c0aad1f364d1c9f5b69b3f0fbac90d7d15ec6abc4",
+        "truth_sidecar_sha256": "f96867df3587dc0cb9080729f6f869539fdd7b620e91615e8b61dc1cff0c6614",
+        "alphabet_size": 32,
+        "k": 4,
+        "max_word_length": 128,
+        "min_word_length": 126,
+        "positive_raw": 29,
+        "positive_distinct": 29,
+        "negative_raw": 28,
+        "negative_distinct": 4,
+        "status": "found",
+        "search_exhausted": true
+      },
+      {
+        "case": "context_pair_star_a32_k4_L1024",
+        "input_sha256": "9b3974aeb703ef9203408db3627ca9ea6fb78117f29af999739f689602723a5d",
+        "truth_sidecar_sha256": "52b4b7717b52ed063f1653bdb1ad65a7caf6f7fbfbdefcea3e5a869f6dff957e",
+        "alphabet_size": 32,
+        "k": 4,
+        "max_word_length": 1024,
+        "min_word_length": 1022,
+        "positive_raw": 29,
+        "positive_distinct": 29,
+        "negative_raw": 28,
+        "negative_distinct": 4,
+        "status": "found",
+        "search_exhausted": true
+      },
+      {
+        "case": "context_pair_star_a32_k8_L4096",
+        "input_sha256": "2e3ab57886a5c28f8c58774024b92c22336b2ffc589d2f97c45df1a4a30e399d",
+        "truth_sidecar_sha256": "1d0830ff692e79fac8d15ab30e98e68282381f7cf738f2fd6367789129812eac",
+        "alphabet_size": 32,
+        "k": 8,
+        "max_word_length": 4096,
+        "min_word_length": 4094,
+        "positive_raw": 25,
+        "positive_distinct": 25,
+        "negative_raw": 24,
+        "negative_distinct": 8,
+        "status": "found",
+        "search_exhausted": true
+      },
+      {
+        "case": "context_pair_star_a128_k8_L1024",
+        "input_sha256": "30fcee76851f625a6e567ca6f1a1655f915e3d2b7efd216ec364779976de7fb7",
+        "truth_sidecar_sha256": "ea16f0b6e3383c1470db2cd8ba63ff85b9e82f86e6e4d9fa31f82c05e2318966",
+        "alphabet_size": 128,
+        "k": 8,
+        "max_word_length": 1024,
+        "min_word_length": 1022,
+        "positive_raw": 121,
+        "positive_distinct": 121,
+        "negative_raw": 120,
+        "negative_distinct": 8,
+        "status": "found",
+        "search_exhausted": true
+      }
+    ],
+    "unknown_k_singleton": {
+      "unique_target_oracle_count": 1,
+      "public_input_omits_k": true,
+      "ambiguous_and_empty_positive_controls_abstain": true,
+      "v3_fault": {
+        "message": "'a'",
+        "type": "KeyError"
+      },
+      "v4_fault_status": "incomplete"
+    },
+    "root_cli_r2": {
+      "captured_cli_records": 12,
+      "all_expected_cli_and_invalid_boundary_checks_passed": true
+    }
+  },
+  "capture_evidence": [
+    {
+      "name": "stage2_corpus_generation",
+      "attempt_id": "20261027T094953.976054Z_23dc6570da",
+      "label": "stage2_corpus_generate_v1",
+      "stdout_sha256": "27683e59d087df17651d76ff01ba0030c54ac0221675c573ebde52e0cb1b2317",
+      "stdout_bytes": 647,
+      "source_count": 84,
+      "capture_status": "success",
+      "exit_code": 0
+    },
+    {
+      "name": "qop_addendum_generation",
+      "attempt_id": "20261027T095307.902803Z_e4c3ecb810",
+      "label": "stage2_qop_addendum_generate_v1",
+      "stdout_sha256": "ebe6a45c00b44e81aeb05f7982fe41fba28f505037c4a4e84c1797bf450bb602",
+      "stdout_bytes": 335,
+      "source_count": 4,
+      "capture_status": "success",
+      "exit_code": 0
+    },
+    {
+      "name": "context_target_language_proof",
+      "attempt_id": "20261027T095852.114352Z_845fe9442d",
+      "label": "context_regular_proof_v1",
+      "stdout_sha256": "d350a9bbd71b46d4f751228cae877512db7b9b4b1ba9d1b7b87c266ea2a1387d",
+      "stdout_bytes": 130,
+      "source_count": 13,
+      "capture_status": "success",
+      "exit_code": 0
+    },
+    {
+      "name": "s002_sparse_small_fullsets",
+      "attempt_id": "20261027T095541.862000Z_b9b2f56f4b",
+      "label": "stage2_sparse_fullset_v1",
+      "stdout_sha256": "55854f37f81de4815624c9a60305f90a9b855a9f695647785d48445fc615e584",
+      "stdout_bytes": 339277,
+      "source_count": 150,
+      "capture_status": "success",
+      "exit_code": 0
+    },
+    {
+      "name": "general_q2_small_fullsets",
+      "attempt_id": "20261027T095602.864028Z_b2ea97b427",
+      "label": "stage2_q2_small_fullsets_v1",
+      "stdout_sha256": "47c5a28234e59b3714aa4b8b362dbc88fa4b549b9e90afea3eb0f0aed5bcdab8",
+      "stdout_bytes": 1191018,
+      "source_count": 150,
+      "capture_status": "success",
+      "exit_code": 0
+    },
+    {
+      "name": "qop_small_controls",
+      "attempt_id": "20261027T095635.509143Z_a6d0cbef31",
+      "label": "stage2_qop_control_audit_v1",
+      "stdout_sha256": "11351f6f6edc28a091036a1cc1c5c1ead94dffc40ba1af14a6e68087a38e92c5",
+      "stdout_bytes": 13524,
+      "source_count": 150,
+      "capture_status": "success",
+      "exit_code": 0
+    },
+    {
+      "name": "q2_constructive_scale",
+      "attempt_id": "20261027T095701.212969Z_e92c68de1d",
+      "label": "stage2_q2_large_certificate_v1",
+      "stdout_sha256": "737f788ef59c0d5481f1af240a02766318eb69745733de39184213ca6d4357f7",
+      "stdout_bytes": 923838,
+      "source_count": 150,
+      "capture_status": "success",
+      "exit_code": 0
+    },
+    {
+      "name": "context_regular_long_final",
+      "attempt_id": "20261027T101508.000830Z_8a16b55bc3",
+      "label": "stage2_contextual_long_gate_v3",
+      "stdout_sha256": "5293e41c3e891b8d2ca3262b368b6949c46d6ed088f636a07221fd826b41bdaa",
+      "stdout_bytes": 1745806,
+      "source_count": 151,
+      "capture_status": "success",
+      "exit_code": 0
+    },
+    {
+      "name": "unknown_k_v4_and_v3_regression",
+      "attempt_id": "20261027T101326.526396Z_5339b06884",
+      "label": "stage2_unknown_k_v4_audit_v2",
+      "stdout_sha256": "05959ca8c826d158a9fffc055ef6adf34c393f1b676a395f923241f26e4612b7",
+      "stdout_bytes": 7659,
+      "source_count": 151,
+      "capture_status": "success",
+      "exit_code": 0
+    },
+    {
+      "name": "root_cli_r2",
+      "attempt_id": "20261027T100140.139072Z_0d7074dab6",
+      "label": "stage2_root_cli_r2_gate",
+      "stdout_sha256": "3f3096ab9cda33f2b27afcd9821fbaaaa79d715fa734404acc272d4c6f9a873a",
+      "stdout_bytes": 31816,
+      "source_count": 151,
+      "capture_status": "success",
+      "exit_code": 0
+    }
+  ],
+  "infrastructure_events": [
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-10-27\\partition_scaling_v4\\audit\\stage2_infrastructure_404_record_v1.json",
+      "record": {
+        "schema": "C004-infrastructure-event-v1",
+        "event": "service returned HTTP 404 during the interrupted audit session",
+        "reported_by": "coordinating parent at resume",
+        "provider_attempt_id": null,
+        "request_id": null,
+        "endpoint": null,
+        "raw_response_log_present": false,
+        "missing_evidence": [
+          "service response body",
+          "request or trace identifier",
+          "timestamp and endpoint for the failing service call"
+        ],
+        "classification": "infrastructure/service interruption; no candidate or provider mismatch is evidenced by the available record",
+        "completed_stage2_provider_evidence": [
+          "20261027T095541.862000Z_b9b2f56f4b",
+          "20261027T095602.864028Z_b2ea97b427",
+          "20261027T095635.509143Z_a6d0cbef31",
+          "20261027T095701.212969Z_e92c68de1d",
+          "20261027T101508.000830Z_8a16b55bc3",
+          "20261027T101326.526396Z_5339b06884",
+          "20261027T100140.139072Z_0d7074dab6"
+        ],
+        "handling": "preserved as an infrastructure event; provider gates were reconciled from existing raw captures and no provider was rerun"
+      },
+      "raw_service_log_present": false
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-10-27\\partition_scaling_v4\\audit\\stage2_aggregate_launcher_failure_v1.json",
+      "record": {
+        "schema": "C004-infrastructure-launch-failure-v1",
+        "event": "first read-only gate-aggregator launch was rejected before process start because the PowerShell argument vector exceeded the Windows command-line length limit",
+        "process_started": false,
+        "provider_started": false,
+        "capture_attempt_id": null,
+        "raw_capture_log_present": false,
+        "tool_error": "ResourceUnavailable: python.exe failed to run; The filename or extension is too long.",
+        "cause": "The source-snapshot paths were expanded into one long argv list.",
+        "resolution": "A small audit-owned capture wrapper now constructs the source snapshot list in Python and invokes only the read-only aggregator. No solver/provider was rerun."
+      },
+      "raw_capture_log_present": false
+    }
+  ],
+  "provider_gate_effect": "none; this audit aggregates the already captured correctness evidence and does not rerun providers",
+  "superseded_auditor_attempts": {
+    "first_aggregate_record_schema_error": {
+      "attempt_id": "20261028T081652.030450Z_0b3eff7c46",
+      "reason": "read-only aggregator looked for alphabet_size in a captured per-case row, which stores the field only in the frozen corpus manifest; process failed before writing a report and did not run a provider"
+    },
+    "second_aggregate_truth_field_error": {
+      "attempt_id": "20261028T081753.844412Z_7d9562d70a",
+      "reason": "read-only aggregator looked for max_word_length in a captured per-case row; it is recorded in the truth sidecar and frozen input. Process failed before writing a report and did not run a provider"
+    },
+    "context_checker_count_assumption_attempt": {
+      "attempt_id": "20261027T095948.377665Z_3ee0a9f461",
+      "reason": "auditor harness compared distinct negative words with per-edge raw count; raw run is preserved, no provider mismatch; final v3 audit uses raw and distinct counts separately"
+    },
+    "unknown_k_pre_certificate_witness_check": {
+      "attempt_id": "20261027T100118.316204Z_d2bd36c90d",
+      "reason": "superseded by final v2 auditor harness which additionally validates raw swap witnesses, symbol opposition graph, and quotient clique"
+    },
+    "context_regular_earlier_success": {
+      "attempt_id": "20261027T100054.287557Z_a334ed9ebf",
+      "reason": "successful earlier provider result; superseded by final v3 independent raw-versus-distinct and regular-target audit"
+    }
+  },
+  "capture_reconciliation_errors": [],
+  "limits": [
+    "QOP001 claims are class-conditional on known k, q=2, exact finite labels, and the verified q-opposition certificate; they do not identify unrestricted DFA factors.",
+    "The four large general-v3 q2 exact-search rows include two incomplete searches after returning one directly valid target; they do not establish general-v3 uniqueness.",
+    "Long contextual target languages are L_i=u_i E_i*, where u_i is the block projection of C and E_i is the set of 2-symbol tree tiles; do not describe them as a plain tile-star language.",
+    "Stage-2 evidence is correctness/source validation only; no official stage-2 performance window was run or authorized in this audit.",
+    "The frozen manifest has 106 case records plus one addendum record. Records intentionally overlap in solver input; report counts are test records, not independent random observations."
+  ]
+}

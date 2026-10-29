@@ -1,0 +1,9 @@
+{
+  "cycle": "C004",
+  "entries": [
+    {"action": "create auditor worker", "result": "name audit reserved by old context", "correction": "created auditor_v4", "scientific_effect": "none"},
+    {"action": "read structural readiness manifest", "result": "initial guessed READY_S001.json path absent", "correction": "listed directory, read READINESS_S001_V1.json", "full_failed_read_output": "not separately saved; tool excerpt available only", "scientific_effect": "none"},
+    {"action": "list corpus files recursively", "result": "tool output truncated because it listed all historical corpus versions", "correction": "future inspections use manifests or short top-level inventories", "scientific_effect": "none; no corpus changed"}
+  ],
+  "note": "These are preparation/read-only operation issues, distinct from captured scientific failures in each branch. Missing raw logs are not reconstructed."
+}

@@ -1,0 +1,274 @@
+{
+  "schema": "C004-stage2-matched-full-api-timing-protocol-v1",
+  "status": "frozen",
+  "authorization": "master_serial_timing_go",
+  "authorization_scope": "12 wall jobs + 3 separate tracemalloc jobs only",
+  "pre_run_orchestration_event": {
+    "path": "audit/stage2_timing_wrapper_failure_v1.json",
+    "status": "provider_child_not_started; protocol refrozen after correction"
+  },
+  "runtime_manifest_sha256": "e2a1d0fbff9294370e37a1244624fef79c177f397c5a88266cf3a8eaf6cc4ea8",
+  "stage2_gate_report_sha256": "f1ab159020e3b16d8e6ce80e9989b68e3ec646d898e45cb323a1ed436883adcf",
+  "stage2_corpus_manifest_sha256": "258ba6b97871d8e140c2076247edd6612e5faf01352ac32ea247d211e806493f",
+  "stage2_corpus_freeze_sha256": "dc232d3cb866de9995a335a5c2b537d7ad20ab4787867908ca160f311d652779",
+  "protocol_generator_sha256": "b7c6d54f96206954471a1a9d1cf23efa1370cfa249f4b5f829ed06e752e2bc82",
+  "timing_driver_sha256": "a7107254c93b226162fe507a72ff49cdfb2aa940c7300e342a510a3187e8dad5",
+  "execution_wrapper_sha256": "dfd5e96d50127ae63cabf81c519bf1a7ddd2072d5524bcfdbe634e6934b78075",
+  "capture_utility_sha256": "68ee700f391fb6a1cf135e4b55a11a247b45f25164553c917d1664f6fc4a31cf",
+  "source_bindings": {
+    "audit/STAGE1_SCOPE_ERRATUM_01.md": "b4dd7a7f1550d16c322e77e715aac986664bcef53b6c056d3c5df9905c67c818",
+    "audit/capture.py": "68ee700f391fb6a1cf135e4b55a11a247b45f25164553c917d1664f6fc4a31cf",
+    "audit/corpora/stage2_v1/freeze_v1.json": "dc232d3cb866de9995a335a5c2b537d7ad20ab4787867908ca160f311d652779",
+    "audit/corpora/stage2_v1/manifest.json": "258ba6b97871d8e140c2076247edd6612e5faf01352ac32ea247d211e806493f",
+    "audit/execute_stage2_timing_v1.py": "dfd5e96d50127ae63cabf81c519bf1a7ddd2072d5524bcfdbe634e6934b78075",
+    "audit/freeze_stage2_timing_protocol_v1.py": "b7c6d54f96206954471a1a9d1cf23efa1370cfa249f4b5f829ed06e752e2bc82",
+    "audit/stage1_performance_report_v2.json": "e4f79008b1e84826d0ddc2999d35e76e98aeadc30f9a176357208dc432c637dc",
+    "audit/stage2_gate_report_v1.json": "f1ab159020e3b16d8e6ce80e9989b68e3ec646d898e45cb323a1ed436883adcf",
+    "audit/stage2_timing_execution_ledger_pre_executor_fix_001.json": "e0ea35c392babc754e4dfff8380d953663775465df29524719d36252c141a993",
+    "audit/stage2_timing_wrapper_failure_v1.json": "66b907401baa39ed27c620909ec8fec8f52b5acd706ea1bf970dc1dcd4e02489",
+    "audit/timed_stage2_full_api_v1.py": "a7107254c93b226162fe507a72ff49cdfb2aa940c7300e342a510a3187e8dad5",
+    "coordination/runtime_stage2_r2.json": "e2a1d0fbff9294370e37a1244624fef79c177f397c5a88266cf3a8eaf6cc4ea8",
+    "general/known_k_v3.py": "1519189883c8dcfa9dcfa8e309f8e2c942b46a53d1988720baae58c4ab817ed9",
+    "solver_v2.py": "d5e882cc229174461dd06811645a8181d1a19e858667ddb468f486528da3b52f",
+    "structural/bounded_certificate_v1.py": "0a8e542d3d44650f454e779137a5c9ac1057cd863bc162c94b45519f253636d5",
+    "structural/singleton_solver_v1.py": "16065fdfabf52d4280e3c0f5a7f427faff8990583579bd97b4ea64f70c5a023e",
+    "structural/singleton_solver_v2.py": "67899d186bd91dfa11cde576910378ae5a1d3e2606fa59cda6cb01e05e8c64ef",
+    "structural/singleton_solver_v4.py": "5cc301477d10aad356b857e05df73ec326c2f94b2475a554348fb7eaf53b8958"
+  },
+  "cases": {
+    "m16_k4": {
+      "case_id": "q2_positive_only_m16_k4",
+      "input_path": "corpora\\stage2_v1\\inputs\\q2_positive_only_m16_k4.json",
+      "input_sha256": "8ff3cac0f450622e2d12c0c6f055cdeaf0f38330465efe630fbde682bf789047",
+      "input_bytes": 407,
+      "alphabet_size": 16,
+      "k": 4,
+      "positive_count": 4,
+      "negative_count": 0,
+      "positive_lengths": [
+        32,
+        36
+      ],
+      "negative_lengths": []
+    },
+    "m128_k8": {
+      "case_id": "q2_positive_only_m128_k8",
+      "input_path": "corpora\\stage2_v1\\inputs\\q2_positive_only_m128_k8.json",
+      "input_sha256": "6ef08742b3a8b3cc9b140e5e15509ee3ea518a0169a343f653c9f30d391f73fe",
+      "input_bytes": 3587,
+      "alphabet_size": 128,
+      "k": 8,
+      "positive_count": 4,
+      "negative_count": 0,
+      "positive_lengths": [
+        256,
+        264
+      ],
+      "negative_lengths": []
+    }
+  },
+  "methods": {
+    "general_v3_q2": {
+      "provider": "general/known_k_v3.py",
+      "local_word_cap": 2,
+      "k_source": "public input",
+      "max_solutions": 2
+    },
+    "qop001_q2": {
+      "provider": "structural/bounded_certificate_v1.py",
+      "support_dependency": "structural/singleton_solver_v1.py",
+      "local_word_cap": 2,
+      "k_source": "public input",
+      "max_solutions": 2
+    }
+  },
+  "measured_scope": {
+    "wall_metric": "capture subprocess_seconds",
+    "wall_includes": [
+      "child process startup",
+      "protocol/input reads",
+      "provider import",
+      "solve",
+      "full API result JSON serialization",
+      "stdout write and process exit"
+    ],
+    "capture_source_snapshot_overhead_in_wall": false,
+    "capture_timeout_seconds_hard": 30.0,
+    "provider_deadline_seconds_soft": 29.0,
+    "provider_deadline_origin": "timing driver entry after interpreter startup; before protocol/input reads and dynamic provider import",
+    "serialized_output": "entire provider result object inside a small metadata envelope; no summary projection",
+    "fresh_process_per_job": true,
+    "execution_order": "strictly serial through audit/capture.py"
+  },
+  "memory_scope": {
+    "jobs": "three listed memory jobs only; separate from all wall timings",
+    "metric": "tracemalloc peak traced Python allocations in child",
+    "tracing_begins": "timing driver main before protocol/input read and dynamic provider import",
+    "peak_sampled_after": "full API result envelope has been JSON serialized",
+    "is_rss": false
+  },
+  "post_capture_validation": {
+    "runs_after_raw_stdout_stderr_are_saved": true,
+    "hidden_truth_sidecars_passed_to_timed_child": false,
+    "independent_checks": [
+      "full result JSON parse",
+      "status/censor accounting",
+      "target partition equality",
+      "positive projection coverage",
+      "q=2 local projection cap",
+      "qop certificate edge evidence",
+      "qop target/uniqueness certificate",
+      "output size and metrics extraction"
+    ]
+  },
+  "censor_policy": {
+    "capture_timeout_or_nonzero_exit": "preserve raw output and mark censored/error; do not discard or retry",
+    "provider_status_incomplete_with_valid_first_answer": "retain answer and output; uniqueness/proof search is censored",
+    "no_repeat_jobs": true
+  },
+  "wall_schedule": [
+    {
+      "job_id": "wall_01_m16_k4_general_v3_q2_r1",
+      "order": 1,
+      "phase": "wall",
+      "case": "m16_k4",
+      "rep": 1,
+      "method": "general_v3_q2",
+      "memory": false
+    },
+    {
+      "job_id": "wall_02_m16_k4_qop001_q2_r1",
+      "order": 2,
+      "phase": "wall",
+      "case": "m16_k4",
+      "rep": 1,
+      "method": "qop001_q2",
+      "memory": false
+    },
+    {
+      "job_id": "wall_03_m128_k8_qop001_q2_r1",
+      "order": 3,
+      "phase": "wall",
+      "case": "m128_k8",
+      "rep": 1,
+      "method": "qop001_q2",
+      "memory": false
+    },
+    {
+      "job_id": "wall_04_m128_k8_general_v3_q2_r1",
+      "order": 4,
+      "phase": "wall",
+      "case": "m128_k8",
+      "rep": 1,
+      "method": "general_v3_q2",
+      "memory": false
+    },
+    {
+      "job_id": "wall_05_m128_k8_general_v3_q2_r2",
+      "order": 5,
+      "phase": "wall",
+      "case": "m128_k8",
+      "rep": 2,
+      "method": "general_v3_q2",
+      "memory": false
+    },
+    {
+      "job_id": "wall_06_m128_k8_qop001_q2_r2",
+      "order": 6,
+      "phase": "wall",
+      "case": "m128_k8",
+      "rep": 2,
+      "method": "qop001_q2",
+      "memory": false
+    },
+    {
+      "job_id": "wall_07_m16_k4_qop001_q2_r2",
+      "order": 7,
+      "phase": "wall",
+      "case": "m16_k4",
+      "rep": 2,
+      "method": "qop001_q2",
+      "memory": false
+    },
+    {
+      "job_id": "wall_08_m16_k4_general_v3_q2_r2",
+      "order": 8,
+      "phase": "wall",
+      "case": "m16_k4",
+      "rep": 2,
+      "method": "general_v3_q2",
+      "memory": false
+    },
+    {
+      "job_id": "wall_09_m16_k4_general_v3_q2_r3",
+      "order": 9,
+      "phase": "wall",
+      "case": "m16_k4",
+      "rep": 3,
+      "method": "general_v3_q2",
+      "memory": false
+    },
+    {
+      "job_id": "wall_10_m16_k4_qop001_q2_r3",
+      "order": 10,
+      "phase": "wall",
+      "case": "m16_k4",
+      "rep": 3,
+      "method": "qop001_q2",
+      "memory": false
+    },
+    {
+      "job_id": "wall_11_m128_k8_qop001_q2_r3",
+      "order": 11,
+      "phase": "wall",
+      "case": "m128_k8",
+      "rep": 3,
+      "method": "qop001_q2",
+      "memory": false
+    },
+    {
+      "job_id": "wall_12_m128_k8_general_v3_q2_r3",
+      "order": 12,
+      "phase": "wall",
+      "case": "m128_k8",
+      "rep": 3,
+      "method": "general_v3_q2",
+      "memory": false
+    }
+  ],
+  "memory_schedule": [
+    {
+      "job_id": "memory_01_m16_k4_general_v3_q2",
+      "order": 13,
+      "phase": "memory",
+      "case": "m16_k4",
+      "rep": 1,
+      "method": "general_v3_q2",
+      "memory": true
+    },
+    {
+      "job_id": "memory_02_m16_k4_qop001_q2",
+      "order": 14,
+      "phase": "memory",
+      "case": "m16_k4",
+      "rep": 1,
+      "method": "qop001_q2",
+      "memory": true
+    },
+    {
+      "job_id": "memory_03_m128_k8_qop001_q2",
+      "order": 15,
+      "phase": "memory",
+      "case": "m128_k8",
+      "rep": 1,
+      "method": "qop001_q2",
+      "memory": true
+    }
+  ],
+  "schedule_sha256": "ebd33467b9370a2196950fddd0faf7c37dd461a29fa14496fffc5684c5ce5330",
+  "provider_budget": {
+    "per_provider_measured_limit_seconds": 900.0,
+    "prior_stage1_general_v3_wall_seconds": 11.922917199786752,
+    "stage1_memory_is_separate_and_not_added_to_wall_budget": true
+  }
+}

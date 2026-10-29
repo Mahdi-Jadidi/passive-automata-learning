@@ -1,0 +1,48 @@
+{
+  "at_utc": "2026-10-27T09:48:14.322240+00:00",
+  "version": "C004-stage2-R2",
+  "files": [
+    {
+      "path": "solver_v2.py",
+      "sha256": "d5e882cc229174461dd06811645a8181d1a19e858667ddb468f486528da3b52f",
+      "bytes": 4159
+    },
+    {
+      "path": "general/known_k_v3.py",
+      "sha256": "1519189883c8dcfa9dcfa8e309f8e2c942b46a53d1988720baae58c4ab817ed9",
+      "bytes": 13470
+    },
+    {
+      "path": "structural/singleton_solver_v1.py",
+      "sha256": "16065fdfabf52d4280e3c0f5a7f427faff8990583579bd97b4ea64f70c5a023e",
+      "bytes": 10270
+    },
+    {
+      "path": "structural/singleton_solver_v2.py",
+      "sha256": "67899d186bd91dfa11cde576910378ae5a1d3e2606fa59cda6cb01e05e8c64ef",
+      "bytes": 5066
+    },
+    {
+      "path": "structural/singleton_solver_v4.py",
+      "sha256": "5cc301477d10aad356b857e05df73ec326c2f94b2475a554348fb7eaf53b8958",
+      "bytes": 7771
+    },
+    {
+      "path": "structural/bounded_certificate_v1.py",
+      "sha256": "0a8e542d3d44650f454e779137a5c9ac1057cd863bc162c94b45519f253636d5",
+      "bytes": 8099
+    },
+    {
+      "path": "audit/capture.py",
+      "sha256": "68ee700f391fb6a1cf135e4b55a11a247b45f25164553c917d1664f6fc4a31cf",
+      "bytes": 10624
+    }
+  ],
+  "supersedes": "C004-stage2-R1 for public CLI and unknown-k singleton provider only",
+  "rejected_provider": "structural/singleton_solver_v3.py",
+  "defect": "structural/DEFECT_S003_INTERRUPT_001.md",
+  "historical_entrypoint": "solver.py",
+  "active_entrypoint": "solver_v2.py",
+  "scientific_status": "proof_scope_unchanged_new_implementation_pending_independent_audit",
+  "official_phase2_timings": "not_yet_authorized"
+}

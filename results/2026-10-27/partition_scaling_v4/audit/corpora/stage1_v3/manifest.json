@@ -1,0 +1,3710 @@
+{
+  "schema": "c004-stage1-corpus-v1",
+  "seed_policy": "all seeds embedded in case metadata and deterministic generator source",
+  "solver_input_excludes_truth": true,
+  "case_count": 211,
+  "cases": [
+    {
+      "id": "edge_rescue_counterexample",
+      "family": "boundary",
+      "input": "inputs/edge_rescue_counterexample.json",
+      "truth": null,
+      "alphabet_size": 2,
+      "k": 2,
+      "positive_count": 2,
+      "negative_count": 1,
+      "positive_lengths": [
+        0,
+        1
+      ],
+      "negative_lengths": [
+        1
+      ]
+    },
+    {
+      "id": "three_color_connected_nonunique",
+      "family": "boundary",
+      "input": "inputs/three_color_connected_nonunique.json",
+      "truth": null,
+      "alphabet_size": 4,
+      "k": 3,
+      "positive_count": 4,
+      "negative_count": 0,
+      "positive_lengths": [
+        4
+      ],
+      "negative_lengths": []
+    },
+    {
+      "id": "empty_both",
+      "family": "boundary",
+      "input": "inputs/empty_both.json",
+      "truth": null,
+      "alphabet_size": 3,
+      "k": 2,
+      "positive_count": 0,
+      "negative_count": 0,
+      "positive_lengths": [],
+      "negative_lengths": []
+    },
+    {
+      "id": "empty_positive_negative",
+      "family": "boundary",
+      "input": "inputs/empty_positive_negative.json",
+      "truth": null,
+      "alphabet_size": 3,
+      "k": 2,
+      "positive_count": 0,
+      "negative_count": 2,
+      "positive_lengths": [],
+      "negative_lengths": [
+        1,
+        2
+      ]
+    },
+    {
+      "id": "empty_negative",
+      "family": "boundary",
+      "input": "inputs/empty_negative.json",
+      "truth": null,
+      "alphabet_size": 3,
+      "k": 2,
+      "positive_count": 2,
+      "negative_count": 0,
+      "positive_lengths": [
+        2
+      ],
+      "negative_lengths": []
+    },
+    {
+      "id": "absent_symbols",
+      "family": "boundary",
+      "input": "inputs/absent_symbols.json",
+      "truth": null,
+      "alphabet_size": 4,
+      "k": 2,
+      "positive_count": 2,
+      "negative_count": 1,
+      "positive_lengths": [
+        2,
+        3
+      ],
+      "negative_lengths": [
+        2
+      ]
+    },
+    {
+      "id": "epsilon_positive",
+      "family": "boundary",
+      "input": "inputs/epsilon_positive.json",
+      "truth": null,
+      "alphabet_size": 2,
+      "k": 2,
+      "positive_count": 1,
+      "negative_count": 1,
+      "positive_lengths": [
+        0
+      ],
+      "negative_lengths": [
+        1
+      ]
+    },
+    {
+      "id": "repeated_symbols",
+      "family": "boundary",
+      "input": "inputs/repeated_symbols.json",
+      "truth": null,
+      "alphabet_size": 4,
+      "k": 3,
+      "positive_count": 2,
+      "negative_count": 1,
+      "positive_lengths": [
+        5
+      ],
+      "negative_lengths": [
+        5
+      ]
+    },
+    {
+      "id": "duplicate_samples",
+      "family": "boundary",
+      "input": "inputs/duplicate_samples.json",
+      "truth": null,
+      "alphabet_size": 3,
+      "k": 2,
+      "positive_count": 3,
+      "negative_count": 2,
+      "positive_lengths": [
+        2
+      ],
+      "negative_lengths": [
+        1
+      ]
+    },
+    {
+      "id": "invalid_k_zero",
+      "family": "invalid",
+      "input": "inputs/invalid_k_zero.json",
+      "truth": null,
+      "alphabet_size": 2,
+      "k": 0,
+      "positive_count": 1,
+      "negative_count": 0,
+      "positive_lengths": [
+        1
+      ],
+      "negative_lengths": []
+    },
+    {
+      "id": "invalid_k_one",
+      "family": "invalid",
+      "input": "inputs/invalid_k_one.json",
+      "truth": null,
+      "alphabet_size": 2,
+      "k": 1,
+      "positive_count": 1,
+      "negative_count": 0,
+      "positive_lengths": [
+        1
+      ],
+      "negative_lengths": []
+    },
+    {
+      "id": "invalid_k_too_large",
+      "family": "invalid",
+      "input": "inputs/invalid_k_too_large.json",
+      "truth": null,
+      "alphabet_size": 2,
+      "k": 3,
+      "positive_count": 1,
+      "negative_count": 0,
+      "positive_lengths": [
+        1
+      ],
+      "negative_lengths": []
+    },
+    {
+      "id": "invalid_k_bool",
+      "family": "invalid",
+      "input": "inputs/invalid_k_bool.json",
+      "truth": null,
+      "alphabet_size": 2,
+      "k": true,
+      "positive_count": 1,
+      "negative_count": 0,
+      "positive_lengths": [
+        1
+      ],
+      "negative_lengths": []
+    },
+    {
+      "id": "invalid_k_float",
+      "family": "invalid",
+      "input": "inputs/invalid_k_float.json",
+      "truth": null,
+      "alphabet_size": 2,
+      "k": 2.0,
+      "positive_count": 1,
+      "negative_count": 0,
+      "positive_lengths": [
+        1
+      ],
+      "negative_lengths": []
+    },
+    {
+      "id": "invalid_alphabet_duplicate",
+      "family": "invalid",
+      "input": "inputs/invalid_alphabet_duplicate.json",
+      "truth": null,
+      "alphabet_size": 2,
+      "k": 2,
+      "positive_count": 0,
+      "negative_count": 0,
+      "positive_lengths": [],
+      "negative_lengths": []
+    },
+    {
+      "id": "invalid_unknown_symbol",
+      "family": "invalid",
+      "input": "inputs/invalid_unknown_symbol.json",
+      "truth": null,
+      "alphabet_size": 2,
+      "k": 2,
+      "positive_count": 1,
+      "negative_count": 0,
+      "positive_lengths": [
+        2
+      ],
+      "negative_lengths": []
+    },
+    {
+      "id": "invalid_contradictory_label",
+      "family": "invalid",
+      "input": "inputs/invalid_contradictory_label.json",
+      "truth": null,
+      "alphabet_size": 2,
+      "k": 2,
+      "positive_count": 1,
+      "negative_count": 1,
+      "positive_lengths": [
+        1
+      ],
+      "negative_lengths": [
+        1
+      ]
+    },
+    {
+      "id": "invalid_positive_type",
+      "family": "invalid",
+      "input": "inputs/invalid_positive_type.json",
+      "truth": null,
+      "alphabet_size": 2,
+      "k": 2,
+      "positive_count": 1,
+      "negative_count": 0,
+      "positive_lengths": [],
+      "negative_lengths": []
+    },
+    {
+      "id": "small_general_n3_k2_s44891",
+      "family": "small_general",
+      "input": "inputs/small_general_n3_k2_s44891.json",
+      "truth": "hidden_truth/small_general_n3_k2_s44891.json",
+      "alphabet_size": 3,
+      "k": 2,
+      "positive_count": 3,
+      "negative_count": 2,
+      "positive_lengths": [
+        3,
+        5
+      ],
+      "negative_lengths": [
+        6,
+        7
+      ],
+      "seed": 44891
+    },
+    {
+      "id": "small_singleton_n3_k2_s45391",
+      "family": "small_singleton",
+      "input": "inputs/small_singleton_n3_k2_s45391.json",
+      "truth": "hidden_truth/small_singleton_n3_k2_s45391.json",
+      "alphabet_size": 3,
+      "k": 2,
+      "positive_count": 2,
+      "negative_count": 2,
+      "positive_lengths": [
+        8
+      ],
+      "negative_lengths": [
+        8
+      ],
+      "seed": 45391
+    },
+    {
+      "id": "random_dfa_small_a3_k2_l24_s67200",
+      "family": "random_dfa_small",
+      "input": "inputs/random_dfa_small_a3_k2_l24_s67200.json",
+      "truth": "hidden_truth/random_dfa_small_a3_k2_l24_s67200.json",
+      "alphabet_size": 3,
+      "k": 2,
+      "positive_count": 3,
+      "negative_count": 2,
+      "positive_lengths": [
+        24
+      ],
+      "negative_lengths": [
+        24
+      ],
+      "length": 24,
+      "seed": 67200
+    },
+    {
+      "id": "small_general_n3_k2_s44892",
+      "family": "small_general",
+      "input": "inputs/small_general_n3_k2_s44892.json",
+      "truth": "hidden_truth/small_general_n3_k2_s44892.json",
+      "alphabet_size": 3,
+      "k": 2,
+      "positive_count": 3,
+      "negative_count": 2,
+      "positive_lengths": [
+        1,
+        3,
+        4
+      ],
+      "negative_lengths": [
+        2
+      ],
+      "seed": 44892
+    },
+    {
+      "id": "small_singleton_n3_k2_s45392",
+      "family": "small_singleton",
+      "input": "inputs/small_singleton_n3_k2_s45392.json",
+      "truth": "hidden_truth/small_singleton_n3_k2_s45392.json",
+      "alphabet_size": 3,
+      "k": 2,
+      "positive_count": 2,
+      "negative_count": 2,
+      "positive_lengths": [
+        11
+      ],
+      "negative_lengths": [
+        11
+      ],
+      "seed": 45392
+    },
+    {
+      "id": "small_general_n3_k3_s44968",
+      "family": "small_general",
+      "input": "inputs/small_general_n3_k3_s44968.json",
+      "truth": "hidden_truth/small_general_n3_k3_s44968.json",
+      "alphabet_size": 3,
+      "k": 3,
+      "positive_count": 5,
+      "negative_count": 2,
+      "positive_lengths": [
+        5,
+        6,
+        8
+      ],
+      "negative_lengths": [
+        1,
+        3
+      ],
+      "seed": 44968
+    },
+    {
+      "id": "small_singleton_n3_k3_s45468",
+      "family": "small_singleton",
+      "input": "inputs/small_singleton_n3_k3_s45468.json",
+      "truth": "hidden_truth/small_singleton_n3_k3_s45468.json",
+      "alphabet_size": 3,
+      "k": 3,
+      "positive_count": 2,
+      "negative_count": 2,
+      "positive_lengths": [
+        11
+      ],
+      "negative_lengths": [
+        11
+      ],
+      "seed": 45468
+    },
+    {
+      "id": "random_dfa_small_a3_k3_l24_s67300",
+      "family": "random_dfa_small",
+      "input": "inputs/random_dfa_small_a3_k3_l24_s67300.json",
+      "truth": "hidden_truth/random_dfa_small_a3_k3_l24_s67300.json",
+      "alphabet_size": 3,
+      "k": 3,
+      "positive_count": 3,
+      "negative_count": 2,
+      "positive_lengths": [
+        24
+      ],
+      "negative_lengths": [
+        24
+      ],
+      "length": 24,
+      "seed": 67300
+    },
+    {
+      "id": "small_general_n3_k3_s44969",
+      "family": "small_general",
+      "input": "inputs/small_general_n3_k3_s44969.json",
+      "truth": "hidden_truth/small_general_n3_k3_s44969.json",
+      "alphabet_size": 3,
+      "k": 3,
+      "positive_count": 5,
+      "negative_count": 2,
+      "positive_lengths": [
+        4,
+        6,
+        9,
+        10
+      ],
+      "negative_lengths": [
+        0,
+        9
+      ],
+      "seed": 44969
+    },
+    {
+      "id": "small_singleton_n3_k3_s45469",
+      "family": "small_singleton",
+      "input": "inputs/small_singleton_n3_k3_s45469.json",
+      "truth": "hidden_truth/small_singleton_n3_k3_s45469.json",
+      "alphabet_size": 3,
+      "k": 3,
+      "positive_count": 4,
+      "negative_count": 2,
+      "positive_lengths": [
+        10
+      ],
+      "negative_lengths": [
+        10
+      ],
+      "seed": 45469
+    },
+    {
+      "id": "small_general_n4_k2_s45100",
+      "family": "small_general",
+      "input": "inputs/small_general_n4_k2_s45100.json",
+      "truth": "hidden_truth/small_general_n4_k2_s45100.json",
+      "alphabet_size": 4,
+      "k": 2,
+      "positive_count": 4,
+      "negative_count": 2,
+      "positive_lengths": [
+        5,
+        8
+      ],
+      "negative_lengths": [
+        4,
+        5
+      ],
+      "seed": 45100
+    },
+    {
+      "id": "small_singleton_n4_k2_s45600",
+      "family": "small_singleton",
+      "input": "inputs/small_singleton_n4_k2_s45600.json",
+      "truth": "hidden_truth/small_singleton_n4_k2_s45600.json",
+      "alphabet_size": 4,
+      "k": 2,
+      "positive_count": 2,
+      "negative_count": 2,
+      "positive_lengths": [
+        9
+      ],
+      "negative_lengths": [
+        9
+      ],
+      "seed": 45600
+    },
+    {
+      "id": "random_dfa_small_a4_k2_l24_s68200",
+      "family": "random_dfa_small",
+      "input": "inputs/random_dfa_small_a4_k2_l24_s68200.json",
+      "truth": "hidden_truth/random_dfa_small_a4_k2_l24_s68200.json",
+      "alphabet_size": 4,
+      "k": 2,
+      "positive_count": 3,
+      "negative_count": 2,
+      "positive_lengths": [
+        24
+      ],
+      "negative_lengths": [
+        24
+      ],
+      "length": 24,
+      "seed": 68200
+    },
+    {
+      "id": "small_general_n4_k2_s45101",
+      "family": "small_general",
+      "input": "inputs/small_general_n4_k2_s45101.json",
+      "truth": "hidden_truth/small_general_n4_k2_s45101.json",
+      "alphabet_size": 4,
+      "k": 2,
+      "positive_count": 2,
+      "negative_count": 2,
+      "positive_lengths": [
+        3
+      ],
+      "negative_lengths": [
+        3
+      ],
+      "seed": 45101
+    },
+    {
+      "id": "small_singleton_n4_k2_s45601",
+      "family": "small_singleton",
+      "input": "inputs/small_singleton_n4_k2_s45601.json",
+      "truth": "hidden_truth/small_singleton_n4_k2_s45601.json",
+      "alphabet_size": 4,
+      "k": 2,
+      "positive_count": 1,
+      "negative_count": 2,
+      "positive_lengths": [
+        7
+      ],
+      "negative_lengths": [
+        7
+      ],
+      "seed": 45601
+    },
+    {
+      "id": "small_general_n4_k3_s45177",
+      "family": "small_general",
+      "input": "inputs/small_general_n4_k3_s45177.json",
+      "truth": "hidden_truth/small_general_n4_k3_s45177.json",
+      "alphabet_size": 4,
+      "k": 3,
+      "positive_count": 4,
+      "negative_count": 2,
+      "positive_lengths": [
+        4,
+        6,
+        9
+      ],
+      "negative_lengths": [
+        2,
+        9
+      ],
+      "seed": 45177
+    },
+    {
+      "id": "small_singleton_n4_k3_s45677",
+      "family": "small_singleton",
+      "input": "inputs/small_singleton_n4_k3_s45677.json",
+      "truth": "hidden_truth/small_singleton_n4_k3_s45677.json",
+      "alphabet_size": 4,
+      "k": 3,
+      "positive_count": 3,
+      "negative_count": 2,
+      "positive_lengths": [
+        17
+      ],
+      "negative_lengths": [
+        17
+      ],
+      "seed": 45677
+    },
+    {
+      "id": "random_dfa_small_a4_k3_l24_s68300",
+      "family": "random_dfa_small",
+      "input": "inputs/random_dfa_small_a4_k3_l24_s68300.json",
+      "truth": "hidden_truth/random_dfa_small_a4_k3_l24_s68300.json",
+      "alphabet_size": 4,
+      "k": 3,
+      "positive_count": 3,
+      "negative_count": 2,
+      "positive_lengths": [
+        24
+      ],
+      "negative_lengths": [
+        24
+      ],
+      "length": 24,
+      "seed": 68300
+    },
+    {
+      "id": "small_general_n4_k3_s45178",
+      "family": "small_general",
+      "input": "inputs/small_general_n4_k3_s45178.json",
+      "truth": "hidden_truth/small_general_n4_k3_s45178.json",
+      "alphabet_size": 4,
+      "k": 3,
+      "positive_count": 4,
+      "negative_count": 2,
+      "positive_lengths": [
+        8,
+        11
+      ],
+      "negative_lengths": [
+        1,
+        7
+      ],
+      "seed": 45178
+    },
+    {
+      "id": "small_singleton_n4_k3_s45678",
+      "family": "small_singleton",
+      "input": "inputs/small_singleton_n4_k3_s45678.json",
+      "truth": "hidden_truth/small_singleton_n4_k3_s45678.json",
+      "alphabet_size": 4,
+      "k": 3,
+      "positive_count": 3,
+      "negative_count": 2,
+      "positive_lengths": [
+        7
+      ],
+      "negative_lengths": [
+        7
+      ],
+      "seed": 45678
+    },
+    {
+      "id": "small_general_n4_k4_s45254",
+      "family": "small_general",
+      "input": "inputs/small_general_n4_k4_s45254.json",
+      "truth": "hidden_truth/small_general_n4_k4_s45254.json",
+      "alphabet_size": 4,
+      "k": 4,
+      "positive_count": 4,
+      "negative_count": 2,
+      "positive_lengths": [
+        7,
+        8,
+        9
+      ],
+      "negative_lengths": [
+        2,
+        4
+      ],
+      "seed": 45254
+    },
+    {
+      "id": "small_singleton_n4_k4_s45754",
+      "family": "small_singleton",
+      "input": "inputs/small_singleton_n4_k4_s45754.json",
+      "truth": "hidden_truth/small_singleton_n4_k4_s45754.json",
+      "alphabet_size": 4,
+      "k": 4,
+      "positive_count": 4,
+      "negative_count": 2,
+      "positive_lengths": [
+        9
+      ],
+      "negative_lengths": [
+        9
+      ],
+      "seed": 45754
+    },
+    {
+      "id": "random_dfa_small_a4_k4_l24_s68400",
+      "family": "random_dfa_small",
+      "input": "inputs/random_dfa_small_a4_k4_l24_s68400.json",
+      "truth": "hidden_truth/random_dfa_small_a4_k4_l24_s68400.json",
+      "alphabet_size": 4,
+      "k": 4,
+      "positive_count": 3,
+      "negative_count": 2,
+      "positive_lengths": [
+        24
+      ],
+      "negative_lengths": [
+        24
+      ],
+      "length": 24,
+      "seed": 68400
+    },
+    {
+      "id": "small_general_n4_k4_s45255",
+      "family": "small_general",
+      "input": "inputs/small_general_n4_k4_s45255.json",
+      "truth": "hidden_truth/small_general_n4_k4_s45255.json",
+      "alphabet_size": 4,
+      "k": 4,
+      "positive_count": 5,
+      "negative_count": 2,
+      "positive_lengths": [
+        7,
+        9,
+        10,
+        11
+      ],
+      "negative_lengths": [
+        1,
+        3
+      ],
+      "seed": 45255
+    },
+    {
+      "id": "small_singleton_n4_k4_s45755",
+      "family": "small_singleton",
+      "input": "inputs/small_singleton_n4_k4_s45755.json",
+      "truth": "hidden_truth/small_singleton_n4_k4_s45755.json",
+      "alphabet_size": 4,
+      "k": 4,
+      "positive_count": 3,
+      "negative_count": 2,
+      "positive_lengths": [
+        11
+      ],
+      "negative_lengths": [
+        11
+      ],
+      "seed": 45755
+    },
+    {
+      "id": "small_general_n5_k2_s45309",
+      "family": "small_general",
+      "input": "inputs/small_general_n5_k2_s45309.json",
+      "truth": "hidden_truth/small_general_n5_k2_s45309.json",
+      "alphabet_size": 5,
+      "k": 2,
+      "positive_count": 2,
+      "negative_count": 2,
+      "positive_lengths": [
+        4,
+        5
+      ],
+      "negative_lengths": [
+        1,
+        7
+      ],
+      "seed": 45309
+    },
+    {
+      "id": "small_singleton_n5_k2_s45809",
+      "family": "small_singleton",
+      "input": "inputs/small_singleton_n5_k2_s45809.json",
+      "truth": "hidden_truth/small_singleton_n5_k2_s45809.json",
+      "alphabet_size": 5,
+      "k": 2,
+      "positive_count": 2,
+      "negative_count": 2,
+      "positive_lengths": [
+        12
+      ],
+      "negative_lengths": [
+        12
+      ],
+      "seed": 45809
+    },
+    {
+      "id": "random_dfa_small_a5_k2_l24_s69200",
+      "family": "random_dfa_small",
+      "input": "inputs/random_dfa_small_a5_k2_l24_s69200.json",
+      "truth": "hidden_truth/random_dfa_small_a5_k2_l24_s69200.json",
+      "alphabet_size": 5,
+      "k": 2,
+      "positive_count": 3,
+      "negative_count": 2,
+      "positive_lengths": [
+        24
+      ],
+      "negative_lengths": [
+        24
+      ],
+      "length": 24,
+      "seed": 69200
+    },
+    {
+      "id": "small_general_n5_k2_s45310",
+      "family": "small_general",
+      "input": "inputs/small_general_n5_k2_s45310.json",
+      "truth": "hidden_truth/small_general_n5_k2_s45310.json",
+      "alphabet_size": 5,
+      "k": 2,
+      "positive_count": 3,
+      "negative_count": 2,
+      "positive_lengths": [
+        1,
+        2,
+        3
+      ],
+      "negative_lengths": [
+        5,
+        6
+      ],
+      "seed": 45310
+    },
+    {
+      "id": "small_singleton_n5_k2_s45810",
+      "family": "small_singleton",
+      "input": "inputs/small_singleton_n5_k2_s45810.json",
+      "truth": "hidden_truth/small_singleton_n5_k2_s45810.json",
+      "alphabet_size": 5,
+      "k": 2,
+      "positive_count": 2,
+      "negative_count": 2,
+      "positive_lengths": [
+        5
+      ],
+      "negative_lengths": [
+        5
+      ],
+      "seed": 45810
+    },
+    {
+      "id": "small_general_n5_k3_s45386",
+      "family": "small_general",
+      "input": "inputs/small_general_n5_k3_s45386.json",
+      "truth": "hidden_truth/small_general_n5_k3_s45386.json",
+      "alphabet_size": 5,
+      "k": 3,
+      "positive_count": 3,
+      "negative_count": 2,
+      "positive_lengths": [
+        6,
+        7,
+        9
+      ],
+      "negative_lengths": [
+        0,
+        2
+      ],
+      "seed": 45386
+    },
+    {
+      "id": "small_singleton_n5_k3_s45886",
+      "family": "small_singleton",
+      "input": "inputs/small_singleton_n5_k3_s45886.json",
+      "truth": "hidden_truth/small_singleton_n5_k3_s45886.json",
+      "alphabet_size": 5,
+      "k": 3,
+      "positive_count": 4,
+      "negative_count": 2,
+      "positive_lengths": [
+        13
+      ],
+      "negative_lengths": [
+        13
+      ],
+      "seed": 45886
+    },
+    {
+      "id": "random_dfa_small_a5_k3_l24_s69300",
+      "family": "random_dfa_small",
+      "input": "inputs/random_dfa_small_a5_k3_l24_s69300.json",
+      "truth": "hidden_truth/random_dfa_small_a5_k3_l24_s69300.json",
+      "alphabet_size": 5,
+      "k": 3,
+      "positive_count": 3,
+      "negative_count": 2,
+      "positive_lengths": [
+        24
+      ],
+      "negative_lengths": [
+        24
+      ],
+      "length": 24,
+      "seed": 69300
+    },
+    {
+      "id": "small_general_n5_k3_s45387",
+      "family": "small_general",
+      "input": "inputs/small_general_n5_k3_s45387.json",
+      "truth": "hidden_truth/small_general_n5_k3_s45387.json",
+      "alphabet_size": 5,
+      "k": 3,
+      "positive_count": 3,
+      "negative_count": 2,
+      "positive_lengths": [
+        7
+      ],
+      "negative_lengths": [
+        1,
+        3
+      ],
+      "seed": 45387
+    },
+    {
+      "id": "small_singleton_n5_k3_s45887",
+      "family": "small_singleton",
+      "input": "inputs/small_singleton_n5_k3_s45887.json",
+      "truth": "hidden_truth/small_singleton_n5_k3_s45887.json",
+      "alphabet_size": 5,
+      "k": 3,
+      "positive_count": 3,
+      "negative_count": 2,
+      "positive_lengths": [
+        11
+      ],
+      "negative_lengths": [
+        11
+      ],
+      "seed": 45887
+    },
+    {
+      "id": "small_general_n5_k4_s45463",
+      "family": "small_general",
+      "input": "inputs/small_general_n5_k4_s45463.json",
+      "truth": "hidden_truth/small_general_n5_k4_s45463.json",
+      "alphabet_size": 5,
+      "k": 4,
+      "positive_count": 5,
+      "negative_count": 2,
+      "positive_lengths": [
+        7,
+        8,
+        11,
+        12
+      ],
+      "negative_lengths": [
+        1,
+        3
+      ],
+      "seed": 45463
+    },
+    {
+      "id": "small_singleton_n5_k4_s45963",
+      "family": "small_singleton",
+      "input": "inputs/small_singleton_n5_k4_s45963.json",
+      "truth": "hidden_truth/small_singleton_n5_k4_s45963.json",
+      "alphabet_size": 5,
+      "k": 4,
+      "positive_count": 3,
+      "negative_count": 2,
+      "positive_lengths": [
+        14
+      ],
+      "negative_lengths": [
+        14
+      ],
+      "seed": 45963
+    },
+    {
+      "id": "random_dfa_small_a5_k4_l24_s69400",
+      "family": "random_dfa_small",
+      "input": "inputs/random_dfa_small_a5_k4_l24_s69400.json",
+      "truth": "hidden_truth/random_dfa_small_a5_k4_l24_s69400.json",
+      "alphabet_size": 5,
+      "k": 4,
+      "positive_count": 3,
+      "negative_count": 2,
+      "positive_lengths": [
+        24
+      ],
+      "negative_lengths": [
+        24
+      ],
+      "length": 24,
+      "seed": 69400
+    },
+    {
+      "id": "small_general_n5_k4_s45464",
+      "family": "small_general",
+      "input": "inputs/small_general_n5_k4_s45464.json",
+      "truth": "hidden_truth/small_general_n5_k4_s45464.json",
+      "alphabet_size": 5,
+      "k": 4,
+      "positive_count": 4,
+      "negative_count": 2,
+      "positive_lengths": [
+        4,
+        5
+      ],
+      "negative_lengths": [
+        0,
+        7
+      ],
+      "seed": 45464
+    },
+    {
+      "id": "small_singleton_n5_k4_s45964",
+      "family": "small_singleton",
+      "input": "inputs/small_singleton_n5_k4_s45964.json",
+      "truth": "hidden_truth/small_singleton_n5_k4_s45964.json",
+      "alphabet_size": 5,
+      "k": 4,
+      "positive_count": 4,
+      "negative_count": 2,
+      "positive_lengths": [
+        18
+      ],
+      "negative_lengths": [
+        18
+      ],
+      "seed": 45964
+    },
+    {
+      "id": "small_general_n6_k2_s45518",
+      "family": "small_general",
+      "input": "inputs/small_general_n6_k2_s45518.json",
+      "truth": "hidden_truth/small_general_n6_k2_s45518.json",
+      "alphabet_size": 6,
+      "k": 2,
+      "positive_count": 3,
+      "negative_count": 2,
+      "positive_lengths": [
+        1,
+        4,
+        5
+      ],
+      "negative_lengths": [
+        0,
+        6
+      ],
+      "seed": 45518
+    },
+    {
+      "id": "small_singleton_n6_k2_s46018",
+      "family": "small_singleton",
+      "input": "inputs/small_singleton_n6_k2_s46018.json",
+      "truth": "hidden_truth/small_singleton_n6_k2_s46018.json",
+      "alphabet_size": 6,
+      "k": 2,
+      "positive_count": 2,
+      "negative_count": 2,
+      "positive_lengths": [
+        6
+      ],
+      "negative_lengths": [
+        6
+      ],
+      "seed": 46018
+    },
+    {
+      "id": "random_dfa_small_a6_k2_l24_s70200",
+      "family": "random_dfa_small",
+      "input": "inputs/random_dfa_small_a6_k2_l24_s70200.json",
+      "truth": "hidden_truth/random_dfa_small_a6_k2_l24_s70200.json",
+      "alphabet_size": 6,
+      "k": 2,
+      "positive_count": 3,
+      "negative_count": 2,
+      "positive_lengths": [
+        24
+      ],
+      "negative_lengths": [
+        24
+      ],
+      "length": 24,
+      "seed": 70200
+    },
+    {
+      "id": "small_general_n6_k2_s45519",
+      "family": "small_general",
+      "input": "inputs/small_general_n6_k2_s45519.json",
+      "truth": "hidden_truth/small_general_n6_k2_s45519.json",
+      "alphabet_size": 6,
+      "k": 2,
+      "positive_count": 4,
+      "negative_count": 2,
+      "positive_lengths": [
+        2,
+        3,
+        6
+      ],
+      "negative_lengths": [
+        5
+      ],
+      "seed": 45519
+    },
+    {
+      "id": "small_singleton_n6_k2_s46019",
+      "family": "small_singleton",
+      "input": "inputs/small_singleton_n6_k2_s46019.json",
+      "truth": "hidden_truth/small_singleton_n6_k2_s46019.json",
+      "alphabet_size": 6,
+      "k": 2,
+      "positive_count": 1,
+      "negative_count": 2,
+      "positive_lengths": [
+        9
+      ],
+      "negative_lengths": [
+        9
+      ],
+      "seed": 46019
+    },
+    {
+      "id": "small_general_n6_k3_s45595",
+      "family": "small_general",
+      "input": "inputs/small_general_n6_k3_s45595.json",
+      "truth": "hidden_truth/small_general_n6_k3_s45595.json",
+      "alphabet_size": 6,
+      "k": 3,
+      "positive_count": 3,
+      "negative_count": 2,
+      "positive_lengths": [
+        4,
+        6,
+        7
+      ],
+      "negative_lengths": [
+        0,
+        1
+      ],
+      "seed": 45595
+    },
+    {
+      "id": "small_singleton_n6_k3_s46095",
+      "family": "small_singleton",
+      "input": "inputs/small_singleton_n6_k3_s46095.json",
+      "truth": "hidden_truth/small_singleton_n6_k3_s46095.json",
+      "alphabet_size": 6,
+      "k": 3,
+      "positive_count": 4,
+      "negative_count": 2,
+      "positive_lengths": [
+        9
+      ],
+      "negative_lengths": [
+        9
+      ],
+      "seed": 46095
+    },
+    {
+      "id": "random_dfa_small_a6_k3_l24_s70300",
+      "family": "random_dfa_small",
+      "input": "inputs/random_dfa_small_a6_k3_l24_s70300.json",
+      "truth": "hidden_truth/random_dfa_small_a6_k3_l24_s70300.json",
+      "alphabet_size": 6,
+      "k": 3,
+      "positive_count": 3,
+      "negative_count": 2,
+      "positive_lengths": [
+        24
+      ],
+      "negative_lengths": [
+        24
+      ],
+      "length": 24,
+      "seed": 70300
+    },
+    {
+      "id": "small_general_n6_k3_s45596",
+      "family": "small_general",
+      "input": "inputs/small_general_n6_k3_s45596.json",
+      "truth": "hidden_truth/small_general_n6_k3_s45596.json",
+      "alphabet_size": 6,
+      "k": 3,
+      "positive_count": 5,
+      "negative_count": 2,
+      "positive_lengths": [
+        4,
+        5,
+        7,
+        9
+      ],
+      "negative_lengths": [
+        7,
+        8
+      ],
+      "seed": 45596
+    },
+    {
+      "id": "small_singleton_n6_k3_s46096",
+      "family": "small_singleton",
+      "input": "inputs/small_singleton_n6_k3_s46096.json",
+      "truth": "hidden_truth/small_singleton_n6_k3_s46096.json",
+      "alphabet_size": 6,
+      "k": 3,
+      "positive_count": 3,
+      "negative_count": 2,
+      "positive_lengths": [
+        8
+      ],
+      "negative_lengths": [
+        8
+      ],
+      "seed": 46096
+    },
+    {
+      "id": "small_general_n6_k4_s45672",
+      "family": "small_general",
+      "input": "inputs/small_general_n6_k4_s45672.json",
+      "truth": "hidden_truth/small_general_n6_k4_s45672.json",
+      "alphabet_size": 6,
+      "k": 4,
+      "positive_count": 4,
+      "negative_count": 2,
+      "positive_lengths": [
+        9,
+        10,
+        11
+      ],
+      "negative_lengths": [
+        1,
+        4
+      ],
+      "seed": 45672
+    },
+    {
+      "id": "small_singleton_n6_k4_s46172",
+      "family": "small_singleton",
+      "input": "inputs/small_singleton_n6_k4_s46172.json",
+      "truth": "hidden_truth/small_singleton_n6_k4_s46172.json",
+      "alphabet_size": 6,
+      "k": 4,
+      "positive_count": 3,
+      "negative_count": 2,
+      "positive_lengths": [
+        11
+      ],
+      "negative_lengths": [
+        11
+      ],
+      "seed": 46172
+    },
+    {
+      "id": "random_dfa_small_a6_k4_l24_s70400",
+      "family": "random_dfa_small",
+      "input": "inputs/random_dfa_small_a6_k4_l24_s70400.json",
+      "truth": "hidden_truth/random_dfa_small_a6_k4_l24_s70400.json",
+      "alphabet_size": 6,
+      "k": 4,
+      "positive_count": 3,
+      "negative_count": 2,
+      "positive_lengths": [
+        24
+      ],
+      "negative_lengths": [
+        24
+      ],
+      "length": 24,
+      "seed": 70400
+    },
+    {
+      "id": "small_general_n6_k4_s45673",
+      "family": "small_general",
+      "input": "inputs/small_general_n6_k4_s45673.json",
+      "truth": "hidden_truth/small_general_n6_k4_s45673.json",
+      "alphabet_size": 6,
+      "k": 4,
+      "positive_count": 5,
+      "negative_count": 2,
+      "positive_lengths": [
+        7,
+        9,
+        12,
+        13
+      ],
+      "negative_lengths": [
+        1,
+        2
+      ],
+      "seed": 45673
+    },
+    {
+      "id": "small_singleton_n6_k4_s46173",
+      "family": "small_singleton",
+      "input": "inputs/small_singleton_n6_k4_s46173.json",
+      "truth": "hidden_truth/small_singleton_n6_k4_s46173.json",
+      "alphabet_size": 6,
+      "k": 4,
+      "positive_count": 4,
+      "negative_count": 2,
+      "positive_lengths": [
+        14
+      ],
+      "negative_lengths": [
+        14
+      ],
+      "seed": 46173
+    },
+    {
+      "id": "small_general_n7_k2_s45727",
+      "family": "small_general",
+      "input": "inputs/small_general_n7_k2_s45727.json",
+      "truth": "hidden_truth/small_general_n7_k2_s45727.json",
+      "alphabet_size": 7,
+      "k": 2,
+      "positive_count": 2,
+      "negative_count": 2,
+      "positive_lengths": [
+        1,
+        6
+      ],
+      "negative_lengths": [
+        4,
+        5
+      ],
+      "seed": 45727
+    },
+    {
+      "id": "small_singleton_n7_k2_s46227",
+      "family": "small_singleton",
+      "input": "inputs/small_singleton_n7_k2_s46227.json",
+      "truth": "hidden_truth/small_singleton_n7_k2_s46227.json",
+      "alphabet_size": 7,
+      "k": 2,
+      "positive_count": 1,
+      "negative_count": 2,
+      "positive_lengths": [
+        11
+      ],
+      "negative_lengths": [
+        11
+      ],
+      "seed": 46227
+    },
+    {
+      "id": "random_dfa_small_a7_k2_l24_s71200",
+      "family": "random_dfa_small",
+      "input": "inputs/random_dfa_small_a7_k2_l24_s71200.json",
+      "truth": "hidden_truth/random_dfa_small_a7_k2_l24_s71200.json",
+      "alphabet_size": 7,
+      "k": 2,
+      "positive_count": 3,
+      "negative_count": 2,
+      "positive_lengths": [
+        24
+      ],
+      "negative_lengths": [
+        24
+      ],
+      "length": 24,
+      "seed": 71200
+    },
+    {
+      "id": "small_general_n7_k2_s45728",
+      "family": "small_general",
+      "input": "inputs/small_general_n7_k2_s45728.json",
+      "truth": "hidden_truth/small_general_n7_k2_s45728.json",
+      "alphabet_size": 7,
+      "k": 2,
+      "positive_count": 2,
+      "negative_count": 2,
+      "positive_lengths": [
+        2
+      ],
+      "negative_lengths": [
+        0,
+        8
+      ],
+      "seed": 45728
+    },
+    {
+      "id": "small_singleton_n7_k2_s46228",
+      "family": "small_singleton",
+      "input": "inputs/small_singleton_n7_k2_s46228.json",
+      "truth": "hidden_truth/small_singleton_n7_k2_s46228.json",
+      "alphabet_size": 7,
+      "k": 2,
+      "positive_count": 2,
+      "negative_count": 2,
+      "positive_lengths": [
+        8
+      ],
+      "negative_lengths": [
+        8
+      ],
+      "seed": 46228
+    },
+    {
+      "id": "small_general_n7_k3_s45804",
+      "family": "small_general",
+      "input": "inputs/small_general_n7_k3_s45804.json",
+      "truth": "hidden_truth/small_general_n7_k3_s45804.json",
+      "alphabet_size": 7,
+      "k": 3,
+      "positive_count": 5,
+      "negative_count": 2,
+      "positive_lengths": [
+        6,
+        7
+      ],
+      "negative_lengths": [
+        0,
+        3
+      ],
+      "seed": 45804
+    },
+    {
+      "id": "small_singleton_n7_k3_s46304",
+      "family": "small_singleton",
+      "input": "inputs/small_singleton_n7_k3_s46304.json",
+      "truth": "hidden_truth/small_singleton_n7_k3_s46304.json",
+      "alphabet_size": 7,
+      "k": 3,
+      "positive_count": 3,
+      "negative_count": 2,
+      "positive_lengths": [
+        11
+      ],
+      "negative_lengths": [
+        11
+      ],
+      "seed": 46304
+    },
+    {
+      "id": "random_dfa_small_a7_k3_l24_s71300",
+      "family": "random_dfa_small",
+      "input": "inputs/random_dfa_small_a7_k3_l24_s71300.json",
+      "truth": "hidden_truth/random_dfa_small_a7_k3_l24_s71300.json",
+      "alphabet_size": 7,
+      "k": 3,
+      "positive_count": 3,
+      "negative_count": 2,
+      "positive_lengths": [
+        24
+      ],
+      "negative_lengths": [
+        24
+      ],
+      "length": 24,
+      "seed": 71300
+    },
+    {
+      "id": "small_general_n7_k3_s45805",
+      "family": "small_general",
+      "input": "inputs/small_general_n7_k3_s45805.json",
+      "truth": "hidden_truth/small_general_n7_k3_s45805.json",
+      "alphabet_size": 7,
+      "k": 3,
+      "positive_count": 3,
+      "negative_count": 2,
+      "positive_lengths": [
+        1,
+        2
+      ],
+      "negative_lengths": [
+        0,
+        2
+      ],
+      "seed": 45805
+    },
+    {
+      "id": "small_singleton_n7_k3_s46305",
+      "family": "small_singleton",
+      "input": "inputs/small_singleton_n7_k3_s46305.json",
+      "truth": "hidden_truth/small_singleton_n7_k3_s46305.json",
+      "alphabet_size": 7,
+      "k": 3,
+      "positive_count": 2,
+      "negative_count": 2,
+      "positive_lengths": [
+        11
+      ],
+      "negative_lengths": [
+        11
+      ],
+      "seed": 46305
+    },
+    {
+      "id": "small_general_n7_k4_s45881",
+      "family": "small_general",
+      "input": "inputs/small_general_n7_k4_s45881.json",
+      "truth": "hidden_truth/small_general_n7_k4_s45881.json",
+      "alphabet_size": 7,
+      "k": 4,
+      "positive_count": 2,
+      "negative_count": 2,
+      "positive_lengths": [
+        2,
+        6
+      ],
+      "negative_lengths": [
+        0,
+        3
+      ],
+      "seed": 45881
+    },
+    {
+      "id": "small_singleton_n7_k4_s46381",
+      "family": "small_singleton",
+      "input": "inputs/small_singleton_n7_k4_s46381.json",
+      "truth": "hidden_truth/small_singleton_n7_k4_s46381.json",
+      "alphabet_size": 7,
+      "k": 4,
+      "positive_count": 4,
+      "negative_count": 2,
+      "positive_lengths": [
+        13
+      ],
+      "negative_lengths": [
+        13
+      ],
+      "seed": 46381
+    },
+    {
+      "id": "random_dfa_small_a7_k4_l24_s71400",
+      "family": "random_dfa_small",
+      "input": "inputs/random_dfa_small_a7_k4_l24_s71400.json",
+      "truth": "hidden_truth/random_dfa_small_a7_k4_l24_s71400.json",
+      "alphabet_size": 7,
+      "k": 4,
+      "positive_count": 3,
+      "negative_count": 2,
+      "positive_lengths": [
+        24
+      ],
+      "negative_lengths": [
+        24
+      ],
+      "length": 24,
+      "seed": 71400
+    },
+    {
+      "id": "small_general_n7_k4_s45882",
+      "family": "small_general",
+      "input": "inputs/small_general_n7_k4_s45882.json",
+      "truth": "hidden_truth/small_general_n7_k4_s45882.json",
+      "alphabet_size": 7,
+      "k": 4,
+      "positive_count": 3,
+      "negative_count": 2,
+      "positive_lengths": [
+        4,
+        7,
+        8
+      ],
+      "negative_lengths": [
+        7,
+        9
+      ],
+      "seed": 45882
+    },
+    {
+      "id": "small_singleton_n7_k4_s46382",
+      "family": "small_singleton",
+      "input": "inputs/small_singleton_n7_k4_s46382.json",
+      "truth": "hidden_truth/small_singleton_n7_k4_s46382.json",
+      "alphabet_size": 7,
+      "k": 4,
+      "positive_count": 4,
+      "negative_count": 2,
+      "positive_lengths": [
+        15
+      ],
+      "negative_lengths": [
+        15
+      ],
+      "seed": 46382
+    },
+    {
+      "id": "long_singleton_a8_k2_l128",
+      "family": "long_singleton",
+      "input": "inputs/long_singleton_a8_k2_l128.json",
+      "truth": "hidden_truth/long_singleton_a8_k2_l128.json",
+      "alphabet_size": 8,
+      "k": 2,
+      "positive_count": 3,
+      "negative_count": 2,
+      "positive_lengths": [
+        128
+      ],
+      "negative_lengths": [
+        128
+      ],
+      "length": 128
+    },
+    {
+      "id": "long_singleton_a8_k2_l1024",
+      "family": "long_singleton",
+      "input": "inputs/long_singleton_a8_k2_l1024.json",
+      "truth": "hidden_truth/long_singleton_a8_k2_l1024.json",
+      "alphabet_size": 8,
+      "k": 2,
+      "positive_count": 3,
+      "negative_count": 2,
+      "positive_lengths": [
+        1024
+      ],
+      "negative_lengths": [
+        1024
+      ],
+      "length": 1024
+    },
+    {
+      "id": "long_singleton_a8_k2_l4096",
+      "family": "long_singleton",
+      "input": "inputs/long_singleton_a8_k2_l4096.json",
+      "truth": "hidden_truth/long_singleton_a8_k2_l4096.json",
+      "alphabet_size": 8,
+      "k": 2,
+      "positive_count": 3,
+      "negative_count": 2,
+      "positive_lengths": [
+        4096
+      ],
+      "negative_lengths": [
+        4096
+      ],
+      "length": 4096
+    },
+    {
+      "id": "long_singleton_a8_k3_l128",
+      "family": "long_singleton",
+      "input": "inputs/long_singleton_a8_k3_l128.json",
+      "truth": "hidden_truth/long_singleton_a8_k3_l128.json",
+      "alphabet_size": 8,
+      "k": 3,
+      "positive_count": 3,
+      "negative_count": 2,
+      "positive_lengths": [
+        128
+      ],
+      "negative_lengths": [
+        128
+      ],
+      "length": 128
+    },
+    {
+      "id": "long_singleton_a8_k3_l1024",
+      "family": "long_singleton",
+      "input": "inputs/long_singleton_a8_k3_l1024.json",
+      "truth": "hidden_truth/long_singleton_a8_k3_l1024.json",
+      "alphabet_size": 8,
+      "k": 3,
+      "positive_count": 3,
+      "negative_count": 2,
+      "positive_lengths": [
+        1024
+      ],
+      "negative_lengths": [
+        1024
+      ],
+      "length": 1024
+    },
+    {
+      "id": "long_singleton_a8_k3_l4096",
+      "family": "long_singleton",
+      "input": "inputs/long_singleton_a8_k3_l4096.json",
+      "truth": "hidden_truth/long_singleton_a8_k3_l4096.json",
+      "alphabet_size": 8,
+      "k": 3,
+      "positive_count": 3,
+      "negative_count": 2,
+      "positive_lengths": [
+        4096
+      ],
+      "negative_lengths": [
+        4096
+      ],
+      "length": 4096
+    },
+    {
+      "id": "long_singleton_a8_k4_l128",
+      "family": "long_singleton",
+      "input": "inputs/long_singleton_a8_k4_l128.json",
+      "truth": "hidden_truth/long_singleton_a8_k4_l128.json",
+      "alphabet_size": 8,
+      "k": 4,
+      "positive_count": 3,
+      "negative_count": 2,
+      "positive_lengths": [
+        128
+      ],
+      "negative_lengths": [
+        128
+      ],
+      "length": 128
+    },
+    {
+      "id": "long_singleton_a8_k4_l1024",
+      "family": "long_singleton",
+      "input": "inputs/long_singleton_a8_k4_l1024.json",
+      "truth": "hidden_truth/long_singleton_a8_k4_l1024.json",
+      "alphabet_size": 8,
+      "k": 4,
+      "positive_count": 3,
+      "negative_count": 2,
+      "positive_lengths": [
+        1024
+      ],
+      "negative_lengths": [
+        1024
+      ],
+      "length": 1024
+    },
+    {
+      "id": "long_singleton_a8_k4_l4096",
+      "family": "long_singleton",
+      "input": "inputs/long_singleton_a8_k4_l4096.json",
+      "truth": "hidden_truth/long_singleton_a8_k4_l4096.json",
+      "alphabet_size": 8,
+      "k": 4,
+      "positive_count": 3,
+      "negative_count": 2,
+      "positive_lengths": [
+        4096
+      ],
+      "negative_lengths": [
+        4096
+      ],
+      "length": 4096
+    },
+    {
+      "id": "long_singleton_a8_k6_l128",
+      "family": "long_singleton",
+      "input": "inputs/long_singleton_a8_k6_l128.json",
+      "truth": "hidden_truth/long_singleton_a8_k6_l128.json",
+      "alphabet_size": 8,
+      "k": 6,
+      "positive_count": 3,
+      "negative_count": 2,
+      "positive_lengths": [
+        128
+      ],
+      "negative_lengths": [
+        128
+      ],
+      "length": 128
+    },
+    {
+      "id": "long_singleton_a8_k6_l1024",
+      "family": "long_singleton",
+      "input": "inputs/long_singleton_a8_k6_l1024.json",
+      "truth": "hidden_truth/long_singleton_a8_k6_l1024.json",
+      "alphabet_size": 8,
+      "k": 6,
+      "positive_count": 3,
+      "negative_count": 2,
+      "positive_lengths": [
+        1024
+      ],
+      "negative_lengths": [
+        1024
+      ],
+      "length": 1024
+    },
+    {
+      "id": "long_singleton_a8_k6_l4096",
+      "family": "long_singleton",
+      "input": "inputs/long_singleton_a8_k6_l4096.json",
+      "truth": "hidden_truth/long_singleton_a8_k6_l4096.json",
+      "alphabet_size": 8,
+      "k": 6,
+      "positive_count": 3,
+      "negative_count": 2,
+      "positive_lengths": [
+        4096
+      ],
+      "negative_lengths": [
+        4096
+      ],
+      "length": 4096
+    },
+    {
+      "id": "long_singleton_a8_k8_l128",
+      "family": "long_singleton",
+      "input": "inputs/long_singleton_a8_k8_l128.json",
+      "truth": "hidden_truth/long_singleton_a8_k8_l128.json",
+      "alphabet_size": 8,
+      "k": 8,
+      "positive_count": 3,
+      "negative_count": 2,
+      "positive_lengths": [
+        128
+      ],
+      "negative_lengths": [
+        128
+      ],
+      "length": 128
+    },
+    {
+      "id": "long_singleton_a8_k8_l1024",
+      "family": "long_singleton",
+      "input": "inputs/long_singleton_a8_k8_l1024.json",
+      "truth": "hidden_truth/long_singleton_a8_k8_l1024.json",
+      "alphabet_size": 8,
+      "k": 8,
+      "positive_count": 3,
+      "negative_count": 2,
+      "positive_lengths": [
+        1024
+      ],
+      "negative_lengths": [
+        1024
+      ],
+      "length": 1024
+    },
+    {
+      "id": "long_singleton_a8_k8_l4096",
+      "family": "long_singleton",
+      "input": "inputs/long_singleton_a8_k8_l4096.json",
+      "truth": "hidden_truth/long_singleton_a8_k8_l4096.json",
+      "alphabet_size": 8,
+      "k": 8,
+      "positive_count": 3,
+      "negative_count": 2,
+      "positive_lengths": [
+        4096
+      ],
+      "negative_lengths": [
+        4096
+      ],
+      "length": 4096
+    },
+    {
+      "id": "long_singleton_a32_k2_l128",
+      "family": "long_singleton",
+      "input": "inputs/long_singleton_a32_k2_l128.json",
+      "truth": "hidden_truth/long_singleton_a32_k2_l128.json",
+      "alphabet_size": 32,
+      "k": 2,
+      "positive_count": 3,
+      "negative_count": 2,
+      "positive_lengths": [
+        128
+      ],
+      "negative_lengths": [
+        128
+      ],
+      "length": 128
+    },
+    {
+      "id": "long_singleton_a32_k2_l1024",
+      "family": "long_singleton",
+      "input": "inputs/long_singleton_a32_k2_l1024.json",
+      "truth": "hidden_truth/long_singleton_a32_k2_l1024.json",
+      "alphabet_size": 32,
+      "k": 2,
+      "positive_count": 3,
+      "negative_count": 2,
+      "positive_lengths": [
+        1024
+      ],
+      "negative_lengths": [
+        1024
+      ],
+      "length": 1024
+    },
+    {
+      "id": "long_singleton_a32_k2_l4096",
+      "family": "long_singleton",
+      "input": "inputs/long_singleton_a32_k2_l4096.json",
+      "truth": "hidden_truth/long_singleton_a32_k2_l4096.json",
+      "alphabet_size": 32,
+      "k": 2,
+      "positive_count": 3,
+      "negative_count": 2,
+      "positive_lengths": [
+        4096
+      ],
+      "negative_lengths": [
+        4096
+      ],
+      "length": 4096
+    },
+    {
+      "id": "long_singleton_a32_k3_l128",
+      "family": "long_singleton",
+      "input": "inputs/long_singleton_a32_k3_l128.json",
+      "truth": "hidden_truth/long_singleton_a32_k3_l128.json",
+      "alphabet_size": 32,
+      "k": 3,
+      "positive_count": 3,
+      "negative_count": 2,
+      "positive_lengths": [
+        128
+      ],
+      "negative_lengths": [
+        128
+      ],
+      "length": 128
+    },
+    {
+      "id": "long_singleton_a32_k3_l1024",
+      "family": "long_singleton",
+      "input": "inputs/long_singleton_a32_k3_l1024.json",
+      "truth": "hidden_truth/long_singleton_a32_k3_l1024.json",
+      "alphabet_size": 32,
+      "k": 3,
+      "positive_count": 3,
+      "negative_count": 2,
+      "positive_lengths": [
+        1024
+      ],
+      "negative_lengths": [
+        1024
+      ],
+      "length": 1024
+    },
+    {
+      "id": "long_singleton_a32_k3_l4096",
+      "family": "long_singleton",
+      "input": "inputs/long_singleton_a32_k3_l4096.json",
+      "truth": "hidden_truth/long_singleton_a32_k3_l4096.json",
+      "alphabet_size": 32,
+      "k": 3,
+      "positive_count": 3,
+      "negative_count": 2,
+      "positive_lengths": [
+        4096
+      ],
+      "negative_lengths": [
+        4096
+      ],
+      "length": 4096
+    },
+    {
+      "id": "long_singleton_a32_k4_l128",
+      "family": "long_singleton",
+      "input": "inputs/long_singleton_a32_k4_l128.json",
+      "truth": "hidden_truth/long_singleton_a32_k4_l128.json",
+      "alphabet_size": 32,
+      "k": 4,
+      "positive_count": 3,
+      "negative_count": 2,
+      "positive_lengths": [
+        128
+      ],
+      "negative_lengths": [
+        128
+      ],
+      "length": 128
+    },
+    {
+      "id": "long_singleton_a32_k4_l1024",
+      "family": "long_singleton",
+      "input": "inputs/long_singleton_a32_k4_l1024.json",
+      "truth": "hidden_truth/long_singleton_a32_k4_l1024.json",
+      "alphabet_size": 32,
+      "k": 4,
+      "positive_count": 3,
+      "negative_count": 2,
+      "positive_lengths": [
+        1024
+      ],
+      "negative_lengths": [
+        1024
+      ],
+      "length": 1024
+    },
+    {
+      "id": "long_singleton_a32_k4_l4096",
+      "family": "long_singleton",
+      "input": "inputs/long_singleton_a32_k4_l4096.json",
+      "truth": "hidden_truth/long_singleton_a32_k4_l4096.json",
+      "alphabet_size": 32,
+      "k": 4,
+      "positive_count": 3,
+      "negative_count": 2,
+      "positive_lengths": [
+        4096
+      ],
+      "negative_lengths": [
+        4096
+      ],
+      "length": 4096
+    },
+    {
+      "id": "long_singleton_a32_k6_l128",
+      "family": "long_singleton",
+      "input": "inputs/long_singleton_a32_k6_l128.json",
+      "truth": "hidden_truth/long_singleton_a32_k6_l128.json",
+      "alphabet_size": 32,
+      "k": 6,
+      "positive_count": 3,
+      "negative_count": 2,
+      "positive_lengths": [
+        128
+      ],
+      "negative_lengths": [
+        128
+      ],
+      "length": 128
+    },
+    {
+      "id": "long_singleton_a32_k6_l1024",
+      "family": "long_singleton",
+      "input": "inputs/long_singleton_a32_k6_l1024.json",
+      "truth": "hidden_truth/long_singleton_a32_k6_l1024.json",
+      "alphabet_size": 32,
+      "k": 6,
+      "positive_count": 3,
+      "negative_count": 2,
+      "positive_lengths": [
+        1024
+      ],
+      "negative_lengths": [
+        1024
+      ],
+      "length": 1024
+    },
+    {
+      "id": "long_singleton_a32_k6_l4096",
+      "family": "long_singleton",
+      "input": "inputs/long_singleton_a32_k6_l4096.json",
+      "truth": "hidden_truth/long_singleton_a32_k6_l4096.json",
+      "alphabet_size": 32,
+      "k": 6,
+      "positive_count": 3,
+      "negative_count": 2,
+      "positive_lengths": [
+        4096
+      ],
+      "negative_lengths": [
+        4096
+      ],
+      "length": 4096
+    },
+    {
+      "id": "long_singleton_a32_k8_l128",
+      "family": "long_singleton",
+      "input": "inputs/long_singleton_a32_k8_l128.json",
+      "truth": "hidden_truth/long_singleton_a32_k8_l128.json",
+      "alphabet_size": 32,
+      "k": 8,
+      "positive_count": 3,
+      "negative_count": 2,
+      "positive_lengths": [
+        128
+      ],
+      "negative_lengths": [
+        128
+      ],
+      "length": 128
+    },
+    {
+      "id": "long_singleton_a32_k8_l1024",
+      "family": "long_singleton",
+      "input": "inputs/long_singleton_a32_k8_l1024.json",
+      "truth": "hidden_truth/long_singleton_a32_k8_l1024.json",
+      "alphabet_size": 32,
+      "k": 8,
+      "positive_count": 3,
+      "negative_count": 2,
+      "positive_lengths": [
+        1024
+      ],
+      "negative_lengths": [
+        1024
+      ],
+      "length": 1024
+    },
+    {
+      "id": "long_singleton_a32_k8_l4096",
+      "family": "long_singleton",
+      "input": "inputs/long_singleton_a32_k8_l4096.json",
+      "truth": "hidden_truth/long_singleton_a32_k8_l4096.json",
+      "alphabet_size": 32,
+      "k": 8,
+      "positive_count": 3,
+      "negative_count": 2,
+      "positive_lengths": [
+        4096
+      ],
+      "negative_lengths": [
+        4096
+      ],
+      "length": 4096
+    },
+    {
+      "id": "long_singleton_a128_k2_l128",
+      "family": "long_singleton",
+      "input": "inputs/long_singleton_a128_k2_l128.json",
+      "truth": "hidden_truth/long_singleton_a128_k2_l128.json",
+      "alphabet_size": 128,
+      "k": 2,
+      "positive_count": 3,
+      "negative_count": 2,
+      "positive_lengths": [
+        128
+      ],
+      "negative_lengths": [
+        128
+      ],
+      "length": 128
+    },
+    {
+      "id": "long_singleton_a128_k2_l1024",
+      "family": "long_singleton",
+      "input": "inputs/long_singleton_a128_k2_l1024.json",
+      "truth": "hidden_truth/long_singleton_a128_k2_l1024.json",
+      "alphabet_size": 128,
+      "k": 2,
+      "positive_count": 3,
+      "negative_count": 2,
+      "positive_lengths": [
+        1024
+      ],
+      "negative_lengths": [
+        1024
+      ],
+      "length": 1024
+    },
+    {
+      "id": "long_singleton_a128_k2_l4096",
+      "family": "long_singleton",
+      "input": "inputs/long_singleton_a128_k2_l4096.json",
+      "truth": "hidden_truth/long_singleton_a128_k2_l4096.json",
+      "alphabet_size": 128,
+      "k": 2,
+      "positive_count": 3,
+      "negative_count": 2,
+      "positive_lengths": [
+        4096
+      ],
+      "negative_lengths": [
+        4096
+      ],
+      "length": 4096
+    },
+    {
+      "id": "long_singleton_a128_k3_l128",
+      "family": "long_singleton",
+      "input": "inputs/long_singleton_a128_k3_l128.json",
+      "truth": "hidden_truth/long_singleton_a128_k3_l128.json",
+      "alphabet_size": 128,
+      "k": 3,
+      "positive_count": 3,
+      "negative_count": 2,
+      "positive_lengths": [
+        128
+      ],
+      "negative_lengths": [
+        128
+      ],
+      "length": 128
+    },
+    {
+      "id": "long_singleton_a128_k3_l1024",
+      "family": "long_singleton",
+      "input": "inputs/long_singleton_a128_k3_l1024.json",
+      "truth": "hidden_truth/long_singleton_a128_k3_l1024.json",
+      "alphabet_size": 128,
+      "k": 3,
+      "positive_count": 3,
+      "negative_count": 2,
+      "positive_lengths": [
+        1024
+      ],
+      "negative_lengths": [
+        1024
+      ],
+      "length": 1024
+    },
+    {
+      "id": "long_singleton_a128_k3_l4096",
+      "family": "long_singleton",
+      "input": "inputs/long_singleton_a128_k3_l4096.json",
+      "truth": "hidden_truth/long_singleton_a128_k3_l4096.json",
+      "alphabet_size": 128,
+      "k": 3,
+      "positive_count": 3,
+      "negative_count": 2,
+      "positive_lengths": [
+        4096
+      ],
+      "negative_lengths": [
+        4096
+      ],
+      "length": 4096
+    },
+    {
+      "id": "long_singleton_a128_k4_l128",
+      "family": "long_singleton",
+      "input": "inputs/long_singleton_a128_k4_l128.json",
+      "truth": "hidden_truth/long_singleton_a128_k4_l128.json",
+      "alphabet_size": 128,
+      "k": 4,
+      "positive_count": 3,
+      "negative_count": 2,
+      "positive_lengths": [
+        128
+      ],
+      "negative_lengths": [
+        128
+      ],
+      "length": 128
+    },
+    {
+      "id": "long_singleton_a128_k4_l1024",
+      "family": "long_singleton",
+      "input": "inputs/long_singleton_a128_k4_l1024.json",
+      "truth": "hidden_truth/long_singleton_a128_k4_l1024.json",
+      "alphabet_size": 128,
+      "k": 4,
+      "positive_count": 3,
+      "negative_count": 2,
+      "positive_lengths": [
+        1024
+      ],
+      "negative_lengths": [
+        1024
+      ],
+      "length": 1024
+    },
+    {
+      "id": "long_singleton_a128_k4_l4096",
+      "family": "long_singleton",
+      "input": "inputs/long_singleton_a128_k4_l4096.json",
+      "truth": "hidden_truth/long_singleton_a128_k4_l4096.json",
+      "alphabet_size": 128,
+      "k": 4,
+      "positive_count": 3,
+      "negative_count": 2,
+      "positive_lengths": [
+        4096
+      ],
+      "negative_lengths": [
+        4096
+      ],
+      "length": 4096
+    },
+    {
+      "id": "long_singleton_a128_k6_l128",
+      "family": "long_singleton",
+      "input": "inputs/long_singleton_a128_k6_l128.json",
+      "truth": "hidden_truth/long_singleton_a128_k6_l128.json",
+      "alphabet_size": 128,
+      "k": 6,
+      "positive_count": 3,
+      "negative_count": 2,
+      "positive_lengths": [
+        128
+      ],
+      "negative_lengths": [
+        128
+      ],
+      "length": 128
+    },
+    {
+      "id": "long_singleton_a128_k6_l1024",
+      "family": "long_singleton",
+      "input": "inputs/long_singleton_a128_k6_l1024.json",
+      "truth": "hidden_truth/long_singleton_a128_k6_l1024.json",
+      "alphabet_size": 128,
+      "k": 6,
+      "positive_count": 3,
+      "negative_count": 2,
+      "positive_lengths": [
+        1024
+      ],
+      "negative_lengths": [
+        1024
+      ],
+      "length": 1024
+    },
+    {
+      "id": "long_singleton_a128_k6_l4096",
+      "family": "long_singleton",
+      "input": "inputs/long_singleton_a128_k6_l4096.json",
+      "truth": "hidden_truth/long_singleton_a128_k6_l4096.json",
+      "alphabet_size": 128,
+      "k": 6,
+      "positive_count": 3,
+      "negative_count": 2,
+      "positive_lengths": [
+        4096
+      ],
+      "negative_lengths": [
+        4096
+      ],
+      "length": 4096
+    },
+    {
+      "id": "long_singleton_a128_k8_l128",
+      "family": "long_singleton",
+      "input": "inputs/long_singleton_a128_k8_l128.json",
+      "truth": "hidden_truth/long_singleton_a128_k8_l128.json",
+      "alphabet_size": 128,
+      "k": 8,
+      "positive_count": 3,
+      "negative_count": 2,
+      "positive_lengths": [
+        128
+      ],
+      "negative_lengths": [
+        128
+      ],
+      "length": 128
+    },
+    {
+      "id": "long_singleton_a128_k8_l1024",
+      "family": "long_singleton",
+      "input": "inputs/long_singleton_a128_k8_l1024.json",
+      "truth": "hidden_truth/long_singleton_a128_k8_l1024.json",
+      "alphabet_size": 128,
+      "k": 8,
+      "positive_count": 3,
+      "negative_count": 2,
+      "positive_lengths": [
+        1024
+      ],
+      "negative_lengths": [
+        1024
+      ],
+      "length": 1024
+    },
+    {
+      "id": "long_singleton_a128_k8_l4096",
+      "family": "long_singleton",
+      "input": "inputs/long_singleton_a128_k8_l4096.json",
+      "truth": "hidden_truth/long_singleton_a128_k8_l4096.json",
+      "alphabet_size": 128,
+      "k": 8,
+      "positive_count": 3,
+      "negative_count": 2,
+      "positive_lengths": [
+        4096
+      ],
+      "negative_lengths": [
+        4096
+      ],
+      "length": 4096
+    },
+    {
+      "id": "random_dfa_a8_k2_l128_s84328",
+      "family": "random_dfa",
+      "input": "inputs/random_dfa_a8_k2_l128_s84328.json",
+      "truth": "hidden_truth/random_dfa_a8_k2_l128_s84328.json",
+      "alphabet_size": 8,
+      "k": 2,
+      "positive_count": 3,
+      "negative_count": 2,
+      "positive_lengths": [
+        128
+      ],
+      "negative_lengths": [
+        128
+      ],
+      "length": 128,
+      "seed": 84328
+    },
+    {
+      "id": "random_dfa_a8_k2_l1024_s85224",
+      "family": "random_dfa",
+      "input": "inputs/random_dfa_a8_k2_l1024_s85224.json",
+      "truth": "hidden_truth/random_dfa_a8_k2_l1024_s85224.json",
+      "alphabet_size": 8,
+      "k": 2,
+      "positive_count": 3,
+      "negative_count": 2,
+      "positive_lengths": [
+        1024
+      ],
+      "negative_lengths": [
+        1024
+      ],
+      "length": 1024,
+      "seed": 85224
+    },
+    {
+      "id": "random_dfa_a8_k2_l4096_s88296",
+      "family": "random_dfa",
+      "input": "inputs/random_dfa_a8_k2_l4096_s88296.json",
+      "truth": "hidden_truth/random_dfa_a8_k2_l4096_s88296.json",
+      "alphabet_size": 8,
+      "k": 2,
+      "positive_count": 3,
+      "negative_count": 2,
+      "positive_lengths": [
+        4096
+      ],
+      "negative_lengths": [
+        4096
+      ],
+      "length": 4096,
+      "seed": 88296
+    },
+    {
+      "id": "random_dfa_a8_k3_l128_s84428",
+      "family": "random_dfa",
+      "input": "inputs/random_dfa_a8_k3_l128_s84428.json",
+      "truth": "hidden_truth/random_dfa_a8_k3_l128_s84428.json",
+      "alphabet_size": 8,
+      "k": 3,
+      "positive_count": 3,
+      "negative_count": 2,
+      "positive_lengths": [
+        128
+      ],
+      "negative_lengths": [
+        128
+      ],
+      "length": 128,
+      "seed": 84428
+    },
+    {
+      "id": "random_dfa_a8_k3_l1024_s85324",
+      "family": "random_dfa",
+      "input": "inputs/random_dfa_a8_k3_l1024_s85324.json",
+      "truth": "hidden_truth/random_dfa_a8_k3_l1024_s85324.json",
+      "alphabet_size": 8,
+      "k": 3,
+      "positive_count": 3,
+      "negative_count": 2,
+      "positive_lengths": [
+        1024
+      ],
+      "negative_lengths": [
+        1024
+      ],
+      "length": 1024,
+      "seed": 85324
+    },
+    {
+      "id": "random_dfa_a8_k3_l4096_s88396",
+      "family": "random_dfa",
+      "input": "inputs/random_dfa_a8_k3_l4096_s88396.json",
+      "truth": "hidden_truth/random_dfa_a8_k3_l4096_s88396.json",
+      "alphabet_size": 8,
+      "k": 3,
+      "positive_count": 3,
+      "negative_count": 2,
+      "positive_lengths": [
+        4096
+      ],
+      "negative_lengths": [
+        4096
+      ],
+      "length": 4096,
+      "seed": 88396
+    },
+    {
+      "id": "random_dfa_a8_k4_l128_s84528",
+      "family": "random_dfa",
+      "input": "inputs/random_dfa_a8_k4_l128_s84528.json",
+      "truth": "hidden_truth/random_dfa_a8_k4_l128_s84528.json",
+      "alphabet_size": 8,
+      "k": 4,
+      "positive_count": 3,
+      "negative_count": 2,
+      "positive_lengths": [
+        128
+      ],
+      "negative_lengths": [
+        128
+      ],
+      "length": 128,
+      "seed": 84528
+    },
+    {
+      "id": "random_dfa_a8_k4_l1024_s85424",
+      "family": "random_dfa",
+      "input": "inputs/random_dfa_a8_k4_l1024_s85424.json",
+      "truth": "hidden_truth/random_dfa_a8_k4_l1024_s85424.json",
+      "alphabet_size": 8,
+      "k": 4,
+      "positive_count": 3,
+      "negative_count": 2,
+      "positive_lengths": [
+        1024
+      ],
+      "negative_lengths": [
+        1024
+      ],
+      "length": 1024,
+      "seed": 85424
+    },
+    {
+      "id": "random_dfa_a8_k4_l4096_s88496",
+      "family": "random_dfa",
+      "input": "inputs/random_dfa_a8_k4_l4096_s88496.json",
+      "truth": "hidden_truth/random_dfa_a8_k4_l4096_s88496.json",
+      "alphabet_size": 8,
+      "k": 4,
+      "positive_count": 3,
+      "negative_count": 2,
+      "positive_lengths": [
+        4096
+      ],
+      "negative_lengths": [
+        4096
+      ],
+      "length": 4096,
+      "seed": 88496
+    },
+    {
+      "id": "random_dfa_a8_k6_l128_s84728",
+      "family": "random_dfa",
+      "input": "inputs/random_dfa_a8_k6_l128_s84728.json",
+      "truth": "hidden_truth/random_dfa_a8_k6_l128_s84728.json",
+      "alphabet_size": 8,
+      "k": 6,
+      "positive_count": 3,
+      "negative_count": 2,
+      "positive_lengths": [
+        128
+      ],
+      "negative_lengths": [
+        128
+      ],
+      "length": 128,
+      "seed": 84728
+    },
+    {
+      "id": "random_dfa_a8_k6_l1024_s85624",
+      "family": "random_dfa",
+      "input": "inputs/random_dfa_a8_k6_l1024_s85624.json",
+      "truth": "hidden_truth/random_dfa_a8_k6_l1024_s85624.json",
+      "alphabet_size": 8,
+      "k": 6,
+      "positive_count": 3,
+      "negative_count": 2,
+      "positive_lengths": [
+        1024
+      ],
+      "negative_lengths": [
+        1024
+      ],
+      "length": 1024,
+      "seed": 85624
+    },
+    {
+      "id": "random_dfa_a8_k6_l4096_s88696",
+      "family": "random_dfa",
+      "input": "inputs/random_dfa_a8_k6_l4096_s88696.json",
+      "truth": "hidden_truth/random_dfa_a8_k6_l4096_s88696.json",
+      "alphabet_size": 8,
+      "k": 6,
+      "positive_count": 3,
+      "negative_count": 2,
+      "positive_lengths": [
+        4096
+      ],
+      "negative_lengths": [
+        4096
+      ],
+      "length": 4096,
+      "seed": 88696
+    },
+    {
+      "id": "random_dfa_a8_k8_l128_s84928",
+      "family": "random_dfa",
+      "input": "inputs/random_dfa_a8_k8_l128_s84928.json",
+      "truth": "hidden_truth/random_dfa_a8_k8_l128_s84928.json",
+      "alphabet_size": 8,
+      "k": 8,
+      "positive_count": 3,
+      "negative_count": 2,
+      "positive_lengths": [
+        128
+      ],
+      "negative_lengths": [
+        128
+      ],
+      "length": 128,
+      "seed": 84928
+    },
+    {
+      "id": "random_dfa_a8_k8_l1024_s85824",
+      "family": "random_dfa",
+      "input": "inputs/random_dfa_a8_k8_l1024_s85824.json",
+      "truth": "hidden_truth/random_dfa_a8_k8_l1024_s85824.json",
+      "alphabet_size": 8,
+      "k": 8,
+      "positive_count": 3,
+      "negative_count": 2,
+      "positive_lengths": [
+        1024
+      ],
+      "negative_lengths": [
+        1024
+      ],
+      "length": 1024,
+      "seed": 85824
+    },
+    {
+      "id": "random_dfa_a8_k8_l4096_s88896",
+      "family": "random_dfa",
+      "input": "inputs/random_dfa_a8_k8_l4096_s88896.json",
+      "truth": "hidden_truth/random_dfa_a8_k8_l4096_s88896.json",
+      "alphabet_size": 8,
+      "k": 8,
+      "positive_count": 3,
+      "negative_count": 2,
+      "positive_lengths": [
+        4096
+      ],
+      "negative_lengths": [
+        4096
+      ],
+      "length": 4096,
+      "seed": 88896
+    },
+    {
+      "id": "random_dfa_a32_k2_l128_s108328",
+      "family": "random_dfa",
+      "input": "inputs/random_dfa_a32_k2_l128_s108328.json",
+      "truth": "hidden_truth/random_dfa_a32_k2_l128_s108328.json",
+      "alphabet_size": 32,
+      "k": 2,
+      "positive_count": 3,
+      "negative_count": 2,
+      "positive_lengths": [
+        128
+      ],
+      "negative_lengths": [
+        128
+      ],
+      "length": 128,
+      "seed": 108328
+    },
+    {
+      "id": "context_regular_a32_k2_l128_s123328",
+      "family": "context_regular",
+      "input": "inputs/context_regular_a32_k2_l128_s123328.json",
+      "truth": "hidden_truth/context_regular_a32_k2_l128_s123328.json",
+      "alphabet_size": 32,
+      "k": 2,
+      "positive_count": 3,
+      "negative_count": 2,
+      "positive_lengths": [
+        128
+      ],
+      "negative_lengths": [
+        128
+      ],
+      "length": 128,
+      "seed": 123328
+    },
+    {
+      "id": "random_dfa_a32_k2_l1024_s109224",
+      "family": "random_dfa",
+      "input": "inputs/random_dfa_a32_k2_l1024_s109224.json",
+      "truth": "hidden_truth/random_dfa_a32_k2_l1024_s109224.json",
+      "alphabet_size": 32,
+      "k": 2,
+      "positive_count": 3,
+      "negative_count": 2,
+      "positive_lengths": [
+        1024
+      ],
+      "negative_lengths": [
+        1024
+      ],
+      "length": 1024,
+      "seed": 109224
+    },
+    {
+      "id": "context_regular_a32_k2_l1024_s124224",
+      "family": "context_regular",
+      "input": "inputs/context_regular_a32_k2_l1024_s124224.json",
+      "truth": "hidden_truth/context_regular_a32_k2_l1024_s124224.json",
+      "alphabet_size": 32,
+      "k": 2,
+      "positive_count": 3,
+      "negative_count": 2,
+      "positive_lengths": [
+        1024
+      ],
+      "negative_lengths": [
+        1024
+      ],
+      "length": 1024,
+      "seed": 124224
+    },
+    {
+      "id": "random_dfa_a32_k2_l4096_s112296",
+      "family": "random_dfa",
+      "input": "inputs/random_dfa_a32_k2_l4096_s112296.json",
+      "truth": "hidden_truth/random_dfa_a32_k2_l4096_s112296.json",
+      "alphabet_size": 32,
+      "k": 2,
+      "positive_count": 3,
+      "negative_count": 2,
+      "positive_lengths": [
+        4096
+      ],
+      "negative_lengths": [
+        4096
+      ],
+      "length": 4096,
+      "seed": 112296
+    },
+    {
+      "id": "context_regular_a32_k2_l4096_s127296",
+      "family": "context_regular",
+      "input": "inputs/context_regular_a32_k2_l4096_s127296.json",
+      "truth": "hidden_truth/context_regular_a32_k2_l4096_s127296.json",
+      "alphabet_size": 32,
+      "k": 2,
+      "positive_count": 3,
+      "negative_count": 2,
+      "positive_lengths": [
+        4096
+      ],
+      "negative_lengths": [
+        4096
+      ],
+      "length": 4096,
+      "seed": 127296
+    },
+    {
+      "id": "random_dfa_a32_k3_l128_s108428",
+      "family": "random_dfa",
+      "input": "inputs/random_dfa_a32_k3_l128_s108428.json",
+      "truth": "hidden_truth/random_dfa_a32_k3_l128_s108428.json",
+      "alphabet_size": 32,
+      "k": 3,
+      "positive_count": 3,
+      "negative_count": 2,
+      "positive_lengths": [
+        128
+      ],
+      "negative_lengths": [
+        128
+      ],
+      "length": 128,
+      "seed": 108428
+    },
+    {
+      "id": "context_regular_a32_k3_l128_s123428",
+      "family": "context_regular",
+      "input": "inputs/context_regular_a32_k3_l128_s123428.json",
+      "truth": "hidden_truth/context_regular_a32_k3_l128_s123428.json",
+      "alphabet_size": 32,
+      "k": 3,
+      "positive_count": 3,
+      "negative_count": 2,
+      "positive_lengths": [
+        128
+      ],
+      "negative_lengths": [
+        128
+      ],
+      "length": 128,
+      "seed": 123428
+    },
+    {
+      "id": "random_dfa_a32_k3_l1024_s109324",
+      "family": "random_dfa",
+      "input": "inputs/random_dfa_a32_k3_l1024_s109324.json",
+      "truth": "hidden_truth/random_dfa_a32_k3_l1024_s109324.json",
+      "alphabet_size": 32,
+      "k": 3,
+      "positive_count": 3,
+      "negative_count": 2,
+      "positive_lengths": [
+        1024
+      ],
+      "negative_lengths": [
+        1024
+      ],
+      "length": 1024,
+      "seed": 109324
+    },
+    {
+      "id": "context_regular_a32_k3_l1024_s124324",
+      "family": "context_regular",
+      "input": "inputs/context_regular_a32_k3_l1024_s124324.json",
+      "truth": "hidden_truth/context_regular_a32_k3_l1024_s124324.json",
+      "alphabet_size": 32,
+      "k": 3,
+      "positive_count": 3,
+      "negative_count": 2,
+      "positive_lengths": [
+        1024
+      ],
+      "negative_lengths": [
+        1024
+      ],
+      "length": 1024,
+      "seed": 124324
+    },
+    {
+      "id": "random_dfa_a32_k3_l4096_s112396",
+      "family": "random_dfa",
+      "input": "inputs/random_dfa_a32_k3_l4096_s112396.json",
+      "truth": "hidden_truth/random_dfa_a32_k3_l4096_s112396.json",
+      "alphabet_size": 32,
+      "k": 3,
+      "positive_count": 3,
+      "negative_count": 2,
+      "positive_lengths": [
+        4096
+      ],
+      "negative_lengths": [
+        4096
+      ],
+      "length": 4096,
+      "seed": 112396
+    },
+    {
+      "id": "context_regular_a32_k3_l4096_s127396",
+      "family": "context_regular",
+      "input": "inputs/context_regular_a32_k3_l4096_s127396.json",
+      "truth": "hidden_truth/context_regular_a32_k3_l4096_s127396.json",
+      "alphabet_size": 32,
+      "k": 3,
+      "positive_count": 3,
+      "negative_count": 2,
+      "positive_lengths": [
+        4096
+      ],
+      "negative_lengths": [
+        4096
+      ],
+      "length": 4096,
+      "seed": 127396
+    },
+    {
+      "id": "random_dfa_a32_k4_l128_s108528",
+      "family": "random_dfa",
+      "input": "inputs/random_dfa_a32_k4_l128_s108528.json",
+      "truth": "hidden_truth/random_dfa_a32_k4_l128_s108528.json",
+      "alphabet_size": 32,
+      "k": 4,
+      "positive_count": 3,
+      "negative_count": 2,
+      "positive_lengths": [
+        128
+      ],
+      "negative_lengths": [
+        128
+      ],
+      "length": 128,
+      "seed": 108528
+    },
+    {
+      "id": "context_regular_a32_k4_l128_s123528",
+      "family": "context_regular",
+      "input": "inputs/context_regular_a32_k4_l128_s123528.json",
+      "truth": "hidden_truth/context_regular_a32_k4_l128_s123528.json",
+      "alphabet_size": 32,
+      "k": 4,
+      "positive_count": 3,
+      "negative_count": 2,
+      "positive_lengths": [
+        128
+      ],
+      "negative_lengths": [
+        128
+      ],
+      "length": 128,
+      "seed": 123528
+    },
+    {
+      "id": "random_dfa_a32_k4_l1024_s109424",
+      "family": "random_dfa",
+      "input": "inputs/random_dfa_a32_k4_l1024_s109424.json",
+      "truth": "hidden_truth/random_dfa_a32_k4_l1024_s109424.json",
+      "alphabet_size": 32,
+      "k": 4,
+      "positive_count": 3,
+      "negative_count": 2,
+      "positive_lengths": [
+        1024
+      ],
+      "negative_lengths": [
+        1024
+      ],
+      "length": 1024,
+      "seed": 109424
+    },
+    {
+      "id": "context_regular_a32_k4_l1024_s124424",
+      "family": "context_regular",
+      "input": "inputs/context_regular_a32_k4_l1024_s124424.json",
+      "truth": "hidden_truth/context_regular_a32_k4_l1024_s124424.json",
+      "alphabet_size": 32,
+      "k": 4,
+      "positive_count": 3,
+      "negative_count": 2,
+      "positive_lengths": [
+        1024
+      ],
+      "negative_lengths": [
+        1024
+      ],
+      "length": 1024,
+      "seed": 124424
+    },
+    {
+      "id": "random_dfa_a32_k4_l4096_s112496",
+      "family": "random_dfa",
+      "input": "inputs/random_dfa_a32_k4_l4096_s112496.json",
+      "truth": "hidden_truth/random_dfa_a32_k4_l4096_s112496.json",
+      "alphabet_size": 32,
+      "k": 4,
+      "positive_count": 3,
+      "negative_count": 2,
+      "positive_lengths": [
+        4096
+      ],
+      "negative_lengths": [
+        4096
+      ],
+      "length": 4096,
+      "seed": 112496
+    },
+    {
+      "id": "context_regular_a32_k4_l4096_s127496",
+      "family": "context_regular",
+      "input": "inputs/context_regular_a32_k4_l4096_s127496.json",
+      "truth": "hidden_truth/context_regular_a32_k4_l4096_s127496.json",
+      "alphabet_size": 32,
+      "k": 4,
+      "positive_count": 3,
+      "negative_count": 2,
+      "positive_lengths": [
+        4096
+      ],
+      "negative_lengths": [
+        4096
+      ],
+      "length": 4096,
+      "seed": 127496
+    },
+    {
+      "id": "random_dfa_a32_k6_l128_s108728",
+      "family": "random_dfa",
+      "input": "inputs/random_dfa_a32_k6_l128_s108728.json",
+      "truth": "hidden_truth/random_dfa_a32_k6_l128_s108728.json",
+      "alphabet_size": 32,
+      "k": 6,
+      "positive_count": 3,
+      "negative_count": 2,
+      "positive_lengths": [
+        128
+      ],
+      "negative_lengths": [
+        128
+      ],
+      "length": 128,
+      "seed": 108728
+    },
+    {
+      "id": "context_regular_a32_k6_l128_s123728",
+      "family": "context_regular",
+      "input": "inputs/context_regular_a32_k6_l128_s123728.json",
+      "truth": "hidden_truth/context_regular_a32_k6_l128_s123728.json",
+      "alphabet_size": 32,
+      "k": 6,
+      "positive_count": 3,
+      "negative_count": 2,
+      "positive_lengths": [
+        128
+      ],
+      "negative_lengths": [
+        128
+      ],
+      "length": 128,
+      "seed": 123728
+    },
+    {
+      "id": "random_dfa_a32_k6_l1024_s109624",
+      "family": "random_dfa",
+      "input": "inputs/random_dfa_a32_k6_l1024_s109624.json",
+      "truth": "hidden_truth/random_dfa_a32_k6_l1024_s109624.json",
+      "alphabet_size": 32,
+      "k": 6,
+      "positive_count": 3,
+      "negative_count": 2,
+      "positive_lengths": [
+        1024
+      ],
+      "negative_lengths": [
+        1024
+      ],
+      "length": 1024,
+      "seed": 109624
+    },
+    {
+      "id": "context_regular_a32_k6_l1024_s124624",
+      "family": "context_regular",
+      "input": "inputs/context_regular_a32_k6_l1024_s124624.json",
+      "truth": "hidden_truth/context_regular_a32_k6_l1024_s124624.json",
+      "alphabet_size": 32,
+      "k": 6,
+      "positive_count": 3,
+      "negative_count": 2,
+      "positive_lengths": [
+        1024
+      ],
+      "negative_lengths": [
+        1024
+      ],
+      "length": 1024,
+      "seed": 124624
+    },
+    {
+      "id": "random_dfa_a32_k6_l4096_s112696",
+      "family": "random_dfa",
+      "input": "inputs/random_dfa_a32_k6_l4096_s112696.json",
+      "truth": "hidden_truth/random_dfa_a32_k6_l4096_s112696.json",
+      "alphabet_size": 32,
+      "k": 6,
+      "positive_count": 3,
+      "negative_count": 2,
+      "positive_lengths": [
+        4096
+      ],
+      "negative_lengths": [
+        4096
+      ],
+      "length": 4096,
+      "seed": 112696
+    },
+    {
+      "id": "context_regular_a32_k6_l4096_s127696",
+      "family": "context_regular",
+      "input": "inputs/context_regular_a32_k6_l4096_s127696.json",
+      "truth": "hidden_truth/context_regular_a32_k6_l4096_s127696.json",
+      "alphabet_size": 32,
+      "k": 6,
+      "positive_count": 3,
+      "negative_count": 2,
+      "positive_lengths": [
+        4096
+      ],
+      "negative_lengths": [
+        4096
+      ],
+      "length": 4096,
+      "seed": 127696
+    },
+    {
+      "id": "random_dfa_a32_k8_l128_s108928",
+      "family": "random_dfa",
+      "input": "inputs/random_dfa_a32_k8_l128_s108928.json",
+      "truth": "hidden_truth/random_dfa_a32_k8_l128_s108928.json",
+      "alphabet_size": 32,
+      "k": 8,
+      "positive_count": 3,
+      "negative_count": 2,
+      "positive_lengths": [
+        128
+      ],
+      "negative_lengths": [
+        128
+      ],
+      "length": 128,
+      "seed": 108928
+    },
+    {
+      "id": "context_regular_a32_k8_l128_s123928",
+      "family": "context_regular",
+      "input": "inputs/context_regular_a32_k8_l128_s123928.json",
+      "truth": "hidden_truth/context_regular_a32_k8_l128_s123928.json",
+      "alphabet_size": 32,
+      "k": 8,
+      "positive_count": 3,
+      "negative_count": 2,
+      "positive_lengths": [
+        128
+      ],
+      "negative_lengths": [
+        128
+      ],
+      "length": 128,
+      "seed": 123928
+    },
+    {
+      "id": "random_dfa_a32_k8_l1024_s109824",
+      "family": "random_dfa",
+      "input": "inputs/random_dfa_a32_k8_l1024_s109824.json",
+      "truth": "hidden_truth/random_dfa_a32_k8_l1024_s109824.json",
+      "alphabet_size": 32,
+      "k": 8,
+      "positive_count": 3,
+      "negative_count": 2,
+      "positive_lengths": [
+        1024
+      ],
+      "negative_lengths": [
+        1024
+      ],
+      "length": 1024,
+      "seed": 109824
+    },
+    {
+      "id": "context_regular_a32_k8_l1024_s124824",
+      "family": "context_regular",
+      "input": "inputs/context_regular_a32_k8_l1024_s124824.json",
+      "truth": "hidden_truth/context_regular_a32_k8_l1024_s124824.json",
+      "alphabet_size": 32,
+      "k": 8,
+      "positive_count": 3,
+      "negative_count": 2,
+      "positive_lengths": [
+        1024
+      ],
+      "negative_lengths": [
+        1024
+      ],
+      "length": 1024,
+      "seed": 124824
+    },
+    {
+      "id": "random_dfa_a32_k8_l4096_s112896",
+      "family": "random_dfa",
+      "input": "inputs/random_dfa_a32_k8_l4096_s112896.json",
+      "truth": "hidden_truth/random_dfa_a32_k8_l4096_s112896.json",
+      "alphabet_size": 32,
+      "k": 8,
+      "positive_count": 3,
+      "negative_count": 2,
+      "positive_lengths": [
+        4096
+      ],
+      "negative_lengths": [
+        4096
+      ],
+      "length": 4096,
+      "seed": 112896
+    },
+    {
+      "id": "context_regular_a32_k8_l4096_s127896",
+      "family": "context_regular",
+      "input": "inputs/context_regular_a32_k8_l4096_s127896.json",
+      "truth": "hidden_truth/context_regular_a32_k8_l4096_s127896.json",
+      "alphabet_size": 32,
+      "k": 8,
+      "positive_count": 3,
+      "negative_count": 2,
+      "positive_lengths": [
+        4096
+      ],
+      "negative_lengths": [
+        4096
+      ],
+      "length": 4096,
+      "seed": 127896
+    },
+    {
+      "id": "random_dfa_a128_k2_l128_s204328",
+      "family": "random_dfa",
+      "input": "inputs/random_dfa_a128_k2_l128_s204328.json",
+      "truth": "hidden_truth/random_dfa_a128_k2_l128_s204328.json",
+      "alphabet_size": 128,
+      "k": 2,
+      "positive_count": 3,
+      "negative_count": 2,
+      "positive_lengths": [
+        128
+      ],
+      "negative_lengths": [
+        128
+      ],
+      "length": 128,
+      "seed": 204328
+    },
+    {
+      "id": "context_regular_a128_k2_l128_s219328",
+      "family": "context_regular",
+      "input": "inputs/context_regular_a128_k2_l128_s219328.json",
+      "truth": "hidden_truth/context_regular_a128_k2_l128_s219328.json",
+      "alphabet_size": 128,
+      "k": 2,
+      "positive_count": 3,
+      "negative_count": 2,
+      "positive_lengths": [
+        128
+      ],
+      "negative_lengths": [
+        128
+      ],
+      "length": 128,
+      "seed": 219328
+    },
+    {
+      "id": "random_dfa_a128_k2_l1024_s205224",
+      "family": "random_dfa",
+      "input": "inputs/random_dfa_a128_k2_l1024_s205224.json",
+      "truth": "hidden_truth/random_dfa_a128_k2_l1024_s205224.json",
+      "alphabet_size": 128,
+      "k": 2,
+      "positive_count": 3,
+      "negative_count": 2,
+      "positive_lengths": [
+        1024
+      ],
+      "negative_lengths": [
+        1024
+      ],
+      "length": 1024,
+      "seed": 205224
+    },
+    {
+      "id": "context_regular_a128_k2_l1024_s220224",
+      "family": "context_regular",
+      "input": "inputs/context_regular_a128_k2_l1024_s220224.json",
+      "truth": "hidden_truth/context_regular_a128_k2_l1024_s220224.json",
+      "alphabet_size": 128,
+      "k": 2,
+      "positive_count": 3,
+      "negative_count": 2,
+      "positive_lengths": [
+        1024
+      ],
+      "negative_lengths": [
+        1024
+      ],
+      "length": 1024,
+      "seed": 220224
+    },
+    {
+      "id": "random_dfa_a128_k2_l4096_s208296",
+      "family": "random_dfa",
+      "input": "inputs/random_dfa_a128_k2_l4096_s208296.json",
+      "truth": "hidden_truth/random_dfa_a128_k2_l4096_s208296.json",
+      "alphabet_size": 128,
+      "k": 2,
+      "positive_count": 3,
+      "negative_count": 2,
+      "positive_lengths": [
+        4096
+      ],
+      "negative_lengths": [
+        4096
+      ],
+      "length": 4096,
+      "seed": 208296
+    },
+    {
+      "id": "context_regular_a128_k2_l4096_s223296",
+      "family": "context_regular",
+      "input": "inputs/context_regular_a128_k2_l4096_s223296.json",
+      "truth": "hidden_truth/context_regular_a128_k2_l4096_s223296.json",
+      "alphabet_size": 128,
+      "k": 2,
+      "positive_count": 3,
+      "negative_count": 2,
+      "positive_lengths": [
+        4096
+      ],
+      "negative_lengths": [
+        4096
+      ],
+      "length": 4096,
+      "seed": 223296
+    },
+    {
+      "id": "random_dfa_a128_k3_l128_s204428",
+      "family": "random_dfa",
+      "input": "inputs/random_dfa_a128_k3_l128_s204428.json",
+      "truth": "hidden_truth/random_dfa_a128_k3_l128_s204428.json",
+      "alphabet_size": 128,
+      "k": 3,
+      "positive_count": 3,
+      "negative_count": 2,
+      "positive_lengths": [
+        128
+      ],
+      "negative_lengths": [
+        128
+      ],
+      "length": 128,
+      "seed": 204428
+    },
+    {
+      "id": "context_regular_a128_k3_l128_s219428",
+      "family": "context_regular",
+      "input": "inputs/context_regular_a128_k3_l128_s219428.json",
+      "truth": "hidden_truth/context_regular_a128_k3_l128_s219428.json",
+      "alphabet_size": 128,
+      "k": 3,
+      "positive_count": 3,
+      "negative_count": 2,
+      "positive_lengths": [
+        128
+      ],
+      "negative_lengths": [
+        128
+      ],
+      "length": 128,
+      "seed": 219428
+    },
+    {
+      "id": "random_dfa_a128_k3_l1024_s205324",
+      "family": "random_dfa",
+      "input": "inputs/random_dfa_a128_k3_l1024_s205324.json",
+      "truth": "hidden_truth/random_dfa_a128_k3_l1024_s205324.json",
+      "alphabet_size": 128,
+      "k": 3,
+      "positive_count": 3,
+      "negative_count": 2,
+      "positive_lengths": [
+        1024
+      ],
+      "negative_lengths": [
+        1024
+      ],
+      "length": 1024,
+      "seed": 205324
+    },
+    {
+      "id": "context_regular_a128_k3_l1024_s220324",
+      "family": "context_regular",
+      "input": "inputs/context_regular_a128_k3_l1024_s220324.json",
+      "truth": "hidden_truth/context_regular_a128_k3_l1024_s220324.json",
+      "alphabet_size": 128,
+      "k": 3,
+      "positive_count": 3,
+      "negative_count": 2,
+      "positive_lengths": [
+        1024
+      ],
+      "negative_lengths": [
+        1024
+      ],
+      "length": 1024,
+      "seed": 220324
+    },
+    {
+      "id": "random_dfa_a128_k3_l4096_s208396",
+      "family": "random_dfa",
+      "input": "inputs/random_dfa_a128_k3_l4096_s208396.json",
+      "truth": "hidden_truth/random_dfa_a128_k3_l4096_s208396.json",
+      "alphabet_size": 128,
+      "k": 3,
+      "positive_count": 3,
+      "negative_count": 2,
+      "positive_lengths": [
+        4096
+      ],
+      "negative_lengths": [
+        4096
+      ],
+      "length": 4096,
+      "seed": 208396
+    },
+    {
+      "id": "context_regular_a128_k3_l4096_s223396",
+      "family": "context_regular",
+      "input": "inputs/context_regular_a128_k3_l4096_s223396.json",
+      "truth": "hidden_truth/context_regular_a128_k3_l4096_s223396.json",
+      "alphabet_size": 128,
+      "k": 3,
+      "positive_count": 3,
+      "negative_count": 2,
+      "positive_lengths": [
+        4096
+      ],
+      "negative_lengths": [
+        4096
+      ],
+      "length": 4096,
+      "seed": 223396
+    },
+    {
+      "id": "random_dfa_a128_k4_l128_s204528",
+      "family": "random_dfa",
+      "input": "inputs/random_dfa_a128_k4_l128_s204528.json",
+      "truth": "hidden_truth/random_dfa_a128_k4_l128_s204528.json",
+      "alphabet_size": 128,
+      "k": 4,
+      "positive_count": 3,
+      "negative_count": 2,
+      "positive_lengths": [
+        128
+      ],
+      "negative_lengths": [
+        128
+      ],
+      "length": 128,
+      "seed": 204528
+    },
+    {
+      "id": "context_regular_a128_k4_l128_s219528",
+      "family": "context_regular",
+      "input": "inputs/context_regular_a128_k4_l128_s219528.json",
+      "truth": "hidden_truth/context_regular_a128_k4_l128_s219528.json",
+      "alphabet_size": 128,
+      "k": 4,
+      "positive_count": 3,
+      "negative_count": 2,
+      "positive_lengths": [
+        128
+      ],
+      "negative_lengths": [
+        128
+      ],
+      "length": 128,
+      "seed": 219528
+    },
+    {
+      "id": "random_dfa_a128_k4_l1024_s205424",
+      "family": "random_dfa",
+      "input": "inputs/random_dfa_a128_k4_l1024_s205424.json",
+      "truth": "hidden_truth/random_dfa_a128_k4_l1024_s205424.json",
+      "alphabet_size": 128,
+      "k": 4,
+      "positive_count": 3,
+      "negative_count": 2,
+      "positive_lengths": [
+        1024
+      ],
+      "negative_lengths": [
+        1024
+      ],
+      "length": 1024,
+      "seed": 205424
+    },
+    {
+      "id": "context_regular_a128_k4_l1024_s220424",
+      "family": "context_regular",
+      "input": "inputs/context_regular_a128_k4_l1024_s220424.json",
+      "truth": "hidden_truth/context_regular_a128_k4_l1024_s220424.json",
+      "alphabet_size": 128,
+      "k": 4,
+      "positive_count": 3,
+      "negative_count": 2,
+      "positive_lengths": [
+        1024
+      ],
+      "negative_lengths": [
+        1024
+      ],
+      "length": 1024,
+      "seed": 220424
+    },
+    {
+      "id": "random_dfa_a128_k4_l4096_s208496",
+      "family": "random_dfa",
+      "input": "inputs/random_dfa_a128_k4_l4096_s208496.json",
+      "truth": "hidden_truth/random_dfa_a128_k4_l4096_s208496.json",
+      "alphabet_size": 128,
+      "k": 4,
+      "positive_count": 3,
+      "negative_count": 2,
+      "positive_lengths": [
+        4096
+      ],
+      "negative_lengths": [
+        4096
+      ],
+      "length": 4096,
+      "seed": 208496
+    },
+    {
+      "id": "context_regular_a128_k4_l4096_s223496",
+      "family": "context_regular",
+      "input": "inputs/context_regular_a128_k4_l4096_s223496.json",
+      "truth": "hidden_truth/context_regular_a128_k4_l4096_s223496.json",
+      "alphabet_size": 128,
+      "k": 4,
+      "positive_count": 3,
+      "negative_count": 2,
+      "positive_lengths": [
+        4096
+      ],
+      "negative_lengths": [
+        4096
+      ],
+      "length": 4096,
+      "seed": 223496
+    },
+    {
+      "id": "random_dfa_a128_k6_l128_s204728",
+      "family": "random_dfa",
+      "input": "inputs/random_dfa_a128_k6_l128_s204728.json",
+      "truth": "hidden_truth/random_dfa_a128_k6_l128_s204728.json",
+      "alphabet_size": 128,
+      "k": 6,
+      "positive_count": 3,
+      "negative_count": 2,
+      "positive_lengths": [
+        128
+      ],
+      "negative_lengths": [
+        128
+      ],
+      "length": 128,
+      "seed": 204728
+    },
+    {
+      "id": "context_regular_a128_k6_l128_s219728",
+      "family": "context_regular",
+      "input": "inputs/context_regular_a128_k6_l128_s219728.json",
+      "truth": "hidden_truth/context_regular_a128_k6_l128_s219728.json",
+      "alphabet_size": 128,
+      "k": 6,
+      "positive_count": 3,
+      "negative_count": 2,
+      "positive_lengths": [
+        128
+      ],
+      "negative_lengths": [
+        128
+      ],
+      "length": 128,
+      "seed": 219728
+    },
+    {
+      "id": "random_dfa_a128_k6_l1024_s205624",
+      "family": "random_dfa",
+      "input": "inputs/random_dfa_a128_k6_l1024_s205624.json",
+      "truth": "hidden_truth/random_dfa_a128_k6_l1024_s205624.json",
+      "alphabet_size": 128,
+      "k": 6,
+      "positive_count": 3,
+      "negative_count": 2,
+      "positive_lengths": [
+        1024
+      ],
+      "negative_lengths": [
+        1024
+      ],
+      "length": 1024,
+      "seed": 205624
+    },
+    {
+      "id": "context_regular_a128_k6_l1024_s220624",
+      "family": "context_regular",
+      "input": "inputs/context_regular_a128_k6_l1024_s220624.json",
+      "truth": "hidden_truth/context_regular_a128_k6_l1024_s220624.json",
+      "alphabet_size": 128,
+      "k": 6,
+      "positive_count": 3,
+      "negative_count": 2,
+      "positive_lengths": [
+        1024
+      ],
+      "negative_lengths": [
+        1024
+      ],
+      "length": 1024,
+      "seed": 220624
+    },
+    {
+      "id": "random_dfa_a128_k6_l4096_s208696",
+      "family": "random_dfa",
+      "input": "inputs/random_dfa_a128_k6_l4096_s208696.json",
+      "truth": "hidden_truth/random_dfa_a128_k6_l4096_s208696.json",
+      "alphabet_size": 128,
+      "k": 6,
+      "positive_count": 3,
+      "negative_count": 2,
+      "positive_lengths": [
+        4096
+      ],
+      "negative_lengths": [
+        4096
+      ],
+      "length": 4096,
+      "seed": 208696
+    },
+    {
+      "id": "context_regular_a128_k6_l4096_s223696",
+      "family": "context_regular",
+      "input": "inputs/context_regular_a128_k6_l4096_s223696.json",
+      "truth": "hidden_truth/context_regular_a128_k6_l4096_s223696.json",
+      "alphabet_size": 128,
+      "k": 6,
+      "positive_count": 3,
+      "negative_count": 2,
+      "positive_lengths": [
+        4096
+      ],
+      "negative_lengths": [
+        4096
+      ],
+      "length": 4096,
+      "seed": 223696
+    },
+    {
+      "id": "random_dfa_a128_k8_l128_s204928",
+      "family": "random_dfa",
+      "input": "inputs/random_dfa_a128_k8_l128_s204928.json",
+      "truth": "hidden_truth/random_dfa_a128_k8_l128_s204928.json",
+      "alphabet_size": 128,
+      "k": 8,
+      "positive_count": 3,
+      "negative_count": 2,
+      "positive_lengths": [
+        128
+      ],
+      "negative_lengths": [
+        128
+      ],
+      "length": 128,
+      "seed": 204928
+    },
+    {
+      "id": "context_regular_a128_k8_l128_s219928",
+      "family": "context_regular",
+      "input": "inputs/context_regular_a128_k8_l128_s219928.json",
+      "truth": "hidden_truth/context_regular_a128_k8_l128_s219928.json",
+      "alphabet_size": 128,
+      "k": 8,
+      "positive_count": 3,
+      "negative_count": 2,
+      "positive_lengths": [
+        128
+      ],
+      "negative_lengths": [
+        128
+      ],
+      "length": 128,
+      "seed": 219928
+    },
+    {
+      "id": "random_dfa_a128_k8_l1024_s205824",
+      "family": "random_dfa",
+      "input": "inputs/random_dfa_a128_k8_l1024_s205824.json",
+      "truth": "hidden_truth/random_dfa_a128_k8_l1024_s205824.json",
+      "alphabet_size": 128,
+      "k": 8,
+      "positive_count": 3,
+      "negative_count": 2,
+      "positive_lengths": [
+        1024
+      ],
+      "negative_lengths": [
+        1024
+      ],
+      "length": 1024,
+      "seed": 205824
+    },
+    {
+      "id": "context_regular_a128_k8_l1024_s220824",
+      "family": "context_regular",
+      "input": "inputs/context_regular_a128_k8_l1024_s220824.json",
+      "truth": "hidden_truth/context_regular_a128_k8_l1024_s220824.json",
+      "alphabet_size": 128,
+      "k": 8,
+      "positive_count": 3,
+      "negative_count": 2,
+      "positive_lengths": [
+        1024
+      ],
+      "negative_lengths": [
+        1024
+      ],
+      "length": 1024,
+      "seed": 220824
+    },
+    {
+      "id": "random_dfa_a128_k8_l4096_s208896",
+      "family": "random_dfa",
+      "input": "inputs/random_dfa_a128_k8_l4096_s208896.json",
+      "truth": "hidden_truth/random_dfa_a128_k8_l4096_s208896.json",
+      "alphabet_size": 128,
+      "k": 8,
+      "positive_count": 3,
+      "negative_count": 2,
+      "positive_lengths": [
+        4096
+      ],
+      "negative_lengths": [
+        4096
+      ],
+      "length": 4096,
+      "seed": 208896
+    },
+    {
+      "id": "context_regular_a128_k8_l4096_s223896",
+      "family": "context_regular",
+      "input": "inputs/context_regular_a128_k8_l4096_s223896.json",
+      "truth": "hidden_truth/context_regular_a128_k8_l4096_s223896.json",
+      "alphabet_size": 128,
+      "k": 8,
+      "positive_count": 3,
+      "negative_count": 2,
+      "positive_lengths": [
+        4096
+      ],
+      "negative_lengths": [
+        4096
+      ],
+      "length": 4096,
+      "seed": 223896
+    },
+    {
+      "id": "stress_a128_k2_l16384",
+      "family": "stress_16384",
+      "input": "inputs/stress_a128_k2_l16384.json",
+      "truth": "hidden_truth/stress_a128_k2_l16384.json",
+      "alphabet_size": 128,
+      "k": 2,
+      "positive_count": 3,
+      "negative_count": 2,
+      "positive_lengths": [
+        16384
+      ],
+      "negative_lengths": [
+        16384
+      ],
+      "length": 16384
+    },
+    {
+      "id": "stress_a128_k4_l16384",
+      "family": "stress_16384",
+      "input": "inputs/stress_a128_k4_l16384.json",
+      "truth": "hidden_truth/stress_a128_k4_l16384.json",
+      "alphabet_size": 128,
+      "k": 4,
+      "positive_count": 3,
+      "negative_count": 2,
+      "positive_lengths": [
+        16384
+      ],
+      "negative_lengths": [
+        16384
+      ],
+      "length": 16384
+    },
+    {
+      "id": "stress_a128_k8_l16384",
+      "family": "stress_16384",
+      "input": "inputs/stress_a128_k8_l16384.json",
+      "truth": "hidden_truth/stress_a128_k8_l16384.json",
+      "alphabet_size": 128,
+      "k": 8,
+      "positive_count": 3,
+      "negative_count": 2,
+      "positive_lengths": [
+        16384
+      ],
+      "negative_lengths": [
+        16384
+      ],
+      "length": 16384
+    }
+  ]
+}

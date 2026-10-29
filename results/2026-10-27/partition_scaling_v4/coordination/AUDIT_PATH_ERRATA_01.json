@@ -1,0 +1,13 @@
+{
+  "original": "audit/stage1_gate_report_v1.json",
+  "original_preserved": true,
+  "issue": "old-source metadata paths have one extra ../; recorded hashes and actual captured source bindings are unchanged",
+  "resolution_base": "C004 root",
+  "correct_paths_from_c004_root": {
+    "old_c003_fixed_word": "../../2026-10-26/partition_discovery_v3/structural/fixed_word_solver.py",
+    "old_c003_general": "../../2026-10-26/partition_discovery_v3/general/general_solver.py",
+    "old_c003_support": "../../2026-10-26/partition_discovery_v3/general/support.py",
+    "c002_graph_dependency": "../../2026-10-26/partition_constraints_v2/baseline/partition_solver.py"
+  },
+  "scientific_effect": "metadata-only; no reexecution needed"
+}

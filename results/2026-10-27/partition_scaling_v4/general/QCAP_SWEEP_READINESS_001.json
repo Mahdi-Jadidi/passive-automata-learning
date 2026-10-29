@@ -1,0 +1,44 @@
+{
+  "candidate_id": "C004-G-QCAP-SWEEP-001",
+  "scientific_status": "captured-small-full-set-pass-pending-independent-review",
+  "execution_status": "success",
+  "attempt_id": "20261027T094124.415915Z_6dad41771a",
+  "label": "general_qcap_sweep_001",
+  "raw_stdout_sha256": "66f81ae17df9979cb27b4210864c9fe223b937050e7c641896b4d8710269d328",
+  "provider": {
+    "path": "general/known_k_v3.py",
+    "sha256": "1519189883c8dcfa9dcfa8e309f8e2c942b46a53d1988720baae58c4ab817ed9"
+  },
+  "oracle": {
+    "path": "general/qcap_sweep.py",
+    "sha256": "eef499589b8c66d45c8aeb83de0063ece64a9659c144ef380b8ac4275f48b024"
+  },
+  "inputs": {
+    "path": "general/fixtures/qcap_sweep_inputs.json",
+    "sha256": "2638a595aeb4b0354ddc7dd8d8f90f6a1a144318e974c6b1d3ddd8d73ff9edfe"
+  },
+  "hidden_truth_sidecar": {
+    "path": "general/fixtures/qcap_sweep_truth.json",
+    "sha256": "44c6deef5a419993b0cdde6a8fc0ebe0a8a5057632a078cf81c4692e78b9ee0f",
+    "passed_to_provider": false
+  },
+  "prepared_protocol_input_snapshot": {
+    "path": "general/fixtures/q2_prepared_inputs.json",
+    "sha256": "c5409dc2174650aa65d58afa62ff32f5fbc4f2775ef54452473eb805a4a121a2"
+  },
+  "comparison": {
+    "case_count": 7,
+    "provider_runs": 28,
+    "q_values": [1, 2, 3, "unrestricted"],
+    "all_full_partition_sets_match": true,
+    "all_negative_witnesses_valid": true,
+    "all_searches_exhausted": true,
+    "all_nested_feasible_sets_hold": true,
+    "actual_true_q2_partition_absent_at_q1_present_at_q2": true,
+    "empty_positive_semantics_explicitly_checked": true,
+    "cap_pruning_observed": true
+  },
+  "timing_status": "not_official_timing; timing phase held by master",
+  "source_changed": false,
+  "report": "general/QCAP_SWEEP_REPORT_001.md"
+}

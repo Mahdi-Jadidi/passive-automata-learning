@@ -1,0 +1,40 @@
+{
+  "schema": "C004-stage2-timing-protocol-freeze-v1",
+  "protocol_path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-10-27\\partition_scaling_v4\\audit\\stage2_timing_protocol_v1.json",
+  "protocol_sha256": "f6cd0e055f977ecc6ca7703db2dd9984c3fbaab6637c62f403474dd35d0d1c48",
+  "schedule_sha256": "ebd33467b9370a2196950fddd0faf7c37dd461a29fa14496fffc5684c5ce5330",
+  "generator_sha256": "b7c6d54f96206954471a1a9d1cf23efa1370cfa249f4b5f829ed06e752e2bc82",
+  "wall_jobs": 12,
+  "memory_jobs": 3,
+  "source_bindings": {
+    "audit/STAGE1_SCOPE_ERRATUM_01.md": "b4dd7a7f1550d16c322e77e715aac986664bcef53b6c056d3c5df9905c67c818",
+    "audit/capture.py": "68ee700f391fb6a1cf135e4b55a11a247b45f25164553c917d1664f6fc4a31cf",
+    "audit/corpora/stage2_v1/freeze_v1.json": "dc232d3cb866de9995a335a5c2b537d7ad20ab4787867908ca160f311d652779",
+    "audit/corpora/stage2_v1/manifest.json": "258ba6b97871d8e140c2076247edd6612e5faf01352ac32ea247d211e806493f",
+    "audit/execute_stage2_timing_v1.py": "dfd5e96d50127ae63cabf81c519bf1a7ddd2072d5524bcfdbe634e6934b78075",
+    "audit/freeze_stage2_timing_protocol_v1.py": "b7c6d54f96206954471a1a9d1cf23efa1370cfa249f4b5f829ed06e752e2bc82",
+    "audit/stage1_performance_report_v2.json": "e4f79008b1e84826d0ddc2999d35e76e98aeadc30f9a176357208dc432c637dc",
+    "audit/stage2_gate_report_v1.json": "f1ab159020e3b16d8e6ce80e9989b68e3ec646d898e45cb323a1ed436883adcf",
+    "audit/stage2_timing_execution_ledger_pre_executor_fix_001.json": "e0ea35c392babc754e4dfff8380d953663775465df29524719d36252c141a993",
+    "audit/stage2_timing_wrapper_failure_v1.json": "66b907401baa39ed27c620909ec8fec8f52b5acd706ea1bf970dc1dcd4e02489",
+    "audit/timed_stage2_full_api_v1.py": "a7107254c93b226162fe507a72ff49cdfb2aa940c7300e342a510a3187e8dad5",
+    "coordination/runtime_stage2_r2.json": "e2a1d0fbff9294370e37a1244624fef79c177f397c5a88266cf3a8eaf6cc4ea8",
+    "general/known_k_v3.py": "1519189883c8dcfa9dcfa8e309f8e2c942b46a53d1988720baae58c4ab817ed9",
+    "solver_v2.py": "d5e882cc229174461dd06811645a8181d1a19e858667ddb468f486528da3b52f",
+    "structural/bounded_certificate_v1.py": "0a8e542d3d44650f454e779137a5c9ac1057cd863bc162c94b45519f253636d5",
+    "structural/singleton_solver_v1.py": "16065fdfabf52d4280e3c0f5a7f427faff8990583579bd97b4ea64f70c5a023e",
+    "structural/singleton_solver_v2.py": "67899d186bd91dfa11cde576910378ae5a1d3e2606fa59cda6cb01e05e8c64ef",
+    "structural/singleton_solver_v4.py": "5cc301477d10aad356b857e05df73ec326c2f94b2475a554348fb7eaf53b8958"
+  },
+  "input_bindings": {
+    "m16_k4": {
+      "path": "corpora\\stage2_v1\\inputs\\q2_positive_only_m16_k4.json",
+      "sha256": "8ff3cac0f450622e2d12c0c6f055cdeaf0f38330465efe630fbde682bf789047"
+    },
+    "m128_k8": {
+      "path": "corpora\\stage2_v1\\inputs\\q2_positive_only_m128_k8.json",
+      "sha256": "6ef08742b3a8b3cc9b140e5e15509ee3ea518a0169a343f653c9f30d391f73fe"
+    }
+  },
+  "frozen_before_execution": true
+}

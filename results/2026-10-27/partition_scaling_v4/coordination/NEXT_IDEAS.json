@@ -1,0 +1,28 @@
+{
+  "cycle": "C004",
+  "status": "Recorded proposals for a later cycle; not accepted runtime features and no experiments authorized by this record.",
+  "ideas": [
+    {
+      "id": "C004-NEXT-SPARSE-ANCHOR",
+      "parent": "C004-QOP001",
+      "hypothesis": "Replace a complete k-partite certificate by a k-clique anchor plus sound forced-color propagation: with exactly k colors, any remaining vertex adjacent to all but one established color is forced. If every vertex is forced, verify full sample constraints on the sole candidate.",
+      "motivation": "A polynomial sufficient certificate may need fewer observed cross-pair edges, addressing sparse coverage without exhaustive coloring.",
+      "assumptions": ["known k", "all graph edges are sound cannot-links in the declared model", "full positive and negative checks remain mandatory"],
+      "scientific_status": "under_investigation_pending_independent_review",
+      "execution_status": "not_run",
+      "novelty_claim": false,
+      "boundary": "Not a proof of all uniquely colorable graphs; not valid for unknown k merely from a k-clique."
+    },
+    {
+      "id": "C004-NEXT-THREE-POSITIVES",
+      "parent": "C004-QOP001",
+      "hypothesis": "For equal-size blocks, let ui be two repeats of each block's symbol list and vi=ui+first_symbol. Try only three positives: forward concatenation of ui, reverse concatenation of ui, and lockstep interleaving of vi. They may give >2 cross-pair projections while every factor has exactly the two observed local words ui,vi.",
+      "motivation": "Reduce the current four-positive sufficient construction to the smallest positive count that can create a strict >2 projection edge.",
+      "assumptions": ["known k", "finite local languages of size at most two", "equal-size nonempty disjoint blocks", "the construction's coverage must be proved and audited"],
+      "scientific_status": "under_investigation_pending_independent_review",
+      "execution_status": "not_run",
+      "novelty_claim": false,
+      "boundary": "Current adopted experiments use four positives. This proposal is not included in their reported success counts."
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "client_date": "2026-10-28",
+  "cycle": "C004",
+  "folder_date_retained": "2026-10-27",
+  "branch": "codex/partition-scaling-v4",
+  "last_commit": "e419f202",
+  "interruption": {
+    "worker": "/root/auditor_v4",
+    "execution_status": "service_error",
+    "error": "unexpected status 404 Not Found: {detail: Not Found}, https://chatgpt.com/backend-api/codex/responses",
+    "request_id": "5002f22c-3b0c-41c0-a0b6-fbb5eedb25d0",
+    "cf_ray": "a5118d001f084d73-FRA",
+    "full_service_log": "not available; tool-visible failure metadata only",
+    "scientific_effect": "No inference of algorithm failure; resume persisted audit artifacts without repeating completed provider runs."
+  },
+  "accepted_stage1": {"small_full_set_cases":80,"parent_k2_bridges":33,"performance_rows":63,"pass":59,"censored":4},
+  "active_source_manifest": "coordination/runtime_stage2_r2.json",
+  "active_entrypoint": "solver_v2.py",
+  "historical_rejected_inference": "structural/singleton_solver_v3.py",
+  "corrected_inference": "structural/singleton_solver_v4.py",
+  "stage2_state": "Most correctness checks captured; independent aggregate gate and final report still pending.",
+  "next": ["recover auditor and aggregate existing evidence", "accept remaining stage2 gate", "small matched stage2 measurements if justified", "final Persian report, byte integrity and scoped Git commit"],
+  "do_not": ["repeat completed suites because of resumption", "edit parent C003/C002", "erase failed attempts", "claim unapproved stage2 timing results"]
+}

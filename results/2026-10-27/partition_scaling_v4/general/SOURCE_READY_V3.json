@@ -1,0 +1,78 @@
+{
+  "candidate_id": "C004-GENERAL-KNOWN-K-V3",
+  "scientific_status": "candidate-ready-for-independent-audit",
+  "execution_status": "captured-small-full-set-pass",
+  "api": "solve(data, *, k=None, deadline=None, max_solutions=1, local_word_cap=None)",
+  "source": {
+    "path": "general/known_k_v3.py",
+    "sha256": "1519189883c8dcfa9dcfa8e309f8e2c942b46a53d1988720baae58c4ab817ed9"
+  },
+  "proof": {
+    "path": "general/contextual_swap_proof.md",
+    "sha256": "bf855121565d9eac6de1643193025500fb33641eb2cfa7c8c09146ab8bc5cdb1"
+  },
+  "small_full_set_audit": {
+    "attempt_id": "20261027T090110.635316Z_1fbcf036be",
+    "label": "general_small_fullset_v2_001",
+    "execution_status": "success",
+    "stdout_sha256": "831f022c4db4a2aaab88ed7d00adf08999df0229137e169e1ef743afb5ab0344",
+    "inputs": {
+      "path": "general/fixtures/smoke_inputs.json",
+      "sha256": "5018db0187e8c1f467cb017b584e9d6dfe290191624ce88f7dad8a60cb1a7080"
+    },
+    "oracle_source": {
+      "path": "general/smoke.py",
+      "sha256": "75e6e51609f440c52c89fcdd1f962a82cfffc8a6d832a87711bedb42f23571d"
+    }
+  },
+  "v3_small_full_set_audit": {
+    "attempt_id": "20261027T090308.369896Z_9d5cde8724",
+    "label": "general_small_fullset_v3_001",
+    "execution_status": "success",
+    "stdout_sha256": "831f022c4db4a2aaab88ed7d00adf08999df0229137e169e1ef743afb5ab0344",
+    "source_sha256": "1519189883c8dcfa9dcfa8e309f8e2c942b46a53d1988720baae58c4ab817ed9",
+    "oracle_sha256": "b6b7ea194122e33bd16c4dbd8f165a669e66bf580351d07e574ace2b41d9c244"
+  },
+  "contextual_witness_audit": {
+    "attempt_id": "20261027T090208.616305Z_179c757f6c",
+    "label": "general_contextual_witnesses_001",
+    "execution_status": "success",
+    "stdout_sha256": "1756d42212dc3a8b441c3d08dc3000c579b4f68efb9263c60b0dc5f356d01566",
+    "harness": {
+      "path": "general/contextual_witnesses.py",
+      "sha256": "218fbe308df328cd49051d52b9118e84b5fa2e7ca6c82b3433bc5fae61147634"
+    },
+    "inputs": {
+      "path": "general/fixtures/contextual_witnesses.json",
+      "sha256": "36f2b229a113e0cefc195d8724530fca02f77efcfb411352233975a939a8418d"
+    },
+    "finding": "swap and insertion-rescue edges found with nonempty 16-character contexts; full known-k search exhausted"
+  },
+  "v3_contextual_witness_audit": {
+    "attempt_id": "20261027T090315.461435Z_bef2fbe2c8",
+    "label": "general_contextual_witnesses_v3_001",
+    "execution_status": "success",
+    "stdout_sha256": "1756d42212dc3a8b441c3d08dc3000c579b4f68efb9263c60b0dc5f356d01566",
+    "harness_sha256": "4325d47aa6a03f79fb017f5ef9e870e2dd124c0707f9857ab2812058e891eaa8"
+  },
+  "preserved_failed_attempts": [
+    {
+      "attempt_id": "20261027T085911.366374Z_b505a53e8f",
+      "label": "general_small_fullset_005",
+      "failure": "assertion mismatch on missing-rescue counterexample; raw output preserved",
+      "failed_source_sha256": "5a73dc172b4d874ea888e8d3377e98f570e4dd0ada6cab4995903cc31096d02a"
+    },
+    {
+      "attempt_id": "20261027T085839.259276Z_2fea1d6d7e",
+      "label": "general_rejected_refutation_review_001",
+      "failure": "harness path error; preserved",
+      "minimized_counterexample": ["alphabet=[a,b]", "positive={epsilon,b}", "negative={a}"]
+    }
+  ],
+  "scope_notes": [
+    "Graph components are sound must-links for arbitrary k, not a k-coloring certificate.",
+    "The contextual family permits nonempty, long left and right contexts.",
+    "q-cap correctness is conditional on finite local languages of at most q distinct observed positive projections; no ablation has been run.",
+    "This source has not yet been accepted by the independent auditor."
+  ]
+}

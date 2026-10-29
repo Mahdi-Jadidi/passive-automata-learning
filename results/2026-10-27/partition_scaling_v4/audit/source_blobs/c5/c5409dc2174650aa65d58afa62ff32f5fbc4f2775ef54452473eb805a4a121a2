@@ -1,0 +1,36 @@
+{
+  "stage": "2",
+  "execution_status": "prepared_not_run",
+  "cases": {
+    "one_projection_control": {
+      "k": 2,
+      "alphabet": ["a", "b"],
+      "positive": ["ab", "ab"],
+      "negative": ["aa"]
+    },
+    "two_projection_q2_only": {
+      "k": 2,
+      "alphabet": ["a", "b"],
+      "positive": ["a", "b"],
+      "negative": ["aa"]
+    },
+    "three_projection_cap_violation": {
+      "k": 2,
+      "alphabet": ["a", "b"],
+      "positive": ["", "a", "aa"],
+      "negative": []
+    },
+    "empty_positive_semantics": {
+      "k": 2,
+      "alphabet": ["a", "b"],
+      "positive": [],
+      "negative": ["a"]
+    },
+    "repeated_projection_control": {
+      "k": 2,
+      "alphabet": ["a", "b"],
+      "positive": ["a", "ba", "aba"],
+      "negative": ["aa"]
+    }
+  }
+}

@@ -1,0 +1,74 @@
+"""Capture the read-only Stage-2 gate aggregator without a long argv list."""
+from __future__ import annotations
+import json
+import sys
+from pathlib import Path
+
+HERE = Path(__file__).resolve().parent
+PROJECT = HERE.parent
+CAPTURE_IDS = [
+    "20261027T094953.976054Z_23dc6570da",
+    "20261027T095307.902803Z_e4c3ecb810",
+    "20261027T095852.114352Z_845fe9442d",
+    "20261027T095541.862000Z_b9b2f56f4b",
+    "20261027T095602.864028Z_b2ea97b427",
+    "20261027T095635.509143Z_a6d0cbef31",
+    "20261027T095701.212969Z_e92c68de1d",
+    "20261027T095948.377665Z_3ee0a9f461",
+    "20261027T100054.287557Z_a334ed9ebf",
+    "20261027T100118.316204Z_d2bd36c90d",
+    "20261027T100140.139072Z_0d7074dab6",
+    "20261027T101326.526396Z_5339b06884",
+    "20261027T101508.000830Z_8a16b55bc3",
+    "20261027T095948.377665Z_3ee0a9f461",
+    "20261027T100054.287557Z_a334ed9ebf",
+    "20261027T100118.316204Z_d2bd36c90d",
+    "20261028T081652.030450Z_0b3eff7c46",
+    "20261028T081753.844412Z_7d9562d70a",
+]
+
+
+def main() -> None:
+    sys.path.insert(0, str(HERE))
+    from capture import capture
+
+    sources = [
+        Path(__file__).resolve(), HERE / "aggregate_stage2_gate_v1.py",
+        HERE / "stage2_infrastructure_404_record_v1.json",
+        HERE / "stage2_aggregate_launcher_failure_v1.json",
+        HERE / "context_regular_target_proof_v1.json",
+        HERE / "generate_stage2_corpus_v1.py", HERE / "generate_qop_addendum_v1.py",
+        HERE / "generate_context_regular_proof_v1.py", HERE / "capture.py",
+        HERE / "run_captured_v2.py", PROJECT / "coordination" / "runtime_stage2_r2.json",
+        PROJECT / "solver_v2.py", PROJECT / "general" / "known_k_v3.py",
+        PROJECT / "structural" / "singleton_solver_v1.py",
+        PROJECT / "structural" / "singleton_solver_v2.py",
+        PROJECT / "structural" / "singleton_solver_v3.py",
+        PROJECT / "structural" / "singleton_solver_v4.py",
+        PROJECT / "structural" / "bounded_certificate_v1.py",
+        HERE / "corpora" / "stage2_v1" / "manifest.json",
+        HERE / "corpora" / "stage2_v1" / "freeze_v1.json",
+        HERE / "corpora" / "stage2_qop_addendum_v1" / "manifest.json",
+        HERE / "corpora" / "stage2_qop_addendum_v1" / "freeze_v1.json",
+    ]
+    for root_name in ("stage2_v1", "stage2_qop_addendum_v1"):
+        root = HERE / "corpora" / root_name
+        sources.extend(path for path in root.rglob("*") if path.is_file())
+    for attempt_id in CAPTURE_IDS:
+        directory = HERE / "attempts" / attempt_id
+        for name in ("manifest.json", "result.json", "stdout.bin", "stderr.bin"):
+            path = directory / name
+            if path.is_file():
+                sources.append(path)
+    for name in ("solver.py",):
+        sources.append(PROJECT / name)
+    command = [sys.executable, "-B", "-X", "utf8", str(HERE / "aggregate_stage2_gate_v1.py")]
+    result = capture("stage2_gate_aggregate_v1", command, cwd=HERE,
+                     timeout_seconds=120.0, source_paths=sources)
+    print(json.dumps(result, ensure_ascii=False, sort_keys=True))
+    if result["execution_status"] != "success" or result["exit_code"] != 0:
+        raise SystemExit(2)
+
+
+if __name__ == "__main__":
+    main()

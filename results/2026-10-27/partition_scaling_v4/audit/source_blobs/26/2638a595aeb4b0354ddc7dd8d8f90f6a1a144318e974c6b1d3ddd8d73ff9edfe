@@ -1,0 +1,46 @@
+{
+  "cases": {
+    "one_projection_control": {
+      "k": 2,
+      "alphabet": ["a", "b"],
+      "positive": ["ab", "ab"],
+      "negative": ["aa"]
+    },
+    "actual_true_q2": {
+      "k": 2,
+      "alphabet": ["a", "b"],
+      "positive": ["a", "b"],
+      "negative": ["aa"]
+    },
+    "three_projection_cap_violation": {
+      "k": 2,
+      "alphabet": ["a", "b"],
+      "positive": ["", "a", "aa"],
+      "negative": []
+    },
+    "empty_positive_semantics": {
+      "k": 2,
+      "alphabet": ["a", "b", "c"],
+      "positive": [],
+      "negative": ["a", "bc"]
+    },
+    "repeated_projection_control": {
+      "k": 2,
+      "alphabet": ["a", "b"],
+      "positive": ["a", "ba", "aba"],
+      "negative": ["aa"]
+    },
+    "higher_order_pair_projection_trap": {
+      "k": 2,
+      "alphabet": ["a", "b", "c", "d"],
+      "positive": ["abc", "bca", "cab", "acb"],
+      "negative": []
+    },
+    "three_factor_mixed": {
+      "k": 3,
+      "alphabet": ["a", "b", "c", "d"],
+      "positive": ["ab", "ba", "cd"],
+      "negative": ["ac", "bd"]
+    }
+  }
+}

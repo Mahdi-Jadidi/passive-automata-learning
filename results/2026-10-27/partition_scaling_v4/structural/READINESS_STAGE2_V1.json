@@ -1,0 +1,71 @@
+{
+  "official_benchmarks": "not_run",
+  "captures": [
+    {
+      "every_imported_research_source_and_input_snapshotted": true,
+      "comparison_records": 562,
+      "manifest": "audit\\attempts\\20261027T094046.610805Z_ae82f09edc\\manifest.json",
+      "raw_stdout_bytes": 1196018,
+      "failures": 0,
+      "attempt": "audit/attempts/20261027T094046.610805Z_ae82f09edc",
+      "execution_status": "success",
+      "raw_stdout_sha256": "1d7ac76ee54f91423b2c901d0d4cdf84d349c2acf583c4767785ce6f8d4d492b"
+    }
+  ],
+  "scientific_status": "own_smoke_passed_independent_audit_pending",
+  "idea_ids": [
+    "C004-S002",
+    "C004-S003",
+    "C004-QOP001"
+  ],
+  "test_scope": [
+    "known-k full RGS oracle equality",
+    "unknown-k singleton all k=1..m",
+    "genuine two-local-word q2 constructor and q1 infeasibility",
+    "necessary-pair relaxation but failing full block q cap",
+    "path 3 solutions and bdac negative unique",
+    "4 root CLI calls",
+    "empty positives",
+    "expired deadlines",
+    "solution limit nonuniqueness scope"
+  ],
+  "candidate_sources_unchanged_from_stage2_go": true,
+  "source_files": [
+    {
+      "sha256": "16065fdfabf52d4280e3c0f5a7f427faff8990583579bd97b4ea64f70c5a023e",
+      "path": "structural/singleton_solver_v1.py",
+      "bytes": 10270
+    },
+    {
+      "sha256": "67899d186bd91dfa11cde576910378ae5a1d3e2606fa59cda6cb01e05e8c64ef",
+      "path": "structural/singleton_solver_v2.py",
+      "bytes": 5066
+    },
+    {
+      "sha256": "146898b89ac3df0878e8e156e60f4826b6b83b879473d6ebf19c9bad954c8ab0",
+      "path": "structural/singleton_solver_v3.py",
+      "bytes": 7514
+    },
+    {
+      "sha256": "0a8e542d3d44650f454e779137a5c9ac1057cd863bc162c94b45519f253636d5",
+      "path": "structural/bounded_certificate_v1.py",
+      "bytes": 8099
+    },
+    {
+      "sha256": "80cc41264d04792c09e5f63322f681949d8cb290d002101280f5efbf7ff2dccb",
+      "path": "structural/smoke_stage2_v1.py",
+      "bytes": 7801
+    },
+    {
+      "sha256": "1519189883c8dcfa9dcfa8e309f8e2c942b46a53d1988720baae58c4ab817ed9",
+      "path": "general/known_k_v3.py",
+      "bytes": 13470
+    },
+    {
+      "sha256": "ae5148086c77303299d43ebcdcb11c54b218b33a5aa84b0c9bf4456f8665b0fa",
+      "path": "solver.py",
+      "bytes": 4156
+    }
+  ],
+  "execution_status": "ready"
+}
