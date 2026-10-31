@@ -1,0 +1,12 @@
+{
+  "cycle": "C005",
+  "parent": "/root",
+  "strategy": "Three delegated workers; master coordinates reviews, acceptance, promotion and delivery. No nested workers.",
+  "workers": [
+    {"id": "/root/structural_v5", "model": "gpt-6.1-sol", "reasoning_effort": "medium", "scope": "structural/", "mission": "Sparse certificates, weakened coverage, sample-count construction, primary-source review"},
+    {"id": "/root/exact_v5", "model": "gpt-6-luna", "reasoning_effort": "high", "scope": "general/", "mission": "Constraint-guided exact search, q frontier and CLI candidate"},
+    {"id": "/root/audit_v5", "model": "gpt-6-luna", "reasoning_effort": "xhigh", "scope": "audit/", "mission": "Independent frozen corpus, full-set oracle, proof critique, counterexamples and matched performance"}
+  ],
+  "historical_workers": ["/root/structural", "/root/general", "/root/auditor_v4"],
+  "historical_workers_status": "Completed C004; not activated in this cycle"
+}
