@@ -1,0 +1,13 @@
+{
+  "cycle": "C005",
+  "scientific_status": "No scientific conclusion from backend errors",
+  "execution_status": "environment_error",
+  "endpoint": "https://chatgpt.com/backend-api/codex/responses",
+  "http_status": 404,
+  "events": [
+    {"worker": "/root/delivery_v5", "request_id": "16a62569-4dd6-48d2-9994-fe0978ebf56c", "cf_ray": "a5395ef4b964d2a2-FRA"},
+    {"worker": "/root/audit_v5_resume", "request_id": "4e423594-427d-4bf8-8201-934f93e93d0a", "cf_ray": "a5395efcee7389d8-FRA"}
+  ],
+  "evidence": "Tool-visible service error metadata. Raw HTTP response file unavailable; not reconstructed.",
+  "action": "Resumed existing workers from disk; instructed not to rerun completed provider captures."
+}

@@ -1,0 +1,72 @@
+{
+  "schema": "C005-serialized-performance-proposal-v1",
+  "status": "proposal_only_pending_master_GO",
+  "runtime": {
+    "python": "C:/Users/Mahdi/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/python.exe",
+    "flags": ["-B", "-X", "utf8"],
+    "exact_sha256": "9f08dd645e7fcccbe8ea8022c758b7cf3277a5f01b6533fb9c1ad0cf08b6c84d",
+    "sparse_sha256": "1ff16263322f2009d68cd2b4ecc3b6587fa9ef80695fa9489fb199c9e13d6705"
+  },
+  "frozen_inputs": {
+    "corpus_manifest_sha256": "6133687e20a89a375aa383e0210d39ccb3964cec48cc9122d7fbec626a760f86",
+    "exact_pairs": [
+      {
+        "id": "small_m7_k3_planted_unequal_blocks_01",
+        "file": "audit/frozen_corpus_v2/small/inputs/small_m7_k3_planted_unequal_blocks_01.json",
+        "sha256": "f80768d16ac008cf9090d5f2eb00b667aac453e8bb691387ea17f30cf4ccbb84",
+        "hidden_sidecar_sha256": "a220046152c984e5c5d529f9cffe23aaf4bc54b48b79a9958d241a8e47e83a86",
+        "q": 1,
+        "k": 3,
+        "selection_evidence": "The completed full-set gate recorded 137 q-opposition-pruned nodes with the optimization enabled."
+      },
+      {
+        "id": "small_m7_k3_q_opposition_stress_07",
+        "file": "audit/frozen_corpus_v2/small/inputs/small_m7_k3_q_opposition_stress_07.json",
+        "sha256": "323b7b16b5bc06279a8a9cd23009a291d0d989f26ebff2748cf0b9490693e480",
+        "hidden_sidecar_sha256": "222cea712442d7b5f7ec8f78f54dcbc9a61ab0951c3e66d729ba600ebf7adc9b",
+        "q": 1,
+        "k": 3,
+        "selection_evidence": "The completed full-set gate recorded 77 q-opposition-pruned nodes with the optimization enabled."
+      }
+    ],
+    "sparse_certificate": {
+      "id": "sparse_m16_k6_r512_q4",
+      "container_file": "structural/sparse_scaling_fixtures_v1.json",
+      "container_sha256": "d6b8398e9a8c85d8f3c2f65cb87a9518ea7ffefade56a9e42c0d46ae6e8c084c",
+      "q": 4,
+      "m": 16,
+      "k": 6,
+      "positive_count": 8,
+      "maximum_positive_length": 32768,
+      "correctness_evidence": "All eight independent scale cells passed; this cell returns a replayed unique sparse certificate."
+    }
+  },
+  "schedule": {
+    "exact": {
+      "jobs": 12,
+      "plan": "For each of the two frozen inputs, run use_q_opposition=true and false three times each with max_solutions=None and use_contextual_must_links=true. Start every child in a fresh process, read the same JSON input bytes, and emit the complete JSON result. Alternate pair order by repetition: on/off, off/on, on/off.",
+      "only_treatment_change": "use_q_opposition",
+      "deadline_seconds": 28
+    },
+    "sparse": {
+      "jobs": 3,
+      "plan": "Run the one frozen sparse_certificate cell three times, each in a fresh process, reading the fixture and selecting the named data cell; emit the complete JSON result.",
+      "deadline_seconds": 28
+    },
+    "memory": {
+      "jobs": 1,
+      "plan": "Separate fresh process on the same sparse cell using Python tracemalloc. Read and parse input first; measure peak traced allocations around solve, then emit the full JSON result and peak byte count. Do not combine this with a timing sample; do not report RSS."
+    },
+    "serial_order": "Exact pairs first, then the three sparse runs, then the separate tracemalloc run.",
+    "total_jobs": 16
+  },
+  "limits_and_output": {
+    "capture": "Every job is a unique evidence/capture.py attempt that snapshots both provider sources, the job driver, this protocol, the exact input/container, relevant hidden sidecars, and corpus freeze files before child launch.",
+    "hard_seconds_per_job": 30,
+    "cooperative_deadline_seconds": 28,
+    "full_json": "Persist unmodified stdout/stderr and full provider JSON for every job; include capture duration and provider metrics separately.",
+    "comparison": "For each exact pair compare complete partition sets and semantic completion/status fields as well as full JSON. Treat the q-opposition metrics/timings as the only expected differences. Preserve censored outputs; do not retry a censored cell.",
+    "budget": "Maximum possible timed work is 6 minutes for exact and 90 seconds for sparse, below the 8-minute per-method limit. Memory is one separate run.",
+    "no_execution_before_GO": true
+  }
+}

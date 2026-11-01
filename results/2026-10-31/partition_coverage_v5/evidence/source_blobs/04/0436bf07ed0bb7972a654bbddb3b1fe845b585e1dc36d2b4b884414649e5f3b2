@@ -1,0 +1,39 @@
+{
+  "schema": "C005-independent-root-cli-audit-report-v1",
+  "scientific_status": "passed",
+  "capture": {
+    "attempt_id": "20261101T145631.948534Z_19b4986dea",
+    "attempt_dir": "evidence/attempts/20261101T145631.948534Z_19b4986dea",
+    "stdout_file": "evidence/attempts/20261101T145631.948534Z_19b4986dea/stdout.bin",
+    "stdout_bytes": 10622,
+    "stdout_sha256": "f9e42e3a98410e76d5449e3dcfd968fb1c5c6120f36f1367ffbb2916cc3ac62a",
+    "stderr_file": "evidence/attempts/20261101T145631.948534Z_19b4986dea/stderr.bin",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "manifest_sha256": "1bf99c914dac7de349a3c5266bab00ae22ce0d08b29b7996906bc7281399d3d5",
+    "result_sha256": "3ba18463107e4ba8b29de66a51057015b5437336a7e696dee34e50774a3d5c1a",
+    "captured_source_count": 11
+  },
+  "sources": {
+    "root_wrapper_sha256": "a977a7d869a5ee61bcc8997d79618a95945e0117201ad33d017a2a9eda7e43b1",
+    "public_cli_sha256": "964185568bbad53b54bb78769232dd828d3e980ed02038110675bf382d1bd2d7",
+    "exact_sha256": "9f08dd645e7fcccbe8ea8022c758b7cf3277a5f01b6533fb9c1ad0cf08b6c84d",
+    "sparse_sha256": "1ff16263322f2009d68cd2b4ecc3b6587fa9ef80695fa9489fb199c9e13d6705"
+  },
+  "counts": {
+    "cli_cases": 7,
+    "direct_oracle_unrestricted_partitions": 6,
+    "direct_oracle_q2_sample_partitions": 1,
+    "direct_oracle_q2_certificate_partitions": 1,
+    "discrepancies": 0
+  },
+  "status_summary": {
+    "exact_all_unrestricted": {"exit_code": 0, "status": "found", "solutions": 6},
+    "certificate_success": {"exit_code": 0, "status": "found", "uniqueness": "unique"},
+    "certificate_abstention": {"exit_code": 4, "status": "insufficient_coverage"},
+    "hybrid_fallback": {"exit_code": 0, "status": "found", "trigger": "insufficient_coverage", "solutions": 1},
+    "hybrid_deadline": {"exit_code": 3, "status": "incomplete", "fallback": "none"},
+    "invalid_q": {"exit_code": 2, "status": "invalid_input"},
+    "contradictory_labels": {"exit_code": 2, "status": "invalid_input"}
+  },
+  "full_cli_results": "Captured stdout includes all full JSON outputs for each root-wrapper invocation."
+}

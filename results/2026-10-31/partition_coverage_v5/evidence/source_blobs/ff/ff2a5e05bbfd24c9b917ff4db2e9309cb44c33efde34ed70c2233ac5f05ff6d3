@@ -1,0 +1,86 @@
+{
+  "schema": "C005-independent-small-gate-report-v2",
+  "scientific_status": "passed",
+  "execution_status": "success",
+  "capture": {
+    "attempt_id": "20261101T053324.043566Z_c9b3c6ee88",
+    "attempt_dir": "evidence/attempts/20261101T053324.043566Z_c9b3c6ee88",
+    "stdout_file": "evidence/attempts/20261101T053324.043566Z_c9b3c6ee88/stdout.bin",
+    "stdout_bytes": 17226928,
+    "stdout_sha256": "c1e88726875c73ab02122063681a0c61c841b2e4ab76b2965a44f2c9ce5084ad",
+    "stderr_file": "evidence/attempts/20261101T053324.043566Z_c9b3c6ee88/stderr.bin",
+    "stderr_bytes": 0,
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "manifest_sha256": "f5aa5e53a9f3b71ddd4b9441e33b5e3826c4b3293957d6e87eb8a76d7f10b9b2",
+    "result_sha256": "3f08be2f58aaa4d22b56875d272ed9d613b0501239c8a4ce6d94d11e7caa40ca",
+    "captured_source_count": 435
+  },
+  "corpus": {
+    "seed": 20261031,
+    "manifest": "frozen_corpus_v2/manifest_v1.json",
+    "manifest_sha256": "6133687e20a89a375aa383e0210d39ccb3964cec48cc9122d7fbec626a760f86",
+    "freeze_record": "frozen_corpus_v2/freeze_record_v1.json",
+    "valid_small_payloads": 174,
+    "input_files": 207,
+    "hidden_sidecars": 207,
+    "stage2_cases": 30
+  },
+  "providers": {
+    "exact": {
+      "path": "general/known_k_qexact_v2.py",
+      "sha256": "9f08dd645e7fcccbe8ea8022c758b7cf3277a5f01b6533fb9c1ad0cf08b6c84d"
+    },
+    "sparse": {
+      "path": "structural/sparse_certificate_v2.py",
+      "sha256": "1ff16263322f2009d68cd2b4ecc3b6587fa9ef80695fa9489fb199c9e13d6705"
+    },
+    "public_cli": {
+      "path": "general/public_cli_v1.py",
+      "sha256": "964185568bbad53b54bb78769232dd828d3e980ed02038110675bf382d1bd2d7"
+    },
+    "root_wrapper": {
+      "path": "solver.py",
+      "sha256": "a977a7d869a5ee61bcc8997d79618a95945e0117201ad33d017a2a9eda7e43b1"
+    }
+  },
+  "counts": {
+    "exact_full_set_comparisons": 870,
+    "sparse_q_comparisons": 696,
+    "invalid_controls": 3,
+    "synthetic_graph_controls": 6,
+    "trace_realizable_sparse_controls": 4,
+    "discrepancies": 0,
+    "sparse_statuses": {
+      "found": 1,
+      "infeasible": 105,
+      "insufficient_coverage": 590
+    }
+  },
+  "v1_discrepancies_preserved": {
+    "capture_attempt_id": "20261031T064305.942886Z_f9235ea474",
+    "stdout_file": "evidence/attempts/20261031T064305.942886Z_f9235ea474/stdout.bin",
+    "stdout_bytes": 16273868,
+    "stdout_sha256": "c13d635c8fb567ae33ce0c236b37718987b01ea4c4af941470a0db8e83cb8a8c",
+    "total_reported": 261,
+    "classification": [
+      {
+        "count": 162,
+        "description": "Provider exceptions from 18 generated random payloads with unintended contradictory exact labels: repeated random draws were assigned to both classes. The v2 generator deduplicates the draw pool before assignment; original inputs and exceptions remain in frozen_corpus_v1 and the v1 raw capture."
+      },
+      {
+        "count": 88,
+        "description": "Verifier flagged an incomplete opposition graph on empty-positive payloads. The provider deliberately abstains because no q-opposition evidence exists; v2 verifier recognizes that documented empty-positive shortcut as insufficient coverage."
+      },
+      {
+        "count": 11,
+        "description": "Verifier required a unary infeasibility witness to enumerate every observed unary count. The provider returns a sound q+1 subset with positive indices; v2 independently checks distinct counts, threshold, index alignment, and replay."
+      }
+    ],
+    "preservation": "The frozen v1 corpus, full raw gate stdout, provider source snapshots, and all reported per-case discrepancies are retained unchanged."
+  },
+  "proof_review": {
+    "sparse_certificate": "The accepted certificate is sufficient only with a k-clique anchor, a valid per-color neighbor witness for each forced assignment, complete vertex coverage, and a final proper-edge check. The proof establishes uniqueness by induction after aligning anchor colors; certificate search is incomplete and failure remains abstention.",
+    "q_plus_one_construction": "For arbitrary nonempty unequal blocks, q+1 positive words give exactly q local projections per block and q+1 projections for every cross-block pair. This proves a construction, not a universal sample lower bound.",
+    "unequal_three_positive_boundary": "The retained sizes-(2,4) counterexample loses pair {b,f}, whose positive projections are only bbff and ffbb at q=2. It refutes the naive unequal-size extension of the stated three-positive construction, not its equal-size claim and not passive recovery in general."
+  }
+}

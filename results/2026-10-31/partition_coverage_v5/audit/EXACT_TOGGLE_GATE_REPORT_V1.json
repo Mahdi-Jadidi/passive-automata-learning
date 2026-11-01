@@ -1,0 +1,32 @@
+{
+  "schema": "C005-independent-exact-toggle-gate-report-v1",
+  "scientific_status": "passed",
+  "capture": {
+    "attempt_id": "20261101T150246.974961Z_563e8b2e77",
+    "attempt_dir": "evidence/attempts/20261101T150246.974961Z_563e8b2e77",
+    "stdout_file": "evidence/attempts/20261101T150246.974961Z_563e8b2e77/stdout.bin",
+    "stdout_bytes": 13317202,
+    "stdout_sha256": "d9e389e2b8a06262a43856928656ba20615df2eab3ebcdfb811477c0b14e6a05",
+    "stderr_file": "evidence/attempts/20261101T150246.974961Z_563e8b2e77/stderr.bin",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "manifest_sha256": "22c0c01039dd520ecf4251d567eb272f5921a63ac72f14a84e77cdf7adb758ae",
+    "result_sha256": "12a6cdebdd37ab6c6a75730f6bff098c55b490029efef65f382808690df9349",
+    "captured_source_count": 426
+  },
+  "sources": {
+    "exact_sha256": "9f08dd645e7fcccbe8ea8022c758b7cf3277a5f01b6533fb9c1ad0cf08b6c84d",
+    "corpus_manifest_sha256": "6133687e20a89a375aa383e0210d39ccb3964cec48cc9122d7fbec626a760f86",
+    "enabled_gate_attempt_id": "20261101T053324.043566Z_c9b3c6ee88",
+    "enabled_stdout_sha256": "c1e88726875c73ab02122063681a0c61c841b2e4ab76b2965a44f2c9ce5084ad"
+  },
+  "counts": {
+    "valid_payloads": 174,
+    "q_modes": 5,
+    "enabled_full_set_comparisons": 870,
+    "disabled_full_set_comparisons": 870,
+    "direct_oracle_comparisons": 870,
+    "enabled_disabled_set_equal": 870,
+    "discrepancies": 0
+  },
+  "validation": "Disabled q-opposition results matched the independent restricted-growth oracle, the previously captured enabled full set, and full witness checks for every small payload at q=1,2,3,4,None. Enabled outputs were not rerun."
+}

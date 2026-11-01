@@ -1,0 +1,28 @@
+{
+  "schema": "C005-independent-root-cli-audit-protocol-v1",
+  "status": "frozen-before-cli-execution",
+  "entrypoint": {
+    "path": "solver.py",
+    "sha256": "a977a7d869a5ee61bcc8997d79618a95945e0117201ad33d017a2a9eda7e43b1"
+  },
+  "runtime_sources": {
+    "cli": "general/public_cli_v1.py",
+    "exact": "general/known_k_qexact_v2.py",
+    "sparse": "structural/sparse_certificate_v2.py"
+  },
+  "fixtures": [
+    "general/sanity_inputs_v1.json",
+    "general/public_cli_certificate_input_v1.json",
+    "general/sanity_invalid_v1.json"
+  ],
+  "checks": [
+    "exact unrestricted mode: compare all returned partitions against the direct RGS oracle",
+    "certificate success: compare q=2 full partition set and independently check projections and negative rejection",
+    "certificate abstention: preserve insufficient_coverage and exit 4",
+    "hybrid fallback: compare q=2 solution set against the direct oracle and require insufficient-coverage trigger",
+    "zero deadline: require incomplete, exit 3, and no fallback trigger",
+    "invalid q and contradictory labels: require invalid_input, exit 2"
+  ],
+  "capture": "Capture this protocol and driver, solver.py, public CLI and provider sources, and every fixture before invoking the root CLI.",
+  "performance": "Correctness checks only; no timing or memory measurements."
+}

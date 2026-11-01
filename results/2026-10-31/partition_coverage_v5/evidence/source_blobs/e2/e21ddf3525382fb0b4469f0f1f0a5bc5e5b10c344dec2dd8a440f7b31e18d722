@@ -1,0 +1,897 @@
+{
+  "input": {
+    "alphabet": [
+      "a",
+      "b",
+      "c",
+      "d",
+      "e",
+      "f",
+      "g",
+      "h",
+      "i",
+      "j"
+    ],
+    "positive": [
+      "aabcbcdefdefghijghij",
+      "ghijghijdefdefbcbcaa",
+      "abdgacehabficdjbegfhdijg"
+    ],
+    "negative": [],
+    "k": 4
+  },
+  "sizes": [
+    1,
+    2,
+    3,
+    4
+  ],
+  "repeats": 2,
+  "edge_count": 34,
+  "complete_expected": 35,
+  "output": {
+    "method": "sparse-q-opposition-v1",
+    "model_class": "bounded_finite_projection_languages",
+    "k": 4,
+    "local_word_cap": 2,
+    "status": "found",
+    "reason": "unique_bounded_language_partition_certified",
+    "solutions": [
+      {
+        "blocks": [
+          [
+            "a"
+          ],
+          [
+            "b",
+            "c"
+          ],
+          [
+            "d",
+            "e",
+            "f"
+          ],
+          [
+            "g",
+            "h",
+            "i",
+            "j"
+          ]
+        ],
+        "positive_projection_languages": [
+          [
+            "aa",
+            "aaa"
+          ],
+          [
+            "bcbc",
+            "bcbcb"
+          ],
+          [
+            "defdef",
+            "defdefd"
+          ],
+          [
+            "ghijghij",
+            "ghijghijg"
+          ]
+        ],
+        "negative_witnesses": []
+      }
+    ],
+    "search_exhausted": true,
+    "decision_complete": true,
+    "uniqueness": "unique",
+    "uniqueness_scope": "unordered_exactly_k_nonempty_blocks_at_most_q_local_words",
+    "assumptions": [
+      "known_k_disjoint_nonempty_alphabet_blocks",
+      "at_most_q_local_words",
+      "complete_positive_words",
+      "exact_noise_free_labels",
+      "q_opposition_unique_coloring_certificate"
+    ],
+    "graph": {
+      "symbols": [
+        "a",
+        "b",
+        "c",
+        "d",
+        "e",
+        "f",
+        "g",
+        "h",
+        "i",
+        "j"
+      ],
+      "edges": [
+        [
+          "a",
+          "b"
+        ],
+        [
+          "a",
+          "c"
+        ],
+        [
+          "a",
+          "d"
+        ],
+        [
+          "a",
+          "e"
+        ],
+        [
+          "a",
+          "f"
+        ],
+        [
+          "a",
+          "g"
+        ],
+        [
+          "a",
+          "h"
+        ],
+        [
+          "a",
+          "i"
+        ],
+        [
+          "a",
+          "j"
+        ],
+        [
+          "b",
+          "d"
+        ],
+        [
+          "b",
+          "e"
+        ],
+        [
+          "b",
+          "f"
+        ],
+        [
+          "b",
+          "g"
+        ],
+        [
+          "b",
+          "h"
+        ],
+        [
+          "b",
+          "i"
+        ],
+        [
+          "b",
+          "j"
+        ],
+        [
+          "c",
+          "d"
+        ],
+        [
+          "c",
+          "e"
+        ],
+        [
+          "c",
+          "f"
+        ],
+        [
+          "c",
+          "g"
+        ],
+        [
+          "c",
+          "h"
+        ],
+        [
+          "c",
+          "i"
+        ],
+        [
+          "d",
+          "g"
+        ],
+        [
+          "d",
+          "h"
+        ],
+        [
+          "d",
+          "i"
+        ],
+        [
+          "d",
+          "j"
+        ],
+        [
+          "e",
+          "g"
+        ],
+        [
+          "e",
+          "h"
+        ],
+        [
+          "e",
+          "i"
+        ],
+        [
+          "e",
+          "j"
+        ],
+        [
+          "f",
+          "g"
+        ],
+        [
+          "f",
+          "h"
+        ],
+        [
+          "f",
+          "i"
+        ],
+        [
+          "f",
+          "j"
+        ]
+      ],
+      "edge_witnesses": [
+        {
+          "symbols": [
+            "a",
+            "b"
+          ],
+          "positive_indices": [
+            0,
+            1,
+            2
+          ],
+          "pair_projections": [
+            "aabb",
+            "abaabb",
+            "bbaa"
+          ]
+        },
+        {
+          "symbols": [
+            "a",
+            "c"
+          ],
+          "positive_indices": [
+            0,
+            1,
+            2
+          ],
+          "pair_projections": [
+            "aacc",
+            "aacac",
+            "ccaa"
+          ]
+        },
+        {
+          "symbols": [
+            "a",
+            "d"
+          ],
+          "positive_indices": [
+            0,
+            1,
+            2
+          ],
+          "pair_projections": [
+            "aadd",
+            "adaadd",
+            "ddaa"
+          ]
+        },
+        {
+          "symbols": [
+            "a",
+            "e"
+          ],
+          "positive_indices": [
+            0,
+            1,
+            2
+          ],
+          "pair_projections": [
+            "aaee",
+            "aaeae",
+            "eeaa"
+          ]
+        },
+        {
+          "symbols": [
+            "a",
+            "f"
+          ],
+          "positive_indices": [
+            0,
+            1,
+            2
+          ],
+          "pair_projections": [
+            "aaff",
+            "aaaff",
+            "ffaa"
+          ]
+        },
+        {
+          "symbols": [
+            "a",
+            "g"
+          ],
+          "positive_indices": [
+            0,
+            1,
+            2
+          ],
+          "pair_projections": [
+            "aagg",
+            "agaagg",
+            "ggaa"
+          ]
+        },
+        {
+          "symbols": [
+            "a",
+            "h"
+          ],
+          "positive_indices": [
+            0,
+            1,
+            2
+          ],
+          "pair_projections": [
+            "aahh",
+            "aahah",
+            "hhaa"
+          ]
+        },
+        {
+          "symbols": [
+            "a",
+            "i"
+          ],
+          "positive_indices": [
+            0,
+            1,
+            2
+          ],
+          "pair_projections": [
+            "aaii",
+            "aaaii",
+            "iiaa"
+          ]
+        },
+        {
+          "symbols": [
+            "a",
+            "j"
+          ],
+          "positive_indices": [
+            0,
+            1,
+            2
+          ],
+          "pair_projections": [
+            "aajj",
+            "aaajj",
+            "jjaa"
+          ]
+        },
+        {
+          "symbols": [
+            "b",
+            "d"
+          ],
+          "positive_indices": [
+            0,
+            1,
+            2
+          ],
+          "pair_projections": [
+            "bbdd",
+            "bdbdbd",
+            "ddbb"
+          ]
+        },
+        {
+          "symbols": [
+            "b",
+            "e"
+          ],
+          "positive_indices": [
+            0,
+            1,
+            2
+          ],
+          "pair_projections": [
+            "bbee",
+            "bebbe",
+            "eebb"
+          ]
+        },
+        {
+          "symbols": [
+            "b",
+            "f"
+          ],
+          "positive_indices": [
+            0,
+            1,
+            2
+          ],
+          "pair_projections": [
+            "bbff",
+            "bbfbf",
+            "ffbb"
+          ]
+        },
+        {
+          "symbols": [
+            "b",
+            "g"
+          ],
+          "positive_indices": [
+            0,
+            1,
+            2
+          ],
+          "pair_projections": [
+            "bbgg",
+            "bgbbgg",
+            "ggbb"
+          ]
+        },
+        {
+          "symbols": [
+            "b",
+            "h"
+          ],
+          "positive_indices": [
+            0,
+            1,
+            2
+          ],
+          "pair_projections": [
+            "bbhh",
+            "bhbbh",
+            "hhbb"
+          ]
+        },
+        {
+          "symbols": [
+            "b",
+            "i"
+          ],
+          "positive_indices": [
+            0,
+            1,
+            2
+          ],
+          "pair_projections": [
+            "bbii",
+            "bbibi",
+            "iibb"
+          ]
+        },
+        {
+          "symbols": [
+            "b",
+            "j"
+          ],
+          "positive_indices": [
+            0,
+            1,
+            2
+          ],
+          "pair_projections": [
+            "bbjj",
+            "bbjbj",
+            "jjbb"
+          ]
+        },
+        {
+          "symbols": [
+            "c",
+            "d"
+          ],
+          "positive_indices": [
+            0,
+            1,
+            2
+          ],
+          "pair_projections": [
+            "ccdd",
+            "dccdd",
+            "ddcc"
+          ]
+        },
+        {
+          "symbols": [
+            "c",
+            "e"
+          ],
+          "positive_indices": [
+            0,
+            1,
+            2
+          ],
+          "pair_projections": [
+            "ccee",
+            "cece",
+            "eecc"
+          ]
+        },
+        {
+          "symbols": [
+            "c",
+            "f"
+          ],
+          "positive_indices": [
+            0,
+            1,
+            2
+          ],
+          "pair_projections": [
+            "ccff",
+            "cfcf",
+            "ffcc"
+          ]
+        },
+        {
+          "symbols": [
+            "c",
+            "g"
+          ],
+          "positive_indices": [
+            0,
+            1,
+            2
+          ],
+          "pair_projections": [
+            "ccgg",
+            "gccgg",
+            "ggcc"
+          ]
+        },
+        {
+          "symbols": [
+            "c",
+            "h"
+          ],
+          "positive_indices": [
+            0,
+            1,
+            2
+          ],
+          "pair_projections": [
+            "cchh",
+            "chch",
+            "hhcc"
+          ]
+        },
+        {
+          "symbols": [
+            "c",
+            "i"
+          ],
+          "positive_indices": [
+            0,
+            1,
+            2
+          ],
+          "pair_projections": [
+            "ccii",
+            "cici",
+            "iicc"
+          ]
+        },
+        {
+          "symbols": [
+            "d",
+            "g"
+          ],
+          "positive_indices": [
+            0,
+            1,
+            2
+          ],
+          "pair_projections": [
+            "ddgg",
+            "dgdgdg",
+            "ggdd"
+          ]
+        },
+        {
+          "symbols": [
+            "d",
+            "h"
+          ],
+          "positive_indices": [
+            0,
+            1,
+            2
+          ],
+          "pair_projections": [
+            "ddhh",
+            "dhdhd",
+            "hhdd"
+          ]
+        },
+        {
+          "symbols": [
+            "d",
+            "i"
+          ],
+          "positive_indices": [
+            0,
+            1,
+            2
+          ],
+          "pair_projections": [
+            "ddii",
+            "diddi",
+            "iidd"
+          ]
+        },
+        {
+          "symbols": [
+            "d",
+            "j"
+          ],
+          "positive_indices": [
+            0,
+            1,
+            2
+          ],
+          "pair_projections": [
+            "ddjj",
+            "ddjdj",
+            "jjdd"
+          ]
+        },
+        {
+          "symbols": [
+            "e",
+            "g"
+          ],
+          "positive_indices": [
+            0,
+            1,
+            2
+          ],
+          "pair_projections": [
+            "eegg",
+            "geegg",
+            "ggee"
+          ]
+        },
+        {
+          "symbols": [
+            "e",
+            "h"
+          ],
+          "positive_indices": [
+            0,
+            1,
+            2
+          ],
+          "pair_projections": [
+            "eehh",
+            "eheh",
+            "hhee"
+          ]
+        },
+        {
+          "symbols": [
+            "e",
+            "i"
+          ],
+          "positive_indices": [
+            0,
+            1,
+            2
+          ],
+          "pair_projections": [
+            "eeii",
+            "eiei",
+            "iiee"
+          ]
+        },
+        {
+          "symbols": [
+            "e",
+            "j"
+          ],
+          "positive_indices": [
+            0,
+            1,
+            2
+          ],
+          "pair_projections": [
+            "eejj",
+            "ejej",
+            "jjee"
+          ]
+        },
+        {
+          "symbols": [
+            "f",
+            "g"
+          ],
+          "positive_indices": [
+            0,
+            1,
+            2
+          ],
+          "pair_projections": [
+            "ffgg",
+            "gfgfg",
+            "ggff"
+          ]
+        },
+        {
+          "symbols": [
+            "f",
+            "h"
+          ],
+          "positive_indices": [
+            0,
+            1,
+            2
+          ],
+          "pair_projections": [
+            "ffhh",
+            "hffh",
+            "hhff"
+          ]
+        },
+        {
+          "symbols": [
+            "f",
+            "i"
+          ],
+          "positive_indices": [
+            0,
+            1,
+            2
+          ],
+          "pair_projections": [
+            "ffii",
+            "fifi",
+            "iiff"
+          ]
+        },
+        {
+          "symbols": [
+            "f",
+            "j"
+          ],
+          "positive_indices": [
+            0,
+            1,
+            2
+          ],
+          "pair_projections": [
+            "ffjj",
+            "fjfj",
+            "jjff"
+          ]
+        }
+      ],
+      "construction_complete": true,
+      "edge_rule": "strictly_more_than_q_distinct_positive_pair_projections",
+      "q": 2,
+      "positive_order": "sorted unique input words"
+    },
+    "certificate": {
+      "kind": "q_k_clique_anchor_forced_colors",
+      "anchor": [
+        "a",
+        "b",
+        "d",
+        "g"
+      ],
+      "steps": [
+        {
+          "vertex": "c",
+          "color": 1,
+          "neighbor_by_excluded_color": {
+            "0": "a",
+            "2": "d",
+            "3": "g"
+          }
+        },
+        {
+          "vertex": "e",
+          "color": 2,
+          "neighbor_by_excluded_color": {
+            "0": "a",
+            "1": "b",
+            "3": "g"
+          }
+        },
+        {
+          "vertex": "f",
+          "color": 2,
+          "neighbor_by_excluded_color": {
+            "0": "a",
+            "1": "b",
+            "3": "g"
+          }
+        },
+        {
+          "vertex": "h",
+          "color": 3,
+          "neighbor_by_excluded_color": {
+            "0": "a",
+            "1": "b",
+            "2": "d"
+          }
+        },
+        {
+          "vertex": "i",
+          "color": 3,
+          "neighbor_by_excluded_color": {
+            "0": "a",
+            "1": "b",
+            "2": "d"
+          }
+        },
+        {
+          "vertex": "j",
+          "color": 3,
+          "neighbor_by_excluded_color": {
+            "0": "a",
+            "1": "b",
+            "2": "d"
+          }
+        }
+      ],
+      "blocks": [
+        [
+          "a"
+        ],
+        [
+          "b",
+          "c"
+        ],
+        [
+          "d",
+          "e",
+          "f"
+        ],
+        [
+          "g",
+          "h",
+          "i",
+          "j"
+        ]
+      ],
+      "unique_q_opposition_coloring": true,
+      "q": 2
+    },
+    "metrics": {
+      "pair_bucket_appends": 576,
+      "pair_tests": 135,
+      "candidate_checks": 1,
+      "positive_projection_checks": 3,
+      "negative_checks": 0,
+      "stored_pair_projection_values": 120,
+      "alphabet_size": 10,
+      "positive_count": 3,
+      "negative_count": 0,
+      "total_input_length": 64,
+      "opposition_seconds": 0.0002416000934317708,
+      "provider_seconds": 0.0003480000887066126
+    }
+  }
+}

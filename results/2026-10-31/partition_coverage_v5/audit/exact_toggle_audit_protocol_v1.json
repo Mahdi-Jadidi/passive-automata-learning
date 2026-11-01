@@ -1,0 +1,23 @@
+{
+  "schema": "C005-independent-exact-toggle-audit-protocol-v1",
+  "status": "frozen-before-toggle-execution",
+  "provider": {
+    "path": "general/known_k_qexact_v2.py",
+    "sha256": "9f08dd645e7fcccbe8ea8022c758b7cf3277a5f01b6533fb9c1ad0cf08b6c84d"
+  },
+  "corpus": {
+    "manifest": "audit/frozen_corpus_v2/manifest_v1.json",
+    "manifest_sha256": "6133687e20a89a375aa383e0210d39ccb3964cec48cc9122d7fbec626a760f86",
+    "valid_payloads": 174,
+    "modes": [1, 2, 3, 4, null]
+  },
+  "comparison": {
+    "disabled_runs": 870,
+    "enabled_source": "Captured on-mode result sets in evidence/attempts/20261101T053324.043566Z_c9b3c6ee88/stdout.bin",
+    "enabled_stdout_sha256": "c1e88726875c73ab02122063681a0c61c841b2e4ab76b2965a44f2c9ce5084ad",
+    "oracle": "Audit-owned restricted-growth full-set enumeration and direct projection semantics. Every disabled result is compared to the oracle and the previously captured enabled full set; every returned witness is independently checked.",
+    "deadline": "No deadline; exhaustive search required for all compared outputs."
+  },
+  "capture": "Snapshot this protocol, driver, exact source, frozen v2 manifest/record, every public input/hidden sidecar, and the prior on-mode raw stdout/manifest/result before launch through evidence/capture.py.",
+  "performance": "Correctness-only toggle parity; the run is excluded from timing evidence."
+}

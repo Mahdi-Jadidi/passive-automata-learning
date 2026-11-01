@@ -1,0 +1,10 @@
+{
+  "cycle": "C005",
+  "master_decision": "GO for exactly the frozen 16-job schedule",
+  "protocol": "audit/PERFORMANCE_PROPOSAL_V1.json",
+  "protocol_sha256": "0fe2e0187ed0d895a06b1a62f753e08c3ce77892acf4952a20a399519d719d3a",
+  "accepted_prerequisites": ["SMALL_GATE_REPORT_V2.json", "SPARSE_SCALING_AUDIT_REPORT_V1.json", "ROOT_CLI_AUDIT_REPORT_V1.json"],
+  "requirements": ["Freeze every driver and protocol before any execution", "Capture every job with complete dependencies and input bytes", "Serial fresh processes and full output", "Independent semantic validation outside timing", "No rerun of passed or censored jobs"],
+  "boundary": "Selected exact timing cells are small q=1 only. They cannot establish general performance for q=2..4 or long traces. Long certificate timing has no matched exact baseline.",
+  "master_scope": "Scientific gate review and schedule authorization; not human permission request"
+}

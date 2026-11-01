@@ -1,0 +1,45 @@
+{
+  "schema": "C005-performance-recovery-protocol-v2",
+  "status": "frozen-before-recovery-execution",
+  "approved_proposal_sha256": "0fe2e0187ed0d895a06b1a62f753e08c3ce77892acf4952a20a399519d719d3a",
+  "master_go_sha256": "1fba2c172b30f7ab68f7b817062885b3a895c51046802261a97277bcdb6d1e5a",
+  "original_attempt_summary": {
+    "report": "audit/PERFORMANCE_RUN_REPORT_V1.json",
+    "report_sha256": "b42ddcdcd530a10a5f24087e30f962542cd6b3173d020a094d9437d7d26b8a09",
+    "capture_attempts": 16,
+    "exact_capture_errors_before_popen": 12,
+    "sparse_provider_processes_completed": 3,
+    "memory_provider_process_completed": 1,
+    "exact_child_pid_and_exit_code": null,
+    "exact_stdout_bytes": 0,
+    "diagnosis": "The v1 launcher omitted the frozen_corpus_v2 root when adding exact public input and hidden sidecar paths to capture.source_paths. capture.py recorded FileNotFoundError before Popen; no exact provider process launched."
+  },
+  "recovery_scope": {
+    "jobs": 12,
+    "exact_inputs": [
+      "small_m7_k3_planted_unequal_blocks_01",
+      "small_m7_k3_q_opposition_stress_07"
+    ],
+    "repetitions_and_order": ["on/off", "off/on", "on/off"],
+    "q": 1,
+    "max_solutions": null,
+    "contextual_must_links": true,
+    "only_treatment_change": "use_q_opposition",
+    "input_path_rule": "Resolve public input and hidden sidecar as frozen_corpus_v2/<manifest path> before source snapshot.",
+    "no_other_jobs": "Do not rerun the 3 completed sparse runs or the completed tracemalloc job."
+  },
+  "limits": {
+    "serial": true,
+    "fresh_process_per_job": true,
+    "cooperative_seconds": 28,
+    "hard_timeout_seconds": 30,
+    "full_json_output": true,
+    "wall_metric": "capture subprocess_seconds; includes process startup, input read, provider import, solve, and full JSON serialization; excludes source snapshot.",
+    "correctness": "Compare each exact full partition set against the captured full-set gate after timing; no timing output is reduced or rewritten."
+  },
+  "attempt_accounting": {
+    "total_capture_attempts_after_recovery": 28,
+    "actual_provider_processes_after_recovery": 16,
+    "explanation": "The 12 v1 capture_error records are retained as attempts but did not launch children; the 12 recovery children complete the originally approved 16 provider-process schedule."
+  }
+}

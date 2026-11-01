@@ -1,0 +1,57 @@
+{
+  "schema": "C005-performance-execution-protocol-v1",
+  "status": "frozen-before-first-job",
+  "approved_proposal": {
+    "path": "audit/PERFORMANCE_PROPOSAL_V1.json",
+    "sha256": "0fe2e0187ed0d895a06b1a62f753e08c3ce77892acf4952a20a399519d719d3a"
+  },
+  "master_go": {
+    "path": "coordination/PERFORMANCE_GO.json",
+    "sha256": "1fba2c172b30f7ab68f7b817062885b3a895c51046802261a97277bcdb6d1e5a"
+  },
+  "correctness_prerequisites": {
+    "small_gate_report": "audit/SMALL_GATE_REPORT_V2.json",
+    "toggle_gate_report": "audit/EXACT_TOGGLE_GATE_REPORT_V1.json",
+    "scale_report": "audit/SPARSE_SCALING_AUDIT_REPORT_V1.json",
+    "cli_report": "audit/ROOT_CLI_AUDIT_REPORT_V1.json",
+    "errors": 0
+  },
+  "sources": {
+    "exact": {"path": "general/known_k_qexact_v2.py", "sha256": "9f08dd645e7fcccbe8ea8022c758b7cf3277a5f01b6533fb9c1ad0cf08b6c84d"},
+    "sparse": {"path": "structural/sparse_certificate_v2.py", "sha256": "1ff16263322f2009d68cd2b4ecc3b6587fa9ef80695fa9489fb199c9e13d6705"}
+  },
+  "schedule": {
+    "serial": true,
+    "fresh_process_per_job": true,
+    "hard_timeout_seconds": 30,
+    "cooperative_deadline_seconds": 28,
+    "exact": {
+      "repetitions_per_condition": 3,
+      "max_solutions": null,
+      "contextual_must_links": true,
+      "toggle_only": "use_q_opposition",
+      "pair_order_by_repetition": ["on/off", "off/on", "on/off"],
+      "input_ids": ["small_m7_k3_planted_unequal_blocks_01", "small_m7_k3_q_opposition_stress_07"],
+      "q": 1
+    },
+    "sparse": {
+      "repetitions": 3,
+      "case_id": "sparse_m16_k6_r512_q4",
+      "q": 4
+    },
+    "memory": {
+      "repetitions": 1,
+      "case_id": "sparse_m16_k6_r512_q4",
+      "method": "Python tracemalloc in a separate process; input parsed before tracing; no RSS"
+    },
+    "total_jobs": 16
+  },
+  "measurement": {
+    "wall": "capture subprocess_seconds; includes Python startup, input read, provider import, solve, and full result JSON serialization; excludes capture source snapshot time.",
+    "output": "Full unmodified provider JSON is captured in every attempt stdout.bin.",
+    "correctness": "Compare exact paired complete partition sets and completion fields after the timed jobs; check the sparse full result against the independently validated frozen cell outside measured child wall.",
+    "censoring": "Keep each timeout/incomplete output and record it as censored. Do not retry any passed or censored job.",
+    "budget": "At most 6 minutes of exact timed work and 90 seconds of sparse timed work, below 8 minutes per method."
+  },
+  "interpretation_limit": "Exact results cover only q=1 on the two selected m=7 cells. Sparse timing has no matched exact baseline. No inference is made about q=2..4 exact performance or long-trace exact performance."
+}

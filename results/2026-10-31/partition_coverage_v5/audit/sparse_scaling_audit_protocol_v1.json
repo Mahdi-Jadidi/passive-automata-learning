@@ -1,0 +1,30 @@
+{
+  "schema": "C005-independent-sparse-scaling-audit-protocol-v1",
+  "status": "frozen-before-provider-execution",
+  "provider": {
+    "path": "structural/sparse_certificate_v2.py",
+    "sha256": "1ff16263322f2009d68cd2b4ecc3b6587fa9ef80695fa9489fb199c9e13d6705"
+  },
+  "inputs": {
+    "scale_fixture": "structural/sparse_scaling_fixtures_v1.json",
+    "scale_fixture_sha256": "d6b8398e9a8c85d8f3c2f65cb87a9518ea7ffefade56a9e42c0d46ae6e8c084c",
+    "cells": [
+      {"m": 256, "k": 16, "event_repeat": 1, "q": [1, 2, 3, 4]},
+      {"m": 16, "k": 6, "event_repeat": 512, "q": [1, 2, 3, 4]}
+    ],
+    "required_checks": [
+      "independently reconstruct every trace and target block from the published clone/join recipe",
+      "directly compute every pair projection and the opposition edge set",
+      "replay the unique-color certificate and every edge and negative witness",
+      "check full block projection caps and empty-negative rejection",
+      "verify sparse edge counts and the exact missing clone rectangle"
+    ]
+  },
+  "proof_controls": {
+    "q_plus_one": "For q=1..4, independently construct q+1 positives on unequal nonempty blocks of sizes 3,2,1; verify q local words per block and q+1 distinct projections on every cross-block pair, and require a replayable sparse certificate.",
+    "unequal_three_positive_counterexample": "Replay the retained sizes-(2,4) q=2 case; pair {b,f} has only bbff and ffbb, so it is absent from the expected complete bipartite graph. Also verify the sparse provider still certifies the target partition.",
+    "interpretation": "The q+1 formula is a sufficient construction, not a universal lower bound. The unequal counterexample refutes only the naive unequal-size extension of the specified equal-size three-positive construction."
+  },
+  "capture": "Capture this protocol and driver, the provider, scale fixture, source construction/protocol, proof addendum, q proof, minimized counterexample and its original fixture, plus evidence/capture.py before execution.",
+  "performance": "Correctness validation only. No time or memory results. Official performance remains prohibited until explicit master GO."
+}

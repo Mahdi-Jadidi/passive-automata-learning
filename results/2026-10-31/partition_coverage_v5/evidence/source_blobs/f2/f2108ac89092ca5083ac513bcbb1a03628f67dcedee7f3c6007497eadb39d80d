@@ -1,0 +1,38 @@
+{
+  "schema": "C005-independent-proof-gate-protocol-v2",
+  "status": "frozen-before-provider-execution",
+  "corpus": {
+    "root": "audit/frozen_corpus_v2",
+    "manifest": "manifest_v1.json",
+    "freeze_record": "freeze_record_v1.json",
+    "manifest_sha256": "6133687e20a89a375aa383e0210d39ccb3964cec48cc9122d7fbec626a760f86",
+    "seed": 20261031,
+    "valid_small_payloads": 174,
+    "stage2_payloads": 30
+  },
+  "providers": {
+    "exact": {
+      "path": "general/known_k_qexact_v2.py",
+      "sha256": "9f08dd645e7fcccbe8ea8022c758b7cf3277a5f01b6533fb9c1ad0cf08b6c84d"
+    },
+    "sparse": {
+      "path": "structural/sparse_certificate_v2.py",
+      "sha256": "1ff16263322f2009d68cd2b4ecc3b6587fa9ef80695fa9489fb199c9e13d6705"
+    }
+  },
+  "comparisons": {
+    "exact_q_modes": [1, 2, 3, 4, null],
+    "sparse_q_modes": [1, 2, 3, 4],
+    "expected_exact_full_set_comparisons": 870,
+    "expected_sparse_q_comparisons": 696,
+    "oracle": "Audit-owned RGS enumeration and direct projection semantics; compare full unordered partition sets and validate every exact witness. Sparse found/infeasible claims are checked against the oracle, and accepted certificates and witnesses are independently replayed. Abstentions remain nonclaims."
+  },
+  "controls": {
+    "invalid_inputs": "Require ValueError from both APIs.",
+    "deadlines": "Expired and near-expired return well-formed incomplete; NaN and positive infinity reject with ValueError.",
+    "graph_unit_controls": "audit/graph_unit_controls_v1.json; synthetic graphs only.",
+    "trace_controls": "structural/sparse_trace_fixtures_v1.json; direct projection recomputation."
+  },
+  "capture": "Capture this protocol, both gate sources, both candidate sources, root CLI sources, corpus generator and protocol, freeze manifest/record, every input and hidden sidecar, and both supplemental control fixtures before launch through evidence/capture.py.",
+  "performance": "Prohibited until explicit master GO fixes exact source hashes, corpus freeze, and schedule."
+}

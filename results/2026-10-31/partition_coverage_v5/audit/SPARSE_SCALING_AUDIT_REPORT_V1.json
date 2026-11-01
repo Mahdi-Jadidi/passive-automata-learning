@@ -1,0 +1,60 @@
+{
+  "schema": "C005-independent-sparse-scaling-audit-report-v1",
+  "scientific_status": "passed",
+  "capture": {
+    "attempt_id": "20261101T053559.626094Z_696f22aed1",
+    "attempt_dir": "evidence/attempts/20261101T053559.626094Z_696f22aed1",
+    "stdout_file": "evidence/attempts/20261101T053559.626094Z_696f22aed1/stdout.bin",
+    "stdout_bytes": 3521,
+    "stdout_sha256": "c27763850979ee81ca57f6193f43565c6f4873c0ff4babac3e98fcdef7882ae9",
+    "stderr_file": "evidence/attempts/20261101T053559.626094Z_696f22aed1/stderr.bin",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "manifest_sha256": "87809c2331cc1a32b69fb991e1c1c4f89dd66ac3f51ec6ca1af58e14f657972b",
+    "result_sha256": "ee32d911ca4262db8218abce43e233e125a094140cacfc1c1cc6d34e48f944fe8",
+    "captured_source_count": 12
+  },
+  "sources": {
+    "sparse_provider_sha256": "1ff16263322f2009d68cd2b4ecc3b6587fa9ef80695fa9489fb199c9e13d6705",
+    "scale_fixture_sha256": "d6b8398e9a8c85d8f3c2f65cb87a9518ea7ffefade56a9e42c0d46ae6e8c084c",
+    "q_proof": "structural/PROOFS_SPARSE_Q_V2.md",
+    "unequal_counterexample": "structural/minimization_result_v1.json"
+  },
+  "counts": {
+    "scaling_cells": 8,
+    "q_plus_one_constructions": 4,
+    "unequal_counterexample_cases": 1,
+    "discrepancies": 0
+  },
+  "scaling_summary": [
+    {
+      "m": 256,
+      "k": 16,
+      "q": [1, 2, 3, 4],
+      "positive_count": [2, 4, 6, 8],
+      "maximum_positive_length": [256, 512, 768, 1024],
+      "block_sizes": [48, 97, 98, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+      "opposition_edges": 19751,
+      "complete_multipartite_edges": 22103,
+      "omitted_cross_rectangle_edges": 2352,
+      "certified_unique_all_cells": true
+    },
+    {
+      "m": 16,
+      "k": 6,
+      "q": [1, 2, 3, 4],
+      "positive_count": [2, 4, 6, 8],
+      "maximum_positive_length": [8192, 16384, 24576, 32768],
+      "block_sizes": [1, 1, 1, 2, 5, 6],
+      "opposition_edges": 88,
+      "complete_multipartite_edges": 94,
+      "omitted_cross_rectangle_edges": 6,
+      "certified_unique_all_cells": true
+    }
+  ],
+  "proof_controls": {
+    "q_plus_one": "For q=1..4 on unequal block sizes 3,2,1, observed counts were q+1 positives, exactly q words per block and q+1 distinct projections for every cross-block pair; all four sparse certificates replayed.",
+    "unequal_three_positive_counterexample": "At q=2 with block sizes (2,4), pair {b,f} had exactly {bbff, ffbb}; observed graph had 7 of 8 complete bipartite edges. The sparse provider still certified the intended partition.",
+    "proof_review": "The q+1 proof is a construction, not a universal lower bound. The counterexample refutes only the specified naive unequal-size extension of the equal-size three-positive construction. Unique-color replay validates the clique, every forced-color witness, complete vertex coverage, and final proper coloring."
+  },
+  "performance_interpretation": "This was correctness validation, not an official performance comparison. The capture runtime is not reported as a provider benchmark. No official timing or memory work was performed."
+}

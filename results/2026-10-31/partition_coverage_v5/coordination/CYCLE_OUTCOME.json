@@ -1,0 +1,81 @@
+{
+  "cycle": "C005",
+  "status": "complete",
+  "completed_utc": "2026-11-01T15:15:13.403492+00:00",
+  "scientific_status": "confirmed_under_stated_assumptions",
+  "parent_commit": "0ab2d9eb",
+  "reports": [
+    {
+      "path": "audit/SMALL_GATE_REPORT_V2.json",
+      "sha256": "ff2a5e05bbfd24c9b917ff4db2e9309cb44c33efde34ed70c2233ac5f05ff6d3"
+    },
+    {
+      "path": "audit/EXACT_TOGGLE_GATE_REPORT_V1.json",
+      "sha256": "aaa908350f5cb4d4d13e276a8949623ca319dabbf3b79cf4df3c9fa553926d1d"
+    },
+    {
+      "path": "audit/SPARSE_SCALING_AUDIT_REPORT_V1.json",
+      "sha256": "a02189d1aca0173258bd0420e564318b7f432839cf714363539cab0790b61328"
+    },
+    {
+      "path": "audit/ROOT_CLI_AUDIT_REPORT_V1.json",
+      "sha256": "0436bf07ed0bb7972a654bbddb3b1fe845b585e1dc36d2b4b884414649e5f3b2"
+    },
+    {
+      "path": "audit/PERFORMANCE_RUN_REPORT_V2.json",
+      "sha256": "c069bc6c7d329d743c91e8f1853b08a213d04589c2a72254f457b56b7fdb3db5"
+    }
+  ],
+  "integrity": {
+    "schema_version": 1,
+    "created_utc": "2026-11-01T15:14:39.848826+00:00",
+    "checker": {
+      "path": "delivery\\archive_integrity_v2.py",
+      "sha256": "049a8dc62c1a7b2f79fde2818b51529f6cadf6d299397207b30a9afc512fe056",
+      "snapshot": "delivery\\.checker_snapshots\\FINAL_INTEGRITY_2026-11-01_049a8dc62c1a7b2f79fde2818b51529f6cadf6d299397207b30a9afc512fe056.py"
+    },
+    "cycle": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-10-31\\partition_coverage_v5",
+    "counts": {
+      "parent_manifest_files": 2892,
+      "readiness_files": 4,
+      "readiness_runtime_hashes": 6,
+      "attempts": 48,
+      "raw_capture_files": 96,
+      "completion_records": 48,
+      "source_refs": 2374,
+      "source_blobs": 552
+    },
+    "error_count": 0,
+    "errors": [],
+    "status": "pass",
+    "scope_note": "Archive integrity only; no solver tests or performance runs."
+  },
+  "performance_counts": {
+    "actual_provider_processes": 16,
+    "capture_attempts_total": 28,
+    "exact_provider_processes": 12,
+    "initial_prelaunch_capture_errors": 12,
+    "memory_provider_processes": 1,
+    "original_capture_only_errors": 12,
+    "recovery_execution_errors": 0,
+    "recovery_prelaunch_capture_errors": 0,
+    "runtime_censored_jobs": 0,
+    "sparse_provider_processes": 3,
+    "validation_errors": 0
+  },
+  "report_promotion_amendment": {
+    "prior_sha256": "3a8efa5254e5243203fefc57c51732ac8ed732f6d1de60ee060b71f0678f1e05",
+    "final_sha256": "b91e6d5cdd5e322b800179ce338f6babdc86d01dc2bc900d1bb7b41c83abdeb2",
+    "reason": "Append accepted performance and preserve original candidate versions"
+  },
+  "limitations": [
+    "known k",
+    "known disjoint alphabet",
+    "noise-free complete words",
+    "bounded local-word languages for certificates",
+    "no RPNI experiment",
+    "no general performance claim"
+  ],
+  "unexecuted_corpus": "30 stage2 frozen corpus cases are not all audited; only explicitly reported cells were executed",
+  "coordination_note": "Master executed auditor frozen recovery launcher once after interrupting idle coordination and checking no running performance processes"
+}
