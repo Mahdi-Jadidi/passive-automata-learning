@@ -1,0 +1,30 @@
+{
+  "controls": [
+    {
+      "expected": "incomplete; no finality claim",
+      "id": "deadline_during_search"
+    },
+    {
+      "expected": "incomplete; preserve prior answers",
+      "id": "interrupt_after_partial_answers"
+    },
+    {
+      "expected": "reject finality",
+      "id": "omit_one_cut_from_no_separator_certificate"
+    },
+    {
+      "expected": "reject certificate",
+      "id": "forge_one_cut_collision_witness"
+    },
+    {
+      "expected": "reject exact-meet completeness; ambiguity decision may remain valid if partial meet is infeasible",
+      "id": "return_partial_meet_as_exact_final_meet"
+    },
+    {
+      "expected": "reject coverage",
+      "id": "remove_one_branch_from_separator_search_proof"
+    }
+  ],
+  "note": "pre-registered controls; apply only after production proof schema is frozen",
+  "schema_version": 1
+}

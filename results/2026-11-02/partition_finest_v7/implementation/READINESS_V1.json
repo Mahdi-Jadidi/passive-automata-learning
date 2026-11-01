@@ -1,0 +1,46 @@
+{
+  "cycle": "C007",
+  "scope": "implementation/",
+  "api": "finest_solver_v3.solve(data, *, deadline=None, mode='adaptive'|'reference', max_solutions=None); verify_result(data, result)",
+  "provider": "finest_solver_v3.py",
+  "model": "known alphabet; exact complete words; unknown k; no finite q/state cap; unrestricted regular factors",
+  "target": "unique finest sample-compatible partition, or proof multiple maximal refinements exist, or one-block-only, or incomplete",
+  "runtime_dependencies": [
+    {"path":"finest_solver_v3.py","sha256":"c783929cc75b0979cab679f82c0e43e3aceab014db0b2d063628d0302b33477a"},
+    {"path":"../evidence/capture.py","sha256":"68ee700f391fb6a1cf135e4b55a11a247b45f25164553c917d1664f6fc4a31cf"},
+    {"path":"../../../2026-11-01/partition_identifiability_v6/implementation/solver_v5.py","sha256":"e83c8d13e8eac248415160f6d29fb3309f19b5d447c932e00b69e24e7cb60792"},
+    {"path":"../../../2026-10-31/partition_coverage_v5/general/known_k_qexact_v2.py","sha256":"9f08dd645e7fcccbe8ea8022c758b7cf3277a5f01b6533fb9c1ad0cf08b6c84d"}
+  ],
+  "versioned_artifacts": [
+    {"path":"finest_cli_v1.py","sha256":"99ffe4b8c501f2401a55e098a041c1ebf0dab9c3e71161415356f916ee321397"},
+    {"path":"PROTOCOL_V1.md","sha256":"23231b4b907a798e2b2ea3c7d35e841cd69557089b26c50208115eed1f593846"},
+    {"path":"smoke_v3.py","sha256":"69a956636fa9293038f714e2680c03d58f07522a0985da8922b5d30352545f34"},
+    {"path":"README_CANDIDATE_FA_v1.md","sha256":"a56542f2a33a1f14877d040c1313b2179633fe9412e9186889931db0f312cd24"},
+    {"path":"example_three_block_unique_v1.json","sha256":"498482e65cc92dab2cf24b0b7b365c9fb1df49dfaa6f386693c2b042fd2332a1"},
+    {"path":"example_multiple_maximal_v1.json","sha256":"8f6099a4927f8321fc3f8b572eed63072cfa7a02fb8bbb2dfef49b7b116b095c"},
+    {"path":"example_one_block_v1.json","sha256":"e89117bc6dbcadc23540ce86c7d120961419ccc4eb61a46c917f03348afb06e9"}
+  ],
+  "latest_correctness_capture": {
+    "attempt_id":"20261101T211259.882532Z_c7f0b4282d",
+    "execution_status":"success", "exit_code":0,
+    "scientific_status":"passed_small_all_partition_RGS_oracle",
+    "stdout_sha256":"99786dd09da0312e2d0e31c006960b8a47743a1f79cc67bfb3f5bbbd1ff0c4a7",
+    "cases":7,
+    "scope":"adaptive and full-binary reference compared with direct oracle over all set partitions; maximal-frontier count independently recomputed"
+  },
+  "cli_capture": {
+    "attempt_id":"20261101T211404.503193Z_6ae12b66ea",
+    "execution_status":"success", "exit_code":0,
+    "stdout_sha256":"8ea4d2022eaf636c844536e8d2135f1aac910004a1c2fb8f497a0b20f55aa51e"
+  },
+  "preserved_failed_attempts": [
+    {"attempt_id":"20261101T211016.775427Z_c7fc025f4b","cause":"v1 used forced must-link component partition as current meet and falsely returned one_block_only"},
+    {"attempt_id":"20261101T211141.280852Z_3c167c4d0d","cause":"first smoke's oracle combined coownership relations by union rather than intersection"},
+    {"attempt_id":"20261101T211208.084806Z_48c71ab832","cause":"v2 early-ambiguity verifier inverted the strict-refinement predicate"}
+  ],
+  "independent_audit": "pending",
+  "performance": "not measured; master GO required",
+  "enhanced_rules": "C006 T002 A/B remain inactive",
+  "no_hidden_k_inference": true,
+  "full_hashes_programmatically_computed": true
+}
