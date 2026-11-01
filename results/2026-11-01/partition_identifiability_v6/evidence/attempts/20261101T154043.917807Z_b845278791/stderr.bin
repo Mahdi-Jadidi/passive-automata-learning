@@ -1,0 +1,11 @@
+Traceback (most recent call last):
+  File "C:\Users\Mahdi\Documents\ChatGPT\passive automata learning\results\2026-11-01\partition_identifiability_v6\implementation\smoke_v8.py", line 56, in <module>
+    result = solver.solve(data, max_solutions=None)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mahdi\Documents\ChatGPT\passive automata learning\results\2026-11-01\partition_identifiability_v6\implementation\solver_v4.py", line 379, in solve
+    check = verify_certificate(data, cert)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mahdi\Documents\ChatGPT\passive automata learning\results\2026-11-01\partition_identifiability_v6\implementation\solver_v4.py", line 236, in verify_certificate
+    return {"valid": True, "kind": "complete_cut_collision_cover", "checked_cuts": len(expected)}
+                                                                                       ^^^^^^^^
+NameError: name 'expected' is not defined

@@ -1,0 +1,131 @@
+{
+  "schema_version": 1,
+  "attempt_id": "20261101T153813.671255Z_73b46cb0e4",
+  "label": "C006_INDEPENDENT_ALLK_ORACLE_V4",
+  "started_utc": "2026-11-01T15:38:13.673250+00:00",
+  "command_argv": [
+    "C:/Users/Mahdi/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/python.exe",
+    "-B",
+    "-X",
+    "utf8",
+    "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-01\\partition_identifiability_v6\\audit\\independent_oracle_v4.py",
+    "--inputs",
+    "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-01\\partition_identifiability_v6\\audit\\corpus_v1\\inputs.jsonl",
+    "--truths",
+    "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-01\\partition_identifiability_v6\\audit\\corpus_v1\\truth_sidecars.jsonl",
+    "--controls",
+    "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-01\\partition_identifiability_v6\\audit\\corpus_v1\\controls.jsonl",
+    "--control-truths",
+    "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-01\\partition_identifiability_v6\\audit\\corpus_v1\\control_truth_sidecars.jsonl",
+    "--extra-inputs",
+    "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-01\\partition_identifiability_v6\\audit\\targeted_nondec_v1\\input.jsonl",
+    "--extra-truths",
+    "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-01\\partition_identifiability_v6\\audit\\targeted_nondec_v1\\truth.jsonl",
+    "--theory-inputs",
+    "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-01\\partition_identifiability_v6\\audit\\theory_examples_v1\\inputs.jsonl",
+    "--theory-truths",
+    "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-01\\partition_identifiability_v6\\audit\\theory_examples_v1\\truth_sidecars.jsonl",
+    "--output",
+    "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-01\\partition_identifiability_v6\\audit\\oracle_v4\\expected.jsonl"
+  ],
+  "cwd": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning",
+  "timeout_seconds": 180.0,
+  "environment": {
+    "python_executable": "C:\\Users\\Mahdi\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+    "python_version": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]",
+    "python_implementation": "CPython",
+    "python_flags": "sys.flags(debug=0, inspect=0, interactive=0, optimize=0, dont_write_bytecode=1, no_user_site=0, no_site=0, ignore_environment=0, verbose=0, bytes_warning=0, quiet=0, hash_randomization=1, isolated=0, dev_mode=False, utf8_mode=1, warn_default_encoding=0, safe_path=False, int_max_str_digits=4300)",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "machine": "AMD64",
+    "preferred_encoding": "utf-8",
+    "cwd": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning",
+    "allowlisted_environment_values": {
+      "LANG": "C.UTF-8",
+      "LC_ALL": "C.UTF-8",
+      "PROCESSOR_ARCHITECTURE": "AMD64"
+    },
+    "omitted_environment_variable_count": 72,
+    "environment_policy": "allowlisted values only; remaining values omitted"
+  },
+  "sources": [
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-01\\partition_identifiability_v6\\audit\\PROTOCOL_V1.md",
+      "sha256": "8e4863adfde0bfa69e33eded8a73a5973447cb4d46f65688b92900f0dba8d77d",
+      "snapshot": "source_blobs\\8e\\8e4863adfde0bfa69e33eded8a73a5973447cb4d46f65688b92900f0dba8d77d",
+      "bytes": "6173"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-01\\partition_identifiability_v6\\audit\\PROTOCOL_V2.md",
+      "sha256": "0ef3e7cb202e74c9f0b6d4836e3e41a35165f459ba11dc1ef1a641e514f7b139",
+      "snapshot": "source_blobs\\0e\\0ef3e7cb202e74c9f0b6d4836e3e41a35165f459ba11dc1ef1a641e514f7b139",
+      "bytes": "1005"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-01\\partition_identifiability_v6\\audit\\PROTOCOL_V3.md",
+      "sha256": "2b6708b9d695caafe5ebd47acde20367134fabec840991d27de4860e0e2adadb",
+      "snapshot": "source_blobs\\2b\\2b6708b9d695caafe5ebd47acde20367134fabec840991d27de4860e0e2adadb",
+      "bytes": "787"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-01\\partition_identifiability_v6\\audit\\corpus_v1\\control_truth_sidecars.jsonl",
+      "sha256": "6ecdeddff369a156fea7a33fc59112d99a5d1afd525b0dfa592f4c7aca3636ab",
+      "snapshot": "source_blobs\\6e\\6ecdeddff369a156fea7a33fc59112d99a5d1afd525b0dfa592f4c7aca3636ab",
+      "bytes": "1701"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-01\\partition_identifiability_v6\\audit\\corpus_v1\\controls.jsonl",
+      "sha256": "494326a70999317d590b39f950bfdf45d2f890a09ae210111b5be5406f5b313d",
+      "snapshot": "source_blobs\\49\\494326a70999317d590b39f950bfdf45d2f890a09ae210111b5be5406f5b313d",
+      "bytes": "780"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-01\\partition_identifiability_v6\\audit\\corpus_v1\\inputs.jsonl",
+      "sha256": "81d52773ed725d8cc25d20874c585001432d399b2ba643cc85182037472f3139",
+      "snapshot": "source_blobs\\81\\81d52773ed725d8cc25d20874c585001432d399b2ba643cc85182037472f3139",
+      "bytes": "23885"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-01\\partition_identifiability_v6\\audit\\corpus_v1\\truth_sidecars.jsonl",
+      "sha256": "2fc3df4e422f391ad512602ce0aa86b67d1e162241ac209577d054aee3cdd4d2",
+      "snapshot": "source_blobs\\2f\\2fc3df4e422f391ad512602ce0aa86b67d1e162241ac209577d054aee3cdd4d2",
+      "bytes": "34125"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-01\\partition_identifiability_v6\\audit\\independent_oracle_v4.py",
+      "sha256": "c316a0f07c4d627435643f19be9472b29e44000a233df2fa52727217a71aa54c",
+      "snapshot": "source_blobs\\c3\\c316a0f07c4d627435643f19be9472b29e44000a233df2fa52727217a71aa54c",
+      "bytes": "10423"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-01\\partition_identifiability_v6\\audit\\targeted_nondec_v1\\input.jsonl",
+      "sha256": "365b45e2eeef8aa00bd9491dbd6b4cc43e40eae17ce658260af18e1c8993b836",
+      "snapshot": "source_blobs\\36\\365b45e2eeef8aa00bd9491dbd6b4cc43e40eae17ce658260af18e1c8993b836",
+      "bytes": "151"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-01\\partition_identifiability_v6\\audit\\targeted_nondec_v1\\truth.jsonl",
+      "sha256": "e62fccf9534a3899b468aa8b4b58acdb29b5793426086be2fa3b038e1c247bbc",
+      "snapshot": "source_blobs\\e6\\e62fccf9534a3899b468aa8b4b58acdb29b5793426086be2fa3b038e1c247bbc",
+      "bytes": "307"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-01\\partition_identifiability_v6\\audit\\theory_examples_v1\\inputs.jsonl",
+      "sha256": "4930d9d27abebf58dfd46d90160327d749c2cdc6760cc2d53f5e827fa56ca1fb",
+      "snapshot": "source_blobs\\49\\4930d9d27abebf58dfd46d90160327d749c2cdc6760cc2d53f5e827fa56ca1fb",
+      "bytes": "920"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-01\\partition_identifiability_v6\\audit\\theory_examples_v1\\truth_sidecars.jsonl",
+      "sha256": "7f1b58e64f9d87f089a0f888bc8f65cbb42a5a6e52cf2945933ec02b9549c234",
+      "snapshot": "source_blobs\\7f\\7f1b58e64f9d87f089a0f888bc8f65cbb42a5a6e52cf2945933ec02b9549c234",
+      "bytes": "2612"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-01\\partition_identifiability_v6\\evidence\\capture.py",
+      "sha256": "68ee700f391fb6a1cf135e4b55a11a247b45f25164553c917d1664f6fc4a31cf",
+      "snapshot": "source_blobs\\68\\68ee700f391fb6a1cf135e4b55a11a247b45f25164553c917d1664f6fc4a31cf",
+      "bytes": "10624"
+    }
+  ],
+  "source_snapshot_error": null
+}

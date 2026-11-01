@@ -1,0 +1,25 @@
+{
+  "owner": "theory only",
+  "proof": "PROOFS_v1.md",
+  "api_notes": [
+    "Return compatible witness or nontrivial-impossible with replayable certificate or incomplete",
+    "Do not conflate no nontrivial partition with no regular model",
+    "Independent verifier must check graph rule contexts and cover completeness"
+  ],
+  "performance_jobs": "not_authorized_without_master_GO",
+  "proof_sha256": "a63aa6cf21e6b21cc59b27d1dd0906237a58bcf7f7d6b609c672c4650656bcf3",
+  "examples": "examples_v1.json",
+  "implementation_notes": [
+    "Nontrivial means >=2 nonempty alphabet blocks; k1 always feasible for valid consistent data",
+    "Decide any nontrivial existence by complete bipartition search",
+    "Use projection criterion without finite q restriction",
+    "No negatives => every partition feasible; P empty also every partition feasible",
+    "Connected sound swap/rescue must-links sufficient, not necessary, for obstruction",
+    "Complete collision cover must cover every canonical split or independently justified quotient split",
+    "Unknown-k feasible range1..kmax; never call chosen maximum hidden k",
+    "Theory graph-gap examples ready for independent checks"
+  ],
+  "id": "C006-T001-READY-INITIAL",
+  "execution_status": "no_experiment_yet",
+  "scientific_status": "proof_available_independent_review_pending"
+}

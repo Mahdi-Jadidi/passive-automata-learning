@@ -1,0 +1,29 @@
+{
+  "all_mode": "all_bipartitions_not_all_k",
+  "independent_provider_gate": "not_yet_reported_in_audit_readiness_snapshot",
+  "scientific_status": "no_new_blocking_mathematical_flaw_static_review_only",
+  "id": "C006-T004-V5-DELTA-001",
+  "files": [
+    {
+      "snapshot": "snapshots/solver_v5.py",
+      "sha256": "e83c8d13e8eac248415160f6d29fb3309f19b5d447c932e00b69e24e7cb60792",
+      "source": "implementation/solver_v5.py"
+    },
+    {
+      "snapshot": "snapshots/cli_v4.py",
+      "sha256": "b824ca3751abfaaf424e31357d804f038f7eb79dad3c7a97048caacc240d7c8f",
+      "source": "implementation/cli_v4.py"
+    },
+    {
+      "snapshot": "snapshots/READINESS.json",
+      "sha256": "6c4ccc0642577dc596d84f60fcdb498d1ec7333001f6577830dbf3994d09ccc4",
+      "source": "audit/READINESS.json"
+    }
+  ],
+  "runtime_edits": false,
+  "report": "REVIEW.md",
+  "new_tests": 0,
+  "report_sha256": "469385dcb77beee4f65ea593b7638f49f4d1a5d1c54b9b8b054b0fc081b1911b",
+  "prior_review": "../peer_review_v1/MANIFEST.json",
+  "enhanced_rules": "proved_but_dormant"
+}

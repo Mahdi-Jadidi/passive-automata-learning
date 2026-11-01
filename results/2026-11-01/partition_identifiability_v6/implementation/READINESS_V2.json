@@ -1,0 +1,37 @@
+{
+  "cycle": "C006",
+  "scope": "implementation/",
+  "api_file": "solver_v2.py",
+  "api_sha256": "4b5c1a3e03c24bbeba4f6906bd076215752a8e34523730aba9b46473725ffa3c0",
+  "api": "solve(data, *, deadline=None, max_solutions=1); verify_solution(data, solution); verify_certificate(data, certificate)",
+  "model": "exact complete-word labels; known alphabet; nontrivial unordered two-block partition; unrestricted regular factors",
+  "strictly_rejected_input_fields": ["k", "q", "local_word_cap"],
+  "runtime_dependency": {
+    "path": "results/2026-10-31/partition_coverage_v5/general/known_k_qexact_v2.py",
+    "sha256": "9f08dd645e7fcccbe8ea8022c758b7cf3277a5f01b6533fb9c1ad0cf08b6c84d",
+    "usage": "read-only contextual must-link extractor only; direct projection tests and certificate verifier are C006"
+  },
+  "latest_small_smoke": {
+    "attempt_id": "20261101T153438.362011Z_35f4fbf162",
+    "execution_status": "success",
+    "exit_code": 0,
+    "scientific_status": "passed",
+    "stdout_sha256": "792c3838a4bab73fa5d01ddaffd994f260389b9fd1c3df02497b028d3e4314f7",
+    "cases": 6,
+    "independent_comparison": "full compatible bipartition set against direct brute-force oracle",
+    "manager_candidate": "all 7 canonical cuts rejected by two-sided positive collisions despite zero must-link edges"
+  },
+  "preserved_failed_attempt": {
+    "attempt_id": "20261101T153351.781709Z_5f4a1e5418",
+    "execution_status": "program_error",
+    "exit_code": 1,
+    "cause": "incorrect relative parent path when loading frozen C005 helper",
+    "corrected_in_new_version": true
+  },
+  "limitations": [
+    "Exact cut enumeration and full negative certificates can be exponential",
+    "First solution proves existence but not uniqueness unless complete enumeration finishes",
+    "Two optional contextual must-link rules proposed by manager are not activated pending proof and audit",
+    "No performance measurements were performed"
+  ]
+}

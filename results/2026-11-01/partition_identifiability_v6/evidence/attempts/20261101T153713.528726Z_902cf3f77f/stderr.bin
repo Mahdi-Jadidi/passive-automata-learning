@@ -1,0 +1,12 @@
+Traceback (most recent call last):
+  File "C:\Users\Mahdi\Documents\ChatGPT\passive automata learning\results\2026-11-01\partition_identifiability_v6\audit\independent_oracle_v3.py", line 223, in <module>
+    main()
+  File "C:\Users\Mahdi\Documents\ChatGPT\passive automata learning\results\2026-11-01\partition_identifiability_v6\audit\independent_oracle_v3.py", line 192, in main
+    results = [audit_case(row, hidden[row["case_id"]]) for row in visible]
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mahdi\Documents\ChatGPT\passive automata learning\results\2026-11-01\partition_identifiability_v6\audit\independent_oracle_v3.py", line 118, in audit_case
+    validate_truth(visible, truth)
+  File "C:\Users\Mahdi\Documents\ChatGPT\passive automata learning\results\2026-11-01\partition_identifiability_v6\audit\independent_oracle_v3.py", line 94, in validate_truth
+    blocks = truth["blocks"]
+             ~~~~~^^^^^^^^^^
+KeyError: 'blocks'

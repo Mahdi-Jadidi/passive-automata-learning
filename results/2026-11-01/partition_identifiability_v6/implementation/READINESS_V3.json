@@ -1,0 +1,48 @@
+{
+  "cycle": "C006",
+  "scope": "implementation/",
+  "version": "solver_v3",
+  "api_file": "solver_v3.py",
+  "api_sha256": "8e5fccafed67f9f424a9c19976c3c16e903b32aae29fc9e25a2e20590bb2918d",
+  "api": "solve(data, *, deadline=None, max_solutions=1); verify_solution(data, solution); verify_certificate(data, certificate)",
+  "model": "exact complete-word labels; known alphabet; nontrivial unordered two-block partition; unrestricted regular factors",
+  "strictly_rejected_input_fields": ["k", "q", "local_word_cap"],
+  "runtime_dependency": {
+    "path": "results/2026-10-31/partition_coverage_v5/general/known_k_qexact_v2.py",
+    "sha256": "9f08dd645e7fcccbe8ea8022c758b7cf3277a5f01b6533fb9c1ad0cf08b6c84d",
+    "usage": "read-only contextual must-link extractor only; all feasibility checks and verifiers are implemented in C006"
+  },
+  "captures": {
+    "v2_insertion_orientation_failure": {
+      "attempt_id": "20261101T153614.630190Z_3ea23ec847",
+      "execution_status": "program_error",
+      "scientific_observation": "old verifier rejects C005 insertion-rescue witness when sorted pair order differs from deleted-symbol role",
+      "preserved": true
+    },
+    "v3_small_independent_oracle": {
+      "attempt_id": "20261101T153816.806338Z_28e132a6b1",
+      "execution_status": "success",
+      "exit_code": 0,
+      "scientific_status": "passed",
+      "stdout_sha256": "612e356c90a6fdda4b40fb222b7e26e354f275a52a3dd57a35d2372b977881e2",
+      "cases": 9,
+      "checks": ["full partition-set comparison with independent brute-force oracle",
+        "swap and insertion connected obstructions", "sorted pair with deleted second symbol",
+        "collision-cover rejection when must-link graph is empty", "tampered edge witness",
+        "incomplete cut cover", "malformed edge", "unknown symbol", "deadline", "truncation"]
+    },
+    "public_cli": {
+      "attempt_id": "20261101T153825.605039Z_af32f86dcc",
+      "execution_status": "success",
+      "exit_code": 0,
+      "stdout_sha256": "950df9aef0311419adb3e578bebaa835c5d4427ad43dd473ec6198c5f78478fa"
+    }
+  },
+  "cli": {"file":"cli_v2.py", "sha256":"e205b763360192e24adc3b7c6162a9c9dfb7d0883318f0488891a4b41da8b7b8"},
+  "independent_review_needed": [
+    "all-k corpus gate and independent certificate replay",
+    "review of must-link proof and complete cut-cover verifier",
+    "enhanced contextual rules are not included in solver_v3"
+  ],
+  "performance": "not measured; no performance run authorized"
+}

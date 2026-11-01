@@ -1,0 +1,28 @@
+{
+  "cycle": "C006",
+  "audit_scope": "independent corpus and certificate audit only",
+  "protocol": {
+    "path": "audit/PROTOCOL_V1.md",
+    "sha256": "8e4863adfde0bfa69e33eded8a73a5973447cb4d46f65688b92900f0dba8d77d"
+  },
+  "corpus": {
+    "path": "audit/corpus_v1/manifest.json",
+    "sha256": "12c1438240bf328df924bdc1a85eacc98e4e36a730ab88ed5e8f3837ae03f6ad",
+    "seed": 20261101,
+    "distinct_consistent_base_payloads": 120,
+    "cases_per_alphabet_size": 20,
+    "alphabet_sizes": [2, 3, 4, 5, 6, 7],
+    "valid_targeted_controls": 7,
+    "invalid_controls": 1,
+    "solver_inputs_contain_k_or_q": false
+  },
+  "generator_capture": "evidence/attempts/20261101T153148.553724Z_7d86487932",
+  "oracle": {
+    "source": "audit/independent_oracle_v1.py",
+    "source_sha256": "a84d854c32054317b62a4b7bc3df59af956a41c9f792a6ff9e831841f73c5540",
+    "execution_status": "pending"
+  },
+  "candidate_comparison": "held_until_theory_and_implementation_readiness_and_master_go",
+  "official_timing": "held",
+  "known_extra_candidate": "not_yet_added_to_targeted_extension"
+}

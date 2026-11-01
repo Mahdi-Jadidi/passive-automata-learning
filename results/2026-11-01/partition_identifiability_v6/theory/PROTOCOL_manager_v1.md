@@ -1,0 +1,1 @@
+C006 manager candidate check v1: reuse explicitly snapshotted all-k oracle with new driver/fixture filenames; verify full partition sets and collision covers BEFORE acceptance. Preserve manager original unchanged. The two-symbol reduced example is independently constructed, not automatic shrinking of the manager case. No performance job.

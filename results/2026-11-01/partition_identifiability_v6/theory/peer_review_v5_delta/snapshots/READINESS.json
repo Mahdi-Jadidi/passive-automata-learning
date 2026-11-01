@@ -1,0 +1,71 @@
+{
+  "cycle": "C006",
+  "audit_scope": "independent corpus and certificate audit only",
+  "protocol": {
+    "path": "audit/PROTOCOL_V1.md",
+    "sha256": "8e4863adfde0bfa69e33eded8a73a5973447cb4d46f65688b92900f0dba8d77d"
+  },
+  "corpus": {
+    "path": "audit/corpus_v1/manifest.json",
+    "sha256": "12c1438240bf328df924bdc1a85eacc98e4e36a730ab88ed5e8f3837ae03f6ad",
+    "seed": 20261101,
+    "distinct_consistent_base_payloads": 120,
+    "cases_per_alphabet_size": 20,
+    "alphabet_sizes": [2, 3, 4, 5, 6, 7],
+    "valid_targeted_controls": 7,
+    "invalid_controls": 1,
+    "solver_inputs_contain_k_or_q": false
+  },
+  "generator_capture": "evidence/attempts/20261101T153148.553724Z_7d86487932",
+  "targeted_extensions": {
+    "manager_four_symbol_candidate": {
+      "manifest": "audit/targeted_nondec_v1/manifest.json",
+      "manifest_sha256": "744a4f8b3ec4bbcc1570e83d96beaeebc81856afebbb3cce28b88b6800b2596cd",
+      "capture": "evidence/attempts/20261101T153527.050553Z_8c33a56558"
+    },
+    "theory_examples": {
+      "manifest": "audit/theory_examples_v1/manifest.json",
+      "manifest_sha256": "e3017efa7b57131a970f953c470436aa3cb61f7f486451d3b7d960657a155507",
+      "capture": "evidence/attempts/20261101T153608.959404Z_255bfe2b98"
+    }
+  },
+  "oracle": {
+    "v1": {
+      "source": "audit/independent_oracle_v1.py",
+      "expected_file": "audit/oracle_v1/expected.jsonl",
+      "expected_sha256": "bb519397ddb8bed1a93a08257df1d5a9e2960b2c1686ec7091bccf48717d5bbc",
+      "cases": 127,
+      "nondecomposable_nontrivial": 4,
+      "coarsening_checks": 405590,
+      "capture": "evidence/attempts/20261101T153305.315635Z_a8e3196395",
+      "execution_status": "success"
+    },
+    "expanded_v4": {
+      "source": "audit/independent_oracle_v4.py",
+      "expected_file": "audit/oracle_v4/expected.jsonl",
+      "expected_sha256": "ca4b932d12d094a34b46a73580aab551e7a00f3fbd1ddd58f08f9fc75a4d632c",
+      "cases": 135,
+      "nondecomposable_nontrivial": 10,
+      "coarsening_checks": 405604,
+      "capture": "evidence/attempts/20261101T153813.671255Z_73b46cb0e4",
+      "execution_status": "success",
+      "superseded_attempts_preserved": [
+        "evidence/attempts/20261101T153620.588487Z_bb77270074",
+        "evidence/attempts/20261101T153713.528726Z_902cf3f77f"
+      ]
+    },
+    "independent_crosscheck": {
+      "report": "audit/validation_v1/oracle_crosscheck.json",
+      "report_sha256": "fbc6f66ebdcb3a1ec3f9cde9c1fc402162477368a9efb0554d367f457dc0de36",
+      "cases": 135,
+      "nondecomposable_with_disconnected_swap_rescue_graph": 8,
+      "capture": "evidence/attempts/20261101T153947.179748Z_6ca996edeb",
+      "execution_status": "success"
+    }
+  },
+  "candidate_comparison": "held_until_corrected_implementation_readiness_hash_and_independent_gate",
+  "official_timing": "held_until_master_GO",
+  "manager_candidate_result": "all_7_bipartitions_infeasible_by_independent_oracle; no old swap/rescue edges",
+  "implementation_readiness_observed": "V3_correctness-ready source still requires independent audit; wait for corrected stable readiness hash",
+  "theory_readiness_observed": "base and enhanced proof files available; independent proof review ongoing"
+}
