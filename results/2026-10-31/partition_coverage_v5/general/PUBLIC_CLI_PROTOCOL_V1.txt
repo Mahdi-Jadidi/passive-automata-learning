@@ -1,0 +1,5 @@
+C005 combined public CLI protocol v1
+
+Freeze before execution: this protocol, driver_public_cli_v1.py, public_cli_v1.py, exact provider v2, structural sparse certificate v2, sanity_inputs_v1.json, sanity_invalid_v1.json, public_cli_certificate_input_v1.json, and structural/sparse_trace_fixtures_v1.json as provenance for the certificate input. All CLI subprocesses are launched from the outer driver, itself invoked only by immutable evidence/capture.py.
+
+Controls: exact unrestricted mode with --max-solutions all exhaustively returns all six partitions; certificate success; certificate insufficient_coverage exit 4; hybrid falls back only on that abstention and returns the exact q=2 solution; hybrid zero timeout remains incomplete with no fallback; q=0 and contradictory labels return JSON invalid_input with exit 2. No timing conclusions are drawn.

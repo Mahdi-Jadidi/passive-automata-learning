@@ -1,0 +1,278 @@
+{
+  "provenance": "Reduced base found in captured minimization attempt 20261031T063925.345240Z_431ed2410a; all q cases tested captured smoke_v2 20261031T064045.015689Z_13ea7e4205",
+  "cases": [
+    {
+      "q": 1,
+      "id": "sparse_trace_q1",
+      "expected_edges": [
+        [
+          "a",
+          "b"
+        ],
+        [
+          "a",
+          "e"
+        ],
+        [
+          "b",
+          "c"
+        ],
+        [
+          "b",
+          "e"
+        ],
+        [
+          "c",
+          "d"
+        ],
+        [
+          "c",
+          "e"
+        ],
+        [
+          "d",
+          "e"
+        ]
+      ],
+      "expected_blocks": [
+        [
+          "a",
+          "c"
+        ],
+        [
+          "b",
+          "d"
+        ],
+        [
+          "e"
+        ]
+      ],
+      "data": {
+        "alphabet": [
+          "a",
+          "b",
+          "c",
+          "d",
+          "e"
+        ],
+        "k": 3,
+        "positive": [
+          "acbde",
+          "ebadc"
+        ],
+        "negative": [
+          "",
+          "aa"
+        ]
+      }
+    },
+    {
+      "q": 2,
+      "id": "sparse_trace_q2",
+      "expected_edges": [
+        [
+          "a",
+          "b"
+        ],
+        [
+          "a",
+          "e"
+        ],
+        [
+          "b",
+          "c"
+        ],
+        [
+          "b",
+          "e"
+        ],
+        [
+          "c",
+          "d"
+        ],
+        [
+          "c",
+          "e"
+        ],
+        [
+          "d",
+          "e"
+        ]
+      ],
+      "expected_blocks": [
+        [
+          "a",
+          "c"
+        ],
+        [
+          "b",
+          "d"
+        ],
+        [
+          "e"
+        ]
+      ],
+      "data": {
+        "alphabet": [
+          "a",
+          "b",
+          "c",
+          "d",
+          "e"
+        ],
+        "k": 3,
+        "positive": [
+          "acbde",
+          "aaccbbddee",
+          "ebadc",
+          "eebbaaddcc"
+        ],
+        "negative": [
+          "",
+          "aa"
+        ]
+      }
+    },
+    {
+      "q": 3,
+      "id": "sparse_trace_q3",
+      "expected_edges": [
+        [
+          "a",
+          "b"
+        ],
+        [
+          "a",
+          "e"
+        ],
+        [
+          "b",
+          "c"
+        ],
+        [
+          "b",
+          "e"
+        ],
+        [
+          "c",
+          "d"
+        ],
+        [
+          "c",
+          "e"
+        ],
+        [
+          "d",
+          "e"
+        ]
+      ],
+      "expected_blocks": [
+        [
+          "a",
+          "c"
+        ],
+        [
+          "b",
+          "d"
+        ],
+        [
+          "e"
+        ]
+      ],
+      "data": {
+        "alphabet": [
+          "a",
+          "b",
+          "c",
+          "d",
+          "e"
+        ],
+        "k": 3,
+        "positive": [
+          "acbde",
+          "aaccbbddee",
+          "aaacccbbbdddeee",
+          "ebadc",
+          "eebbaaddcc",
+          "eeebbbaaadddccc"
+        ],
+        "negative": [
+          "",
+          "aa"
+        ]
+      }
+    },
+    {
+      "q": 4,
+      "id": "sparse_trace_q4",
+      "expected_edges": [
+        [
+          "a",
+          "b"
+        ],
+        [
+          "a",
+          "e"
+        ],
+        [
+          "b",
+          "c"
+        ],
+        [
+          "b",
+          "e"
+        ],
+        [
+          "c",
+          "d"
+        ],
+        [
+          "c",
+          "e"
+        ],
+        [
+          "d",
+          "e"
+        ]
+      ],
+      "expected_blocks": [
+        [
+          "a",
+          "c"
+        ],
+        [
+          "b",
+          "d"
+        ],
+        [
+          "e"
+        ]
+      ],
+      "data": {
+        "alphabet": [
+          "a",
+          "b",
+          "c",
+          "d",
+          "e"
+        ],
+        "k": 3,
+        "positive": [
+          "acbde",
+          "aaccbbddee",
+          "aaacccbbbdddeee",
+          "aaaaccccbbbbddddeeee",
+          "ebadc",
+          "eebbaaddcc",
+          "eeebbbaaadddccc",
+          "eeeebbbbaaaaddddcccc"
+        ],
+        "negative": [
+          "",
+          "aa"
+        ]
+      }
+    }
+  ],
+  "schema": 1
+}

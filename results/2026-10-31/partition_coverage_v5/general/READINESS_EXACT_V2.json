@@ -1,0 +1,51 @@
+{
+  "artifact": "general/known_k_qexact_v2.py",
+  "sha256": "9f08dd645e7fcccbe8ea8022c758b7cf3277a5f01b6533fb9c1ad0cf08b6c84d",
+  "sha256_hex_characters": 64,
+  "api": "solve(data, *, k=None, local_word_cap=None, deadline=None, max_solutions=None, use_q_opposition=True, use_contextual_must_links=True)",
+  "source_status": "frozen for independent full-set audit; do not edit in place",
+  "model_classes": [
+    "general_regular_product when local_word_cap is null",
+    "bounded_finite_projection_languages when local_word_cap is q>=1"
+  ],
+  "constraints": [
+    "sound contextual adjacent-swap and insertion-rescue must-links",
+    "pair positive-projection count > q cannot-links",
+    "unary positive-projection count > q infeasibility",
+    "direct full-block positive and negative projection checks"
+  ],
+  "proof": "general/EXACT_SEARCH_QOPPOSITION_PROOF_V1.md plus C004 contextual_swap_proof.md; q-opposition implication and prune proofs are documented in source comments and proof note",
+  "evidence": [
+    {
+      "result": "pass: legacy full-set equality, q2 toggle equality, witnesses, max-solution, immediate deadline, NaN deadline",
+      "attempt_id": "20261031T063952.235235Z_738e70b985",
+      "label": "exact-v2-branch-sanity-001"
+    },
+    {
+      "result": "pass: must/cannot contradiction, empty positives, missing alphabet symbol, direct witnesses",
+      "attempt_id": "20261031T064059.016616Z_55c194037b",
+      "label": "exact-v2-edge-controls-002"
+    },
+    {
+      "result": "pass: exhaustive q=1,2,3,4,None same-input frontier",
+      "attempt_id": "20261031T064118.627259Z_2104493a4a",
+      "label": "exact-v2-q-frontier-001"
+    },
+    {
+      "result": "pass: exact all/unrestricted, certificate success/abstention, hybrid fallback, incomplete deadline no-fallback, invalid q/data exit codes",
+      "attempt_id": "20261031T064357.464138Z_17586125f1",
+      "label": "public-cli-hybrid-v1-check-001"
+    }
+  ],
+  "independent_audit": "pending; audit_v5 received exact frozen path, 64-character digest, and API",
+  "timed_comparison": "not authorized; no timed comparison run",
+  "peer_review": {
+    "path": "structural/PEER_REVIEW_EXACT_V2.md",
+    "disposition": "no mathematical pruning or enumeration blocker; independent audit remains required"
+  },
+  "public_cli": {
+    "source_status": "captured CLI gate passed; root wrapper promotion is parent-owned",
+    "path": "general/public_cli_v1.py",
+    "sha256": "964185568bbad53b54bb78769232dd828d3e980ed02038110675bf382d1bd2d7"
+  }
+}

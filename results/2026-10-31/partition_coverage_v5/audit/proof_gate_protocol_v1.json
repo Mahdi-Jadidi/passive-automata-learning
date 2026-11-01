@@ -1,0 +1,33 @@
+{
+  "schema": "C005-independent-proof-gate-protocol-v1",
+  "status": "frozen-before-provider-execution",
+  "provider_candidates": {
+    "exact": {
+      "path": "general/known_k_qexact_v2.py",
+      "sha256": "9f08dd645e7fcccbe8ea8022c758b7cf3277a5f01b6533fb9c1ad0cf08b6c84d"
+    },
+    "sparse": {
+      "path": "structural/sparse_certificate_v2.py",
+      "sha256": "1ff16263322f2009d68cd2b4ecc3b6587fa9ef80695fa9489fb199c9e13d6705"
+    }
+  },
+  "small_gate": {
+    "corpus": "frozen_corpus_v1/manifest_v1.json",
+    "valid_payload_count": 174,
+    "invalid_controls": "Run separately and require ValueError from both APIs.",
+    "exact_modes": [1, 2, 3, 4, null],
+    "sparse_modes": [1, 2, 3, 4],
+    "oracle": "Audit-owned restricted-growth enumeration and direct projection semantics. Compare complete unordered partition sets and validate every solution witness.",
+    "sparse_interpretation": "found is accepted only when the graph certificate is replayable and the oracle set is exactly its one partition; infeasible is accepted only for an empty oracle set; insufficient_coverage and incomplete remain separate nonclaims."
+  },
+  "deadline_and_input_controls": [
+    "expired deadline yields incomplete without claiming infeasibility",
+    "near-expired preprocessing interruption returns a well-formed incomplete record",
+    "NaN and positive infinity deadline options raise ValueError",
+    "invalid q, k, and contradictory labels are rejected"
+  ],
+  "graph_unit_controls": "audit/graph_unit_controls_v1.json; synthetic adjacency only, reported separately from sample-derived inputs.",
+  "trace_realizable_sparse_control": "structural/sparse_trace_fixtures_v1.json; run data fields only, independently recompute pair edges and direct projections.",
+  "capture": "All candidate sources, gate source, wrapper source, protocol, manifest, every corpus input and sidecar, and both supplemental control files are snapshotted before each test launch by evidence/capture.py.",
+  "performance": "No wall-time or memory measurements; wait for explicit master GO before timing."
+}

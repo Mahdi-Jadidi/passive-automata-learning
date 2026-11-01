@@ -1,0 +1,48 @@
+{
+  "schema": "C005-independent-corpus-protocol-v1",
+  "status": "frozen-before-provider-execution",
+  "seed": 20261031,
+  "independence": "Generator and RGS feasibility oracle are audit-owned and do not import provider code.",
+  "small_corpus": {
+    "alphabet_sizes": [2, 3, 4, 5, 6, 7],
+    "k_values": "every integer 2 <= k <= alphabet size",
+    "planned_base_cases_per_m_k": 8,
+    "planned_total_base_cases": 168,
+    "families": [
+      "planted_finite_language",
+      "planted_unequal_blocks",
+      "planted_missing_event_symbols",
+      "random_exact_label_assignments",
+      "sparse_random_finite_language",
+      "repeated_events_and_duplicate_examples",
+      "ambiguous_empty_sample",
+      "q_opposition_stress"
+    ],
+    "q_modes_per_payload": [1, 2, 3, 4, null],
+    "oracle": "Enumerate every unordered exactly-k nonempty partition using restricted-growth strings; directly compute distinct positive projection languages and reject any negative accepted by their product. Apply the full-block distinct projection cap when q is finite.",
+    "canonical_payload": "UTF-8 JSON object containing alphabet, k, positive, and negative only; arrays and words sorted; duplicates retained only in designated repeat controls. No truth labels are embedded."
+  },
+  "required_controls": [
+    "C004 connected opposition P4 with k=3; oracle has 6 unrestricted and 3 q=1 partitions",
+    "q=2 three-symbol pairwise-no-edge full-block cap counterexample",
+    "negative distinguishing and negative accepted controls",
+    "empty positive sample distinct from positive empty word",
+    "contradictory-label input validation control",
+    "immediate deadline and malformed input controls",
+    "synthetic graph-unit controls kept separate from trace-derived recovery cases"
+  ],
+  "stage2": {
+    "alphabet_sizes": [16, 32, 64, 128, 256],
+    "k_values": [2, 4, 8, 16],
+    "lengths": [4096, 32768],
+    "q_modes": [3, 4],
+    "families": ["planted_unequal_blocks", "sparse_random_traces"],
+    "truth_policy": "Store planted target only in hidden sidecars. Random sparse traces have no planted target and ambiguity is expected. Small RGS enumeration is not claimed at these sizes."
+  },
+  "execution": {
+    "never_overwrite": true,
+    "capture_helper": "../evidence/capture.py",
+    "all_provider_tests_require": "Capture source code, driver, protocol, public inputs, and hidden truth sidecars before launch.",
+    "timing": "Prohibited until explicit master GO fixes exact source hashes, corpus freeze, and schedule."
+  }
+}

@@ -1,0 +1,3 @@
+C005 v1 preserved defect regression
+
+Reproduce the already reviewed v1 defect: an immediate absolute deadline causes the provider's first _check to interrupt before unary_conflicts is initialized, then the return path references that unbound name. Expected historical outcome is a captured Python exception (exit 1), not a relabeled infeasibility. Run the untouched v1 source and driver through immutable capture.py with this protocol, candidate v1 source, and sanity input in the source snapshot. This attempt records the defect; the corrected v2 immediate-deadline pass is separately captured under exact-v2-branch-sanity-001.

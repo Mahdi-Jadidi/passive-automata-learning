@@ -1,0 +1,3 @@
+# V1 preserved review note
+
+V1 source remains unchanged at SHA256 `214aa3810af0c08ffca4f26ea54030d384ac1529f13792b64f4491c2e22feb3f`. Parent review and structural peer review independently identified that an immediate deadline raised before `_q_opposition` assigned `unary_conflicts`, while the return object still referenced that local. V1 was not run on that failing control. Corrected provider v2 initializes all return fields before the first interruptible step, validates deadlines as finite numeric absolute `perf_counter` values, and reports `complete`/`enumeration_complete` separately from `decision_complete`. A v2 captured attempt must carry the regression control; no v1 test record is rewritten.

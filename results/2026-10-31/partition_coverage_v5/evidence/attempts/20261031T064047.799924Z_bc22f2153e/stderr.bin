@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "C:\Users\Mahdi\Documents\ChatGPT\passive automata learning\results\2026-10-31\partition_coverage_v5\general\driver_v1_deadline_regression.py", line 12, in <module>
+    print(json.dumps(provider.solve(data, deadline=time.perf_counter() - 1), sort_keys=True))
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mahdi\Documents\ChatGPT\passive automata learning\results\2026-10-31\partition_coverage_v5\general\known_k_qexact_v1.py", line 368, in solve
+    "unary_conflicts": unary_conflicts, "presearch_contradiction": contradiction},
+                       ^^^^^^^^^^^^^^^
+UnboundLocalError: cannot access local variable 'unary_conflicts' where it is not associated with a value

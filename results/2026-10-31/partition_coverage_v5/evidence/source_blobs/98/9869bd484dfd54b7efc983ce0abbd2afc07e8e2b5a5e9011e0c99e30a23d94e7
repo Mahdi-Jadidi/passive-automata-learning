@@ -1,0 +1,6101 @@
+{
+  "corpus_policy": "Inputs and hidden sidecars are frozen together. Provider receives inputs only. This manifest and the freeze record reveal no planted sidecar content.",
+  "generator": "audit/generate_corpus_v1.py",
+  "protocol": "audit/corpus_protocol_v1.json",
+  "schema": "C005-independent-frozen-corpus-v1",
+  "seed": 20261031,
+  "small": {
+    "canonical_payload_count": 177,
+    "case_count": 177,
+    "cases": [
+      {
+        "family": "planted_finite_language",
+        "hidden": "small/hidden/small_m2_k2_planted_finite_language_00.json",
+        "hidden_bytes": 347,
+        "hidden_sha256": "445bd827471bfc9e7682afbfb66ee22861ed7cb640b8ce52ed45b6e02cfffbc4",
+        "id": "small_m2_k2_planted_finite_language_00",
+        "input": "small/inputs/small_m2_k2_planted_finite_language_00.json",
+        "input_bytes": 123,
+        "input_sha256": "81e44f4dc23076082d1bd91e153e85916ba7a78d93777ad79927ed1a6ac5049a",
+        "k": 2,
+        "m": 2,
+        "negative_count_distinct": 2,
+        "negative_count_raw": 2,
+        "negative_lengths": [
+          2,
+          4
+        ],
+        "positive_count_distinct": 1,
+        "positive_count_raw": 1,
+        "positive_lengths": [
+          2
+        ],
+        "q_modes": [
+          1,
+          2,
+          3,
+          4,
+          null
+        ]
+      },
+      {
+        "family": "planted_unequal_blocks",
+        "hidden": "small/hidden/small_m2_k2_planted_unequal_blocks_01.json",
+        "hidden_bytes": 346,
+        "hidden_sha256": "3cdad3f0b123854f4098216021524e551894a3808ca7e7d18a18fe11c1fbd78d",
+        "id": "small_m2_k2_planted_unequal_blocks_01",
+        "input": "small/inputs/small_m2_k2_planted_unequal_blocks_01.json",
+        "input_bytes": 124,
+        "input_sha256": "85b8b6ae71f05a3a688034d2b336a8a6553cad8dac7a2009d57976e16aafbb5d",
+        "k": 2,
+        "m": 2,
+        "negative_count_distinct": 2,
+        "negative_count_raw": 2,
+        "negative_lengths": [
+          3,
+          4
+        ],
+        "positive_count_distinct": 1,
+        "positive_count_raw": 1,
+        "positive_lengths": [
+          2
+        ],
+        "q_modes": [
+          1,
+          2,
+          3,
+          4,
+          null
+        ]
+      },
+      {
+        "family": "planted_missing_event_symbols",
+        "hidden": "small/hidden/small_m2_k2_planted_missing_event_symbols_02.json",
+        "hidden_bytes": 377,
+        "hidden_sha256": "ccec5168f48fb404576fe6a3170809335ce3993e05dd30d2febaad9706aa536f",
+        "id": "small_m2_k2_planted_missing_event_symbols_02",
+        "input": "small/inputs/small_m2_k2_planted_missing_event_symbols_02.json",
+        "input_bytes": 132,
+        "input_sha256": "bf3fed844db7af2e769a148ff17524e53abaa8fb68f64dee05f3d331809477bb",
+        "k": 2,
+        "m": 2,
+        "negative_count_distinct": 2,
+        "negative_count_raw": 2,
+        "negative_lengths": [
+          1,
+          2
+        ],
+        "positive_count_distinct": 2,
+        "positive_count_raw": 2,
+        "positive_lengths": [
+          2,
+          4
+        ],
+        "q_modes": [
+          1,
+          2,
+          3,
+          4,
+          null
+        ]
+      },
+      {
+        "family": "random_exact_label_assignments",
+        "hidden": "small/hidden/small_m2_k2_random_exact_label_assignments_03.json",
+        "hidden_bytes": 173,
+        "hidden_sha256": "47dac9e4c38fd6a07d50dc6bbe35d200569df882e1bcd56627e89f78ed12e943",
+        "id": "small_m2_k2_random_exact_label_assignments_03",
+        "input": "small/inputs/small_m2_k2_random_exact_label_assignments_03.json",
+        "input_bytes": 241,
+        "input_sha256": "fd2d3edf69a1d05b85f08b3b5cf21ec525245a8b897ec472505d2df0dc653418",
+        "k": 2,
+        "m": 2,
+        "negative_count_distinct": 9,
+        "negative_count_raw": 9,
+        "negative_lengths": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "positive_count_distinct": 6,
+        "positive_count_raw": 6,
+        "positive_lengths": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "q_modes": [
+          1,
+          2,
+          3,
+          4,
+          null
+        ]
+      },
+      {
+        "family": "sparse_random_finite_language",
+        "hidden": "small/hidden/small_m2_k2_sparse_random_finite_language_04.json",
+        "hidden_bytes": 172,
+        "hidden_sha256": "61a9c6bc421cec513dd3ab7683822281b4d638d8fee638973fba2a49efc3d274",
+        "id": "small_m2_k2_sparse_random_finite_language_04",
+        "input": "small/inputs/small_m2_k2_sparse_random_finite_language_04.json",
+        "input_bytes": 148,
+        "input_sha256": "f5d3f9a54f62533380d8b8b002261e2abe3b414dbe041cd3609aa5683e7932d5",
+        "k": 2,
+        "m": 2,
+        "negative_count_distinct": 4,
+        "negative_count_raw": 4,
+        "negative_lengths": [
+          0,
+          1,
+          3
+        ],
+        "positive_count_distinct": 2,
+        "positive_count_raw": 2,
+        "positive_lengths": [
+          2
+        ],
+        "q_modes": [
+          1,
+          2,
+          3,
+          4,
+          null
+        ]
+      },
+      {
+        "family": "repeated_events_and_duplicate_examples",
+        "hidden": "small/hidden/small_m2_k2_repeated_events_and_duplicate_examples_05.json",
+        "hidden_bytes": 361,
+        "hidden_sha256": "88394c9fbb5c58ed62ecd02ca5d4bde74254cea4a5d103ffca81dda7933366a1",
+        "id": "small_m2_k2_repeated_events_and_duplicate_examples_05",
+        "input": "small/inputs/small_m2_k2_repeated_events_and_duplicate_examples_05.json",
+        "input_bytes": 141,
+        "input_sha256": "27ad8689b36f5864b2c6aef9311a387dcdb3fb0a622a0301f96c6bcc86f90889",
+        "k": 2,
+        "m": 2,
+        "negative_count_distinct": 2,
+        "negative_count_raw": 2,
+        "negative_lengths": [
+          1,
+          3
+        ],
+        "positive_count_distinct": 1,
+        "positive_count_raw": 3,
+        "positive_lengths": [
+          2
+        ],
+        "q_modes": [
+          1,
+          2,
+          3,
+          4,
+          null
+        ]
+      },
+      {
+        "family": "ambiguous_empty_sample",
+        "hidden": "small/hidden/small_m2_k2_ambiguous_empty_sample_06.json",
+        "hidden_bytes": 158,
+        "hidden_sha256": "6cdff3293bfc5c94c0dcdd56effb0b9ec2904f81da034214de910cf298c1d302",
+        "id": "small_m2_k2_ambiguous_empty_sample_06",
+        "input": "small/inputs/small_m2_k2_ambiguous_empty_sample_06.json",
+        "input_bytes": 87,
+        "input_sha256": "d539ac6e6517b0fd12784ccb0c1744bd3db0b2f1a9922a85ab0e8cc168ce78c5",
+        "k": 2,
+        "m": 2,
+        "negative_count_distinct": 0,
+        "negative_count_raw": 0,
+        "negative_lengths": [],
+        "positive_count_distinct": 0,
+        "positive_count_raw": 0,
+        "positive_lengths": [],
+        "q_modes": [
+          1,
+          2,
+          3,
+          4,
+          null
+        ]
+      },
+      {
+        "family": "q_opposition_stress",
+        "hidden": "small/hidden/small_m2_k2_q_opposition_stress_07.json",
+        "hidden_bytes": 343,
+        "hidden_sha256": "1b38a1bf0f16946e4ae2a3378f2431cf0adb2c8ca911a59ed8c09f1574cc56e2",
+        "id": "small_m2_k2_q_opposition_stress_07",
+        "input": "small/inputs/small_m2_k2_q_opposition_stress_07.json",
+        "input_bytes": 124,
+        "input_sha256": "2b861748260268a647241925ffc38c532eebe7f8d93c4094d04b6ff2e3664b7d",
+        "k": 2,
+        "m": 2,
+        "negative_count_distinct": 2,
+        "negative_count_raw": 2,
+        "negative_lengths": [
+          3,
+          4
+        ],
+        "positive_count_distinct": 1,
+        "positive_count_raw": 1,
+        "positive_lengths": [
+          2
+        ],
+        "q_modes": [
+          1,
+          2,
+          3,
+          4,
+          null
+        ]
+      },
+      {
+        "family": "planted_finite_language",
+        "hidden": "small/hidden/small_m3_k2_planted_finite_language_00.json",
+        "hidden_bytes": 370,
+        "hidden_sha256": "184dba23526c72ebc331a5505a225891e1bc97b218da1a73880b03ba68f25899",
+        "id": "small_m3_k2_planted_finite_language_00",
+        "input": "small/inputs/small_m3_k2_planted_finite_language_00.json",
+        "input_bytes": 131,
+        "input_sha256": "417300d84cebacac6ff393b6189939b7353a24b8250d9751b9dc1bdb87b5b376",
+        "k": 2,
+        "m": 3,
+        "negative_count_distinct": 2,
+        "negative_count_raw": 2,
+        "negative_lengths": [
+          2
+        ],
+        "positive_count_distinct": 1,
+        "positive_count_raw": 1,
+        "positive_lengths": [
+          3
+        ],
+        "q_modes": [
+          1,
+          2,
+          3,
+          4,
+          null
+        ]
+      },
+      {
+        "family": "planted_unequal_blocks",
+        "hidden": "small/hidden/small_m3_k2_planted_unequal_blocks_01.json",
+        "hidden_bytes": 369,
+        "hidden_sha256": "b41d9059ec08228b72769081c6485da0e7f350a439e92d4672b7a08752e72ccd",
+        "id": "small_m3_k2_planted_unequal_blocks_01",
+        "input": "small/inputs/small_m3_k2_planted_unequal_blocks_01.json",
+        "input_bytes": 132,
+        "input_sha256": "33194b8ba82b8fe8992c38082d19bf7b139ec6ce88a7b669f3b2934e3422d016",
+        "k": 2,
+        "m": 3,
+        "negative_count_distinct": 2,
+        "negative_count_raw": 2,
+        "negative_lengths": [
+          1,
+          4
+        ],
+        "positive_count_distinct": 1,
+        "positive_count_raw": 1,
+        "positive_lengths": [
+          3
+        ],
+        "q_modes": [
+          1,
+          2,
+          3,
+          4,
+          null
+        ]
+      },
+      {
+        "family": "planted_missing_event_symbols",
+        "hidden": "small/hidden/small_m3_k2_planted_missing_event_symbols_02.json",
+        "hidden_bytes": 401,
+        "hidden_sha256": "39d365bd49b6be3619571cd2a5cdd1311c7e932600f5cbfa912da27f1f05acff",
+        "id": "small_m3_k2_planted_missing_event_symbols_02",
+        "input": "small/inputs/small_m3_k2_planted_missing_event_symbols_02.json",
+        "input_bytes": 149,
+        "input_sha256": "f0d908c3bfae980f13fb58245ac5334efe11a03d0e1cb5ec9fbcca056129202d",
+        "k": 2,
+        "m": 3,
+        "negative_count_distinct": 2,
+        "negative_count_raw": 2,
+        "negative_lengths": [
+          4,
+          5
+        ],
+        "positive_count_distinct": 2,
+        "positive_count_raw": 2,
+        "positive_lengths": [
+          3,
+          5
+        ],
+        "q_modes": [
+          1,
+          2,
+          3,
+          4,
+          null
+        ]
+      },
+      {
+        "family": "random_exact_label_assignments",
+        "hidden": "small/hidden/small_m3_k2_random_exact_label_assignments_03.json",
+        "hidden_bytes": 173,
+        "hidden_sha256": "5473f9da6ddf32972b1e19a4e3cf2830095150d9ee7413ab691c7fa866c04cc3",
+        "id": "small_m3_k2_random_exact_label_assignments_03",
+        "input": "small/inputs/small_m3_k2_random_exact_label_assignments_03.json",
+        "input_bytes": 269,
+        "input_sha256": "f8b8f200a0d89a4510960c32c5a8ef5e9e9ff6f6c95eaba3ca389edc2416f043",
+        "k": 2,
+        "m": 3,
+        "negative_count_distinct": 11,
+        "negative_count_raw": 11,
+        "negative_lengths": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "positive_count_distinct": 6,
+        "positive_count_raw": 6,
+        "positive_lengths": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "q_modes": [
+          1,
+          2,
+          3,
+          4,
+          null
+        ]
+      },
+      {
+        "family": "sparse_random_finite_language",
+        "hidden": "small/hidden/small_m3_k2_sparse_random_finite_language_04.json",
+        "hidden_bytes": 172,
+        "hidden_sha256": "bd1cb49ba3b5c6c4142750703f5e559b69212f09c7b6f0eb48313e53d25bd09c",
+        "id": "small_m3_k2_sparse_random_finite_language_04",
+        "input": "small/inputs/small_m3_k2_sparse_random_finite_language_04.json",
+        "input_bytes": 167,
+        "input_sha256": "02dee6d3f3bee06c76c11207b45de05b21743610655e06a3cc8c5af095058d7b",
+        "k": 2,
+        "m": 3,
+        "negative_count_distinct": 4,
+        "negative_count_raw": 4,
+        "negative_lengths": [
+          0,
+          2,
+          3
+        ],
+        "positive_count_distinct": 3,
+        "positive_count_raw": 3,
+        "positive_lengths": [
+          0,
+          1,
+          3
+        ],
+        "q_modes": [
+          1,
+          2,
+          3,
+          4,
+          null
+        ]
+      },
+      {
+        "family": "repeated_events_and_duplicate_examples",
+        "hidden": "small/hidden/small_m3_k2_repeated_events_and_duplicate_examples_05.json",
+        "hidden_bytes": 384,
+        "hidden_sha256": "c0712b3326a5ef68903af35605893581f147173bf9a4794e405fa810bd670e12",
+        "id": "small_m3_k2_repeated_events_and_duplicate_examples_05",
+        "input": "small/inputs/small_m3_k2_repeated_events_and_duplicate_examples_05.json",
+        "input_bytes": 154,
+        "input_sha256": "2c643bc98a81286b5bb85658b894b5c439846b1497def3ad488132d3653d6733",
+        "k": 2,
+        "m": 3,
+        "negative_count_distinct": 2,
+        "negative_count_raw": 2,
+        "negative_lengths": [
+          1,
+          4
+        ],
+        "positive_count_distinct": 1,
+        "positive_count_raw": 3,
+        "positive_lengths": [
+          3
+        ],
+        "q_modes": [
+          1,
+          2,
+          3,
+          4,
+          null
+        ]
+      },
+      {
+        "family": "ambiguous_empty_sample",
+        "hidden": "small/hidden/small_m3_k2_ambiguous_empty_sample_06.json",
+        "hidden_bytes": 158,
+        "hidden_sha256": "6cdff3293bfc5c94c0dcdd56effb0b9ec2904f81da034214de910cf298c1d302",
+        "id": "small_m3_k2_ambiguous_empty_sample_06",
+        "input": "small/inputs/small_m3_k2_ambiguous_empty_sample_06.json",
+        "input_bytes": 96,
+        "input_sha256": "dfc24ce9f61fabb0261910381a4fe413fb4e0c598f698bb4fcaa941b61fb3800",
+        "k": 2,
+        "m": 3,
+        "negative_count_distinct": 0,
+        "negative_count_raw": 0,
+        "negative_lengths": [],
+        "positive_count_distinct": 0,
+        "positive_count_raw": 0,
+        "positive_lengths": [],
+        "q_modes": [
+          1,
+          2,
+          3,
+          4,
+          null
+        ]
+      },
+      {
+        "family": "q_opposition_stress",
+        "hidden": "small/hidden/small_m3_k2_q_opposition_stress_07.json",
+        "hidden_bytes": 366,
+        "hidden_sha256": "71ea5f810ee2302b48e279aebd306cbda33d8529fb13d74b1cb6115be27d7af9",
+        "id": "small_m3_k2_q_opposition_stress_07",
+        "input": "small/inputs/small_m3_k2_q_opposition_stress_07.json",
+        "input_bytes": 134,
+        "input_sha256": "63a70a87f0478978ffb2d11a19acc6d20df9cf86f672b3c93cf0ca24e503cdf1",
+        "k": 2,
+        "m": 3,
+        "negative_count_distinct": 2,
+        "negative_count_raw": 2,
+        "negative_lengths": [
+          3,
+          4
+        ],
+        "positive_count_distinct": 1,
+        "positive_count_raw": 1,
+        "positive_lengths": [
+          3
+        ],
+        "q_modes": [
+          1,
+          2,
+          3,
+          4,
+          null
+        ]
+      },
+      {
+        "family": "planted_finite_language",
+        "hidden": "small/hidden/small_m3_k3_planted_finite_language_00.json",
+        "hidden_bytes": 416,
+        "hidden_sha256": "7e2e1d2da1487ead7af2c54822293e8137536dc19956979b51a8d1ed138e5114",
+        "id": "small_m3_k3_planted_finite_language_00",
+        "input": "small/inputs/small_m3_k3_planted_finite_language_00.json",
+        "input_bytes": 135,
+        "input_sha256": "033aa4642762edf52f0ef6c57ae474d9f7d10aab6d604a7502f41536efc0cbd1",
+        "k": 3,
+        "m": 3,
+        "negative_count_distinct": 2,
+        "negative_count_raw": 2,
+        "negative_lengths": [
+          3,
+          5
+        ],
+        "positive_count_distinct": 1,
+        "positive_count_raw": 1,
+        "positive_lengths": [
+          3
+        ],
+        "q_modes": [
+          1,
+          2,
+          3,
+          4,
+          null
+        ]
+      },
+      {
+        "family": "planted_unequal_blocks",
+        "hidden": "small/hidden/small_m3_k3_planted_unequal_blocks_01.json",
+        "hidden_bytes": 415,
+        "hidden_sha256": "5d1457dbb2f291bae1210170c27c1e62f61fafa7ed943a3953d1ca8772342f06",
+        "id": "small_m3_k3_planted_unequal_blocks_01",
+        "input": "small/inputs/small_m3_k3_planted_unequal_blocks_01.json",
+        "input_bytes": 129,
+        "input_sha256": "fc20597b56ab6a7e9959f8f105ec12b7d199be494605ce3275ab8c1bb1647992",
+        "k": 3,
+        "m": 3,
+        "negative_count_distinct": 2,
+        "negative_count_raw": 2,
+        "negative_lengths": [
+          1
+        ],
+        "positive_count_distinct": 1,
+        "positive_count_raw": 1,
+        "positive_lengths": [
+          3
+        ],
+        "q_modes": [
+          1,
+          2,
+          3,
+          4,
+          null
+        ]
+      },
+      {
+        "family": "planted_missing_event_symbols",
+        "hidden": "small/hidden/small_m3_k3_planted_missing_event_symbols_02.json",
+        "hidden_bytes": 458,
+        "hidden_sha256": "6ed3503f2e664ef35556c3c5a30f165fc8bc6ef76369498fd0166da3ab159300",
+        "id": "small_m3_k3_planted_missing_event_symbols_02",
+        "input": "small/inputs/small_m3_k3_planted_missing_event_symbols_02.json",
+        "input_bytes": 148,
+        "input_sha256": "039e3ab6674cff83dcec14c2fb28eb276c0a01053a9ebe3e42910e46952d2974",
+        "k": 3,
+        "m": 3,
+        "negative_count_distinct": 2,
+        "negative_count_raw": 2,
+        "negative_lengths": [
+          1,
+          6
+        ],
+        "positive_count_distinct": 2,
+        "positive_count_raw": 2,
+        "positive_lengths": [
+          3,
+          6
+        ],
+        "q_modes": [
+          1,
+          2,
+          3,
+          4,
+          null
+        ]
+      },
+      {
+        "family": "random_exact_label_assignments",
+        "hidden": "small/hidden/small_m3_k3_random_exact_label_assignments_03.json",
+        "hidden_bytes": 173,
+        "hidden_sha256": "1dc1ccbec7aa380b58f78f05655f4fed7dbf937ff4b99d9d56a3c3b1944ab16c",
+        "id": "small_m3_k3_random_exact_label_assignments_03",
+        "input": "small/inputs/small_m3_k3_random_exact_label_assignments_03.json",
+        "input_bytes": 284,
+        "input_sha256": "6c5c9e36b8aae780faa41599658f9e5b6605bd1fff5dcac70c484bdbc3e1676d",
+        "k": 3,
+        "m": 3,
+        "negative_count_distinct": 8,
+        "negative_count_raw": 8,
+        "negative_lengths": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "positive_count_distinct": 10,
+        "positive_count_raw": 10,
+        "positive_lengths": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "q_modes": [
+          1,
+          2,
+          3,
+          4,
+          null
+        ]
+      },
+      {
+        "family": "sparse_random_finite_language",
+        "hidden": "small/hidden/small_m3_k3_sparse_random_finite_language_04.json",
+        "hidden_bytes": 172,
+        "hidden_sha256": "8dcdc6e50fbac893814978bb03be7aafcdd7815fb2605406fd9345575180c3d1",
+        "id": "small_m3_k3_sparse_random_finite_language_04",
+        "input": "small/inputs/small_m3_k3_sparse_random_finite_language_04.json",
+        "input_bytes": 170,
+        "input_sha256": "66e5c5c46b66ba1ac09d609ce9f4ea09b671697a9f4186337f8c8a0f751d45ed",
+        "k": 3,
+        "m": 3,
+        "negative_count_distinct": 5,
+        "negative_count_raw": 5,
+        "negative_lengths": [
+          0,
+          2,
+          3,
+          4
+        ],
+        "positive_count_distinct": 2,
+        "positive_count_raw": 2,
+        "positive_lengths": [
+          0,
+          3
+        ],
+        "q_modes": [
+          1,
+          2,
+          3,
+          4,
+          null
+        ]
+      },
+      {
+        "family": "repeated_events_and_duplicate_examples",
+        "hidden": "small/hidden/small_m3_k3_repeated_events_and_duplicate_examples_05.json",
+        "hidden_bytes": 430,
+        "hidden_sha256": "0c2aa227eacc1219a99deaa4ce6e67ad0af7f2963ba3fee85aec079d523de255",
+        "id": "small_m3_k3_repeated_events_and_duplicate_examples_05",
+        "input": "small/inputs/small_m3_k3_repeated_events_and_duplicate_examples_05.json",
+        "input_bytes": 157,
+        "input_sha256": "8cbd63e85b1dc3bd762fc0388acef2fb699045597261fbff6a537a3572b54ef7",
+        "k": 3,
+        "m": 3,
+        "negative_count_distinct": 2,
+        "negative_count_raw": 2,
+        "negative_lengths": [
+          4
+        ],
+        "positive_count_distinct": 1,
+        "positive_count_raw": 3,
+        "positive_lengths": [
+          3
+        ],
+        "q_modes": [
+          1,
+          2,
+          3,
+          4,
+          null
+        ]
+      },
+      {
+        "family": "ambiguous_empty_sample",
+        "hidden": "small/hidden/small_m3_k3_ambiguous_empty_sample_06.json",
+        "hidden_bytes": 158,
+        "hidden_sha256": "6cdff3293bfc5c94c0dcdd56effb0b9ec2904f81da034214de910cf298c1d302",
+        "id": "small_m3_k3_ambiguous_empty_sample_06",
+        "input": "small/inputs/small_m3_k3_ambiguous_empty_sample_06.json",
+        "input_bytes": 96,
+        "input_sha256": "a57f71de80ad3633f36b790fa316986cbadb4d2105225e889a49ad5a790b3e29",
+        "k": 3,
+        "m": 3,
+        "negative_count_distinct": 0,
+        "negative_count_raw": 0,
+        "negative_lengths": [],
+        "positive_count_distinct": 0,
+        "positive_count_raw": 0,
+        "positive_lengths": [],
+        "q_modes": [
+          1,
+          2,
+          3,
+          4,
+          null
+        ]
+      },
+      {
+        "family": "q_opposition_stress",
+        "hidden": "small/hidden/small_m3_k3_q_opposition_stress_07.json",
+        "hidden_bytes": 412,
+        "hidden_sha256": "920d7605c4a5cee34ae31daebf3e79d0aadafcd68515a2eda59b3d17e045ec00",
+        "id": "small_m3_k3_q_opposition_stress_07",
+        "input": "small/inputs/small_m3_k3_q_opposition_stress_07.json",
+        "input_bytes": 138,
+        "input_sha256": "a7b709f7ddc5749c9ddf851f8dc308912ace2d5cda9238c16a8cf86330f97c95",
+        "k": 3,
+        "m": 3,
+        "negative_count_distinct": 2,
+        "negative_count_raw": 2,
+        "negative_lengths": [
+          5,
+          6
+        ],
+        "positive_count_distinct": 1,
+        "positive_count_raw": 1,
+        "positive_lengths": [
+          3
+        ],
+        "q_modes": [
+          1,
+          2,
+          3,
+          4,
+          null
+        ]
+      },
+      {
+        "family": "planted_finite_language",
+        "hidden": "small/hidden/small_m4_k2_planted_finite_language_00.json",
+        "hidden_bytes": 393,
+        "hidden_sha256": "9e734badc8eb67b1c7a22841738d0dacc0804358f2d6c8334cce2216b5dcbfcd",
+        "id": "small_m4_k2_planted_finite_language_00",
+        "input": "small/inputs/small_m4_k2_planted_finite_language_00.json",
+        "input_bytes": 140,
+        "input_sha256": "8e652681025038cad4e0d6fd5e75a5a5d144bf93ad89936ede53bbf7ea0ea332",
+        "k": 2,
+        "m": 4,
+        "negative_count_distinct": 2,
+        "negative_count_raw": 2,
+        "negative_lengths": [
+          1,
+          2
+        ],
+        "positive_count_distinct": 1,
+        "positive_count_raw": 1,
+        "positive_lengths": [
+          4
+        ],
+        "q_modes": [
+          1,
+          2,
+          3,
+          4,
+          null
+        ]
+      },
+      {
+        "family": "planted_unequal_blocks",
+        "hidden": "small/hidden/small_m4_k2_planted_unequal_blocks_01.json",
+        "hidden_bytes": 392,
+        "hidden_sha256": "d12cb78ccef426343d283783d105ad996b22b2409fb00dd19a584f55adbce717",
+        "id": "small_m4_k2_planted_unequal_blocks_01",
+        "input": "small/inputs/small_m4_k2_planted_unequal_blocks_01.json",
+        "input_bytes": 152,
+        "input_sha256": "b74bbfae3aa8a0f41282ac6c09f7dc4483d67a99805009e3a4dc2a57c9422910",
+        "k": 2,
+        "m": 4,
+        "negative_count_distinct": 2,
+        "negative_count_raw": 2,
+        "negative_lengths": [
+          7,
+          8
+        ],
+        "positive_count_distinct": 1,
+        "positive_count_raw": 1,
+        "positive_lengths": [
+          4
+        ],
+        "q_modes": [
+          1,
+          2,
+          3,
+          4,
+          null
+        ]
+      },
+      {
+        "family": "planted_missing_event_symbols",
+        "hidden": "small/hidden/small_m4_k2_planted_missing_event_symbols_02.json",
+        "hidden_bytes": 423,
+        "hidden_sha256": "4339c9e78987f938743921c87e45f8aebcdcd2ccc262d97b93631ae88f03b878",
+        "id": "small_m4_k2_planted_missing_event_symbols_02",
+        "input": "small/inputs/small_m4_k2_planted_missing_event_symbols_02.json",
+        "input_bytes": 154,
+        "input_sha256": "27e3e02935a57d07dafb95896fc258d756c97bbd4377037f2134b589634a68fa",
+        "k": 2,
+        "m": 4,
+        "negative_count_distinct": 2,
+        "negative_count_raw": 2,
+        "negative_lengths": [
+          2,
+          3
+        ],
+        "positive_count_distinct": 2,
+        "positive_count_raw": 2,
+        "positive_lengths": [
+          3,
+          5
+        ],
+        "q_modes": [
+          1,
+          2,
+          3,
+          4,
+          null
+        ]
+      },
+      {
+        "family": "random_exact_label_assignments",
+        "hidden": "small/hidden/small_m4_k2_random_exact_label_assignments_03.json",
+        "hidden_bytes": 173,
+        "hidden_sha256": "06a866ce0ef70c8791f0e4edf0f5aff3a6a7717e2ffc877aecff2b814eb28ff5",
+        "id": "small_m4_k2_random_exact_label_assignments_03",
+        "input": "small/inputs/small_m4_k2_random_exact_label_assignments_03.json",
+        "input_bytes": 327,
+        "input_sha256": "b3e16a89412fd9dacf7761051943722339f9c70384bcbbbc8538ccd3bce1460d",
+        "k": 2,
+        "m": 4,
+        "negative_count_distinct": 12,
+        "negative_count_raw": 12,
+        "negative_lengths": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "positive_count_distinct": 8,
+        "positive_count_raw": 8,
+        "positive_lengths": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "q_modes": [
+          1,
+          2,
+          3,
+          4,
+          null
+        ]
+      },
+      {
+        "family": "sparse_random_finite_language",
+        "hidden": "small/hidden/small_m4_k2_sparse_random_finite_language_04.json",
+        "hidden_bytes": 172,
+        "hidden_sha256": "bef2507e89fd19d86e1d8a179775e00304a36b3ebadf917132d4431b04ed0528",
+        "id": "small_m4_k2_sparse_random_finite_language_04",
+        "input": "small/inputs/small_m4_k2_sparse_random_finite_language_04.json",
+        "input_bytes": 181,
+        "input_sha256": "40cd1fa89636a3dbf810054e068acb32f02db957843c6026531580b894e20166",
+        "k": 2,
+        "m": 4,
+        "negative_count_distinct": 4,
+        "negative_count_raw": 4,
+        "negative_lengths": [
+          0,
+          1,
+          4,
+          5
+        ],
+        "positive_count_distinct": 3,
+        "positive_count_raw": 3,
+        "positive_lengths": [
+          0,
+          2,
+          4
+        ],
+        "q_modes": [
+          1,
+          2,
+          3,
+          4,
+          null
+        ]
+      },
+      {
+        "family": "repeated_events_and_duplicate_examples",
+        "hidden": "small/hidden/small_m4_k2_repeated_events_and_duplicate_examples_05.json",
+        "hidden_bytes": 407,
+        "hidden_sha256": "98528a8d9b7c6aba29cfd6879fda3ba72f9439532a67f2fa0c892b236214cbd2",
+        "id": "small_m4_k2_repeated_events_and_duplicate_examples_05",
+        "input": "small/inputs/small_m4_k2_repeated_events_and_duplicate_examples_05.json",
+        "input_bytes": 170,
+        "input_sha256": "62002aee5ea6e0fbe93c02ef7f9bfedf518658a322558f8cae05013a33bc7f48",
+        "k": 2,
+        "m": 4,
+        "negative_count_distinct": 2,
+        "negative_count_raw": 2,
+        "negative_lengths": [
+          1,
+          8
+        ],
+        "positive_count_distinct": 1,
+        "positive_count_raw": 3,
+        "positive_lengths": [
+          4
+        ],
+        "q_modes": [
+          1,
+          2,
+          3,
+          4,
+          null
+        ]
+      },
+      {
+        "family": "ambiguous_empty_sample",
+        "hidden": "small/hidden/small_m4_k2_ambiguous_empty_sample_06.json",
+        "hidden_bytes": 158,
+        "hidden_sha256": "6cdff3293bfc5c94c0dcdd56effb0b9ec2904f81da034214de910cf298c1d302",
+        "id": "small_m4_k2_ambiguous_empty_sample_06",
+        "input": "small/inputs/small_m4_k2_ambiguous_empty_sample_06.json",
+        "input_bytes": 105,
+        "input_sha256": "3d0118c6c6328936dbd024cfec1ea275498f47156139c64200572dadbf702652",
+        "k": 2,
+        "m": 4,
+        "negative_count_distinct": 0,
+        "negative_count_raw": 0,
+        "negative_lengths": [],
+        "positive_count_distinct": 0,
+        "positive_count_raw": 0,
+        "positive_lengths": [],
+        "q_modes": [
+          1,
+          2,
+          3,
+          4,
+          null
+        ]
+      },
+      {
+        "family": "q_opposition_stress",
+        "hidden": "small/hidden/small_m4_k2_q_opposition_stress_07.json",
+        "hidden_bytes": 389,
+        "hidden_sha256": "15f0eeef6c146b937b35fb7683e7232ef31f4d6aabaf21829b5be18602046fa2",
+        "id": "small_m4_k2_q_opposition_stress_07",
+        "input": "small/inputs/small_m4_k2_q_opposition_stress_07.json",
+        "input_bytes": 146,
+        "input_sha256": "b6f5c37fd1ca5e7ab063e79a5062bc15fa3b8d52909ef4a7c7e241ec8edb467b",
+        "k": 2,
+        "m": 4,
+        "negative_count_distinct": 2,
+        "negative_count_raw": 2,
+        "negative_lengths": [
+          3,
+          6
+        ],
+        "positive_count_distinct": 1,
+        "positive_count_raw": 1,
+        "positive_lengths": [
+          4
+        ],
+        "q_modes": [
+          1,
+          2,
+          3,
+          4,
+          null
+        ]
+      },
+      {
+        "family": "planted_finite_language",
+        "hidden": "small/hidden/small_m4_k3_planted_finite_language_00.json",
+        "hidden_bytes": 439,
+        "hidden_sha256": "42ef9a0a3adfbad7a90cd86be63ae838872d4cfc52a59c9b5308a8ad1c1ad341",
+        "id": "small_m4_k3_planted_finite_language_00",
+        "input": "small/inputs/small_m4_k3_planted_finite_language_00.json",
+        "input_bytes": 142,
+        "input_sha256": "3eeaed5f71b45cafdd353fa752a34215dbb7d615729799f1409f1d35c94c1d76",
+        "k": 3,
+        "m": 4,
+        "negative_count_distinct": 2,
+        "negative_count_raw": 2,
+        "negative_lengths": [
+          2,
+          3
+        ],
+        "positive_count_distinct": 1,
+        "positive_count_raw": 1,
+        "positive_lengths": [
+          4
+        ],
+        "q_modes": [
+          1,
+          2,
+          3,
+          4,
+          null
+        ]
+      },
+      {
+        "family": "planted_unequal_blocks",
+        "hidden": "small/hidden/small_m4_k3_planted_unequal_blocks_01.json",
+        "hidden_bytes": 438,
+        "hidden_sha256": "5232f23430d10386db034c109a88f568cf92f00d41edced75d7ebf3b512d8e06",
+        "id": "small_m4_k3_planted_unequal_blocks_01",
+        "input": "small/inputs/small_m4_k3_planted_unequal_blocks_01.json",
+        "input_bytes": 148,
+        "input_sha256": "f3fdb41d0775133979c244a1313d0bc8cba096d64f0ed9ee9e68122dcb5d6967",
+        "k": 3,
+        "m": 4,
+        "negative_count_distinct": 2,
+        "negative_count_raw": 2,
+        "negative_lengths": [
+          5,
+          6
+        ],
+        "positive_count_distinct": 1,
+        "positive_count_raw": 1,
+        "positive_lengths": [
+          4
+        ],
+        "q_modes": [
+          1,
+          2,
+          3,
+          4,
+          null
+        ]
+      },
+      {
+        "family": "planted_missing_event_symbols",
+        "hidden": "small/hidden/small_m4_k3_planted_missing_event_symbols_02.json",
+        "hidden_bytes": 469,
+        "hidden_sha256": "1ee9ebd69c495211bd3c1ac085c6edae22f589cbfe245e2a01f7e15f775289de",
+        "id": "small_m4_k3_planted_missing_event_symbols_02",
+        "input": "small/inputs/small_m4_k3_planted_missing_event_symbols_02.json",
+        "input_bytes": 158,
+        "input_sha256": "7dd1ffc9ba7bd8628d64c7528ce67f2cc5b0400fe6488a1111d2d71cf967a2d7",
+        "k": 3,
+        "m": 4,
+        "negative_count_distinct": 2,
+        "negative_count_raw": 2,
+        "negative_lengths": [
+          3,
+          5
+        ],
+        "positive_count_distinct": 2,
+        "positive_count_raw": 2,
+        "positive_lengths": [
+          3,
+          6
+        ],
+        "q_modes": [
+          1,
+          2,
+          3,
+          4,
+          null
+        ]
+      },
+      {
+        "family": "random_exact_label_assignments",
+        "hidden": "small/hidden/small_m4_k3_random_exact_label_assignments_03.json",
+        "hidden_bytes": 173,
+        "hidden_sha256": "d4d12da3367e2bd87debb31c5e72976bceecde82498ec6b03cd66d5b10fccbee",
+        "id": "small_m4_k3_random_exact_label_assignments_03",
+        "input": "small/inputs/small_m4_k3_random_exact_label_assignments_03.json",
+        "input_bytes": 354,
+        "input_sha256": "a5df34f9f5cd990ce0c665a5d96d2b8a737196246fe16cb06409e564280478a0",
+        "k": 3,
+        "m": 4,
+        "negative_count_distinct": 11,
+        "negative_count_raw": 11,
+        "negative_lengths": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "positive_count_distinct": 12,
+        "positive_count_raw": 12,
+        "positive_lengths": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "q_modes": [
+          1,
+          2,
+          3,
+          4,
+          null
+        ]
+      },
+      {
+        "family": "sparse_random_finite_language",
+        "hidden": "small/hidden/small_m4_k3_sparse_random_finite_language_04.json",
+        "hidden_bytes": 172,
+        "hidden_sha256": "c0715564bf46dd772073528a495b5fc2b92a4e8e69061944f1259ceec6c0d9e3",
+        "id": "small_m4_k3_sparse_random_finite_language_04",
+        "input": "small/inputs/small_m4_k3_sparse_random_finite_language_04.json",
+        "input_bytes": 183,
+        "input_sha256": "8ea24166bdb92474483f2bf1c00e8fbf4d6a367ed31b7a210528508362d2f18b",
+        "k": 3,
+        "m": 4,
+        "negative_count_distinct": 6,
+        "negative_count_raw": 6,
+        "negative_lengths": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "positive_count_distinct": 1,
+        "positive_count_raw": 1,
+        "positive_lengths": [
+          5
+        ],
+        "q_modes": [
+          1,
+          2,
+          3,
+          4,
+          null
+        ]
+      },
+      {
+        "family": "repeated_events_and_duplicate_examples",
+        "hidden": "small/hidden/small_m4_k3_repeated_events_and_duplicate_examples_05.json",
+        "hidden_bytes": 453,
+        "hidden_sha256": "186c656eb03cdd83cedbfa4e6a1c216ae231f77f7e21319df2cedb949f75f8eb",
+        "id": "small_m4_k3_repeated_events_and_duplicate_examples_05",
+        "input": "small/inputs/small_m4_k3_repeated_events_and_duplicate_examples_05.json",
+        "input_bytes": 173,
+        "input_sha256": "1a4a86ab69b963d260cf92b3f3600f29ed95382d84bda256f28633a2fa7685eb",
+        "k": 3,
+        "m": 4,
+        "negative_count_distinct": 2,
+        "negative_count_raw": 2,
+        "negative_lengths": [
+          5,
+          7
+        ],
+        "positive_count_distinct": 1,
+        "positive_count_raw": 3,
+        "positive_lengths": [
+          4
+        ],
+        "q_modes": [
+          1,
+          2,
+          3,
+          4,
+          null
+        ]
+      },
+      {
+        "family": "ambiguous_empty_sample",
+        "hidden": "small/hidden/small_m4_k3_ambiguous_empty_sample_06.json",
+        "hidden_bytes": 158,
+        "hidden_sha256": "6cdff3293bfc5c94c0dcdd56effb0b9ec2904f81da034214de910cf298c1d302",
+        "id": "small_m4_k3_ambiguous_empty_sample_06",
+        "input": "small/inputs/small_m4_k3_ambiguous_empty_sample_06.json",
+        "input_bytes": 105,
+        "input_sha256": "258f79bfe20634305e3c170a8eccae6e9821aeafdb1c7f2efa660913dff111e7",
+        "k": 3,
+        "m": 4,
+        "negative_count_distinct": 0,
+        "negative_count_raw": 0,
+        "negative_lengths": [],
+        "positive_count_distinct": 0,
+        "positive_count_raw": 0,
+        "positive_lengths": [],
+        "q_modes": [
+          1,
+          2,
+          3,
+          4,
+          null
+        ]
+      },
+      {
+        "family": "q_opposition_stress",
+        "hidden": "small/hidden/small_m4_k3_q_opposition_stress_07.json",
+        "hidden_bytes": 435,
+        "hidden_sha256": "374b5dae91813419ced72209108e4352db4e8447c491a0c03975eee58968f5c6",
+        "id": "small_m4_k3_q_opposition_stress_07",
+        "input": "small/inputs/small_m4_k3_q_opposition_stress_07.json",
+        "input_bytes": 146,
+        "input_sha256": "b7f9b681b79b30d939a79a55866fd9940cd874cb4ba2f0b11238a42b5166a31b",
+        "k": 3,
+        "m": 4,
+        "negative_count_distinct": 2,
+        "negative_count_raw": 2,
+        "negative_lengths": [
+          4,
+          5
+        ],
+        "positive_count_distinct": 1,
+        "positive_count_raw": 1,
+        "positive_lengths": [
+          4
+        ],
+        "q_modes": [
+          1,
+          2,
+          3,
+          4,
+          null
+        ]
+      },
+      {
+        "family": "planted_finite_language",
+        "hidden": "small/hidden/small_m4_k4_planted_finite_language_00.json",
+        "hidden_bytes": 485,
+        "hidden_sha256": "9621db5add95f25ab95e6056f853e4d66b46c06624276956e379dfddf4d0d092",
+        "id": "small_m4_k4_planted_finite_language_00",
+        "input": "small/inputs/small_m4_k4_planted_finite_language_00.json",
+        "input_bytes": 145,
+        "input_sha256": "8d2fcd69703ebd04cd2fe417d3882840fa10d76be585b30a357ae41a1f78aad5",
+        "k": 4,
+        "m": 4,
+        "negative_count_distinct": 2,
+        "negative_count_raw": 2,
+        "negative_lengths": [
+          3,
+          5
+        ],
+        "positive_count_distinct": 1,
+        "positive_count_raw": 1,
+        "positive_lengths": [
+          4
+        ],
+        "q_modes": [
+          1,
+          2,
+          3,
+          4,
+          null
+        ]
+      },
+      {
+        "family": "planted_unequal_blocks",
+        "hidden": "small/hidden/small_m4_k4_planted_unequal_blocks_01.json",
+        "hidden_bytes": 484,
+        "hidden_sha256": "d2dc5601649fb585c63bc4e6e7f1a48fb37dc8d575ec42e12aba039415b6e748",
+        "id": "small_m4_k4_planted_unequal_blocks_01",
+        "input": "small/inputs/small_m4_k4_planted_unequal_blocks_01.json",
+        "input_bytes": 150,
+        "input_sha256": "9d120edc958bb8e5f943966dfbfd2579f61a22e1cf199f5bf3883728d764b6f9",
+        "k": 4,
+        "m": 4,
+        "negative_count_distinct": 2,
+        "negative_count_raw": 2,
+        "negative_lengths": [
+          6,
+          7
+        ],
+        "positive_count_distinct": 1,
+        "positive_count_raw": 1,
+        "positive_lengths": [
+          4
+        ],
+        "q_modes": [
+          1,
+          2,
+          3,
+          4,
+          null
+        ]
+      },
+      {
+        "family": "planted_missing_event_symbols",
+        "hidden": "small/hidden/small_m4_k4_planted_missing_event_symbols_02.json",
+        "hidden_bytes": 539,
+        "hidden_sha256": "c63c95ad10688ab35ca501791c509678c494d7280fabdc75e63aa271ef586b56",
+        "id": "small_m4_k4_planted_missing_event_symbols_02",
+        "input": "small/inputs/small_m4_k4_planted_missing_event_symbols_02.json",
+        "input_bytes": 159,
+        "input_sha256": "006048b6a6ee2b45a8b97d7de8d6669255c8ea31d50ca7e6b5d36efa0c20cf73",
+        "k": 4,
+        "m": 4,
+        "negative_count_distinct": 2,
+        "negative_count_raw": 2,
+        "negative_lengths": [
+          2,
+          4
+        ],
+        "positive_count_distinct": 2,
+        "positive_count_raw": 2,
+        "positive_lengths": [
+          4,
+          8
+        ],
+        "q_modes": [
+          1,
+          2,
+          3,
+          4,
+          null
+        ]
+      },
+      {
+        "family": "random_exact_label_assignments",
+        "hidden": "small/hidden/small_m4_k4_random_exact_label_assignments_03.json",
+        "hidden_bytes": 173,
+        "hidden_sha256": "66b4e0d53592a711bd95172a92f1908de3f51f10db37840dc86c3a3ce1c3b710",
+        "id": "small_m4_k4_random_exact_label_assignments_03",
+        "input": "small/inputs/small_m4_k4_random_exact_label_assignments_03.json",
+        "input_bytes": 276,
+        "input_sha256": "4dfcf196cc1f9e1d750330fab838fc8ff64bdcc808523d9d4f63063497abde11",
+        "k": 4,
+        "m": 4,
+        "negative_count_distinct": 7,
+        "negative_count_raw": 7,
+        "negative_lengths": [
+          0,
+          1,
+          2,
+          3,
+          5
+        ],
+        "positive_count_distinct": 9,
+        "positive_count_raw": 9,
+        "positive_lengths": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "q_modes": [
+          1,
+          2,
+          3,
+          4,
+          null
+        ]
+      },
+      {
+        "family": "sparse_random_finite_language",
+        "hidden": "small/hidden/small_m4_k4_sparse_random_finite_language_04.json",
+        "hidden_bytes": 172,
+        "hidden_sha256": "3080bb35d05dcd4f811d5618f87f2f6ef3a1b2c24fb290ae86d2200f5f9a9612",
+        "id": "small_m4_k4_sparse_random_finite_language_04",
+        "input": "small/inputs/small_m4_k4_sparse_random_finite_language_04.json",
+        "input_bytes": 199,
+        "input_sha256": "0908eae51da761ba397a12dc903ffc7453ad47188898f2a3607bdfae730e4271",
+        "k": 4,
+        "m": 4,
+        "negative_count_distinct": 6,
+        "negative_count_raw": 6,
+        "negative_lengths": [
+          1,
+          2,
+          5
+        ],
+        "positive_count_distinct": 2,
+        "positive_count_raw": 2,
+        "positive_lengths": [
+          2,
+          5
+        ],
+        "q_modes": [
+          1,
+          2,
+          3,
+          4,
+          null
+        ]
+      },
+      {
+        "family": "repeated_events_and_duplicate_examples",
+        "hidden": "small/hidden/small_m4_k4_repeated_events_and_duplicate_examples_05.json",
+        "hidden_bytes": 499,
+        "hidden_sha256": "3cf780928fd39827a1cc8e36a02604fb446fea8e587430b81b8cbf6b7f23cc35",
+        "id": "small_m4_k4_repeated_events_and_duplicate_examples_05",
+        "input": "small/inputs/small_m4_k4_repeated_events_and_duplicate_examples_05.json",
+        "input_bytes": 172,
+        "input_sha256": "4038d3af785bdbf94ece139d140e73f8688262537da2e17b5cc9a8ea07956c2d",
+        "k": 4,
+        "m": 4,
+        "negative_count_distinct": 2,
+        "negative_count_raw": 2,
+        "negative_lengths": [
+          5,
+          6
+        ],
+        "positive_count_distinct": 1,
+        "positive_count_raw": 3,
+        "positive_lengths": [
+          4
+        ],
+        "q_modes": [
+          1,
+          2,
+          3,
+          4,
+          null
+        ]
+      },
+      {
+        "family": "ambiguous_empty_sample",
+        "hidden": "small/hidden/small_m4_k4_ambiguous_empty_sample_06.json",
+        "hidden_bytes": 158,
+        "hidden_sha256": "6cdff3293bfc5c94c0dcdd56effb0b9ec2904f81da034214de910cf298c1d302",
+        "id": "small_m4_k4_ambiguous_empty_sample_06",
+        "input": "small/inputs/small_m4_k4_ambiguous_empty_sample_06.json",
+        "input_bytes": 105,
+        "input_sha256": "b0088d52b78865fbf7ba5cd59a0acb32332f20813c783daebdd20d2d3baec64e",
+        "k": 4,
+        "m": 4,
+        "negative_count_distinct": 0,
+        "negative_count_raw": 0,
+        "negative_lengths": [],
+        "positive_count_distinct": 0,
+        "positive_count_raw": 0,
+        "positive_lengths": [],
+        "q_modes": [
+          1,
+          2,
+          3,
+          4,
+          null
+        ]
+      },
+      {
+        "family": "q_opposition_stress",
+        "hidden": "small/hidden/small_m4_k4_q_opposition_stress_07.json",
+        "hidden_bytes": 481,
+        "hidden_sha256": "072ae5d8eda7c58c14586cc1a0df0a15a123b7485ac618b1490b9f029dd04139",
+        "id": "small_m4_k4_q_opposition_stress_07",
+        "input": "small/inputs/small_m4_k4_q_opposition_stress_07.json",
+        "input_bytes": 146,
+        "input_sha256": "fe52a85f0a7fd38cb07533d14ea4369250c8161464072a7d83678c20affb1d0c",
+        "k": 4,
+        "m": 4,
+        "negative_count_distinct": 2,
+        "negative_count_raw": 2,
+        "negative_lengths": [
+          2,
+          7
+        ],
+        "positive_count_distinct": 1,
+        "positive_count_raw": 1,
+        "positive_lengths": [
+          4
+        ],
+        "q_modes": [
+          1,
+          2,
+          3,
+          4,
+          null
+        ]
+      },
+      {
+        "family": "planted_finite_language",
+        "hidden": "small/hidden/small_m5_k2_planted_finite_language_00.json",
+        "hidden_bytes": 416,
+        "hidden_sha256": "8226fde1c45801f7fd8bd18fd4562426cce9214fe977b513b8d95d4b7bdad9cc",
+        "id": "small_m5_k2_planted_finite_language_00",
+        "input": "small/inputs/small_m5_k2_planted_finite_language_00.json",
+        "input_bytes": 158,
+        "input_sha256": "dca4903fb604d4c401ceb87c71e3b6de26aff25123ad956e1ad5134b05370ac0",
+        "k": 2,
+        "m": 5,
+        "negative_count_distinct": 2,
+        "negative_count_raw": 2,
+        "negative_lengths": [
+          2,
+          9
+        ],
+        "positive_count_distinct": 1,
+        "positive_count_raw": 1,
+        "positive_lengths": [
+          5
+        ],
+        "q_modes": [
+          1,
+          2,
+          3,
+          4,
+          null
+        ]
+      },
+      {
+        "family": "planted_unequal_blocks",
+        "hidden": "small/hidden/small_m5_k2_planted_unequal_blocks_01.json",
+        "hidden_bytes": 428,
+        "hidden_sha256": "b50d0d133ac8b03e20b439858f0218c51c4c2352d89a560cfc0fcc23d4c4bfae",
+        "id": "small_m5_k2_planted_unequal_blocks_01",
+        "input": "small/inputs/small_m5_k2_planted_unequal_blocks_01.json",
+        "input_bytes": 170,
+        "input_sha256": "563d54d5924279918cff4e1dea5889da249fc749fd025b670ce7d0cc8cc0d50e",
+        "k": 2,
+        "m": 5,
+        "negative_count_distinct": 2,
+        "negative_count_raw": 2,
+        "negative_lengths": [
+          2,
+          8
+        ],
+        "positive_count_distinct": 2,
+        "positive_count_raw": 2,
+        "positive_lengths": [
+          5
+        ],
+        "q_modes": [
+          1,
+          2,
+          3,
+          4,
+          null
+        ]
+      },
+      {
+        "family": "planted_missing_event_symbols",
+        "hidden": "small/hidden/small_m5_k2_planted_missing_event_symbols_02.json",
+        "hidden_bytes": 449,
+        "hidden_sha256": "c80124966ac99ae275f8ea9e8f5a79168aade30ede825ab4dfa3a05b80d123e6",
+        "id": "small_m5_k2_planted_missing_event_symbols_02",
+        "input": "small/inputs/small_m5_k2_planted_missing_event_symbols_02.json",
+        "input_bytes": 182,
+        "input_sha256": "35cc29f800fac1757ff72c52c443bc06d7913e177f19c3918afe43c7a489cbe8",
+        "k": 2,
+        "m": 5,
+        "negative_count_distinct": 2,
+        "negative_count_raw": 2,
+        "negative_lengths": [
+          2,
+          8
+        ],
+        "positive_count_distinct": 3,
+        "positive_count_raw": 3,
+        "positive_lengths": [
+          4,
+          5
+        ],
+        "q_modes": [
+          1,
+          2,
+          3,
+          4,
+          null
+        ]
+      },
+      {
+        "family": "random_exact_label_assignments",
+        "hidden": "small/hidden/small_m5_k2_random_exact_label_assignments_03.json",
+        "hidden_bytes": 173,
+        "hidden_sha256": "9d1fd44bc04ff81eddafd9f7418877a73837c66412588779d8305167a547355d",
+        "id": "small_m5_k2_random_exact_label_assignments_03",
+        "input": "small/inputs/small_m5_k2_random_exact_label_assignments_03.json",
+        "input_bytes": 356,
+        "input_sha256": "ca0a4c526e1fcb58c0d2ea707e184841a04c015ca56a08689ce9ff2663c3b268",
+        "k": 2,
+        "m": 5,
+        "negative_count_distinct": 9,
+        "negative_count_raw": 9,
+        "negative_lengths": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "positive_count_distinct": 12,
+        "positive_count_raw": 12,
+        "positive_lengths": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "q_modes": [
+          1,
+          2,
+          3,
+          4,
+          null
+        ]
+      },
+      {
+        "family": "sparse_random_finite_language",
+        "hidden": "small/hidden/small_m5_k2_sparse_random_finite_language_04.json",
+        "hidden_bytes": 172,
+        "hidden_sha256": "e1f1389a87b1609159d24ef130a006a96a217cd91efb77e6a12262c71838717d",
+        "id": "small_m5_k2_sparse_random_finite_language_04",
+        "input": "small/inputs/small_m5_k2_sparse_random_finite_language_04.json",
+        "input_bytes": 197,
+        "input_sha256": "3c32411ddec43a9b5d1abeb5eaea5d6efcbe42a8525a6ae8dbef8ad721d363ed",
+        "k": 2,
+        "m": 5,
+        "negative_count_distinct": 4,
+        "negative_count_raw": 4,
+        "negative_lengths": [
+          0,
+          3
+        ],
+        "positive_count_distinct": 3,
+        "positive_count_raw": 3,
+        "positive_lengths": [
+          3,
+          5,
+          6
+        ],
+        "q_modes": [
+          1,
+          2,
+          3,
+          4,
+          null
+        ]
+      },
+      {
+        "family": "repeated_events_and_duplicate_examples",
+        "hidden": "small/hidden/small_m5_k2_repeated_events_and_duplicate_examples_05.json",
+        "hidden_bytes": 443,
+        "hidden_sha256": "f8526bf1f6b4cfdffc958df1233abfaecad9bbf448691d8f260b1e4d69632187",
+        "id": "small_m5_k2_repeated_events_and_duplicate_examples_05",
+        "input": "small/inputs/small_m5_k2_repeated_events_and_duplicate_examples_05.json",
+        "input_bytes": 204,
+        "input_sha256": "218d3fde49ea31c55517462c1817d0f50578934a0c28e1d0dd8d17b2557b745d",
+        "k": 2,
+        "m": 5,
+        "negative_count_distinct": 2,
+        "negative_count_raw": 2,
+        "negative_lengths": [
+          9
+        ],
+        "positive_count_distinct": 2,
+        "positive_count_raw": 4,
+        "positive_lengths": [
+          5
+        ],
+        "q_modes": [
+          1,
+          2,
+          3,
+          4,
+          null
+        ]
+      },
+      {
+        "family": "ambiguous_empty_sample",
+        "hidden": "small/hidden/small_m5_k2_ambiguous_empty_sample_06.json",
+        "hidden_bytes": 158,
+        "hidden_sha256": "6cdff3293bfc5c94c0dcdd56effb0b9ec2904f81da034214de910cf298c1d302",
+        "id": "small_m5_k2_ambiguous_empty_sample_06",
+        "input": "small/inputs/small_m5_k2_ambiguous_empty_sample_06.json",
+        "input_bytes": 114,
+        "input_sha256": "da5f466205a73f9f53205875eb4a3a5d0898570a0f8aad8356b13f38e1b48940",
+        "k": 2,
+        "m": 5,
+        "negative_count_distinct": 0,
+        "negative_count_raw": 0,
+        "negative_lengths": [],
+        "positive_count_distinct": 0,
+        "positive_count_raw": 0,
+        "positive_lengths": [],
+        "q_modes": [
+          1,
+          2,
+          3,
+          4,
+          null
+        ]
+      },
+      {
+        "family": "q_opposition_stress",
+        "hidden": "small/hidden/small_m5_k2_q_opposition_stress_07.json",
+        "hidden_bytes": 425,
+        "hidden_sha256": "38c579a2dd19191d69a79d114a49eca103d3ccb9d854feb86daa6a3b56b36081",
+        "id": "small_m5_k2_q_opposition_stress_07",
+        "input": "small/inputs/small_m5_k2_q_opposition_stress_07.json",
+        "input_bytes": 173,
+        "input_sha256": "8c5a98c89fad7dad98fee311f8c46be2514f78e2b1146009bd6ea1974a7a0769",
+        "k": 2,
+        "m": 5,
+        "negative_count_distinct": 2,
+        "negative_count_raw": 2,
+        "negative_lengths": [
+          3,
+          10
+        ],
+        "positive_count_distinct": 2,
+        "positive_count_raw": 2,
+        "positive_lengths": [
+          5
+        ],
+        "q_modes": [
+          1,
+          2,
+          3,
+          4,
+          null
+        ]
+      },
+      {
+        "family": "planted_finite_language",
+        "hidden": "small/hidden/small_m5_k3_planted_finite_language_00.json",
+        "hidden_bytes": 462,
+        "hidden_sha256": "ed12d396c383eda408c8b863bca44bdf832c462ed375c1620980cf22152d86ff",
+        "id": "small_m5_k3_planted_finite_language_00",
+        "input": "small/inputs/small_m5_k3_planted_finite_language_00.json",
+        "input_bytes": 149,
+        "input_sha256": "f1f93bb00b9a04ba1424fba000bf1e2d112c3089f142c0700aa2ceeb4b51626a",
+        "k": 3,
+        "m": 5,
+        "negative_count_distinct": 2,
+        "negative_count_raw": 2,
+        "negative_lengths": [
+          1
+        ],
+        "positive_count_distinct": 1,
+        "positive_count_raw": 1,
+        "positive_lengths": [
+          5
+        ],
+        "q_modes": [
+          1,
+          2,
+          3,
+          4,
+          null
+        ]
+      },
+      {
+        "family": "planted_unequal_blocks",
+        "hidden": "small/hidden/small_m5_k3_planted_unequal_blocks_01.json",
+        "hidden_bytes": 461,
+        "hidden_sha256": "bdd2088b90272637d878c1d9e383d6d7ea11fe7fb4d431a88baa3107a8edb89c",
+        "id": "small_m5_k3_planted_unequal_blocks_01",
+        "input": "small/inputs/small_m5_k3_planted_unequal_blocks_01.json",
+        "input_bytes": 154,
+        "input_sha256": "964be37ec596c57d254ccf743c745b10447456f6a07a1bf7843b86fd4a426077",
+        "k": 3,
+        "m": 5,
+        "negative_count_distinct": 2,
+        "negative_count_raw": 2,
+        "negative_lengths": [
+          1,
+          6
+        ],
+        "positive_count_distinct": 1,
+        "positive_count_raw": 1,
+        "positive_lengths": [
+          5
+        ],
+        "q_modes": [
+          1,
+          2,
+          3,
+          4,
+          null
+        ]
+      },
+      {
+        "family": "planted_missing_event_symbols",
+        "hidden": "small/hidden/small_m5_k3_planted_missing_event_symbols_02.json",
+        "hidden_bytes": 506,
+        "hidden_sha256": "45120934b1fa0e9b665aa98a74a22a0202eabdb6c034c552d6f65096b5fe63f8",
+        "id": "small_m5_k3_planted_missing_event_symbols_02",
+        "input": "small/inputs/small_m5_k3_planted_missing_event_symbols_02.json",
+        "input_bytes": 174,
+        "input_sha256": "3697154d0a4977ecc09088fa340e7450e414591a871cc7e9353942a5ec766de3",
+        "k": 3,
+        "m": 5,
+        "negative_count_distinct": 2,
+        "negative_count_raw": 2,
+        "negative_lengths": [
+          3,
+          8
+        ],
+        "positive_count_distinct": 2,
+        "positive_count_raw": 2,
+        "positive_lengths": [
+          5,
+          8
+        ],
+        "q_modes": [
+          1,
+          2,
+          3,
+          4,
+          null
+        ]
+      },
+      {
+        "family": "random_exact_label_assignments",
+        "hidden": "small/hidden/small_m5_k3_random_exact_label_assignments_03.json",
+        "hidden_bytes": 173,
+        "hidden_sha256": "9c78ba5fbc5e6d246adf164027543028b0a781c3e84e6d75edef545007d94d17",
+        "id": "small_m5_k3_random_exact_label_assignments_03",
+        "input": "small/inputs/small_m5_k3_random_exact_label_assignments_03.json",
+        "input_bytes": 381,
+        "input_sha256": "1171fcfbd1b8dc1a96827fa90af93002eb183e51556e74cf80d077fed923d729",
+        "k": 3,
+        "m": 5,
+        "negative_count_distinct": 9,
+        "negative_count_raw": 9,
+        "negative_lengths": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "positive_count_distinct": 14,
+        "positive_count_raw": 14,
+        "positive_lengths": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "q_modes": [
+          1,
+          2,
+          3,
+          4,
+          null
+        ]
+      },
+      {
+        "family": "sparse_random_finite_language",
+        "hidden": "small/hidden/small_m5_k3_sparse_random_finite_language_04.json",
+        "hidden_bytes": 172,
+        "hidden_sha256": "0a35c5b495d97c132ff26238b691e4260c2f6c0c5b579550d2de502be5941858",
+        "id": "small_m5_k3_sparse_random_finite_language_04",
+        "input": "small/inputs/small_m5_k3_sparse_random_finite_language_04.json",
+        "input_bytes": 209,
+        "input_sha256": "babeabc845a23d3b6fc8248a4164cf378075a91c132558b79f0218aeab63b902",
+        "k": 3,
+        "m": 5,
+        "negative_count_distinct": 5,
+        "negative_count_raw": 5,
+        "negative_lengths": [
+          1,
+          4,
+          5
+        ],
+        "positive_count_distinct": 3,
+        "positive_count_raw": 3,
+        "positive_lengths": [
+          2,
+          4,
+          5
+        ],
+        "q_modes": [
+          1,
+          2,
+          3,
+          4,
+          null
+        ]
+      },
+      {
+        "family": "repeated_events_and_duplicate_examples",
+        "hidden": "small/hidden/small_m5_k3_repeated_events_and_duplicate_examples_05.json",
+        "hidden_bytes": 476,
+        "hidden_sha256": "62b7b6022eaffd5cac57e250ccb0d0c518d9e373cbc51546753ad0d02034c37e",
+        "id": "small_m5_k3_repeated_events_and_duplicate_examples_05",
+        "input": "small/inputs/small_m5_k3_repeated_events_and_duplicate_examples_05.json",
+        "input_bytes": 185,
+        "input_sha256": "f4feb6e6b9558b97e599bdc733389baa583c961d83f720ca3a38c488cd1ef062",
+        "k": 3,
+        "m": 5,
+        "negative_count_distinct": 2,
+        "negative_count_raw": 2,
+        "negative_lengths": [
+          2,
+          10
+        ],
+        "positive_count_distinct": 1,
+        "positive_count_raw": 3,
+        "positive_lengths": [
+          5
+        ],
+        "q_modes": [
+          1,
+          2,
+          3,
+          4,
+          null
+        ]
+      },
+      {
+        "family": "ambiguous_empty_sample",
+        "hidden": "small/hidden/small_m5_k3_ambiguous_empty_sample_06.json",
+        "hidden_bytes": 158,
+        "hidden_sha256": "6cdff3293bfc5c94c0dcdd56effb0b9ec2904f81da034214de910cf298c1d302",
+        "id": "small_m5_k3_ambiguous_empty_sample_06",
+        "input": "small/inputs/small_m5_k3_ambiguous_empty_sample_06.json",
+        "input_bytes": 114,
+        "input_sha256": "9510cd530dbed30005f70a2925bbef794896d4d66a455fb5a607061e4cac4267",
+        "k": 3,
+        "m": 5,
+        "negative_count_distinct": 0,
+        "negative_count_raw": 0,
+        "negative_lengths": [],
+        "positive_count_distinct": 0,
+        "positive_count_raw": 0,
+        "positive_lengths": [],
+        "q_modes": [
+          1,
+          2,
+          3,
+          4,
+          null
+        ]
+      },
+      {
+        "family": "q_opposition_stress",
+        "hidden": "small/hidden/small_m5_k3_q_opposition_stress_07.json",
+        "hidden_bytes": 458,
+        "hidden_sha256": "9d9c10de19c9a3cae363e1cba0d7285ffbaa3e5feadcca18d9ce81be57aae523",
+        "id": "small_m5_k3_q_opposition_stress_07",
+        "input": "small/inputs/small_m5_k3_q_opposition_stress_07.json",
+        "input_bytes": 158,
+        "input_sha256": "0717731c962541c94aa6755ca16ebc71a8c7245c1834bd6cf4121da9cdac4f93",
+        "k": 3,
+        "m": 5,
+        "negative_count_distinct": 2,
+        "negative_count_raw": 2,
+        "negative_lengths": [
+          1,
+          10
+        ],
+        "positive_count_distinct": 1,
+        "positive_count_raw": 1,
+        "positive_lengths": [
+          5
+        ],
+        "q_modes": [
+          1,
+          2,
+          3,
+          4,
+          null
+        ]
+      },
+      {
+        "family": "planted_finite_language",
+        "hidden": "small/hidden/small_m5_k4_planted_finite_language_00.json",
+        "hidden_bytes": 508,
+        "hidden_sha256": "ccbdbb009d284c8fed6587f0630157efc8b41280cd7627146184d01f13f1e520",
+        "id": "small_m5_k4_planted_finite_language_00",
+        "input": "small/inputs/small_m5_k4_planted_finite_language_00.json",
+        "input_bytes": 164,
+        "input_sha256": "dfc970a7c8b916634552404aa27bab06217cd0f2634ec264b47846db9aefe515",
+        "k": 4,
+        "m": 5,
+        "negative_count_distinct": 2,
+        "negative_count_raw": 2,
+        "negative_lengths": [
+          8,
+          9
+        ],
+        "positive_count_distinct": 1,
+        "positive_count_raw": 1,
+        "positive_lengths": [
+          5
+        ],
+        "q_modes": [
+          1,
+          2,
+          3,
+          4,
+          null
+        ]
+      },
+      {
+        "family": "planted_unequal_blocks",
+        "hidden": "small/hidden/small_m5_k4_planted_unequal_blocks_01.json",
+        "hidden_bytes": 507,
+        "hidden_sha256": "385c03ee82b777ffc9efc3120387d31868be0309b12e2b156d772c65da66f2ca",
+        "id": "small_m5_k4_planted_unequal_blocks_01",
+        "input": "small/inputs/small_m5_k4_planted_unequal_blocks_01.json",
+        "input_bytes": 154,
+        "input_sha256": "9f9054d79a81e92542d2b350c43bc2d66caf66abec1eed12068170556516bfa2",
+        "k": 4,
+        "m": 5,
+        "negative_count_distinct": 2,
+        "negative_count_raw": 2,
+        "negative_lengths": [
+          3,
+          4
+        ],
+        "positive_count_distinct": 1,
+        "positive_count_raw": 1,
+        "positive_lengths": [
+          5
+        ],
+        "q_modes": [
+          1,
+          2,
+          3,
+          4,
+          null
+        ]
+      },
+      {
+        "family": "planted_missing_event_symbols",
+        "hidden": "small/hidden/small_m5_k4_planted_missing_event_symbols_02.json",
+        "hidden_bytes": 563,
+        "hidden_sha256": "8704757728d92e3000c47c8a09d0ebe03faa1c0c12176c5735f50d7ae433d753",
+        "id": "small_m5_k4_planted_missing_event_symbols_02",
+        "input": "small/inputs/small_m5_k4_planted_missing_event_symbols_02.json",
+        "input_bytes": 175,
+        "input_sha256": "a6d99dd51e0dc70a4da8897cf7317c20f1148de540c248b032520dcc2915344e",
+        "k": 4,
+        "m": 5,
+        "negative_count_distinct": 2,
+        "negative_count_raw": 2,
+        "negative_lengths": [
+          2,
+          9
+        ],
+        "positive_count_distinct": 2,
+        "positive_count_raw": 2,
+        "positive_lengths": [
+          5,
+          9
+        ],
+        "q_modes": [
+          1,
+          2,
+          3,
+          4,
+          null
+        ]
+      },
+      {
+        "family": "random_exact_label_assignments",
+        "hidden": "small/hidden/small_m5_k4_random_exact_label_assignments_03.json",
+        "hidden_bytes": 173,
+        "hidden_sha256": "a53ecb57623a52950e2c87d5edcf0a949da860fa48e723168ef2bc8b00470400",
+        "id": "small_m5_k4_random_exact_label_assignments_03",
+        "input": "small/inputs/small_m5_k4_random_exact_label_assignments_03.json",
+        "input_bytes": 406,
+        "input_sha256": "24db2c2a3043c1e0049e00d9cc08e100aefca031f80740eee2d8426cf738996a",
+        "k": 4,
+        "m": 5,
+        "negative_count_distinct": 11,
+        "negative_count_raw": 11,
+        "negative_lengths": [
+          0,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "positive_count_distinct": 13,
+        "positive_count_raw": 13,
+        "positive_lengths": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "q_modes": [
+          1,
+          2,
+          3,
+          4,
+          null
+        ]
+      },
+      {
+        "family": "sparse_random_finite_language",
+        "hidden": "small/hidden/small_m5_k4_sparse_random_finite_language_04.json",
+        "hidden_bytes": 172,
+        "hidden_sha256": "184f5bc6cd4c3805b7668681766491af0236d378567c224f333f8b7eaa2f0775",
+        "id": "small_m5_k4_sparse_random_finite_language_04",
+        "input": "small/inputs/small_m5_k4_sparse_random_finite_language_04.json",
+        "input_bytes": 205,
+        "input_sha256": "575c910a901bd07994e6fe0b2c3751b2f93d4419e96fcc82c04c0a85da3c9b06",
+        "k": 4,
+        "m": 5,
+        "negative_count_distinct": 5,
+        "negative_count_raw": 5,
+        "negative_lengths": [
+          0,
+          2,
+          4,
+          6
+        ],
+        "positive_count_distinct": 3,
+        "positive_count_raw": 3,
+        "positive_lengths": [
+          0,
+          2,
+          3
+        ],
+        "q_modes": [
+          1,
+          2,
+          3,
+          4,
+          null
+        ]
+      },
+      {
+        "family": "repeated_events_and_duplicate_examples",
+        "hidden": "small/hidden/small_m5_k4_repeated_events_and_duplicate_examples_05.json",
+        "hidden_bytes": 522,
+        "hidden_sha256": "b12470d31b711abcc644e071e5ca775357824f34503dd16c7ee22419002f699a",
+        "id": "small_m5_k4_repeated_events_and_duplicate_examples_05",
+        "input": "small/inputs/small_m5_k4_repeated_events_and_duplicate_examples_05.json",
+        "input_bytes": 186,
+        "input_sha256": "2dbc1d5410bf7e2aa79027099a05f1e6a55874ac5faca979d0cf22eea4681990",
+        "k": 4,
+        "m": 5,
+        "negative_count_distinct": 2,
+        "negative_count_raw": 2,
+        "negative_lengths": [
+          4,
+          9
+        ],
+        "positive_count_distinct": 1,
+        "positive_count_raw": 3,
+        "positive_lengths": [
+          5
+        ],
+        "q_modes": [
+          1,
+          2,
+          3,
+          4,
+          null
+        ]
+      },
+      {
+        "family": "ambiguous_empty_sample",
+        "hidden": "small/hidden/small_m5_k4_ambiguous_empty_sample_06.json",
+        "hidden_bytes": 158,
+        "hidden_sha256": "6cdff3293bfc5c94c0dcdd56effb0b9ec2904f81da034214de910cf298c1d302",
+        "id": "small_m5_k4_ambiguous_empty_sample_06",
+        "input": "small/inputs/small_m5_k4_ambiguous_empty_sample_06.json",
+        "input_bytes": 114,
+        "input_sha256": "7f5052708aec44fb44729eabe1e033dbb9403096fa5b1e2810c4378e319f8e0f",
+        "k": 4,
+        "m": 5,
+        "negative_count_distinct": 0,
+        "negative_count_raw": 0,
+        "negative_lengths": [],
+        "positive_count_distinct": 0,
+        "positive_count_raw": 0,
+        "positive_lengths": [],
+        "q_modes": [
+          1,
+          2,
+          3,
+          4,
+          null
+        ]
+      },
+      {
+        "family": "q_opposition_stress",
+        "hidden": "small/hidden/small_m5_k4_q_opposition_stress_07.json",
+        "hidden_bytes": 504,
+        "hidden_sha256": "9026b210a245154e847f67495147b97cacdfb83d81fb4f4e211f08d6d07b8c6d",
+        "id": "small_m5_k4_q_opposition_stress_07",
+        "input": "small/inputs/small_m5_k4_q_opposition_stress_07.json",
+        "input_bytes": 159,
+        "input_sha256": "98b1c846c88f8202e233adc4aa133d29abe363565166fbaafc7b2bf88bd518dc",
+        "k": 4,
+        "m": 5,
+        "negative_count_distinct": 2,
+        "negative_count_raw": 2,
+        "negative_lengths": [
+          5,
+          7
+        ],
+        "positive_count_distinct": 1,
+        "positive_count_raw": 1,
+        "positive_lengths": [
+          5
+        ],
+        "q_modes": [
+          1,
+          2,
+          3,
+          4,
+          null
+        ]
+      },
+      {
+        "family": "planted_finite_language",
+        "hidden": "small/hidden/small_m5_k5_planted_finite_language_00.json",
+        "hidden_bytes": 554,
+        "hidden_sha256": "bf3d174e0bf47aa883dad961ba3c5c9084664bf761b86cbd37a1d7eb5e2b5489",
+        "id": "small_m5_k5_planted_finite_language_00",
+        "input": "small/inputs/small_m5_k5_planted_finite_language_00.json",
+        "input_bytes": 162,
+        "input_sha256": "092defe260642c6a80948f20437b3af2e2db2dde05bc59278161f4779237b009",
+        "k": 5,
+        "m": 5,
+        "negative_count_distinct": 2,
+        "negative_count_raw": 2,
+        "negative_lengths": [
+          7,
+          8
+        ],
+        "positive_count_distinct": 1,
+        "positive_count_raw": 1,
+        "positive_lengths": [
+          5
+        ],
+        "q_modes": [
+          1,
+          2,
+          3,
+          4,
+          null
+        ]
+      },
+      {
+        "family": "planted_unequal_blocks",
+        "hidden": "small/hidden/small_m5_k5_planted_unequal_blocks_01.json",
+        "hidden_bytes": 553,
+        "hidden_sha256": "9641435f1c67cd0f5134ed92ba9b66710e6bf805c1feb39211c5193e122b2c39",
+        "id": "small_m5_k5_planted_unequal_blocks_01",
+        "input": "small/inputs/small_m5_k5_planted_unequal_blocks_01.json",
+        "input_bytes": 150,
+        "input_sha256": "bcca2c2db89679086d52c57fc3c9b8fc185f24fbac9e616da4d18f8460389107",
+        "k": 5,
+        "m": 5,
+        "negative_count_distinct": 2,
+        "negative_count_raw": 2,
+        "negative_lengths": [
+          1,
+          2
+        ],
+        "positive_count_distinct": 1,
+        "positive_count_raw": 1,
+        "positive_lengths": [
+          5
+        ],
+        "q_modes": [
+          1,
+          2,
+          3,
+          4,
+          null
+        ]
+      },
+      {
+        "family": "planted_missing_event_symbols",
+        "hidden": "small/hidden/small_m5_k5_planted_missing_event_symbols_02.json",
+        "hidden_bytes": 620,
+        "hidden_sha256": "eb956f43aa976097296bde9baec5840dc75cad196e1799c4b77ef05cd283df98",
+        "id": "small_m5_k5_planted_missing_event_symbols_02",
+        "input": "small/inputs/small_m5_k5_planted_missing_event_symbols_02.json",
+        "input_bytes": 177,
+        "input_sha256": "5ffec34171a051980c077abc1c51ee863c2dc620cbcc1ede6e87402e0db19b79",
+        "k": 5,
+        "m": 5,
+        "negative_count_distinct": 2,
+        "negative_count_raw": 2,
+        "negative_lengths": [
+          5,
+          7
+        ],
+        "positive_count_distinct": 2,
+        "positive_count_raw": 2,
+        "positive_lengths": [
+          5,
+          10
+        ],
+        "q_modes": [
+          1,
+          2,
+          3,
+          4,
+          null
+        ]
+      },
+      {
+        "family": "random_exact_label_assignments",
+        "hidden": "small/hidden/small_m5_k5_random_exact_label_assignments_03.json",
+        "hidden_bytes": 173,
+        "hidden_sha256": "0edcbaf26c0e2ed563bc3c7d8c44ee58b82867839450abce989d52a6e9237e0f",
+        "id": "small_m5_k5_random_exact_label_assignments_03",
+        "input": "small/inputs/small_m5_k5_random_exact_label_assignments_03.json",
+        "input_bytes": 395,
+        "input_sha256": "f0e5d7c68f59942bc0d282ffa72c9291c378878056ef97caf828248b01c33564",
+        "k": 5,
+        "m": 5,
+        "negative_count_distinct": 9,
+        "negative_count_raw": 9,
+        "negative_lengths": [
+          2,
+          4,
+          5,
+          6
+        ],
+        "positive_count_distinct": 15,
+        "positive_count_raw": 15,
+        "positive_lengths": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "q_modes": [
+          1,
+          2,
+          3,
+          4,
+          null
+        ]
+      },
+      {
+        "family": "sparse_random_finite_language",
+        "hidden": "small/hidden/small_m5_k5_sparse_random_finite_language_04.json",
+        "hidden_bytes": 172,
+        "hidden_sha256": "9005c8513ce49f07b917971adea06317bfca7a8fb4976f902e307d14b2ffe0e1",
+        "id": "small_m5_k5_sparse_random_finite_language_04",
+        "input": "small/inputs/small_m5_k5_sparse_random_finite_language_04.json",
+        "input_bytes": 206,
+        "input_sha256": "ebc237dc1bf0c04b8940231e0c3d6f64e443083548ec2acb64d2e985df4f18f2",
+        "k": 5,
+        "m": 5,
+        "negative_count_distinct": 5,
+        "negative_count_raw": 5,
+        "negative_lengths": [
+          1,
+          3,
+          4,
+          5
+        ],
+        "positive_count_distinct": 3,
+        "positive_count_raw": 3,
+        "positive_lengths": [
+          0,
+          2,
+          4
+        ],
+        "q_modes": [
+          1,
+          2,
+          3,
+          4,
+          null
+        ]
+      },
+      {
+        "family": "repeated_events_and_duplicate_examples",
+        "hidden": "small/hidden/small_m5_k5_repeated_events_and_duplicate_examples_05.json",
+        "hidden_bytes": 568,
+        "hidden_sha256": "03c984e6eb244f0fe30a3cc0b4791fc8a1addbc4f7220ba727100e1c7c8715f8",
+        "id": "small_m5_k5_repeated_events_and_duplicate_examples_05",
+        "input": "small/inputs/small_m5_k5_repeated_events_and_duplicate_examples_05.json",
+        "input_bytes": 181,
+        "input_sha256": "ab30fb942973e8ad8f3b55ec76b61b43d910cfa26da06b7a3d90d1df13e81434",
+        "k": 5,
+        "m": 5,
+        "negative_count_distinct": 2,
+        "negative_count_raw": 2,
+        "negative_lengths": [
+          3,
+          5
+        ],
+        "positive_count_distinct": 1,
+        "positive_count_raw": 3,
+        "positive_lengths": [
+          5
+        ],
+        "q_modes": [
+          1,
+          2,
+          3,
+          4,
+          null
+        ]
+      },
+      {
+        "family": "ambiguous_empty_sample",
+        "hidden": "small/hidden/small_m5_k5_ambiguous_empty_sample_06.json",
+        "hidden_bytes": 158,
+        "hidden_sha256": "6cdff3293bfc5c94c0dcdd56effb0b9ec2904f81da034214de910cf298c1d302",
+        "id": "small_m5_k5_ambiguous_empty_sample_06",
+        "input": "small/inputs/small_m5_k5_ambiguous_empty_sample_06.json",
+        "input_bytes": 114,
+        "input_sha256": "5fc945a64a3a3779c164e81c520c068d15702ea939e7c8ae97398eb182dae5a5",
+        "k": 5,
+        "m": 5,
+        "negative_count_distinct": 0,
+        "negative_count_raw": 0,
+        "negative_lengths": [],
+        "positive_count_distinct": 0,
+        "positive_count_raw": 0,
+        "positive_lengths": [],
+        "q_modes": [
+          1,
+          2,
+          3,
+          4,
+          null
+        ]
+      },
+      {
+        "family": "q_opposition_stress",
+        "hidden": "small/hidden/small_m5_k5_q_opposition_stress_07.json",
+        "hidden_bytes": 550,
+        "hidden_sha256": "db2a913d24687a74bd5e4b197034cd372218c59a156771b1691663b9453aef86",
+        "id": "small_m5_k5_q_opposition_stress_07",
+        "input": "small/inputs/small_m5_k5_q_opposition_stress_07.json",
+        "input_bytes": 153,
+        "input_sha256": "428a683ca878ea873450bf50cfe720a3a523bdef25d20a06a79b12c1f64e5605",
+        "k": 5,
+        "m": 5,
+        "negative_count_distinct": 2,
+        "negative_count_raw": 2,
+        "negative_lengths": [
+          3
+        ],
+        "positive_count_distinct": 1,
+        "positive_count_raw": 1,
+        "positive_lengths": [
+          5
+        ],
+        "q_modes": [
+          1,
+          2,
+          3,
+          4,
+          null
+        ]
+      },
+      {
+        "family": "planted_finite_language",
+        "hidden": "small/hidden/small_m6_k2_planted_finite_language_00.json",
+        "hidden_bytes": 439,
+        "hidden_sha256": "9eda7440ab263ec0094cd0695a3e1149df0997c4f6d730f64eec3b6d756665a8",
+        "id": "small_m6_k2_planted_finite_language_00",
+        "input": "small/inputs/small_m6_k2_planted_finite_language_00.json",
+        "input_bytes": 170,
+        "input_sha256": "71193c4e4dd79dfccb48fe37ae7e905686ef2b0245d46b34fb38f5770bc6242c",
+        "k": 2,
+        "m": 6,
+        "negative_count_distinct": 2,
+        "negative_count_raw": 2,
+        "negative_lengths": [
+          4,
+          9
+        ],
+        "positive_count_distinct": 1,
+        "positive_count_raw": 1,
+        "positive_lengths": [
+          6
+        ],
+        "q_modes": [
+          1,
+          2,
+          3,
+          4,
+          null
+        ]
+      },
+      {
+        "family": "planted_unequal_blocks",
+        "hidden": "small/hidden/small_m6_k2_planted_unequal_blocks_01.json",
+        "hidden_bytes": 464,
+        "hidden_sha256": "30b5ed6dec413d8f962f4794b2b2099c4539d086879bfa4bd76d0c474af4448e",
+        "id": "small_m6_k2_planted_unequal_blocks_01",
+        "input": "small/inputs/small_m6_k2_planted_unequal_blocks_01.json",
+        "input_bytes": 184,
+        "input_sha256": "3ee34eb9ad820298e75704e2602dd09d1ed450b6ba2cd3819d16b77ae975a977",
+        "k": 2,
+        "m": 6,
+        "negative_count_distinct": 2,
+        "negative_count_raw": 2,
+        "negative_lengths": [
+          3,
+          10
+        ],
+        "positive_count_distinct": 2,
+        "positive_count_raw": 2,
+        "positive_lengths": [
+          6
+        ],
+        "q_modes": [
+          1,
+          2,
+          3,
+          4,
+          null
+        ]
+      },
+      {
+        "family": "planted_missing_event_symbols",
+        "hidden": "small/hidden/small_m6_k2_planted_missing_event_symbols_02.json",
+        "hidden_bytes": 473,
+        "hidden_sha256": "e98403373a2f429401cbb52391bddd0bd9db5b2dd0e870b39ed9e9140740c433",
+        "id": "small_m6_k2_planted_missing_event_symbols_02",
+        "input": "small/inputs/small_m6_k2_planted_missing_event_symbols_02.json",
+        "input_bytes": 200,
+        "input_sha256": "0ce0d9927da69c5b0692979ba273b1ee39be415dab022d75297adfb476b14c25",
+        "k": 2,
+        "m": 6,
+        "negative_count_distinct": 2,
+        "negative_count_raw": 2,
+        "negative_lengths": [
+          7,
+          9
+        ],
+        "positive_count_distinct": 3,
+        "positive_count_raw": 3,
+        "positive_lengths": [
+          5,
+          6
+        ],
+        "q_modes": [
+          1,
+          2,
+          3,
+          4,
+          null
+        ]
+      },
+      {
+        "family": "random_exact_label_assignments",
+        "hidden": "small/hidden/small_m6_k2_random_exact_label_assignments_03.json",
+        "hidden_bytes": 173,
+        "hidden_sha256": "594bc92515527205e7d2e4c8f5987cfc0919c46ba4825e715184eb2a6bdcbf33",
+        "id": "small_m6_k2_random_exact_label_assignments_03",
+        "input": "small/inputs/small_m6_k2_random_exact_label_assignments_03.json",
+        "input_bytes": 356,
+        "input_sha256": "c77376cf44a1c113c1103c53f4c17e820c6f1891a80f947a451593cb8d8796f9",
+        "k": 2,
+        "m": 6,
+        "negative_count_distinct": 12,
+        "negative_count_raw": 12,
+        "negative_lengths": [
+          0,
+          1,
+          2,
+          3,
+          5,
+          6,
+          7
+        ],
+        "positive_count_distinct": 8,
+        "positive_count_raw": 8,
+        "positive_lengths": [
+          0,
+          2,
+          3,
+          5,
+          6,
+          7
+        ],
+        "q_modes": [
+          1,
+          2,
+          3,
+          4,
+          null
+        ]
+      },
+      {
+        "family": "sparse_random_finite_language",
+        "hidden": "small/hidden/small_m6_k2_sparse_random_finite_language_04.json",
+        "hidden_bytes": 172,
+        "hidden_sha256": "eb09530c4bd6b292805f59c5e403c248e1a22295e2081de195f905d19592ea0e",
+        "id": "small_m6_k2_sparse_random_finite_language_04",
+        "input": "small/inputs/small_m6_k2_sparse_random_finite_language_04.json",
+        "input_bytes": 227,
+        "input_sha256": "8e538a36fee19ca2f9b6b6863d6766364d9ccbeb69cc261494c1a5a51c07a5d9",
+        "k": 2,
+        "m": 6,
+        "negative_count_distinct": 6,
+        "negative_count_raw": 6,
+        "negative_lengths": [
+          2,
+          4,
+          5,
+          6,
+          7
+        ],
+        "positive_count_distinct": 2,
+        "positive_count_raw": 2,
+        "positive_lengths": [
+          2,
+          3
+        ],
+        "q_modes": [
+          1,
+          2,
+          3,
+          4,
+          null
+        ]
+      },
+      {
+        "family": "repeated_events_and_duplicate_examples",
+        "hidden": "small/hidden/small_m6_k2_repeated_events_and_duplicate_examples_05.json",
+        "hidden_bytes": 479,
+        "hidden_sha256": "695d502aaa82ff2b30bb1a8eff047a1e3f4dbf1bf97fe72dc144d30a5edbbb02",
+        "id": "small_m6_k2_repeated_events_and_duplicate_examples_05",
+        "input": "small/inputs/small_m6_k2_repeated_events_and_duplicate_examples_05.json",
+        "input_bytes": 203,
+        "input_sha256": "a7325b849267c975195cda139654365f869ef984f653c97e7dd98c3ec5057d18",
+        "k": 2,
+        "m": 6,
+        "negative_count_distinct": 2,
+        "negative_count_raw": 2,
+        "negative_lengths": [
+          2
+        ],
+        "positive_count_distinct": 2,
+        "positive_count_raw": 4,
+        "positive_lengths": [
+          6
+        ],
+        "q_modes": [
+          1,
+          2,
+          3,
+          4,
+          null
+        ]
+      },
+      {
+        "family": "ambiguous_empty_sample",
+        "hidden": "small/hidden/small_m6_k2_ambiguous_empty_sample_06.json",
+        "hidden_bytes": 158,
+        "hidden_sha256": "6cdff3293bfc5c94c0dcdd56effb0b9ec2904f81da034214de910cf298c1d302",
+        "id": "small_m6_k2_ambiguous_empty_sample_06",
+        "input": "small/inputs/small_m6_k2_ambiguous_empty_sample_06.json",
+        "input_bytes": 123,
+        "input_sha256": "39eb54fa6d1f17cd97b957d1e0bfc606352c2644164908bea0f803f243cd5b3f",
+        "k": 2,
+        "m": 6,
+        "negative_count_distinct": 0,
+        "negative_count_raw": 0,
+        "negative_lengths": [],
+        "positive_count_distinct": 0,
+        "positive_count_raw": 0,
+        "positive_lengths": [],
+        "q_modes": [
+          1,
+          2,
+          3,
+          4,
+          null
+        ]
+      },
+      {
+        "family": "q_opposition_stress",
+        "hidden": "small/hidden/small_m6_k2_q_opposition_stress_07.json",
+        "hidden_bytes": 461,
+        "hidden_sha256": "93735b12a315d3a4fbbaa2fb2f772f70162d51cdb6642e4387bdedbfe5844914",
+        "id": "small_m6_k2_q_opposition_stress_07",
+        "input": "small/inputs/small_m6_k2_q_opposition_stress_07.json",
+        "input_bytes": 179,
+        "input_sha256": "75f9a5efca4bea7d0e285d1890fa6c7fdee3f98ddbe92ade86feb43f0d3fadf0",
+        "k": 2,
+        "m": 6,
+        "negative_count_distinct": 2,
+        "negative_count_raw": 2,
+        "negative_lengths": [
+          3,
+          5
+        ],
+        "positive_count_distinct": 2,
+        "positive_count_raw": 2,
+        "positive_lengths": [
+          6
+        ],
+        "q_modes": [
+          1,
+          2,
+          3,
+          4,
+          null
+        ]
+      },
+      {
+        "family": "planted_finite_language",
+        "hidden": "small/hidden/small_m6_k3_planted_finite_language_00.json",
+        "hidden_bytes": 485,
+        "hidden_sha256": "84ea7565764e0f5db445b5c9d71866f35f1b6e4b06008b5ba411f5daae847712",
+        "id": "small_m6_k3_planted_finite_language_00",
+        "input": "small/inputs/small_m6_k3_planted_finite_language_00.json",
+        "input_bytes": 174,
+        "input_sha256": "4751020d4fcd44dcf9f3b868249696bb7661b3250a851e9683f56b021e3a8c89",
+        "k": 3,
+        "m": 6,
+        "negative_count_distinct": 2,
+        "negative_count_raw": 2,
+        "negative_lengths": [
+          8,
+          9
+        ],
+        "positive_count_distinct": 1,
+        "positive_count_raw": 1,
+        "positive_lengths": [
+          6
+        ],
+        "q_modes": [
+          1,
+          2,
+          3,
+          4,
+          null
+        ]
+      },
+      {
+        "family": "planted_unequal_blocks",
+        "hidden": "small/hidden/small_m6_k3_planted_unequal_blocks_01.json",
+        "hidden_bytes": 484,
+        "hidden_sha256": "f88b54254ef469c80bbd3f17d7240312826c4724b157fd13d9d116ac17bb1367",
+        "id": "small_m6_k3_planted_unequal_blocks_01",
+        "input": "small/inputs/small_m6_k3_planted_unequal_blocks_01.json",
+        "input_bytes": 170,
+        "input_sha256": "3c8bbbced0fb2d4efc403c0d2d4d4d13d3098a50431b02305ad5532c545b6e60",
+        "k": 3,
+        "m": 6,
+        "negative_count_distinct": 2,
+        "negative_count_raw": 2,
+        "negative_lengths": [
+          3,
+          10
+        ],
+        "positive_count_distinct": 1,
+        "positive_count_raw": 1,
+        "positive_lengths": [
+          6
+        ],
+        "q_modes": [
+          1,
+          2,
+          3,
+          4,
+          null
+        ]
+      },
+      {
+        "family": "planted_missing_event_symbols",
+        "hidden": "small/hidden/small_m6_k3_planted_missing_event_symbols_02.json",
+        "hidden_bytes": 517,
+        "hidden_sha256": "87ffbb7a7b07789edb65f21cae5cee841b92358ea114295480932cb39df18a53",
+        "id": "small_m6_k3_planted_missing_event_symbols_02",
+        "input": "small/inputs/small_m6_k3_planted_missing_event_symbols_02.json",
+        "input_bytes": 186,
+        "input_sha256": "c096defd8ee1bc4470377b5d68826668aa1c96ce173cbcdad446aeb1e6534d13",
+        "k": 3,
+        "m": 6,
+        "negative_count_distinct": 2,
+        "negative_count_raw": 2,
+        "negative_lengths": [
+          3,
+          11
+        ],
+        "positive_count_distinct": 2,
+        "positive_count_raw": 2,
+        "positive_lengths": [
+          5,
+          8
+        ],
+        "q_modes": [
+          1,
+          2,
+          3,
+          4,
+          null
+        ]
+      },
+      {
+        "family": "random_exact_label_assignments",
+        "hidden": "small/hidden/small_m6_k3_random_exact_label_assignments_03.json",
+        "hidden_bytes": 173,
+        "hidden_sha256": "17ecddaf1cd7d9456260ff7f526ab9b2c5518463251491d677e9a2d24e7c9302",
+        "id": "small_m6_k3_random_exact_label_assignments_03",
+        "input": "small/inputs/small_m6_k3_random_exact_label_assignments_03.json",
+        "input_bytes": 412,
+        "input_sha256": "3fcff403227d803d5e44bbaa9ea3c8b94b28418f1756dc96cfea0bad6d7522eb",
+        "k": 3,
+        "m": 6,
+        "negative_count_distinct": 14,
+        "negative_count_raw": 14,
+        "negative_lengths": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          6,
+          7
+        ],
+        "positive_count_distinct": 10,
+        "positive_count_raw": 10,
+        "positive_lengths": [
+          1,
+          2,
+          3,
+          4,
+          6
+        ],
+        "q_modes": [
+          1,
+          2,
+          3,
+          4,
+          null
+        ]
+      },
+      {
+        "family": "sparse_random_finite_language",
+        "hidden": "small/hidden/small_m6_k3_sparse_random_finite_language_04.json",
+        "hidden_bytes": 172,
+        "hidden_sha256": "e34fa54b542c5b925d2a98ed808abe69860aa96db83c70d5c98c0db25fb14700",
+        "id": "small_m6_k3_sparse_random_finite_language_04",
+        "input": "small/inputs/small_m6_k3_sparse_random_finite_language_04.json",
+        "input_bytes": 202,
+        "input_sha256": "3988e67f9b5343af14ba5f685e48274e3d74b61ec6a62b3af8ac02862dedc700",
+        "k": 3,
+        "m": 6,
+        "negative_count_distinct": 3,
+        "negative_count_raw": 3,
+        "negative_lengths": [
+          0,
+          3,
+          4
+        ],
+        "positive_count_distinct": 4,
+        "positive_count_raw": 4,
+        "positive_lengths": [
+          2,
+          3,
+          5
+        ],
+        "q_modes": [
+          1,
+          2,
+          3,
+          4,
+          null
+        ]
+      },
+      {
+        "family": "repeated_events_and_duplicate_examples",
+        "hidden": "small/hidden/small_m6_k3_repeated_events_and_duplicate_examples_05.json",
+        "hidden_bytes": 499,
+        "hidden_sha256": "0d00a9749e18faffc5eb1cd46770efb303aec2fdac868326788124df029bf7b5",
+        "id": "small_m6_k3_repeated_events_and_duplicate_examples_05",
+        "input": "small/inputs/small_m6_k3_repeated_events_and_duplicate_examples_05.json",
+        "input_bytes": 197,
+        "input_sha256": "2f6f32b59d54feb13087e14709504758e5df3a181e0881d084c048eb95ce2479",
+        "k": 3,
+        "m": 6,
+        "negative_count_distinct": 2,
+        "negative_count_raw": 2,
+        "negative_lengths": [
+          2,
+          10
+        ],
+        "positive_count_distinct": 1,
+        "positive_count_raw": 3,
+        "positive_lengths": [
+          6
+        ],
+        "q_modes": [
+          1,
+          2,
+          3,
+          4,
+          null
+        ]
+      },
+      {
+        "family": "ambiguous_empty_sample",
+        "hidden": "small/hidden/small_m6_k3_ambiguous_empty_sample_06.json",
+        "hidden_bytes": 158,
+        "hidden_sha256": "6cdff3293bfc5c94c0dcdd56effb0b9ec2904f81da034214de910cf298c1d302",
+        "id": "small_m6_k3_ambiguous_empty_sample_06",
+        "input": "small/inputs/small_m6_k3_ambiguous_empty_sample_06.json",
+        "input_bytes": 123,
+        "input_sha256": "de951ffcd8d610a50653669013675e57fd4d2490538e8a9b6648d1fc12bdee50",
+        "k": 3,
+        "m": 6,
+        "negative_count_distinct": 0,
+        "negative_count_raw": 0,
+        "negative_lengths": [],
+        "positive_count_distinct": 0,
+        "positive_count_raw": 0,
+        "positive_lengths": [],
+        "q_modes": [
+          1,
+          2,
+          3,
+          4,
+          null
+        ]
+      },
+      {
+        "family": "q_opposition_stress",
+        "hidden": "small/hidden/small_m6_k3_q_opposition_stress_07.json",
+        "hidden_bytes": 481,
+        "hidden_sha256": "0df50e6a5057fee37be0f833ead10ad75404506793989dd99bb85c6a99242fd2",
+        "id": "small_m6_k3_q_opposition_stress_07",
+        "input": "small/inputs/small_m6_k3_q_opposition_stress_07.json",
+        "input_bytes": 173,
+        "input_sha256": "bed426e5d5724ec8b380bb83ebbd54a63046692bae74aa4e67c44654b4ca9e43",
+        "k": 3,
+        "m": 6,
+        "negative_count_distinct": 2,
+        "negative_count_raw": 2,
+        "negative_lengths": [
+          7,
+          9
+        ],
+        "positive_count_distinct": 1,
+        "positive_count_raw": 1,
+        "positive_lengths": [
+          6
+        ],
+        "q_modes": [
+          1,
+          2,
+          3,
+          4,
+          null
+        ]
+      },
+      {
+        "family": "planted_finite_language",
+        "hidden": "small/hidden/small_m6_k4_planted_finite_language_00.json",
+        "hidden_bytes": 531,
+        "hidden_sha256": "3e399f17e0a27f16f6d48b972d69a722fdcb799696620f622ca8fa73cefa8ad4",
+        "id": "small_m6_k4_planted_finite_language_00",
+        "input": "small/inputs/small_m6_k4_planted_finite_language_00.json",
+        "input_bytes": 172,
+        "input_sha256": "9d98847e0508ef62e05421796c52231553837d8c4dbd817cd7b0375be34fcf44",
+        "k": 4,
+        "m": 6,
+        "negative_count_distinct": 2,
+        "negative_count_raw": 2,
+        "negative_lengths": [
+          6,
+          9
+        ],
+        "positive_count_distinct": 1,
+        "positive_count_raw": 1,
+        "positive_lengths": [
+          6
+        ],
+        "q_modes": [
+          1,
+          2,
+          3,
+          4,
+          null
+        ]
+      },
+      {
+        "family": "planted_unequal_blocks",
+        "hidden": "small/hidden/small_m6_k4_planted_unequal_blocks_01.json",
+        "hidden_bytes": 530,
+        "hidden_sha256": "5c45d334f823c76f148ae3db4b2cf1e67df613a1fcdee1fb4383171e0eb69890",
+        "id": "small_m6_k4_planted_unequal_blocks_01",
+        "input": "small/inputs/small_m6_k4_planted_unequal_blocks_01.json",
+        "input_bytes": 176,
+        "input_sha256": "4fc1216fb76d88f82664c0bd2697c740a4bd82b1db9262701986f04b1fbe8727",
+        "k": 4,
+        "m": 6,
+        "negative_count_distinct": 2,
+        "negative_count_raw": 2,
+        "negative_lengths": [
+          8,
+          11
+        ],
+        "positive_count_distinct": 1,
+        "positive_count_raw": 1,
+        "positive_lengths": [
+          6
+        ],
+        "q_modes": [
+          1,
+          2,
+          3,
+          4,
+          null
+        ]
+      },
+      {
+        "family": "planted_missing_event_symbols",
+        "hidden": "small/hidden/small_m6_k4_planted_missing_event_symbols_02.json",
+        "hidden_bytes": 574,
+        "hidden_sha256": "5426b8efa70c7ff258e8dcf354781c969bcf5a1393496fe4cde77ea68ac7cf26",
+        "id": "small_m6_k4_planted_missing_event_symbols_02",
+        "input": "small/inputs/small_m6_k4_planted_missing_event_symbols_02.json",
+        "input_bytes": 195,
+        "input_sha256": "84a482ddd326b54edd1480c5a29d4ec02230d5c901c875320a03bd717aa89db7",
+        "k": 4,
+        "m": 6,
+        "negative_count_distinct": 2,
+        "negative_count_raw": 2,
+        "negative_lengths": [
+          10,
+          12
+        ],
+        "positive_count_distinct": 2,
+        "positive_count_raw": 2,
+        "positive_lengths": [
+          5,
+          9
+        ],
+        "q_modes": [
+          1,
+          2,
+          3,
+          4,
+          null
+        ]
+      },
+      {
+        "family": "random_exact_label_assignments",
+        "hidden": "small/hidden/small_m6_k4_random_exact_label_assignments_03.json",
+        "hidden_bytes": 173,
+        "hidden_sha256": "760e49599f254eaf33f27cee3c4c7e4400f8f4ab8cf3164d885cd01a7a84c22a",
+        "id": "small_m6_k4_random_exact_label_assignments_03",
+        "input": "small/inputs/small_m6_k4_random_exact_label_assignments_03.json",
+        "input_bytes": 413,
+        "input_sha256": "05095afff2fb238f2beb9131d7dff8d4fad214931903dc93a02b86300e2fa4f4",
+        "k": 4,
+        "m": 6,
+        "negative_count_distinct": 9,
+        "negative_count_raw": 9,
+        "negative_lengths": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "positive_count_distinct": 15,
+        "positive_count_raw": 15,
+        "positive_lengths": [
+          1,
+          2,
+          3,
+          4,
+          6,
+          7
+        ],
+        "q_modes": [
+          1,
+          2,
+          3,
+          4,
+          null
+        ]
+      },
+      {
+        "family": "sparse_random_finite_language",
+        "hidden": "small/hidden/small_m6_k4_sparse_random_finite_language_04.json",
+        "hidden_bytes": 172,
+        "hidden_sha256": "d87ccd6ba2fc1c9e728c5879fedf68fcedcc9ceaed4577a3c1d1d96304bcaa48",
+        "id": "small_m6_k4_sparse_random_finite_language_04",
+        "input": "small/inputs/small_m6_k4_sparse_random_finite_language_04.json",
+        "input_bytes": 225,
+        "input_sha256": "5eded6af3e61266a43954f1e5c344584b763404fb39ecd62d620a838a18fc485",
+        "k": 4,
+        "m": 6,
+        "negative_count_distinct": 4,
+        "negative_count_raw": 4,
+        "negative_lengths": [
+          2,
+          4,
+          7
+        ],
+        "positive_count_distinct": 4,
+        "positive_count_raw": 4,
+        "positive_lengths": [
+          2,
+          4,
+          6,
+          7
+        ],
+        "q_modes": [
+          1,
+          2,
+          3,
+          4,
+          null
+        ]
+      },
+      {
+        "family": "repeated_events_and_duplicate_examples",
+        "hidden": "small/hidden/small_m6_k4_repeated_events_and_duplicate_examples_05.json",
+        "hidden_bytes": 545,
+        "hidden_sha256": "b93d8ea49dd8afdc66d197044606faeff1d25aed5ef88907a95512e5c86f062d",
+        "id": "small_m6_k4_repeated_events_and_duplicate_examples_05",
+        "input": "small/inputs/small_m6_k4_repeated_events_and_duplicate_examples_05.json",
+        "input_bytes": 198,
+        "input_sha256": "02766ccdf3b78ccea313ff23cc647208404bd3074971d38b5b306cd93398846e",
+        "k": 4,
+        "m": 6,
+        "negative_count_distinct": 2,
+        "negative_count_raw": 2,
+        "negative_lengths": [
+          1,
+          12
+        ],
+        "positive_count_distinct": 1,
+        "positive_count_raw": 3,
+        "positive_lengths": [
+          6
+        ],
+        "q_modes": [
+          1,
+          2,
+          3,
+          4,
+          null
+        ]
+      },
+      {
+        "family": "ambiguous_empty_sample",
+        "hidden": "small/hidden/small_m6_k4_ambiguous_empty_sample_06.json",
+        "hidden_bytes": 158,
+        "hidden_sha256": "6cdff3293bfc5c94c0dcdd56effb0b9ec2904f81da034214de910cf298c1d302",
+        "id": "small_m6_k4_ambiguous_empty_sample_06",
+        "input": "small/inputs/small_m6_k4_ambiguous_empty_sample_06.json",
+        "input_bytes": 123,
+        "input_sha256": "d02a50d7221cb2c1276e248bbfd6a716867e7c6eff59aadc20225310f61ea7fd",
+        "k": 4,
+        "m": 6,
+        "negative_count_distinct": 0,
+        "negative_count_raw": 0,
+        "negative_lengths": [],
+        "positive_count_distinct": 0,
+        "positive_count_raw": 0,
+        "positive_lengths": [],
+        "q_modes": [
+          1,
+          2,
+          3,
+          4,
+          null
+        ]
+      },
+      {
+        "family": "q_opposition_stress",
+        "hidden": "small/hidden/small_m6_k4_q_opposition_stress_07.json",
+        "hidden_bytes": 527,
+        "hidden_sha256": "1d4024e2a84951b57a9b9108165b3da71c1fe4f3555a77cab3d8c1acbc2c2d44",
+        "id": "small_m6_k4_q_opposition_stress_07",
+        "input": "small/inputs/small_m6_k4_q_opposition_stress_07.json",
+        "input_bytes": 170,
+        "input_sha256": "24079a22de60aa428eb1dac0632ebb57c69c3effe31c4ec1a6c627063ce18b3d",
+        "k": 4,
+        "m": 6,
+        "negative_count_distinct": 2,
+        "negative_count_raw": 2,
+        "negative_lengths": [
+          1,
+          12
+        ],
+        "positive_count_distinct": 1,
+        "positive_count_raw": 1,
+        "positive_lengths": [
+          6
+        ],
+        "q_modes": [
+          1,
+          2,
+          3,
+          4,
+          null
+        ]
+      },
+      {
+        "family": "planted_finite_language",
+        "hidden": "small/hidden/small_m6_k5_planted_finite_language_00.json",
+        "hidden_bytes": 577,
+        "hidden_sha256": "05c7536994d28d4a68bb6e3d66172a63c2b0192b67a028fe095a7c1819a174f2",
+        "id": "small_m6_k5_planted_finite_language_00",
+        "input": "small/inputs/small_m6_k5_planted_finite_language_00.json",
+        "input_bytes": 173,
+        "input_sha256": "6db47c75158f0232fc69e7dfa83467b8534a6b588a3323b309f2d1f809cedf45",
+        "k": 5,
+        "m": 6,
+        "negative_count_distinct": 2,
+        "negative_count_raw": 2,
+        "negative_lengths": [
+          6,
+          10
+        ],
+        "positive_count_distinct": 1,
+        "positive_count_raw": 1,
+        "positive_lengths": [
+          6
+        ],
+        "q_modes": [
+          1,
+          2,
+          3,
+          4,
+          null
+        ]
+      },
+      {
+        "family": "planted_unequal_blocks",
+        "hidden": "small/hidden/small_m6_k5_planted_unequal_blocks_01.json",
+        "hidden_bytes": 576,
+        "hidden_sha256": "d81c358ab12e92cdc7c0bb7379e6c367292e67aea921e60ca3d1427f6bcbb4a1",
+        "id": "small_m6_k5_planted_unequal_blocks_01",
+        "input": "small/inputs/small_m6_k5_planted_unequal_blocks_01.json",
+        "input_bytes": 180,
+        "input_sha256": "ba98ca493a9bbb07db80657fd4a2a5b6a99b4e9226f47e2259b08087662d7dfb",
+        "k": 5,
+        "m": 6,
+        "negative_count_distinct": 2,
+        "negative_count_raw": 2,
+        "negative_lengths": [
+          11,
+          12
+        ],
+        "positive_count_distinct": 1,
+        "positive_count_raw": 1,
+        "positive_lengths": [
+          6
+        ],
+        "q_modes": [
+          1,
+          2,
+          3,
+          4,
+          null
+        ]
+      },
+      {
+        "family": "planted_missing_event_symbols",
+        "hidden": "small/hidden/small_m6_k5_planted_missing_event_symbols_02.json",
+        "hidden_bytes": 644,
+        "hidden_sha256": "d1a79cc00b1671aed8709d0a1adc98304544d4df183bce35d9571fa7e6f1cedb",
+        "id": "small_m6_k5_planted_missing_event_symbols_02",
+        "input": "small/inputs/small_m6_k5_planted_missing_event_symbols_02.json",
+        "input_bytes": 181,
+        "input_sha256": "8a019f8be881add7d99b317a4dc7e0e31dea50719001945414405a638445437d",
+        "k": 5,
+        "m": 6,
+        "negative_count_distinct": 2,
+        "negative_count_raw": 2,
+        "negative_lengths": [
+          1,
+          4
+        ],
+        "positive_count_distinct": 2,
+        "positive_count_raw": 2,
+        "positive_lengths": [
+          6,
+          11
+        ],
+        "q_modes": [
+          1,
+          2,
+          3,
+          4,
+          null
+        ]
+      },
+      {
+        "family": "random_exact_label_assignments",
+        "hidden": "small/hidden/small_m6_k5_random_exact_label_assignments_03.json",
+        "hidden_bytes": 173,
+        "hidden_sha256": "c594d3583e95428745cfbbad341e895bb7e39dd7ac88adb47d533052b1cdaabc",
+        "id": "small_m6_k5_random_exact_label_assignments_03",
+        "input": "small/inputs/small_m6_k5_random_exact_label_assignments_03.json",
+        "input_bytes": 383,
+        "input_sha256": "14cb3ba72799c0e2c1619f0ec69c887ab83eb0538874fd1940701b2b4290af8f",
+        "k": 5,
+        "m": 6,
+        "negative_count_distinct": 14,
+        "negative_count_raw": 14,
+        "negative_lengths": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "positive_count_distinct": 9,
+        "positive_count_raw": 9,
+        "positive_lengths": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "q_modes": [
+          1,
+          2,
+          3,
+          4,
+          null
+        ]
+      },
+      {
+        "family": "sparse_random_finite_language",
+        "hidden": "small/hidden/small_m6_k5_sparse_random_finite_language_04.json",
+        "hidden_bytes": 172,
+        "hidden_sha256": "6d86a6636cbda01d8e7a2c4ef4a1643204fddcfefda58803dca4e3fd474d03ec",
+        "id": "small_m6_k5_sparse_random_finite_language_04",
+        "input": "small/inputs/small_m6_k5_sparse_random_finite_language_04.json",
+        "input_bytes": 226,
+        "input_sha256": "d71217986ae78eb2cfa7dc6c6793c0ebe56bb8689b782ffa25723b5442ffe44e",
+        "k": 5,
+        "m": 6,
+        "negative_count_distinct": 6,
+        "negative_count_raw": 6,
+        "negative_lengths": [
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "positive_count_distinct": 2,
+        "positive_count_raw": 2,
+        "positive_lengths": [
+          1,
+          5
+        ],
+        "q_modes": [
+          1,
+          2,
+          3,
+          4,
+          null
+        ]
+      },
+      {
+        "family": "repeated_events_and_duplicate_examples",
+        "hidden": "small/hidden/small_m6_k5_repeated_events_and_duplicate_examples_05.json",
+        "hidden_bytes": 591,
+        "hidden_sha256": "b41978e15eb9b0ad6b7c854864433d2bbb9882e128567bc1ddba5f1eeeb4981f",
+        "id": "small_m6_k5_repeated_events_and_duplicate_examples_05",
+        "input": "small/inputs/small_m6_k5_repeated_events_and_duplicate_examples_05.json",
+        "input_bytes": 206,
+        "input_sha256": "eb4fdbe0701bdeb1bf5bc15d6864f7caab3865d10f8424653d92501625fe9056",
+        "k": 5,
+        "m": 6,
+        "negative_count_distinct": 2,
+        "negative_count_raw": 2,
+        "negative_lengths": [
+          9,
+          12
+        ],
+        "positive_count_distinct": 1,
+        "positive_count_raw": 3,
+        "positive_lengths": [
+          6
+        ],
+        "q_modes": [
+          1,
+          2,
+          3,
+          4,
+          null
+        ]
+      },
+      {
+        "family": "ambiguous_empty_sample",
+        "hidden": "small/hidden/small_m6_k5_ambiguous_empty_sample_06.json",
+        "hidden_bytes": 158,
+        "hidden_sha256": "6cdff3293bfc5c94c0dcdd56effb0b9ec2904f81da034214de910cf298c1d302",
+        "id": "small_m6_k5_ambiguous_empty_sample_06",
+        "input": "small/inputs/small_m6_k5_ambiguous_empty_sample_06.json",
+        "input_bytes": 123,
+        "input_sha256": "7a9923fccfededa0cd9c8a487e8d5610215f6c26510e431eee4c8371172d2442",
+        "k": 5,
+        "m": 6,
+        "negative_count_distinct": 0,
+        "negative_count_raw": 0,
+        "negative_lengths": [],
+        "positive_count_distinct": 0,
+        "positive_count_raw": 0,
+        "positive_lengths": [],
+        "q_modes": [
+          1,
+          2,
+          3,
+          4,
+          null
+        ]
+      },
+      {
+        "family": "q_opposition_stress",
+        "hidden": "small/hidden/small_m6_k5_q_opposition_stress_07.json",
+        "hidden_bytes": 573,
+        "hidden_sha256": "fd1e44969fcd2de40889ccae604ff6450ac3ea86d54a35facecf8c704b891f36",
+        "id": "small_m6_k5_q_opposition_stress_07",
+        "input": "small/inputs/small_m6_k5_q_opposition_stress_07.json",
+        "input_bytes": 163,
+        "input_sha256": "ea93beffa7799632b4b95b4065179d71f844ae05e26f70ded90d48c519d6839e",
+        "k": 5,
+        "m": 6,
+        "negative_count_distinct": 2,
+        "negative_count_raw": 2,
+        "negative_lengths": [
+          1,
+          5
+        ],
+        "positive_count_distinct": 1,
+        "positive_count_raw": 1,
+        "positive_lengths": [
+          6
+        ],
+        "q_modes": [
+          1,
+          2,
+          3,
+          4,
+          null
+        ]
+      },
+      {
+        "family": "planted_finite_language",
+        "hidden": "small/hidden/small_m6_k6_planted_finite_language_00.json",
+        "hidden_bytes": 623,
+        "hidden_sha256": "4b33d7cb0269bf22c4d4644bfeefa2d533870244183cd3724bf9b03c49ce4308",
+        "id": "small_m6_k6_planted_finite_language_00",
+        "input": "small/inputs/small_m6_k6_planted_finite_language_00.json",
+        "input_bytes": 177,
+        "input_sha256": "48256ad004cf87413420e576db8d9761c1a48f2df5780b0d66186ae10bea229c",
+        "k": 6,
+        "m": 6,
+        "negative_count_distinct": 2,
+        "negative_count_raw": 2,
+        "negative_lengths": [
+          8,
+          12
+        ],
+        "positive_count_distinct": 1,
+        "positive_count_raw": 1,
+        "positive_lengths": [
+          6
+        ],
+        "q_modes": [
+          1,
+          2,
+          3,
+          4,
+          null
+        ]
+      },
+      {
+        "family": "planted_unequal_blocks",
+        "hidden": "small/hidden/small_m6_k6_planted_unequal_blocks_01.json",
+        "hidden_bytes": 622,
+        "hidden_sha256": "b74b517368487a920917dbd63e63c69c8a57cfa36725b77e16075319152bb137",
+        "id": "small_m6_k6_planted_unequal_blocks_01",
+        "input": "small/inputs/small_m6_k6_planted_unequal_blocks_01.json",
+        "input_bytes": 167,
+        "input_sha256": "ac6e2d7298028b16ab4a203bc5634d48cfb6a2e848be758dd6cc995020b89880",
+        "k": 6,
+        "m": 6,
+        "negative_count_distinct": 2,
+        "negative_count_raw": 2,
+        "negative_lengths": [
+          4,
+          6
+        ],
+        "positive_count_distinct": 1,
+        "positive_count_raw": 1,
+        "positive_lengths": [
+          6
+        ],
+        "q_modes": [
+          1,
+          2,
+          3,
+          4,
+          null
+        ]
+      },
+      {
+        "family": "planted_missing_event_symbols",
+        "hidden": "small/hidden/small_m6_k6_planted_missing_event_symbols_02.json",
+        "hidden_bytes": 701,
+        "hidden_sha256": "e55ff4f7e0999aa8dacc38586b966b11ef06c181fb1d51e510743a433e110303",
+        "id": "small_m6_k6_planted_missing_event_symbols_02",
+        "input": "small/inputs/small_m6_k6_planted_missing_event_symbols_02.json",
+        "input_bytes": 190,
+        "input_sha256": "6d5b74f3daccf7737010c1ce927512632d8fea5c7765774b929345ac69a47744",
+        "k": 6,
+        "m": 6,
+        "negative_count_distinct": 2,
+        "negative_count_raw": 2,
+        "negative_lengths": [
+          1,
+          12
+        ],
+        "positive_count_distinct": 2,
+        "positive_count_raw": 2,
+        "positive_lengths": [
+          6,
+          12
+        ],
+        "q_modes": [
+          1,
+          2,
+          3,
+          4,
+          null
+        ]
+      },
+      {
+        "family": "random_exact_label_assignments",
+        "hidden": "small/hidden/small_m6_k6_random_exact_label_assignments_03.json",
+        "hidden_bytes": 173,
+        "hidden_sha256": "9b00592c4f11eb51a5b630f9676a1c9c1f6342ad192296ed794b4c0feba0408d",
+        "id": "small_m6_k6_random_exact_label_assignments_03",
+        "input": "small/inputs/small_m6_k6_random_exact_label_assignments_03.json",
+        "input_bytes": 401,
+        "input_sha256": "5628a1188f696c43be3a55f49e0c8dbaca950d975baa9b6090610a9bd2fc8f52",
+        "k": 6,
+        "m": 6,
+        "negative_count_distinct": 14,
+        "negative_count_raw": 14,
+        "negative_lengths": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          6,
+          7
+        ],
+        "positive_count_distinct": 9,
+        "positive_count_raw": 9,
+        "positive_lengths": [
+          1,
+          4,
+          5,
+          6,
+          7
+        ],
+        "q_modes": [
+          1,
+          2,
+          3,
+          4,
+          null
+        ]
+      },
+      {
+        "family": "sparse_random_finite_language",
+        "hidden": "small/hidden/small_m6_k6_sparse_random_finite_language_04.json",
+        "hidden_bytes": 172,
+        "hidden_sha256": "4b7a4b0096da24a9b6c9d9f4adffe7f1933b4633b2dacdd35f23187550a1ed02",
+        "id": "small_m6_k6_sparse_random_finite_language_04",
+        "input": "small/inputs/small_m6_k6_sparse_random_finite_language_04.json",
+        "input_bytes": 218,
+        "input_sha256": "b2c41999551636df04bd546315b854c87f4e95ef827a345fd4736a59f667f9e9",
+        "k": 6,
+        "m": 6,
+        "negative_count_distinct": 4,
+        "negative_count_raw": 4,
+        "negative_lengths": [
+          1,
+          4,
+          5
+        ],
+        "positive_count_distinct": 4,
+        "positive_count_raw": 4,
+        "positive_lengths": [
+          1,
+          2,
+          4,
+          6
+        ],
+        "q_modes": [
+          1,
+          2,
+          3,
+          4,
+          null
+        ]
+      },
+      {
+        "family": "repeated_events_and_duplicate_examples",
+        "hidden": "small/hidden/small_m6_k6_repeated_events_and_duplicate_examples_05.json",
+        "hidden_bytes": 637,
+        "hidden_sha256": "00cb484a61cb04fc955838530581d1b76c335ca057fb481762db3b9b8215e72f",
+        "id": "small_m6_k6_repeated_events_and_duplicate_examples_05",
+        "input": "small/inputs/small_m6_k6_repeated_events_and_duplicate_examples_05.json",
+        "input_bytes": 198,
+        "input_sha256": "c590cc342e157ba4a12af4d7078460ed6d8223770ada36813bcd9d62c0f3aeda",
+        "k": 6,
+        "m": 6,
+        "negative_count_distinct": 2,
+        "negative_count_raw": 2,
+        "negative_lengths": [
+          2,
+          11
+        ],
+        "positive_count_distinct": 1,
+        "positive_count_raw": 3,
+        "positive_lengths": [
+          6
+        ],
+        "q_modes": [
+          1,
+          2,
+          3,
+          4,
+          null
+        ]
+      },
+      {
+        "family": "ambiguous_empty_sample",
+        "hidden": "small/hidden/small_m6_k6_ambiguous_empty_sample_06.json",
+        "hidden_bytes": 158,
+        "hidden_sha256": "6cdff3293bfc5c94c0dcdd56effb0b9ec2904f81da034214de910cf298c1d302",
+        "id": "small_m6_k6_ambiguous_empty_sample_06",
+        "input": "small/inputs/small_m6_k6_ambiguous_empty_sample_06.json",
+        "input_bytes": 123,
+        "input_sha256": "627a29f371affcef68606fea4ffed2b7fd1f667d0463b842951adcd5244913dd",
+        "k": 6,
+        "m": 6,
+        "negative_count_distinct": 0,
+        "negative_count_raw": 0,
+        "negative_lengths": [],
+        "positive_count_distinct": 0,
+        "positive_count_raw": 0,
+        "positive_lengths": [],
+        "q_modes": [
+          1,
+          2,
+          3,
+          4,
+          null
+        ]
+      },
+      {
+        "family": "q_opposition_stress",
+        "hidden": "small/hidden/small_m6_k6_q_opposition_stress_07.json",
+        "hidden_bytes": 619,
+        "hidden_sha256": "4f76b40c88de0833901da648e80e89e4bb4f70ab425d540f0740e4f28ed1c4a5",
+        "id": "small_m6_k6_q_opposition_stress_07",
+        "input": "small/inputs/small_m6_k6_q_opposition_stress_07.json",
+        "input_bytes": 175,
+        "input_sha256": "682b12ca6c90734933a2d816d300fc3da22f1279b4e38bd789ddbaf11897cb37",
+        "k": 6,
+        "m": 6,
+        "negative_count_distinct": 2,
+        "negative_count_raw": 2,
+        "negative_lengths": [
+          6,
+          12
+        ],
+        "positive_count_distinct": 1,
+        "positive_count_raw": 1,
+        "positive_lengths": [
+          6
+        ],
+        "q_modes": [
+          1,
+          2,
+          3,
+          4,
+          null
+        ]
+      },
+      {
+        "family": "planted_finite_language",
+        "hidden": "small/hidden/small_m7_k2_planted_finite_language_00.json",
+        "hidden_bytes": 462,
+        "hidden_sha256": "6064003def33a9d6ce57c1e2fa668fbfbfbe1083324b047ac02e5d6959924bcb",
+        "id": "small_m7_k2_planted_finite_language_00",
+        "input": "small/inputs/small_m7_k2_planted_finite_language_00.json",
+        "input_bytes": 191,
+        "input_sha256": "a8ed86b2967c76441a2f6be699223296ed0a5fd8cb81f9f50b888b7bc7bde43e",
+        "k": 2,
+        "m": 7,
+        "negative_count_distinct": 2,
+        "negative_count_raw": 2,
+        "negative_lengths": [
+          12
+        ],
+        "positive_count_distinct": 1,
+        "positive_count_raw": 1,
+        "positive_lengths": [
+          7
+        ],
+        "q_modes": [
+          1,
+          2,
+          3,
+          4,
+          null
+        ]
+      },
+      {
+        "family": "planted_unequal_blocks",
+        "hidden": "small/hidden/small_m7_k2_planted_unequal_blocks_01.json",
+        "hidden_bytes": 488,
+        "hidden_sha256": "91c474ce39d29742ddcd628675ed7cc16916066e125a30849bf27a88d29c17c2",
+        "id": "small_m7_k2_planted_unequal_blocks_01",
+        "input": "small/inputs/small_m7_k2_planted_unequal_blocks_01.json",
+        "input_bytes": 189,
+        "input_sha256": "23d3199b5dfc63059981a43f8ef098ec52eeeac28afbdd7c7352eeccc0ee0ab7",
+        "k": 2,
+        "m": 7,
+        "negative_count_distinct": 2,
+        "negative_count_raw": 2,
+        "negative_lengths": [
+          1,
+          6
+        ],
+        "positive_count_distinct": 2,
+        "positive_count_raw": 2,
+        "positive_lengths": [
+          7
+        ],
+        "q_modes": [
+          1,
+          2,
+          3,
+          4,
+          null
+        ]
+      },
+      {
+        "family": "planted_missing_event_symbols",
+        "hidden": "small/hidden/small_m7_k2_planted_missing_event_symbols_02.json",
+        "hidden_bytes": 498,
+        "hidden_sha256": "5d64a76a9cc86095e79f869cefedf9dc5d1760b434ab245de73a6f67b13c1f82",
+        "id": "small_m7_k2_planted_missing_event_symbols_02",
+        "input": "small/inputs/small_m7_k2_planted_missing_event_symbols_02.json",
+        "input_bytes": 215,
+        "input_sha256": "eaeee7f97927b6055ab97fb30f78cec6bbca7c2268c723afdb6cb4f105a3f7d5",
+        "k": 2,
+        "m": 7,
+        "negative_count_distinct": 2,
+        "negative_count_raw": 2,
+        "negative_lengths": [
+          9,
+          10
+        ],
+        "positive_count_distinct": 3,
+        "positive_count_raw": 3,
+        "positive_lengths": [
+          6,
+          7
+        ],
+        "q_modes": [
+          1,
+          2,
+          3,
+          4,
+          null
+        ]
+      },
+      {
+        "family": "random_exact_label_assignments",
+        "hidden": "small/hidden/small_m7_k2_random_exact_label_assignments_03.json",
+        "hidden_bytes": 173,
+        "hidden_sha256": "8be7fcb36edc6a0c94f54160550422fd80b51ecb843004cd13e0c2070e1c0e14",
+        "id": "small_m7_k2_random_exact_label_assignments_03",
+        "input": "small/inputs/small_m7_k2_random_exact_label_assignments_03.json",
+        "input_bytes": 421,
+        "input_sha256": "108a08a79b8ec39f062e31c204982dbaa6a130d2d550d225d5376cbdbebab9b0",
+        "k": 2,
+        "m": 7,
+        "negative_count_distinct": 10,
+        "negative_count_raw": 10,
+        "negative_lengths": [
+          0,
+          2,
+          4,
+          5,
+          6,
+          7,
+          8
+        ],
+        "positive_count_distinct": 13,
+        "positive_count_raw": 13,
+        "positive_lengths": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          6,
+          7,
+          8
+        ],
+        "q_modes": [
+          1,
+          2,
+          3,
+          4,
+          null
+        ]
+      },
+      {
+        "family": "sparse_random_finite_language",
+        "hidden": "small/hidden/small_m7_k2_sparse_random_finite_language_04.json",
+        "hidden_bytes": 172,
+        "hidden_sha256": "8aca6ea9398aca9a21d637cfb7d65394ffd4a02c9a50b367c7e9334836f8e6fe",
+        "id": "small_m7_k2_sparse_random_finite_language_04",
+        "input": "small/inputs/small_m7_k2_sparse_random_finite_language_04.json",
+        "input_bytes": 240,
+        "input_sha256": "8b7e1585f624b53b477d010c130f6517e3091d33ed3ef6d63ce3b220b556f52e",
+        "k": 2,
+        "m": 7,
+        "negative_count_distinct": 3,
+        "negative_count_raw": 3,
+        "negative_lengths": [
+          5,
+          6,
+          7
+        ],
+        "positive_count_distinct": 5,
+        "positive_count_raw": 5,
+        "positive_lengths": [
+          2,
+          3,
+          7,
+          8
+        ],
+        "q_modes": [
+          1,
+          2,
+          3,
+          4,
+          null
+        ]
+      },
+      {
+        "family": "repeated_events_and_duplicate_examples",
+        "hidden": "small/hidden/small_m7_k2_repeated_events_and_duplicate_examples_05.json",
+        "hidden_bytes": 503,
+        "hidden_sha256": "43774f822b3415ebf75cff51da2a39789a1221597c8049b211381a11d75cec3d",
+        "id": "small_m7_k2_repeated_events_and_duplicate_examples_05",
+        "input": "small/inputs/small_m7_k2_repeated_events_and_duplicate_examples_05.json",
+        "input_bytes": 234,
+        "input_sha256": "22e3c598cbf494053f343883a7f85b690d90e071935d96fbb5947be54065e0b9",
+        "k": 2,
+        "m": 7,
+        "negative_count_distinct": 2,
+        "negative_count_raw": 2,
+        "negative_lengths": [
+          8,
+          14
+        ],
+        "positive_count_distinct": 2,
+        "positive_count_raw": 4,
+        "positive_lengths": [
+          7
+        ],
+        "q_modes": [
+          1,
+          2,
+          3,
+          4,
+          null
+        ]
+      },
+      {
+        "family": "ambiguous_empty_sample",
+        "hidden": "small/hidden/small_m7_k2_ambiguous_empty_sample_06.json",
+        "hidden_bytes": 158,
+        "hidden_sha256": "6cdff3293bfc5c94c0dcdd56effb0b9ec2904f81da034214de910cf298c1d302",
+        "id": "small_m7_k2_ambiguous_empty_sample_06",
+        "input": "small/inputs/small_m7_k2_ambiguous_empty_sample_06.json",
+        "input_bytes": 132,
+        "input_sha256": "d156e42aafea22dcc9e28f4cde47ccfd543695ad70a51f331233bb801d7173f1",
+        "k": 2,
+        "m": 7,
+        "negative_count_distinct": 0,
+        "negative_count_raw": 0,
+        "negative_lengths": [],
+        "positive_count_distinct": 0,
+        "positive_count_raw": 0,
+        "positive_lengths": [],
+        "q_modes": [
+          1,
+          2,
+          3,
+          4,
+          null
+        ]
+      },
+      {
+        "family": "q_opposition_stress",
+        "hidden": "small/hidden/small_m7_k2_q_opposition_stress_07.json",
+        "hidden_bytes": 485,
+        "hidden_sha256": "0b4807c8f88365bf06ce816b236d399191a09d61dde86baca111a787cf9f1f82",
+        "id": "small_m7_k2_q_opposition_stress_07",
+        "input": "small/inputs/small_m7_k2_q_opposition_stress_07.json",
+        "input_bytes": 192,
+        "input_sha256": "d0e4f2bf88f5ac55f455244d636bfe7ce5725c6f8130f843002f93f7485c9263",
+        "k": 2,
+        "m": 7,
+        "negative_count_distinct": 2,
+        "negative_count_raw": 2,
+        "negative_lengths": [
+          4,
+          6
+        ],
+        "positive_count_distinct": 2,
+        "positive_count_raw": 2,
+        "positive_lengths": [
+          7
+        ],
+        "q_modes": [
+          1,
+          2,
+          3,
+          4,
+          null
+        ]
+      },
+      {
+        "family": "planted_finite_language",
+        "hidden": "small/hidden/small_m7_k3_planted_finite_language_00.json",
+        "hidden_bytes": 508,
+        "hidden_sha256": "4503b553ffa91eb2c3d800ba71be0e92727c76a0c263650a89023f12f19ae28c",
+        "id": "small_m7_k3_planted_finite_language_00",
+        "input": "small/inputs/small_m7_k3_planted_finite_language_00.json",
+        "input_bytes": 182,
+        "input_sha256": "668575899026cd4d29359d65202de80296b42a729ebbb67c0a0cd83fd2a9e151",
+        "k": 3,
+        "m": 7,
+        "negative_count_distinct": 2,
+        "negative_count_raw": 2,
+        "negative_lengths": [
+          6,
+          9
+        ],
+        "positive_count_distinct": 1,
+        "positive_count_raw": 1,
+        "positive_lengths": [
+          7
+        ],
+        "q_modes": [
+          1,
+          2,
+          3,
+          4,
+          null
+        ]
+      },
+      {
+        "family": "planted_unequal_blocks",
+        "hidden": "small/hidden/small_m7_k3_planted_unequal_blocks_01.json",
+        "hidden_bytes": 520,
+        "hidden_sha256": "a220046152c984e5c5d529f9cffe23aaf4bc54b48b79a9958d241a8e47e83a86",
+        "id": "small_m7_k3_planted_unequal_blocks_01",
+        "input": "small/inputs/small_m7_k3_planted_unequal_blocks_01.json",
+        "input_bytes": 206,
+        "input_sha256": "f80768d16ac008cf9090d5f2eb00b667aac453e8bb691387ea17f30cf4ccbb84",
+        "k": 3,
+        "m": 7,
+        "negative_count_distinct": 2,
+        "negative_count_raw": 2,
+        "negative_lengths": [
+          11,
+          13
+        ],
+        "positive_count_distinct": 2,
+        "positive_count_raw": 2,
+        "positive_lengths": [
+          7
+        ],
+        "q_modes": [
+          1,
+          2,
+          3,
+          4,
+          null
+        ]
+      },
+      {
+        "family": "planted_missing_event_symbols",
+        "hidden": "small/hidden/small_m7_k3_planted_missing_event_symbols_02.json",
+        "hidden_bytes": 541,
+        "hidden_sha256": "6f243a26e37962c0aad1737a35eb26080abfb83d6b014266294fa6c1bafc634e",
+        "id": "small_m7_k3_planted_missing_event_symbols_02",
+        "input": "small/inputs/small_m7_k3_planted_missing_event_symbols_02.json",
+        "input_bytes": 196,
+        "input_sha256": "cedf73e45c58835f6bda5cc863237d4295b0deb49b7b9414687b54b163322946",
+        "k": 3,
+        "m": 7,
+        "negative_count_distinct": 2,
+        "negative_count_raw": 2,
+        "negative_lengths": [
+          5,
+          8
+        ],
+        "positive_count_distinct": 2,
+        "positive_count_raw": 2,
+        "positive_lengths": [
+          6,
+          9
+        ],
+        "q_modes": [
+          1,
+          2,
+          3,
+          4,
+          null
+        ]
+      },
+      {
+        "family": "random_exact_label_assignments",
+        "hidden": "small/hidden/small_m7_k3_random_exact_label_assignments_03.json",
+        "hidden_bytes": 173,
+        "hidden_sha256": "f70582ca15fd251d5fcd26ecb5d6a374325164fd3cdeb65878cde3fb1f4e8a6f",
+        "id": "small_m7_k3_random_exact_label_assignments_03",
+        "input": "small/inputs/small_m7_k3_random_exact_label_assignments_03.json",
+        "input_bytes": 415,
+        "input_sha256": "5821746dbc8ee13c27f0593eb3ebf524756b5b2333141e317e173b36be446426",
+        "k": 3,
+        "m": 7,
+        "negative_count_distinct": 12,
+        "negative_count_raw": 12,
+        "negative_lengths": [
+          0,
+          2,
+          5,
+          6,
+          7,
+          8
+        ],
+        "positive_count_distinct": 10,
+        "positive_count_raw": 10,
+        "positive_lengths": [
+          1,
+          2,
+          3,
+          5,
+          7,
+          8
+        ],
+        "q_modes": [
+          1,
+          2,
+          3,
+          4,
+          null
+        ]
+      },
+      {
+        "family": "sparse_random_finite_language",
+        "hidden": "small/hidden/small_m7_k3_sparse_random_finite_language_04.json",
+        "hidden_bytes": 172,
+        "hidden_sha256": "9e393eee47aa78640ae5b26d7de91724b403f1bfdce26fc9aa2bb277a82db986",
+        "id": "small_m7_k3_sparse_random_finite_language_04",
+        "input": "small/inputs/small_m7_k3_sparse_random_finite_language_04.json",
+        "input_bytes": 206,
+        "input_sha256": "3f1566fa9c4b8b3fd21ed12c4b61f67c2eef1fc8ccbbbeae9aba5150eeac87b2",
+        "k": 3,
+        "m": 7,
+        "negative_count_distinct": 3,
+        "negative_count_raw": 3,
+        "negative_lengths": [
+          0,
+          3,
+          5
+        ],
+        "positive_count_distinct": 3,
+        "positive_count_raw": 3,
+        "positive_lengths": [
+          3,
+          4,
+          7
+        ],
+        "q_modes": [
+          1,
+          2,
+          3,
+          4,
+          null
+        ]
+      },
+      {
+        "family": "repeated_events_and_duplicate_examples",
+        "hidden": "small/hidden/small_m7_k3_repeated_events_and_duplicate_examples_05.json",
+        "hidden_bytes": 535,
+        "hidden_sha256": "3d61a2c4b4f9d90ebd8dd97ea238fed33b5a48ea1f25b1ce68f9a22999f23fef",
+        "id": "small_m7_k3_repeated_events_and_duplicate_examples_05",
+        "input": "small/inputs/small_m7_k3_repeated_events_and_duplicate_examples_05.json",
+        "input_bytes": 238,
+        "input_sha256": "4cde23c6132e5aa20932d89d16bed80e20714d939e831f074e228518b07f54b1",
+        "k": 3,
+        "m": 7,
+        "negative_count_distinct": 2,
+        "negative_count_raw": 2,
+        "negative_lengths": [
+          12,
+          14
+        ],
+        "positive_count_distinct": 2,
+        "positive_count_raw": 4,
+        "positive_lengths": [
+          7
+        ],
+        "q_modes": [
+          1,
+          2,
+          3,
+          4,
+          null
+        ]
+      },
+      {
+        "family": "ambiguous_empty_sample",
+        "hidden": "small/hidden/small_m7_k3_ambiguous_empty_sample_06.json",
+        "hidden_bytes": 158,
+        "hidden_sha256": "6cdff3293bfc5c94c0dcdd56effb0b9ec2904f81da034214de910cf298c1d302",
+        "id": "small_m7_k3_ambiguous_empty_sample_06",
+        "input": "small/inputs/small_m7_k3_ambiguous_empty_sample_06.json",
+        "input_bytes": 132,
+        "input_sha256": "eaef311a5ec4b1e1ed302489b3ac75541d6e2a1da94065653c4a02034862410c",
+        "k": 3,
+        "m": 7,
+        "negative_count_distinct": 0,
+        "negative_count_raw": 0,
+        "negative_lengths": [],
+        "positive_count_distinct": 0,
+        "positive_count_raw": 0,
+        "positive_lengths": [],
+        "q_modes": [
+          1,
+          2,
+          3,
+          4,
+          null
+        ]
+      },
+      {
+        "family": "q_opposition_stress",
+        "hidden": "small/hidden/small_m7_k3_q_opposition_stress_07.json",
+        "hidden_bytes": 517,
+        "hidden_sha256": "222cea712442d7b5f7ec8f78f54dcbc9a61ab0951c3e66d729ba600ebf7adc9b",
+        "id": "small_m7_k3_q_opposition_stress_07",
+        "input": "small/inputs/small_m7_k3_q_opposition_stress_07.json",
+        "input_bytes": 192,
+        "input_sha256": "323b7b16b5bc06279a8a9cd23009a291d0d989f26ebff2748cf0b9490693e480",
+        "k": 3,
+        "m": 7,
+        "negative_count_distinct": 2,
+        "negative_count_raw": 2,
+        "negative_lengths": [
+          4,
+          6
+        ],
+        "positive_count_distinct": 2,
+        "positive_count_raw": 2,
+        "positive_lengths": [
+          7
+        ],
+        "q_modes": [
+          1,
+          2,
+          3,
+          4,
+          null
+        ]
+      },
+      {
+        "family": "planted_finite_language",
+        "hidden": "small/hidden/small_m7_k4_planted_finite_language_00.json",
+        "hidden_bytes": 554,
+        "hidden_sha256": "a32f677668708b89e7c12b057dc81195cd00aba8916cfd376d4d69ee663d63ce",
+        "id": "small_m7_k4_planted_finite_language_00",
+        "input": "small/inputs/small_m7_k4_planted_finite_language_00.json",
+        "input_bytes": 188,
+        "input_sha256": "aad5e2e3957c6442f7f090a7672285c396d689fb889cdcb32f62e8eb2a951456",
+        "k": 4,
+        "m": 7,
+        "negative_count_distinct": 2,
+        "negative_count_raw": 2,
+        "negative_lengths": [
+          8,
+          13
+        ],
+        "positive_count_distinct": 1,
+        "positive_count_raw": 1,
+        "positive_lengths": [
+          7
+        ],
+        "q_modes": [
+          1,
+          2,
+          3,
+          4,
+          null
+        ]
+      },
+      {
+        "family": "planted_unequal_blocks",
+        "hidden": "small/hidden/small_m7_k4_planted_unequal_blocks_01.json",
+        "hidden_bytes": 553,
+        "hidden_sha256": "022c8ad76e6e80db770e9132c7040c2fdbf705d1d4da8d9dd910c094f6450069",
+        "id": "small_m7_k4_planted_unequal_blocks_01",
+        "input": "small/inputs/small_m7_k4_planted_unequal_blocks_01.json",
+        "input_bytes": 174,
+        "input_sha256": "9409a6756e90d9344e469d944a8c1c4392c0bad6222d28bc8a746a7267075007",
+        "k": 4,
+        "m": 7,
+        "negative_count_distinct": 2,
+        "negative_count_raw": 2,
+        "negative_lengths": [
+          3,
+          4
+        ],
+        "positive_count_distinct": 1,
+        "positive_count_raw": 1,
+        "positive_lengths": [
+          7
+        ],
+        "q_modes": [
+          1,
+          2,
+          3,
+          4,
+          null
+        ]
+      },
+      {
+        "family": "planted_missing_event_symbols",
+        "hidden": "small/hidden/small_m7_k4_planted_missing_event_symbols_02.json",
+        "hidden_bytes": 611,
+        "hidden_sha256": "d2f3dd228a7a81665eb27f63d98ecd39495f702a429c3288ec543368f5a945b4",
+        "id": "small_m7_k4_planted_missing_event_symbols_02",
+        "input": "small/inputs/small_m7_k4_planted_missing_event_symbols_02.json",
+        "input_bytes": 212,
+        "input_sha256": "8782d1e92759f0728eeda9977781f4fb9fdfe0544f05a8532180296eb1726e37",
+        "k": 4,
+        "m": 7,
+        "negative_count_distinct": 2,
+        "negative_count_raw": 2,
+        "negative_lengths": [
+          12,
+          14
+        ],
+        "positive_count_distinct": 2,
+        "positive_count_raw": 2,
+        "positive_lengths": [
+          7,
+          11
+        ],
+        "q_modes": [
+          1,
+          2,
+          3,
+          4,
+          null
+        ]
+      },
+      {
+        "family": "random_exact_label_assignments",
+        "hidden": "small/hidden/small_m7_k4_random_exact_label_assignments_03.json",
+        "hidden_bytes": 173,
+        "hidden_sha256": "2423e7c3dedc6e5e841093405894ce5e2a0f305a40eb9065c2f3c11b45bf416c",
+        "id": "small_m7_k4_random_exact_label_assignments_03",
+        "input": "small/inputs/small_m7_k4_random_exact_label_assignments_03.json",
+        "input_bytes": 397,
+        "input_sha256": "ab52ac042e7197eddd30434c8ca103fa25a075ab989a165c220d6874769b65d0",
+        "k": 4,
+        "m": 7,
+        "negative_count_distinct": 8,
+        "negative_count_raw": 8,
+        "negative_lengths": [
+          0,
+          1,
+          4,
+          6,
+          8
+        ],
+        "positive_count_distinct": 13,
+        "positive_count_raw": 13,
+        "positive_lengths": [
+          0,
+          1,
+          2,
+          4,
+          6,
+          7,
+          8
+        ],
+        "q_modes": [
+          1,
+          2,
+          3,
+          4,
+          null
+        ]
+      },
+      {
+        "family": "sparse_random_finite_language",
+        "hidden": "small/hidden/small_m7_k4_sparse_random_finite_language_04.json",
+        "hidden_bytes": 172,
+        "hidden_sha256": "1775b3910cc03dcde52aa70df022324bcf3843cc7ddf499c4ab3dfbebda2c5ec",
+        "id": "small_m7_k4_sparse_random_finite_language_04",
+        "input": "small/inputs/small_m7_k4_sparse_random_finite_language_04.json",
+        "input_bytes": 225,
+        "input_sha256": "b7c997929afe1a590919504b2e05ee0d05bbfcb4e27b1c8de827221aeb22c2ad",
+        "k": 4,
+        "m": 7,
+        "negative_count_distinct": 7,
+        "negative_count_raw": 7,
+        "negative_lengths": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "positive_count_distinct": 1,
+        "positive_count_raw": 1,
+        "positive_lengths": [
+          4
+        ],
+        "q_modes": [
+          1,
+          2,
+          3,
+          4,
+          null
+        ]
+      },
+      {
+        "family": "repeated_events_and_duplicate_examples",
+        "hidden": "small/hidden/small_m7_k4_repeated_events_and_duplicate_examples_05.json",
+        "hidden_bytes": 568,
+        "hidden_sha256": "3eba9c1bd65e9659934c0dd95f540d986cd3d24f69768e6b9131ac6937f206b4",
+        "id": "small_m7_k4_repeated_events_and_duplicate_examples_05",
+        "input": "small/inputs/small_m7_k4_repeated_events_and_duplicate_examples_05.json",
+        "input_bytes": 203,
+        "input_sha256": "d0f1ae596c711cee4326f2aba8b8c2333b53dda37cc6ca30b8577643ccf26ddf",
+        "k": 4,
+        "m": 7,
+        "negative_count_distinct": 2,
+        "negative_count_raw": 2,
+        "negative_lengths": [
+          1,
+          5
+        ],
+        "positive_count_distinct": 1,
+        "positive_count_raw": 3,
+        "positive_lengths": [
+          7
+        ],
+        "q_modes": [
+          1,
+          2,
+          3,
+          4,
+          null
+        ]
+      },
+      {
+        "family": "ambiguous_empty_sample",
+        "hidden": "small/hidden/small_m7_k4_ambiguous_empty_sample_06.json",
+        "hidden_bytes": 158,
+        "hidden_sha256": "6cdff3293bfc5c94c0dcdd56effb0b9ec2904f81da034214de910cf298c1d302",
+        "id": "small_m7_k4_ambiguous_empty_sample_06",
+        "input": "small/inputs/small_m7_k4_ambiguous_empty_sample_06.json",
+        "input_bytes": 132,
+        "input_sha256": "025d2b3d312ac3d858602aa0fc188d31da8fa7a65a2f718adc5629cf751b95d9",
+        "k": 4,
+        "m": 7,
+        "negative_count_distinct": 0,
+        "negative_count_raw": 0,
+        "negative_lengths": [],
+        "positive_count_distinct": 0,
+        "positive_count_raw": 0,
+        "positive_lengths": [],
+        "q_modes": [
+          1,
+          2,
+          3,
+          4,
+          null
+        ]
+      },
+      {
+        "family": "q_opposition_stress",
+        "hidden": "small/hidden/small_m7_k4_q_opposition_stress_07.json",
+        "hidden_bytes": 550,
+        "hidden_sha256": "dea28083cecd1cf586633e8c6e5d38f30fa816a116b302060cb105e60cc32007",
+        "id": "small_m7_k4_q_opposition_stress_07",
+        "input": "small/inputs/small_m7_k4_q_opposition_stress_07.json",
+        "input_bytes": 185,
+        "input_sha256": "99cb119ff77e970d29af0d3e585cb3897ab7d0abb366eebab8a2e87eda441649",
+        "k": 4,
+        "m": 7,
+        "negative_count_distinct": 2,
+        "negative_count_raw": 2,
+        "negative_lengths": [
+          5,
+          13
+        ],
+        "positive_count_distinct": 1,
+        "positive_count_raw": 1,
+        "positive_lengths": [
+          7
+        ],
+        "q_modes": [
+          1,
+          2,
+          3,
+          4,
+          null
+        ]
+      },
+      {
+        "family": "planted_finite_language",
+        "hidden": "small/hidden/small_m7_k5_planted_finite_language_00.json",
+        "hidden_bytes": 600,
+        "hidden_sha256": "88fb3a294b43f1f473172eb29ebfc3fdae04322368657490e2940fa61480cea6",
+        "id": "small_m7_k5_planted_finite_language_00",
+        "input": "small/inputs/small_m7_k5_planted_finite_language_00.json",
+        "input_bytes": 176,
+        "input_sha256": "c5a7fb8d5fd0882c05af6210cff243db2a6fbca05e24ef08e9e42cfec97aaf77",
+        "k": 5,
+        "m": 7,
+        "negative_count_distinct": 2,
+        "negative_count_raw": 2,
+        "negative_lengths": [
+          2,
+          7
+        ],
+        "positive_count_distinct": 1,
+        "positive_count_raw": 1,
+        "positive_lengths": [
+          7
+        ],
+        "q_modes": [
+          1,
+          2,
+          3,
+          4,
+          null
+        ]
+      },
+      {
+        "family": "planted_unequal_blocks",
+        "hidden": "small/hidden/small_m7_k5_planted_unequal_blocks_01.json",
+        "hidden_bytes": 599,
+        "hidden_sha256": "8ef5eff0105d44ac53cc321b53924bf74f00c9bce66f5973f343a7f9685d3421",
+        "id": "small_m7_k5_planted_unequal_blocks_01",
+        "input": "small/inputs/small_m7_k5_planted_unequal_blocks_01.json",
+        "input_bytes": 185,
+        "input_sha256": "755ed7aabcf46ab1d2c213c259b887565c621454f6868db43b77697bb9e6f1e9",
+        "k": 5,
+        "m": 7,
+        "negative_count_distinct": 2,
+        "negative_count_raw": 2,
+        "negative_lengths": [
+          8,
+          10
+        ],
+        "positive_count_distinct": 1,
+        "positive_count_raw": 1,
+        "positive_lengths": [
+          7
+        ],
+        "q_modes": [
+          1,
+          2,
+          3,
+          4,
+          null
+        ]
+      },
+      {
+        "family": "planted_missing_event_symbols",
+        "hidden": "small/hidden/small_m7_k5_planted_missing_event_symbols_02.json",
+        "hidden_bytes": 655,
+        "hidden_sha256": "cca114ac565dc565df335e7c45390482110211e3590a382f58fec5afc97aa9fc",
+        "id": "small_m7_k5_planted_missing_event_symbols_02",
+        "input": "small/inputs/small_m7_k5_planted_missing_event_symbols_02.json",
+        "input_bytes": 190,
+        "input_sha256": "1aab3da5c92bee71765803392d3dce08e2332b4efd283c8ea4186d38527cae52",
+        "k": 5,
+        "m": 7,
+        "negative_count_distinct": 2,
+        "negative_count_raw": 2,
+        "negative_lengths": [
+          2,
+          3
+        ],
+        "positive_count_distinct": 2,
+        "positive_count_raw": 2,
+        "positive_lengths": [
+          6,
+          11
+        ],
+        "q_modes": [
+          1,
+          2,
+          3,
+          4,
+          null
+        ]
+      },
+      {
+        "family": "random_exact_label_assignments",
+        "hidden": "small/hidden/small_m7_k5_random_exact_label_assignments_03.json",
+        "hidden_bytes": 173,
+        "hidden_sha256": "f128bed62b342edbb5e9d92d138d841d1d7efd381c3d4c23c247c9c85cc7632d",
+        "id": "small_m7_k5_random_exact_label_assignments_03",
+        "input": "small/inputs/small_m7_k5_random_exact_label_assignments_03.json",
+        "input_bytes": 451,
+        "input_sha256": "07a3404484895f4a79a26581ca29203bd90fbeaa557bceafafab52a5a773fc27",
+        "k": 5,
+        "m": 7,
+        "negative_count_distinct": 15,
+        "negative_count_raw": 15,
+        "negative_lengths": [
+          0,
+          2,
+          3,
+          4,
+          5,
+          7,
+          8
+        ],
+        "positive_count_distinct": 9,
+        "positive_count_raw": 9,
+        "positive_lengths": [
+          1,
+          3,
+          5,
+          6,
+          7,
+          8
+        ],
+        "q_modes": [
+          1,
+          2,
+          3,
+          4,
+          null
+        ]
+      },
+      {
+        "family": "sparse_random_finite_language",
+        "hidden": "small/hidden/small_m7_k5_sparse_random_finite_language_04.json",
+        "hidden_bytes": 172,
+        "hidden_sha256": "5d60a9a373315aeaeac45843cedc64f1459e7c52ee0dcf350578db2da9765547",
+        "id": "small_m7_k5_sparse_random_finite_language_04",
+        "input": "small/inputs/small_m7_k5_sparse_random_finite_language_04.json",
+        "input_bytes": 235,
+        "input_sha256": "4621fc19d5a2f6f610535bd4217d87e1a7c936368a868a25ba63ca4ee4b4ddfe",
+        "k": 5,
+        "m": 7,
+        "negative_count_distinct": 7,
+        "negative_count_raw": 7,
+        "negative_lengths": [
+          2,
+          4,
+          7,
+          8
+        ],
+        "positive_count_distinct": 1,
+        "positive_count_raw": 1,
+        "positive_lengths": [
+          0
+        ],
+        "q_modes": [
+          1,
+          2,
+          3,
+          4,
+          null
+        ]
+      },
+      {
+        "family": "repeated_events_and_duplicate_examples",
+        "hidden": "small/hidden/small_m7_k5_repeated_events_and_duplicate_examples_05.json",
+        "hidden_bytes": 614,
+        "hidden_sha256": "585764bdbb029c01012c4d1fe7d1887f7f121da7243acd851cdbf9a9b5f9fdef",
+        "id": "small_m7_k5_repeated_events_and_duplicate_examples_05",
+        "input": "small/inputs/small_m7_k5_repeated_events_and_duplicate_examples_05.json",
+        "input_bytes": 206,
+        "input_sha256": "3dcdd7bd42fa71afa4c7ed4a7846a4f4ecd8a8098af9163af8c90c117a631ad8",
+        "k": 5,
+        "m": 7,
+        "negative_count_distinct": 2,
+        "negative_count_raw": 2,
+        "negative_lengths": [
+          4,
+          5
+        ],
+        "positive_count_distinct": 1,
+        "positive_count_raw": 3,
+        "positive_lengths": [
+          7
+        ],
+        "q_modes": [
+          1,
+          2,
+          3,
+          4,
+          null
+        ]
+      },
+      {
+        "family": "ambiguous_empty_sample",
+        "hidden": "small/hidden/small_m7_k5_ambiguous_empty_sample_06.json",
+        "hidden_bytes": 158,
+        "hidden_sha256": "6cdff3293bfc5c94c0dcdd56effb0b9ec2904f81da034214de910cf298c1d302",
+        "id": "small_m7_k5_ambiguous_empty_sample_06",
+        "input": "small/inputs/small_m7_k5_ambiguous_empty_sample_06.json",
+        "input_bytes": 132,
+        "input_sha256": "8d082d3a6eba8763b00c1488b479d72c19bd9cb7fd520fda84f0f34a442b32d1",
+        "k": 5,
+        "m": 7,
+        "negative_count_distinct": 0,
+        "negative_count_raw": 0,
+        "negative_lengths": [],
+        "positive_count_distinct": 0,
+        "positive_count_raw": 0,
+        "positive_lengths": [],
+        "q_modes": [
+          1,
+          2,
+          3,
+          4,
+          null
+        ]
+      },
+      {
+        "family": "q_opposition_stress",
+        "hidden": "small/hidden/small_m7_k5_q_opposition_stress_07.json",
+        "hidden_bytes": 596,
+        "hidden_sha256": "3e30b5952e695ebcb3a9eaa8bcbdc428c57734d023f29b548ca84b934d08ddcc",
+        "id": "small_m7_k5_q_opposition_stress_07",
+        "input": "small/inputs/small_m7_k5_q_opposition_stress_07.json",
+        "input_bytes": 180,
+        "input_sha256": "739ca4fc816e4fcbba84356f79836bce2ebe1591a3b80e33c7b176674680096b",
+        "k": 5,
+        "m": 7,
+        "negative_count_distinct": 2,
+        "negative_count_raw": 2,
+        "negative_lengths": [
+          2,
+          11
+        ],
+        "positive_count_distinct": 1,
+        "positive_count_raw": 1,
+        "positive_lengths": [
+          7
+        ],
+        "q_modes": [
+          1,
+          2,
+          3,
+          4,
+          null
+        ]
+      },
+      {
+        "family": "planted_finite_language",
+        "hidden": "small/hidden/small_m7_k6_planted_finite_language_00.json",
+        "hidden_bytes": 646,
+        "hidden_sha256": "48825903c8ea57731963194bf39a82eb48ff364082034d185c71496763ad963a",
+        "id": "small_m7_k6_planted_finite_language_00",
+        "input": "small/inputs/small_m7_k6_planted_finite_language_00.json",
+        "input_bytes": 177,
+        "input_sha256": "0a64ccf8bb94263d4ba00d4dabe8a9a3ec6b9018e365ccb8315c15114128ee23",
+        "k": 6,
+        "m": 7,
+        "negative_count_distinct": 2,
+        "negative_count_raw": 2,
+        "negative_lengths": [
+          1,
+          9
+        ],
+        "positive_count_distinct": 1,
+        "positive_count_raw": 1,
+        "positive_lengths": [
+          7
+        ],
+        "q_modes": [
+          1,
+          2,
+          3,
+          4,
+          null
+        ]
+      },
+      {
+        "family": "planted_unequal_blocks",
+        "hidden": "small/hidden/small_m7_k6_planted_unequal_blocks_01.json",
+        "hidden_bytes": 645,
+        "hidden_sha256": "b75b02faa07cc0965ec16c38156c76d0206ce66e9c666a101183aab928b3f9e4",
+        "id": "small_m7_k6_planted_unequal_blocks_01",
+        "input": "small/inputs/small_m7_k6_planted_unequal_blocks_01.json",
+        "input_bytes": 186,
+        "input_sha256": "d0229f28acf9543b25fec01ef118a51e8fddaf2c1b5d3f16218f91726f40ddbc",
+        "k": 6,
+        "m": 7,
+        "negative_count_distinct": 2,
+        "negative_count_raw": 2,
+        "negative_lengths": [
+          8,
+          11
+        ],
+        "positive_count_distinct": 1,
+        "positive_count_raw": 1,
+        "positive_lengths": [
+          7
+        ],
+        "q_modes": [
+          1,
+          2,
+          3,
+          4,
+          null
+        ]
+      },
+      {
+        "family": "planted_missing_event_symbols",
+        "hidden": "small/hidden/small_m7_k6_planted_missing_event_symbols_02.json",
+        "hidden_bytes": 725,
+        "hidden_sha256": "db803670564bc5ee8d940d8c0641f9a1b8fd20bd8099caf841eafe1e600e036f",
+        "id": "small_m7_k6_planted_missing_event_symbols_02",
+        "input": "small/inputs/small_m7_k6_planted_missing_event_symbols_02.json",
+        "input_bytes": 201,
+        "input_sha256": "e5d6d3b58af6e4f3d81dc0910f5fc8ebdf5650affee257aaa2031a90772f7a29",
+        "k": 6,
+        "m": 7,
+        "negative_count_distinct": 2,
+        "negative_count_raw": 2,
+        "negative_lengths": [
+          4,
+          9
+        ],
+        "positive_count_distinct": 2,
+        "positive_count_raw": 2,
+        "positive_lengths": [
+          7,
+          13
+        ],
+        "q_modes": [
+          1,
+          2,
+          3,
+          4,
+          null
+        ]
+      },
+      {
+        "family": "random_exact_label_assignments",
+        "hidden": "small/hidden/small_m7_k6_random_exact_label_assignments_03.json",
+        "hidden_bytes": 173,
+        "hidden_sha256": "4b9b915385744c72ba01297f22f8f93c26a1a14901c7d734118c5a9d80340126",
+        "id": "small_m7_k6_random_exact_label_assignments_03",
+        "input": "small/inputs/small_m7_k6_random_exact_label_assignments_03.json",
+        "input_bytes": 430,
+        "input_sha256": "eedc2f1b53ded28ae7052a2c4f19e8238b5d0b0f3abffacc383509b80975551e",
+        "k": 6,
+        "m": 7,
+        "negative_count_distinct": 11,
+        "negative_count_raw": 11,
+        "negative_lengths": [
+          0,
+          1,
+          2,
+          4,
+          6,
+          7,
+          8
+        ],
+        "positive_count_distinct": 12,
+        "positive_count_raw": 12,
+        "positive_lengths": [
+          0,
+          1,
+          3,
+          6,
+          7,
+          8
+        ],
+        "q_modes": [
+          1,
+          2,
+          3,
+          4,
+          null
+        ]
+      },
+      {
+        "family": "sparse_random_finite_language",
+        "hidden": "small/hidden/small_m7_k6_sparse_random_finite_language_04.json",
+        "hidden_bytes": 172,
+        "hidden_sha256": "fb20ebc61c29349c609bcdbd000fada926874b942295a2bcc0e53bcde089fb50",
+        "id": "small_m7_k6_sparse_random_finite_language_04",
+        "input": "small/inputs/small_m7_k6_sparse_random_finite_language_04.json",
+        "input_bytes": 235,
+        "input_sha256": "130d4c2fa470376fe4f42d8fe80c6fbef57329f60c6e18a02e7063e8d2293810",
+        "k": 6,
+        "m": 7,
+        "negative_count_distinct": 7,
+        "negative_count_raw": 7,
+        "negative_lengths": [
+          1,
+          2,
+          4,
+          6,
+          7,
+          8
+        ],
+        "positive_count_distinct": 1,
+        "positive_count_raw": 1,
+        "positive_lengths": [
+          5
+        ],
+        "q_modes": [
+          1,
+          2,
+          3,
+          4,
+          null
+        ]
+      },
+      {
+        "family": "repeated_events_and_duplicate_examples",
+        "hidden": "small/hidden/small_m7_k6_repeated_events_and_duplicate_examples_05.json",
+        "hidden_bytes": 660,
+        "hidden_sha256": "69fabc5635a79558e6013b3bb99f24f368139b7e9ec185f80b140d0812ae94c0",
+        "id": "small_m7_k6_repeated_events_and_duplicate_examples_05",
+        "input": "small/inputs/small_m7_k6_repeated_events_and_duplicate_examples_05.json",
+        "input_bytes": 207,
+        "input_sha256": "09f4308fe8f4d05a809841c4640542b95a214e811ad62855b2ffbb888361a932",
+        "k": 6,
+        "m": 7,
+        "negative_count_distinct": 2,
+        "negative_count_raw": 2,
+        "negative_lengths": [
+          3,
+          7
+        ],
+        "positive_count_distinct": 1,
+        "positive_count_raw": 3,
+        "positive_lengths": [
+          7
+        ],
+        "q_modes": [
+          1,
+          2,
+          3,
+          4,
+          null
+        ]
+      },
+      {
+        "family": "ambiguous_empty_sample",
+        "hidden": "small/hidden/small_m7_k6_ambiguous_empty_sample_06.json",
+        "hidden_bytes": 158,
+        "hidden_sha256": "6cdff3293bfc5c94c0dcdd56effb0b9ec2904f81da034214de910cf298c1d302",
+        "id": "small_m7_k6_ambiguous_empty_sample_06",
+        "input": "small/inputs/small_m7_k6_ambiguous_empty_sample_06.json",
+        "input_bytes": 132,
+        "input_sha256": "493448616cafd616fd9f1221c64bd7d73b9d8910b0eabcf077e3076602d0031a",
+        "k": 6,
+        "m": 7,
+        "negative_count_distinct": 0,
+        "negative_count_raw": 0,
+        "negative_lengths": [],
+        "positive_count_distinct": 0,
+        "positive_count_raw": 0,
+        "positive_lengths": [],
+        "q_modes": [
+          1,
+          2,
+          3,
+          4,
+          null
+        ]
+      },
+      {
+        "family": "q_opposition_stress",
+        "hidden": "small/hidden/small_m7_k6_q_opposition_stress_07.json",
+        "hidden_bytes": 642,
+        "hidden_sha256": "faaf5cec80b78cefee268496e8a3ef3ccd35727d82c9eb3abdce504fdd408abf",
+        "id": "small_m7_k6_q_opposition_stress_07",
+        "input": "small/inputs/small_m7_k6_q_opposition_stress_07.json",
+        "input_bytes": 190,
+        "input_sha256": "db4dd6ab96ff8f9017fa00b7bc7ae5cbbde71eebeb9c689a88e187958492c147",
+        "k": 6,
+        "m": 7,
+        "negative_count_distinct": 2,
+        "negative_count_raw": 2,
+        "negative_lengths": [
+          9,
+          14
+        ],
+        "positive_count_distinct": 1,
+        "positive_count_raw": 1,
+        "positive_lengths": [
+          7
+        ],
+        "q_modes": [
+          1,
+          2,
+          3,
+          4,
+          null
+        ]
+      },
+      {
+        "family": "planted_finite_language",
+        "hidden": "small/hidden/small_m7_k7_planted_finite_language_00.json",
+        "hidden_bytes": 692,
+        "hidden_sha256": "e647f6d701ff9d3d77991d87d12706e207852b08e278a4458f14a65892e1a51f",
+        "id": "small_m7_k7_planted_finite_language_00",
+        "input": "small/inputs/small_m7_k7_planted_finite_language_00.json",
+        "input_bytes": 185,
+        "input_sha256": "d96d0bcbaa64937ce0a7e0cd44e16db6fd2fbac880bb4ed7af4017183638fc75",
+        "k": 7,
+        "m": 7,
+        "negative_count_distinct": 2,
+        "negative_count_raw": 2,
+        "negative_lengths": [
+          4,
+          14
+        ],
+        "positive_count_distinct": 1,
+        "positive_count_raw": 1,
+        "positive_lengths": [
+          7
+        ],
+        "q_modes": [
+          1,
+          2,
+          3,
+          4,
+          null
+        ]
+      },
+      {
+        "family": "planted_unequal_blocks",
+        "hidden": "small/hidden/small_m7_k7_planted_unequal_blocks_01.json",
+        "hidden_bytes": 691,
+        "hidden_sha256": "2f455948db3b3e799a1a2c7adff125a2d01a7bfa0646f9734824e3b9a8594bf6",
+        "id": "small_m7_k7_planted_unequal_blocks_01",
+        "input": "small/inputs/small_m7_k7_planted_unequal_blocks_01.json",
+        "input_bytes": 181,
+        "input_sha256": "fc7c6cd5b5a0d3fbdc19d4c7d9df0bb1bfddfec1d5775204187e74b52c2f7e5d",
+        "k": 7,
+        "m": 7,
+        "negative_count_distinct": 2,
+        "negative_count_raw": 2,
+        "negative_lengths": [
+          3,
+          11
+        ],
+        "positive_count_distinct": 1,
+        "positive_count_raw": 1,
+        "positive_lengths": [
+          7
+        ],
+        "q_modes": [
+          1,
+          2,
+          3,
+          4,
+          null
+        ]
+      },
+      {
+        "family": "planted_missing_event_symbols",
+        "hidden": "small/hidden/small_m7_k7_planted_missing_event_symbols_02.json",
+        "hidden_bytes": 782,
+        "hidden_sha256": "894d227fdcea9c790091cbd12c0c941cdb840557ba4605d7e738eadf233f6ba7",
+        "id": "small_m7_k7_planted_missing_event_symbols_02",
+        "input": "small/inputs/small_m7_k7_planted_missing_event_symbols_02.json",
+        "input_bytes": 201,
+        "input_sha256": "4e33eddc1a488295c87117061bbf663706973b9efd077b5969f0d2863047a1d9",
+        "k": 7,
+        "m": 7,
+        "negative_count_distinct": 2,
+        "negative_count_raw": 2,
+        "negative_lengths": [
+          5,
+          7
+        ],
+        "positive_count_distinct": 2,
+        "positive_count_raw": 2,
+        "positive_lengths": [
+          7,
+          14
+        ],
+        "q_modes": [
+          1,
+          2,
+          3,
+          4,
+          null
+        ]
+      },
+      {
+        "family": "random_exact_label_assignments",
+        "hidden": "small/hidden/small_m7_k7_random_exact_label_assignments_03.json",
+        "hidden_bytes": 173,
+        "hidden_sha256": "546389f5b28c5e035088f43d804ffe8307a7aede0cc10e6dff7c4f04e062bef2",
+        "id": "small_m7_k7_random_exact_label_assignments_03",
+        "input": "small/inputs/small_m7_k7_random_exact_label_assignments_03.json",
+        "input_bytes": 409,
+        "input_sha256": "958be4d3db1a8f4e45da13d5a53fe369522c3e17650d0d43c9a4ba283e3dfee3",
+        "k": 7,
+        "m": 7,
+        "negative_count_distinct": 8,
+        "negative_count_raw": 8,
+        "negative_lengths": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "positive_count_distinct": 16,
+        "positive_count_raw": 16,
+        "positive_lengths": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ],
+        "q_modes": [
+          1,
+          2,
+          3,
+          4,
+          null
+        ]
+      },
+      {
+        "family": "sparse_random_finite_language",
+        "hidden": "small/hidden/small_m7_k7_sparse_random_finite_language_04.json",
+        "hidden_bytes": 172,
+        "hidden_sha256": "c8fb7c223f187cbbe9f5946006f0dedb763c7aef6882a03a0b65de74bcad13eb",
+        "id": "small_m7_k7_sparse_random_finite_language_04",
+        "input": "small/inputs/small_m7_k7_sparse_random_finite_language_04.json",
+        "input_bytes": 230,
+        "input_sha256": "abcb80a3461828945b82117831bce54ba57d1c3e3a4405dae61a19dc6fc8080f",
+        "k": 7,
+        "m": 7,
+        "negative_count_distinct": 7,
+        "negative_count_raw": 7,
+        "negative_lengths": [
+          1,
+          3,
+          4,
+          5,
+          8
+        ],
+        "positive_count_distinct": 1,
+        "positive_count_raw": 1,
+        "positive_lengths": [
+          5
+        ],
+        "q_modes": [
+          1,
+          2,
+          3,
+          4,
+          null
+        ]
+      },
+      {
+        "family": "repeated_events_and_duplicate_examples",
+        "hidden": "small/hidden/small_m7_k7_repeated_events_and_duplicate_examples_05.json",
+        "hidden_bytes": 706,
+        "hidden_sha256": "c5906d3ea3e9c78be27b4ea6cb29dff0924780b5754fa29d446c59130b80e2ff",
+        "id": "small_m7_k7_repeated_events_and_duplicate_examples_05",
+        "input": "small/inputs/small_m7_k7_repeated_events_and_duplicate_examples_05.json",
+        "input_bytes": 215,
+        "input_sha256": "347c16bf774a7193bdaf27301c33a718a171a87531f60f96eed7751adff65028",
+        "k": 7,
+        "m": 7,
+        "negative_count_distinct": 2,
+        "negative_count_raw": 2,
+        "negative_lengths": [
+          6,
+          12
+        ],
+        "positive_count_distinct": 1,
+        "positive_count_raw": 3,
+        "positive_lengths": [
+          7
+        ],
+        "q_modes": [
+          1,
+          2,
+          3,
+          4,
+          null
+        ]
+      },
+      {
+        "family": "ambiguous_empty_sample",
+        "hidden": "small/hidden/small_m7_k7_ambiguous_empty_sample_06.json",
+        "hidden_bytes": 158,
+        "hidden_sha256": "6cdff3293bfc5c94c0dcdd56effb0b9ec2904f81da034214de910cf298c1d302",
+        "id": "small_m7_k7_ambiguous_empty_sample_06",
+        "input": "small/inputs/small_m7_k7_ambiguous_empty_sample_06.json",
+        "input_bytes": 132,
+        "input_sha256": "94f46573a42e8a0736d1aedd631572ff43072ab311c40e4dcaec47c8db6f60e3",
+        "k": 7,
+        "m": 7,
+        "negative_count_distinct": 0,
+        "negative_count_raw": 0,
+        "negative_lengths": [],
+        "positive_count_distinct": 0,
+        "positive_count_raw": 0,
+        "positive_lengths": [],
+        "q_modes": [
+          1,
+          2,
+          3,
+          4,
+          null
+        ]
+      },
+      {
+        "family": "q_opposition_stress",
+        "hidden": "small/hidden/small_m7_k7_q_opposition_stress_07.json",
+        "hidden_bytes": 688,
+        "hidden_sha256": "e8adb5bb6a01e0aee0c1528b443d9ef9115835e46e46cfc7da45769efb550817",
+        "id": "small_m7_k7_q_opposition_stress_07",
+        "input": "small/inputs/small_m7_k7_q_opposition_stress_07.json",
+        "input_bytes": 177,
+        "input_sha256": "be68ebc35cc44733d763026fbe9cdb0e791f438646a704263fc954f4d79cac9c",
+        "k": 7,
+        "m": 7,
+        "negative_count_distinct": 2,
+        "negative_count_raw": 2,
+        "negative_lengths": [
+          4,
+          6
+        ],
+        "positive_count_distinct": 1,
+        "positive_count_raw": 1,
+        "positive_lengths": [
+          7
+        ],
+        "q_modes": [
+          1,
+          2,
+          3,
+          4,
+          null
+        ]
+      },
+      {
+        "family": "connected_p4_control",
+        "hidden": "small/hidden/control_connected_p4_k3.json",
+        "hidden_bytes": 68,
+        "hidden_sha256": "4bcbd555d8e448741ab4780032a36c63d9b8a9a662b1f85d4c07250810430a93",
+        "id": "control_connected_p4_k3",
+        "input": "small/inputs/control_connected_p4_k3.json",
+        "input_bytes": 155,
+        "input_sha256": "97bc9f7b167e1b6946424f276dfa260d83919c0831da94812bd8466c2c6109d3",
+        "k": 3,
+        "m": 4,
+        "negative_count_distinct": 0,
+        "negative_count_raw": 0,
+        "negative_lengths": [],
+        "positive_count_distinct": 4,
+        "positive_count_raw": 4,
+        "positive_lengths": [
+          4
+        ],
+        "q_modes": [
+          1,
+          2,
+          3,
+          4,
+          null
+        ]
+      },
+      {
+        "family": "full_block_cap_control",
+        "hidden": "small/hidden/control_q2_full_block_cap_failure.json",
+        "hidden_bytes": 111,
+        "hidden_sha256": "9a7152a10982e13a250f731dd8f34b8b8648262815c23982d129eb4dedfa1034",
+        "id": "control_q2_full_block_cap_failure",
+        "input": "small/inputs/control_q2_full_block_cap_failure.json",
+        "input_bytes": 142,
+        "input_sha256": "0af949c99b892fc6d2336b88b039a0723b10242c965263b02f74a71fb5411bc7",
+        "k": 2,
+        "m": 3,
+        "negative_count_distinct": 0,
+        "negative_count_raw": 0,
+        "negative_lengths": [],
+        "positive_count_distinct": 4,
+        "positive_count_raw": 4,
+        "positive_lengths": [
+          3
+        ],
+        "q_modes": [
+          1,
+          2,
+          3,
+          4,
+          null
+        ]
+      },
+      {
+        "family": "negative_distinguishing_control",
+        "hidden": "small/hidden/control_negative_distinguishing.json",
+        "hidden_bytes": 121,
+        "hidden_sha256": "1b84019d8be5b032868b4ec06022143baa3c178a874adbb189c8f7c942ba6d32",
+        "id": "control_negative_distinguishing",
+        "input": "small/inputs/control_negative_distinguishing.json",
+        "input_bytes": 111,
+        "input_sha256": "ecbce39aa333cdffc6fb85c0eb88c97bedaf5ebe81e54446f6ce5d9f992c3054",
+        "k": 2,
+        "m": 2,
+        "negative_count_distinct": 1,
+        "negative_count_raw": 1,
+        "negative_lengths": [
+          2
+        ],
+        "positive_count_distinct": 1,
+        "positive_count_raw": 1,
+        "positive_lengths": [
+          2
+        ],
+        "q_modes": [
+          1,
+          2,
+          3,
+          4,
+          null
+        ]
+      },
+      {
+        "family": "negative_accepted_control",
+        "hidden": "small/hidden/control_negative_accepted.json",
+        "hidden_bytes": 69,
+        "hidden_sha256": "ec1c11bc35266d21c78849ad9ac4381d6ad58f9218421fc574db5468816fadbc",
+        "id": "control_negative_accepted",
+        "input": "small/inputs/control_negative_accepted.json",
+        "input_bytes": 111,
+        "input_sha256": "5c351907ce0f3e9f2a0f8a1587c0d96264d08c99f618f75fa22bc86eb60b5bc5",
+        "k": 2,
+        "m": 2,
+        "negative_count_distinct": 1,
+        "negative_count_raw": 1,
+        "negative_lengths": [
+          2
+        ],
+        "positive_count_distinct": 1,
+        "positive_count_raw": 1,
+        "positive_lengths": [
+          2
+        ],
+        "q_modes": [
+          1,
+          2,
+          3,
+          4,
+          null
+        ]
+      },
+      {
+        "family": "empty_word_control",
+        "hidden": "small/hidden/control_empty_word_positive.json",
+        "hidden_bytes": 105,
+        "hidden_sha256": "55b58829e91bd149b1797cc82e41fdbe8ce9b7be5f89a98e77b6d054b196d57d",
+        "id": "control_empty_word_positive",
+        "input": "small/inputs/control_empty_word_positive.json",
+        "input_bytes": 97,
+        "input_sha256": "232f2604e0485e8f2f2dc95314c06b705a017cd364fc338aa70cb580a8a288c1",
+        "k": 2,
+        "m": 2,
+        "negative_count_distinct": 0,
+        "negative_count_raw": 0,
+        "negative_lengths": [],
+        "positive_count_distinct": 1,
+        "positive_count_raw": 1,
+        "positive_lengths": [
+          0
+        ],
+        "q_modes": [
+          1,
+          2,
+          3,
+          4,
+          null
+        ]
+      },
+      {
+        "family": "empty_positive_control",
+        "hidden": "small/hidden/control_empty_positive_negative.json",
+        "hidden_bytes": 85,
+        "hidden_sha256": "b0ddd8d93da3eb760218d9da9e087a93c3311c03a1342b277d9011c6d75e9a15",
+        "id": "control_empty_positive_negative",
+        "input": "small/inputs/control_empty_positive_negative.json",
+        "input_bytes": 99,
+        "input_sha256": "ec5a0a4ec350df2bdc8da5e153eb7c69a476ef676c39e32d1ba7e273aca5c103",
+        "k": 2,
+        "m": 2,
+        "negative_count_distinct": 1,
+        "negative_count_raw": 1,
+        "negative_lengths": [
+          2
+        ],
+        "positive_count_distinct": 0,
+        "positive_count_raw": 0,
+        "positive_lengths": [],
+        "q_modes": [
+          1,
+          2,
+          3,
+          4,
+          null
+        ]
+      },
+      {
+        "family": "invalid_input_control",
+        "hidden": "small/hidden/control_invalid_contradictory_labels.json",
+        "hidden_bytes": 84,
+        "hidden_sha256": "d2e73ce0965dd60642f3452debe7be5c931b7070fb3d17eebf052a2e023b5596",
+        "id": "control_invalid_contradictory_labels",
+        "input": "small/inputs/control_invalid_contradictory_labels.json",
+        "input_bytes": 111,
+        "input_sha256": "ef7814e6cd80d0af24ecf7d72e317492899791d5ecf532ab0604cf2f367c091a",
+        "k": 2,
+        "m": 2,
+        "negative_count_distinct": 1,
+        "negative_count_raw": 1,
+        "negative_lengths": [
+          2
+        ],
+        "positive_count_distinct": 1,
+        "positive_count_raw": 1,
+        "positive_lengths": [
+          2
+        ],
+        "q_modes": [
+          1,
+          2,
+          3,
+          4,
+          null
+        ]
+      },
+      {
+        "family": "invalid_input_control",
+        "hidden": "small/hidden/control_invalid_unknown_symbol.json",
+        "hidden_bytes": 78,
+        "hidden_sha256": "a04621b3c41853953aaa6a626b4fb23afcd2dbd337d00a8f8de552ee545a2e0a",
+        "id": "control_invalid_unknown_symbol",
+        "input": "small/inputs/control_invalid_unknown_symbol.json",
+        "input_bytes": 99,
+        "input_sha256": "929701df8a7a5aa192b8b0e17222afb1baa54f6c487b4c7ac37d6c7c9b034a8e",
+        "k": 2,
+        "m": 2,
+        "negative_count_distinct": 0,
+        "negative_count_raw": 0,
+        "negative_lengths": [],
+        "positive_count_distinct": 1,
+        "positive_count_raw": 1,
+        "positive_lengths": [
+          2
+        ],
+        "q_modes": [
+          1,
+          2,
+          3,
+          4,
+          null
+        ]
+      },
+      {
+        "family": "invalid_input_control",
+        "hidden": "small/hidden/control_invalid_k.json",
+        "hidden_bytes": 73,
+        "hidden_sha256": "3397b8fad630f1b2c27316899de62be7fae75ad097cba6699f75fc851ccc1851",
+        "id": "control_invalid_k",
+        "input": "small/inputs/control_invalid_k.json",
+        "input_bytes": 87,
+        "input_sha256": "108c73a738bba318dd13a17f9b486f6cc28428327eb22f69ed8b582ade311f4c",
+        "k": 3,
+        "m": 2,
+        "negative_count_distinct": 0,
+        "negative_count_raw": 0,
+        "negative_lengths": [],
+        "positive_count_distinct": 0,
+        "positive_count_raw": 0,
+        "positive_lengths": [],
+        "q_modes": [
+          1,
+          2,
+          3,
+          4,
+          null
+        ]
+      }
+    ]
+  },
+  "stage2": {
+    "case_count": 30,
+    "cases": [
+      {
+        "family": "planted_unequal_blocks",
+        "hidden": "stage2/hidden/stage2_m16_k2_L4096_q3_planted_unequal_blocks_03.json",
+        "hidden_bytes": 12690,
+        "hidden_sha256": "f4c9229ed2ccc8be77801bfda625cf0ff78feeb91b8444953e3f2227a99a5daa",
+        "id": "stage2_m16_k2_L4096_q3_planted_unequal_blocks_03",
+        "input": "stage2/inputs/stage2_m16_k2_L4096_q3_planted_unequal_blocks_03.json",
+        "input_bytes": 20737,
+        "input_sha256": "eefcd131fb54fb2abafb7934c231ee83b9efff93eab83c1e36fd6a6dd7670569",
+        "k": 2,
+        "length_target": 4096,
+        "m": 16,
+        "negative_lengths": [
+          4096
+        ],
+        "positive_lengths": [
+          4096
+        ],
+        "q_mode": 3,
+        "truth_available": true
+      },
+      {
+        "family": "planted_unequal_blocks",
+        "hidden": "stage2/hidden/stage2_m16_k2_L4096_q4_planted_unequal_blocks_04.json",
+        "hidden_bytes": 16806,
+        "hidden_sha256": "9468d33955175610cb554e0685abdc78fdbc276e40cf1a1631817ee7bed13b2a",
+        "id": "stage2_m16_k2_L4096_q4_planted_unequal_blocks_04",
+        "input": "stage2/inputs/stage2_m16_k2_L4096_q4_planted_unequal_blocks_04.json",
+        "input_bytes": 24841,
+        "input_sha256": "1cb7022a88b602e698c9bcd35c7f0fc003710024e865db5f7bccd3b123aea87e",
+        "k": 2,
+        "length_target": 4096,
+        "m": 16,
+        "negative_lengths": [
+          4096
+        ],
+        "positive_lengths": [
+          4096
+        ],
+        "q_mode": 4,
+        "truth_available": true
+      },
+      {
+        "family": "planted_unequal_blocks",
+        "hidden": "stage2/hidden/stage2_m32_k4_L4096_q3_planted_unequal_blocks_05.json",
+        "hidden_bytes": 25294,
+        "hidden_sha256": "3bc4cf2efb12d68488c56f498c9734fa7e91d090e8c8e47210e2d302cf4c8cb8",
+        "id": "stage2_m32_k4_L4096_q3_planted_unequal_blocks_05",
+        "input": "stage2/inputs/stage2_m32_k4_L4096_q3_planted_unequal_blocks_05.json",
+        "input_bytes": 41393,
+        "input_sha256": "d8749f17d1326d5ff28ee53ac5b0c1afff7d6a05fb478ee3e5e89287caa6833f",
+        "k": 4,
+        "length_target": 4096,
+        "m": 32,
+        "negative_lengths": [
+          4096
+        ],
+        "positive_lengths": [
+          4096
+        ],
+        "q_mode": 3,
+        "truth_available": true
+      },
+      {
+        "family": "planted_unequal_blocks",
+        "hidden": "stage2/hidden/stage2_m32_k4_L4096_q4_planted_unequal_blocks_06.json",
+        "hidden_bytes": 33526,
+        "hidden_sha256": "56575b47cebadc2b49a39cab430cbfc78216a3988cf1b23a685e4dd68a2c2938",
+        "id": "stage2_m32_k4_L4096_q4_planted_unequal_blocks_06",
+        "input": "stage2/inputs/stage2_m32_k4_L4096_q4_planted_unequal_blocks_06.json",
+        "input_bytes": 49593,
+        "input_sha256": "9f1130e8b770894792960bc352baab9a5f3e763396ef17437fe8ffdb5ce530dc",
+        "k": 4,
+        "length_target": 4096,
+        "m": 32,
+        "negative_lengths": [
+          4096
+        ],
+        "positive_lengths": [
+          4096
+        ],
+        "q_mode": 4,
+        "truth_available": true
+      },
+      {
+        "family": "planted_unequal_blocks",
+        "hidden": "stage2/hidden/stage2_m64_k8_L4096_q3_planted_unequal_blocks_07.json",
+        "hidden_bytes": 25894,
+        "hidden_sha256": "f68f4061d6b8febb438db427723253cd2acf3ef08ec1bdc8f2a463898125d5a1",
+        "id": "stage2_m64_k8_L4096_q3_planted_unequal_blocks_07",
+        "input": "stage2/inputs/stage2_m64_k8_L4096_q3_planted_unequal_blocks_07.json",
+        "input_bytes": 41713,
+        "input_sha256": "91cff7ab05c0068260e2508e30d35fee335de596b136c9284dd863a1413bf2d8",
+        "k": 8,
+        "length_target": 4096,
+        "m": 64,
+        "negative_lengths": [
+          4096
+        ],
+        "positive_lengths": [
+          4096
+        ],
+        "q_mode": 3,
+        "truth_available": true
+      },
+      {
+        "family": "planted_unequal_blocks",
+        "hidden": "stage2/hidden/stage2_m64_k8_L4096_q4_planted_unequal_blocks_08.json",
+        "hidden_bytes": 34166,
+        "hidden_sha256": "4e4a413e30cc2b6024c418c1d8974ec3de9d709ad2676acf60af4344a0deea8a",
+        "id": "stage2_m64_k8_L4096_q4_planted_unequal_blocks_08",
+        "input": "stage2/inputs/stage2_m64_k8_L4096_q4_planted_unequal_blocks_08.json",
+        "input_bytes": 49913,
+        "input_sha256": "034d6b41b6640c8a7aaa723593a7937e02a6a25381ef5f9352aa1b7e34126b04",
+        "k": 8,
+        "length_target": 4096,
+        "m": 64,
+        "negative_lengths": [
+          4096
+        ],
+        "positive_lengths": [
+          4096
+        ],
+        "q_mode": 4,
+        "truth_available": true
+      },
+      {
+        "family": "planted_unequal_blocks",
+        "hidden": "stage2/hidden/stage2_m128_k8_L4096_q3_planted_unequal_blocks_09.json",
+        "hidden_bytes": 26662,
+        "hidden_sha256": "ec74cc8187301961c5520463a893d33bdf071971916228e81ffb22105b429033",
+        "id": "stage2_m128_k8_L4096_q3_planted_unequal_blocks_09",
+        "input": "stage2/inputs/stage2_m128_k8_L4096_q3_planted_unequal_blocks_09.json",
+        "input_bytes": 42353,
+        "input_sha256": "95bd0b95312e0ba2240c542d6e51451fa4df7249979ce3db87b6622302f832b8",
+        "k": 8,
+        "length_target": 4096,
+        "m": 128,
+        "negative_lengths": [
+          4096
+        ],
+        "positive_lengths": [
+          4096
+        ],
+        "q_mode": 3,
+        "truth_available": true
+      },
+      {
+        "family": "planted_unequal_blocks",
+        "hidden": "stage2/hidden/stage2_m128_k8_L4096_q4_planted_unequal_blocks_10.json",
+        "hidden_bytes": 34934,
+        "hidden_sha256": "90fec14257842823268ef46e5b7e16efecb4b6b065fd064c6b421e7807137261",
+        "id": "stage2_m128_k8_L4096_q4_planted_unequal_blocks_10",
+        "input": "stage2/inputs/stage2_m128_k8_L4096_q4_planted_unequal_blocks_10.json",
+        "input_bytes": 50553,
+        "input_sha256": "1bd5d5fab20d1b03c7845b74faddcc1691ed85fbc139d4991e905296aa69f81f",
+        "k": 8,
+        "length_target": 4096,
+        "m": 128,
+        "negative_lengths": [
+          4096
+        ],
+        "positive_lengths": [
+          4096
+        ],
+        "q_mode": 4,
+        "truth_available": true
+      },
+      {
+        "family": "planted_unequal_blocks",
+        "hidden": "stage2/hidden/stage2_m256_k16_L4096_q3_planted_unequal_blocks_11.json",
+        "hidden_bytes": 28630,
+        "hidden_sha256": "b12d6f00460bdea45fe6a72c4e35a6fdde4fd9b18b352618bb822b99db6d1342",
+        "id": "stage2_m256_k16_L4096_q3_planted_unequal_blocks_11",
+        "input": "stage2/inputs/stage2_m256_k16_L4096_q3_planted_unequal_blocks_11.json",
+        "input_bytes": 43634,
+        "input_sha256": "0683ad6681bc5d4d58d6510d242a57778c20a49e2969788db99d4f81862da50a",
+        "k": 16,
+        "length_target": 4096,
+        "m": 256,
+        "negative_lengths": [
+          4096
+        ],
+        "positive_lengths": [
+          4096
+        ],
+        "q_mode": 3,
+        "truth_available": true
+      },
+      {
+        "family": "planted_unequal_blocks",
+        "hidden": "stage2/hidden/stage2_m256_k16_L4096_q4_planted_unequal_blocks_12.json",
+        "hidden_bytes": 36982,
+        "hidden_sha256": "c0b40ca950c2705e548e6dfc10344e335504240455fe13b29c59cbd739dfa80e",
+        "id": "stage2_m256_k16_L4096_q4_planted_unequal_blocks_12",
+        "input": "stage2/inputs/stage2_m256_k16_L4096_q4_planted_unequal_blocks_12.json",
+        "input_bytes": 51834,
+        "input_sha256": "522143c4f738a6e7020a01825cdd74c6b8e17dcef614ab9a4fc68d67e1352abf",
+        "k": 16,
+        "length_target": 4096,
+        "m": 256,
+        "negative_lengths": [
+          4096
+        ],
+        "positive_lengths": [
+          4096
+        ],
+        "q_mode": 4,
+        "truth_available": true
+      },
+      {
+        "family": "planted_unequal_blocks",
+        "hidden": "stage2/hidden/stage2_m32_k2_L32768_q3_planted_unequal_blocks_13.json",
+        "hidden_bytes": 197218,
+        "hidden_sha256": "9a2b6a595c654d0637e12cf27424a4b4a77d7e699421367029fa8f977929b7e6",
+        "id": "stage2_m32_k2_L32768_q3_planted_unequal_blocks_13",
+        "input": "stage2/inputs/stage2_m32_k2_L32768_q3_planted_unequal_blocks_13.json",
+        "input_bytes": 328113,
+        "input_sha256": "59797cb576e386b1f30b7042694bfe2a0670d4c725a556438628ee18220d0a2f",
+        "k": 2,
+        "length_target": 32768,
+        "m": 32,
+        "negative_lengths": [
+          32768
+        ],
+        "positive_lengths": [
+          32768
+        ],
+        "q_mode": 3,
+        "truth_available": true
+      },
+      {
+        "family": "planted_unequal_blocks",
+        "hidden": "stage2/hidden/stage2_m32_k2_L32768_q4_planted_unequal_blocks_14.json",
+        "hidden_bytes": 262774,
+        "hidden_sha256": "37b3a63f513662f5f4fcaefa54780b897517ef15f81e0b8c520163f17792ad04",
+        "id": "stage2_m32_k2_L32768_q4_planted_unequal_blocks_14",
+        "input": "stage2/inputs/stage2_m32_k2_L32768_q4_planted_unequal_blocks_14.json",
+        "input_bytes": 393657,
+        "input_sha256": "33e296cd051eb224346cde14cf4ed0bf6331f6b2e69caf905a46a29ede275223",
+        "k": 2,
+        "length_target": 32768,
+        "m": 32,
+        "negative_lengths": [
+          32768
+        ],
+        "positive_lengths": [
+          32768
+        ],
+        "q_mode": 4,
+        "truth_available": true
+      },
+      {
+        "family": "planted_unequal_blocks",
+        "hidden": "stage2/hidden/stage2_m64_k4_L32768_q3_planted_unequal_blocks_15.json",
+        "hidden_bytes": 197710,
+        "hidden_sha256": "6f194dd7004e12a10273f3cd282a79b4467085361254838cffdec4cb3c146707",
+        "id": "stage2_m64_k4_L32768_q3_planted_unequal_blocks_15",
+        "input": "stage2/inputs/stage2_m64_k4_L32768_q3_planted_unequal_blocks_15.json",
+        "input_bytes": 328433,
+        "input_sha256": "95a32ca0501994dd17294cdc4c764ef1f5cf8e1431a3506f2cb64f0053f15064",
+        "k": 4,
+        "length_target": 32768,
+        "m": 64,
+        "negative_lengths": [
+          32768
+        ],
+        "positive_lengths": [
+          32768
+        ],
+        "q_mode": 3,
+        "truth_available": true
+      },
+      {
+        "family": "planted_unequal_blocks",
+        "hidden": "stage2/hidden/stage2_m64_k4_L32768_q4_planted_unequal_blocks_16.json",
+        "hidden_bytes": 263286,
+        "hidden_sha256": "3140078f4f7f372a0cc096a1eb74d8f298ac1ceea9700a5f606e0350826eb7b5",
+        "id": "stage2_m64_k4_L32768_q4_planted_unequal_blocks_16",
+        "input": "stage2/inputs/stage2_m64_k4_L32768_q4_planted_unequal_blocks_16.json",
+        "input_bytes": 393977,
+        "input_sha256": "29dc1e2aa67d6fd2de7de3bc16b3d66fc8243cd9614460347b31cb65c7b34e89",
+        "k": 4,
+        "length_target": 32768,
+        "m": 64,
+        "negative_lengths": [
+          32768
+        ],
+        "positive_lengths": [
+          32768
+        ],
+        "q_mode": 4,
+        "truth_available": true
+      },
+      {
+        "family": "planted_unequal_blocks",
+        "hidden": "stage2/hidden/stage2_m128_k8_L32768_q3_planted_unequal_blocks_17.json",
+        "hidden_bytes": 198694,
+        "hidden_sha256": "59861e76d4eec900e83ddaa542bd10f068940fab4aa186b3645db2e6ff8fcb55",
+        "id": "stage2_m128_k8_L32768_q3_planted_unequal_blocks_17",
+        "input": "stage2/inputs/stage2_m128_k8_L32768_q3_planted_unequal_blocks_17.json",
+        "input_bytes": 329073,
+        "input_sha256": "06f8a23d313079bdc69f7e78924725ce54ce5d746f511350ea0f52878bac29a7",
+        "k": 8,
+        "length_target": 32768,
+        "m": 128,
+        "negative_lengths": [
+          32768
+        ],
+        "positive_lengths": [
+          32768
+        ],
+        "q_mode": 3,
+        "truth_available": true
+      },
+      {
+        "family": "planted_unequal_blocks",
+        "hidden": "stage2/hidden/stage2_m128_k8_L32768_q4_planted_unequal_blocks_18.json",
+        "hidden_bytes": 264310,
+        "hidden_sha256": "bf435a0fc6c9ceeb54c775d2d70d0662390e2b6b60ebc6e52d1a5c92722873d8",
+        "id": "stage2_m128_k8_L32768_q4_planted_unequal_blocks_18",
+        "input": "stage2/inputs/stage2_m128_k8_L32768_q4_planted_unequal_blocks_18.json",
+        "input_bytes": 394617,
+        "input_sha256": "aa9e383d23eb2c70e4adf210d0a6daa85e682793657b2ba9c41174d2c5d8c397",
+        "k": 8,
+        "length_target": 32768,
+        "m": 128,
+        "negative_lengths": [
+          32768
+        ],
+        "positive_lengths": [
+          32768
+        ],
+        "q_mode": 4,
+        "truth_available": true
+      },
+      {
+        "family": "planted_unequal_blocks",
+        "hidden": "stage2/hidden/stage2_m256_k16_L32768_q3_planted_unequal_blocks_19.json",
+        "hidden_bytes": 200662,
+        "hidden_sha256": "3f88570c074c80bd38e49dbb56749412fb184a805d060ff8a1c4990db317039f",
+        "id": "stage2_m256_k16_L32768_q3_planted_unequal_blocks_19",
+        "input": "stage2/inputs/stage2_m256_k16_L32768_q3_planted_unequal_blocks_19.json",
+        "input_bytes": 330354,
+        "input_sha256": "9069369c475f614a4f71406540bc1d65bbfe404f9a7b6ddcf26806f12298d71b",
+        "k": 16,
+        "length_target": 32768,
+        "m": 256,
+        "negative_lengths": [
+          32768
+        ],
+        "positive_lengths": [
+          32768
+        ],
+        "q_mode": 3,
+        "truth_available": true
+      },
+      {
+        "family": "planted_unequal_blocks",
+        "hidden": "stage2/hidden/stage2_m256_k16_L32768_q4_planted_unequal_blocks_20.json",
+        "hidden_bytes": 266358,
+        "hidden_sha256": "32861068eccb96bbdc06dccae26b8498ef78004811c02d7e51bb8dcd3cc8f9f0",
+        "id": "stage2_m256_k16_L32768_q4_planted_unequal_blocks_20",
+        "input": "stage2/inputs/stage2_m256_k16_L32768_q4_planted_unequal_blocks_20.json",
+        "input_bytes": 395898,
+        "input_sha256": "73a08c6d8f434fb06677fd4abdec38ee3fb455366a7c8a66a0b65a8daa98b386",
+        "k": 16,
+        "length_target": 32768,
+        "m": 256,
+        "negative_lengths": [
+          32768
+        ],
+        "positive_lengths": [
+          32768
+        ],
+        "q_mode": 4,
+        "truth_available": true
+      },
+      {
+        "family": "planted_unequal_blocks",
+        "hidden": "stage2/hidden/stage2_m16_k16_L32768_q3_planted_unequal_blocks_21.json",
+        "hidden_bytes": 33606,
+        "hidden_sha256": "9b26a7a1a0e2d66c699483c169e9120bb37531b9b4002808f5d497fa7d63cc1d",
+        "id": "stage2_m16_k16_L32768_q3_planted_unequal_blocks_21",
+        "input": "stage2/inputs/stage2_m16_k16_L32768_q3_planted_unequal_blocks_21.json",
+        "input_bytes": 98546,
+        "input_sha256": "cc667c03c0f49ae0617932ff22db60c92e580cfd740bd44026f15048628d680a",
+        "k": 16,
+        "length_target": 32768,
+        "m": 16,
+        "negative_lengths": [
+          32768
+        ],
+        "positive_lengths": [
+          32768
+        ],
+        "q_mode": 3,
+        "truth_available": true
+      },
+      {
+        "family": "planted_unequal_blocks",
+        "hidden": "stage2/hidden/stage2_m16_k16_L32768_q4_planted_unequal_blocks_22.json",
+        "hidden_bytes": 33606,
+        "hidden_sha256": "5a96b6817675c9dba749f04e962163b4c3cb8abfdba5945e6c5a0357c0d72eb4",
+        "id": "stage2_m16_k16_L32768_q4_planted_unequal_blocks_22",
+        "input": "stage2/inputs/stage2_m16_k16_L32768_q4_planted_unequal_blocks_22.json",
+        "input_bytes": 98546,
+        "input_sha256": "ac1b5fb698869b672fb2e706d4bee080f12b39e73268940114b56f1fc971f090",
+        "k": 16,
+        "length_target": 32768,
+        "m": 16,
+        "negative_lengths": [
+          32768
+        ],
+        "positive_lengths": [
+          32768
+        ],
+        "q_mode": 4,
+        "truth_available": true
+      },
+      {
+        "family": "sparse_random_traces",
+        "hidden": "stage2/hidden/stage2_m16_k4_L4096_q3_sparse_random_traces_03.json",
+        "hidden_bytes": 162,
+        "hidden_sha256": "3bb8523db5557701d3df1866d88f556c12cb8110623cd242225671fa26683582",
+        "id": "stage2_m16_k4_L4096_q3_sparse_random_traces_03",
+        "input": "stage2/inputs/stage2_m16_k4_L4096_q3_sparse_random_traces_03.json",
+        "input_bytes": 20737,
+        "input_sha256": "8f559f366bac23061da8cec147c5f343f3bd47adc22aed306456d3fe809468e7",
+        "k": 4,
+        "length_target": 4096,
+        "m": 16,
+        "negative_lengths": [
+          4096
+        ],
+        "positive_lengths": [
+          4096
+        ],
+        "q_mode": 3,
+        "truth_available": false
+      },
+      {
+        "family": "sparse_random_traces",
+        "hidden": "stage2/hidden/stage2_m16_k4_L4096_q4_sparse_random_traces_04.json",
+        "hidden_bytes": 162,
+        "hidden_sha256": "0f5c3ac43fc47c437180fbfa4ccf84f740e58115b197be2adee30f16dde0b363",
+        "id": "stage2_m16_k4_L4096_q4_sparse_random_traces_04",
+        "input": "stage2/inputs/stage2_m16_k4_L4096_q4_sparse_random_traces_04.json",
+        "input_bytes": 20737,
+        "input_sha256": "a72343796b01c7f9621fed2f9a590915565334b771a6fe146845ab19a62d48f7",
+        "k": 4,
+        "length_target": 4096,
+        "m": 16,
+        "negative_lengths": [
+          4096
+        ],
+        "positive_lengths": [
+          4096
+        ],
+        "q_mode": 4,
+        "truth_available": false
+      },
+      {
+        "family": "sparse_random_traces",
+        "hidden": "stage2/hidden/stage2_m64_k8_L4096_q3_sparse_random_traces_05.json",
+        "hidden_bytes": 162,
+        "hidden_sha256": "994ddcbc2dbd99993f1e4f4c39d9176ed0ffccf878fb47d81fe7de977c95367e",
+        "id": "stage2_m64_k8_L4096_q3_sparse_random_traces_05",
+        "input": "stage2/inputs/stage2_m64_k8_L4096_q3_sparse_random_traces_05.json",
+        "input_bytes": 41713,
+        "input_sha256": "eb230e99f021a1ed288365d46a815f28ae1fd1f589fad2647a70f458a4e77024",
+        "k": 8,
+        "length_target": 4096,
+        "m": 64,
+        "negative_lengths": [
+          4096
+        ],
+        "positive_lengths": [
+          4096
+        ],
+        "q_mode": 3,
+        "truth_available": false
+      },
+      {
+        "family": "sparse_random_traces",
+        "hidden": "stage2/hidden/stage2_m64_k8_L4096_q4_sparse_random_traces_06.json",
+        "hidden_bytes": 162,
+        "hidden_sha256": "a26e6881bd1a2773b67d6b093c435cd69deeb6d06e2838f7d2ba0b41e22e4138",
+        "id": "stage2_m64_k8_L4096_q4_sparse_random_traces_06",
+        "input": "stage2/inputs/stage2_m64_k8_L4096_q4_sparse_random_traces_06.json",
+        "input_bytes": 41713,
+        "input_sha256": "beab89d6d0e317ebb59ea5a774715751e0c1d2eab300a61540e580f10023196b",
+        "k": 8,
+        "length_target": 4096,
+        "m": 64,
+        "negative_lengths": [
+          4096
+        ],
+        "positive_lengths": [
+          4096
+        ],
+        "q_mode": 4,
+        "truth_available": false
+      },
+      {
+        "family": "sparse_random_traces",
+        "hidden": "stage2/hidden/stage2_m256_k16_L4096_q3_sparse_random_traces_07.json",
+        "hidden_bytes": 163,
+        "hidden_sha256": "4f5b7eb0bf19791e84d0f35e7f5fac5550c5575a2cc2d669574eef6e07a12701",
+        "id": "stage2_m256_k16_L4096_q3_sparse_random_traces_07",
+        "input": "stage2/inputs/stage2_m256_k16_L4096_q3_sparse_random_traces_07.json",
+        "input_bytes": 43634,
+        "input_sha256": "40861e5403991747dbeadba72eb384e9ff569f7c0a518885fd9c1330bb1ff744",
+        "k": 16,
+        "length_target": 4096,
+        "m": 256,
+        "negative_lengths": [
+          4096
+        ],
+        "positive_lengths": [
+          4096
+        ],
+        "q_mode": 3,
+        "truth_available": false
+      },
+      {
+        "family": "sparse_random_traces",
+        "hidden": "stage2/hidden/stage2_m256_k16_L4096_q4_sparse_random_traces_08.json",
+        "hidden_bytes": 163,
+        "hidden_sha256": "43f7346e49a56dff17e18b9588dab65b1c2c5aaa67413cf92176e1077bbec481",
+        "id": "stage2_m256_k16_L4096_q4_sparse_random_traces_08",
+        "input": "stage2/inputs/stage2_m256_k16_L4096_q4_sparse_random_traces_08.json",
+        "input_bytes": 43634,
+        "input_sha256": "36c8daabcd861d200a42cc2a2b83d0a6fe596f54411748507bfe5e2159afd3e8",
+        "k": 16,
+        "length_target": 4096,
+        "m": 256,
+        "negative_lengths": [
+          4096
+        ],
+        "positive_lengths": [
+          4096
+        ],
+        "q_mode": 4,
+        "truth_available": false
+      },
+      {
+        "family": "sparse_random_traces",
+        "hidden": "stage2/hidden/stage2_m128_k8_L32768_q3_sparse_random_traces_09.json",
+        "hidden_bytes": 163,
+        "hidden_sha256": "22b75a5a4e4695b0ef1f39a69766728cd307892dca8a7726fc3ca34a72d40e51",
+        "id": "stage2_m128_k8_L32768_q3_sparse_random_traces_09",
+        "input": "stage2/inputs/stage2_m128_k8_L32768_q3_sparse_random_traces_09.json",
+        "input_bytes": 329073,
+        "input_sha256": "748efec6b48ca5b00edc168929aa6290092e0d4fad204b76149708017182bdb5",
+        "k": 8,
+        "length_target": 32768,
+        "m": 128,
+        "negative_lengths": [
+          32768
+        ],
+        "positive_lengths": [
+          32768
+        ],
+        "q_mode": 3,
+        "truth_available": false
+      },
+      {
+        "family": "sparse_random_traces",
+        "hidden": "stage2/hidden/stage2_m128_k8_L32768_q4_sparse_random_traces_10.json",
+        "hidden_bytes": 163,
+        "hidden_sha256": "a50e361e0986a835df648b5fefb95fd2071fad1432c34371ab92abf6c08db41f",
+        "id": "stage2_m128_k8_L32768_q4_sparse_random_traces_10",
+        "input": "stage2/inputs/stage2_m128_k8_L32768_q4_sparse_random_traces_10.json",
+        "input_bytes": 329073,
+        "input_sha256": "0dffc987e56ee07f78ff021979f29bba841a31ead3417d6b28ce97977ddafa4d",
+        "k": 8,
+        "length_target": 32768,
+        "m": 128,
+        "negative_lengths": [
+          32768
+        ],
+        "positive_lengths": [
+          32768
+        ],
+        "q_mode": 4,
+        "truth_available": false
+      },
+      {
+        "family": "sparse_random_traces",
+        "hidden": "stage2/hidden/stage2_m256_k16_L32768_q3_sparse_random_traces_11.json",
+        "hidden_bytes": 163,
+        "hidden_sha256": "6f459dfa4f4d5de07894d15ad9afd56dc2afd0bb90f75d8ea888075fc37499e1",
+        "id": "stage2_m256_k16_L32768_q3_sparse_random_traces_11",
+        "input": "stage2/inputs/stage2_m256_k16_L32768_q3_sparse_random_traces_11.json",
+        "input_bytes": 330354,
+        "input_sha256": "4f36bce4a2088d1cc9ce4b3b88fa6241545e1fe84110a5f2df23b4a3f0a002c3",
+        "k": 16,
+        "length_target": 32768,
+        "m": 256,
+        "negative_lengths": [
+          32768
+        ],
+        "positive_lengths": [
+          32768
+        ],
+        "q_mode": 3,
+        "truth_available": false
+      },
+      {
+        "family": "sparse_random_traces",
+        "hidden": "stage2/hidden/stage2_m256_k16_L32768_q4_sparse_random_traces_12.json",
+        "hidden_bytes": 163,
+        "hidden_sha256": "13d50b926eb5fd060367adf552a2eb9435dafe309602a4fd684b90795c971f6b",
+        "id": "stage2_m256_k16_L32768_q4_sparse_random_traces_12",
+        "input": "stage2/inputs/stage2_m256_k16_L32768_q4_sparse_random_traces_12.json",
+        "input_bytes": 330354,
+        "input_sha256": "75decb1743dc2cbb9a1483410e6f13cbfc5434f6d8c86b3f881634cf542bde2d",
+        "k": 16,
+        "length_target": 32768,
+        "m": 256,
+        "negative_lengths": [
+          32768
+        ],
+        "positive_lengths": [
+          32768
+        ],
+        "q_mode": 4,
+        "truth_available": false
+      }
+    ]
+  }
+}

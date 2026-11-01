@@ -1,0 +1,48 @@
+{
+  "schema": "C005-synthetic-graph-unit-controls-v1",
+  "policy": "These are graph_certificate unit inputs only. They are not event traces and do not count as sample recovery.",
+  "cases": [
+    {
+      "id": "synthetic_sparse_unique_k3",
+      "k": 3,
+      "vertices": ["a", "b", "c", "d", "e"],
+      "edges": [["a", "b"], ["a", "e"], ["b", "c"], ["b", "e"], ["c", "d"], ["c", "e"], ["d", "e"]],
+      "expected_unique_partition": [["a", "c"], ["b", "d"], ["e"]]
+    },
+    {
+      "id": "synthetic_connected_p4_k3",
+      "k": 3,
+      "vertices": ["a", "b", "c", "d"],
+      "edges": [["a", "b"], ["b", "c"], ["c", "d"]],
+      "expected_unique_partition": null
+    },
+    {
+      "id": "synthetic_empty_graph_k3",
+      "k": 3,
+      "vertices": ["a", "b", "c", "d"],
+      "edges": [],
+      "expected_unique_partition": null
+    },
+    {
+      "id": "synthetic_star_unique_k2",
+      "k": 2,
+      "vertices": ["a", "b", "c", "d"],
+      "edges": [["a", "b"], ["a", "c"], ["a", "d"]],
+      "expected_unique_partition": [["a"], ["b", "c", "d"]]
+    },
+    {
+      "id": "synthetic_triangle_plus_isolate_k3",
+      "k": 3,
+      "vertices": ["a", "b", "c", "d"],
+      "edges": [["a", "b"], ["a", "c"], ["b", "c"]],
+      "expected_unique_partition": null
+    },
+    {
+      "id": "synthetic_two_disjoint_edges_k2",
+      "k": 2,
+      "vertices": ["a", "b", "c", "d"],
+      "edges": [["a", "b"], ["c", "d"]],
+      "expected_unique_partition": null
+    }
+  ]
+}

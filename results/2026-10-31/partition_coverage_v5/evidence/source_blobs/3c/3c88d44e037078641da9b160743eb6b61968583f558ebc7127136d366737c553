@@ -1,0 +1,8 @@
+C005 branch sanity protocol v1
+
+Purpose: check output invariants on a tiny case and compare complete solution sets with the legacy exact provider in unrestricted mode. The q-capped case compares pruning toggles on the same input. This is a smoke check, not the independent audit oracle or a performance experiment.
+
+Input: sanity_inputs_v1.json (4 symbols, k=2, two positive and two negative words).
+Driver: driver_sanity_v1.py calls the candidate in unrestricted mode, legacy v3 in unrestricted mode, and the candidate twice at q=2 (pruned and both constraints disabled). It asserts exact equality of canonical block sets for the unrestricted comparison and q=2 toggle comparison, then independently checks each returned negative witness against its positive projection language.
+
+Execution: invoke the driver only through immutable evidence/capture.py. Include this protocol, input, driver, candidate source, legacy source, and capture.py in the capture source list. No timing comparison is authorized here.

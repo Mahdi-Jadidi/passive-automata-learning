@@ -1,0 +1,5 @@
+C005 branch sanity protocol v2
+
+This is a corrected-source rerun with a new provider and driver. V1 remains byte-preserved. The driver compares unrestricted complete partition sets to immutable legacy v3, compares q=2 with both pruning toggles against the same input, independently checks negative projection witnesses, validates an immediate cooperative deadline, validates max_solutions truncation, and rejects NaN deadlines.
+
+Frozen input: sanity_inputs_v1.json. Capture this protocol, input, driver_sanity_v2.py, known_k_qexact_v2.py, legacy known_k_v3.py, and immutable evidence/capture.py before execution. This is correctness smoke evidence only, not a timing comparison.

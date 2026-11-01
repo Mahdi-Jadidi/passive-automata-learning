@@ -1,0 +1,1188 @@
+[
+  {
+    "kind": "sparse_trace",
+    "q": 1,
+    "output": {
+      "method": "sparse-q-opposition-v1",
+      "model_class": "bounded_finite_projection_languages",
+      "k": 3,
+      "local_word_cap": 1,
+      "status": "found",
+      "reason": "unique_bounded_language_partition_certified",
+      "solutions": [
+        {
+          "blocks": [
+            [
+              "a",
+              "c"
+            ],
+            [
+              "b",
+              "d"
+            ],
+            [
+              "e"
+            ]
+          ],
+          "positive_projection_languages": [
+            [
+              "ac"
+            ],
+            [
+              "bd"
+            ],
+            [
+              "e"
+            ]
+          ],
+          "negative_witnesses": [
+            {
+              "negative": "",
+              "block_index": 0,
+              "projection": "",
+              "all_unseen_block_indices": [
+                0,
+                1,
+                2
+              ]
+            },
+            {
+              "negative": "aa",
+              "block_index": 0,
+              "projection": "aa",
+              "all_unseen_block_indices": [
+                0,
+                1,
+                2
+              ]
+            }
+          ]
+        }
+      ],
+      "search_exhausted": true,
+      "decision_complete": true,
+      "uniqueness": "unique",
+      "uniqueness_scope": "unordered_exactly_k_nonempty_blocks_at_most_q_local_words",
+      "assumptions": [
+        "known_k_disjoint_nonempty_alphabet_blocks",
+        "at_most_q_local_words",
+        "complete_positive_words",
+        "exact_noise_free_labels",
+        "q_opposition_unique_coloring_certificate"
+      ],
+      "graph": {
+        "symbols": [
+          "a",
+          "b",
+          "c",
+          "d",
+          "e"
+        ],
+        "edges": [
+          [
+            "d",
+            "e"
+          ],
+          [
+            "c",
+            "d"
+          ],
+          [
+            "c",
+            "e"
+          ],
+          [
+            "b",
+            "c"
+          ],
+          [
+            "b",
+            "e"
+          ],
+          [
+            "a",
+            "b"
+          ],
+          [
+            "a",
+            "e"
+          ]
+        ],
+        "edge_witnesses": [
+          {
+            "symbols": [
+              "d",
+              "e"
+            ],
+            "positive_indices": [
+              0,
+              1
+            ],
+            "pair_projections": [
+              "de",
+              "ed"
+            ]
+          },
+          {
+            "symbols": [
+              "c",
+              "d"
+            ],
+            "positive_indices": [
+              0,
+              2
+            ],
+            "pair_projections": [
+              "cd",
+              "dc"
+            ]
+          },
+          {
+            "symbols": [
+              "c",
+              "e"
+            ],
+            "positive_indices": [
+              0,
+              3
+            ],
+            "pair_projections": [
+              "ce",
+              "ec"
+            ]
+          },
+          {
+            "symbols": [
+              "b",
+              "c"
+            ],
+            "positive_indices": [
+              0,
+              6
+            ],
+            "pair_projections": [
+              "bc",
+              "cb"
+            ]
+          },
+          {
+            "symbols": [
+              "b",
+              "e"
+            ],
+            "positive_indices": [
+              0,
+              8
+            ],
+            "pair_projections": [
+              "be",
+              "eb"
+            ]
+          },
+          {
+            "symbols": [
+              "a",
+              "b"
+            ],
+            "positive_indices": [
+              0,
+              12
+            ],
+            "pair_projections": [
+              "ab",
+              "ba"
+            ]
+          },
+          {
+            "symbols": [
+              "a",
+              "e"
+            ],
+            "positive_indices": [
+              0,
+              18
+            ],
+            "pair_projections": [
+              "ae",
+              "ea"
+            ]
+          }
+        ],
+        "construction_complete": true,
+        "edge_rule": "strictly_more_than_q_distinct_positive_pair_projections",
+        "q": 1,
+        "positive_order": "sorted unique input words"
+      },
+      "certificate": {
+        "kind": "q_k_clique_anchor_forced_colors",
+        "anchor": [
+          "e",
+          "b",
+          "a"
+        ],
+        "steps": [
+          {
+            "vertex": "c",
+            "color": 2,
+            "neighbor_by_excluded_color": {
+              "0": "e",
+              "1": "b"
+            }
+          },
+          {
+            "vertex": "d",
+            "color": 1,
+            "neighbor_by_excluded_color": {
+              "0": "e",
+              "2": "c"
+            }
+          }
+        ],
+        "blocks": [
+          [
+            "a",
+            "c"
+          ],
+          [
+            "b",
+            "d"
+          ],
+          [
+            "e"
+          ]
+        ],
+        "unique_q_opposition_coloring": true,
+        "q": 1
+      },
+      "metrics": {
+        "pair_bucket_appends": 500,
+        "pair_tests": 250,
+        "candidate_checks": 1,
+        "positive_projection_checks": 25,
+        "negative_checks": 2,
+        "stored_pair_projection_values": 17,
+        "alphabet_size": 5,
+        "positive_count": 25,
+        "negative_count": 2,
+        "total_input_length": 127,
+        "opposition_seconds": 0.0004016000311821699,
+        "provider_seconds": 0.0005493999924510717
+      }
+    }
+  },
+  {
+    "kind": "sparse_trace",
+    "q": 2,
+    "output": {
+      "method": "sparse-q-opposition-v1",
+      "model_class": "bounded_finite_projection_languages",
+      "k": 3,
+      "local_word_cap": 2,
+      "status": "found",
+      "reason": "unique_bounded_language_partition_certified",
+      "solutions": [
+        {
+          "blocks": [
+            [
+              "a",
+              "c"
+            ],
+            [
+              "b",
+              "d"
+            ],
+            [
+              "e"
+            ]
+          ],
+          "positive_projection_languages": [
+            [
+              "aacc",
+              "ac"
+            ],
+            [
+              "bbdd",
+              "bd"
+            ],
+            [
+              "e",
+              "ee"
+            ]
+          ],
+          "negative_witnesses": [
+            {
+              "negative": "",
+              "block_index": 0,
+              "projection": "",
+              "all_unseen_block_indices": [
+                0,
+                1,
+                2
+              ]
+            },
+            {
+              "negative": "aa",
+              "block_index": 0,
+              "projection": "aa",
+              "all_unseen_block_indices": [
+                0,
+                1,
+                2
+              ]
+            }
+          ]
+        }
+      ],
+      "search_exhausted": true,
+      "decision_complete": true,
+      "uniqueness": "unique",
+      "uniqueness_scope": "unordered_exactly_k_nonempty_blocks_at_most_q_local_words",
+      "assumptions": [
+        "known_k_disjoint_nonempty_alphabet_blocks",
+        "at_most_q_local_words",
+        "complete_positive_words",
+        "exact_noise_free_labels",
+        "q_opposition_unique_coloring_certificate"
+      ],
+      "graph": {
+        "symbols": [
+          "a",
+          "b",
+          "c",
+          "d",
+          "e"
+        ],
+        "edges": [
+          [
+            "b",
+            "c"
+          ],
+          [
+            "b",
+            "e"
+          ],
+          [
+            "c",
+            "d"
+          ],
+          [
+            "c",
+            "e"
+          ],
+          [
+            "d",
+            "e"
+          ],
+          [
+            "a",
+            "b"
+          ],
+          [
+            "a",
+            "e"
+          ]
+        ],
+        "edge_witnesses": [
+          {
+            "symbols": [
+              "b",
+              "c"
+            ],
+            "positive_indices": [
+              0,
+              6,
+              12
+            ],
+            "pair_projections": [
+              "bbcc",
+              "ccbb",
+              "bc"
+            ]
+          },
+          {
+            "symbols": [
+              "b",
+              "e"
+            ],
+            "positive_indices": [
+              0,
+              8,
+              12
+            ],
+            "pair_projections": [
+              "bbee",
+              "eebb",
+              "be"
+            ]
+          },
+          {
+            "symbols": [
+              "c",
+              "d"
+            ],
+            "positive_indices": [
+              0,
+              2,
+              12
+            ],
+            "pair_projections": [
+              "ccdd",
+              "ddcc",
+              "cd"
+            ]
+          },
+          {
+            "symbols": [
+              "c",
+              "e"
+            ],
+            "positive_indices": [
+              0,
+              3,
+              12
+            ],
+            "pair_projections": [
+              "ccee",
+              "eecc",
+              "ce"
+            ]
+          },
+          {
+            "symbols": [
+              "d",
+              "e"
+            ],
+            "positive_indices": [
+              0,
+              1,
+              12
+            ],
+            "pair_projections": [
+              "ddee",
+              "eedd",
+              "de"
+            ]
+          },
+          {
+            "symbols": [
+              "a",
+              "b"
+            ],
+            "positive_indices": [
+              0,
+              12,
+              24
+            ],
+            "pair_projections": [
+              "aabb",
+              "ab",
+              "ba"
+            ]
+          },
+          {
+            "symbols": [
+              "a",
+              "e"
+            ],
+            "positive_indices": [
+              0,
+              12,
+              36
+            ],
+            "pair_projections": [
+              "aaee",
+              "ae",
+              "eeaa"
+            ]
+          }
+        ],
+        "construction_complete": true,
+        "edge_rule": "strictly_more_than_q_distinct_positive_pair_projections",
+        "q": 2,
+        "positive_order": "sorted unique input words"
+      },
+      "certificate": {
+        "kind": "q_k_clique_anchor_forced_colors",
+        "anchor": [
+          "e",
+          "b",
+          "a"
+        ],
+        "steps": [
+          {
+            "vertex": "c",
+            "color": 2,
+            "neighbor_by_excluded_color": {
+              "0": "e",
+              "1": "b"
+            }
+          },
+          {
+            "vertex": "d",
+            "color": 1,
+            "neighbor_by_excluded_color": {
+              "0": "e",
+              "2": "c"
+            }
+          }
+        ],
+        "blocks": [
+          [
+            "a",
+            "c"
+          ],
+          [
+            "b",
+            "d"
+          ],
+          [
+            "e"
+          ]
+        ],
+        "unique_q_opposition_coloring": true,
+        "q": 2
+      },
+      "metrics": {
+        "pair_bucket_appends": 1500,
+        "pair_tests": 500,
+        "candidate_checks": 1,
+        "positive_projection_checks": 50,
+        "negative_checks": 2,
+        "stored_pair_projection_values": 27,
+        "alphabet_size": 5,
+        "positive_count": 50,
+        "negative_count": 2,
+        "total_input_length": 377,
+        "opposition_seconds": 0.0008226000936701894,
+        "provider_seconds": 0.0010480000637471676
+      }
+    }
+  },
+  {
+    "kind": "sparse_trace",
+    "q": 3,
+    "output": {
+      "method": "sparse-q-opposition-v1",
+      "model_class": "bounded_finite_projection_languages",
+      "k": 3,
+      "local_word_cap": 3,
+      "status": "found",
+      "reason": "unique_bounded_language_partition_certified",
+      "solutions": [
+        {
+          "blocks": [
+            [
+              "a",
+              "c"
+            ],
+            [
+              "b",
+              "d"
+            ],
+            [
+              "e"
+            ]
+          ],
+          "positive_projection_languages": [
+            [
+              "aaaccc",
+              "aacc",
+              "ac"
+            ],
+            [
+              "bbbddd",
+              "bbdd",
+              "bd"
+            ],
+            [
+              "e",
+              "ee",
+              "eee"
+            ]
+          ],
+          "negative_witnesses": [
+            {
+              "negative": "",
+              "block_index": 0,
+              "projection": "",
+              "all_unseen_block_indices": [
+                0,
+                1,
+                2
+              ]
+            },
+            {
+              "negative": "aa",
+              "block_index": 0,
+              "projection": "aa",
+              "all_unseen_block_indices": [
+                0,
+                1,
+                2
+              ]
+            }
+          ]
+        }
+      ],
+      "search_exhausted": true,
+      "decision_complete": true,
+      "uniqueness": "unique",
+      "uniqueness_scope": "unordered_exactly_k_nonempty_blocks_at_most_q_local_words",
+      "assumptions": [
+        "known_k_disjoint_nonempty_alphabet_blocks",
+        "at_most_q_local_words",
+        "complete_positive_words",
+        "exact_noise_free_labels",
+        "q_opposition_unique_coloring_certificate"
+      ],
+      "graph": {
+        "symbols": [
+          "a",
+          "b",
+          "c",
+          "d",
+          "e"
+        ],
+        "edges": [
+          [
+            "d",
+            "e"
+          ],
+          [
+            "c",
+            "d"
+          ],
+          [
+            "c",
+            "e"
+          ],
+          [
+            "b",
+            "c"
+          ],
+          [
+            "b",
+            "e"
+          ],
+          [
+            "a",
+            "b"
+          ],
+          [
+            "a",
+            "e"
+          ]
+        ],
+        "edge_witnesses": [
+          {
+            "symbols": [
+              "d",
+              "e"
+            ],
+            "positive_indices": [
+              0,
+              1,
+              12,
+              13
+            ],
+            "pair_projections": [
+              "dddeee",
+              "eeeddd",
+              "ddee",
+              "eedd"
+            ]
+          },
+          {
+            "symbols": [
+              "c",
+              "d"
+            ],
+            "positive_indices": [
+              0,
+              2,
+              12,
+              14
+            ],
+            "pair_projections": [
+              "cccddd",
+              "dddccc",
+              "ccdd",
+              "ddcc"
+            ]
+          },
+          {
+            "symbols": [
+              "c",
+              "e"
+            ],
+            "positive_indices": [
+              0,
+              3,
+              12,
+              15
+            ],
+            "pair_projections": [
+              "ccceee",
+              "eeeccc",
+              "ccee",
+              "eecc"
+            ]
+          },
+          {
+            "symbols": [
+              "b",
+              "c"
+            ],
+            "positive_indices": [
+              0,
+              6,
+              12,
+              18
+            ],
+            "pair_projections": [
+              "bbbccc",
+              "cccbbb",
+              "bbcc",
+              "ccbb"
+            ]
+          },
+          {
+            "symbols": [
+              "b",
+              "e"
+            ],
+            "positive_indices": [
+              0,
+              8,
+              12,
+              20
+            ],
+            "pair_projections": [
+              "bbbeee",
+              "eeebbb",
+              "bbee",
+              "eebb"
+            ]
+          },
+          {
+            "symbols": [
+              "a",
+              "b"
+            ],
+            "positive_indices": [
+              0,
+              12,
+              24,
+              36
+            ],
+            "pair_projections": [
+              "aaabbb",
+              "aabb",
+              "ab",
+              "ba"
+            ]
+          },
+          {
+            "symbols": [
+              "a",
+              "e"
+            ],
+            "positive_indices": [
+              0,
+              12,
+              24,
+              54
+            ],
+            "pair_projections": [
+              "aaaeee",
+              "aaee",
+              "ae",
+              "eeeaaa"
+            ]
+          }
+        ],
+        "construction_complete": true,
+        "edge_rule": "strictly_more_than_q_distinct_positive_pair_projections",
+        "q": 3,
+        "positive_order": "sorted unique input words"
+      },
+      "certificate": {
+        "kind": "q_k_clique_anchor_forced_colors",
+        "anchor": [
+          "e",
+          "b",
+          "a"
+        ],
+        "steps": [
+          {
+            "vertex": "c",
+            "color": 2,
+            "neighbor_by_excluded_color": {
+              "0": "e",
+              "1": "b"
+            }
+          },
+          {
+            "vertex": "d",
+            "color": 1,
+            "neighbor_by_excluded_color": {
+              "0": "e",
+              "2": "c"
+            }
+          }
+        ],
+        "blocks": [
+          [
+            "a",
+            "c"
+          ],
+          [
+            "b",
+            "d"
+          ],
+          [
+            "e"
+          ]
+        ],
+        "unique_q_opposition_coloring": true,
+        "q": 3
+      },
+      "metrics": {
+        "pair_bucket_appends": 3000,
+        "pair_tests": 750,
+        "candidate_checks": 1,
+        "positive_projection_checks": 75,
+        "negative_checks": 2,
+        "stored_pair_projection_values": 37,
+        "alphabet_size": 5,
+        "positive_count": 75,
+        "negative_count": 2,
+        "total_input_length": 752,
+        "opposition_seconds": 0.003906299942173064,
+        "provider_seconds": 0.0046922999899834394
+      }
+    }
+  },
+  {
+    "kind": "sparse_trace",
+    "q": 4,
+    "output": {
+      "method": "sparse-q-opposition-v1",
+      "model_class": "bounded_finite_projection_languages",
+      "k": 3,
+      "local_word_cap": 4,
+      "status": "found",
+      "reason": "unique_bounded_language_partition_certified",
+      "solutions": [
+        {
+          "blocks": [
+            [
+              "a",
+              "c"
+            ],
+            [
+              "b",
+              "d"
+            ],
+            [
+              "e"
+            ]
+          ],
+          "positive_projection_languages": [
+            [
+              "aaaacccc",
+              "aaaccc",
+              "aacc",
+              "ac"
+            ],
+            [
+              "bbbbdddd",
+              "bbbddd",
+              "bbdd",
+              "bd"
+            ],
+            [
+              "e",
+              "ee",
+              "eee",
+              "eeee"
+            ]
+          ],
+          "negative_witnesses": [
+            {
+              "negative": "",
+              "block_index": 0,
+              "projection": "",
+              "all_unseen_block_indices": [
+                0,
+                1,
+                2
+              ]
+            },
+            {
+              "negative": "aa",
+              "block_index": 0,
+              "projection": "aa",
+              "all_unseen_block_indices": [
+                0,
+                1,
+                2
+              ]
+            }
+          ]
+        }
+      ],
+      "search_exhausted": true,
+      "decision_complete": true,
+      "uniqueness": "unique",
+      "uniqueness_scope": "unordered_exactly_k_nonempty_blocks_at_most_q_local_words",
+      "assumptions": [
+        "known_k_disjoint_nonempty_alphabet_blocks",
+        "at_most_q_local_words",
+        "complete_positive_words",
+        "exact_noise_free_labels",
+        "q_opposition_unique_coloring_certificate"
+      ],
+      "graph": {
+        "symbols": [
+          "a",
+          "b",
+          "c",
+          "d",
+          "e"
+        ],
+        "edges": [
+          [
+            "b",
+            "c"
+          ],
+          [
+            "b",
+            "e"
+          ],
+          [
+            "c",
+            "d"
+          ],
+          [
+            "c",
+            "e"
+          ],
+          [
+            "d",
+            "e"
+          ],
+          [
+            "a",
+            "b"
+          ],
+          [
+            "a",
+            "e"
+          ]
+        ],
+        "edge_witnesses": [
+          {
+            "symbols": [
+              "b",
+              "c"
+            ],
+            "positive_indices": [
+              0,
+              6,
+              12,
+              18,
+              24
+            ],
+            "pair_projections": [
+              "bbbbcccc",
+              "ccccbbbb",
+              "bbbccc",
+              "cccbbb",
+              "bbcc"
+            ]
+          },
+          {
+            "symbols": [
+              "b",
+              "e"
+            ],
+            "positive_indices": [
+              0,
+              8,
+              12,
+              20,
+              24
+            ],
+            "pair_projections": [
+              "bbbbeeee",
+              "eeeebbbb",
+              "bbbeee",
+              "eeebbb",
+              "bbee"
+            ]
+          },
+          {
+            "symbols": [
+              "c",
+              "d"
+            ],
+            "positive_indices": [
+              0,
+              2,
+              12,
+              14,
+              24
+            ],
+            "pair_projections": [
+              "ccccdddd",
+              "ddddcccc",
+              "cccddd",
+              "dddccc",
+              "ccdd"
+            ]
+          },
+          {
+            "symbols": [
+              "c",
+              "e"
+            ],
+            "positive_indices": [
+              0,
+              3,
+              12,
+              15,
+              24
+            ],
+            "pair_projections": [
+              "cccceeee",
+              "eeeecccc",
+              "ccceee",
+              "eeeccc",
+              "ccee"
+            ]
+          },
+          {
+            "symbols": [
+              "d",
+              "e"
+            ],
+            "positive_indices": [
+              0,
+              1,
+              12,
+              13,
+              24
+            ],
+            "pair_projections": [
+              "ddddeeee",
+              "eeeedddd",
+              "dddeee",
+              "eeeddd",
+              "ddee"
+            ]
+          },
+          {
+            "symbols": [
+              "a",
+              "b"
+            ],
+            "positive_indices": [
+              0,
+              12,
+              24,
+              36,
+              48
+            ],
+            "pair_projections": [
+              "aaaabbbb",
+              "aaabbb",
+              "aabb",
+              "ab",
+              "ba"
+            ]
+          },
+          {
+            "symbols": [
+              "a",
+              "e"
+            ],
+            "positive_indices": [
+              0,
+              12,
+              24,
+              36,
+              72
+            ],
+            "pair_projections": [
+              "aaaaeeee",
+              "aaaeee",
+              "aaee",
+              "ae",
+              "eeeeaaaa"
+            ]
+          }
+        ],
+        "construction_complete": true,
+        "edge_rule": "strictly_more_than_q_distinct_positive_pair_projections",
+        "q": 4,
+        "positive_order": "sorted unique input words"
+      },
+      "certificate": {
+        "kind": "q_k_clique_anchor_forced_colors",
+        "anchor": [
+          "e",
+          "b",
+          "a"
+        ],
+        "steps": [
+          {
+            "vertex": "c",
+            "color": 2,
+            "neighbor_by_excluded_color": {
+              "0": "e",
+              "1": "b"
+            }
+          },
+          {
+            "vertex": "d",
+            "color": 1,
+            "neighbor_by_excluded_color": {
+              "0": "e",
+              "2": "c"
+            }
+          }
+        ],
+        "blocks": [
+          [
+            "a",
+            "c"
+          ],
+          [
+            "b",
+            "d"
+          ],
+          [
+            "e"
+          ]
+        ],
+        "unique_q_opposition_coloring": true,
+        "q": 4
+      },
+      "metrics": {
+        "pair_bucket_appends": 5000,
+        "pair_tests": 1000,
+        "candidate_checks": 1,
+        "positive_projection_checks": 100,
+        "negative_checks": 2,
+        "stored_pair_projection_values": 47,
+        "alphabet_size": 5,
+        "positive_count": 100,
+        "negative_count": 2,
+        "total_input_length": 1252,
+        "opposition_seconds": 0.0034457999281585217,
+        "provider_seconds": 0.004519099951721728
+      }
+    }
+  }
+]

@@ -1,0 +1,34 @@
+{
+  "cycle": "C005",
+  "artifact": "general/public_cli_v1.py",
+  "sha256": "964185568bbad53b54bb78769232dd828d3e980ed02038110675bf382d1bd2d7",
+  "sha256_hex_characters": 64,
+  "dependencies": [
+    {
+      "sha256": "9f08dd645e7fcccbe8ea8022c758b7cf3277a5f01b6533fb9c1ad0cf08b6c84d",
+      "path": "general/known_k_qexact_v2.py"
+    },
+    {
+      "sha256": "1ff16263322f2009d68cd2b4ecc3b6587fa9ef80695fa9489fb199c9e13d6705",
+      "path": "structural/sparse_certificate_v2.py"
+    }
+  ],
+  "modes": [
+    "exact default",
+    "certificate finite q only",
+    "hybrid fallback only on insufficient_coverage"
+  ],
+  "absolute_deadline_shared_on_fallback": true,
+  "root_dispatch": "runpy.run_path to this file; parent-owned root wrapper not edited",
+  "captured_cli_gate": {
+    "attempt_id": "20261031T064357.464138Z_17586125f1",
+    "result": "pass"
+  },
+  "limitations": [
+    "unknown k unsupported",
+    "noise unsupported",
+    "shared symbols unsupported",
+    "prefix semantics unsupported"
+  ],
+  "timed_comparison": "not authorized; not run"
+}

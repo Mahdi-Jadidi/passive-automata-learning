@@ -1,0 +1,31 @@
+{
+  "provenance_sources": [
+    "C004 structural/singleton_solver_v1.py helpers adapted",
+    "C004 structural/bounded_certificate_v1.py solve body adapted"
+  ],
+  "proof": "PROOFS_SPARSE_Q_V2.md",
+  "performance_status": "not_authorized_not_run",
+  "scientific_status": "own_proof_and_captured_sanity_ready_independent_audit_pending",
+  "cycle": "C005",
+  "capture_sources_required": [
+    "sparse_certificate_v2.py",
+    "driver source",
+    "actual input/corpus bytes",
+    "frozen protocol"
+  ],
+  "captures": [
+    "20261031T063843.841364Z_5656c4d7a3",
+    "20261031T063925.345240Z_431ed2410a",
+    "20261031T064045.015689Z_13ea7e4205",
+    "20261031T064256.626868Z_ca453dc10c"
+  ],
+  "provider": "structural/sparse_certificate_v2.py",
+  "private_cli_warning": "Private branch convenience CLI; exceptions on invalid input. Public root wrapper validates and formats errors. Public common k>=2; provider accepts k1. finite q only.",
+  "proof_sha256": "1ef1a3d7e8a8ae04809b483c7ed66ae818d805c53e4ef22fed53e0609250386f",
+  "sha256": "1ff16263322f2009d68cd2b4ecc3b6587fa9ef80695fa9489fb199c9e13d6705",
+  "runtime_dependencies": [
+    "Python standard library only; provider self-contained"
+  ],
+  "scaling_proof": "PROOF_SPARSE_SCALING_ADDENDUM_V1.md",
+  "scaling_input_addendum": "sparse_scaling_fixtures_v1.json"
+}
