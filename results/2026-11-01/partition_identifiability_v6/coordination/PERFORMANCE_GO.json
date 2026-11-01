@@ -1,0 +1,51 @@
+{
+  "cycle": "C006",
+  "decision": "GO",
+  "primary_provider_jobs": 6,
+  "source_records": [
+    {
+      "path": "audit/BENCHMARK_PROPOSAL_V2.md",
+      "sha256": "f6436773f02a98f532f574b7c71b0db6355e25167a20272c8cf84e28f643be5a"
+    },
+    {
+      "path": "audit/PROTOCOL_BENCHMARK_V2.md",
+      "sha256": "d3448cc48c182f56165d9c1696c6e82463cdf0c519983681c9ebee1945926c7a"
+    },
+    {
+      "path": "audit/benchmark_v1/manifest.json",
+      "sha256": "a2457aa91343f148dfe46f9de602af8249316eb6f468d91e4c27d5a2c6e3fd8f"
+    },
+    {
+      "path": "audit/benchmark_v1/freeze_validation.json",
+      "sha256": "c2aa7a769777f189fdb5d562bb4666c72227756fb7887089c4c8ec940f49e506"
+    },
+    {
+      "path": "implementation/solver_v5.py",
+      "sha256": "e83c8d13e8eac248415160f6d29fb3309f19b5d447c932e00b69e24e7cb60792"
+    },
+    {
+      "path": "implementation/cli_v4.py",
+      "sha256": "b824ca3751abfaaf424e31357d804f038f7eb79dad3c7a97048caacc240d7c8f"
+    },
+    {
+      "path": "solver.py",
+      "sha256": "8fb0ecf557d9f76e2e698be4cde7ceefde5dda37ebce53a669094bdcb9f7d551"
+    }
+  ],
+  "allowed_cells": [
+    "large_connected_m64",
+    "small_full_cover_m4"
+  ],
+  "repetitions": 3,
+  "mode": "--all --seconds 28",
+  "hard_timeout_seconds": 30,
+  "requirements": [
+    "Freeze all new drivers before launch",
+    "Serial fresh process per job",
+    "Full JSON and raw streams captured",
+    "Independent replay after timing",
+    "No rerun of successful or censored jobs"
+  ],
+  "excluded": "optional_decomposable_m64 and all additional datasets",
+  "scope": "Standalone characterization, no old-method comparison or speedup claim"
+}

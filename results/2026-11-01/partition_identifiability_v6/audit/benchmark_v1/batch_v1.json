@@ -1,0 +1,26 @@
+{
+  "cycle": "C006",
+  "authorization": {
+    "path": "coordination/PERFORMANCE_GO.json",
+    "sha256": "bc715a8ee22cc830dd308b17bf264c22a794839f119afdea5f18345eef747900",
+    "decision": "GO",
+    "exact_provider_jobs": 6
+  },
+  "proposal_sha256": "f6436773f02a98f532f574b7c71b0db6355e25167a20272c8cf84e28f643be5a",
+  "protocol_sha256": "d3448cc48c182f56165d9c1696c6e82463cdf0c519983681c9ebee1945926c7a",
+  "corpus_manifest_sha256": "a2457aa91343f148dfe46f9de602af8249316eb6f468d91e4c27d5a2c6e3fd8f",
+  "provider_sha256": "e83c8d13e8eac248415160f6d29fb3309f19b5d447c932e00b69e24e7cb60792",
+  "cli_sha256": "b824ca3751abfaaf424e31357d804f038f7eb79dad3c7a97048caacc240d7c8f",
+  "root_wrapper_sha256": "8fb0ecf557d9f76e2e698be4cde7ceefde5dda37ebce53a669094bdcb9f7d551",
+  "capture_policy": {"cooperative_seconds": 28, "hard_timeout_seconds": 30,
+                      "fresh_serial_process": true, "full_json_and_raw_streams": true},
+  "order": [
+    {"label":"C006_BENCH_rep1_large_connected_m64", "rep":1, "cell":"large_connected_m64", "input":"large_connected_m64.json", "input_sha256":"47fc8ff0c9cee856ea51c8e06c1d530e18695ca08db993ccbefb8c2304a7c273"},
+    {"label":"C006_BENCH_rep1_small_full_cover_m4", "rep":1, "cell":"small_full_cover_m4", "input":"small_full_cover_m4.json", "input_sha256":"4beca6778aeef84a8afe3f28289fb7978fccc0b9bd29491dc3899dc80419f775"},
+    {"label":"C006_BENCH_rep2_small_full_cover_m4", "rep":2, "cell":"small_full_cover_m4", "input":"small_full_cover_m4.json", "input_sha256":"4beca6778aeef84a8afe3f28289fb7978fccc0b9bd29491dc3899dc80419f775"},
+    {"label":"C006_BENCH_rep2_large_connected_m64", "rep":2, "cell":"large_connected_m64", "input":"large_connected_m64.json", "input_sha256":"47fc8ff0c9cee856ea51c8e06c1d530e18695ca08db993ccbefb8c2304a7c273"},
+    {"label":"C006_BENCH_rep3_large_connected_m64", "rep":3, "cell":"large_connected_m64", "input":"large_connected_m64.json", "input_sha256":"47fc8ff0c9cee856ea51c8e06c1d530e18695ca08db993ccbefb8c2304a7c273"},
+    {"label":"C006_BENCH_rep3_small_full_cover_m4", "rep":3, "cell":"small_full_cover_m4", "input":"small_full_cover_m4.json", "input_sha256":"4beca6778aeef84a8afe3f28289fb7978fccc0b9bd29491dc3899dc80419f775"}
+  ],
+  "excluded": ["optional_decomposable_m64", "any additional datasets", "any rerun"]
+}

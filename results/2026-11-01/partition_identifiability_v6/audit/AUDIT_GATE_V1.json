@@ -1,0 +1,193 @@
+{
+  "cycle": "C006",
+  "status": "correctness_gate_passed_benchmark_proposal_frozen_timing_not_run",
+  "runtime_anchors": {
+    "python_executable": "C:/Users/Mahdi/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/python.exe",
+    "python_version": "3.12.14",
+    "provider": {
+      "path": "implementation/solver_v5.py",
+      "sha256": "e83c8d13e8eac248415160f6d29fb3309f19b5d447c932e00b69e24e7cb60792"
+    },
+    "cli": {
+      "path": "implementation/cli_v4.py",
+      "sha256": "b824ca3751abfaaf424e31357d804f038f7eb79dad3c7a97048caacc240d7c8f"
+    },
+    "root_wrapper": {
+      "path": "solver.py",
+      "sha256": "8fb0ecf557d9f76e2e698be4cde7ceefde5dda37ebce53a669094bdcb9f7d551"
+    },
+    "read_only_parent_helper": {
+      "path": "results/2026-10-31/partition_coverage_v5/general/known_k_qexact_v2.py",
+      "sha256": "9f08dd645e7fcccbe8ea8022c758b7cf3277a5f01b6533fb9c1ad0cf08b6c84d"
+    },
+    "independent_all_k_reference": {
+      "path": "audit/oracle_v4/expected.jsonl",
+      "sha256": "ca4b932d12d094a34b46a73580aab551e7a00f3fbd1ddd58f08f9fc75a4d632c"
+    }
+  },
+  "proof_references": {
+    "independent_audit": {
+      "path": "audit/PROOF_REVIEW_V1.md",
+      "sha256": "6d603524b60292eaad82e919b43a4d6801b7d89defefcb98c115ce9d7df8eedd"
+    },
+    "theory_proofs": {
+      "path": "theory/PROOFS_v1.md",
+      "sha256": "a63aa6cf21e6b21cc59b27d1dd0906237a58bcf7f7d6b609c672c4650656bcf3"
+    },
+    "farsi_report": {
+      "path": "theory/SCIENTIFIC_REPORT_CANDIDATE_FA_v3.md",
+      "sha256": "538b4a4f0ba830140c4b07bc6725b5a2bb07e5b1079488fc1e86b28706acb459"
+    },
+    "reviewed_claims": [
+      "finite positive projections give a necessary-and-sufficient compatibility test for unrestricted regular factors",
+      "coarsening preserves compatibility and nontrivial existence reduces exactly to a compatible bipartition",
+      "connected sound swap/rescue must-links prove non-decomposability, but a disconnected graph does not prove decomposability",
+      "finite labels do not identify the hidden true factor count or true factorization",
+      "enhanced contextual A/B rules are proved but remain dormant in the frozen provider"
+    ]
+  },
+  "correctness_gate": {
+    "capture_attempt_id": "20261101T155338.298918Z_af6853ce61",
+    "capture_execution_status": "success",
+    "driver": "audit/gate_solver_v5_v6.py",
+    "driver_sha256": "98c72c09daa4a8c58ea074bcf0d8f30264ff4f8d52b24f3a3f12dd5b47e38131",
+    "report": "audit/validation_v2/solver_v5_gate_v6.json",
+    "report_sha256": "2635906fdb0adf70ccfe233f37e9e013d0cc2c4b8ce5826fe8229a40fee32f47",
+    "visible_case_records": 135,
+    "unique_normalized_payloads": 133,
+    "duplicate_payload_records": 2,
+    "payload_alias_groups": [
+      ["manager_candidate_four_symbol_cycles", "manager_examples_v1_manager_graph_gap"],
+      ["theory_examples_v1_reduced_graph_gap", "manager_examples_v1_reduced_graph_gap"]
+    ],
+    "provider_result_rows": {
+      "found": 124,
+      "not_decomposable": 11,
+      "incomplete_or_error": 0
+    },
+    "full_compatible_two_block_partition_sets_matched": 135,
+    "all_k_nontrivial_existence_checks_matched": 135,
+    "independent_projection_witnesses_checked": 25635,
+    "non_decomposable_corpus_rows": 11,
+    "no_decomposition_certificate_replays_on_corpus_rows": 11,
+    "certificate_replay_counts_by_kind": {
+      "complete_cut_collision_cover": 8,
+      "connected_must_link_graph": 2,
+      "singleton_alphabet": 1
+    },
+    "cut_records_checked_on_corpus_rows": 29,
+    "must_link_edges_replayed_on_corpus_rows": 2,
+    "extra_manager_example": {
+      "payload_is_duplicate_of": "manager_candidate_four_symbol_cycles",
+      "additional_certificate_replay_events": 1,
+      "additional_cut_records_checked": 7,
+      "combined_certificate_replay_events_including_extra": 12,
+      "combined_cut_records_including_extra": 36,
+      "status": "not_decomposable"
+    },
+    "tampering_invalid_input_deadline_truncation_and_interruption_controls": "all passed"
+  },
+  "root_cli_gate": {
+    "cli_capture_attempt_id": "20261101T155408.832648Z_59e21f537e",
+    "cli_capture_status": "success",
+    "cli_stdout_sha256": "3cc9fdf58a97c9ec73471272524b4899429f647c16389c967edef4099b9557eb",
+    "independent_replay_attempt_id": "20261101T155444.689203Z_5dd785d365",
+    "independent_report": "audit/validation_v2/root_cli_v1.json",
+    "independent_report_sha256": "2857595a00d8ad6542fc7c557b120859e2be6b3f32b891a855c38341d4d1d335",
+    "status": "not_decomposable",
+    "certificate_kind": "complete_cut_collision_cover",
+    "cut_records_replayed": 7
+  },
+  "preserved_failed_audit_harness_attempts": [
+    {
+      "attempt_id": "20261101T154742.496460Z_4ebd58b99c",
+      "execution_status": "program_error",
+      "classification": "auditor_harness_error",
+      "cause": "collision-covered-cut polarity was reversed in the independent checker",
+      "failed_case": "c006_m02_16"
+    },
+    {
+      "attempt_id": "20261101T154817.524320Z_bf7481a386",
+      "execution_status": "program_error",
+      "classification": "auditor_harness_error",
+      "cause": "same collision-covered-cut polarity error remained",
+      "failed_case": "c006_m02_16"
+    },
+    {
+      "attempt_id": "20261101T154934.519006Z_c03b5db53a",
+      "execution_status": "program_error",
+      "classification": "auditor_harness_error",
+      "cause": "the harness required optional enumeration_complete on a complete early connected-graph result",
+      "failed_case": "c006_m02_17"
+    },
+    {
+      "attempt_id": "20261101T155028.770089Z_88e1928241",
+      "execution_status": "program_error",
+      "classification": "auditor_harness_error",
+      "cause": "the readiness manifest FINAL_TARGET_V1.json was parsed as sample input after the 135 case-level loop",
+      "case_level_checks_completed_before_error": 135
+    },
+    {
+      "attempt_id": "20261101T155142.867016Z_8128c9ad46",
+      "execution_status": "timed_out",
+      "classification": "auditor_harness_resource_error",
+      "cause": "independent checker materialized an exponential expected-cut list before rejecting a 40-symbol empty cover",
+      "stdout_bytes": 0,
+      "stderr_bytes": 0
+    }
+  ],
+  "benchmark_proposal": {
+    "status": "frozen_and_independently_validated_not_timed",
+    "protocol": "audit/PROTOCOL_BENCHMARK_V2.md",
+    "protocol_sha256": "d3448cc48c182f56165d9c1696c6e82463cdf0c519983681c9ebee1945926c7a",
+    "manifest": "audit/benchmark_v1/manifest.json",
+    "manifest_sha256": "a2457aa91343f148dfe46f9de602af8249316eb6f468d91e4c27d5a2c6e3fd8f",
+    "inputs_sha256": "f8577319ecaf9ca03f1337c1e63104362c74ab6386f2935964fedf4a7dd88096",
+    "truth_sidecars_sha256": "d7b7b01c6cadc9d5ee03ea48ce49452cd90aca88ec36f99380d0066b5323fa5e",
+    "expected_obstructions_sha256": "533a0e252b52dc9676bb295de405b0504ddba389fffa7a71f1519ccd47391383",
+    "generation_capture_attempt_id": "20261101T155847.026359Z_5e1feb4a4c",
+    "independent_freeze_validation_capture_attempt_id": "20261101T155934.245778Z_f637716014",
+    "independent_freeze_validation_report": "audit/benchmark_v1/freeze_validation.json",
+    "independent_freeze_validation_report_sha256": "c2aa7a769777f189fdb5d562bb4666c72227756fb7887089c4c8ec940f49e506",
+    "primary_cells": [
+      {
+        "case_id": "large_connected_m64",
+        "alphabet_size": 64,
+        "context_length": 128,
+        "positive_count": 64,
+        "negative_count": 1,
+        "max_word_length": 130,
+        "expected_edges": 63,
+        "expected_connected_certificate": true,
+        "input_sha256": "47fc8ff0c9cee856ea51c8e06c1d530e18695ca08db993ccbefb8c2304a7c273"
+      },
+      {
+        "case_id": "small_full_cover_m4",
+        "alphabet_size": 4,
+        "positive_count": 4,
+        "negative_count": 1,
+        "expected_complete_cut_records": 7,
+        "input_sha256": "4beca6778aeef84a8afe3f28289fb7978fccc0b9bd29491dc3899dc80419f775"
+      }
+    ],
+    "primary_provider_jobs": 6,
+    "repetitions_per_cell": 3,
+    "order": ["large", "small", "small", "large", "large", "small"],
+    "each_job": {
+      "fresh_process": true,
+      "entry": "root solver.py",
+      "flags": ["--all", "--seconds", "28"],
+      "capture_hard_timeout_seconds": 30,
+      "output": "complete JSON, raw stdout/stderr, hashes, bytes, provider counters and subprocess wall time",
+      "post_run_validation": "independent grammar membership, witness and certificate replay for every output"
+    },
+    "optional_decomposable_cell": {
+      "case_id": "optional_decomposable_m64",
+      "jobs": 3,
+      "authorized": false,
+      "status": "outside primary six jobs"
+    },
+    "provider_timing_runs_performed": 0,
+    "comparison": "no old-method baseline and no speedup claim"
+  }
+}

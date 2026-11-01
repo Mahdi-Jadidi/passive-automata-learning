@@ -1,0 +1,10 @@
+{
+  "cycle":"C006",
+  "user_date":"2026-11-02",
+  "event":"Git staging integration error",
+  "execution_status":"initial_add_failed",
+  "cause":"Windows Git rejected a long checker-snapshot filename. The file exists and passed Python byte-integrity verification.",
+  "original_error":"Filename too long; unable to index coordination/.checker_snapshots/FINAL_INTEGRITY_R3_2026-11-01_5c142d891d1c4f599ece4333f55657a5_e69f0d972451dd286c88550e2097ba762bf2340cf4dbf76f28bb79fa68d4c610.py",
+  "recovery":"Use git -c core.longpaths=true for staging and committing, without changing persistent user configuration or renaming evidence files.",
+  "scientific_status":"No effect on scientific outputs, source bytes, or gate results"
+}

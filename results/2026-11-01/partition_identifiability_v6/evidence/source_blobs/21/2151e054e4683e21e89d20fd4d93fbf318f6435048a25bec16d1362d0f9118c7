@@ -1,0 +1,57 @@
+{
+  "cycle": "C006",
+  "implementation_target": "general two-block existential decision under unrestricted regular factors",
+  "stable_provider": {
+    "path": "implementation/solver_v5.py",
+    "sha256": "e83c8d13e8eac248415160f6d29fb3309f19b5d447c932e00b69e24e7cb60792",
+    "api": ["solve(data, *, deadline=None, max_solutions=1)",
+            "verify_solution(data, solution)", "verify_certificate(data, certificate)"]
+  },
+  "stable_cli": {"path":"implementation/cli_v4.py",
+    "sha256":"b824ca3751abfaaf424e31357d804f038f7eb79dad3c7a97048caacc240d7c8f"},
+  "docs": {
+    "readme": {"path":"implementation/README_FA_V5.md",
+      "sha256":"cdc2019579f186a1a0724fe5130e7cfb126c29ff36cb2f9edd1b63b7273a6c12"},
+    "protocol": {"path":"implementation/PROTOCOL_V4.md",
+      "sha256":"a83c4c26a02bb81cacb7d53141631538f155fabd6f485310f060eba2f20e84a3"},
+    "example": {"path":"implementation/example_manager_candidate_v1.json",
+      "sha256":"7c1007112bd07da105a97a8263e7ccaede987f3a47d0ccc6d28db507743cdff9"}
+  },
+  "scope": {
+    "alphabet": "known, nonempty, pairwise disjoint blocks; singleton alphabet is structural non-decomposability",
+    "labels": "exact complete words; contradictory labels and unknown symbols invalid",
+    "factors": "all regular languages, including infinite; finite projections are witnesses only",
+    "decision": "existence of a nontrivial compatible partition reduces to two blocks by coarsening, per theory proof; no hidden-k inference",
+    "certificates": "direct positive projection witnesses or complete replayable non-decomposition certificate; incomplete status on timeout/interruption",
+    "enhanced_rules": "T002 alternative-insertion/deletion rules are documented and proved in theory but intentionally not activated in the stable baseline pending audit; their omission affects pruning only"
+  },
+  "correctness_smoke": {
+    "attempt_id":"20261101T154146.544673Z_94ace98202",
+    "execution_status":"success", "exit_code":0,
+    "scientific_status":"passed_on_captured_small_controls",
+    "stdout_sha256":"7b0a51e4d249babbbad6d7671a1ec77bfd5fb9a9cd1e1637320726d33b7a4152",
+    "cases":9,
+    "note":"small direct brute-force comparison only; independent corpus gate remains owned by audit/"
+  },
+  "cli_smoke": {
+    "attempt_id":"20261101T154156.018542Z_39e4fd93e9",
+    "execution_status":"success", "exit_code":0,
+    "stdout_sha256":"09dd28a263095e59435f09b77414ffcc05fd7c30e6f95a195acac1c4f1df4cea"
+  },
+  "preserved_failed_attempts": [
+    {"attempt_id":"20261101T153351.781709Z_5f4a1e5418", "version":"v1",
+     "cause":"incorrect helper relative path"},
+    {"attempt_id":"20261101T153614.630190Z_3ea23ec847", "version":"v2",
+     "cause":"sorted symbol pair lost insertion-rescue deleted/inserted roles"},
+    {"attempt_id":"20261101T153931.656964Z_21d15a73c5", "version":"v3",
+     "cause":"interruption after an answer reported found instead of incomplete"},
+    {"attempt_id":"20261101T154043.917807Z_b845278791", "version":"v4",
+     "cause":"certificate success response referenced removed expected-mask list"}
+  ],
+  "performance": "not measured",
+  "audit_gate": "pending; auditor must compare full sets and independently replay certificates before master promotion",
+  "parent_helper": {"path":"results/2026-10-31/partition_coverage_v5/general/known_k_qexact_v2.py",
+    "sha256":"9f08dd645e7fcccbe8ea8022c758b7cf3277a5f01b6533fb9c1ad0cf08b6c84d",
+    "usage":"read-only sound swap/rescue must-link extractor only"}
+}
+

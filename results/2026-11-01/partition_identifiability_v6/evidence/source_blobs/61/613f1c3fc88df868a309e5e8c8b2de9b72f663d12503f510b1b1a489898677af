@@ -1,0 +1,50 @@
+{
+  "cycle": "C006",
+  "freeze_status": "all_run_drivers_and_sources_frozen_before_provider_launch",
+  "master_go_path": "coordination/PERFORMANCE_GO.json",
+  "master_go_sha256": "bc715a8ee22cc830dd308b17bf264c22a794839f119afdea5f18345eef747900",
+  "authorized_jobs": 6,
+  "provider_jobs_executed_before_this_freeze": 0,
+  "proposal_path": "audit/BENCHMARK_PROPOSAL_V2.md",
+  "proposal_sha256": "f6436773f02a98f532f574b7c71b0db6355e25167a20272c8cf84e28f643be5a",
+  "protocol_path": "audit/PROTOCOL_BENCHMARK_V2.md",
+  "protocol_sha256": "d3448cc48c182f56165d9c1696c6e82463cdf0c519983681c9ebee1945926c7a",
+  "batch_path": "audit/benchmark_v1/batch_v1.json",
+  "batch_sha256": "126f57105129b14578068f2e970de6b8ab426051e9552df1e823f4534bc59533",
+  "post_run_validator_path": "audit/benchmark_v1/validate_and_summarize_runs_v1.py",
+  "post_run_validator_sha256": "8da233127aa51e25832a4d4a50948f6b62ed50a804f554c8ef0a42d2472bd24a",
+  "prelaunch_freeze_checker_path": "audit/benchmark_v1/check_batch_freeze_v1.py",
+  "prelaunch_freeze_checker_sha256": "1939638b06cf9186c79eccebe34cdbc1863febf25d464854089015d2c15f73a0",
+  "independent_certificate_auditor_path": "audit/gate_solver_v5_v6.py",
+  "independent_certificate_auditor_sha256": "98c72c09daa4a8c58ea074bcf0d8f30264ff4f8d52b24f3a3f12dd5b47e38131",
+  "corpus_manifest_sha256": "a2457aa91343f148dfe46f9de602af8249316eb6f468d91e4c27d5a2c6e3fd8f",
+  "visible_inputs_sha256": "f8577319ecaf9ca03f1337c1e63104362c74ab6386f2935964fedf4a7dd88096",
+  "target_sidecars_sha256": "d7b7b01c6cadc9d5ee03ea48ce49452cd90aca88ec36f99380d0066b5323fa5e",
+  "expected_obstructions_sha256": "533a0e252b52dc9676bb295de405b0504ddba389fffa7a71f1519ccd47391383",
+  "provider_sha256": "e83c8d13e8eac248415160f6d29fb3309f19b5d447c932e00b69e24e7cb60792",
+  "cli_sha256": "b824ca3751abfaaf424e31357d804f038f7eb79dad3c7a97048caacc240d7c8f",
+  "root_wrapper_sha256": "8fb0ecf557d9f76e2e698be4cde7ceefde5dda37ebce53a669094bdcb9f7d551",
+  "parent_helper_sha256": "9f08dd645e7fcccbe8ea8022c758b7cf3277a5f01b6533fb9c1ad0cf08b6c84d",
+  "excluded_optional_input": "optional_decomposable_m64",
+  "excluded_optional_run_count": 3,
+  "jobs": [
+    "C006_BENCH_rep1_large_connected_m64",
+    "C006_BENCH_rep1_small_full_cover_m4",
+    "C006_BENCH_rep2_small_full_cover_m4",
+    "C006_BENCH_rep2_large_connected_m64",
+    "C006_BENCH_rep3_large_connected_m64",
+    "C006_BENCH_rep3_small_full_cover_m4"
+  ],
+  "per_job_policy": {
+    "fresh_process": true,
+    "serial": true,
+    "cli_flags": ["--all", "--seconds", "28"],
+    "capture_hard_timeout_seconds": 30,
+    "no_reruns_if_successful_or_censored": true,
+    "full_json_and_streams": true
+  },
+  "python_runtime": {
+    "executable": "C:/Users/Mahdi/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/python.exe",
+    "version": "3.12.14"
+  }
+}

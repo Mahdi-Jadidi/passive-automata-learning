@@ -1,0 +1,10 @@
+{
+  "cycle": "C006",
+  "kind": "metadata_interpretation_only",
+  "source": "implementation/archive_integrity_v3.py",
+  "source_sha256": "82a856bd61fab0ac44bfd177129945712865c8b01f7b7093d94c4b6a6fae9fe6",
+  "failure_report": "implementation/FINAL_INTEGRITY_R2_2026-11-01.json",
+  "reason": "READINESS_AUDIT_V2 scope is descriptive prose, not a required directory. Original reference/path hashes all matched.",
+  "correction": "Use an existing explicit owner scope as a hint; ignore a non-directory descriptive scope. All source/hash/raw checks unchanged.",
+  "provider_changes": false
+}

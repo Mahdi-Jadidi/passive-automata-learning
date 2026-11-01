@@ -1,0 +1,7 @@
+Traceback (most recent call last):
+  File "C:\Users\Mahdi\Documents\ChatGPT\passive automata learning\results\2026-11-01\partition_identifiability_v6\audit\gate_solver_v5_v3.py", line 385, in <module>
+    main()
+  File "C:\Users\Mahdi\Documents\ChatGPT\passive automata learning\results\2026-11-01\partition_identifiability_v6\audit\gate_solver_v5_v3.py", line 243, in main
+    assert result.get("complete") is True and result.get("enumeration_complete") is True, (case_id, result)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ('c006_m02_17', {'method': 'c006-unknown-k-general-regular-v5', 'status': 'not_decomposable', 'complete': True, 'decision_complete': True, 'uniqueness': 'none', 'uniqueness_scope': 'sample_compatible_nontrivial_two_block_partitions', 'solutions': [], 'certificate': {'kind': 'no_nontrivial_bipartition', 'obstruction': 'connected_must_link_graph', 'alphabet': ['a', 'b'], 'components': [['a', 'b']], 'must_link_edges': [{'symbols': ['a', 'b'], 'witness': {'rule': 'adjacent_swap', 'positive': 'bab', 'negative': 'abb', 'position': 0}}]}, 'certificate_check': {'valid': True, 'kind': 'connected_must_link_graph', 'checked_cuts': 0}, 'assumptions': ['exact labels', 'known alphabet', 'two nonempty disjoint blocks', 'unrestricted regular local factors'], 'metrics': {'canonical_cuts_checked': 0, 'must_link_edges': 1, 'contracted_components': 1, 'provider_seconds': 0.022659599999315105, 'alphabet_size': 2, 'positive_count': 5, 'negative_count': 5}})

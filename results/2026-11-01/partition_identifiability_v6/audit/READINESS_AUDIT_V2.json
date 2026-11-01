@@ -1,0 +1,64 @@
+{
+  "cycle": "C006",
+  "scope": "independent correctness and certificate audit of frozen solver_v5",
+  "status": "passed_correctness_only_performance_held",
+  "provider": {
+    "path": "implementation/solver_v5.py",
+    "sha256": "e83c8d13e8eac248415160f6d29fb3309f19b5d447c932e00b69e24e7cb60792"
+  },
+  "cli": {
+    "entry": "solver.py -> implementation/cli_v4.py -> solver_v5.py",
+    "root_wrapper_sha256": "8fb0ecf557d9f76e2e698be4cde7ceefde5dda37ebce53a669094bdcb9f7d551",
+    "cli_sha256": "b824ca3751abfaaf424e31357d804f038f7eb79dad3c7a97048caacc240d7c8f"
+  },
+  "correctness_gate": {
+    "attempt_id": "20261101T155338.298918Z_af6853ce61",
+    "capture_status": "success",
+    "driver": "audit/gate_solver_v5_v6.py",
+    "driver_sha256": "98c72c09daa4a8c58ea074bcf0d8f30264ff4f8d52b24f3a3f12dd5b47e38131",
+    "protocols": [
+      "audit/PROTOCOL_GATE_V1.md",
+      "audit/PROTOCOL_GATE_V2.md",
+      "audit/PROTOCOL_GATE_V3.md",
+      "audit/PROTOCOL_GATE_V4.md"
+    ],
+    "report": "audit/validation_v2/solver_v5_gate_v6.json",
+    "report_sha256": "2635906fdb0adf70ccfe233f37e9e013d0cc2c4b8ce5826fe8229a40fee32f47",
+    "case_records": 135,
+    "unique_normalized_visible_payloads": 133,
+    "duplicate_payload_records": 2,
+    "exact_full_two_block_partition_sets_matched": 135,
+    "all_k_nontrivial_existence_matched": 135,
+    "independent_projection_witness_checks": 25635,
+    "independently_replayed_no_decomposition_certificates": 11,
+    "certificate_kinds": {
+      "complete_cut_collision_cover": 8,
+      "connected_must_link_graph": 2,
+      "singleton_alphabet": 1
+    },
+    "cut_records_independently_checked": 29,
+    "must_link_edges_independently_replayed": 2,
+    "extra_manager_example": "not_decomposable; 7 cuts independently checked; readiness manifest source anchors matched",
+    "tampering_invalid_input_timeout_truncation_and_interruption_controls": "all passed"
+  },
+  "root_cli_gate": {
+    "attempt_id": "20261101T155408.832648Z_59e21f537e",
+    "cli_execution_status": "success",
+    "independent_replay_attempt_id": "20261101T155444.689203Z_5dd785d365",
+    "independent_report": "audit/validation_v2/root_cli_v1.json",
+    "independent_report_sha256": "2857595a00d8ad6542fc7c557b120859e2be6b3f32b891a855c38341d4d1d335",
+    "status": "not_decomposable",
+    "certificate_kind": "complete_cut_collision_cover",
+    "cut_count": 7,
+    "independent_certificate_replay": "passed"
+  },
+  "preserved_auditor_harness_failures": [
+    {"attempt_id": "20261101T154742.496460Z_4ebd58b99c", "execution_status": "program_error", "cause": "collision-covered cut polarity reversed in independent checker"},
+    {"attempt_id": "20261101T154817.524320Z_bf7481a386", "execution_status": "program_error", "cause": "same independent-checker polarity defect remained"},
+    {"attempt_id": "20261101T154934.519006Z_c03b5db53a", "execution_status": "program_error", "cause": "harness required optional enumeration_complete field on an early complete connected-graph proof"},
+    {"attempt_id": "20261101T155028.770089Z_88e1928241", "execution_status": "program_error", "cause": "harness parsed FINAL_TARGET readiness manifest as sample data after completing the 135-case loop"},
+    {"attempt_id": "20261101T155142.867016Z_8128c9ad46", "execution_status": "timed_out", "cause": "independent verifier materialized exponentially large expected mask list before checking empty submitted cover"}
+  ],
+  "performance": "not measured; held until master GO",
+  "scope_limit": "does not establish hidden true factor count or true partition recovery from finite labels"
+}

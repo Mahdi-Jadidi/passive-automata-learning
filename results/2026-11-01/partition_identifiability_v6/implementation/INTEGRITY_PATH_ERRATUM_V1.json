@@ -1,0 +1,32 @@
+{
+  "cycle": "C006",
+  "id": "C006-INTEGRITY-PATH-ERRATUM-001",
+  "classification": "checker_path_resolution_false_positive; archived_file_not_missing_or_modified",
+  "original_checker": {
+    "path": "implementation/archive_integrity_v2.py",
+    "sha256": "fb1dc06d1ec03e0e4f0255eed16583173f8f53e2172236d48954de4d7e3ca8b2",
+    "report": "implementation/FINAL_INTEGRITY_2026-11-01.json",
+    "report_status": "fail",
+    "reported_errors": 1
+  },
+  "preserved_observation": {
+    "attempts": 42,
+    "completion_records": 42,
+    "parent_manifest_files": 1701,
+    "source_references": 554,
+    "source_blobs": 121,
+    "all_other_checked_hashes": "matched",
+    "misresolved_reference": "theory/peer_review_v1/snapshots/READINESS_V3.json -> cli_v2.py",
+    "bad_relative_target": "theory/peer_review_v1/snapshots/cli_v2.py",
+    "declared_scope": "implementation/",
+    "correct_declared_target": "implementation/cli_v2.py",
+    "correct_target_sha256": "e205b763360192e24adc3b7c6162a9c9dfb7d0883318f0488891a4b41da8b7b8"
+  },
+  "explanation": "The readiness snapshot was relocated to the theory peer-review snapshot folder while retaining its original relative cli_v2.py reference. Its explicit C006 scope remains implementation/. The v2 checker resolved only relative to the snapshot origin, C006 cycle root, and workspace, so it reported a missing file at the snapshot folder even though implementation/cli_v2.py exists with the declared hash.",
+  "correction": {
+    "checker": "implementation/archive_integrity_v3.py",
+    "resolution_rule": "For readiness records only, after the declaring JSON folder, consult its explicit scope directory inside C006; then consult cycle and workspace. No basename search or hash-based guessing.",
+    "historical_files_changed": false,
+    "checker_execution": "not run; master will run v3 once at final integrity closure"
+  }
+}

@@ -1,0 +1,225 @@
+{
+  "actual_captured_provider_processes": 6,
+  "authorization_sha256": "bc715a8ee22cc830dd308b17bf264c22a794839f119afdea5f18345eef747900",
+  "cli_sha256": "b824ca3751abfaaf424e31357d804f038f7eb79dad3c7a97048caacc240d7c8f",
+  "corpus_manifest_sha256": "a2457aa91343f148dfe46f9de602af8249316eb6f468d91e4c27d5a2c6e3fd8f",
+  "cycle": "C006",
+  "errors": [
+    {
+      "attempt_id": "20261101T160800.859714Z_95416bdeda",
+      "error": "ValueError('captured source anchor mismatch: c:\\\\users\\\\mahdi\\\\documents\\\\chatgpt\\\\passive automata learning\\\\results\\\\2026-11-01\\\\partition_identifiability_v6\\\\audit\\\\benchmark_v1\\\\large_connected_m64.json')",
+      "label": "C006_BENCH_rep1_large_connected_m64"
+    },
+    {
+      "attempt_id": "20261101T160811.444261Z_aef046177c",
+      "error": "ValueError('captured source anchor mismatch: c:\\\\users\\\\mahdi\\\\documents\\\\chatgpt\\\\passive automata learning\\\\results\\\\2026-11-01\\\\partition_identifiability_v6\\\\audit\\\\benchmark_v1\\\\small_full_cover_m4.json')",
+      "label": "C006_BENCH_rep1_small_full_cover_m4"
+    },
+    {
+      "attempt_id": "20261101T160821.099742Z_0248c5f976",
+      "error": "ValueError('captured source anchor mismatch: c:\\\\users\\\\mahdi\\\\documents\\\\chatgpt\\\\passive automata learning\\\\results\\\\2026-11-01\\\\partition_identifiability_v6\\\\audit\\\\benchmark_v1\\\\small_full_cover_m4.json')",
+      "label": "C006_BENCH_rep2_small_full_cover_m4"
+    },
+    {
+      "attempt_id": "20261101T160832.511986Z_49b03bfbee",
+      "error": "ValueError('captured source anchor mismatch: c:\\\\users\\\\mahdi\\\\documents\\\\chatgpt\\\\passive automata learning\\\\results\\\\2026-11-01\\\\partition_identifiability_v6\\\\audit\\\\benchmark_v1\\\\large_connected_m64.json')",
+      "label": "C006_BENCH_rep2_large_connected_m64"
+    },
+    {
+      "attempt_id": "20261101T160844.296996Z_d52c1700a5",
+      "error": "ValueError('captured source anchor mismatch: c:\\\\users\\\\mahdi\\\\documents\\\\chatgpt\\\\passive automata learning\\\\results\\\\2026-11-01\\\\partition_identifiability_v6\\\\audit\\\\benchmark_v1\\\\large_connected_m64.json')",
+      "label": "C006_BENCH_rep3_large_connected_m64"
+    },
+    {
+      "attempt_id": "20261101T160853.710413Z_5134acdffb",
+      "error": "ValueError('captured source anchor mismatch: c:\\\\users\\\\mahdi\\\\documents\\\\chatgpt\\\\passive automata learning\\\\results\\\\2026-11-01\\\\partition_identifiability_v6\\\\audit\\\\benchmark_v1\\\\small_full_cover_m4.json')",
+      "label": "C006_BENCH_rep3_small_full_cover_m4"
+    }
+  ],
+  "execution_status": "success",
+  "independently_validated_provider_processes": 0,
+  "jobs": [
+    {
+      "attempt_id": "20261101T160800.859714Z_95416bdeda",
+      "capture_duration_seconds": 1.1618967000104021,
+      "capture_status": "success",
+      "cell": "large_connected_m64",
+      "child_pid": 18116,
+      "child_reaped": true,
+      "error": "ValueError('captured source anchor mismatch: c:\\\\users\\\\mahdi\\\\documents\\\\chatgpt\\\\passive automata learning\\\\results\\\\2026-11-01\\\\partition_identifiability_v6\\\\audit\\\\benchmark_v1\\\\large_connected_m64.json')",
+      "exit_code": 0,
+      "independent_validation": "failed",
+      "label": "C006_BENCH_rep1_large_connected_m64",
+      "rep": 1,
+      "stderr_bytes": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_bytes": 82714,
+      "stdout_sha256": "3e046d0bea629152082b1ee55418721d0c4e44651276e2f581bc03eec16af814",
+      "subprocess_seconds": 0.5143741000065347
+    },
+    {
+      "attempt_id": "20261101T160811.444261Z_aef046177c",
+      "capture_duration_seconds": 1.0442713999946136,
+      "capture_status": "success",
+      "cell": "small_full_cover_m4",
+      "child_pid": 19384,
+      "child_reaped": true,
+      "error": "ValueError('captured source anchor mismatch: c:\\\\users\\\\mahdi\\\\documents\\\\chatgpt\\\\passive automata learning\\\\results\\\\2026-11-01\\\\partition_identifiability_v6\\\\audit\\\\benchmark_v1\\\\small_full_cover_m4.json')",
+      "exit_code": 0,
+      "independent_validation": "failed",
+      "label": "C006_BENCH_rep1_small_full_cover_m4",
+      "rep": 1,
+      "stderr_bytes": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_bytes": 1977,
+      "stdout_sha256": "f7c0fd176e17be9845ed1f938e0de37351e6652d5da7571a995641de5df2c7ec",
+      "subprocess_seconds": 0.5515123999939533
+    },
+    {
+      "attempt_id": "20261101T160821.099742Z_0248c5f976",
+      "capture_duration_seconds": 1.0557358999940334,
+      "capture_status": "success",
+      "cell": "small_full_cover_m4",
+      "child_pid": 9312,
+      "child_reaped": true,
+      "error": "ValueError('captured source anchor mismatch: c:\\\\users\\\\mahdi\\\\documents\\\\chatgpt\\\\passive automata learning\\\\results\\\\2026-11-01\\\\partition_identifiability_v6\\\\audit\\\\benchmark_v1\\\\small_full_cover_m4.json')",
+      "exit_code": 0,
+      "independent_validation": "failed",
+      "label": "C006_BENCH_rep2_small_full_cover_m4",
+      "rep": 2,
+      "stderr_bytes": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_bytes": 1977,
+      "stdout_sha256": "d3d6e91dc578a1a7b6c6b64b4ce1af71ed7fef08e22de3b33a9a99e197da3850",
+      "subprocess_seconds": 0.5143329999991693
+    },
+    {
+      "attempt_id": "20261101T160832.511986Z_49b03bfbee",
+      "capture_duration_seconds": 0.8729598000063561,
+      "capture_status": "success",
+      "cell": "large_connected_m64",
+      "child_pid": 17028,
+      "child_reaped": true,
+      "error": "ValueError('captured source anchor mismatch: c:\\\\users\\\\mahdi\\\\documents\\\\chatgpt\\\\passive automata learning\\\\results\\\\2026-11-01\\\\partition_identifiability_v6\\\\audit\\\\benchmark_v1\\\\large_connected_m64.json')",
+      "exit_code": 0,
+      "independent_validation": "failed",
+      "label": "C006_BENCH_rep2_large_connected_m64",
+      "rep": 2,
+      "stderr_bytes": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_bytes": 82714,
+      "stdout_sha256": "3f91945a6346cc64fee3c359bb147633f1b5bdc29282237776d0af403ddb451f",
+      "subprocess_seconds": 0.45116900000721216
+    },
+    {
+      "attempt_id": "20261101T160844.296996Z_d52c1700a5",
+      "capture_duration_seconds": 1.204324699996505,
+      "capture_status": "success",
+      "cell": "large_connected_m64",
+      "child_pid": 8888,
+      "child_reaped": true,
+      "error": "ValueError('captured source anchor mismatch: c:\\\\users\\\\mahdi\\\\documents\\\\chatgpt\\\\passive automata learning\\\\results\\\\2026-11-01\\\\partition_identifiability_v6\\\\audit\\\\benchmark_v1\\\\large_connected_m64.json')",
+      "exit_code": 0,
+      "independent_validation": "failed",
+      "label": "C006_BENCH_rep3_large_connected_m64",
+      "rep": 3,
+      "stderr_bytes": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_bytes": 82714,
+      "stdout_sha256": "fb0dfb7bbcb487d2b7dba14d1e80ceeef75223ff1711e8d21a550fb2553fc216",
+      "subprocess_seconds": 0.6452026000042679
+    },
+    {
+      "attempt_id": "20261101T160853.710413Z_5134acdffb",
+      "capture_duration_seconds": 0.9871367000014288,
+      "capture_status": "success",
+      "cell": "small_full_cover_m4",
+      "child_pid": 18320,
+      "child_reaped": true,
+      "error": "ValueError('captured source anchor mismatch: c:\\\\users\\\\mahdi\\\\documents\\\\chatgpt\\\\passive automata learning\\\\results\\\\2026-11-01\\\\partition_identifiability_v6\\\\audit\\\\benchmark_v1\\\\small_full_cover_m4.json')",
+      "exit_code": 0,
+      "independent_validation": "failed",
+      "label": "C006_BENCH_rep3_small_full_cover_m4",
+      "rep": 3,
+      "stderr_bytes": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_bytes": 1977,
+      "stdout_sha256": "438da35debd8305f4fd17dc6cfba07fbc536ddbcfc73830b579209d8f427b0c9",
+      "subprocess_seconds": 0.5261227000009967
+    }
+  ],
+  "limitations": [
+    "only two frozen cells and one solver version were measured",
+    "not an old-method comparison; no speedup claim",
+    "subprocess timing includes Python startup, input parsing, and full JSON output; outer capture duration includes source snapshot overhead",
+    "no memory measurement",
+    "the optional decomposable cell was excluded",
+    "results characterize these proof paths and do not establish general scaling"
+  ],
+  "planned_provider_processes": 6,
+  "primary_cells": {
+    "large_connected_m64": {
+      "canonical_cuts_checked": null,
+      "capture_duration_seconds": {
+        "max": 1.204324699996505,
+        "median": 1.1618967000104021,
+        "min": 0.8729598000063561
+      },
+      "captured_processes": 3,
+      "certificate_bytes_canonical_json": null,
+      "cut_collision_witnesses": null,
+      "edge_witnesses": null,
+      "independently_validated_processes": 0,
+      "must_link_edges": null,
+      "planned_processes": 3,
+      "provider_seconds": null,
+      "side_collision_witnesses": null,
+      "stdout_bytes": {
+        "max": 82714,
+        "median": 82714,
+        "min": 82714
+      },
+      "subprocess_seconds": {
+        "max": 0.6452026000042679,
+        "median": 0.5143741000065347,
+        "min": 0.45116900000721216
+      },
+      "successful_reaped_processes": 3
+    },
+    "small_full_cover_m4": {
+      "canonical_cuts_checked": null,
+      "capture_duration_seconds": {
+        "max": 1.0557358999940334,
+        "median": 1.0442713999946136,
+        "min": 0.9871367000014288
+      },
+      "captured_processes": 3,
+      "certificate_bytes_canonical_json": null,
+      "cut_collision_witnesses": null,
+      "edge_witnesses": null,
+      "independently_validated_processes": 0,
+      "must_link_edges": null,
+      "planned_processes": 3,
+      "provider_seconds": null,
+      "side_collision_witnesses": null,
+      "stdout_bytes": {
+        "max": 1977,
+        "median": 1977,
+        "min": 1977
+      },
+      "subprocess_seconds": {
+        "max": 0.5515123999939533,
+        "median": 0.5261227000009967,
+        "min": 0.5143329999991693
+      },
+      "successful_reaped_processes": 3
+    }
+  },
+  "proposal_sha256": "f6436773f02a98f532f574b7c71b0db6355e25167a20272c8cf84e28f643be5a",
+  "protocol_sha256": "d3448cc48c182f56165d9c1696c6e82463cdf0c519983681c9ebee1945926c7a",
+  "provider_sha256": "e83c8d13e8eac248415160f6d29fb3309f19b5d447c932e00b69e24e7cb60792",
+  "root_wrapper_sha256": "8fb0ecf557d9f76e2e698be4cde7ceefde5dda37ebce53a669094bdcb9f7d551",
+  "scientific_status": "incomplete_or_discrepancy",
+  "successful_reaped_provider_processes": 6,
+  "unplanned_benchmark_labels": []
+}

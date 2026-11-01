@@ -47,6 +47,11 @@ def reference_path(raw: str, *, cycle: Path, workspace: Path) -> Path:
         return path.resolve()
     cycle_candidate = (cycle / path).resolve()
     if within(cycle_candidate, cycle):
+        if cycle_candidate.exists():
+            return cycle_candidate
+        workspace_candidate = (workspace / path).resolve()
+        if workspace_candidate.exists():
+            return workspace_candidate
         return cycle_candidate
     return (workspace / path).resolve()
 
@@ -59,6 +64,31 @@ def scan_hash_references(value, prefix="$"):
         digest = value.get("sha256", value.get("hash"))
         if isinstance(raw_path, str) and isinstance(digest, str) and len(digest) == 64:
             found.append((raw_path, digest, value.get("bytes"), prefix))
+        # Readiness records use paired keys such as api_file/api_sha256 and
+        # legacy artifact/provider + sha256. Accept those without special cases
+        # tied to a specific worker's JSON schema.
+        for path_key, raw in value.items():
+            if not isinstance(raw, str) or not (path_key.endswith("_file") or path_key.endswith("_path")):
+                continue
+            stem = path_key.rsplit("_", 1)[0]
+            paired_hash = value.get(stem + "_sha256")
+            if isinstance(paired_hash, str) and len(paired_hash) == 64:
+                found.append((raw, paired_hash, value.get(stem + "_bytes"), prefix + "." + path_key))
+        for legacy_key in ("artifact", "provider"):
+            raw = value.get(legacy_key)
+            if isinstance(raw, str) and isinstance(digest, str) and len(digest) == 64:
+                found.append((raw, digest, value.get("bytes"), prefix + "." + legacy_key))
+        # Some manifests use {"files": {"relative/path": "<sha256>"}}.
+        files = value.get("files")
+        if isinstance(files, dict):
+            for raw, item in files.items():
+                if isinstance(raw, str) and isinstance(item, str) and len(item) == 64:
+                    found.append((raw, item, None, prefix + ".files." + raw))
+                elif isinstance(raw, str) and isinstance(item, dict):
+                    item_hash = item.get("sha256", item.get("hash"))
+                    item_path = item.get("path", item.get("file", raw))
+                    if isinstance(item_path, str) and isinstance(item_hash, str) and len(item_hash) == 64:
+                        found.append((item_path, item_hash, item.get("bytes"), prefix + ".files." + raw))
         for key, child in value.items():
             if isinstance(child, (dict, list)):
                 found.extend(scan_hash_references(child, prefix + "." + str(key)))

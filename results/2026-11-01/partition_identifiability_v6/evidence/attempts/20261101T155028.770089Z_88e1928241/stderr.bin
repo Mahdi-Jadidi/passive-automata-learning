@@ -1,0 +1,10 @@
+Traceback (most recent call last):
+  File "C:\Users\Mahdi\Documents\ChatGPT\passive automata learning\results\2026-11-01\partition_identifiability_v6\audit\gate_solver_v5_v4.py", line 385, in <module>
+    main()
+  File "C:\Users\Mahdi\Documents\ChatGPT\passive automata learning\results\2026-11-01\partition_identifiability_v6\audit\gate_solver_v5_v4.py", line 273, in main
+    ok, why, final_cuts = replay_certificate_independently(final_data, final_result.get("certificate"))
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mahdi\Documents\ChatGPT\passive automata learning\results\2026-11-01\partition_identifiability_v6\audit\gate_solver_v5_v4.py", line 150, in replay_certificate_independently
+    alphabet = sorted(data["alphabet"])
+                      ~~~~^^^^^^^^^^^^
+KeyError: 'alphabet'

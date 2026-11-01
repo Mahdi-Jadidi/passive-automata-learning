@@ -1,0 +1,108 @@
+{
+  "cycle": "C006",
+  "status": "complete",
+  "user_completion_date": "2026-11-02",
+  "started_date": "2026-11-01",
+  "at_utc": "2026-11-01T20:49:21.381601+00:00",
+  "scientific_status": "confirmed_under_retained_assumptions",
+  "parent_commit": "eb521fdd",
+  "removed_assumptions": [
+    "known factor count for existential nontrivial decomposition decision",
+    "finite local-language word-cardinality cap"
+  ],
+  "retained_assumptions": [
+    "known disjoint alphabet",
+    "independent factors preserving local order",
+    "exact whole-word labels",
+    "complete words"
+  ],
+  "output_scope": "Compatible bipartition, replayable proof of no compatible k>=2 partition, or incomplete; not hidden-k/architecture recovery",
+  "independent_case_records": 135,
+  "unique_canonical_payloads": 133,
+  "projection_witness_checks": 25635,
+  "obstruction_replays": 11,
+  "replay_caveat": "11 certificate checks include an extra duplicate manager sample; they are not 11 independent inputs",
+  "benchmark_processes": 6,
+  "benchmark_cells": [
+    "large_connected_m64",
+    "small_full_cover_m4"
+  ],
+  "benchmark_scope": "Three fresh serial processes per cell, full JSON; no old-method comparison or memory measurement",
+  "unused_data": "Frozen optional_decomposable_m64 was not executed",
+  "attempt_statuses": {
+    "success": 31,
+    "program_error": 10,
+    "timed_out": 1
+  },
+  "unfinished_attempts": 0,
+  "integrity": {
+    "path": "coordination\\FINAL_INTEGRITY_R3_2026-11-01.json",
+    "sha256": "3420353d2816c2bdf56389aa72efafb94606fdea99d3e15eac160b67a1e7da1f",
+    "counts": {
+      "parent_manifest_files": 1701,
+      "runtime_final_files": 20,
+      "readiness_files": 13,
+      "readiness_references": 77,
+      "attempts": 42,
+      "completion_records": 42,
+      "raw_streams": 84,
+      "source_references": 554,
+      "source_blobs": 121,
+      "referenced_source_blobs": 554
+    },
+    "errors": 0
+  },
+  "preserved_failures": "All provider versions, oracle/gate/postprocessing failures and both failed integrity reports retained; metadata path fixes did not change tested provider/data/output bytes",
+  "dormant_features": [
+    "A/B rules: theory approved but inactive in solver_v5",
+    "meet proposal: independent audit pending, no runtime implementation"
+  ],
+  "limitations": [
+    "Exponential worst-case search and obstruction size",
+    "Positive-only data cannot establish non-decomposability without further restrictions",
+    "True architecture generally indistinguishable from coarsenings",
+    "No RPNI or state-explosion experiment"
+  ],
+  "evidence": [
+    {
+      "path": "coordination/runtime_final.json",
+      "sha256": "53d094dcdf01eaed4bb772d7889677b2b946e0e48c35e3f4ee24992182932b8e"
+    },
+    {
+      "path": "coordination/CORRECTNESS_ACCEPTANCE.json",
+      "sha256": "42557bafabc13af7dfedd841a236b12b1a72f1c5599c20acd266ca82074e0c27"
+    },
+    {
+      "path": "coordination/PERFORMANCE_ACCEPTANCE.json",
+      "sha256": "09bc759f7469b06c6cfb679a24ea31cd23b3faa66921b55f66b296b4902de383"
+    },
+    {
+      "path": "audit/AUDIT_GATE_V1.json",
+      "sha256": "5ed97b17b9d4286960fa00621c0f7083303712bb125f07d3b38258aab4374aaf"
+    },
+    {
+      "path": "audit/validation_v2/solver_v5_gate_v6.json",
+      "sha256": "2635906fdb0adf70ccfe233f37e9e013d0cc2c4b8ce5826fe8229a40fee32f47"
+    },
+    {
+      "path": "audit/validation_v1/oracle_crosscheck.json",
+      "sha256": "fbc6f66ebdcb3a1ec3f9cde9c1fc402162477368a9efb0554d367f457dc0de36"
+    },
+    {
+      "path": "audit/benchmark_v1/benchmark_results_v2.json",
+      "sha256": "68d30e2add24ef1dbc87c38f9399558be2974b6d0214d24f47191400cf086c3f"
+    },
+    {
+      "path": "README_FA.md",
+      "sha256": "6d5c46ab0ff703fc5b673818972753a2767feda901748ba59e6593a18e2b0db3"
+    },
+    {
+      "path": "RESEARCH_REPORT_FA.md",
+      "sha256": "c178f85146f9dc8da27ae3e52915829511a02c344539cdfdc096e142a8ab1c53"
+    },
+    {
+      "path": "MASTER_DECISION_FA.md",
+      "sha256": "9ea7ca50339009332b6a730d834024ba31b1e39ef8d2e44d2eace78ffdaa0b70"
+    }
+  ]
+}
