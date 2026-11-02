@@ -1,0 +1,19 @@
+{
+  "id": "C008-THEORY-PREFIX-001",
+  "parent": "C008-THEORY-001",
+  "proof": "ADDENDUM_PREFIX_CLOSED_v1.md",
+  "scientific_status": "direct_proof_ready_for_independent_review",
+  "execution_status": "not_applicable_no_experiments",
+  "new_experiments": 0,
+  "novelty_claim": false,
+  "claims": [
+    {"id":"P1","claim":"Avoiding x^M y^M as subsequence is a nonempty infinite regular prefix-closed finite-LTS trace language"},
+    {"id":"P2","claim":"These pair factors are prime under independent disjoint alphabet composition"},
+    {"id":"P3","claim":"ab|cd and ac|bd with k=2 agree on all words shorter than 2M and differ at a^M b^M"},
+    {"id":"P4","claim":"No universal finite-positive-log ownership guarantee under known k and prefix-closed prime factors without a state bound"}
+  ],
+  "assumptions": ["known disjoint alphabet abcd","independent asynchronous/shuffle composition","known k=2","anonymous events","unbounded finite state size","finite observation horizon"],
+  "not_claimed": ["mixed positive/negative labels below the horizon in this construction","complete-language equivalence","ambiguity of every finite dataset","physical device ID identification"],
+  "failed_extension": "Using this all-positive bounded construction to claim a mixed-label prefix-closed theorem is unsupported.",
+  "original_v1_documents_changed": false
+}

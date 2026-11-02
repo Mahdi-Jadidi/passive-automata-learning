@@ -1,0 +1,15 @@
+{
+  "alphabet": ["a", "b", "c", "d"],
+  "reference_model_id": "ownership_ab_cd",
+  "mutants": [
+    {
+      "id": "ownership_ac_bd_mutant_ignores_c",
+      "ownership_partition": [["a", "c"], ["b", "d"]],
+      "k": 2,
+      "factors": [
+        {"id":"ac_only_a_even_wrong","alphabet":["a","c"],"states":["E","O"],"start":"E","accepting":["E"],"transitions":{"E":{"a":"O","c":"E"},"O":{"a":"E","c":"O"}}},
+        {"id":"bd_even_even","alphabet":["b","d"],"states":["EE","OE","EO","OO"],"start":"EE","accepting":["EE"],"transitions":{"EE":{"b":"OE","d":"EO"},"OE":{"b":"EE","d":"OO"},"EO":{"b":"OO","d":"EE"},"OO":{"b":"EO","d":"OE"}}}
+      ]
+    }
+  ]
+}

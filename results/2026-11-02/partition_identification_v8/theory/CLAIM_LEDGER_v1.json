@@ -1,0 +1,121 @@
+{
+  "id": "C008-THEORY-001",
+  "status": "direct_proofs_ready_for_independent_review",
+  "novelty_claim": false,
+  "new_experiments": 0,
+  "claims": [
+    {
+      "id": "T1",
+      "claim": "Guaranteed identification iff nonempty model version space has singleton ownership image",
+      "scientific_status": "confirmed_under_assumptions",
+      "assumptions": [
+        "true model in declared class",
+        "exact observations",
+        "unordered partition target"
+      ]
+    },
+    {
+      "id": "T2",
+      "claim": "Different known-k=2 ownerships have identical nontrivial complete language",
+      "scientific_status": "confirmed_under_assumptions",
+      "assumptions": [
+        "regular independent factors",
+        "decomposable factors permitted"
+      ],
+      "construction": "even parity per letter, ab|cd versus ac|bd"
+    },
+    {
+      "id": "T3",
+      "claim": "Unknown-k unrestricted ownership has coarsening ambiguity even with complete language",
+      "scientific_status": "confirmed_under_assumptions",
+      "assumptions": [
+        "arbitrary regular local factors",
+        "at least two actual blocks"
+      ]
+    },
+    {
+      "id": "T4",
+      "claim": "Every finite cutoff admits distinct known-k=2 prime nonempty infinite regular products agreeing through the cutoff",
+      "scientific_status": "confirmed_under_assumptions",
+      "assumptions": [
+        "unbounded DFA size",
+        "finite exact labelled observations"
+      ],
+      "construction": "E_xy minus x^(2M)y^(2M), 4M above cutoff",
+      "parent": "FC02"
+    },
+    {
+      "id": "T5",
+      "claim": "Every finite positive-only log fits every proposed partition with prime nonempty infinite regular local factors",
+      "scientific_status": "confirmed_under_assumptions",
+      "assumptions": [
+        "unbounded DFA size",
+        "positive-only finite observations"
+      ],
+      "construction": "B* minus one word longer than every observation"
+    },
+    {
+      "id": "T6",
+      "claim": "Decompositions of a nonempty complete language are closed under common refinement",
+      "scientific_status": "optional_direct_proof_candidate_independent_review_pending",
+      "assumptions": [
+        "disjoint alphabets",
+        "independent shuffle composition",
+        "complete nonempty language"
+      ],
+      "blocks_core_delivery": false
+    },
+    {
+      "id": "T7",
+      "claim": "Nonempty prime actual factors make complete-language finest decomposition equal actual abstract ownership",
+      "scientific_status": "optional_direct_proof_candidate_independent_review_pending",
+      "assumptions": [
+        "complete global language",
+        "every actual local factor nonempty and prime",
+        "disjoint independent composition"
+      ],
+      "known_k_required": false,
+      "blocks_core_delivery": false
+    },
+    {
+      "id": "T8",
+      "claim": "Trusted known k plus sound must-link graph with exactly k components certifies actual blocks",
+      "scientific_status": "confirmed_under_assumptions",
+      "assumptions": [
+        "true model in declared class",
+        "verified actual k",
+        "edge proofs valid for every consistent model"
+      ]
+    },
+    {
+      "id": "T9",
+      "claim": "Anonymous traces cannot fix named-device assignment under ID permutation symmetry",
+      "scientific_status": "confirmed_under_assumptions",
+      "assumptions": [
+        "at least two devices",
+        "no identity-bearing metadata or anchors"
+      ]
+    },
+    {
+      "id": "T10",
+      "claim": "Canonical exhaustive partition search with exact sample criterion identifies iff one partition remains; two witnesses certify ambiguity; cutoff means unknown",
+      "scientific_status": "confirmed_under_assumptions",
+      "assumptions": [
+        "arbitrary regular factors without prime/state restrictions",
+        "known disjoint nonempty alphabet",
+        "optional trusted known k"
+      ],
+      "runtime_implemented": false
+    }
+  ],
+  "failed_candidates": "FAILED_CANDIDATES_v1.md",
+  "proofs": "PROOFS_v1.md",
+  "execution_status": "not_applicable_no_experiments",
+  "sources": "Direct mathematical derivation; no external novelty or literature-completeness assertion. Independent literature review belongs to literature/.",
+  "open_limits": [
+    "No practical ownership learner or finite-state-bound procedure implemented",
+    "No supplied real dataset or coverage guarantee",
+    "Independent review pending"
+  ],
+  "optional_complete_language_proof": "OPTIONAL_COMPLETE_LANGUAGE_PROOF_v1.md"
+}

@@ -1,0 +1,16 @@
+{
+  "alphabet": ["a", "b", "c", "d"],
+  "same_k": 2,
+  "ownership_partitions": {
+    "A": [["a", "b"], ["c", "d"]],
+    "B": [["a", "c"], ["b", "d"]]
+  },
+  "parameter_values": [1, 2, 3],
+  "local_language_schema": "F_xy(M) = { w in {x,y}*: |w|_x and |w|_y are even } minus { x^(2M)y^(2M) }",
+  "global_interleaving": "shuffle the two factor languages while preserving each factor's projection order",
+  "expected_shortest_symmetric_difference_length": "4*M",
+  "witness_family": "a^(2M)b^(2M)",
+  "finite_prefix_claim": "The two global languages agree on every word of length < 4M.",
+  "prime_claim_scope": "Each two-letter local factor is indecomposable under any nontrivial partition of its own alphabet into independent symbol-owned factors.",
+  "not_solver_input": true
+}

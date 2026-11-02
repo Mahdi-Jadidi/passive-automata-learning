@@ -1,0 +1,37 @@
+{
+  "schema_version": 1,
+  "cycle": "C008",
+  "scope": "audit/ only",
+  "status": "bounded_counterexample_audit_complete",
+  "experiments": [
+    {
+      "id": "complete_language_different_ownership",
+      "attempt_id": "20261102T101736.753239Z_e01c3f7d4d",
+      "execution_status": "success",
+      "scientific_status": "counterexample_verified_exactly",
+      "conclusion": "Same complete infinite nonuniversal global language with k=2 and ownership ab|cd versus ac|bd; local factors are internally decomposable, so does not refute primeness.",
+      "mutant_control": "wrong factor ignoring c rejected with shortest witness c"
+    },
+    {
+      "id": "locally_prime_delayed_finite_prefix",
+      "attempt_id": "20261102T102017.323924Z_2ed3f38075",
+      "execution_status": "success",
+      "scientific_status": "exact_bounded_instances_verified_symbolic_all_M_proof_separate",
+      "checked_M": [1,2,3],
+      "shortest_difference_lengths": [4,8,12],
+      "general_claim": "Symbolic proof: for every M>=1, same labels below length 4M and a length-4M witness; choose M above any finite trace bound.",
+      "local_factors": "F_xy(M) are infinite regular and indecomposable across the only nontrivial split of their two-symbol alphabet."
+    }
+  ],
+  "attempts_preserved": [
+    "evidence/attempts/20261102T101736.753239Z_e01c3f7d4d",
+    "evidence/attempts/20261102T102017.323924Z_2ed3f38075"
+  ],
+  "report": "COUNTEREXAMPLE_AUDIT_REPORT_V1.md",
+  "limitations": [
+    "No claim that every finite dataset is ambiguous.",
+    "No known DFA state bound was imposed.",
+    "No RPNI, noise, shared alphabet symbols, or hidden generator metadata in solver inputs."
+  ],
+  "theory_side_models": "Only the finite-prefix locally-prime model supplied by theory was added; no delayed-coupling assumptions were invented."
+}

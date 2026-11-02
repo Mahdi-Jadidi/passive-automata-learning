@@ -1,0 +1,53 @@
+{
+  "id": "C008-THEORY-READINESS-001",
+  "status": "mandatory_proofs_and_ledger_ready_for_independent_review",
+  "files": [
+    {
+      "path": "PROOFS_v1.md",
+      "sha256": "6d4384d5d51b886aef553f2ac783c8ea79e420790107165448e02ff1780adc0e",
+      "bytes": 18169
+    },
+    {
+      "path": "OPTIONAL_COMPLETE_LANGUAGE_PROOF_v1.md",
+      "sha256": "4e86268dfb03413ad9567600ddb7e8640657f5baeae0a530f386762df59c4b74",
+      "bytes": 4460
+    },
+    {
+      "path": "CLAIM_LEDGER_v1.json",
+      "sha256": "4b742c67083a03a6d1b647be14fe6c9b93f6b8d4bb9b00bf5ae015b3a990e8fd",
+      "bytes": 4674
+    },
+    {
+      "path": "FAILED_CANDIDATES_v1.md",
+      "sha256": "03375b0a2947624ad2556a7cfa2fe50babc289934883430aee640bbde557ca3b",
+      "bytes": 3850
+    }
+  ],
+  "new_experiments": 0,
+  "runtime_changes": false,
+  "git_changes": false,
+  "scope": "theory only",
+  "core_claims": [
+    "T1",
+    "T2",
+    "T3",
+    "T4",
+    "T5",
+    "T8",
+    "T9",
+    "T10"
+  ],
+  "optional_claims": [
+    "T6",
+    "T7"
+  ],
+  "optional_blocks_core_delivery": false,
+  "limitations": [
+    "No universal finite-data guarantee",
+    "Does not claim every finite sample ambiguous",
+    "No named device-ID guarantee without anchors",
+    "T1 sample projection test valid for unrestricted regular factors only",
+    "Optional complete-language prime theorem independently unreviewed"
+  ],
+  "execution_status": "not_applicable_no_experiments"
+}

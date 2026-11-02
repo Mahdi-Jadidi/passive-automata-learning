@@ -1,0 +1,24 @@
+{
+  "alphabet": ["a", "b", "c", "d"],
+  "target_language": "all four letter counts are even",
+  "models": [
+    {
+      "id": "ownership_ab_cd",
+      "ownership_partition": [["a", "b"], ["c", "d"]],
+      "k": 2,
+      "factors": [
+        {"id":"ab_even_even","alphabet":["a","b"],"states":["EE","OE","EO","OO"],"start":"EE","accepting":["EE"],"transitions":{"EE":{"a":"OE","b":"EO"},"OE":{"a":"EE","b":"OO"},"EO":{"a":"OO","b":"EE"},"OO":{"a":"EO","b":"OE"}}},
+        {"id":"cd_even_even","alphabet":["c","d"],"states":["EE","OE","EO","OO"],"start":"EE","accepting":["EE"],"transitions":{"EE":{"c":"OE","d":"EO"},"OE":{"c":"EE","d":"OO"},"EO":{"c":"OO","d":"EE"},"OO":{"c":"EO","d":"OE"}}}
+      ]
+    },
+    {
+      "id": "ownership_ac_bd",
+      "ownership_partition": [["a", "c"], ["b", "d"]],
+      "k": 2,
+      "factors": [
+        {"id":"ac_even_even","alphabet":["a","c"],"states":["EE","OE","EO","OO"],"start":"EE","accepting":["EE"],"transitions":{"EE":{"a":"OE","c":"EO"},"OE":{"a":"EE","c":"OO"},"EO":{"a":"OO","c":"EE"},"OO":{"a":"EO","c":"OE"}}},
+        {"id":"bd_even_even","alphabet":["b","d"],"states":["EE","OE","EO","OO"],"start":"EE","accepting":["EE"],"transitions":{"EE":{"b":"OE","d":"EO"},"OE":{"b":"EE","d":"OO"},"EO":{"b":"OO","d":"EE"},"OO":{"b":"EO","d":"OE"}}}
+      ]
+    }
+  ]
+}
