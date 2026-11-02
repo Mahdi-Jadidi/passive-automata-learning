@@ -1,0 +1,431 @@
+{
+  "multi_trace_net_split": {
+    "input": {
+      "positive": [
+        "a",
+        "b",
+        "c",
+        "d",
+        "e",
+        "f",
+        "g",
+        "h"
+      ],
+      "negative": [],
+      "blocks": [
+        [
+          "a",
+          "b",
+          "c",
+          "d"
+        ],
+        [
+          "e",
+          "f",
+          "g",
+          "h"
+        ]
+      ]
+    },
+    "certificate": {
+      "decision": "NET_SPLIT_EQUAL",
+      "rule": "unique_edge_trie",
+      "selector_work": 109,
+      "selector_events": {
+        "block": 2,
+        "alphabet_character": 8,
+        "input_word": 8,
+        "input_character": 8,
+        "active_test": 2,
+        "singleton_gate": 1,
+        "global_prefix_create": 9,
+        "projection_word": 8,
+        "projection_character": 8,
+        "projection_slot": 16,
+        "prefix_pair_test": 9,
+        "local_factor": 2,
+        "local_prefix_create": 10,
+        "local_positive_word": 10,
+        "local_positive_character": 8
+      },
+      "same_output_language": true,
+      "metric": "W_ref loop events; library internals excluded",
+      "quality_reason": "all assigned local negatives contain an unseen local symbol",
+      "global_interval": [
+        471,
+        471
+      ],
+      "split_interval": [
+        324,
+        324
+      ],
+      "first_symbol": "a",
+      "forced_prefix_pairs": 1,
+      "global_prefix_states": 9,
+      "preparation": 24,
+      "local_factors": [
+        {
+          "positive": [
+            "",
+            "a",
+            "b",
+            "c",
+            "d"
+          ],
+          "negative": [],
+          "states": 5,
+          "lower": 150,
+          "upper": 150,
+          "exact": true
+        },
+        {
+          "positive": [
+            "",
+            "e",
+            "f",
+            "g",
+            "h"
+          ],
+          "negative": [],
+          "states": 5,
+          "lower": 150,
+          "upper": 150,
+          "exact": true
+        }
+      ]
+    },
+    "previous_decision": "UNKNOWN",
+    "WG": 471,
+    "WS": 324
+  },
+  "branching_prefixes": {
+    "input": {
+      "positive": [
+        "a",
+        "ab",
+        "ac"
+      ],
+      "negative": [],
+      "blocks": [
+        [
+          "a",
+          "b"
+        ],
+        [
+          "c"
+        ]
+      ]
+    },
+    "certificate": {
+      "decision": "PIPELINE_SPLIT",
+      "rule": "unique_edge_trie",
+      "selector_work": 53,
+      "selector_events": {
+        "block": 2,
+        "alphabet_character": 3,
+        "input_word": 3,
+        "input_character": 5,
+        "active_test": 2,
+        "singleton_gate": 1,
+        "global_prefix_create": 4,
+        "projection_word": 3,
+        "projection_character": 5,
+        "projection_slot": 6,
+        "prefix_pair_test": 4,
+        "local_factor": 2,
+        "local_prefix_create": 5,
+        "local_positive_word": 4,
+        "local_positive_character": 4
+      },
+      "same_output_language": true,
+      "metric": "W_ref loop events; library internals excluded",
+      "quality_reason": "all assigned local negatives contain an unseen local symbol",
+      "global_interval": [
+        98,
+        98
+      ],
+      "split_interval": [
+        90,
+        90
+      ],
+      "first_symbol": "a",
+      "forced_prefix_pairs": 1,
+      "global_prefix_states": 4,
+      "preparation": 11,
+      "local_factors": [
+        {
+          "positive": [
+            "a",
+            "ab"
+          ],
+          "negative": [],
+          "states": 3,
+          "lower": 55,
+          "upper": 55,
+          "exact": true
+        },
+        {
+          "positive": [
+            "",
+            "c"
+          ],
+          "negative": [],
+          "states": 2,
+          "lower": 24,
+          "upper": 24,
+          "exact": true
+        }
+      ]
+    },
+    "previous_decision": "UNKNOWN",
+    "WG": 98,
+    "WS": 90
+  },
+  "inert_not_leading": {
+    "input": {
+      "positive": [
+        "abc"
+      ],
+      "negative": [
+        "cz"
+      ],
+      "blocks": [
+        [
+          "a",
+          "b"
+        ],
+        [
+          "c",
+          "z"
+        ]
+      ]
+    },
+    "certificate": {
+      "decision": "PIPELINE_SPLIT",
+      "rule": "unique_edge_trie",
+      "selector_work": 52,
+      "selector_events": {
+        "block": 2,
+        "alphabet_character": 4,
+        "input_word": 2,
+        "input_character": 5,
+        "active_test": 2,
+        "singleton_gate": 1,
+        "global_prefix_create": 4,
+        "projection_word": 2,
+        "projection_character": 5,
+        "projection_slot": 4,
+        "negative_witness_slot": 2,
+        "prefix_pair_test": 4,
+        "local_factor": 2,
+        "local_prefix_create": 5,
+        "local_positive_word": 2,
+        "local_positive_character": 3,
+        "local_negative_word": 1,
+        "local_negative_character": 2
+      },
+      "same_output_language": true,
+      "metric": "W_ref loop events; library internals excluded",
+      "quality_reason": "all assigned local negatives contain an unseen local symbol",
+      "global_interval": [
+        101,
+        103
+      ],
+      "split_interval": [
+        90,
+        90
+      ],
+      "first_symbol": "a",
+      "forced_prefix_pairs": 1,
+      "global_prefix_states": 4,
+      "preparation": 11,
+      "local_factors": [
+        {
+          "positive": [
+            "ab"
+          ],
+          "negative": [],
+          "states": 3,
+          "lower": 53,
+          "upper": 53,
+          "exact": true
+        },
+        {
+          "positive": [
+            "c"
+          ],
+          "negative": [
+            "cz"
+          ],
+          "states": 2,
+          "lower": 26,
+          "upper": 26,
+          "exact": true
+        }
+      ]
+    },
+    "previous_decision": "UNKNOWN",
+    "WG": 102,
+    "WS": 90
+  },
+  "failed_structure": {
+    "input": {
+      "positive": [
+        "ab",
+        "ba"
+      ],
+      "negative": [],
+      "blocks": [
+        [
+          "a"
+        ],
+        [
+          "b"
+        ]
+      ]
+    },
+    "certificate": {
+      "decision": "PIPELINE_SPLIT",
+      "rule": "static_prefix_forest",
+      "selector_work": 43,
+      "selector_events": {
+        "block": 2,
+        "alphabet_character": 2,
+        "input_word": 2,
+        "input_character": 4,
+        "active_test": 2,
+        "singleton_gate": 1,
+        "global_prefix_create": 5,
+        "projection_word": 2,
+        "projection_character": 4,
+        "projection_slot": 4,
+        "prefix_pair_test": 5,
+        "local_factor": 2,
+        "local_prefix_create": 4,
+        "local_positive_word": 2,
+        "local_positive_character": 2
+      },
+      "same_output_language": true,
+      "metric": "W_ref loop events; library internals excluded",
+      "quality_reason": "all assigned local negatives contain an unseen local symbol",
+      "global_interval": [
+        63,
+        760
+      ],
+      "split_interval": [
+        54,
+        54
+      ],
+      "first_symbol": "a",
+      "forced_prefix_pairs": 2,
+      "global_prefix_states": 5,
+      "preparation": 8,
+      "local_factors": [
+        {
+          "positive": [
+            "a"
+          ],
+          "negative": [],
+          "states": 2,
+          "lower": 23,
+          "upper": 23,
+          "exact": true
+        },
+        {
+          "positive": [
+            "b"
+          ],
+          "negative": [],
+          "states": 2,
+          "lower": 23,
+          "upper": 23,
+          "exact": true
+        }
+      ]
+    },
+    "previous_decision": "PIPELINE_SPLIT",
+    "WG": 99,
+    "WS": 54
+  },
+  "multi_trace_tie": {
+    "input": {
+      "positive": [
+        "a",
+        "b"
+      ],
+      "negative": [],
+      "blocks": [
+        [
+          "a"
+        ],
+        [
+          "b"
+        ]
+      ]
+    },
+    "certificate": {
+      "decision": "TIE",
+      "rule": "unique_edge_trie",
+      "selector_work": 37,
+      "selector_events": {
+        "block": 2,
+        "alphabet_character": 2,
+        "input_word": 2,
+        "input_character": 2,
+        "active_test": 2,
+        "singleton_gate": 1,
+        "global_prefix_create": 3,
+        "projection_word": 2,
+        "projection_character": 2,
+        "projection_slot": 4,
+        "prefix_pair_test": 3,
+        "local_factor": 2,
+        "local_prefix_create": 4,
+        "local_positive_word": 4,
+        "local_positive_character": 2
+      },
+      "same_output_language": true,
+      "metric": "W_ref loop events; library internals excluded",
+      "quality_reason": "all assigned local negatives contain an unseen local symbol",
+      "global_interval": [
+        54,
+        54
+      ],
+      "split_interval": [
+        54,
+        54
+      ],
+      "first_symbol": "a",
+      "forced_prefix_pairs": 1,
+      "global_prefix_states": 3,
+      "preparation": 6,
+      "local_factors": [
+        {
+          "positive": [
+            "",
+            "a"
+          ],
+          "negative": [],
+          "states": 2,
+          "lower": 24,
+          "upper": 24,
+          "exact": true
+        },
+        {
+          "positive": [
+            "",
+            "b"
+          ],
+          "negative": [],
+          "states": 2,
+          "lower": 24,
+          "upper": 24,
+          "exact": true
+        }
+      ]
+    },
+    "previous_decision": "UNKNOWN",
+    "WG": 54,
+    "WS": 54
+  }
+}

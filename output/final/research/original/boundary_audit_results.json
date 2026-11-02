@@ -1,0 +1,75 @@
+{
+  "status": "passed",
+  "valid_samples": 2216,
+  "independent_candidate_checks": 13650,
+  "counts": {
+    "global_margin_positive": 977,
+    "multisymbol_global_and_unused_alphabet": 2059,
+    "global_margin_negative": 939,
+    "global_margin_zero": 146,
+    "all_block_orders_and_symbol_renamings": 108,
+    "nonstandard_symbol_orders": 9,
+    "positive_only_outside_admitted_region": 3,
+    "one_missing_positive": 28,
+    "extra_empty_positive": 3,
+    "extra_empty_negative": 3,
+    "strict_net_threshold": 3
+  },
+  "strict_boundary_examples": [
+    {
+      "inactive_block": "x",
+      "result": {
+        "status": "NET_GLOBAL",
+        "certified_region": "G",
+        "pipeline_winner": "GLOBAL",
+        "metric": "W_ref loop events, not elapsed time",
+        "evidence": {
+          "decision": "GLOBAL",
+          "rule": "single_active_block",
+          "cost_gap_split_minus_global": 16,
+          "selector_work": 15,
+          "beats_split_baseline_including_selector": true,
+          "same_output_language": true,
+          "scope": "Specified W event model"
+        }
+      }
+    },
+    {
+      "inactive_block": "xy",
+      "result": {
+        "status": "COST_ONLY",
+        "certified_region": null,
+        "pipeline_winner": "GLOBAL",
+        "metric": "W_ref loop events, not elapsed time",
+        "evidence": {
+          "decision": "GLOBAL",
+          "rule": "single_active_block",
+          "cost_gap_split_minus_global": 16,
+          "selector_work": 16,
+          "beats_split_baseline_including_selector": false,
+          "same_output_language": true,
+          "scope": "Specified W event model"
+        }
+      }
+    },
+    {
+      "inactive_block": "xyz",
+      "result": {
+        "status": "COST_ONLY",
+        "certified_region": null,
+        "pipeline_winner": "GLOBAL",
+        "metric": "W_ref loop events, not elapsed time",
+        "evidence": {
+          "decision": "GLOBAL",
+          "rule": "single_active_block",
+          "cost_gap_split_minus_global": 16,
+          "selector_work": 17,
+          "beats_split_baseline_including_selector": false,
+          "same_output_language": true,
+          "scope": "Specified W event model"
+        }
+      }
+    }
+  ],
+  "claim": "Exact membership and sound net decisions for the two admitted regions; finite audit supplements proof."
+}

@@ -1,0 +1,39 @@
+{
+  "status": "passed",
+  "all_domain_inputs_checked": 2187,
+  "counts": {
+    "GLOBAL": 754,
+    "SPLIT": 493,
+    "TIE": 15,
+    "GLOBAL_ONLY": 925
+  },
+  "independent_candidate_checks": 8747,
+  "offline_work": 405921,
+  "setup_work": 2215,
+  "best_amortization_example": {
+    "positive": [
+      "ab",
+      "ba"
+    ],
+    "negative": [
+      "",
+      "a",
+      "b",
+      "bb"
+    ],
+    "blocks": [
+      [
+        "a"
+      ],
+      [
+        "b"
+      ]
+    ],
+    "global_work": 387,
+    "split_work": 78,
+    "query_work": 7,
+    "per_query_benefit_vs_global": 302,
+    "minimum_repeats_for_strict_total_saving_vs_global": 1352
+  },
+  "note": "Complete only for the declared vocabulary and partition. Compilation executes learners; lookup does not."
+}

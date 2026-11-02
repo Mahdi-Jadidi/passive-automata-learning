@@ -1,0 +1,481 @@
+{
+  "new_split_n4": {
+    "input": {
+      "positive": [
+        "baaaabbb",
+        "babbbaaa"
+      ],
+      "negative": [],
+      "blocks": [
+        [
+          "a"
+        ],
+        [
+          "b"
+        ]
+      ]
+    },
+    "certificate": {
+      "decision": "NET_SPLIT_EQUAL",
+      "rule": "static_prefix_forest",
+      "selector_work": 99,
+      "selector_events": {
+        "block": 2,
+        "alphabet_character": 2,
+        "input_word": 2,
+        "input_character": 16,
+        "active_test": 2,
+        "singleton_gate": 1,
+        "global_prefix_create": 15,
+        "projection_word": 2,
+        "projection_character": 16,
+        "projection_slot": 4,
+        "prefix_pair_test": 15,
+        "local_factor": 2,
+        "local_prefix_create": 10,
+        "local_positive_word": 2,
+        "local_positive_character": 8
+      },
+      "same_output_language": true,
+      "metric": "W_ref loop events; library internals excluded",
+      "quality_reason": "all assigned local negatives contain an unseen local symbol",
+      "global_interval": [
+        274,
+        1262
+      ],
+      "split_interval": [
+        170,
+        170
+      ],
+      "first_symbol": "b",
+      "forced_prefix_pairs": 1,
+      "global_prefix_states": 15,
+      "preparation": 20,
+      "local_factors": [
+        {
+          "positive": [
+            "aaaa"
+          ],
+          "negative": [],
+          "states": 5,
+          "lower": 75,
+          "upper": 75,
+          "exact": true
+        },
+        {
+          "positive": [
+            "bbbb"
+          ],
+          "negative": [],
+          "states": 5,
+          "lower": 75,
+          "upper": 75,
+          "exact": true
+        }
+      ]
+    },
+    "previous": "UNKNOWN",
+    "WG": 466,
+    "WS": 170,
+    "global_events": {
+      "state_create": 15,
+      "positive_word": 2,
+      "positive_symbol": 16,
+      "edge_create": 14,
+      "fringe_state": 60,
+      "fringe_edge": 30,
+      "candidate": 2,
+      "fold_state": 255,
+      "fold_edge": 70,
+      "red_remap": 2
+    },
+    "projection_work": 20,
+    "local_events": [
+      {
+        "state_create": 5,
+        "positive_word": 1,
+        "positive_symbol": 4,
+        "edge_create": 4,
+        "fringe_state": 12,
+        "fringe_edge": 5,
+        "candidate": 1,
+        "fold_state": 30,
+        "fold_edge": 12,
+        "red_remap": 1
+      },
+      {
+        "state_create": 5,
+        "positive_word": 1,
+        "positive_symbol": 4,
+        "edge_create": 4,
+        "fringe_state": 12,
+        "fringe_edge": 5,
+        "candidate": 1,
+        "fold_state": 30,
+        "fold_edge": 12,
+        "red_remap": 1
+      }
+    ]
+  },
+  "global_same_counts_volume": {
+    "input": {
+      "positive": [
+        "aaaaaaa",
+        "aaaaaaaaa"
+      ],
+      "negative": [],
+      "blocks": [
+        [
+          "a"
+        ],
+        [
+          "b"
+        ]
+      ]
+    },
+    "certificate": {
+      "decision": "PIPELINE_GLOBAL",
+      "rule": "single_active_block",
+      "selector_work": 24,
+      "selector_events": {
+        "block": 2,
+        "alphabet_character": 2,
+        "input_word": 2,
+        "input_character": 16,
+        "active_test": 2
+      },
+      "same_output_language": true,
+      "metric": "W_ref loop events; library internals excluded",
+      "split_minus_global": 24
+    },
+    "previous": "PIPELINE_GLOBAL",
+    "WG": 208,
+    "WS": 232,
+    "global_events": {
+      "state_create": 10,
+      "positive_word": 2,
+      "positive_symbol": 16,
+      "edge_create": 9,
+      "fringe_state": 22,
+      "fringe_edge": 10,
+      "candidate": 1,
+      "fold_state": 110,
+      "fold_edge": 27,
+      "red_remap": 1
+    },
+    "projection_work": 20,
+    "local_events": [
+      {
+        "state_create": 10,
+        "positive_word": 2,
+        "positive_symbol": 16,
+        "edge_create": 9,
+        "fringe_state": 22,
+        "fringe_edge": 10,
+        "candidate": 1,
+        "fold_state": 110,
+        "fold_edge": 27,
+        "red_remap": 1
+      },
+      {
+        "state_create": 1,
+        "positive_word": 1,
+        "fringe_state": 2
+      }
+    ]
+  },
+  "global_net": {
+    "input": {
+      "positive": [
+        "aa"
+      ],
+      "negative": [
+        "bb",
+        "bbb"
+      ],
+      "blocks": [
+        [
+          "a"
+        ],
+        [
+          "b"
+        ]
+      ]
+    },
+    "certificate": {
+      "decision": "NET_GLOBAL_COST",
+      "rule": "unary_global_inert",
+      "selector_work": 16,
+      "selector_events": {
+        "block": 2,
+        "alphabet_character": 2,
+        "input_word": 3,
+        "input_character": 7,
+        "active_test": 2
+      },
+      "same_output_language": null,
+      "metric": "W_ref loop events; library internals excluded",
+      "global_exact": 43,
+      "split_lower": 60,
+      "split_minus_global_lower": 17,
+      "negative_test_cost": 4,
+      "quality_reason": "Language equality is a separate question; it is not certified here."
+    },
+    "previous": "NET_GLOBAL_COST",
+    "WG": 43,
+    "WS": 60,
+    "global_events": {
+      "state_create": 3,
+      "positive_word": 1,
+      "positive_symbol": 2,
+      "edge_create": 2,
+      "fringe_state": 8,
+      "fringe_edge": 3,
+      "candidate": 1,
+      "fold_state": 12,
+      "fold_edge": 6,
+      "negative_word": 2,
+      "negative_symbol": 2,
+      "red_remap": 1
+    },
+    "projection_work": 17,
+    "local_events": [
+      {
+        "state_create": 3,
+        "positive_word": 1,
+        "positive_symbol": 2,
+        "edge_create": 2,
+        "fringe_state": 8,
+        "fringe_edge": 3,
+        "candidate": 1,
+        "fold_state": 12,
+        "fold_edge": 6,
+        "red_remap": 1
+      },
+      {
+        "state_create": 1,
+        "positive_word": 1,
+        "fringe_state": 2
+      }
+    ]
+  },
+  "inert_upper_premise": {
+    "input": {
+      "positive": [
+        "a"
+      ],
+      "negative": [
+        ""
+      ],
+      "blocks": [
+        [
+          "a"
+        ],
+        [
+          "b"
+        ]
+      ]
+    },
+    "certificate": {
+      "decision": "NET_GLOBAL_EQUAL",
+      "rule": "single_active_block",
+      "selector_work": 9,
+      "selector_events": {
+        "block": 2,
+        "alphabet_character": 2,
+        "input_word": 2,
+        "input_character": 1,
+        "active_test": 2
+      },
+      "same_output_language": true,
+      "metric": "W_ref loop events; library internals excluded",
+      "split_minus_global": 11
+    },
+    "previous": "NET_GLOBAL_EQUAL",
+    "WG": 25,
+    "WS": 36,
+    "global_events": {
+      "state_create": 2,
+      "positive_word": 1,
+      "positive_symbol": 1,
+      "edge_create": 1,
+      "fringe_state": 8,
+      "fringe_edge": 2,
+      "candidate": 1,
+      "fold_state": 6,
+      "fold_edge": 2,
+      "negative_word": 1
+    },
+    "projection_work": 7,
+    "local_events": [
+      {
+        "state_create": 2,
+        "positive_word": 1,
+        "positive_symbol": 1,
+        "edge_create": 1,
+        "fringe_state": 8,
+        "fringe_edge": 2,
+        "candidate": 1,
+        "fold_state": 6,
+        "fold_edge": 2,
+        "negative_word": 1
+      },
+      {
+        "state_create": 1,
+        "positive_word": 1,
+        "fringe_state": 2
+      }
+    ]
+  },
+  "cost_quality_counterexample": {
+    "input": {
+      "positive": [
+        "aabb",
+        "abab",
+        "abba",
+        "baab",
+        "baba",
+        "bbaa"
+      ],
+      "negative": [
+        "bbb",
+        "c"
+      ],
+      "blocks": [
+        "a",
+        "b",
+        "c"
+      ],
+      "witness": "b",
+      "global_accept": true,
+      "split_accept": false
+    },
+    "certificate": {
+      "decision": "NET_SPLIT_COST",
+      "rule": "static_prefix_forest",
+      "selector_work": 173,
+      "selector_events": {
+        "block": 3,
+        "alphabet_character": 3,
+        "input_word": 8,
+        "input_character": 28,
+        "active_test": 3,
+        "singleton_gate": 1,
+        "global_prefix_create": 19,
+        "projection_word": 8,
+        "projection_character": 28,
+        "projection_slot": 24,
+        "negative_witness_slot": 6,
+        "prefix_pair_test": 19,
+        "local_factor": 3,
+        "local_prefix_create": 7,
+        "local_positive_word": 3,
+        "local_positive_character": 4,
+        "local_negative_word": 2,
+        "local_negative_character": 4
+      },
+      "same_output_language": null,
+      "metric": "W_ref loop events; library internals excluded",
+      "quality_reason": "Equality is not certified; sample consistency is certified.",
+      "global_interval": [
+        429,
+        125961
+      ],
+      "split_interval": [
+        140,
+        205
+      ],
+      "first_symbol": "a",
+      "forced_prefix_pairs": 9,
+      "global_prefix_states": 19,
+      "preparation": 58,
+      "local_factors": [
+        {
+          "positive": [
+            "aa"
+          ],
+          "negative": [],
+          "states": 3,
+          "lower": 39,
+          "upper": 39,
+          "exact": true
+        },
+        {
+          "positive": [
+            "bb"
+          ],
+          "negative": [
+            "bbb"
+          ],
+          "states": 3,
+          "lower": 39,
+          "upper": 104,
+          "exact": false
+        },
+        {
+          "positive": [
+            ""
+          ],
+          "negative": [
+            "c"
+          ],
+          "states": 1,
+          "lower": 4,
+          "upper": 4,
+          "exact": true
+        }
+      ]
+    },
+    "previous": "PIPELINE_SPLIT",
+    "WG": 901,
+    "WS": 174,
+    "global_events": {
+      "state_create": 19,
+      "positive_word": 6,
+      "positive_symbol": 24,
+      "edge_create": 18,
+      "fringe_state": 104,
+      "fringe_edge": 55,
+      "candidate": 6,
+      "fold_state": 459,
+      "fold_edge": 168,
+      "negative_word": 12,
+      "negative_symbol": 24,
+      "red_remap": 6
+    },
+    "projection_work": 58,
+    "local_events": [
+      {
+        "state_create": 3,
+        "positive_word": 1,
+        "positive_symbol": 2,
+        "edge_create": 2,
+        "fringe_state": 8,
+        "fringe_edge": 3,
+        "candidate": 1,
+        "fold_state": 12,
+        "fold_edge": 6,
+        "red_remap": 1
+      },
+      {
+        "state_create": 3,
+        "positive_word": 1,
+        "positive_symbol": 2,
+        "edge_create": 2,
+        "fringe_state": 16,
+        "fringe_edge": 6,
+        "candidate": 2,
+        "fold_state": 21,
+        "fold_edge": 10,
+        "negative_word": 2,
+        "negative_symbol": 6,
+        "red_remap": 2
+      },
+      {
+        "state_create": 1,
+        "positive_word": 1,
+        "fringe_state": 2
+      }
+    ]
+  }
+}

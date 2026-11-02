@@ -1,0 +1,76 @@
+{
+  "decision": "NET_SPLIT_EQUAL",
+  "rule": "static_prefix_forest",
+  "selector_work": 142,
+  "selector_events": {
+    "block": 3,
+    "alphabet_character": 3,
+    "input_word": 6,
+    "input_character": 21,
+    "active_test": 3,
+    "balanced_record": 5,
+    "balanced_cardinality": 1,
+    "singleton_gate": 1,
+    "global_prefix_create": 16,
+    "projection_word": 6,
+    "projection_character": 21,
+    "projection_slot": 18,
+    "negative_witness_slot": 3,
+    "prefix_pair_test": 16,
+    "local_factor": 3,
+    "local_prefix_create": 7,
+    "local_positive_word": 3,
+    "local_positive_character": 4,
+    "local_negative_word": 1,
+    "local_negative_character": 1
+  },
+  "same_output_language": true,
+  "metric": "W_ref loop events; library internals excluded",
+  "quality_reason": "all assigned local negatives contain an unseen local symbol",
+  "global_interval": [
+    269,
+    68504
+  ],
+  "split_interval": [
+    124,
+    124
+  ],
+  "first_symbol": "a",
+  "forced_prefix_pairs": 6,
+  "global_prefix_states": 16,
+  "preparation": 42,
+  "local_factors": [
+    {
+      "positive": [
+        "aa"
+      ],
+      "negative": [],
+      "states": 3,
+      "lower": 39,
+      "upper": 39,
+      "exact": true
+    },
+    {
+      "positive": [
+        "bb"
+      ],
+      "negative": [],
+      "states": 3,
+      "lower": 39,
+      "upper": 39,
+      "exact": true
+    },
+    {
+      "positive": [
+        ""
+      ],
+      "negative": [
+        "c"
+      ],
+      "states": 1,
+      "lower": 4,
+      "upper": 4,
+      "exact": true
+    }
+  ]
+}

@@ -1,0 +1,200 @@
+{
+  "status": "passed",
+  "valid_case_executions": 3119,
+  "counts": {
+    "exhaustive_binary": 2187,
+    "all_subsets_n2": 64,
+    "all_one_two_deletions_n3": 210,
+    "deletion_path": 408,
+    "informative_negatives": 128,
+    "multiple_negatives": 48,
+    "unbalanced_positives": 8,
+    "block_order_attack": 36,
+    "informative_global_family": 15,
+    "unary_exact_cost": 15
+  },
+  "decisions": {
+    "NET_GLOBAL_EQUAL": 295,
+    "UNKNOWN": 750,
+    "INFEASIBLE": 927,
+    "PIPELINE_SPLIT": 172,
+    "PIPELINE_GLOBAL": 127,
+    "NET_GLOBAL_COST": 146,
+    "TIE": 3,
+    "NET_SPLIT_EQUAL": 608,
+    "NET_SPLIT_COST": 91
+  },
+  "independent_candidate_checks": 13425,
+  "deletion_paths": {
+    "n1_lex": {
+      "total": 3,
+      "certified": 1,
+      "largest_removed_certified": 0,
+      "actual_winner_changes": 1
+    },
+    "n1_reverse": {
+      "total": 3,
+      "certified": 1,
+      "largest_removed_certified": 0,
+      "actual_winner_changes": 1
+    },
+    "n1_run_count": {
+      "total": 3,
+      "certified": 1,
+      "largest_removed_certified": 0,
+      "actual_winner_changes": 1
+    },
+    "n1_seeded_shuffle": {
+      "total": 3,
+      "certified": 1,
+      "largest_removed_certified": 0,
+      "actual_winner_changes": 1
+    },
+    "n2_lex": {
+      "total": 7,
+      "certified": 3,
+      "largest_removed_certified": 2,
+      "actual_winner_changes": 1
+    },
+    "n2_reverse": {
+      "total": 7,
+      "certified": 3,
+      "largest_removed_certified": 2,
+      "actual_winner_changes": 1
+    },
+    "n2_run_count": {
+      "total": 7,
+      "certified": 2,
+      "largest_removed_certified": 1,
+      "actual_winner_changes": 1
+    },
+    "n2_seeded_shuffle": {
+      "total": 7,
+      "certified": 3,
+      "largest_removed_certified": 2,
+      "actual_winner_changes": 1
+    },
+    "n3_lex": {
+      "total": 21,
+      "certified": 17,
+      "largest_removed_certified": 16,
+      "actual_winner_changes": 1
+    },
+    "n3_reverse": {
+      "total": 21,
+      "certified": 17,
+      "largest_removed_certified": 16,
+      "actual_winner_changes": 1
+    },
+    "n3_run_count": {
+      "total": 21,
+      "certified": 18,
+      "largest_removed_certified": 17,
+      "actual_winner_changes": 1
+    },
+    "n3_seeded_shuffle": {
+      "total": 21,
+      "certified": 18,
+      "largest_removed_certified": 17,
+      "actual_winner_changes": 1
+    },
+    "n4_lex": {
+      "total": 71,
+      "certified": 68,
+      "largest_removed_certified": 67,
+      "actual_winner_changes": 1
+    },
+    "n4_reverse": {
+      "total": 71,
+      "certified": 68,
+      "largest_removed_certified": 67,
+      "actual_winner_changes": 1
+    },
+    "n4_run_count": {
+      "total": 71,
+      "certified": 69,
+      "largest_removed_certified": 68,
+      "actual_winner_changes": 1
+    },
+    "n4_seeded_shuffle": {
+      "total": 71,
+      "certified": 69,
+      "largest_removed_certified": 68,
+      "actual_winner_changes": 1
+    }
+  },
+  "examples": {
+    "informative_global_equal": {
+      "category": "exhaustive_binary",
+      "positives": 1,
+      "negatives": 6,
+      "decision": "NET_GLOBAL_EQUAL",
+      "rule": "one_letter_positive_empty_negative",
+      "H": 24,
+      "WG": 25,
+      "WS": 65,
+      "net_split_margin": -64,
+      "first_fold_unions": 1,
+      "T": null,
+      "N": 2
+    },
+    "incomplete_net_equal": {
+      "category": "deletion_path",
+      "positives": 5,
+      "negatives": 1,
+      "decision": "NET_SPLIT_EQUAL",
+      "rule": "static_prefix_forest",
+      "H": 142,
+      "WG": 458,
+      "WS": 124,
+      "net_split_margin": 192,
+      "first_fold_unions": 6,
+      "T": 6,
+      "N": 16,
+      "n": 2,
+      "order": "lex",
+      "removed": 1,
+      "complete_size": 6
+    },
+    "informative_net_cost": {
+      "category": "informative_negatives",
+      "positives": 6,
+      "negatives": 2,
+      "decision": "NET_SPLIT_COST",
+      "rule": "static_prefix_forest",
+      "H": 164,
+      "WG": 919,
+      "WS": 180,
+      "net_split_margin": 575,
+      "first_fold_unions": 9,
+      "T": 9,
+      "N": 19,
+      "n": 2,
+      "extra": "''"
+    }
+  },
+  "unequal_output_counterexample": {
+    "positive": [
+      "aabb",
+      "abab",
+      "abba",
+      "baab",
+      "baba",
+      "bbaa"
+    ],
+    "negative": [
+      "bbb",
+      "c"
+    ],
+    "blocks": [
+      "a",
+      "b",
+      "c"
+    ],
+    "witness": "b",
+    "global_accept": true,
+    "split_accept": false
+  },
+  "guarantee": "Finite audit supplements the mathematical proofs; no wall-clock claim.",
+  "invalid_inputs_rejected": 5
+}

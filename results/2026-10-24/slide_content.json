@@ -1,0 +1,979 @@
+[
+  {
+    "title": "Split or Global RPNI?",
+    "blocks": [
+      {
+        "kind": "text",
+        "text": "Cost certificates before learning"
+      },
+      {
+        "kind": "text",
+        "text": "Recognizable conditions and mathematically proved choices"
+      },
+      {
+        "kind": "text",
+        "text": "18-minute talk. Detailed proofs in the appendix."
+      }
+    ],
+    "notes": "مسئلهٔ ما این است که با افراز معلوم الفبا، قبل از یادگیری تشخیص بدهیم اجرای جداگانهٔ RPNI روی عوامل کم‌هزینه‌تر است یا اجرای جهانی. نتیجه را در دو سطح بیان می‌کنم: شرایط قابل بررسی برای صدور گواهی، و اثبات جهت هزینه برای ورودی‌ای که گواهی می‌گیرد. معیار هزینه و محدودیت دامنه در تمام ارائه صریح است. ابتدا نتیجهٔ اصلی را می‌گویم و بعد زنجیرهٔ اثبات را نشان می‌دهم.",
+    "seconds": 30,
+    "proof": "Research §§1–7",
+    "source": "Research: research/Research_Proofs_EN.md and earlier bundled proofs. Fixed program: research/static_selector.py and research/rpni_work_reference.py. All cost claims use the declared W_ref event model."
+  },
+  {
+    "title": "The research questions",
+    "blocks": [
+      {
+        "kind": "text",
+        "text": "Q1. Can we recognize inputs that admit a proved decision before learning?",
+        "height": 77
+      },
+      {
+        "kind": "text",
+        "text": "Q2. With a known partition, can we certify Split or Global as cheaper?",
+        "height": 77
+      },
+      {
+        "kind": "text",
+        "text": "Yes on explicit certificate regions. Their membership tests are finite."
+      },
+      {
+        "kind": "text",
+        "text": "New results include arbitrary-data bounds and an infinite two-trace family."
+      },
+      {
+        "kind": "text",
+        "text": "Cheap exact selection for all unbounded inputs remains open."
+      }
+    ],
+    "notes": "سؤال اول دربارهٔ تشخیص ناحیهٔ تحت پوشش است: آیا خود الگوریتم قبل از یادگیری می‌فهمد که برای این داده گواهی دارد یا نه؟ سؤال دوم این است که وقتی گواهی داریم، آیا برندهٔ هزینه با اثبات معلوم است؟ پاسخ برای ناحیه‌های تعریف‌شده، بله است. این پاسخ، احتمال یا حدس مبتنی بر چند آزمایش نیست؛ نتیجهٔ نامساوی‌هایی است که تحت قرارداد برنامه ثابت می‌شوند. در گسترش تازه، یک کران پایین عمومی داریم که تلاش‌های ردشده را هم حساب می‌کند، کران بالای بهتری داریم و یک خانوادهٔ نامتناهیِ دو تریسی را از نامعلوم به سود خالص Split منتقل کرده‌ایم. با این حال انتخاب ارزان و دقیق برای تمام ورودی‌های با طول نامحدود هنوز نتیجهٔ اثبات‌شدهٔ ما نیست.",
+    "seconds": 60,
+    "proof": "Research §§2–5,7",
+    "source": "Research: research/Research_Proofs_EN.md and earlier bundled proofs. Fixed program: research/static_selector.py and research/rpni_work_reference.py. All cost claims use the declared W_ref event model."
+  },
+  {
+    "title": "Known partition and consistent local data",
+    "blocks": [
+      {
+        "kind": "eq",
+        "text": "Σ=B₁ ⊎ ··· ⊎ Bₖ,     Pᵢ=πᵢ(S⁺)"
+      },
+      {
+        "kind": "text",
+        "text": "Projection erases outside symbols and preserves order. Keep ε."
+      },
+      {
+        "kind": "eq",
+        "text": "V(w)={i : πᵢ(w)∉Pᵢ}"
+      },
+      {
+        "kind": "text",
+        "text": "An AND decomposition is feasible exactly when every negative has a witness.",
+        "height": 77
+      },
+      {
+        "kind": "text",
+        "text": "Assign each negative only to max V(w). An empty V(w) means INFEASIBLE.",
+        "height": 77
+      }
+    ],
+    "notes": "افراز مرتب الفبا را معلوم می‌گیریم. تصویر یک رشته روی بلوک، با حذف حروف بیرون آن و حفظ ترتیب ساخته می‌شود؛ رشتهٔ خالی نیز حذف نمی‌شود. پذیرش ترکیبی AND است. هر مثبت باید در تمام عوامل پذیرفته شود، ولی برای هر منفی فقط یک عاملِ ردکننده لازم است. مجموعهٔ تصویر مثبت‌ها در عامل i را Pi می‌نامیم. شاهد منفی، عاملی است که تصویر آن منفی جزو Pi نباشد. وجود شاهد برای تک‌تک منفی‌ها شرط لازم و کافی امکان‌پذیری نمونه است. ضرورت: اگر همهٔ تصویرها مثبتِ اجباری باشند، همهٔ عوامل منفی را می‌پذیرند. کفایت: خودِ مجموعهٔ متناهی Pi را زبان هر عامل بگیریم؛ هر مثبت پذیرفته و هر منفی در یک شاهد رد می‌شود. برنامه شاهد با بزرگ‌ترین اندیس را انتخاب می‌کند تا سیاست تخصیص ثابت باشد. نبود شاهد یک مسئلهٔ سازگاری است و آن را با باخت هزینه‌ای Split مخلوط نمی‌کنیم.",
+    "seconds": 80,
+    "proof": "Research §1; Appendix 16",
+    "source": "Research: research/Research_Proofs_EN.md and earlier bundled proofs. Fixed program: research/static_selector.py and research/rpni_work_reference.py. All cost claims use the declared W_ref event model."
+  },
+  {
+    "title": "The work contract",
+    "blocks": [
+      {
+        "kind": "text",
+        "text": "Wref counts declared visits, candidate attempts and union scans."
+      },
+      {
+        "kind": "text",
+        "text": "Partial DFAs reject undefined transitions. Ordering is fixed shortlex."
+      },
+      {
+        "kind": "eq",
+        "text": "Π=M+M⁻+k(p+2z)"
+      },
+      {
+        "kind": "text",
+        "text": "M,M⁻ are symbol volumes. p,z are distinct positive/negative word counts."
+      },
+      {
+        "kind": "text",
+        "text": "Sorting, hashing, allocation and integer bit costs are excluded."
+      },
+      {
+        "kind": "text",
+        "text": "Split includes Π. Explicit product construction is outside the count."
+      }
+    ],
+    "notes": "بهتر بودن را به تعداد رویدادهای تعریف‌شده در برنامهٔ مرجع محدود می‌کنیم. پیمایش حرف، حالت و یال، ساخت حالت و یال، تلاش ادغام، آزمون منفی و بازنگاشت قرمز شمرده می‌شوند. اتوماتا جزئی است و انتقال تعریف‌نشده رد می‌کند. ترتیب حروف و حالت‌ها ثابت است. در پیاده‌سازی اجتماع، هر اجتماع موفق همهٔ رکوردهای حالتِ همان تلاش را می‌پیماید؛ کران‌های ما از همین رفتار استفاده می‌کنند. هزینهٔ آماده‌سازی Split شامل تصویرسازی و تخصیص منفی است و فرمولش روی اسلاید آمده است. مرتب‌سازی، هش، نرمال‌سازی، کپی رشته، تخصیص حافظه، کنترل ثابت و حساب بیتی در این معیار رویداد جدا ندارند. خروجی Split مجموعهٔ عوامل است و ساخت محصول صریح و کمینه‌سازی حساب نشده‌اند. بنابراین این نتیجه ضمانت زمان واقعی روی هر کامپیوتر یا تمام نسخه‌های RPNI نیست؛ یک مقایسهٔ دقیق در قرارداد مشخص است.",
+    "seconds": 75,
+    "proof": "Research §1; Appendix 15",
+    "source": "Research: research/Research_Proofs_EN.md and earlier bundled proofs. Fixed program: research/static_selector.py and research/rpni_work_reference.py. All cost claims use the declared W_ref event model."
+  },
+  {
+    "title": "The pre-training selector",
+    "blocks": [
+      {
+        "kind": "eq",
+        "text": "LG≤WG≤UG,     LS≤WS≤US,     H=selection work"
+      },
+      {
+        "kind": "text",
+        "text": "Extract static sample features and compute proved cost intervals."
+      },
+      {
+        "kind": "eq",
+        "text": "H+US<LG  ⇒  net Split"
+      },
+      {
+        "kind": "eq",
+        "text": "H+UG<LS  ⇒  net Global"
+      },
+      {
+        "kind": "text",
+        "text": "Separated intervals without paying H give a pipeline-only choice."
+      },
+      {
+        "kind": "text",
+        "text": "Overlapping intervals give UNKNOWN. Exact equal costs give TIE."
+      }
+    ],
+    "notes": "الگوریتم انتخاب‌گر خودش RPNI را اجرا نمی‌کند. از تریس‌ها، پیشوندها، تصویرها و شاهدهای منفی ویژگی می‌گیرد و برای هزینهٔ هر مسیر بازهٔ معتبر می‌سازد. اگر H به اضافهٔ کران بالای Split از کران پایین Global کمتر باشد، هزینهٔ واقعی انتخاب‌گر و Split نیز قطعاً از Global کمتر است. اثبات فقط یک زنجیرهٔ نامساوی است: هزینهٔ Split از کران بالایش بیشتر نیست و هزینهٔ Global از کران پایینش کمتر نیست. قاعدهٔ متقارن Global نیز همین‌طور است. اگر بازه‌ها جدا باشند اما شکاف، هزینهٔ انتخاب‌گر را نپردازد، فقط جهت هزینهٔ دو مسیر را اعلام می‌کنیم و سود خالص نمی‌گوییم. هم‌پوشانی بازه‌ها UNKNOWN می‌دهد. این یعنی روش فعلی گواهی کافی ندارد، نه اینکه هیچ روش دیگری نمی‌تواند پاسخ بدهد. تساوی دقیق نیز نتیجهٔ جداست. عضویت در ناحیهٔ همین قواعد با پیمایش‌ها و نامساوی‌های متناهی قبل از یادگیری تشخیص داده می‌شود.",
+    "seconds": 90,
+    "proof": "Research §§3–8; Original interval proof",
+    "source": "Research: research/Research_Proofs_EN.md and earlier bundled proofs. Fixed program: research/static_selector.py and research/rpni_work_reference.py. All cost claims use the declared W_ref event model."
+  },
+  {
+    "title": "A lower bound for arbitrary negatives",
+    "blocks": [
+      {
+        "kind": "text",
+        "text": "For N>1: N=prefix states, E=N−1, s=positive labels, T=prefix pairs."
+      },
+      {
+        "kind": "eq",
+        "text": "I=M+p+2N−1,     J(n)=n(n+1)/2−1"
+      },
+      {
+        "kind": "eq",
+        "text": "C(N,T)=NT+J(N−T)"
+      },
+      {
+        "kind": "eq",
+        "text": "Lany=I+C(N,T)+4N+3E+3+s+δ"
+      },
+      {
+        "kind": "text",
+        "text": "δ=0 for no negatives, 1 if ε is negative, 2 otherwise."
+      },
+      {
+        "kind": "text",
+        "text": "The potential q−|Red| charges both accepted and rejected attempts."
+      }
+    ],
+    "notes": "گسترش اصلیِ کران پایین، کنار گذاشتن فرض پذیرش همهٔ ادغام‌هاست. N تعداد پیشوندهای مثبت، با احتساب ریشه، و E برابر N منهای یک است. پتانسیل را تعداد حالت‌های فعلی منهای تعداد قرمزها می‌گیریم. در ادغام پذیرفته‌شده، این پتانسیل حداقل یک کم می‌شود. در ارتقای آبی به قرمز هم یک کم می‌شود، ولی پیش از ارتقا حداقل یک ادغام آزمایشی انجام شده و هزینه‌اش پرداخت شده است. با شارژ کردن رتبه‌های پتانسیل، کل پیمایش‌های ناشی از اجتماع حداقل J(N) می‌شود. اگر اولین ادغام حداقل T اجتماع اجباری داشته باشد، کران به C(N,T) تقویت می‌شود. سپس رویدادهای جداگانهٔ اولین بررسی، ساخت و بازسازی ادغام، تلاش اولیه، حداقل آزمون منفی و بررسی پایانی اضافه می‌شوند. این جمله‌ها دوباره‌شماریِ اجتماع‌ها نیستند. به این ترتیب یک کران پایین عمومی داریم که منفیِ واقعاً ردکنندهٔ ادغام را هم مجاز می‌داند. اثبات شارژ و همهٔ جمله‌های حساب در پیوست آمده است.",
+    "seconds": 95,
+    "proof": "Research §§2–3; Appendices 18–19",
+    "source": "Research: research/Research_Proofs_EN.md and earlier bundled proofs. Fixed program: research/static_selector.py and research/rpni_work_reference.py. All cost claims use the declared W_ref event model."
+  },
+  {
+    "title": "Bounds when negatives cannot reject a merge",
+    "blocks": [
+      {
+        "kind": "text",
+        "text": "N>1. Every negative contains a label outside positive support A.",
+        "height": 77
+      },
+      {
+        "kind": "eq",
+        "text": "D=sum(1+j(w); w∈S⁻),     j(w)=first outside position"
+      },
+      {
+        "kind": "eq",
+        "text": "B=M+p+(11E²+25E+6)/2"
+      },
+      {
+        "kind": "eq",
+        "text": "Linert=Lany−δ+1+D,     Uinert=B−E+s+ED"
+      },
+      {
+        "kind": "text",
+        "text": "Accepted batches telescope. Repeated labels and branching are allowed."
+      },
+      {
+        "kind": "text",
+        "text": "Check this premise separately for each factor after negative allocation."
+      }
+    ],
+    "notes": "حالت بدون منفی و حالت منفیِ دارای حرف تازه را می‌توان دقیق‌تر تحلیل کرد. اگر هر منفی حرفی خارج از حروف مثبت داشته باشد، هیچ فرضیه‌ای که فقط از ادغام درخت مثبت ساخته می‌شود آن حرف را ندارد؛ بنابراین هر منفی رد می‌شود و همهٔ ادغام‌های پیشنهادی پذیرفته می‌شوند. قرمز فقط ریشه می‌ماند و مدل نهایی یک حالت دارد. D هزینهٔ رسیدن تمام منفی‌ها تا اولین حرف خارج از پشتیبان مثبت است. در هر تلاش هزینهٔ آزمون از D بیشتر نیست و در تلاش آخر دقیقاً D است. برای کران پایین، حداقل قبلیِ آزمون اولیه را با آزمون آخر جایگزین و یک بازنگاشت قرمز اضافه می‌کنیم. برای کران بالا، هزینهٔ یک دستهٔ اجتماع را به اختلاف یک تابع پتانسیل کران می‌زنیم و اختلاف‌ها تلسکوپی جمع می‌شوند. این کران به یکتا بودن یالِ هر حرف یا متوازن بودن داده نیاز ندارد. شرط باید برای هر عامل جدا بررسی شود؛ خارج بودن یک حرف در منفی جهانی الزاماً تصویر منفیِ تخصیص‌یافتهٔ محلی را بی‌اثر نمی‌کند.",
+    "seconds": 90,
+    "proof": "Research §4; Appendices 20–21",
+    "source": "Research: research/Research_Proofs_EN.md and earlier bundled proofs. Fixed program: research/static_selector.py and research/rpni_work_reference.py. All cost claims use the declared W_ref event model."
+  },
+  {
+    "title": "A new infinite Split family",
+    "blocks": [
+      {
+        "kind": "text",
+        "text": "Σ={a,b}, singleton blocks, no negatives, n≥4."
+      },
+      {
+        "kind": "eq",
+        "text": "S⁺={ b aⁿ bⁿ⁻¹,  b a bⁿ⁻¹ aⁿ⁻¹ }"
+      },
+      {
+        "kind": "eq",
+        "text": "N=4n−1,     T=1,     H=20n+19"
+      },
+      {
+        "kind": "eq",
+        "text": "WS=2n²+28n+26,     LG=8n²+38n−6"
+      },
+      {
+        "kind": "eq",
+        "text": "LG−(H+WS)=6n²−10n−51>0"
+      },
+      {
+        "kind": "text",
+        "text": "Only two balanced traces. The previous selector returned UNKNOWN."
+      }
+    ],
+    "notes": "این خانواده نشان می‌دهد گسترش فقط اصلاح چند عدد آزمایشی نیست. دقیقاً دو مثبت داریم و منفی نداریم. هر مثبت n حرف a و n حرف b دارد، ولی فقط دو عضو از خانوادهٔ بزرگ درهم‌تنیدگی‌ها را دیده‌ایم. دو رشته دقیقاً پیشوند ba را مشترک دارند، پس تعداد حالت‌های درخت ۴n منهای یک است. چون هیچ پیشوندی با bb شروع نمی‌شود، اولین ادغام فقط یک جفت پیشوند اجباری در شمارش T دارد. قاعدهٔ قبلی برای تمام اعضای این خانواده نامعلوم می‌داد. در هر عامل، هر دو مثبت به یک رشتهٔ یکتای تک‌الفبایی تصویر می‌شوند؛ هزینهٔ محلی دقیقاً قابل محاسبه است. کران پایین عمومی تازه و حساب دقیق هزینهٔ انتخاب‌گر، اختلاف روی اسلاید را می‌دهند. در n برابر چهار اختلاف پنج است و افزایش آن از n به n بعدی، ۱۲n منهای چهار و مثبت است. بنابراین برای هر n حداقل چهار، سود خالص Split با اثبات داریم؛ این یک خانوادهٔ نامتناهیِ تازه در ناحیهٔ گواهی است.",
+    "seconds": 95,
+    "proof": "Research §5; Appendices 23–24",
+    "source": "Research: research/Research_Proofs_EN.md and earlier bundled proofs. Fixed program: research/static_selector.py and research/rpni_work_reference.py. All cost claims use the declared W_ref event model."
+  },
+  {
+    "title": "A certificate from two traces",
+    "blocks": [
+      {
+        "kind": "eq",
+        "text": "S⁺={baaaabbb, babbbaaa},     S⁻=∅"
+      },
+      {
+        "kind": "table",
+        "headers": [
+          "Selection H",
+          "Exact Split WS",
+          "Global lower LG"
+        ],
+        "rows": [
+          [
+            "99",
+            "170",
+            "274"
+          ]
+        ],
+        "widths": [
+          1,
+          1,
+          1
+        ],
+        "rowHeight": 52
+      },
+      {
+        "kind": "eq",
+        "text": "99+170=269<274≤WG"
+      },
+      {
+        "kind": "text",
+        "text": "Each local sample is one unary word of length four."
+      },
+      {
+        "kind": "text",
+        "text": "Prefix counts and charged selector loops give the certificate before learning."
+      },
+      {
+        "kind": "text",
+        "text": "n=4 is sufficient for this bound. It is not a universal minimum length."
+      }
+    ],
+    "notes": "برای اینکه نتیجه قابل بررسی باشد، عضو n برابر چهار را کامل حساب می‌کنیم. مثبت‌ها همان دو رشتهٔ روی اسلایدند و منفی نداریم. تصویر هر دو روی a برابر aaaa و روی b برابر bbbb است، پس بعد از حذف تکرار، هر عامل فقط یک مثبت دارد. هزینهٔ دقیق هر یادگیری تک‌الفبایی ۷۵ است. آماده‌سازی ۲۰ رویداد دارد و جمع Split برابر ۱۷۰ می‌شود. درخت جهانی ۱۵ حالت و ۱۴ یال دارد؛ I برابر ۴۷ و J پانزده برابر ۱۱۹ است. با افزودن جمله‌های اجباری کران پایینِ حالت پذیرفته‌شدن همهٔ ادغام‌ها، ۲۷۴ به دست می‌آید. هزینهٔ انتخاب‌گر از پیمایش‌های خود برنامه دقیقاً ۹۹ است؛ ریز آن در پیوست آمده است. بنابراین پیش از یادگیری ثابت می‌کنیم ۲۶۹ از هزینهٔ Global کمتر است. اجرای بعدی برنامه فقط کنترلِ تطبیق این محاسبه است و مقدمهٔ اثبات نیست. چهار، حد کافیِ این کران برای این خانواده است؛ آن را کمینهٔ لازم برای همهٔ داده‌ها معرفی نمی‌کنیم.",
+    "seconds": 110,
+    "proof": "Research §5; Appendices 22–24",
+    "source": "Research: research/Research_Proofs_EN.md and earlier bundled proofs. Fixed program: research/static_selector.py and research/rpni_work_reference.py. All cost claims use the declared W_ref event model."
+  },
+  {
+    "title": "A Global region with varied negatives",
+    "blocks": [
+      {
+        "kind": "text",
+        "text": "All positives use only a. At least one positive is nonempty."
+      },
+      {
+        "kind": "text",
+        "text": "Every global negative contains another label. The partition is arbitrary."
+      },
+      {
+        "kind": "eq",
+        "text": "WG=V+D,     WS≥Π+V+4(k−1)"
+      },
+      {
+        "kind": "eq",
+        "text": "K=Π+4(k−1)−D>0"
+      },
+      {
+        "kind": "text",
+        "text": "Global wins. A net certificate additionally needs H<K."
+      },
+      {
+        "kind": "eq",
+        "text": "S⁺={aa}, S⁻={bb,bbb}: H=16, WG=43, WS=60"
+      }
+    ],
+    "notes": "برای تصمیم Global نیز یک خانوادهٔ عمومی داریم. همهٔ مثبت‌ها از a ساخته شده‌اند، با حداقل یک مثبت غیرخالی، و هر منفی جهانی یک حرف دیگر دارد. مثبت‌ها لازم نیست طول‌های کامل یا متوازن داشته باشند. هزینهٔ بدون منفیِ زنجیره را V می‌نامیم. اولین ادغام جهانی کل زنجیره را یکی می‌کند و همهٔ منفی‌ها در حرف تازه رد می‌شوند، پس هزینهٔ جهانی دقیقاً V به اضافهٔ D است. عامل محلیِ شامل a همان مثبت‌ها را دارد و حتی اگر منفی‌های تخصیص‌یافته بعضی ادغام‌هایش را رد کنند، هزینه‌اش حداقل V است؛ این نکته جدا ثابت شده است. هر عامل غیرفعال هزینهٔ چهار دارد. با افزودن آماده‌سازی، اختلاف پایین K حاصل می‌شود و با کران D، مثبت بودن آن ثابت می‌شود. برای سود خالص باید H از K کمتر باشد. در مثال، ۱۶ به اضافهٔ ۴۳ برابر ۵۹ است و از ۶۰ کمتر است. این قضیه جهت هزینه را می‌گوید؛ برابری عمومی زبان خروجی را از آن نتیجه نمی‌گیریم.",
+    "seconds": 95,
+    "proof": "Research §6; Appendix 22",
+    "source": "Research: research/Research_Proofs_EN.md and earlier bundled proofs. Fixed program: research/static_selector.py and research/rpni_work_reference.py. All cost claims use the declared W_ref event model."
+  },
+  {
+    "title": "Complete coverage on a finite domain",
+    "blocks": [
+      {
+        "kind": "eq",
+        "text": "Σ={a,b}, blocks {a},{b},     V=all words of length ≤2"
+      },
+      {
+        "kind": "text",
+        "text": "Seven possible words give 3⁷=2187 consistent labeled datasets."
+      },
+      {
+        "kind": "table",
+        "headers": [
+          "Outcome",
+          "Count"
+        ],
+        "rows": [
+          [
+            "Global cheaper",
+            "754"
+          ],
+          [
+            "Split cheaper",
+            "493"
+          ],
+          [
+            "Tie",
+            "15"
+          ],
+          [
+            "AND decomposition infeasible",
+            "925"
+          ]
+        ],
+        "widths": [
+          3,
+          1
+        ],
+        "rowHeight": 44
+      },
+      {
+        "kind": "text",
+        "text": "Lookup runs no RPNI. Offline work=405921 and setup work=2215.",
+        "height": 77
+      }
+    ],
+    "notes": "یک نتیجهٔ کامل هم برای دامنهٔ محدود داریم. هفت رشتهٔ ممکن شامل رشتهٔ خالی و همهٔ رشته‌های طول یک و دو روی a و b است. هر رشته می‌تواند غایب، مثبت یا منفی باشد؛ پس دقیقاً ۲۱۸۷ مجموعه‌دادهٔ بدون برچسب متناقض داریم. کامپایلر همهٔ آن‌ها را آفلاین بررسی کرده و جدول کامل ساخته است. هنگام پرس‌وجو فقط سطر متناظر خوانده می‌شود و هیچ RPNI اجرا نمی‌شود. تعداد هر نتیجه روی اسلاید آمده است. موارد ناممکن یعنی هیچ مدل AND با آن افراز برچسب‌ها را رعایت نمی‌کند، نه اینکه Split صرفاً گران‌تر باشد. این جدول داخل دامنه UNKNOWN ندارد، ولی ساختش یادگیرنده را اجرا کرده و هزینهٔ آن و بارگذاری باید حساب شود. جدولِ طول دو، رشتهٔ طول سه را پوشش نمی‌دهد. نتیجهٔ کاملِ یک دامنهٔ از پیش تعیین‌شده را با انتخاب‌گر ارزان برای تمام طول‌های نامحدود جابه‌جا نمی‌کنیم.",
+    "seconds": 70,
+    "proof": "Research §7; Previous Coverage §§6–8; Appendix 26",
+    "source": "Research: research/Research_Proofs_EN.md and earlier bundled proofs. Fixed program: research/static_selector.py and research/rpni_work_reference.py. All cost claims use the declared W_ref event model."
+  },
+  {
+    "title": "Limits of counts and certificates",
+    "blocks": [
+      {
+        "kind": "text",
+        "text": "UNKNOWN means overlapping current bounds, not an impossibility proof."
+      },
+      {
+        "kind": "text",
+        "text": "Same partition {a},{b}, p=2, z=0, M=16. Opposite pipeline winners:"
+      },
+      {
+        "kind": "eq",
+        "text": "S⁺={a⁷,a⁹}:     WG=208<232=WS"
+      },
+      {
+        "kind": "eq",
+        "text": "S⁺={baaaabbb,babbbaaa}:     WS=170<274≤WG"
+      },
+      {
+        "kind": "text",
+        "text": "Individual lengths and prefix structures differ. Counts alone are insufficient."
+      },
+      {
+        "kind": "text",
+        "text": "Cost certificates do not establish general output equality or target recovery."
+      }
+    ],
+    "notes": "برای جلوگیری از تعمیم اشتباه، دو نمونه را کنار هم می‌گذاریم. افراز هر دو، دو بلوک تک‌حرفی a و b است؛ هر دو دو مثبت، بدون منفی و مجموع طول مثبت ۱۶ دارند. در نمونهٔ a به توان هفت و a به توان نه، فرمول تک‌الفبایی هزینهٔ Global را ۲۰۸ می‌دهد و آماده‌سازی و عامل غیرفعال هزینهٔ Split را به ۲۳۲ می‌رسانند؛ پس Global برنده است. در خانوادهٔ دو تریسی تازه، Split برابر ۱۷۰ و Global حداقل ۲۷۴ است؛ پس جهت برعکس می‌شود. طول تک‌تک رشته‌ها و ساختار پیشوندها یکسان نیست و چنین چیزی ادعا نمی‌کنیم. نتیجه فقط این است که تعداد مثبت، تعداد منفی و مجموع طول به‌تنهایی برندهٔ همهٔ داده‌ها را مشخص نمی‌کنند. همچنین هزینهٔ کمتر، سازگاری با نمونه و برابری زبان خروجی گزاره‌های جدا هستند. حتی برابری دو خروجی نیز بدون فرض‌های شناسایی، بازیابی هدف واقعی را ثابت نمی‌کند.",
+    "seconds": 70,
+    "proof": "Research §§5–7; Appendix 27",
+    "source": "Research: research/Research_Proofs_EN.md and earlier bundled proofs. Fixed program: research/static_selector.py and research/rpni_work_reference.py. All cost claims use the declared W_ref event model."
+  },
+  {
+    "title": "Answers to the two research questions",
+    "blocks": [
+      {
+        "kind": "text",
+        "text": "Q1: Explicit predicates and interval tests recognize our certificate region.",
+        "height": 77
+      },
+      {
+        "kind": "text",
+        "text": "Q2: Every certified winner follows from a proved inequality or exact cost.",
+        "height": 77
+      },
+      {
+        "kind": "text",
+        "text": "Net claims pay for H. Pipeline claims compare the learner pipelines."
+      },
+      {
+        "kind": "text",
+        "text": "Coverage now includes general bounds and a new infinite Split family."
+      },
+      {
+        "kind": "text",
+        "text": "Cheap exact selection for every unbounded input remains open."
+      }
+    ],
+    "notes": "اکنون پاسخ دو محور را دقیق جمع می‌کنم. برای محور اول، ناحیهٔ گواهی را به صورت شرط‌های صریح و نامساوی‌های محاسبه‌پذیر داریم. برنامه قبل از اجرای یادگیرنده بررسی می‌کند آیا همین شرایط برای ورودی برقرارند یا نه. برای محور دوم، هر پاسخ جهت‌دار با کران‌های اثبات‌شده یا هزینهٔ دقیق پشتیبانی می‌شود. اگر سود خالص گفته باشیم، H نیز پرداخت شده است. پوشش از خانواده‌های محدود اولیه به کران‌هایی برای مثبت‌های دلخواه و منفی‌های اثرگذار گسترش یافته؛ علاوه بر آن، یک خانوادهٔ نامتناهیِ دو تریسی که قبلاً همیشه نامعلوم بود اکنون گواهی سود خالص دارد. در دامنهٔ متناهیِ جدول نیز همهٔ موارد تعیین تکلیف می‌شوند، با حساب صریح پیش‌محاسبه. آنچه باقی است، انتخاب دقیق و ارزان برای هر ورودی بدون کران است؛ نه حل آن را اعلام می‌کنیم و نه ناممکن بودنش را. تضمین نتایج فعلی ریاضی و مشروط به قرارداد روشن است.",
+    "seconds": 80,
+    "proof": "Research §§1–9",
+    "source": "Research: research/Research_Proofs_EN.md and earlier bundled proofs. Fixed program: research/static_selector.py and research/rpni_work_reference.py. All cost claims use the declared W_ref event model."
+  },
+  {
+    "title": "Next research question",
+    "blocks": [
+      {
+        "kind": "text",
+        "text": "When do Global and Split learn the same language?"
+      },
+      {
+        "kind": "eq",
+        "text": "L(Global) = ⋂ᵢ πᵢ⁻¹(L(Localᵢ)) ?"
+      },
+      {
+        "kind": "text",
+        "text": "Seek additional conditions for incomplete positives and effective negatives.",
+        "height": 77
+      },
+      {
+        "kind": "text",
+        "text": "Cost and sample consistency alone do not establish this equality."
+      },
+      {
+        "kind": "text",
+        "text": "Actual runtime and target recovery require separate analysis."
+      }
+    ],
+    "notes": "سؤال مرحلهٔ بعد را برابری زبان خروجی نگه می‌داریم: برای مثبت‌های ناقص و منفی‌هایی که بعضی ادغام‌ها را رد می‌کنند، چه شرطِ قابل بررسیِ پیش از اجرا کافی است تا زبان Global و ترکیب عوامل برابر شوند؟ در خانواده‌هایی مثل حالت بدون منفی، برابری جداگانه ثابت شده، ولی تعمیم آن به تمام ناحیهٔ هزینه درست نیست. ادامهٔ پژوهش هزینه به حل این سؤال وابسته نیست؛ گواهی صرفاً هزینه را با همان دامنهٔ ادعا نگه می‌داریم. اینجا مسیر اصلی ارائه تمام می‌شود و اسلایدهای بعد برای اثبات‌ها و پرسش‌ها هستند.",
+    "seconds": 40,
+    "proof": "Research §§5–7; Appendix 28",
+    "source": "Research: research/Research_Proofs_EN.md and earlier bundled proofs. Fixed program: research/static_selector.py and research/rpni_work_reference.py. All cost claims use the declared W_ref event model."
+  },
+  {
+    "title": "Reference algorithm and charged events",
+    "blocks": [
+      {
+        "kind": "text",
+        "text": "Positive prefix trie. Root initially red. Partial transitions reject."
+      },
+      {
+        "kind": "text",
+        "text": "Choose the least shortlex blue state and test red states in shortlex order."
+      },
+      {
+        "kind": "text",
+        "text": "A flat parent map canonically merges the two classes and closes conflicts.",
+        "height": 77
+      },
+      {
+        "kind": "text",
+        "text": "Each union scans q retained records. Each closure pass scans e edges."
+      },
+      {
+        "kind": "text",
+        "text": "Rebuild states/finals/edges. Keep only if all negatives reject. Remap red.",
+        "height": 77
+      },
+      {
+        "kind": "text",
+        "text": "Failed trials keep the old model. If all trials fail, promote blue."
+      }
+    ],
+    "notes": "قرارداد مرجع به طور کامل این است: درخت پیشوند مثبت‌ها ساخته می‌شود و فقط ریشه قرمز است. آبی‌ها مقصد یال از قرمز به غیرقرمز هستند. کمترین آبی در ترتیب طول و سپس واژه‌نامه‌ای انتخاب می‌شود و قرمزها هم به همان ترتیب آزموده می‌شوند. برای هر تلاش، نگاشت والد تخت روی تمام حالت‌های جاری ساخته می‌شود. اجتماع دو کلاس با نمایندهٔ کمینه انجام می‌شود و هر اجتماع همهٔ q رکورد را می‌پیماید. بستار قطعی با پیمایش یال‌ها و یکسان کردن مقصدهای متعارض ادامه پیدا می‌کند تا یک دور بدون اجتماع جدید بگذرد. سپس حالت‌ها، نهایی‌ها با OR و یال‌ها بازسازی می‌شوند. منفی‌ها به ترتیب ثابت آزموده می‌شوند؛ انتقال ناموجود رد می‌کند و اولین منفی پذیرفته‌شده تلاش را رد می‌کند. اگر همه رد شوند، مدل نگه داشته و تمام قرمزهای قبلی بازنگاشت می‌شوند. رد تلاش هیچ تغییری در مدل اصلی نمی‌دهد. اگر همهٔ قرمزها برای آن آبی شکست بخورند، آبی قرمز می‌شود. این دقیقاً الگوریتمی است که تمام شمارش‌ها دربارهٔ آن‌اند.",
+    "seconds": 0,
+    "proof": "Research §1; rpni_work_reference.py",
+    "source": "Research: research/Research_Proofs_EN.md and earlier bundled proofs. Fixed program: research/static_selector.py and research/rpni_work_reference.py. All cost claims use the declared W_ref event model."
+  },
+  {
+    "title": "Proof of AND feasibility",
+    "blocks": [
+      {
+        "kind": "eq",
+        "text": "Pᵢ=πᵢ(S⁺),     V(w)={i:πᵢ(w)∉Pᵢ}"
+      },
+      {
+        "kind": "text",
+        "text": "Necessity: accepting every positive forces Pᵢ⊆Lᵢ."
+      },
+      {
+        "kind": "text",
+        "text": "If V(w)=∅, every factor accepts its projection. The negative is accepted.",
+        "height": 77
+      },
+      {
+        "kind": "text",
+        "text": "Sufficiency: choose finite regular languages Lᵢ=Pᵢ. Each witness rejects.",
+        "height": 77
+      },
+      {
+        "kind": "text",
+        "text": "Allocating a negative to max V(w) makes every local labeled sample consistent.",
+        "height": 77
+      },
+      {
+        "kind": "text",
+        "text": "Any consistent local learners then produce a sample-consistent AND model."
+      }
+    ],
+    "notes": "برای ضرورت، اگر محصول تصویرها هر مثبت جهانی را قبول کند، هر زبان محلی باید تمام تصویر مثبت‌ها را داشته باشد. منفی‌ای که همهٔ تصویرهایش در این مجموعه‌ها باشند، در تمام عوامل پذیرفته می‌شود و تناقض ایجاد می‌کند. برای کفایت، زبان هر عامل را خودِ مجموعهٔ متناهی تصویر مثبت‌ها می‌گیریم. هر منفی شاهد دارد و تصویر آن در زبان شاهد نیست، پس محصول آن را رد می‌کند. زبان‌های متناهی منظم‌اند و محدودیت تعداد حالت محلی نداریم، پس این یک ساخت معتبر است. تخصیص به بزرگ‌ترین شاهد فقط یکی از انتخاب‌های ممکن است، ولی برای مقایسهٔ هزینه ثابت نگه داشته شده است. چون تصویر انتخاب‌شده خارج از مثبت همان عامل است، برچسب محلی متناقض نمی‌شود. پس هر یادگیرندهٔ محلی سازگار، مثبت‌ها را قبول و منفی‌های تخصیص‌یافته را رد می‌کند؛ در نتیجه محصول با دادهٔ جهانی سازگار است. تمام استدلال رشتهٔ خالی و مجموعه‌های تهی را هم شامل می‌شود.",
+    "seconds": 0,
+    "proof": "Research §1; Original feasibility theorem",
+    "source": "Research: research/Research_Proofs_EN.md and earlier bundled proofs. Fixed program: research/static_selector.py and research/rpni_work_reference.py. All cost claims use the declared W_ref event model."
+  },
+  {
+    "title": "Termination and a general upper bound",
+    "blocks": [
+      {
+        "kind": "eq",
+        "text": "I=M+p+2N−1, E=N−1, d=sum(|w|+1; w∈S⁻)"
+      },
+      {
+        "kind": "text",
+        "text": "q−|Red| decreases each iteration. There are at most N−1 iterations."
+      },
+      {
+        "kind": "text",
+        "text": "At iteration j, |Red|≤j. Attempts and total red remaps are each ≤C=N(N−1)/2.",
+        "height": 77
+      },
+      {
+        "kind": "eq",
+        "text": "Fold≤q²+q+qe"
+      },
+      {
+        "kind": "eq",
+        "text": "Uany=I+N(2N+E)+C(2+N²+N+NE+d)"
+      },
+      {
+        "kind": "text",
+        "text": "At most N fringes. For N=1, the exact cost is I+2."
+      }
+    ],
+    "notes": "هر تکرار غیرپایانی پتانسیل تعداد حالت منهای تعداد قرمز را کم می‌کند. ارتقا، قرمز را یک زیاد می‌کند؛ ادغام پذیرفته‌شده در اولین اجتماع یک غیرقرمز را به قرمز وصل می‌کند، پس کاهش حالت‌ها از کاهش تعداد تصویرهای قرمز حداقل یک بیشتر است. بنابراین حداکثر N منهای یک تکرار و N بررسی مرز داریم. پیش از تکرار j، تعداد قرمز از j بیشتر نیست، چون فقط ارتقا آن را یک زیاد می‌کند. جمع تلاش‌ها و جمع بازنگاشت‌های قرمز هر کدام حداکثر C است. در یک تلاش u حداکثر q منهای یک اجتماع داریم. اولین اجتماع پیش از بستار انجام می‌شود؛ هر دور غیرپایانی بستار یک اجتماع تازه مصرف می‌کند، پس تعداد دورها حداکثر u است. هزینهٔ دقیقِ برحسب این دو شمارنده، دو q به اضافهٔ q ضربدر u و e ضربدر تعداد دور به اضافهٔ یک است. با جایگذاری، کران q مربع به اضافهٔ q و q ضربدر e حاصل می‌شود. هر آزمون منفی از d بیشتر نیست. کران مرزها، تلاش‌ها، بستارها و بازنگاشت‌ها جدا جمع می‌شوند و فرمول عمومی به دست می‌آید. N برابر یک مستقیماً با فرمول دقیق حل می‌شود.",
+    "seconds": 0,
+    "proof": "Research §§2,8",
+    "source": "Research: research/Research_Proofs_EN.md and earlier bundled proofs. Fixed program: research/static_selector.py and research/rpni_work_reference.py. All cost claims use the declared W_ref event model."
+  },
+  {
+    "title": "Universal union charges",
+    "blocks": [
+      {
+        "kind": "text",
+        "text": "v=q−|Red|, u=fold unions, h=loss of distinct red images."
+      },
+      {
+        "kind": "eq",
+        "text": "Kept: d=u−h, 0≤h≤u−1.     Promotion: d=1."
+      },
+      {
+        "kind": "eq",
+        "text": "qu≥(v+1)d≥sum(j+1; j=v−d+1,…,v)"
+      },
+      {
+        "kind": "text",
+        "text": "On promotion, at least one rejected trial still pays qu≥v+1."
+      },
+      {
+        "kind": "eq",
+        "text": "Total union-record visits ≥ sum(j+1; j=1,…,N−1)=J(N)"
+      },
+      {
+        "kind": "text",
+        "text": "Reachability and a red root imply that no blue state means v=0."
+      }
+    ],
+    "notes": "این اثبات مستقل از پذیرش منفی‌هاست. از یک وضعیت با پتانسیل v شروع کنید. اگر ادغام نگه داشته شود و u اجتماع کلاس انجام دهد، تعداد حالت u کم می‌شود. افت تعداد تصویرهای قرمز را h بگیرید. اولین اجتماع قرمز با غیرقرمز است و تصویر قرمز را کم نمی‌کند؛ پس h بین صفر و u منهای یک است. افت پتانسیل d برابر u منهای h و بین یک و u است. هزینهٔ اجتماع‌های همین تلاش q ضربدر u است و چون q حداقل v به اضافهٔ یک است، می‌تواند همهٔ رتبه‌های از v منهای d به اضافهٔ یک تا v را، با وزن رتبه به اضافهٔ یک، بپردازد. اگر به جای آن ارتقا انجام شود، حداقل یک تلاش ردشده با یک اجتماع داشته‌ایم و همان وزن v به اضافهٔ یک پرداخت شده است. رتبه‌های مصرف‌شده در تکرارها هم‌پوشانی ندارند و از N منهای یک تا صفر را می‌پوشانند. در پایان هیچ غیرقرمزِ دسترس‌پذیری نمی‌ماند؛ وگرنه اولین یال خروج از قرمز روی مسیرش یک آبی می‌ساخت. بنابراین جمع شارژها دقیقاً J(N) است. همین استدلال از هر وضعیت میانی با پتانسیل v، کران J(v به اضافهٔ یک) را می‌دهد.",
+    "seconds": 0,
+    "proof": "Research §2, Theorem 1",
+    "source": "Research: research/Research_Proofs_EN.md and earlier bundled proofs. Fixed program: research/static_selector.py and research/rpni_work_reference.py. All cost claims use the declared W_ref event model."
+  },
+  {
+    "title": "First-fold refinement and mandatory work",
+    "blocks": [
+      {
+        "kind": "text",
+        "text": "N>1. Q=positive prefixes. First blue x: T counts t,xt∈Q; root~x forces t~xt."
+      },
+      {
+        "kind": "text",
+        "text": "The T obligation edges form a forest, so the first fold makes u≥T unions.",
+        "height": 77
+      },
+      {
+        "kind": "eq",
+        "text": "Kept: Nu+J(N−u)≥NT+J(N−T)=C(N,T)"
+      },
+      {
+        "kind": "text",
+        "text": "Rejected: promotion leaves potential N−2, giving Nu+J(N−1)≥C(N,T).",
+        "height": 77
+      },
+      {
+        "kind": "eq",
+        "text": "Lany=I+C(N,T)+4N+3E+3+s+δ"
+      },
+      {
+        "kind": "text",
+        "text": "4N+3E: first fringe/map/rebuild. Add candidate 1, terminal 2+s and δ.",
+        "height": 77
+      }
+    ],
+    "notes": "اگر t و xt هر دو پیشوند باشند، مسیر t از ریشه و از حالت x تعریف شده است. ادغام ریشه و x در هر خارج‌قسمت قطعی، مقصد این مسیرها یعنی t و xt را یکی می‌کند. یال‌های بین t و xt در گراف تعهدها، هر کدام حداکثر یک پیشین و پسین دارند و طول روی جهتشان زیاد می‌شود؛ پس جنگل‌اند و T یال به حداقل T کاهش کلاس نیاز دارد. برای تقویت شارژ، اگر اولین تلاش با u اجتماع پذیرفته شود، قرمز همچنان فقط ریشه است و کار اجتماعِ باقیمانده حداقل J(N منهای u) می‌شود. تابع N ضربدر u به اضافهٔ همین J، با افزایش صحیح u یک مقدار u زیاد می‌شود، پس کمینه برای u برابر T است. اگر تلاش رد شود، فقط یک قرمز اولیه داشتیم و ارتقا انجام می‌شود؛ پتانسیل N منهای دو و کار بعدی حداقل J(N منهای یک) است، که باز کران مورد نظر را پوشش می‌دهد. به کار اجتماع‌ها، اولین مرز دو N به اضافهٔ E، ساخت نگاشت و بازسازی حالت دو N، حداقل یک دور و بازسازی یال دو E، تلاش یک، حداقل آزمون δ و مرز پایانی دو به اضافهٔ s را اضافه می‌کنیم. این دسته‌ها جدا هستند و فرمول پایین حاصل می‌شود.",
+    "seconds": 0,
+    "proof": "Research §§2–3",
+    "source": "Research: research/Research_Proofs_EN.md and earlier bundled proofs. Fixed program: research/static_selector.py and research/rpni_work_reference.py. All cost claims use the declared W_ref event model."
+  },
+  {
+    "title": "Inert-negative upper bound proof",
+    "blocks": [
+      {
+        "kind": "text",
+        "text": "All negatives have an outside label. Every first candidate keeps."
+      },
+      {
+        "kind": "text",
+        "text": "A fold has u unions, at most u closure passes, and moves q to q−u."
+      },
+      {
+        "kind": "eq",
+        "text": "c(q,u)=4q+qu+E(u+2)+2+D"
+      },
+      {
+        "kind": "eq",
+        "text": "F(q)=sum(5r+3E+2+D; r=2,…,q),     F(1)=0"
+      },
+      {
+        "kind": "eq",
+        "text": "F(q)−F(q−u)−c(q,u)=(u−1)(4q−5u/2+2E+2+D)≥0"
+      },
+      {
+        "kind": "text",
+        "text": "q≥u+1. The differences telescope over all kept batches."
+      }
+    ],
+    "notes": "در فرض حرف تازه، هیچ منفی نمی‌تواند ادغام را رد کند؛ بنابراین هر بار اولین تلاش با قرمزِ ریشه نگه داشته می‌شود. اگر q حالت و e یال فعلی داریم و u اجتماع صورت می‌گیرد، ساخت نگاشت و بازسازی حالت دو q، اجتماع‌ها q ضربدر u و دورهای بستار و بازسازی یال حداکثر e ضربدر u به اضافهٔ یک هزینه دارند. مرز، تلاش و بازنگاشت و آزمون منفی را اضافه می‌کنیم و e را با E اولیه کران می‌زنیم تا c به دست آید. تابع F را جمع هزینه‌های تک‌اجتماعیِ پوشاننده تعریف می‌کنیم. تفاضل F(q) و F(q منهای u) منهای هزینهٔ دسته، دقیقاً عبارت غیرمنفی اسلاید است؛ چون u حداقل یک و q حداقل u به اضافهٔ یک است. بنابراین هزینهٔ هر دسته از کاهش F بیشتر نیست. پس با جمع دسته‌ها، عبارت‌های میانی حذف می‌شوند و فقط F(N) می‌ماند. این استدلال هیچ محدودیتی بر تکرار حروف یا شاخه‌زنی درخت مثبت ندارد.",
+    "seconds": 0,
+    "proof": "Research §4, Theorem 3 upper proof",
+    "source": "Research: research/Research_Proofs_EN.md and earlier bundled proofs. Fixed program: research/static_selector.py and research/rpni_work_reference.py. All cost claims use the declared W_ref event model."
+  },
+  {
+    "title": "Closed bounds and edge cases",
+    "blocks": [
+      {
+        "kind": "eq",
+        "text": "D=sum(1+j(w); w∈S⁻),     B=M+p+(11E²+25E+6)/2"
+      },
+      {
+        "kind": "eq",
+        "text": "I+F(N)+2+s=B−E+s+ED"
+      },
+      {
+        "kind": "text",
+        "text": "The last candidate has one final state and all positive-label loops."
+      },
+      {
+        "kind": "eq",
+        "text": "Linert=I+C(N,T)+4N+3E+4+s+D"
+      },
+      {
+        "kind": "text",
+        "text": "Charge the last negative scan D once, replacing the first-scan minimum δ.",
+        "height": 77
+      },
+      {
+        "kind": "text",
+        "text": "N=1: exact I+2. Empty negative sets have D=0. Check local premises separately.",
+        "height": 77
+      }
+    ],
+    "notes": "بسط جبری جمع F و مقداردهی اولیه و مرز نهایی، کران بالای بسته را می‌دهد. در پایان همهٔ حالت‌ها به ریشهٔ نهایی تبدیل شده‌اند و تمام حروف مثبت حلقه دارند. پس هر منفی دقیقاً تا اولین حرف خارج از مجموعه خوانده و رد می‌شود و مجموع هزینهٔ آزمون آخر D است. برای کران پایین، از شارژ کل اجتماع‌ها و هزینه‌های اجباری اولین مرز و بازسازی استفاده می‌کنیم؛ یک بازنگاشت قرمز اضافه می‌کنیم و به جای حداقل δ در آزمون اول، کل آزمون آخر D را می‌شماریم. δ و D را با هم جمع نمی‌کنیم تا دوباره‌شماری رخ ندهد. اگر N یک باشد اصلاً تلاشی نداریم و هزینهٔ دقیق I به اضافهٔ دو است؛ حتی اگر منفی داشته باشیم آزمون منفی در اجرای یادگیرنده رخ نمی‌دهد. برای منفی تهی D صفر است. این فرمول‌ها برای هر عامل هم معتبرند، به شرط بررسی مستقلِ فرض روی منفی‌های واقعاً تخصیص‌یافتهٔ همان عامل.",
+    "seconds": 0,
+    "proof": "Research §§3–4",
+    "source": "Research: research/Research_Proofs_EN.md and earlier bundled proofs. Fixed program: research/static_selector.py and research/rpni_work_reference.py. All cost claims use the declared W_ref event model."
+  },
+  {
+    "title": "Unary work and the Global proof",
+    "blocks": [
+      {
+        "kind": "eq",
+        "text": "V=m+p+r²+(9+dᵣ)r+10, dᵣ=1 if r=1, else 2"
+      },
+      {
+        "kind": "text",
+        "text": "r≥1 is the maximum positive length. First fold: r unions, dᵣ passes."
+      },
+      {
+        "kind": "text",
+        "text": "Without negatives, direct event summation gives V. With any negatives, W≥V.",
+        "height": 77
+      },
+      {
+        "kind": "text",
+        "text": "Keeping pays remap+terminal=4. Rejecting pays the next fringe 3r+2≥5.",
+        "height": 77
+      },
+      {
+        "kind": "eq",
+        "text": "WG=V+D, WS≥Π+V+4(k−1)"
+      },
+      {
+        "kind": "eq",
+        "text": "K≥M+kp+(2k−1)z+4(k−1)>0.     Net Global if H<K."
+      }
+    ],
+    "notes": "r بیشترین طول مثبت تک‌الفبایی است و حداقل یک است. درخت، کل زنجیرهٔ طول r را دارد، حتی اگر بعضی طول‌ها مثبت نباشند. ادغام ریشه با a همهٔ زنجیره را مجبور به یکی شدن می‌کند. r اجتماع داریم؛ برای r یک، دور اول بستار پایدار است و در غیر آن یک دور مولد و یک دور پایدار داریم. هزینهٔ بستار r مربع به اضافهٔ چهار به اضافهٔ تعداد دور، ضربدر r، به اضافهٔ دو است. با مقداردهی اولیه، مرز اولیه، تلاش، یک بازنگاشت و مرز پایانی، V حاصل می‌شود. همهٔ کار تا پایان اولین بستار V منهای چهار است. اگر منفی باعث رد شود، فقط یک قرمز بوده، ارتقا انجام و مرز بعدی روی درخت تغییرنکرده با هزینهٔ سه r به اضافهٔ دو اجرا می‌شود که حداقل پنج است. اگر ادغام پذیرفته شود، بازنگاشت و مرز پایانی چهار است. پس با هر منفی سازگار هزینه حداقل V است. در خانوادهٔ Global، منفی جهانی حرف تازه دارد و هزینهٔ واقعی V به اضافهٔ D است. عامل فعال حداقل V و بقیه چهار دارند. چون D از حجم منفی به اضافهٔ تعدادشان بیشتر نیست، K به عبارت مثبت اسلاید کران می‌خورد. این اثبات با منفیِ محلی اثرگذار هم معتبر است.",
+    "seconds": 0,
+    "proof": "Research §6",
+    "source": "Research: research/Research_Proofs_EN.md and earlier bundled proofs. Fixed program: research/static_selector.py and research/rpni_work_reference.py. All cost claims use the declared W_ref event model."
+  },
+  {
+    "title": "Two-trace counts and selector work",
+    "blocks": [
+      {
+        "kind": "eq",
+        "text": "n≥2: p=2, M=4n, N=4n−1, E=4n−2, T=1"
+      },
+      {
+        "kind": "text",
+        "text": "The two words share exactly ba. No positive prefix starts with bb."
+      },
+      {
+        "kind": "table",
+        "headers": [
+          "Charged selector group",
+          "Events"
+        ],
+        "rows": [
+          [
+            "Configuration, input, active scan",
+            "4n+8"
+          ],
+          [
+            "Singleton gate and global prefixes",
+            "4n"
+          ],
+          [
+            "Projection and prefix-pair tests",
+            "8n+5"
+          ],
+          [
+            "Local features",
+            "4n+6"
+          ],
+          [
+            "Total H",
+            "20n+19"
+          ]
+        ],
+        "widths": [
+          3,
+          1
+        ],
+        "rowHeight": 43
+      },
+      {
+        "kind": "text",
+        "text": "Each local positive set is one word, aⁿ or bⁿ. Duplicated images count once."
+      }
+    ],
+    "notes": "برای n حداقل دو، رشتهٔ اول در حرف سوم a و رشتهٔ دوم در حرف سوم b دارد؛ بنابراین پیشوند مشترک دقیقاً ba است. تعداد پیشوندهای دو رشته برابر یک به اضافهٔ دو طول، منهای دو پیشوند مشترک، یعنی ۴n منهای یک می‌شود. همهٔ پیشوندهای غیرخالی با b و بعد، در صورت طول کافی، با ba شروع می‌شوند. اگر bt با t غیرخالی بخواهد پیشوند باشد باید با bb شروع شود که نداریم؛ فقط t خالی شمرده می‌شود و T یک است. جدول هزینهٔ انتخاب‌گر، همان حلقه‌های برنامه را گروه‌بندی می‌کند. پیکربندی و پیمایش اول ۴n به اضافهٔ هشت است؛ دروازهٔ تک‌مثبت و ایجاد پیشوندها مجموعاً ۴n است؛ تصویرسازی و آزمون جفت‌های پیشوند ۸n به اضافهٔ پنج؛ ویژگی‌های محلی ۴n به اضافهٔ شش. جمع ۲۰n به اضافهٔ نوزده است. هیچ شاخهٔ زودهنگام دیگری این ورودی را نمی‌گیرد و بررسی خانوادهٔ نشانگر، چون منفی نداریم، وارد پیمایش رکورد نمی‌شود. تصویرهای تکراری به یک عضو مثبت محلی تبدیل می‌شوند.",
+    "seconds": 0,
+    "proof": "Research §5, event table",
+    "source": "Research: research/Research_Proofs_EN.md and earlier bundled proofs. Fixed program: research/static_selector.py and research/rpni_work_reference.py. All cost claims use the declared W_ref event model."
+  },
+  {
+    "title": "Net Split proof for every n≥4",
+    "blocks": [
+      {
+        "kind": "eq",
+        "text": "v(n)=n²+12n+11,     Π=4n+4"
+      },
+      {
+        "kind": "eq",
+        "text": "WS=Π+2v(n)=2n²+28n+26"
+      },
+      {
+        "kind": "eq",
+        "text": "LG=8n²+38n−6,     H=20n+19"
+      },
+      {
+        "kind": "eq",
+        "text": "LG−H−WS=6n²−10n−51"
+      },
+      {
+        "kind": "text",
+        "text": "At n=4 the margin is 5. Its next increment is 12n−4>0."
+      },
+      {
+        "kind": "text",
+        "text": "All n≥4 receive net Split. Earlier LG−WS=−2(n−4)²≤0 gave UNKNOWN."
+      }
+    ],
+    "notes": "هزینهٔ دقیق یک مثبت تک‌الفبایی طول n از فرمول قبلی، n مربع به اضافهٔ ۱۲n و یازده است. دو عامل داریم و آماده‌سازی ۴n به اضافهٔ چهار است، پس فرمول Split حاصل می‌شود. در کران پایینِ همه‌ادغام‌پذیر، I برابر ۱۲n منهای یک، C(N,1) برابر J(۴n منهای یک)، و s دو و D صفر است. جایگذاری، ۸n مربع به اضافهٔ ۳۸n منهای شش را می‌دهد. H را کم و سپس هزینهٔ Split را کم می‌کنیم؛ عبارت چندجمله‌ای اسلاید حاصل می‌شود. مقدار آن برای چهار پنج است و افزایش صحیح آن ۱۲n منهای چهار است؛ پس برای تمام n حداقل چهار مثبت می‌ماند. کران پایین قبلی ۴۴n منهای شش بود که اختلافش با هزینهٔ Split منفیِ دو برابر مربع n منهای چهار است؛ هرگز جدایی لازم را نمی‌داد. دیگر شاخه‌های قبلی نیز به این خانواده نمی‌خوردند. بنابراین این گسترش برای بی‌نهایت ورودی ثابت شده است. چون منفی نداریم، در هر دو مسیر همهٔ تلاش‌ها نگه داشته، قرمز ریشه می‌ماند و با دسترس‌پذیری در پایان فقط یک حالت نهایی با حلقه‌های پشتیبان مثبت داریم؛ در این خانواده هر دو زبان دقیقاً ستارهٔ a و b هستند.",
+    "seconds": 0,
+    "proof": "Research §5",
+    "source": "Research: research/Research_Proofs_EN.md and earlier bundled proofs. Fixed program: research/static_selector.py and research/rpni_work_reference.py. All cost claims use the declared W_ref event model."
+  },
+  {
+    "title": "Exact costs for a broader positive class",
+    "blocks": [
+      {
+        "kind": "text",
+        "text": "A positive trie has one edge per observed label exactly when E=|A|."
+      },
+      {
+        "kind": "text",
+        "text": "Projection preserves this property, including shared prefixes and terminals.",
+        "height": 77
+      },
+      {
+        "kind": "eq",
+        "text": "No negatives: W=B(m,p,E)=m+p+(11E²+25E+6)/2"
+      },
+      {
+        "kind": "text",
+        "text": "Each fold has one union and one stable pass. All E iterations keep."
+      },
+      {
+        "kind": "eq",
+        "text": "W=I+sum(5q+3E+2; q=2,…,E+1)+2+E"
+      },
+      {
+        "kind": "text",
+        "text": "Apply the same exact formula to deduplicated local samples and add Π."
+      }
+    ],
+    "notes": "هر حرف دیده‌شده حداقل یک یال در درخت پیشوند دارد، پس برابری تعداد یال‌ها و حروف معادل این است که هر حرف فقط روی یک یال باشد. اگر یال یکتای a از پیشوند u به ua باشد، تمام وقوع‌های مثبت a همان پیشوند u را دارند؛ پس بعد از تصویرسازی، همه از همان تصویر u به تصویر u سپس a می‌روند و یال a در عامل هم یکتا می‌ماند. در هر خارج‌قسمت، چون یک یال با هر حرف داریم، تعارض دو مقصد هم‌حرف رخ نمی‌دهد؛ هر تلاش دقیقاً یک اجتماع و یک دور پایدار بستار دارد. با منفی تهی همه پذیرفته می‌شوند و E تکرار داریم، با q از E به اضافهٔ یک تا دو. هزینهٔ هر تکرار پنج q به اضافهٔ سه E و دو است و مقداردهی اولیه و مرز نهایی هم جدا اضافه می‌شوند. جمع بسته همان B است. بنابراین برای کل این کلاس مثبت‌های چندتایی، هزینهٔ هر دو مسیر دقیق است. برای E صفر فرمول p به اضافهٔ سه می‌شود و نمونهٔ تهی یا فقط رشتهٔ خالی را هم درست حساب می‌کند.",
+    "seconds": 0,
+    "proof": "Previous Coverage §§2–3",
+    "source": "Research: research/Research_Proofs_EN.md and earlier bundled proofs. Fixed program: research/static_selector.py and research/rpni_work_reference.py. All cost claims use the declared W_ref event model."
+  },
+  {
+    "title": "Complete finite-domain lookup proof",
+    "blocks": [
+      {
+        "kind": "text",
+        "text": "Fix a finite vocabulary V of d words and an ordered partition."
+      },
+      {
+        "kind": "eq",
+        "text": "key=Σᵢ labelᵢ·3ⁱ,     labelᵢ∈{0,1,2}"
+      },
+      {
+        "kind": "text",
+        "text": "Absent, positive, negative give exactly 3ᵈ keys. Compilation fills every key.",
+        "height": 77
+      },
+      {
+        "kind": "text",
+        "text": "Reference termination and the witness test give an exact cost/status row."
+      },
+      {
+        "kind": "eq",
+        "text": "Total saving versus Global needs Σⱼ(WG,j−Wchosen,j)>Coffline+Ssetup+ΣⱼQj"
+      },
+      {
+        "kind": "text",
+        "text": "Outside V means OUT_OF_DOMAIN. No finite V covers all unbounded strings."
+      }
+    ],
+    "notes": "برای هر رشتهٔ واژگان دقیقاً یکی از سه وضعیت داریم. نمایش مبنای سه، نگاشت یک‌به‌یک این برچسب‌گذاری‌ها به عددهای صفر تا سه به توان d منهای یک است. کامپایلر برای هر برچسب‌گذاری، شاهدهای منفی را بررسی می‌کند، Global و در صورت امکان عوامل را با برنامهٔ خاتمه‌پذیر اجرا و هزینه را ثبت می‌کند. پس هیچ کلید خالی نمی‌ماند. پرس‌وجو همان کلید را می‌سازد و سطر را می‌خواند؛ کد خواندن جدول هیچ یادگیرنده‌ای وارد یا اجرا نمی‌کند. این اثبات کامل بودن روی دامنهٔ ثابت است، با فرض درستی برنامهٔ مرجع و کامپایلر که مستقل بررسی شده‌اند. هزینهٔ آفلاین C، آماده‌سازی S و کار هر پرس‌وجو Q است. با تفریق هزینهٔ کل روش از همیشه اجرای Global، شرط سود خالص روی اسلاید حاصل می‌شود. در مثال جدول، آفلاین ۴۰۵۹۲۱ و آماده‌سازی ۲۲۱۵ است. ذخیره‌سازی همین روش سه به توان d سطر می‌خواهد؛ این را کران پایین همهٔ روش‌های ممکن معرفی نمی‌کنیم. واژهٔ خارج از دامنه را حدس نمی‌زنیم و هیچ دامنهٔ متناهی همهٔ طول‌های نامحدود را شامل نمی‌شود.",
+    "seconds": 0,
+    "proof": "Research §7; Previous Coverage §§6–8",
+    "source": "Research: research/Research_Proofs_EN.md and earlier bundled proofs. Fixed program: research/static_selector.py and research/rpni_work_reference.py. All cost claims use the declared W_ref event model."
+  },
+  {
+    "title": "Counterexamples and independent checks",
+    "blocks": [
+      {
+        "kind": "text",
+        "text": "Misapplying the inert bound: S⁺={a}, S⁻={ε} gives 24, but W=25.",
+        "height": 77
+      },
+      {
+        "kind": "text",
+        "text": "A cheaper pipeline may not pay for selection: S⁺={ε}, S⁻=∅, two singleton blocks.",
+        "height": 77
+      },
+      {
+        "kind": "eq",
+        "text": "WG=4, WS=10, H=7.     H+WG=11>10"
+      },
+      {
+        "kind": "text",
+        "text": "Same counts and volume can have opposite winners. Exact ties also occur."
+      },
+      {
+        "kind": "text",
+        "text": "55624 case executions. 174998 independently checked candidate quotients."
+      },
+      {
+        "kind": "text",
+        "text": "Finite checks supplement proofs. Counts may include repeated inputs."
+      }
+    ],
+    "notes": "اولین مثال نشان می‌دهد کران بالای حالت بی‌اثر را نمی‌توان به منفی دلخواه تعمیم داد. برای مثبت a و منفی خالی، ادغام ریشه و a پذیرفتن خالی را ایجاد می‌کند و رد می‌شود؛ هزینهٔ واقعی ۲۵ است، ولی استفادهٔ نادرست از فرمول بی‌اثر با یک رویداد منفی، ۲۴ می‌دهد. مثال دوم، مثبتِ فقط رشتهٔ خالی بدون منفی و دو بلوک تک‌حرفی است. Global چهار و Split ده هزینه دارد، اما انتخاب‌گر فعلی هفت هزینه دارد؛ پس برنده بودن به تنهایی سود خالص نیست. برای ناکافی بودن شمار و حجم، دو نمونهٔ اسلاید دوازده با اثبات مستقل کافی‌اند و تساوی هم در مثبت‌های a و b با دو بلوک رخ می‌دهد. پنج بررسی بازتولیدپذیر در مجموع ۵۵۶۲۴ اجرای مورد آزمون و ۱۷۴۹۹۸ کنترل مستقل ادغام دارند. تمام زیرمجموعه‌های مثبتِ رشته‌های دودویی تا طول سه و نمونه‌های منفی اثرگذار نیز بررسی شده‌اند. بستار با اشباع مستقلِ افراز حالت‌ها و مدل‌ها با یادگیرندهٔ مستقل تطبیق داده شده‌اند. این کنترل‌ها جای اثبات نامتناهی را نمی‌گیرند و مصونیت مطلق کد را ثابت نمی‌کنند.",
+    "seconds": 0,
+    "proof": "Research §§4–9; all audit result files",
+    "source": "Research: research/Research_Proofs_EN.md and earlier bundled proofs. Fixed program: research/static_selector.py and research/rpni_work_reference.py. All cost claims use the declared W_ref event model."
+  },
+  {
+    "title": "Next question: output-language equality",
+    "blocks": [
+      {
+        "kind": "eq",
+        "text": "L(Global) = ⋂ᵢ πᵢ⁻¹(L(Localᵢ)) ?"
+      },
+      {
+        "kind": "text",
+        "text": "Find additional pre-training conditions for incomplete data and effective negatives.",
+        "height": 77
+      },
+      {
+        "kind": "text",
+        "text": "Special equal-output families are proved. General cost certificates stay separate.",
+        "height": 77
+      },
+      {
+        "kind": "text",
+        "text": "Further cost work: reduce UNKNOWN without simulating the learner."
+      },
+      {
+        "kind": "text",
+        "text": "Current guarantee: exact mathematical claims under the stated reference contract."
+      }
+    ],
+    "notes": "سؤال بازِ برابری را در آخر کل پاورپوینت هم نگه می‌داریم. برای نمونه‌های بدون منفی و بعضی منفی‌های بی‌اثر، استدلال یک حالت نهایی با حلقه‌های پشتیبان، برابری را روی تمام رشته‌ها ثابت می‌کند. ولی ناحیهٔ گواهی هزینه با منفی‌های اثرگذار بزرگ‌تر است. نمونهٔ مشخصی با شش مثبت aabb، abab، abba، baab، baba و bbaa و منفی‌های bbb و c، برای بلوک‌های تک‌حرفی a و b و c گواهی هزینه دارد و خروجی‌ها متفاوت‌اند. اجرای مرجع جهانی سه حالت دارد که همه نهایی‌اند: از ریشه با a به ریشه و با b به حالت b می‌رود؛ از b با a به ریشه و با b به bb؛ از bb با a به ریشه و یال b ندارد. عامل a حلقهٔ نهایی a دارد، عامل b دو حالت با تناوب b و فقط حالت آغازین نهایی دارد و عامل c فقط خالی را می‌پذیرد. بنابراین رشتهٔ b در Global پذیرفته و در محصول رد می‌شود. ترتیب شش تلاش جهانی به صورت ادغام ریشه با a، ریشه با b، ریشه با ba، ریشه با bb، b با bb و ریشه با bba است و وضعیت نگهداری آن‌ها به ترتیب بله، خیر، بله، خیر، خیر، بله است؛ جدول‌ها و ردهای مستقل همراه گزارش‌اند. پس سؤال مرحلهٔ بعد، پیدا کردن فرض‌های اضافهٔ کافی است، نه تعمیم بی‌قید برابری به همهٔ ناحیهٔ هزینه. انتخاب ارزان برای همهٔ ورودی‌های بدون کران نیز در ادامهٔ مستقل پژوهش هزینه باقی می‌ماند.",
+    "seconds": 0,
+    "proof": "Research §7; research/quality_models.json and quality_global_trace.json",
+    "source": "Research: research/Research_Proofs_EN.md and earlier bundled proofs. Fixed program: research/static_selector.py and research/rpni_work_reference.py. All cost claims use the declared W_ref event model."
+  }
+]

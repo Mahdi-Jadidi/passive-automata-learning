@@ -1,0 +1,120 @@
+{
+  "input": {
+    "positive": [
+      "aabb",
+      "abab",
+      "abba",
+      "baab",
+      "baba",
+      "bbaa"
+    ],
+    "negative": [
+      "bbb",
+      "c"
+    ],
+    "blocks": [
+      "a",
+      "b",
+      "c"
+    ],
+    "witness": "b",
+    "global_accept": true,
+    "split_accept": false
+  },
+  "global_model": {
+    "states": [
+      "",
+      "b",
+      "bb"
+    ],
+    "start": "",
+    "finals": [
+      "",
+      "b",
+      "bb"
+    ],
+    "edges": [
+      {
+        "source": "",
+        "symbol": "a",
+        "target": ""
+      },
+      {
+        "source": "",
+        "symbol": "b",
+        "target": "b"
+      },
+      {
+        "source": "b",
+        "symbol": "a",
+        "target": ""
+      },
+      {
+        "source": "b",
+        "symbol": "b",
+        "target": "bb"
+      },
+      {
+        "source": "bb",
+        "symbol": "a",
+        "target": ""
+      }
+    ]
+  },
+  "local_models": [
+    {
+      "states": [
+        ""
+      ],
+      "start": "",
+      "finals": [
+        ""
+      ],
+      "edges": [
+        {
+          "source": "",
+          "symbol": "a",
+          "target": ""
+        }
+      ]
+    },
+    {
+      "states": [
+        "",
+        "b"
+      ],
+      "start": "",
+      "finals": [
+        ""
+      ],
+      "edges": [
+        {
+          "source": "",
+          "symbol": "b",
+          "target": "b"
+        },
+        {
+          "source": "b",
+          "symbol": "b",
+          "target": ""
+        }
+      ]
+    },
+    {
+      "states": [
+        ""
+      ],
+      "start": "",
+      "finals": [
+        ""
+      ],
+      "edges": []
+    }
+  ],
+  "global_accept_b": true,
+  "local_accept_projections": [
+    true,
+    false,
+    true
+  ]
+}

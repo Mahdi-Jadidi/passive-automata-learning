@@ -1,0 +1,114 @@
+{
+  "status": "passed",
+  "claim": "Finite adversarial checks supplement mathematical proofs. No proof-assistant or wall-clock guarantee.",
+  "counts": {
+    "exhaustive_binary_samples": 2187,
+    "renamed_full_families": 24,
+    "family_n5": 1,
+    "all_subsets_n2": 64,
+    "delete_one_n3": 20,
+    "extra_negatives": 37,
+    "extra_positive": 3,
+    "invalid_inputs_rejected": 5,
+    "overhead_counterexample": 1,
+    "equal_output_not_target_recovery_counterexample": 1,
+    "equal_count_global_family": 2
+  },
+  "decisions": {
+    "GLOBAL": 225,
+    "UNKNOWN": 1163,
+    "INFEASIBLE": 925,
+    "SPLIT": 26
+  },
+  "independent_candidate_checks": 14845,
+  "language_equivalence_method": "Exact reachable-product BFS with implicit rejecting sinks",
+  "reference_oracle": "Set-partition saturation and independent learner",
+  "overhead_counterexample": {
+    "global": 4,
+    "split": 10,
+    "selector": 7,
+    "selector_plus_global": 11
+  },
+  "family_examples": [
+    {
+      "n": 1,
+      "prediction": {
+        "decision": "SPLIT",
+        "rule": "complete_balanced_interleavings_with_marker",
+        "n": 1,
+        "global_lower": 103,
+        "split_upper": 67,
+        "selector_work": 20,
+        "beats_global_baseline_including_selector": true,
+        "same_output_language": true,
+        "scope": "Specified W event model"
+      },
+      "global": 103,
+      "split": 67
+    },
+    {
+      "n": 2,
+      "prediction": {
+        "decision": "SPLIT",
+        "rule": "complete_balanced_interleavings_with_marker",
+        "n": 2,
+        "global_lower": 258,
+        "split_upper": 161,
+        "selector_work": 48,
+        "beats_global_baseline_including_selector": true,
+        "same_output_language": true,
+        "scope": "Specified W event model"
+      },
+      "global": 568,
+      "split": 131
+    },
+    {
+      "n": 3,
+      "prediction": {
+        "decision": "SPLIT",
+        "rule": "complete_balanced_interleavings_with_marker",
+        "n": 3,
+        "global_lower": 1451,
+        "split_upper": 353,
+        "selector_work": 172,
+        "beats_global_baseline_including_selector": true,
+        "same_output_language": true,
+        "scope": "Specified W event model"
+      },
+      "global": 4653,
+      "split": 303
+    },
+    {
+      "n": 4,
+      "prediction": {
+        "decision": "SPLIT",
+        "rule": "complete_balanced_interleavings_with_marker",
+        "n": 4,
+        "global_lower": 11674,
+        "split_upper": 1005,
+        "selector_work": 712,
+        "beats_global_baseline_including_selector": true,
+        "same_output_language": true,
+        "scope": "Specified W event model"
+      },
+      "global": 51280,
+      "split": 931
+    },
+    {
+      "n": 5,
+      "prediction": {
+        "decision": "SPLIT",
+        "rule": "complete_balanced_interleavings_with_marker",
+        "n": 5,
+        "global_lower": 127377,
+        "split_upper": 3581,
+        "selector_work": 3036,
+        "beats_global_baseline_including_selector": true,
+        "same_output_language": true,
+        "scope": "Specified W event model"
+      },
+      "global": 654190,
+      "split": 3479
+    }
+  ]
+}

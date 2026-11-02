@@ -1,0 +1,610 @@
+{
+  "status": "passed",
+  "case_executions": 36714,
+  "counts": {
+    "all_positive_subsets_length3": 32768,
+    "all_labeled_samples_length2": 2187,
+    "arbitrary_effective_negatives": 1500,
+    "inert_negative_variants": 250,
+    "two_trace_infinite_family": 9
+  },
+  "independent_candidate_checks": 96071,
+  "family": [
+    {
+      "n": 2,
+      "WG": 162,
+      "WS": 90,
+      "certificate": {
+        "decision": "PIPELINE_SPLIT",
+        "rule": "static_prefix_forest",
+        "selector_work": 59,
+        "selector_events": {
+          "block": 2,
+          "alphabet_character": 2,
+          "input_word": 2,
+          "input_character": 8,
+          "active_test": 2,
+          "singleton_gate": 1,
+          "global_prefix_create": 7,
+          "projection_word": 2,
+          "projection_character": 8,
+          "projection_slot": 4,
+          "prefix_pair_test": 7,
+          "local_factor": 2,
+          "local_prefix_create": 6,
+          "local_positive_word": 2,
+          "local_positive_character": 4
+        },
+        "same_output_language": true,
+        "metric": "W_ref loop events; library internals excluded",
+        "quality_reason": "all assigned local negatives contain an unseen local symbol",
+        "global_interval": [
+          102,
+          282
+        ],
+        "split_interval": [
+          90,
+          90
+        ],
+        "first_symbol": "b",
+        "forced_prefix_pairs": 1,
+        "global_prefix_states": 7,
+        "preparation": 12,
+        "local_factors": [
+          {
+            "positive": [
+              "aa"
+            ],
+            "negative": [],
+            "states": 3,
+            "lower": 39,
+            "upper": 39,
+            "exact": true
+          },
+          {
+            "positive": [
+              "bb"
+            ],
+            "negative": [],
+            "states": 3,
+            "lower": 39,
+            "upper": 39,
+            "exact": true
+          }
+        ]
+      },
+      "previous": "UNKNOWN"
+    },
+    {
+      "n": 3,
+      "WG": 298,
+      "WS": 128,
+      "certificate": {
+        "decision": "PIPELINE_SPLIT",
+        "rule": "static_prefix_forest",
+        "selector_work": 79,
+        "selector_events": {
+          "block": 2,
+          "alphabet_character": 2,
+          "input_word": 2,
+          "input_character": 12,
+          "active_test": 2,
+          "singleton_gate": 1,
+          "global_prefix_create": 11,
+          "projection_word": 2,
+          "projection_character": 12,
+          "projection_slot": 4,
+          "prefix_pair_test": 11,
+          "local_factor": 2,
+          "local_prefix_create": 8,
+          "local_positive_word": 2,
+          "local_positive_character": 6
+        },
+        "same_output_language": true,
+        "metric": "W_ref loop events; library internals excluded",
+        "quality_reason": "all assigned local negatives contain an unseen local symbol",
+        "global_interval": [
+          180,
+          684
+        ],
+        "split_interval": [
+          128,
+          128
+        ],
+        "first_symbol": "b",
+        "forced_prefix_pairs": 1,
+        "global_prefix_states": 11,
+        "preparation": 16,
+        "local_factors": [
+          {
+            "positive": [
+              "aaa"
+            ],
+            "negative": [],
+            "states": 4,
+            "lower": 56,
+            "upper": 56,
+            "exact": true
+          },
+          {
+            "positive": [
+              "bbb"
+            ],
+            "negative": [],
+            "states": 4,
+            "lower": 56,
+            "upper": 56,
+            "exact": true
+          }
+        ]
+      },
+      "previous": "UNKNOWN"
+    },
+    {
+      "n": 4,
+      "WG": 466,
+      "WS": 170,
+      "certificate": {
+        "decision": "NET_SPLIT_EQUAL",
+        "rule": "static_prefix_forest",
+        "selector_work": 99,
+        "selector_events": {
+          "block": 2,
+          "alphabet_character": 2,
+          "input_word": 2,
+          "input_character": 16,
+          "active_test": 2,
+          "singleton_gate": 1,
+          "global_prefix_create": 15,
+          "projection_word": 2,
+          "projection_character": 16,
+          "projection_slot": 4,
+          "prefix_pair_test": 15,
+          "local_factor": 2,
+          "local_prefix_create": 10,
+          "local_positive_word": 2,
+          "local_positive_character": 8
+        },
+        "same_output_language": true,
+        "metric": "W_ref loop events; library internals excluded",
+        "quality_reason": "all assigned local negatives contain an unseen local symbol",
+        "global_interval": [
+          274,
+          1262
+        ],
+        "split_interval": [
+          170,
+          170
+        ],
+        "first_symbol": "b",
+        "forced_prefix_pairs": 1,
+        "global_prefix_states": 15,
+        "preparation": 20,
+        "local_factors": [
+          {
+            "positive": [
+              "aaaa"
+            ],
+            "negative": [],
+            "states": 5,
+            "lower": 75,
+            "upper": 75,
+            "exact": true
+          },
+          {
+            "positive": [
+              "bbbb"
+            ],
+            "negative": [],
+            "states": 5,
+            "lower": 75,
+            "upper": 75,
+            "exact": true
+          }
+        ]
+      },
+      "previous": "UNKNOWN"
+    },
+    {
+      "n": 5,
+      "WG": 666,
+      "WS": 216,
+      "certificate": {
+        "decision": "NET_SPLIT_EQUAL",
+        "rule": "static_prefix_forest",
+        "selector_work": 119,
+        "selector_events": {
+          "block": 2,
+          "alphabet_character": 2,
+          "input_word": 2,
+          "input_character": 20,
+          "active_test": 2,
+          "singleton_gate": 1,
+          "global_prefix_create": 19,
+          "projection_word": 2,
+          "projection_character": 20,
+          "projection_slot": 4,
+          "prefix_pair_test": 19,
+          "local_factor": 2,
+          "local_prefix_create": 12,
+          "local_positive_word": 2,
+          "local_positive_character": 10
+        },
+        "same_output_language": true,
+        "metric": "W_ref loop events; library internals excluded",
+        "quality_reason": "all assigned local negatives contain an unseen local symbol",
+        "global_interval": [
+          384,
+          2016
+        ],
+        "split_interval": [
+          216,
+          216
+        ],
+        "first_symbol": "b",
+        "forced_prefix_pairs": 1,
+        "global_prefix_states": 19,
+        "preparation": 24,
+        "local_factors": [
+          {
+            "positive": [
+              "aaaaa"
+            ],
+            "negative": [],
+            "states": 6,
+            "lower": 96,
+            "upper": 96,
+            "exact": true
+          },
+          {
+            "positive": [
+              "bbbbb"
+            ],
+            "negative": [],
+            "states": 6,
+            "lower": 96,
+            "upper": 96,
+            "exact": true
+          }
+        ]
+      },
+      "previous": "UNKNOWN"
+    },
+    {
+      "n": 6,
+      "WG": 898,
+      "WS": 266,
+      "certificate": {
+        "decision": "NET_SPLIT_EQUAL",
+        "rule": "static_prefix_forest",
+        "selector_work": 139,
+        "selector_events": {
+          "block": 2,
+          "alphabet_character": 2,
+          "input_word": 2,
+          "input_character": 24,
+          "active_test": 2,
+          "singleton_gate": 1,
+          "global_prefix_create": 23,
+          "projection_word": 2,
+          "projection_character": 24,
+          "projection_slot": 4,
+          "prefix_pair_test": 23,
+          "local_factor": 2,
+          "local_prefix_create": 14,
+          "local_positive_word": 2,
+          "local_positive_character": 12
+        },
+        "same_output_language": true,
+        "metric": "W_ref loop events; library internals excluded",
+        "quality_reason": "all assigned local negatives contain an unseen local symbol",
+        "global_interval": [
+          510,
+          2946
+        ],
+        "split_interval": [
+          266,
+          266
+        ],
+        "first_symbol": "b",
+        "forced_prefix_pairs": 1,
+        "global_prefix_states": 23,
+        "preparation": 28,
+        "local_factors": [
+          {
+            "positive": [
+              "aaaaaa"
+            ],
+            "negative": [],
+            "states": 7,
+            "lower": 119,
+            "upper": 119,
+            "exact": true
+          },
+          {
+            "positive": [
+              "bbbbbb"
+            ],
+            "negative": [],
+            "states": 7,
+            "lower": 119,
+            "upper": 119,
+            "exact": true
+          }
+        ]
+      },
+      "previous": "UNKNOWN"
+    },
+    {
+      "n": 8,
+      "WG": 1458,
+      "WS": 378,
+      "certificate": {
+        "decision": "NET_SPLIT_EQUAL",
+        "rule": "static_prefix_forest",
+        "selector_work": 179,
+        "selector_events": {
+          "block": 2,
+          "alphabet_character": 2,
+          "input_word": 2,
+          "input_character": 32,
+          "active_test": 2,
+          "singleton_gate": 1,
+          "global_prefix_create": 31,
+          "projection_word": 2,
+          "projection_character": 32,
+          "projection_slot": 4,
+          "prefix_pair_test": 31,
+          "local_factor": 2,
+          "local_prefix_create": 18,
+          "local_positive_word": 2,
+          "local_positive_character": 16
+        },
+        "same_output_language": true,
+        "metric": "W_ref loop events; library internals excluded",
+        "quality_reason": "all assigned local negatives contain an unseen local symbol",
+        "global_interval": [
+          810,
+          5334
+        ],
+        "split_interval": [
+          378,
+          378
+        ],
+        "first_symbol": "b",
+        "forced_prefix_pairs": 1,
+        "global_prefix_states": 31,
+        "preparation": 36,
+        "local_factors": [
+          {
+            "positive": [
+              "aaaaaaaa"
+            ],
+            "negative": [],
+            "states": 9,
+            "lower": 171,
+            "upper": 171,
+            "exact": true
+          },
+          {
+            "positive": [
+              "bbbbbbbb"
+            ],
+            "negative": [],
+            "states": 9,
+            "lower": 171,
+            "upper": 171,
+            "exact": true
+          }
+        ]
+      },
+      "previous": "UNKNOWN"
+    },
+    {
+      "n": 12,
+      "WG": 2962,
+      "WS": 650,
+      "certificate": {
+        "decision": "NET_SPLIT_EQUAL",
+        "rule": "static_prefix_forest",
+        "selector_work": 259,
+        "selector_events": {
+          "block": 2,
+          "alphabet_character": 2,
+          "input_word": 2,
+          "input_character": 48,
+          "active_test": 2,
+          "singleton_gate": 1,
+          "global_prefix_create": 47,
+          "projection_word": 2,
+          "projection_character": 48,
+          "projection_slot": 4,
+          "prefix_pair_test": 47,
+          "local_factor": 2,
+          "local_prefix_create": 26,
+          "local_positive_word": 2,
+          "local_positive_character": 24
+        },
+        "same_output_language": true,
+        "metric": "W_ref loop events; library internals excluded",
+        "quality_reason": "all assigned local negatives contain an unseen local symbol",
+        "global_interval": [
+          1602,
+          12222
+        ],
+        "split_interval": [
+          650,
+          650
+        ],
+        "first_symbol": "b",
+        "forced_prefix_pairs": 1,
+        "global_prefix_states": 47,
+        "preparation": 52,
+        "local_factors": [
+          {
+            "positive": [
+              "aaaaaaaaaaaa"
+            ],
+            "negative": [],
+            "states": 13,
+            "lower": 299,
+            "upper": 299,
+            "exact": true
+          },
+          {
+            "positive": [
+              "bbbbbbbbbbbb"
+            ],
+            "negative": [],
+            "states": 13,
+            "lower": 299,
+            "upper": 299,
+            "exact": true
+          }
+        ]
+      },
+      "previous": "UNKNOWN"
+    },
+    {
+      "n": 20,
+      "WG": 7506,
+      "WS": 1386,
+      "certificate": {
+        "decision": "NET_SPLIT_EQUAL",
+        "rule": "static_prefix_forest",
+        "selector_work": 419,
+        "selector_events": {
+          "block": 2,
+          "alphabet_character": 2,
+          "input_word": 2,
+          "input_character": 80,
+          "active_test": 2,
+          "singleton_gate": 1,
+          "global_prefix_create": 79,
+          "projection_word": 2,
+          "projection_character": 80,
+          "projection_slot": 4,
+          "prefix_pair_test": 79,
+          "local_factor": 2,
+          "local_prefix_create": 42,
+          "local_positive_word": 2,
+          "local_positive_character": 40
+        },
+        "same_output_language": true,
+        "metric": "W_ref loop events; library internals excluded",
+        "quality_reason": "all assigned local negatives contain an unseen local symbol",
+        "global_interval": [
+          3954,
+          34446
+        ],
+        "split_interval": [
+          1386,
+          1386
+        ],
+        "first_symbol": "b",
+        "forced_prefix_pairs": 1,
+        "global_prefix_states": 79,
+        "preparation": 84,
+        "local_factors": [
+          {
+            "positive": [
+              "aaaaaaaaaaaaaaaaaaaa"
+            ],
+            "negative": [],
+            "states": 21,
+            "lower": 651,
+            "upper": 651,
+            "exact": true
+          },
+          {
+            "positive": [
+              "bbbbbbbbbbbbbbbbbbbb"
+            ],
+            "negative": [],
+            "states": 21,
+            "lower": 651,
+            "upper": 651,
+            "exact": true
+          }
+        ]
+      },
+      "previous": "UNKNOWN"
+    },
+    {
+      "n": 30,
+      "WG": 16066,
+      "WS": 2666,
+      "certificate": {
+        "decision": "NET_SPLIT_EQUAL",
+        "rule": "static_prefix_forest",
+        "selector_work": 619,
+        "selector_events": {
+          "block": 2,
+          "alphabet_character": 2,
+          "input_word": 2,
+          "input_character": 120,
+          "active_test": 2,
+          "singleton_gate": 1,
+          "global_prefix_create": 119,
+          "projection_word": 2,
+          "projection_character": 120,
+          "projection_slot": 4,
+          "prefix_pair_test": 119,
+          "local_factor": 2,
+          "local_prefix_create": 62,
+          "local_positive_word": 2,
+          "local_positive_character": 60
+        },
+        "same_output_language": true,
+        "metric": "W_ref loop events; library internals excluded",
+        "quality_reason": "all assigned local negatives contain an unseen local symbol",
+        "global_interval": [
+          8334,
+          78066
+        ],
+        "split_interval": [
+          2666,
+          2666
+        ],
+        "first_symbol": "b",
+        "forced_prefix_pairs": 1,
+        "global_prefix_states": 119,
+        "preparation": 124,
+        "local_factors": [
+          {
+            "positive": [
+              "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+            ],
+            "negative": [],
+            "states": 31,
+            "lower": 1271,
+            "upper": 1271,
+            "exact": true
+          },
+          {
+            "positive": [
+              "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+            ],
+            "negative": [],
+            "states": 31,
+            "lower": 1271,
+            "upper": 1271,
+            "exact": true
+          }
+        ]
+      },
+      "previous": "UNKNOWN"
+    }
+  ],
+  "negative_premise_counterexample": {
+    "positive": [
+      "a"
+    ],
+    "negative": [
+      ""
+    ],
+    "actual": 25,
+    "invalid_upper": 24
+  },
+  "note": "Finite audit complements the general potential and amortization proofs."
+}

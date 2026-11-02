@@ -1,0 +1,142 @@
+[
+  {
+    "positive": [
+      "ab",
+      "ba"
+    ],
+    "negative": [
+      "c"
+    ],
+    "blocks": [
+      "a",
+      "b",
+      "c"
+    ],
+    "result": {
+      "status": "NET_SPLIT",
+      "certified_region": "S",
+      "pipeline_winner": "SPLIT",
+      "metric": "W_ref loop events, not elapsed time",
+      "evidence": {
+        "decision": "SPLIT",
+        "rule": "complete_balanced_interleavings_with_marker",
+        "n": 1,
+        "global_lower": 103,
+        "split_upper": 67,
+        "selector_work": 20,
+        "beats_global_baseline_including_selector": true,
+        "same_output_language": true,
+        "scope": "Specified W event model"
+      }
+    }
+  },
+  {
+    "positive": [
+      "a",
+      "aa"
+    ],
+    "negative": [
+      "aaa"
+    ],
+    "blocks": [
+      "a",
+      "b"
+    ],
+    "result": {
+      "status": "NET_GLOBAL",
+      "certified_region": "G",
+      "pipeline_winner": "GLOBAL",
+      "metric": "W_ref loop events, not elapsed time",
+      "evidence": {
+        "decision": "GLOBAL",
+        "rule": "single_active_block",
+        "cost_gap_split_minus_global": 18,
+        "selector_work": 15,
+        "beats_split_baseline_including_selector": true,
+        "same_output_language": true,
+        "scope": "Specified W event model"
+      }
+    }
+  },
+  {
+    "positive": [
+      ""
+    ],
+    "negative": [],
+    "blocks": [
+      "a",
+      "b"
+    ],
+    "result": {
+      "status": "COST_ONLY",
+      "certified_region": null,
+      "pipeline_winner": "GLOBAL",
+      "metric": "W_ref loop events, not elapsed time",
+      "evidence": {
+        "decision": "GLOBAL",
+        "rule": "single_active_block",
+        "cost_gap_split_minus_global": 6,
+        "selector_work": 7,
+        "beats_split_baseline_including_selector": false,
+        "same_output_language": true,
+        "scope": "Specified W event model"
+      }
+    }
+  },
+  {
+    "positive": [
+      "ab",
+      "ba"
+    ],
+    "negative": [],
+    "blocks": [
+      "a",
+      "b"
+    ],
+    "result": {
+      "status": "UNKNOWN",
+      "certified_region": null,
+      "pipeline_winner": null,
+      "metric": "W_ref loop events, not elapsed time",
+      "evidence": {
+        "decision": "UNKNOWN",
+        "rule": "static_intervals",
+        "global_interval": [
+          15,
+          760
+        ],
+        "split_interval": [
+          18,
+          74
+        ],
+        "selector_work": null,
+        "net_gain_including_selector": "not certified",
+        "same_output_language": "not claimed",
+        "output_requirement": "sample consistency; D-membership not guaranteed for raw global RPNI",
+        "scope": "Specified W event model"
+      }
+    }
+  },
+  {
+    "positive": [
+      "ab"
+    ],
+    "negative": [
+      "ba"
+    ],
+    "blocks": [
+      "a",
+      "b"
+    ],
+    "result": {
+      "status": "INFEASIBLE",
+      "certified_region": null,
+      "pipeline_winner": null,
+      "metric": "W_ref loop events, not elapsed time",
+      "evidence": {
+        "decision": "INFEASIBLE",
+        "scope": "Conjunctive finite-sample decomposition"
+      }
+    }
+  }
+]

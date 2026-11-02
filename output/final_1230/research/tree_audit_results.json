@@ -1,0 +1,109 @@
+{
+  "status": "passed",
+  "case_executions": 738,
+  "counts": {
+    "feasible": 690,
+    "infeasible": 48,
+    "previous_unknown_resolved": 11
+  },
+  "decisions": {
+    "PIPELINE_SPLIT": 271,
+    "PIPELINE_GLOBAL": 67,
+    "TIE": 10,
+    "UNKNOWN": 177,
+    "NET_SPLIT_EQUAL": 163,
+    "NET_SPLIT_COST": 2
+  },
+  "independent_candidate_checks": 8646,
+  "examples": {
+    "new_split": {
+      "positive": [
+        "abc"
+      ],
+      "negative": [
+        ""
+      ],
+      "blocks": [
+        [
+          "a",
+          "c"
+        ],
+        [
+          "b",
+          "z"
+        ]
+      ],
+      "certificate": {
+        "decision": "PIPELINE_SPLIT",
+        "rule": "unique_edge_trie",
+        "selector_work": 46,
+        "selector_events": {
+          "block": 2,
+          "alphabet_character": 4,
+          "input_word": 2,
+          "input_character": 3,
+          "active_test": 2,
+          "singleton_gate": 1,
+          "global_prefix_create": 4,
+          "projection_word": 2,
+          "projection_character": 3,
+          "projection_slot": 4,
+          "negative_witness_slot": 2,
+          "prefix_pair_test": 4,
+          "local_factor": 2,
+          "local_prefix_create": 5,
+          "local_positive_word": 2,
+          "local_positive_character": 3,
+          "local_negative_word": 1
+        },
+        "same_output_language": null,
+        "metric": "W_ref loop events; library internals excluded",
+        "quality_reason": "Equality is not certified; sample consistency is certified.",
+        "global_interval": [
+          94,
+          265
+        ],
+        "split_interval": [
+          85,
+          88
+        ],
+        "first_symbol": "a",
+        "forced_prefix_pairs": 1,
+        "global_prefix_states": 4,
+        "preparation": 9,
+        "local_factors": [
+          {
+            "positive": [
+              "ac"
+            ],
+            "negative": [],
+            "states": 3,
+            "lower": 53,
+            "upper": 53,
+            "exact": true
+          },
+          {
+            "positive": [
+              "b"
+            ],
+            "negative": [
+              ""
+            ],
+            "states": 2,
+            "lower": 23,
+            "upper": 26,
+            "exact": false
+          }
+        ]
+      },
+      "WG": 98,
+      "WS": 87,
+      "description": {
+        "n": 3,
+        "shape": "chain",
+        "partition": "round2"
+      }
+    }
+  },
+  "note": "Targeted tests supplement the infinite-family proofs."
+}

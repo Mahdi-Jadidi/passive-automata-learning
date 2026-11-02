@@ -1,0 +1,518 @@
+{
+  "status": "passed",
+  "valid_case_executions": 12866,
+  "counts": {
+    "exhaustive_binary": 4374,
+    "unknown_resolved_statically": 9720,
+    "unary_inert": 7936,
+    "random_ternary": 300,
+    "long_unary_attacks": 144,
+    "distinct_word_partitions": 108,
+    "nontrivial_tie": 1,
+    "boundary_counterexamples": 3,
+    "invalid_rejected": 5
+  },
+  "old_decisions": {
+    "PIPELINE_GLOBAL": 1014,
+    "UNKNOWN": 10525,
+    "PIPELINE_SPLIT": 31,
+    "INFEASIBLE": 1075,
+    "NET_GLOBAL_EQUAL": 221
+  },
+  "new_decisions": {
+    "PIPELINE_GLOBAL": 3605,
+    "TIE": 2,
+    "PIPELINE_SPLIT": 45,
+    "UNKNOWN": 805,
+    "NET_GLOBAL_EQUAL": 786,
+    "INFEASIBLE": 1075,
+    "NET_GLOBAL_COST": 6462,
+    "NET_SPLIT_EQUAL": 86
+  },
+  "rules": {
+    "root_only_positives": 491,
+    "one_block_identity": 2187,
+    "single_active_block": 185,
+    "single_distinct_word": 111,
+    "static_prefix_forest": 896,
+    "unary_global_inert": 7861,
+    "negative_witness": 1075,
+    "one_letter_positive_empty_negative": 60
+  },
+  "independent_candidate_checks": 48109,
+  "examples": {
+    "tie": {
+      "positive": [],
+      "negative": [],
+      "blocks": [
+        [
+          "a",
+          "b"
+        ]
+      ],
+      "result": {
+        "static_certificate": {
+          "decision": "TIE",
+          "rule": "one_block_identity",
+          "selector_work": 4,
+          "selector_events": {
+            "block": 1,
+            "alphabet_character": 2,
+            "active_test": 1
+          },
+          "same_output_language": true,
+          "metric": "W_ref loop events; library internals excluded",
+          "split_minus_global": 0
+        },
+        "training_started": false,
+        "scope": "fixed W_ref; known partition; highest-index negative witness",
+        "status": "TIE",
+        "method": "STATIC_CERTIFICATE",
+        "net_advantage_certified": false
+      },
+      "actual_global": 3,
+      "actual_split": 3
+    },
+    "fallback": {
+      "positive": [
+        "ba",
+        "bb"
+      ],
+      "negative": [],
+      "blocks": [
+        [
+          "a"
+        ],
+        [
+          "b"
+        ]
+      ],
+      "result": {
+        "static_certificate": {
+          "decision": "UNKNOWN",
+          "rule": "static_prefix_forest",
+          "selector_work": 46,
+          "selector_events": {
+            "block": 2,
+            "alphabet_character": 2,
+            "input_word": 2,
+            "input_character": 4,
+            "active_test": 2,
+            "singleton_gate": 1,
+            "global_prefix_create": 4,
+            "projection_word": 2,
+            "projection_character": 4,
+            "projection_slot": 4,
+            "prefix_pair_test": 4,
+            "local_factor": 2,
+            "local_prefix_create": 5,
+            "local_positive_word": 4,
+            "local_positive_character": 4
+          },
+          "same_output_language": true,
+          "metric": "W_ref loop events; library internals excluded",
+          "quality_reason": "all assigned local negatives contain an unseen local symbol",
+          "global_interval": [
+            52,
+            337
+          ],
+          "split_interval": [
+            73,
+            73
+          ],
+          "first_symbol": "b",
+          "forced_prefix_pairs": 2,
+          "global_prefix_states": 4,
+          "preparation": 8,
+          "local_factors": [
+            {
+              "positive": [
+                "",
+                "a"
+              ],
+              "negative": [],
+              "states": 2,
+              "lower": 24,
+              "upper": 24,
+              "exact": true
+            },
+            {
+              "positive": [
+                "b",
+                "bb"
+              ],
+              "negative": [],
+              "states": 3,
+              "lower": 41,
+              "upper": 41,
+              "exact": true
+            }
+          ]
+        },
+        "training_started": true,
+        "scope": "fixed W_ref; known partition; highest-index negative witness",
+        "status": "TIE",
+        "method": "EXACT_EXECUTION_FALLBACK",
+        "global_work": 73,
+        "split_work": 73,
+        "diagnostic_work": 192,
+        "net_advantage_certified": false,
+        "global_events": {
+          "state_create": 4,
+          "positive_word": 2,
+          "positive_symbol": 4,
+          "edge_create": 3,
+          "fringe_state": 14,
+          "fringe_edge": 7,
+          "candidate": 2,
+          "fold_state": 22,
+          "fold_edge": 13,
+          "red_remap": 2
+        },
+        "split_preparation": 8,
+        "local_events": [
+          {
+            "state_create": 2,
+            "positive_word": 2,
+            "positive_symbol": 1,
+            "edge_create": 1,
+            "fringe_state": 6,
+            "fringe_edge": 2,
+            "candidate": 1,
+            "fold_state": 6,
+            "fold_edge": 2,
+            "red_remap": 1
+          },
+          {
+            "state_create": 3,
+            "positive_word": 2,
+            "positive_symbol": 3,
+            "edge_create": 2,
+            "fringe_state": 8,
+            "fringe_edge": 3,
+            "candidate": 1,
+            "fold_state": 12,
+            "fold_edge": 6,
+            "red_remap": 1
+          }
+        ]
+      },
+      "actual_global": 73,
+      "actual_split": 73
+    },
+    "new_unary": {
+      "positive": [
+        "bb"
+      ],
+      "negative": [
+        "ba"
+      ],
+      "blocks": [
+        [
+          "a"
+        ],
+        [
+          "b"
+        ]
+      ],
+      "result": {
+        "static_certificate": {
+          "decision": "PIPELINE_GLOBAL",
+          "rule": "unary_global_inert",
+          "selector_work": 12,
+          "selector_events": {
+            "block": 2,
+            "alphabet_character": 2,
+            "input_word": 2,
+            "input_character": 4,
+            "active_test": 2
+          },
+          "same_output_language": null,
+          "metric": "W_ref loop events; library internals excluded",
+          "global_exact": 42,
+          "split_lower": 53,
+          "split_minus_global_lower": 11,
+          "negative_test_cost": 3,
+          "quality_reason": "Language equality is a separate question; it is not certified here."
+        },
+        "training_started": false,
+        "scope": "fixed W_ref; known partition; highest-index negative witness",
+        "status": "GLOBAL",
+        "method": "STATIC_CERTIFICATE",
+        "net_advantage_certified": false
+      },
+      "actual_global": 42,
+      "actual_split": 83
+    },
+    "distinct_word_split": {
+      "positive": [
+        "abcd"
+      ],
+      "negative": [],
+      "blocks": [
+        [
+          "a",
+          "b"
+        ],
+        [
+          "c",
+          "d"
+        ]
+      ],
+      "result": {
+        "static_certificate": {
+          "decision": "NET_SPLIT_EQUAL",
+          "rule": "single_distinct_word",
+          "selector_work": 15,
+          "selector_events": {
+            "block": 2,
+            "alphabet_character": 4,
+            "input_word": 1,
+            "input_character": 4,
+            "active_test": 2,
+            "distinct_word_factor": 2
+          },
+          "same_output_language": true,
+          "metric": "W_ref loop events; library internals excluded",
+          "global_exact": 146,
+          "split_exact": 112,
+          "split_minus_global": -34
+        },
+        "training_started": false,
+        "scope": "fixed W_ref; known partition; highest-index negative witness",
+        "status": "SPLIT",
+        "method": "STATIC_CERTIFICATE",
+        "net_advantage_certified": true
+      }
+    },
+    "unary_informative": {
+      "input": {
+        "positive": [
+          "aaaa"
+        ],
+        "negative": [
+          "aaaaaaaa",
+          "ab",
+          "aba",
+          "abb",
+          "b",
+          "ba",
+          "bb"
+        ],
+        "blocks": [
+          [
+            "a"
+          ],
+          [
+            "b"
+          ]
+        ]
+      },
+      "result": {
+        "static_certificate": {
+          "decision": "UNKNOWN",
+          "rule": "static_prefix_forest",
+          "selector_work": 141,
+          "selector_events": {
+            "block": 2,
+            "alphabet_character": 2,
+            "input_word": 8,
+            "input_character": 25,
+            "active_test": 2,
+            "singleton_gate": 1,
+            "global_prefix_create": 5,
+            "projection_word": 8,
+            "projection_character": 25,
+            "projection_slot": 16,
+            "negative_witness_slot": 14,
+            "prefix_pair_test": 5,
+            "local_factor": 2,
+            "local_prefix_create": 6,
+            "local_positive_word": 2,
+            "local_positive_character": 4,
+            "local_negative_word": 3,
+            "local_negative_character": 11
+          },
+          "same_output_language": null,
+          "metric": "W_ref loop events; library internals excluded",
+          "quality_reason": "Equality is not certified; sample consistency is certified.",
+          "global_interval": [
+            75,
+            1039
+          ],
+          "split_interval": [
+            134,
+            908
+          ],
+          "first_symbol": "a",
+          "forced_prefix_pairs": 4,
+          "global_prefix_states": 5,
+          "preparation": 55,
+          "local_factors": [
+            {
+              "positive": [
+                "aaaa"
+              ],
+              "negative": [
+                "aaaaaaaa"
+              ],
+              "states": 5,
+              "lower": 75,
+              "upper": 849,
+              "exact": false
+            },
+            {
+              "positive": [
+                ""
+              ],
+              "negative": [
+                "b",
+                "bb"
+              ],
+              "states": 1,
+              "lower": 4,
+              "upper": 4,
+              "exact": true
+            }
+          ]
+        },
+        "training_started": true,
+        "scope": "fixed W_ref; known partition; highest-index negative witness",
+        "status": "SPLIT",
+        "method": "EXACT_EXECUTION_FALLBACK",
+        "global_work": 316,
+        "split_work": 315,
+        "diagnostic_work": 772,
+        "net_advantage_certified": false,
+        "global_events": {
+          "state_create": 5,
+          "positive_word": 1,
+          "positive_symbol": 4,
+          "edge_create": 4,
+          "fringe_state": 36,
+          "fringe_edge": 15,
+          "candidate": 4,
+          "fold_state": 100,
+          "fold_edge": 48,
+          "negative_word": 28,
+          "negative_symbol": 68,
+          "red_remap": 3
+        },
+        "split_preparation": 55,
+        "local_events": [
+          {
+            "state_create": 5,
+            "positive_word": 1,
+            "positive_symbol": 4,
+            "edge_create": 4,
+            "fringe_state": 36,
+            "fringe_edge": 15,
+            "candidate": 4,
+            "fold_state": 100,
+            "fold_edge": 48,
+            "negative_word": 4,
+            "negative_symbol": 32,
+            "red_remap": 3
+          },
+          {
+            "state_create": 1,
+            "positive_word": 1,
+            "fringe_state": 2
+          }
+        ]
+      },
+      "WG": 316,
+      "WS": 315
+    },
+    "drop_unary": {
+      "input": {
+        "positive": [
+          "ba"
+        ],
+        "negative": [],
+        "blocks": [
+          [
+            "a"
+          ],
+          [
+            "b"
+          ]
+        ]
+      },
+      "result": {
+        "static_certificate": {
+          "decision": "PIPELINE_SPLIT",
+          "rule": "single_distinct_word",
+          "selector_work": 11,
+          "selector_events": {
+            "block": 2,
+            "alphabet_character": 2,
+            "input_word": 1,
+            "input_character": 2,
+            "active_test": 2,
+            "distinct_word_factor": 2
+          },
+          "same_output_language": true,
+          "metric": "W_ref loop events; library internals excluded",
+          "global_exact": 53,
+          "split_exact": 50,
+          "split_minus_global": -3
+        },
+        "training_started": false,
+        "scope": "fixed W_ref; known partition; highest-index negative witness",
+        "status": "SPLIT",
+        "method": "STATIC_CERTIFICATE",
+        "net_advantage_certified": false
+      },
+      "WG": 53,
+      "WS": 50
+    },
+    "local_informative": {
+      "input": {
+        "positive": [
+          "aa"
+        ],
+        "negative": [
+          "ba"
+        ],
+        "blocks": [
+          [
+            "b"
+          ],
+          [
+            "a"
+          ]
+        ]
+      },
+      "result": {
+        "static_certificate": {
+          "decision": "PIPELINE_GLOBAL",
+          "rule": "unary_global_inert",
+          "selector_work": 12,
+          "selector_events": {
+            "block": 2,
+            "alphabet_character": 2,
+            "input_word": 2,
+            "input_character": 4,
+            "active_test": 2
+          },
+          "same_output_language": null,
+          "metric": "W_ref loop events; library internals excluded",
+          "global_exact": 41,
+          "split_lower": 53,
+          "split_minus_global_lower": 12,
+          "negative_test_cost": 2,
+          "quality_reason": "Language equality is a separate question; it is not certified here."
+        },
+        "training_started": false,
+        "scope": "fixed W_ref; known partition; highest-index negative witness",
+        "status": "GLOBAL",
+        "method": "STATIC_CERTIFICATE",
+        "net_advantage_certified": false
+      },
+      "WG": 41,
+      "WS": 83
+    }
+  },
+  "note": "Totality is proved separately. A fallback executes learners; it is not pre-training prediction."
+}

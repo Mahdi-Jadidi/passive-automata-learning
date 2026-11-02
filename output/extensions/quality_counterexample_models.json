@@ -1,0 +1,213 @@
+{
+  "input": {
+    "positive": [
+      "aababb",
+      "aabbab",
+      "aabbba",
+      "abaabb",
+      "ababab",
+      "ababba",
+      "abbaab",
+      "abbaba",
+      "abbbaa",
+      "baaabb",
+      "baabab",
+      "baabba",
+      "babaab",
+      "bababa",
+      "babbaa",
+      "bbaaab",
+      "bbaaba",
+      "bbabaa",
+      "bbbaaa"
+    ],
+    "negative": [
+      "bbb",
+      "c"
+    ],
+    "blocks": [
+      "a",
+      "b",
+      "c"
+    ]
+  },
+  "witness": "",
+  "global_model": {
+    "states": [
+      "",
+      "b",
+      "bb",
+      "bbb"
+    ],
+    "initial": "",
+    "finals": [
+      "",
+      "b",
+      "bb"
+    ],
+    "transitions": [
+      {
+        "source": "",
+        "symbol": "a",
+        "target": ""
+      },
+      {
+        "source": "",
+        "symbol": "b",
+        "target": "b"
+      },
+      {
+        "source": "b",
+        "symbol": "a",
+        "target": ""
+      },
+      {
+        "source": "b",
+        "symbol": "b",
+        "target": "bb"
+      },
+      {
+        "source": "bb",
+        "symbol": "a",
+        "target": ""
+      },
+      {
+        "source": "bb",
+        "symbol": "b",
+        "target": "bbb"
+      },
+      {
+        "source": "bbb",
+        "symbol": "a",
+        "target": ""
+      }
+    ]
+  },
+  "factor_models": [
+    {
+      "states": [
+        "",
+        "a"
+      ],
+      "initial": "",
+      "finals": [
+        "a"
+      ],
+      "transitions": [
+        {
+          "source": "",
+          "symbol": "a",
+          "target": "a"
+        },
+        {
+          "source": "a",
+          "symbol": "a",
+          "target": ""
+        }
+      ]
+    },
+    {
+      "states": [
+        ""
+      ],
+      "initial": "",
+      "finals": [
+        ""
+      ],
+      "transitions": [
+        {
+          "source": "",
+          "symbol": "b",
+          "target": ""
+        }
+      ]
+    },
+    {
+      "states": [
+        ""
+      ],
+      "initial": "",
+      "finals": [
+        ""
+      ],
+      "transitions": []
+    }
+  ],
+  "certificate": {
+    "decision": "NET_SPLIT_COST",
+    "rule": "static_prefix_forest",
+    "selector_work": 511,
+    "selector_events": {
+      "block": 3,
+      "alphabet_character": 3,
+      "input_word": 21,
+      "input_character": 118,
+      "active_test": 3,
+      "singleton_gate": 1,
+      "global_prefix_create": 65,
+      "projection_word": 21,
+      "projection_character": 118,
+      "projection_slot": 63,
+      "negative_witness_slot": 6,
+      "prefix_pair_test": 65,
+      "local_factor": 3,
+      "local_prefix_create": 9,
+      "local_positive_word": 3,
+      "local_positive_character": 6,
+      "local_negative_word": 2,
+      "local_negative_character": 1
+    },
+    "same_output_language": null,
+    "metric": "W_ref loop events; library internals excluded",
+    "quality_reason": "Equality is not certified; sample consistency is certified.",
+    "global_interval": [
+      2671,
+      18011177
+    ],
+    "split_interval": [
+      258,
+      588
+    ],
+    "first_symbol": "a",
+    "forced_prefix_pairs": 30,
+    "global_prefix_states": 65,
+    "preparation": 187,
+    "local_factors": [
+      {
+        "positive": [
+          "aaa"
+        ],
+        "negative": [
+          ""
+        ],
+        "states": 4,
+        "lower": 11,
+        "upper": 341,
+        "exact": false
+      },
+      {
+        "positive": [
+          "bbb"
+        ],
+        "negative": [],
+        "states": 4,
+        "lower": 56,
+        "upper": 56,
+        "exact": true
+      },
+      {
+        "positive": [
+          ""
+        ],
+        "negative": [
+          "c"
+        ],
+        "states": 1,
+        "lower": 4,
+        "upper": 4,
+        "exact": true
+      }
+    ]
+  },
+  "conclusion": "Global accepts epsilon; the a factor rejects epsilon. Net cost does not imply language equality."
+}

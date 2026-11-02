@@ -1,0 +1,76 @@
+{
+  "decision": "NET_SPLIT_COST",
+  "rule": "static_prefix_forest",
+  "selector_work": 530,
+  "selector_events": {
+    "block": 3,
+    "alphabet_character": 3,
+    "input_word": 22,
+    "input_character": 121,
+    "active_test": 3,
+    "singleton_gate": 1,
+    "global_prefix_create": 69,
+    "projection_word": 22,
+    "projection_character": 121,
+    "projection_slot": 66,
+    "negative_witness_slot": 6,
+    "prefix_pair_test": 69,
+    "local_factor": 3,
+    "local_prefix_create": 9,
+    "local_positive_word": 3,
+    "local_positive_character": 6,
+    "local_negative_word": 2,
+    "local_negative_character": 1
+  },
+  "same_output_language": null,
+  "metric": "W_ref loop events; library internals excluded",
+  "quality_reason": "Equality is not certified; sample consistency is certified.",
+  "global_interval": [
+    3109,
+    22850524
+  ],
+  "split_interval": [
+    264,
+    594
+  ],
+  "first_symbol": "a",
+  "forced_prefix_pairs": 34,
+  "global_prefix_states": 69,
+  "preparation": 193,
+  "local_factors": [
+    {
+      "positive": [
+        "aaa"
+      ],
+      "negative": [],
+      "states": 4,
+      "lower": 56,
+      "upper": 56,
+      "exact": true
+    },
+    {
+      "positive": [
+        "bbb"
+      ],
+      "negative": [
+        ""
+      ],
+      "states": 4,
+      "lower": 11,
+      "upper": 341,
+      "exact": false
+    },
+    {
+      "positive": [
+        ""
+      ],
+      "negative": [
+        "c"
+      ],
+      "states": 1,
+      "lower": 4,
+      "upper": 4,
+      "exact": true
+    }
+  ]
+}
