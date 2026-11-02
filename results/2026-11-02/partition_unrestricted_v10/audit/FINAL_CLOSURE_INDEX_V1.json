@@ -1,0 +1,45 @@
+{
+  "schema_version": 1,
+  "cycle": "C010",
+  "status": "closed_after_read_only_integrity_pass",
+  "recorded_utc": "2026-11-02T19:30:35Z",
+  "frozen_research_ledger": {
+    "path": "audit/ATTEMPT_LEDGER_V3.json",
+    "attempt_count": 26,
+    "sha256": "2debb492e61a85548a30b5a9f109b1c60bb6f9121df49ca8eee97de3638e1a49",
+    "scope_note": "26 completed research/audit captures before the closure checker; the closure checker is separately indexed below."
+  },
+  "integrity_check": {
+    "path": "audit/INTEGRITY_FINAL.json",
+    "status": "passed",
+    "sha256": "c02bce042bae1265fce43a44ce933cabddcb10ce9eb5f72cc58265c59b8ec843",
+    "capture_attempt_id": "20261102T193012.782562Z_a1ad504850",
+    "capture_result_path": "audit/attempts/20261102T193012.782562Z_a1ad504850/result.json",
+    "capture_result_sha256": "b23951ba8b171cf9c53350f77a906a71b5d70049f12a386311779b2180abfe28",
+    "capture_manifest_sha256": "725d66999c385e9fc4ca64e924bf1560de64520040d341008224c6d9e46079d0",
+    "child_reaped": true,
+    "exit_code": 0,
+    "research_attempts_checked": 26,
+    "raw_stream_files_hash_checked": 52,
+    "immutable_source_blobs_checked": 2076,
+    "frozen_input_files_checked": 264,
+    "provider_readiness_files_checked": 8,
+    "errors": []
+  },
+  "frozen_final_artifacts": {
+    "report_path": "audit/AUDIT_FINAL_V2.md",
+    "report_sha256": "29eb20b2431773a49a0d883e0986bf682d9675ea854f2f9603cdf30b52ee089c",
+    "machine_summary_path": "audit/FINAL_SUMMARY_V2.json",
+    "machine_summary_sha256": "2b33a7d184c52dba73d016bd0e81c3a2c4fedb8df9b16ac8b3cea443e38524af"
+  },
+  "uncaptured_launcher_failure": {
+    "command": "python -B -X utf8 audit/run_integrity_capture_v2.py",
+    "status": "launcher_error_before_driver_start",
+    "stdout": "",
+    "stderr": "Python was not found; run without arguments to install from the Microsoft Store, or disable this shortcut from Settings > Apps > Advanced app settings > App execution aliases.",
+    "resolution": "Ran the same frozen capture driver with C:\\Users\\Mahdi\\AppData\\Local\\Python\\bin\\python3.exe (Python 3.14.6); the captured integrity check passed.",
+    "attempt_directory_created": false,
+    "capture_driver_started": false
+  },
+  "preservation_note": "No research/provider/oracle run was started by the launcher error; the frozen ledger remains unchanged. The final checker capture and its raw streams are preserved separately and were excluded from the frozen 26-attempt ledger by design."
+}

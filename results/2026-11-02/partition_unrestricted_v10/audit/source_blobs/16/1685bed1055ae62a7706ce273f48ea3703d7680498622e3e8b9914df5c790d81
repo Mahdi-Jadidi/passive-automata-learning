@@ -1,0 +1,11 @@
+Traceback (most recent call last):
+  File "C:\Users\Mahdi\Documents\ChatGPT\passive automata learning\results\2026-11-02\partition_unrestricted_v10\audit\generate_scale_corpus_v1.py", line 79, in <module>
+    "input": write_input("m14_seven_pair_atoms.json", data14),
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mahdi\Documents\ChatGPT\passive automata learning\results\2026-11-02\partition_unrestricted_v10\audit\generate_scale_corpus_v1.py", line 26, in write_input
+    with path.open("xb") as handle:
+         ^^^^^^^^^^^^^^^
+  File "C:\Users\Mahdi\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\pathlib.py", line 1013, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-02\\partition_unrestricted_v10\\audit\\scale_v1\\inputs\\m14_seven_pair_atoms.json'

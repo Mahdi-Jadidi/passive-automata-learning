@@ -1,0 +1,37 @@
+{
+  "schema_version": 1,
+  "status": "frozen_inputs_before_local_capture",
+  "cases": [
+    {
+      "id": "no_labels_r2",
+      "input": "proofcase_no_labels_r2_v1.json",
+      "analytic_expected": {
+        "status": "partial_ownership_identification",
+        "partition_count": 2,
+        "partition_count_by_k": {"1": 1, "2": 1},
+        "pair_relation": "ambiguous"
+      }
+    },
+    {
+      "id": "no_labels_r3",
+      "input": "proofcase_no_labels_r3_v1.json",
+      "analytic_expected": {
+        "status": "partial_ownership_identification",
+        "partition_count": 5,
+        "partition_count_by_k": {"1": 1, "2": 3, "3": 1}
+      }
+    },
+    {
+      "id": "graph_empty_fallback",
+      "input": "proofcase_graph_empty_fallback_v1.json",
+      "analytic_expected": {
+        "status": "partial_ownership_identification",
+        "partition_count": 5,
+        "partition_count_by_k": {"1": 1, "2": 3, "3": 1, "4": 0, "5": 0, "6": 0},
+        "within_pair_relations": "forced_same",
+        "cross_pair_relations": "ambiguous"
+      }
+    }
+  ],
+  "note": "Analytic expectations are preflight specifications; captured provider results are stored separately in audit/attempts."
+}

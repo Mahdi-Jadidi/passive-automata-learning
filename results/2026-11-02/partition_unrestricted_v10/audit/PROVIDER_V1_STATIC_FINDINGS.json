@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "status": "v1_blocked_before_provider_run",
+  "finding_id": "C010-V1-F001",
+  "finding_type": "static_count_spectrum_defect",
+  "provider_source": "implementation/unrestricted_solver_v1.py",
+  "provider_source_sha256": "e2d3e0df3e59acb7b359b4be7a41243d99e7c71f4743a2bb76192cbbebdded1c",
+  "readiness_sha256": "15952a379038c568a113dba4f1f3d9d39d201e6d336f5bbc932745aa37e694a1",
+  "source_locations": {
+    "bell_helper_line": 57,
+    "fast_path_total_line": 179,
+    "fast_path_spectrum_line": 180
+  },
+  "evidence": {
+    "fast_path_trigger": "For no_labels_all_partitions, the singleton-atom partition is feasible, so solve enters the atom coarsening fast path with r=3.",
+    "reported_total": 5,
+    "reported_per_k": {"1": 1, "2": 2, "3": 5},
+    "independent_expected_per_k": {"1": 1, "2": 3, "3": 1},
+    "reported_spectrum_sum": 8,
+    "correct_total": 5,
+    "reason": "_stirling_bell returns Bell numbers B_n, but the fast path uses B_k as the number of partitions of r atoms into exactly k blocks. The correct count is Stirling S(r,k)."
+  },
+  "independent_oracle_case": {
+    "case_id": "no_labels_all_partitions",
+    "oracle_partition_count": 5,
+    "oracle_partition_count_by_k": {"1": 1, "2": 3, "3": 1}
+  },
+  "provider_execution": "not_started; the only launch attempt so far failed during source path snapshot before child creation",
+  "capture_attempt_preserved": "audit/attempts/20261102T185902.503032Z_db01f59272",
+  "audit_action": "Do not run v1 comparisons. Await a separately frozen provider v2 and readiness record; do not edit provider files from the audit branch."
+}

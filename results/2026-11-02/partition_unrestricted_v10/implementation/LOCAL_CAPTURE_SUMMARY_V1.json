@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "cycle": "C010",
+  "status": "three_bounded_captured_preflight_cases_passed",
+  "provider": "unrestricted_solver_v2.py",
+  "provider_sha256": "4c7959e96c02023d85943c8c52fae3f198c0de67ea172a72ad0669485f60c502",
+  "cli_sha256": "3140df25bab5d60c6c2705098029db9061e3c9d76743bf1dfd48d46aaf2d5eaa",
+  "protocol_sha256": "0120261cec26de42a812a18760d0dea598b9085fb14a9e72f63da073bc3a9562",
+  "cases": [
+    {
+      "case_id": "no_labels_r2",
+      "attempt_id": "20261102T190333.996485Z_0a40bdf170",
+      "execution_status": "success",
+      "exit_code": 0,
+      "partition_count": 2,
+      "partition_count_by_k": {"1": 1, "2": 1},
+      "pair_relation": "ambiguous",
+      "stdout_sha256": "927d527aefa491c0b13ecea1446acc67fa1195c3e70048f8950c0e1ef615e513"
+    },
+    {
+      "case_id": "no_labels_r3",
+      "attempt_id": "20261102T190334.541108Z_0657841683",
+      "execution_status": "success",
+      "exit_code": 0,
+      "partition_count": 5,
+      "partition_count_by_k": {"1": 1, "2": 3, "3": 1},
+      "stdout_sha256": "941a2dc165fdb7e0c5886c0d0632fe6aa59f88790d1c27289d82f5888aa77188"
+    },
+    {
+      "case_id": "graph_empty_fallback",
+      "attempt_id": "20261102T190335.105197Z_9e0cce7ed9",
+      "execution_status": "success",
+      "exit_code": 0,
+      "swap_edges": 0,
+      "atoms": 6,
+      "partition_count": 5,
+      "partition_count_by_k": {"1": 1, "2": 3, "3": 1, "4": 0, "5": 0, "6": 0},
+      "k_max_compatible": 3,
+      "stdout_sha256": "18f39c3274e518721a43869520aab8a9d6aeb02c7831cbb0f533cd5accb91c9f"
+    }
+  ],
+  "capture_root": "../audit/attempts",
+  "limitations": [
+    "These are bounded local preflight cases, not the independent 100-case gate or four-cell scale gate.",
+    "No speed comparison or general performance claim is made.",
+    "The failed v1 source and static counterexample remain preserved; v1 was not launched."
+  ]
+}

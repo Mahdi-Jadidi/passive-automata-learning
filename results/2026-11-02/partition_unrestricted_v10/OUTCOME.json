@@ -1,0 +1,62 @@
+{
+  "cycle": "C010",
+  "scientific_status": "confirmed_under_declared_assumptions",
+  "execution_status": "success_bounded_independent_gates",
+  "assumption_removed": "externally trusted set K of possible component counts",
+  "proofs": "theory/PROOFS_v1.md",
+  "independent_theory_audit": "audit/INDEPENDENT_THEORY_AUDIT_V1.md",
+  "solver": "implementation/unrestricted_solver_v2.py",
+  "solver_sha256": "4c7959e96c02023d85943c8c52fae3f198c0de67ea172a72ad0669485f60c502",
+  "full_set_gate": {
+    "unique_corpus_inputs": 125,
+    "additional_preflight_calls": 3,
+    "exact_sets_matched": 128,
+    "compatible_partition_rows": 22310,
+    "projection_witnesses_replayed": 22438,
+    "mismatches": 0,
+    "report": "audit/provider_validation_v2.json"
+  },
+  "controls": {
+    "invalid_rejected": 6,
+    "expired_deadline": "unknown with no finality",
+    "injected_interrupt": "unknown with no finality",
+    "report": "audit/provider_controls_validation_v2.json"
+  },
+  "scale": {
+    "accepted_cells": 4,
+    "censored": 0,
+    "report": "audit/scale_v1/provider_validation_v1.json",
+    "counts": [
+      877,
+      4140,
+      52,
+      5
+    ],
+    "scope": "structured cells only, not universal alphabet/length capacity"
+  },
+  "negative_results": [
+    "unrestricted physical nontrivial ownership cannot be guaranteed, even with complete global-language coarsening ambiguity",
+    "v1 exact-k shortcut spectrum rejected by static counterexample before provider execution",
+    "fallback lazy masks did not reduce the mask universe on two scale cells",
+    "worst-case exponential; no polynomial or comparative performance claim"
+  ],
+  "implementation_caveats": [
+    "input validation precedes protected cancellation region",
+    "unrecognized fields other than k/allowed_k may be ignored",
+    "internal timings omit some final witness/output work; external subprocess time is separate"
+  ],
+  "prior_versions_replaced": false,
+  "same_three_chats_reused": true,
+  "presentation": "../presentation_v1/output/Alphabet_Partition_Research_FA_v2.pptx",
+  "final_capture_integrity_receipt": "audit/INTEGRITY_FINAL.json",
+  "decision": "MASTER_DECISION_FA.md",
+  "capture_integrity": {
+    "status": "passed",
+    "prior_attempts_checked": 26,
+    "raw_streams": 52,
+    "source_snapshot_references_checked": 2076,
+    "frozen_inputs_checked": 264,
+    "errors": 0,
+    "final_closure_index": "audit/FINAL_CLOSURE_INDEX_V1.json"
+  }
+}

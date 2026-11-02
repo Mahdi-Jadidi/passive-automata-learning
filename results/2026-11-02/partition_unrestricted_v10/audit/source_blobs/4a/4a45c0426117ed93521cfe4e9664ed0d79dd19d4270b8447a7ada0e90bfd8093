@@ -1,0 +1,18 @@
+{
+  "id":"C010-THEORY-001",
+  "scientific_status":"direct_proofs_ready_for_independent_review",
+  "execution_status":"not_applicable_no_experiments",
+  "new_experiments":0,
+  "proof":"PROOFS_v1.md",
+  "claims":[
+    {"id":"T1","claim":"No-K exact ownership iff sole consistent partition; only uniquely one-block can occur"},
+    {"id":"T2","claim":"Structural coarsening ambiguity and precisely scoped C008 finite prime counterexamples"},
+    {"id":"T3","claim":"Sound must-link contraction bijectively preserves all feasible ownership partitions and counts"},
+    {"id":"T4","claim":"Compatible atom partition implies all coarsenings, Stirling/Bell counts and pair witnesses without listing"},
+    {"id":"T5","claim":"Exact atom DP, lazy rejection masks and monotone remaining-coverage prune preserve all solutions"},
+    {"id":"T6","claim":"Feasible spectrum initial interval; honest distinction from C009 count DP and unconditional mask preprocessing"}
+  ],
+  "assumptions":["known disjoint nonempty alphabet","independent unrestricted regular factors","exact finite complete-word labels","no trusted count information","sound edges independently replayable"],
+  "not_claimed":["prime/state-bound admissibility","named device IDs","guaranteed speedup","polynomial worst case","empirical acceptance"],
+  "failed_ideas":"REJECTED_IDEAS_v1.md"
+}

@@ -1,0 +1,11 @@
+usage: unrestricted_cli_v2.py [-h] [--seconds SECONDS] [--enumerate] input
+
+JSON CLI for exact C010 ownership inference without external k input.
+
+positional arguments:
+  input              JSON containing alphabet, positive, negative
+
+options:
+  -h, --help         show this help message and exit
+  --seconds SECONDS  cooperative computation deadline in seconds
+  --enumerate        export every compatible partition; no truncation

@@ -1,0 +1,394 @@
+{
+  "cells": [
+    {
+      "case_id": "m14_seven_pair_atoms",
+      "expected_atom_partition_feasible": true,
+      "expected_atoms": [
+        [
+          "A",
+          "B"
+        ],
+        [
+          "C",
+          "D"
+        ],
+        [
+          "E",
+          "F"
+        ],
+        [
+          "G",
+          "H"
+        ],
+        [
+          "I",
+          "J"
+        ],
+        [
+          "K",
+          "L"
+        ],
+        [
+          "M",
+          "N"
+        ]
+      ],
+      "expected_count": 877,
+      "expected_edge_count": 7,
+      "expected_k_max": 7,
+      "expected_spectrum": {
+        "1": 1,
+        "10": 0,
+        "11": 0,
+        "12": 0,
+        "13": 0,
+        "14": 0,
+        "2": 63,
+        "3": 301,
+        "4": 350,
+        "5": 140,
+        "6": 21,
+        "7": 1,
+        "8": 0,
+        "9": 0
+      },
+      "input": {
+        "alphabet_size": 14,
+        "bytes": 329,
+        "canonical_payload_sha256": "6062a18ec9285ce4b27d3faca96a383899a48561101a5e247b1de240ff28116e",
+        "max_word_length": 2,
+        "negative_count": 7,
+        "path": "inputs/m14_seven_pair_atoms.json",
+        "positive_count": 7,
+        "sha256": "7546288a3b1a6476c86895763252fce98efb7d9763a71c3be5ed1fb9370258b2"
+      },
+      "oracle_mode": "quotient-enumerate-Bell-7-and-lift; replay 7 swap edges and atom feasibility",
+      "pair_counts": {
+        "cross_atom_same": 203,
+        "within_atom_same": 877
+      },
+      "provider_mode": "default counts and witnesses; no full-list output required"
+    },
+    {
+      "case_id": "m64_eight_connected_groups",
+      "expected_atom_partition_feasible": true,
+      "expected_atoms": [
+        [
+          "!",
+          "#",
+          "$",
+          "%",
+          "&",
+          "'",
+          "(",
+          ")"
+        ],
+        [
+          "*",
+          "+",
+          ",",
+          "-",
+          ".",
+          "/",
+          "0",
+          "1"
+        ],
+        [
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7",
+          "8",
+          "9"
+        ],
+        [
+          ":",
+          ";",
+          "<",
+          "=",
+          ">",
+          "?",
+          "@",
+          "A"
+        ],
+        [
+          "B",
+          "C",
+          "D",
+          "E",
+          "F",
+          "G",
+          "H",
+          "I"
+        ],
+        [
+          "J",
+          "K",
+          "L",
+          "M",
+          "N",
+          "O",
+          "P",
+          "Q"
+        ],
+        [
+          "R",
+          "S",
+          "T",
+          "U",
+          "V",
+          "W",
+          "X",
+          "Y"
+        ],
+        [
+          "Z",
+          "[",
+          "]",
+          "^",
+          "_",
+          "`",
+          "a",
+          "b"
+        ]
+      ],
+      "expected_count": 4140,
+      "expected_edge_count": 56,
+      "expected_k_max": 8,
+      "expected_spectrum": {
+        "1": 1,
+        "10": 0,
+        "11": 0,
+        "12": 0,
+        "13": 0,
+        "14": 0,
+        "15": 0,
+        "16": 0,
+        "17": 0,
+        "18": 0,
+        "19": 0,
+        "2": 127,
+        "20": 0,
+        "21": 0,
+        "22": 0,
+        "23": 0,
+        "24": 0,
+        "25": 0,
+        "26": 0,
+        "27": 0,
+        "28": 0,
+        "29": 0,
+        "3": 966,
+        "30": 0,
+        "31": 0,
+        "32": 0,
+        "33": 0,
+        "34": 0,
+        "35": 0,
+        "36": 0,
+        "37": 0,
+        "38": 0,
+        "39": 0,
+        "4": 1701,
+        "40": 0,
+        "41": 0,
+        "42": 0,
+        "43": 0,
+        "44": 0,
+        "45": 0,
+        "46": 0,
+        "47": 0,
+        "48": 0,
+        "49": 0,
+        "5": 1050,
+        "50": 0,
+        "51": 0,
+        "52": 0,
+        "53": 0,
+        "54": 0,
+        "55": 0,
+        "56": 0,
+        "57": 0,
+        "58": 0,
+        "59": 0,
+        "6": 266,
+        "60": 0,
+        "61": 0,
+        "62": 0,
+        "63": 0,
+        "64": 0,
+        "7": 28,
+        "8": 1,
+        "9": 0
+      },
+      "input": {
+        "alphabet_size": 64,
+        "bytes": 1759,
+        "canonical_payload_sha256": "e714da73cca177eca2dc0e167cfe005262f61c1633751794b11b651a5d53bbe3",
+        "max_word_length": 2,
+        "negative_count": 56,
+        "path": "inputs/m64_eight_connected_groups.json",
+        "positive_count": 56,
+        "sha256": "10162dc7401ecd6618445e136bb0b8c22697bb994038e6e873d9bad8580a5d28"
+      },
+      "oracle_mode": "quotient-enumerate-Bell-8=4140 atom partitions and lift; never enumerate Bell(64)",
+      "pair_counts": {
+        "cross_atom_same": 877,
+        "within_atom_same": 4140
+      },
+      "provider_mode": "default counts and witnesses; no full-list output required"
+    },
+    {
+      "case_id": "m10_graph_empty_five_semantic_pairs",
+      "expected_atom_partition_feasible": false,
+      "expected_count": 52,
+      "expected_edge_count": 0,
+      "expected_k_max": 5,
+      "expected_provider_atoms": [
+        [
+          "a"
+        ],
+        [
+          "b"
+        ],
+        [
+          "c"
+        ],
+        [
+          "d"
+        ],
+        [
+          "e"
+        ],
+        [
+          "f"
+        ],
+        [
+          "g"
+        ],
+        [
+          "h"
+        ],
+        [
+          "i"
+        ],
+        [
+          "j"
+        ]
+      ],
+      "expected_semantic_atoms": [
+        [
+          "a",
+          "b"
+        ],
+        [
+          "c",
+          "d"
+        ],
+        [
+          "e",
+          "f"
+        ],
+        [
+          "g",
+          "h"
+        ],
+        [
+          "i",
+          "j"
+        ]
+      ],
+      "expected_spectrum": {
+        "1": 1,
+        "10": 0,
+        "2": 15,
+        "3": 25,
+        "4": 10,
+        "5": 1,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0
+      },
+      "input": {
+        "alphabet_size": 10,
+        "bytes": 281,
+        "canonical_payload_sha256": "b41ca24a7caed4ea4a7feda2a60d8d370f24cf6f57b74bb3bec3d267e5b75ccc",
+        "max_word_length": 4,
+        "negative_count": 5,
+        "path": "inputs/m10_graph_empty_five_semantic_pairs.json",
+        "positive_count": 6,
+        "sha256": "422e50da2c3f4053890b47ac6fa0191c540249210710f27866498c14e8e903d9"
+      },
+      "oracle_mode": "directly enumerate Bell(10)=115975 symbol partitions and replay every feasibility check",
+      "pair_counts": {
+        "cross_semantic_atom_same": 15,
+        "within_semantic_atom_same": 52
+      },
+      "provider_mode": "default counts and witnesses; no full-list output required"
+    },
+    {
+      "case_id": "long_word_length_4096_forced_pair",
+      "expected_atom_partition_feasible": false,
+      "expected_count": 5,
+      "expected_edge_count": 0,
+      "expected_k_max": 3,
+      "expected_provider_atoms": [
+        [
+          "a"
+        ],
+        [
+          "b"
+        ],
+        [
+          "c"
+        ],
+        [
+          "d"
+        ]
+      ],
+      "expected_semantic_atoms": [
+        [
+          "a",
+          "b"
+        ],
+        [
+          "c"
+        ],
+        [
+          "d"
+        ]
+      ],
+      "expected_spectrum": {
+        "1": 1,
+        "2": 3,
+        "3": 1,
+        "4": 0
+      },
+      "input": {
+        "alphabet_size": 4,
+        "bytes": 8307,
+        "canonical_payload_sha256": "d6ac4588067e0ce560c6b64c103b5bad3833377b1f6df8cce5d1272be91630f8",
+        "max_word_length": 4096,
+        "negative_count": 1,
+        "path": "inputs/long_word_length_4096_forced_pair.json",
+        "positive_count": 1,
+        "sha256": "f5ed3923698815496bc3fb7cbb65e7f5be123f97a6630e7c80ad79c73663b813"
+      },
+      "oracle_mode": "directly enumerate Bell(4)=15 symbol partitions and replay every feasibility check",
+      "pair_counts": {
+        "all_other_pair_same": 2,
+        "within_ab_same": 5
+      },
+      "provider_mode": "default counts and witnesses; no full-list output required"
+    }
+  ],
+  "cycle": "C010",
+  "generator": "generate_scale_corpus_v2.py",
+  "purpose": "correctness-only bounded scale cells; no timing comparison",
+  "schema_version": 1,
+  "seed": null,
+  "status": "four_scale_inputs_frozen_before_oracle_and_provider_scale_runs"
+}

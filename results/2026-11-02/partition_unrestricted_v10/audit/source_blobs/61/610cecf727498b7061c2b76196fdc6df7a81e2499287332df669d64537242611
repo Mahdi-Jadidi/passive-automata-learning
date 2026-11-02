@@ -1,0 +1,51 @@
+{
+  "schema_version": 1,
+  "cycle": "C010",
+  "deliverable": "unrestricted no-K exact ownership candidate v2",
+  "status": "frozen_for_independent_gate",
+  "files": {
+    "unrestricted_solver_v2.py": {
+      "sha256": "4c7959e96c02023d85943c8c52fae3f198c0de67ea172a72ad0669485f60c502",
+      "bytes": 19265
+    },
+    "unrestricted_cli_v2.py": {
+      "sha256": "3140df25bab5d60c6c2705098029db9061e3c9d76743bf1dfd48d46aaf2d5eaa",
+      "bytes": 1590
+    },
+    "unrestricted_example_v1.json": {
+      "sha256": "bafd2c0820eb7f286b10780342210cafc5f26f21d48014ac1022612117b01c26",
+      "bytes": 82
+    },
+    "API_PROTOCOL_V2.md": {
+      "sha256": "0120261cec26de42a812a18760d0dea598b9085fb14a9e72f63da073bc3a9562",
+      "bytes": 4189
+    },
+    "proofcase_no_labels_r2_v1.json": {
+      "sha256": "a871746df7b8292e3cf78061c873cc94bb3c3a426a06b8d509e902dfb96aa091",
+      "bytes": 65
+    },
+    "proofcase_no_labels_r3_v1.json": {
+      "sha256": "06ad1295ba5815ce387c83be66b19cd3fa6bd9139e7cd411099ca66a2a90af3f",
+      "bytes": 70
+    },
+    "proofcase_graph_empty_fallback_v1.json": {
+      "sha256": "652c4f31f5dfdc8ccc2bb35b50b97aa924f0dd929e2d529b31a46479223c0f19",
+      "bytes": 133
+    },
+    "PREFLIGHT_CASES_V1.json": {
+      "sha256": "64234c3b2e0caeb392a9f469d0bc781f2e1d2f9cb400cb710201e48cb7a71470",
+      "bytes": 1192
+    }
+  },
+  "api": "unrestricted_solver_v2.solve(data, deadline=None, enumerate_partitions=False)",
+  "changes_from_v1": [
+    "fixed shortcut per-k spectrum to use S(r,k), not Bell(k)",
+    "reports exact k_max_compatible separately from atom-count upper bound",
+    "deadline and interruption checks cover swap extraction, union-find atom construction, and long word comparisons"
+  ],
+  "v1_status": "preserved_unchanged; static counterexample recorded in API_PROTOCOL_V2.md",
+  "theory_review": "full C010 proof review received; B1 Stirling correction and L1 protected-preprocessing fix applied",
+  "local_proofcases": "three expected cases frozen in PREFLIGHT_CASES_V1.json; capture runs are separate audit artifacts",
+  "execution_status": "v2 not yet launched; frozen sources and inputs ready for captured proof cases",
+  "source_state": "frozen; any change requires v3"
+}

@@ -1,0 +1,38 @@
+{
+  "schema_version": 1,
+  "cycle": "C010",
+  "deliverable": "unrestricted no-K exact ownership candidate",
+  "status": "candidate_frozen_for_independent_audit",
+  "files": {
+    "unrestricted_solver_v1.py": {
+      "sha256": "e2d3e0df3e59acb7b359b4be7a41243d99e7c71f4743a2bb76192cbbebdded1c",
+      "bytes": 18210
+    },
+    "unrestricted_cli_v1.py": {
+      "sha256": "c558faea261e25fe5b4870bb905a20ada0b92dae56726657806330f3b01e5bf5",
+      "bytes": 1590
+    },
+    "unrestricted_example_v1.json": {
+      "sha256": "bafd2c0820eb7f286b10780342210cafc5f26f21d48014ac1022612117b01c26",
+      "bytes": 82
+    },
+    "API_PROTOCOL_V1.md": {
+      "sha256": "65a51adb94d70dee4b2e40e45c926bd1674cc777948f457b3f6eb5a14b0d3930",
+      "bytes": 3369
+    }
+  },
+  "api": "unrestricted_solver_v1.solve(data, deadline=None, enumerate_partitions=False)",
+  "features": [
+    "rejects any external k or allowed_k field",
+    "sound adjacent-swap must-link extraction with replayable edge examples",
+    "direct atom-partition feasibility and all-coarsenings Stirling/Bell fast path",
+    "exact atom-level canonical DP with lazy block rejection masks and remaining-coverage prune",
+    "exact count spectrum, upper-bound k_max, pair counts and relation witnesses",
+    "optional complete family enumeration without silent truncation",
+    "unknown incomplete result on cooperative deadline or interruption"
+  ],
+  "scope": "C010 contract only; no noise, shared symbols, state bounds, or RPNI integration",
+  "execution_status": "no local execution performed",
+  "independent_gate": "not yet reviewed",
+  "freeze_policy": "source, example input, and protocol frozen before first local run; edits require a new version"
+}

@@ -1,0 +1,122 @@
+[
+  {
+    "slide": 1,
+    "title": "کشف افراز الفبا",
+    "notes": "موضوع ارائه کشف گروه‌های مالکیت نمادها پیش از یادگیری عامل‌های محلی است. حدود ۱۵ دقیقه برای بخش اصلی؛ اسلایدهای پایانی پشتیبان‌اند. تصویر جلد مفهومی و تولیدشده با ابزار داخلی image_gen است، نه تصویر سامانهٔ واقعی. منبع تصویر: assets/cover.png. محتوای علمی از پژوهش‌های C008 تا C010 با ذکر فرض‌ها می‌آید."
+  },
+  {
+    "slide": 2,
+    "title": "ساختار مجهول پیش از یادگیری اتوماتا",
+    "notes": "تریس سراسری رویدادهای مؤلفه‌ها را درهم می‌آمیزد. هدف اولیه کاهش مسئله به یادگیری عامل‌های محلی است. آزمایش‌های این پروژه فعلاً صحت افراز و شناسایی‌پذیری را بررسی کرده‌اند؛ کاهش زمان یا فضای حالت RPNI هنوز نتیجهٔ اندازه‌گیری‌شده نیست.\n\nمنبع: https://github.com/Mahdi-Jadidi/passive-automata-learning/blob/main/results/2026-11-02/partition_coverage_v9/RESEARCH_REPORT_FA.md"
+  },
+  {
+    "slide": 3,
+    "title": "مدل مشاهده و فرض‌ها",
+    "notes": "هر نماد یک مالک دارد. عوامل مستقل‌اند و تصویر ترتیب محلی را حفظ می‌کند. زبان‌ها منظم‌اند، با کران حالت نامعلوم. ورودی مثبت و منفیِ کلمهٔ کامل دارد. نبود یک تریس در لاگ برچسب منفی نمی‌سازد. نسخهٔ اصلی بحث تعداد دستگاه‌ها را نامعلوم می‌گیرد؛ برش t=2 بعداً فقط برای توضیح محاسبه است. دادهٔ اجرایی prefix-closed به قرارداد متفاوتی نیاز دارد.\n\nمنبع: https://github.com/Mahdi-Jadidi/passive-automata-learning/blob/main/results/2026-11-02/partition_unrestricted_v10/coordination/CONTRACT.md\n\nمنبع: https://github.com/Mahdi-Jadidi/passive-automata-learning/blob/main/results/2026-11-02/partition_coverage_v9/theory/PROOFS_v1.md"
+  },
+  {
+    "slide": 4,
+    "title": "تصویر تریس روی یک بلوک",
+    "notes": "π_B تمام رویدادهای خارج از B را حذف می‌کند و ترتیب بقیه را تغییر نمی‌دهد. مثال نشان می‌دهد تفکیک ab تفاوت مثبت و منفی را می‌بیند، ولی بلوک ac همان تصویر را می‌بیند.\n\nمنبع: https://github.com/Mahdi-Jadidi/passive-automata-learning/blob/main/docs/ALGORITHM_TUTORIAL_FA.md"
+  },
+  {
+    "slide": 5,
+    "title": "معیار دقیق سازگاری افراز",
+    "notes": "H(B) تصویر تمام مثبت‌هاست. هر عامل سازگار مجبور است H(B) را بپذیرد. پس برای هر منفی، دست‌کم یک بلوک باید تصویر ناموجود در H(B) داشته باشد. کفایت: خود H(B) را زبان عامل انتخاب می‌کنیم؛ متناهی و منظم است. این شاهد وجود مدل است و زبان واقعی عامل را تعیین نمی‌کند.\n\nمنبع: https://github.com/Mahdi-Jadidi/passive-automata-learning/blob/main/results/2026-11-02/partition_coverage_v9/theory/PROOFS_v1.md"
+  },
+  {
+    "slide": 6,
+    "title": "مثال آموزشی با تعداد مؤلفهٔ نامعلوم",
+    "notes": "این مثال محور ادامه است. هیچ تعداد واقعی دستگاه به ورودی نمی‌دهیم. برای فهم DP ابتدا سهم لایهٔ دوبلوکی را می‌شماریم، سپس تمام تعدادها را جمع می‌زنیم. k یا t در آن محاسبه، متغیر شمارش است، نه فرضی دربارهٔ دستگاه واقعی.\n\nمنبع: https://github.com/Mahdi-Jadidi/passive-automata-learning/blob/main/docs/ALGORITHM_TUTORIAL_FA.md\n\nمنبع: https://github.com/Mahdi-Jadidi/passive-automata-learning/blob/main/results/2026-11-02/partition_unrestricted_v10/coordination/CONTRACT.md"
+  },
+  {
+    "slide": 7,
+    "title": "سه جواب در لایهٔ دوبلوکی",
+    "notes": "بلوک شامل a را سمت چپ می‌نویسیم تا دوباره‌شماری نشود. هر دو تصویر در چهار افراز ردشده با مثبت برابرند. سه افراز دیگر تصویر ab یا abc یا abd را متفاوت می‌بینند. این بررسی C_2 است، نه اعلام اینکه تعداد واقعی دستگاه‌ها دو است.\n\nمنبع: https://github.com/Mahdi-Jadidi/passive-automata-learning/blob/main/docs/ALGORITHM_TUTORIAL_FA.md"
+  },
+  {
+    "slide": 8,
+    "title": "خانوادهٔ کامل بدون دانستن تعداد دستگاه‌ها",
+    "notes": "a,b در هر جواب کنار هم‌اند. جواب‌ها دقیقاً ادغام‌های سه اتم ab,c,d هستند. با t=1 یک جواب، t=2 سه جواب، t=3 یک جواب و t=4 هیچ جواب نداریم. عدد پنج تعداد افرازهاست، نه تعداد DFAها و نه تعداد دستگاه‌های واقعی.\n\nمنبع: https://github.com/Mahdi-Jadidi/passive-automata-learning/blob/main/docs/ALGORITHM_TUTORIAL_FA.md\n\nمنبع: https://github.com/Mahdi-Jadidi/passive-automata-learning/blob/main/results/2026-11-02/partition_unrestricted_v10/coordination/CONTRACT.md"
+  },
+  {
+    "slide": 9,
+    "title": "ماسک‌های ردِ منفی‌ها",
+    "notes": "هر منفی یک بیت دارد. R(B) به معنی توان ردکردن در یک توضیح سازگار است، نه اینکه عامل واقعیِ ناشناخته حتماً آن تصویر را رد می‌کند. بلوک‌های نمادی باید افراز باشند؛ ماسک‌های منفی می‌توانند هم‌پوشان باشند.\n\nمنبع: https://github.com/Mahdi-Jadidi/passive-automata-learning/blob/main/results/2026-11-02/partition_coverage_v9/theory/PROOFS_v1.md"
+  },
+  {
+    "slide": 10,
+    "title": "حالت برنامه‌ریزی پویا",
+    "notes": "S نمادها یا اتم‌های باقی‌مانده، U ماسک منفی‌های از قبل ردشده و t تعداد بلوک‌های مورد نیاز در ادامه است. در خروجی بدون K، روی تمام tهای ممکن جمع می‌زنیم. حالت DP وضعیت جست‌وجوست و با حالت DFA واقعی فرق دارد.\n\nمنبع: https://github.com/Mahdi-Jadidi/passive-automata-learning/blob/main/results/2026-11-02/partition_coverage_v9/implementation/ownership_solver_v1.py\n\nمنبع: https://github.com/Mahdi-Jadidi/passive-automata-learning/blob/main/results/2026-11-02/partition_coverage_v9/theory/PROOFS_v1.md"
+  },
+  {
+    "slide": 11,
+    "title": "هر افراز فقط یک مسیر دارد",
+    "notes": "در هر گام بلوک B حاوی کوچک‌ترین عضو S را انتخاب می‌کنیم. هر افراز دقیقاً یک چنین بلوکی دارد. این تناظرِ یک‌به‌یک هم کامل‌بودن و هم نبودِ دوباره‌شماری را ثابت می‌کند. حافظهٔ DP جواب حالت‌های تکراری را بازاستفاده می‌کند؛ بدترین حالت همچنان نمایی است.\n\nمنبع: https://github.com/Mahdi-Jadidi/passive-automata-learning/blob/main/results/2026-11-02/partition_coverage_v9/theory/PROOFS_v1.md"
+  },
+  {
+    "slide": 12,
+    "title": "مالکیت قطعی در میان چند افراز",
+    "notes": "اینجا دیگر روی همهٔ تعدادهای مجاز، یعنی تمام تعدادها، کار می‌کنیم. از پنج افراز، a,b در هر پنج با هم‌اند. هر زوج دیگر در دو افراز با هم است. برای ابهام باید دو افراز شاهد با رابطهٔ مخالف ارائه شود. نسبت q/Z احتمال فیزیکی نیست.\n\nمنبع: https://github.com/Mahdi-Jadidi/passive-automata-learning/blob/main/docs/ALGORITHM_TUTORIAL_FA.md\n\nمنبع: https://github.com/Mahdi-Jadidi/passive-automata-learning/blob/main/results/2026-11-02/partition_coverage_v9/theory/PROOFS_v1.md"
+  },
+  {
+    "slide": 13,
+    "title": "دو گروه اجباری، دو معماریِ ممکن",
+    "notes": "منفی تازه abdc باید واقعاً برچسب معتبر داشته باشد. منفی قبلی ab را و منفی تازه cd را اجبار می‌کند. بدون تعداد واقعی، هنوز یک دستگاه abcd و دو دستگاه ab,cd هر دو توضیح می‌دهند. با فرض خارجی معتبر k=2 فقط دومی می‌ماند، اما در این ارائه چنین فرضی را تحمیل نمی‌کنیم.\n\nمنبع: https://github.com/Mahdi-Jadidi/passive-automata-learning/blob/main/results/2026-11-02/partition_identification_v8/theory/PROOFS_v1.md"
+  },
+  {
+    "slide": 14,
+    "title": "حد شناساییِ فیزیکی بدون K",
+    "notes": "برای هر دادهٔ سازگار P∩N=∅، مدل تک‌بلوکی با زبان P وجود دارد. اگر یک افراز غیرتک‌بلوکی هم سازگار باشد، دو مالکیت ممکن داریم و هیچ الگوریتمی از همان داده نمی‌تواند بین آن‌ها با تضمین همگانی انتخاب کند. این محدودیت اطلاعاتی است و با جست‌وجوی بیشتر حل نمی‌شود. نمونه‌های قابل شناسایی مثل Pab,Nba با تنها افراز تک‌بلوکی همچنان وجود دارند.\n\nمنبع: https://github.com/Mahdi-Jadidi/passive-automata-learning/blob/main/results/2026-11-02/partition_identification_v8/theory/PROOFS_v1.md\n\nمنبع: https://github.com/Mahdi-Jadidi/passive-automata-learning/blob/main/results/2026-11-02/partition_unrestricted_v10/coordination/CONTRACT.md"
+  },
+  {
+    "slide": 15,
+    "title": "گواهِ شناسایی و خروجیِ ناتمام",
+    "notes": "نسخه‌فضا تصویر تمام مدل‌های مجاز و سازگار روی مالکیت است. فقط اگر این تصویر یک عضو داشته باشد، مالکیت شرطی شناسایی شده. در خانوادهٔ چندعضوی روابط زوجی می‌توانند قطعی باشند. صفر عضو نشانهٔ تناقض فرض‌ها/داده است، نه یکتاییِ تهی. قطع پیش از اثبات به unknown می‌انجامد.\n\nمنبع: https://github.com/Mahdi-Jadidi/passive-automata-learning/blob/main/results/2026-11-02/partition_identification_v8/theory/PROOFS_v1.md"
+  },
+  {
+    "slide": 16,
+    "title": "محاسبه روی گروه‌های اجباری",
+    "notes": "اگر مثبت و منفی فقط با تعویض دو نماد مجاور فرق کنند، جدا بودن مالک آن‌ها همهٔ تصاویر را یکسان می‌کرد و تناقض می‌داد. یال‌های معتبر در گراف، گروه‌های غیرقابل شکستن می‌سازند. مؤلفه‌ها را اتم می‌کنیم؛ هر جواب سازگار ادغام اتم‌هاست. نبود یال به معنی استقلال نیست و آزمون کامل تصویر باید برقرار بماند.\n\nمنبع: https://github.com/Mahdi-Jadidi/passive-automata-learning/blob/main/results/2026-11-02/partition_finest_v7/theory/PROOFS_v1.md\n\nمنبع: https://github.com/Mahdi-Jadidi/passive-automata-learning/blob/main/results/2026-11-02/partition_unrestricted_v10/coordination/CONTRACT.md"
+  },
+  {
+    "slide": 17,
+    "title": "شمارش بستهٔ تمام ادغام‌ها",
+    "notes": "قضیه: اگر افراز اتم‌های sound خودش معیار تصویر را پاس کند، هر افراز سازگار ادغام آن است و هر ادغام هم سازگار می‌ماند. در نتیجه تعدادهای بلوکی با اعداد استرلینگ و کل با بل محاسبه می‌شوند. دو اتم متفاوت با چسباندنشان در یک اتم موقت، Bell(r−1) افراز هم‌بلوکی دارند. این شمارش بدون فهرست کردن Bell(r) جواب است. اگر آزمون مستقیم شکست خورد، این فرمول نباید به کار رود.\n\nمنبع: https://github.com/Mahdi-Jadidi/passive-automata-learning/blob/main/results/2026-11-02/partition_finest_v7/theory/PROOFS_v1.md\n\nمنبع: https://github.com/Mahdi-Jadidi/passive-automata-learning/blob/main/results/2026-11-02/partition_unrestricted_v10/coordination/CONTRACT.md"
+  },
+  {
+    "slide": 18,
+    "title": "هرسِ دقیقِ حالت ناممکن",
+    "notes": "اگر B زیرمجموعهٔ S باشد و منفی روی S با مثبتی هم‌تصویر شود، روی B هم همان هم‌تصویری می‌ماند؛ پس R(B)⊆R(S). تمام بلوک‌های آینده زیرمجموعهٔ rem هستند. اگر منفی‌ای نه قبلاً رد شده و نه با کل rem قابل رد باشد، هیچ تکمیلی آن را رد نمی‌کند و شمار حالت صفر است. عبور از این شرط فقط لازم است، کافی نیست. بدترین حالت نمایی پابرجاست.\n\nمنبع: https://github.com/Mahdi-Jadidi/passive-automata-learning/blob/main/results/2026-11-02/partition_coverage_v9/theory/FUTURE_PRUNE_v1.md\n\nمنبع: https://github.com/Mahdi-Jadidi/passive-automata-learning/blob/main/results/2026-11-02/partition_unrestricted_v10/coordination/CONTRACT.md"
+  },
+  {
+    "slide": 19,
+    "title": "ممیزی مستقل و محدودهٔ تجربی",
+    "notes": "پایهٔ پذیرفته‌شدهٔ C009: ۱۲۹ مجموعهٔ کامل با مرجع مستقل برابر و ۱۵۳۹۴ شاهد بازپخش شد. این اعداد دقت آماری بازیابی سخت‌افزار نیستند. مورد C009 با m14 در مهلت تعاونی ناتمام ماند. نتایج C010 فقط پس از قبولی فایل‌های ممیزی به همین اسلاید افزوده می‌شود.\n\nمنبع: https://github.com/Mahdi-Jadidi/passive-automata-learning/blob/main/results/2026-11-02/partition_coverage_v9/audit/provider_gate_validation_v1.json\n\nمنبع: https://github.com/Mahdi-Jadidi/passive-automata-learning/blob/main/results/2026-11-02/partition_coverage_v9/audit/scale_validation_v1.json"
+  },
+  {
+    "slide": 20,
+    "title": "مالکیت جزئیِ قطعی با تعدادِ نامعلوم",
+    "notes": "جمع‌بندی: شمار و روابط مالکیت را می‌توان بدون تعداد خارجی محاسبه کرد. در کلاس نامقید، مالکیت واقعی چندبلوکی به‌طور عمومی شناسایی نمی‌شود، اما forced-same و countermodels قطعی می‌مانند. اتم‌سازی sound و فرمول بسته یا DP هرس‌شده هزینه را کم می‌کنند؛ تضمین چندجمله‌ای یا برتری عمومی ادعا نمی‌شود. منابع و اجرای بازتولیدپذیر در مخزن خصوصی پروژه‌اند.\n\nمنبع: https://github.com/Mahdi-Jadidi/passive-automata-learning/blob/main/results/2026-11-02/partition_identification_v8/RESULT_FA.md\n\nمنبع: https://github.com/Mahdi-Jadidi/passive-automata-learning/blob/main/results/2026-11-02/partition_unrestricted_v10/coordination/CONTRACT.md"
+  },
+  {
+    "slide": 21,
+    "title": "ترتیب کمیت‌گذارها در شرط سازگاری",
+    "notes": "برای هر منفی باید یک بلوک وجود داشته باشد که آن منفی را از تمام مثبت‌ها جدا کند. انتخاب یک بلوک متفاوت برای هر مثبت کافی نیست. مثال P={a,b},N={epsilon} و افراز a|b: روی هر بلوک epsilon مثبتاً مجبور است، اما تأمین‌کنندهٔ تصویر در دو بلوک دو مثبت متفاوت است. در نتیجه split مردود است.\n\nمنبع: https://github.com/Mahdi-Jadidi/passive-automata-learning/blob/main/results/2026-11-02/partition_coverage_v9/theory/PROOFS_v1.md"
+  },
+  {
+    "slide": 22,
+    "title": "اثباتِ شمارش دقیق",
+    "notes": "استقرا روی تعداد نمادهای باقی‌مانده: تهی فقط با پوشش تمام منفی‌ها و t0 یک جواب دارد. در حالت ناتهی هر افراز یک بلوک یکتا حاوی کمینه دارد. حذفش، زیرمسئلهٔ کوچکتری می‌دهد. بالعکس هر تکمیل فرزند با بلوک انتخاب‌شده یک افراز معتبر است. شاخه‌های متفاوت بلوک کمینهٔ متفاوت دارند، پس دوباره‌شماری نداریم. lazy mask باید دقیق و مبتنی بر تمام مثبت‌های ثابت باشد.\n\nمنبع: https://github.com/Mahdi-Jadidi/passive-automata-learning/blob/main/results/2026-11-02/partition_coverage_v9/theory/PROOFS_v1.md"
+  },
+  {
+    "slide": 23,
+    "title": "بازگشتِ شمارش هم‌مالکیت",
+    "notes": "در شاخهٔ B اگر هر دو نماد داخل B باشند، تمام childCount تکمیل هم‌بلوکی دارند. اگر هر دو در remB باشند childQ را حمل می‌کنیم. در صورت تقسیم بین B و مابقی سهم صفر است. اگر نماد از state خارج شده childQ آن زوج باید صفر باشد؛ در پیاده‌سازی این invariant جلوی دوباره‌شماری را می‌گیرد. بعد روی همهٔ تعدادها جمع می‌شود.\n\nمنبع: https://github.com/Mahdi-Jadidi/passive-automata-learning/blob/main/results/2026-11-02/partition_coverage_v9/theory/PROOFS_v1.md"
+  },
+  {
+    "slide": 24,
+    "title": "مثال نقض با عوامل تجزیه‌ناپذیر",
+    "notes": "برای هر طول مشاهده L، عدد M با4M>L انتخاب کنید. E_xy زبان زوجیت هر دو حرف است. F_xy=E_xy منهای تنها واژه x^(2M)y^(2M) منظم، نامتناهی و prime است، چون تصویرهای تک‌حرفی همان even stars هستند ولی حاصل‌ضربشان واژه حذف‌شده را می‌پذیرد. دو مدل ab|cd و ac|bd با این عوامل روی تمام واژه‌های طول≤L یکسان‌اند و در a^(2M)b^(2M) تفاوت دارند. بنابراین حتی معلوم بودن k2 و prime بودن عوامل برای تضمین عمومی از هر افق متناهی کافی نیست، با DFA size نامحدود. این ناممکنی برای همهٔ نمونه‌ها نیست؛ گواه‌های خاص ممکن‌اند.\n\nمنبع: https://github.com/Mahdi-Jadidi/passive-automata-learning/blob/main/results/2026-11-02/partition_identification_v8/theory/PROOFS_v1.md\n\nمنبع: https://github.com/Mahdi-Jadidi/passive-automata-learning/blob/main/results/2026-11-02/partition_identification_v8/audit/COUNTEREXAMPLE_AUDIT_REPORT_V1.md"
+  }
+]
