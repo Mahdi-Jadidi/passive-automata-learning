@@ -1,0 +1,24 @@
+{
+  "cycle": "C007",
+  "event": "master_accepts_small_correctness",
+  "at_utc": "2026-11-01T21:24:05.702779+00:00",
+  "unique_inputs": 218,
+  "mode_outputs": 436,
+  "gate": {
+    "path": "audit\\validation_v1\\provider_gate_v2.json",
+    "sha256": "5e1b1a9b8744ce11b38e49717c817eae4c7a46288820c24791c06bd42087aadd"
+  },
+  "provider": {
+    "path": "implementation\\finest_solver_v3.py",
+    "sha256": "c783929cc75b0979cab679f82c0e43e3aceab014db0b2d063628d0302b33477a"
+  },
+  "counts": {
+    "finest_unique": 202,
+    "multiple_maximal_exist": 8,
+    "one_block_only": 8
+  },
+  "scientific_status": "confirmed_under_declared_sample_target",
+  "scope": "Unique finest sample-compatible partition, not hidden architecture recovery",
+  "large_scale": "pending",
+  "performance": "pending"
+}

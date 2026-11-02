@@ -1,5 +1,5 @@
 {
-  "id": "C007-T001-READINESS-002",
+  "id": "C007-THEORY-READINESS-007",
   "files": [
     {
       "path": "examples_v1.json",
@@ -57,9 +57,18 @@
     "partial search generally cannot assert finest; no frontier/kmax enumeration claim"
   ],
   "production_changes": false,
-  "scientific_status": "proofs_and_branch_smoke_ready_independent_gate_pending",
+  "scientific_status": "v4_main_gate_structured_scale_targeted_controls_and_root_cli_accepted",
   "capture": "../evidence/attempts/20261101T210827.083244Z_56eabecdb6",
-  "report": "SCIENTIFIC_REPORT_CANDIDATE_FA_v1.md",
+  "report": "SCIENTIFIC_REPORT_CANDIDATE_FA_v4.md",
   "passive_boundary": "separator is internal exact computation on same fixed sample, NOT real-system membership/equivalence queries",
-  "positive_only_boundary": "singleton finest by sample convention, NOT hidden architecture"
+  "positive_only_boundary": "singleton finest by sample convention, NOT hidden architecture",
+  "peer_review": "peer_review_v3/MANIFEST.json",
+  "provider_gate": "main 218 distinct inputs / 436 outputs accepted; targeted addendum and specified controls accepted",
+  "report_evidence": "report_v4_evidence/MANIFEST.json",
+  "v4_delta_review": "peer_review_v4_delta/MANIFEST.json",
+  "v4_acceptance": "master accepted main gate, specified structured scale, targeted doubled-pairs, root CLI and specified controls",
+  "metric_caveat": "P3 fallback phase clocks not disjoint/consistent; use process wall for full runtime",
+  "pending": [
+    "official timing appendix"
+  ]
 }

@@ -1,0 +1,69 @@
+{
+  "id": "C007-THEORY-REPORT-004",
+  "report": "../SCIENTIFIC_REPORT_CANDIDATE_FA_v4.md",
+  "report_sha256": "674403f5a2ad4919da863182e6171f790c0bbb26226efd9d717abc9841692b9c",
+  "scientific_status": "v4_main_gate_structured_scale_targeted_controls_and_root_cli_accepted",
+  "evidence": [
+    {
+      "source": "coordination/CORRECTNESS_ACCEPTANCE_V4.json",
+      "snapshot": "coordination__CORRECTNESS_ACCEPTANCE_V4.json",
+      "sha256": "d9c9aab131c0302bcb835be440822ea2b6fe700f33a850ad172dc2cad40ce334"
+    },
+    {
+      "source": "audit/validation_v2/provider_gate_v4.json",
+      "snapshot": "audit__validation_v2__provider_gate_v4.json",
+      "sha256": "b411a01b232d117a9f906ae03ed26b941bc04272aff953316fae4e32f782738e"
+    },
+    {
+      "source": "audit/scale_v1/long_v4_replay_v1.json",
+      "snapshot": "audit__scale_v1__long_v4_replay_v1.json",
+      "sha256": "0cb7b0af8dff0bd3d1f19e0977090636ac3cbdc3cc72c6c80965375b4dc910d5"
+    },
+    {
+      "source": "audit/scale_v1/scale_validation_v4.json",
+      "snapshot": "audit__scale_v1__scale_validation_v4.json",
+      "sha256": "9055ef0aeb8ffad9a5b2f3fc97e6fa134497baab8b1df84915df5b44d11df095"
+    },
+    {
+      "source": "audit/targeted_empty_graph/provider_gate_v2.json",
+      "snapshot": "audit__targeted_empty_graph__provider_gate_v2.json",
+      "sha256": "aa87929527cb843b2851a7f6a11b5c6cc8b1a88fa02e38f8f101a4fba5dbd999"
+    },
+    {
+      "source": "audit/root_cli_v2.json",
+      "snapshot": "audit__root_cli_v2.json",
+      "sha256": "9aec1ba29d856bc6e438440bbfae31a8c6231f351be88f8a5bcb8ca4c5d125c3"
+    },
+    {
+      "source": "audit/validation_v2/provider_controls_v4.json",
+      "snapshot": "audit__validation_v2__provider_controls_v4.json",
+      "sha256": "76d7395afcc1de27aef0763fcdc8f9a58bac8e0fdac8ba92d42bf58c122738d6"
+    },
+    {
+      "source": "theory/SCIENTIFIC_REPORT_CANDIDATE_FA_v3.md",
+      "snapshot": "theory__SCIENTIFIC_REPORT_CANDIDATE_FA_v3.md",
+      "sha256": "154a0ea8179b903e9e8d7636aaebd2ac92127c703e748eaee46bdd7db0d52f0a"
+    },
+    {
+      "source": "theory/report_v3_evidence/MANIFEST.json",
+      "snapshot": "theory__report_v3_evidence__MANIFEST.json",
+      "sha256": "c06d7df777f436530a0038690f22bfcc41af19122784da596b51a8f07e584fdd"
+    }
+  ],
+  "pending": [
+    "official timing appendix"
+  ],
+  "gate_distinct_inputs": 218,
+  "gate_mode_outputs": 436,
+  "targeted_addendum_outputs": 2,
+  "targeted_independent_certificate_replays": 2,
+  "targeted_all_k_partition_count": 5,
+  "targeted_binary_partition_count": 3,
+  "root_cli_accepted_runs": 1,
+  "controls_scope": "six invalid-input checks across both modes; invalid mode; specified deadline and stop/interrupt points only",
+  "official_timing_claim": false,
+  "new_experiments": 0,
+  "runtime_or_git_edits": false,
+  "internal_metric_caveat": "fallback phase clocks are not disjoint; use whole-process time",
+  "static_partial_output_limitations_preserved": true
+}

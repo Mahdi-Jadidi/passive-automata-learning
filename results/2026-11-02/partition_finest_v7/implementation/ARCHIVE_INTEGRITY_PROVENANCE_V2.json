@@ -1,0 +1,24 @@
+{
+  "cycle": "C007",
+  "artifact": "implementation/archive_integrity_v2.py",
+  "artifact_sha256": "677b94d02c44691b731656e4fd816f5567cbf5675c4f6e3d1c1eda259595ef1d",
+  "parent_version": {
+    "path": "implementation/archive_integrity_v1.py",
+    "sha256": "1e12b3f3de0fe600d2cd12a89ac9a9fe31680d0aad818b4296fc5479807134af"
+  },
+  "upstream_source": {
+    "path": "results/2026-11-01/partition_identifiability_v6/coordination/archive_integrity_v4.py",
+    "sha256": "e69f0d972451dd286c88550e2097ba762bf2340cf4dbf76f28bb79fa68d4c610"
+  },
+  "change": "Owner-scope path candidates may resolve anywhere within WORKSPACE, allowing a C007 readiness copy in theory/ to reference an immutable older-cycle file via its declared implementation/ scope. The declared owner_scope itself remains required to be inside C007. No basename/hash search or out-of-workspace lookup is added.",
+  "preserved_checks": [
+    "raw stdout/stderr bytes and hashes",
+    "attempt completion records and source references",
+    "content-addressed evidence blobs",
+    "C006 parent manifest and C007 runtime_final hashes",
+    "readiness and final-target references",
+    "scope escape checks"
+  ],
+  "execution_status": "not_run_as_directed; master runs once after runtime_final and final evidence are ready",
+  "solver_or_scale_runs": false
+}

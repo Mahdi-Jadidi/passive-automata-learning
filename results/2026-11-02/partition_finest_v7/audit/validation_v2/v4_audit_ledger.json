@@ -1,0 +1,91 @@
+{
+  "schema_version": 1,
+  "cycle": "C007 v4 independent audit",
+  "provider_sha256": "c6c803da1088450d352d56bc1a208d6fa7c0d19416bd702255d866052e454fff",
+  "timing_state": "frozen V2 proposal awaiting explicit master GO; zero timing jobs",
+  "accepted_scientific_reports": [
+    {
+      "path": "audit/validation_v2/provider_gate_v4.json",
+      "sha256": "b411a01b232d117a9f906ae03ed26b941bc04272aff953316fae4e32f782738e",
+      "status": "accepted",
+      "coverage": "same 218 frozen inputs, adaptive and reference, exact all-k and direct-poset agreement, 436 certificate replays, 7,446 cut records, proof mutations rejected",
+      "provider_attempt_ids": ["20261102T064415.454215Z_56c9af5e1d", "20261102T064426.948549Z_491a9b4d85"],
+      "validator_attempt_id": "20261102T064604.587161Z_e916a476a1"
+    },
+    {
+      "path": "audit/targeted_empty_graph/provider_gate_v2.json",
+      "sha256": "aa87929527cb843b2851a7f6a11b5c6cc8b1a88fa02e38f8f101a4fba5dbd999",
+      "status": "accepted",
+      "coverage": "adaptive and reference; 5 all-k partitions, 3 compatible bipartitions, unique finest ab|cd|ef, empty forced-edge graph",
+      "provider_attempt_ids": ["20261102T065252.555686Z_56745aaa7a", "20261102T065305.324603Z_f7f9136e61"],
+      "validator_attempt_id": "20261102T065320.126960Z_9d4722659e"
+    },
+    {
+      "path": "audit/root_cli_v2.json",
+      "sha256": "9aec1ba29d856bc6e438440bbfae31a8c6231f351be88f8a5bcb8ca4c5d125c3",
+      "status": "accepted",
+      "coverage": "public root wrapper routes to v4 CLI; two forced adjacent-swap edges and direct projection witness independently replayed",
+      "provider_attempt_id": "20261102T065015.502299Z_d228a8b4c4",
+      "validator_attempt_id": "20261102T065056.140886Z_6b9c7c1915"
+    },
+    {
+      "path": "audit/scale_v1/long_v4_replay_v1.json",
+      "sha256": "0cb7b0af8dff0bd3d1f19e0977090636ac3cbdc3cc72c6c80965375b4dc910d5",
+      "status": "accepted",
+      "coverage": "pre-existing v4 16-symbol, length-65,536 capture; 12 forced edges, four blocks, input/output/source closure and projection witness replayed; no provider rerun",
+      "provider_attempt_id": "20261101T213654.444396Z_b24663495c",
+      "validator_attempt_id": "20261102T064939.308574Z_73813b6323",
+      "v3_predecessor_censored_attempt_id": "20261101T212905.949382Z_a269d7d6d7"
+    },
+    {
+      "path": "audit/validation_v2/provider_controls_v4.json",
+      "sha256": "76d7395afcc1de27aef0763fcdc8f9a58bac8e0fdac8ba92d42bf58c122738d6",
+      "status": "accepted",
+      "coverage": "six invalid-input calls across both modes; invalid mode; expired deadline; injected stop inside swap stage; _Stop and KeyboardInterrupt after one successful separator, preserving partial meet and making no finality claim",
+      "provider_attempt_id": "20261102T065951.720335Z_2b104dce14",
+      "validator_attempt_id": "20261102T070034.663431Z_03f415b182"
+    }
+  ],
+  "preserved_nonaccepted_attempts": [
+    {
+      "attempt_id": "20261102T064339.444888Z_94493d0796",
+      "path": "evidence/attempts/20261102T064339.444888Z_94493d0796",
+      "execution_status": "capture_error",
+      "classification": "capture-source-path construction error; child never started; zero provider output"
+    },
+    {
+      "attempt_id": "20261102T064350.841678Z_8ba25d8953",
+      "path": "evidence/attempts/20261102T064350.841678Z_8ba25d8953",
+      "execution_status": "capture_error",
+      "classification": "auditor listed the independent oracle script under the wrong directory; child never started; zero provider output"
+    },
+    {
+      "attempt_id": "20261102T070000.210557Z_90646387f4",
+      "path": "evidence/attempts/20261102T070000.210557Z_90646387f4",
+      "execution_status": "program_error",
+      "classification": "validator-only None-versus-empty successful_separators handling error; provider control capture was not rerun; corrected validator replay accepted the same captured bytes"
+    }
+  ],
+  "other_captured_artifact_preparation": [
+    {
+      "attempt_id": "20261102T065506.253915Z_bdcd836000",
+      "purpose": "V1 timing input freeze; no provider jobs",
+      "status": "success"
+    },
+    {
+      "attempt_id": "20261102T070122.774429Z_5d06e8cc9e",
+      "purpose": "V2 timing input freeze using accepted empty-graph result; no provider jobs",
+      "status": "success"
+    }
+  ],
+  "timing_proposal_v2": {
+    "path": "audit/timing_v2/PROPOSAL_V2.md",
+    "sha256": "fcf908fd7b32d445d256b3cd75d20be970001c86a4c1a6a3bf75e9cf0b6b3f89",
+    "input_manifest_path": "audit/timing_v2/input_manifest_v2.json",
+    "input_manifest_sha256": "e07b0a15559becc5b13a44a5baee978b7ccefb86f06a0a4034aaa668b4625737",
+    "integrity_path": "audit/timing_v2/proposal_integrity_v2.json",
+    "integrity_sha256": "1a78f2a2ed731d388ebef5a74567445ace0636489a3140a5103c08e333d46132",
+    "explicit_go_required": true,
+    "jobs_run": 0
+  }
+}

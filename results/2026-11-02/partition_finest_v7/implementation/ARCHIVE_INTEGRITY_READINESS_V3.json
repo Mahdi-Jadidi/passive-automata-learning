@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "artifact": "archive_integrity_v3.py",
+  "sha256": "92611d9a6c31eaa7805736e819e35d50b37d334cf90de7b1e895af258038fe16",
+  "status": "ready_for_master_integrity_rerun",
+  "v2_preserved": true,
+  "v2_failure_report_preserved": "coordination/FINAL_INTEGRITY_C007.json",
+  "prelaunch_exceptions_reviewed": [
+    "20261101T212351.495833Z_76288bbadc",
+    "20261102T064339.444888Z_94493d0796",
+    "20261102T064350.841678Z_8ba25d8953"
+  ],
+  "exception_rule": "requires zero snapshotted sources, identical manifest/result FileNotFoundError, execution_status=capture_error, null child_pid/child_reaped/exit_code, subprocess_seconds=0, stdout_bytes=0; any actual launched child remains an error",
+  "separate_count_field": "counts.prelaunch_capture_failures",
+  "checker_execution": "not_run",
+  "solver_or_data_runs": false
+}

@@ -1,0 +1,27 @@
+{
+  "independent_acceptance": false,
+  "files": [
+    {
+      "source": "implementation/finest_solver_v3.py",
+      "sha256": "c783929cc75b0979cab679f82c0e43e3aceab014db0b2d063628d0302b33477a",
+      "snapshot": "snapshots/finest_solver_v3.py"
+    },
+    {
+      "source": "implementation/READINESS_V1.json",
+      "sha256": "5b3d1ba60d8845d926f8a6991dd15a2c852cf22add266c4a69095fa0f9493839",
+      "snapshot": "snapshots/READINESS_V1.json"
+    }
+  ],
+  "findings": [
+    "reference interruption discards previously found cuts and witnesses",
+    "asynchronous adaptive interrupt between history append and meet assignment may return inconsistent partial state",
+    "malformed verifier totality not universally guaranteed"
+  ],
+  "report_sha256": "578100f1466c70aee6543f731d8b4a59191bc1aa8d4beee9bc4d114e19d05ec6",
+  "new_tests": 0,
+  "id": "C007-T002-STATIC-REVIEW-V3",
+  "report": "REVIEW.md",
+  "runtime_edits": false,
+  "execution_status": "no_experiment",
+  "scientific_status": "complete_certificate_mathematics_reviewed_partial_preservation_findings_pending_gate"
+}

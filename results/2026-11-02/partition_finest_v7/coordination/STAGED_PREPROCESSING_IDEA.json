@@ -1,0 +1,13 @@
+{
+  "cycle":"C007",
+  "id":"C007-STAGED-SWAP-CERTIFICATE",
+  "status":"new_version_requested_pending_audit",
+  "parent_version":"finest_solver_v3.py",
+  "motivation":"The m16, length65536 scale cell exhausted its28s cooperative deadline before graph preprocessing completed. All search counters and must-link count remained zero/null.",
+  "preserved_attempt":"20261101T212905.949382Z_a269d7d6d7",
+  "original_outcome":"incomplete; not a refutation of the finest-partition theorem",
+  "hypothesis":"Extract only proved adjacent-swap links first. If the partition of their components is directly compatible, it is already unique finest; otherwise fall back to full unchanged graph extraction and search.",
+  "conditions":["Only exact valid swap witnesses","No temporary meet is treated as forced ownership","All positive/negative projection checks retained","New provider/CLI versions and fresh independent gate","No rerun of v3 censored cell"],
+  "resource_scope":"One new-source long-cell attempt after corrected-source correctness; official timing still requires a separate frozen GO",
+  "boundary":"No general speedup or polynomial bound; staged pair scanning can add overhead on other data"
+}

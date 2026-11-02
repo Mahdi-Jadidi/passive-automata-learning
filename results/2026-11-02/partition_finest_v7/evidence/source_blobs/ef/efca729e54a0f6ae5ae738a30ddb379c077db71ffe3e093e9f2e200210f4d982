@@ -1,0 +1,50 @@
+{
+  "schema_version": 1,
+  "candidate": "C007 finest solver v4 staged swap preprocessing",
+  "provider_sha256": "c6c803da1088450d352d56bc1a208d6fa7c0d19416bd702255d866052e454fff",
+  "cli_sha256": "46642a86c315b95de7b784eb614af4000b52fa96ce55c965f1bbb3de1d15e879",
+  "status": "local_checks_passed_independent_regate_pending",
+  "attempts": {
+    "incorrect_test_case_preserved": {
+      "id": "20261101T213532.787902Z_88c4524c29",
+      "scientific_status": "invalid_test_case"
+    },
+    "rgs_correctness_smoke": {
+      "id": "20261101T213604.384097Z_0e3ca0329c",
+      "execution_status": "success",
+      "scientific_status": "passed"
+    },
+    "cli_on_three_block_sample": {
+      "id": "20261101T213637.679396Z_e41233f801",
+      "execution_status": "success",
+      "scientific_status": "passed",
+      "result_status": "finest_unique",
+      "stage_outcome": "safe_fallback_to_complete_v3_path"
+    },
+    "cli_swap_fastpath": {
+      "id": "20261102T064233.314283Z_9c587e6623",
+      "execution_status": "success",
+      "scientific_status": "passed",
+      "result_status": "finest_unique",
+      "stage_outcome": "swap_only_stage_sufficient"
+    },
+    "single_historical_long_cell": {
+      "id": "20261101T213654.444396Z_b24663495c",
+      "execution_status": "success",
+      "scientific_status": "exploratory_complete",
+      "result_status": "finest_unique",
+      "stage_outcome": "swap_only_stage_sufficient",
+      "v3_predecessor_attempt": "20261101T212905.949382Z_a269d7d6d7",
+      "v3_predecessor_execution_status": "program_error",
+      "v3_predecessor_solver_status": "incomplete",
+      "v4_subprocess_seconds": 2.571516799987876,
+      "v4_provider_seconds": 2.3496833000099286,
+      "swap_pair_comparisons": 12,
+      "swap_scanned_symbols": 786432,
+      "official_timing_claim": false
+    }
+  },
+  "independent_auditor_218_input_regate": "pending",
+  "no_solver_mutations_after_smoke": true,
+  "v3_and_earlier_evidence_preserved": true
+}

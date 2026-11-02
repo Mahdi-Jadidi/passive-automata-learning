@@ -1,0 +1,48 @@
+{
+  "cycle": "C007",
+  "artifact": "implementation/archive_integrity_v3.py",
+  "artifact_sha256": "92611d9a6c31eaa7805736e819e35d50b37d334cf90de7b1e895af258038fe16",
+  "parent_version": {
+    "path": "implementation/archive_integrity_v2.py",
+    "sha256": "677b94d02c44691b731656e4fd816f5567cbf5675c4f6e3d1c1eda259595ef1d"
+  },
+  "change": "No-source attempt is classified separately only if manifest/result prove source snapshot failed with FileNotFoundError before child launch: identical source_snapshot_error/capture_error, capture_error execution status, null child_pid and child_reaped, null exit_code, zero subprocess_seconds and zero stdout bytes. All other missing-source attempts remain errors.",
+  "reviewed_attempts": [
+    {
+      "attempt_id": "20261101T212351.495833Z_76288bbadc",
+      "label": "c007_provider_controls_v1",
+      "execution_status": "capture_error",
+      "child_pid": null,
+      "child_reaped": null,
+      "exit_code": null,
+      "subprocess_seconds": 0.0,
+      "stdout_bytes": 0,
+      "cause": "FileNotFoundError while snapshotting sources before launch"
+    },
+    {
+      "attempt_id": "20261102T064339.444888Z_94493d0796",
+      "label": "c007_v4_adaptive_218",
+      "execution_status": "capture_error",
+      "child_pid": null,
+      "child_reaped": null,
+      "exit_code": null,
+      "subprocess_seconds": 0.0,
+      "stdout_bytes": 0,
+      "cause": "FileNotFoundError while snapshotting sources before launch"
+    },
+    {
+      "attempt_id": "20261102T064350.841678Z_8ba25d8953",
+      "label": "c007_v4_adaptive_218",
+      "execution_status": "capture_error",
+      "child_pid": null,
+      "child_reaped": null,
+      "exit_code": null,
+      "subprocess_seconds": 0.0,
+      "stdout_bytes": 0,
+      "cause": "FileNotFoundError while snapshotting sources before launch"
+    }
+  ],
+  "preserved_prior_report": "coordination/FINAL_INTEGRITY_C007.json (archive_integrity_v2 failure report retained unchanged)",
+  "execution_status": "not_run_as_directed",
+  "solver_or_data_changes": false
+}

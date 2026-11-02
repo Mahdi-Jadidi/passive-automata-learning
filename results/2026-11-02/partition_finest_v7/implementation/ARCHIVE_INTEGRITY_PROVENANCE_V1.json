@@ -1,0 +1,19 @@
+{
+  "cycle": "C007",
+  "artifact": "implementation/archive_integrity_v1.py",
+  "artifact_sha256": "1e12b3f3de0fe600d2cd12a89ac9a9fe31680d0aad818b4296fc5479807134af",
+  "source": {
+    "path": "results/2026-11-01/partition_identifiability_v6/coordination/archive_integrity_v4.py",
+    "sha256": "e69f0d972451dd286c88550e2097ba762bf2340cf4dbf76f28bb79fa68d4c610"
+  },
+  "adaptation": "Copied the corrected C006 checker and changed only cycle/parent labels and usage filename in static text. Its origin/scope/cycle/workspace path-resolution code is preserved.",
+  "checks_when_master_runs_it": [
+    "C007 coordination/parent_manifest.json hashes",
+    "C007 coordination/runtime_final.json runtime files",
+    "readiness/final-target references with declaring-folder and explicit scope resolution",
+    "all content-addressed evidence source blobs and per-attempt source references",
+    "raw stdout/stderr bytes and SHA-256, attempt IDs and completion records"
+  ],
+  "execution_status": "not_run_by_implementation_owner; master will run once at closure",
+  "provider_changes": false
+}

@@ -1,0 +1,71 @@
+{
+  "id": "C007-THEORY-READINESS-005",
+  "files": [
+    {
+      "path": "examples_v1.json",
+      "bytes": 550,
+      "sha256": "ec90bf76953fcaae931f1ce4a3858030a483c57430809fa181ccf0f34b3f042b"
+    },
+    {
+      "path": "PROOF_BOUNDARIES_v1.md",
+      "bytes": 1065,
+      "sha256": "733f32e46df3402274d8bd0ab7916082bea745130e64cafcd2e34f2e37f49da5"
+    },
+    {
+      "path": "PROOFS_v1.md",
+      "bytes": 10738,
+      "sha256": "d6d270637a8e38bd0d3df450b1e0971fe49a2d8de7b6923ccf78e65a7f8353a8"
+    },
+    {
+      "path": "PROTOCOL_v1.md",
+      "bytes": 1377,
+      "sha256": "43635e8bc24e32f61862828339278e865e8c245eaf76a6cf63e01568749cc356"
+    },
+    {
+      "path": "READINESS_INITIAL.json",
+      "bytes": 1598,
+      "sha256": "2a34db8e8a67d899b4287348407e728b7a3eb2bf633d5a9aecc130d5d71991e7"
+    },
+    {
+      "path": "SCIENTIFIC_REPORT_CANDIDATE_FA_v1.md",
+      "bytes": 7191,
+      "sha256": "1fe5494b728bff5303700c1162fe6c8e4061f8d687c15ee74ebf5b90ded426bf"
+    },
+    {
+      "path": "smoke_v1.py",
+      "bytes": 3528,
+      "sha256": "46ce3e5ec1a45588bbe9fba98a0c6865b74e6bfb1ac3731c7e6789c424209008"
+    },
+    {
+      "path": "SOURCES_v1.md",
+      "bytes": 1916,
+      "sha256": "e2e3bb95fdd422d7ddfb40c9b1e3ff59fe61b71507d39a47d7a73857b29e2be9"
+    }
+  ],
+  "examples": "examples_v1.json",
+  "execution_status": "captured_small_smoke_success",
+  "performance_jobs": 0,
+  "api_notes": [
+    "unique_finest is sample target convention, never hidden architecture",
+    "empty binary meet is one block",
+    "cheap certificate: validate must-link forest AND direct feasibility of its component partition",
+    "adaptive: current meet is upper equivalence bound, NOT forced ownership",
+    "separator may regroup current blocks; must only split at least one current block",
+    "no-separator proof covers ALL canonical compatible-candidate masks satisfying split predicate, plus justified graph omissions",
+    "infeasible intermediate meet of valid separators already certifies multiple maximal exist",
+    "at most m-1 successful refinements, no polynomial oracle-time guarantee",
+    "partial search generally cannot assert finest; no frontier/kmax enumeration claim"
+  ],
+  "production_changes": false,
+  "scientific_status": "proofs_and_branch_smoke_ready_independent_gate_pending",
+  "capture": "../evidence/attempts/20261101T210827.083244Z_56eabecdb6",
+  "report": "SCIENTIFIC_REPORT_CANDIDATE_FA_v2.md",
+  "passive_boundary": "separator is internal exact computation on same fixed sample, NOT real-system membership/equivalence queries",
+  "positive_only_boundary": "singleton finest by sample convention, NOT hidden architecture",
+  "peer_review": "peer_review_v3/MANIFEST.json",
+  "provider_gate": "complete-output main gate accepted:436 outputs on218 distinct inputs; addenda pending",
+  "report_evidence": "report_v2_evidence/MANIFEST.json",
+  "v4_delta_review": "peer_review_v4_delta/MANIFEST.json",
+  "v4_acceptance": "pending fresh independent gate; no scale success claimed",
+  "metric_caveat": "P3 fallback phase clocks not disjoint/consistent; use process wall for full runtime"
+}

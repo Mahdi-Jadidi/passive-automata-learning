@@ -1,0 +1,9 @@
+{
+  "cycle": "C007",
+  "git_scope": [".gitattributes", "START_HERE_FA.md", "results/2026-11-02/partition_finest_v7"],
+  "byte_preservation": "START_HERE_FA.md and C007 are marked -text so checkout preserves runtime manifest hashes.",
+  "diff_check_note": "CRLF files require cr-at-eol. Remaining warnings are pre-existing final blank lines in tested sources and their exact snapshots/blobs; preserved rather than altering accepted hashes.",
+  "archive_check": "coordination/FINAL_INTEGRITY_C007_R2.json: pass, zero errors; 93 attempts including 3 proven prelaunch capture failures",
+  "correction_note": "The first manifest extension failed before writing because a worker-reported separate erratum file did not exist. The corrected extension uses actual checker/provenance/readiness files; runtime_final_R1 and all checker reports remain preserved.",
+  "research_reruns_during_delivery": 0
+}

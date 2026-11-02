@@ -1,0 +1,16 @@
+{
+  "cycle": "C007",
+  "event": "master_requests_preregistration_revision_before_any_timing",
+  "reviewed_proposal": "audit/timing_v1/PROPOSAL_V1.md",
+  "proposal_sha256": "c3f8b42d81a1defeb08fd54cc57e56ead4e3a94759464e8c93d29a274839e357",
+  "decision": "revise_then_request_GO; no timing authorized",
+  "reason": "V1 contains two singleton-finest fast paths. Use the independently accepted nontrivial graph-empty three-block case to cover actual adaptive separator search as well.",
+  "retain": ["m4 fallback ambiguity", "m8 singleton-finest fast path"],
+  "replace": {
+    "old": "c007_gen_m06_000",
+    "new": "ctrl_empty_must_link_unique_3"
+  },
+  "limits_unchanged": {"cells": 3, "repetitions_per_mode": 3, "modes": 2, "max_processes": 18, "cooperative_seconds": 28, "hard_seconds": 30, "subprocess_budget_per_mode_seconds": 300},
+  "comparison_scope": "Whole-process time to the same finest-partition decision with different proof representations and output sizes; not identical full enumeration and not isolated search speed.",
+  "preservation": "V1 is an unused preregistration, not a failed experiment; preserve it. No timing outcomes informed this revision."
+}

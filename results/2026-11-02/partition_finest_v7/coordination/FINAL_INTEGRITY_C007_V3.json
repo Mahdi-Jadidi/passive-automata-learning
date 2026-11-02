@@ -1,0 +1,50 @@
+{
+  "schema_version": 1,
+  "created_utc": "2026-11-02T09:41:11.117684+00:00",
+  "checker": {
+    "path": "implementation\\archive_integrity_v3.py",
+    "sha256": "92611d9a6c31eaa7805736e819e35d50b37d334cf90de7b1e895af258038fe16",
+    "snapshot": "implementation\\.checker_snapshots\\FINAL_INTEGRITY_C007_V3_bf6687258cce4796a6c23264e2148467_92611d9a6c31eaa7805736e819e35d50b37d334cf90de7b1e895af258038fe16.py"
+  },
+  "cycle": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-02\\partition_finest_v7",
+  "counts": {
+    "parent_manifest_files": 485,
+    "runtime_final_files": 515,
+    "readiness_files": 13,
+    "readiness_references": 74,
+    "attempts": 93,
+    "completion_records": 93,
+    "raw_streams": 186,
+    "source_references": 1499,
+    "source_blobs": 229,
+    "referenced_source_blobs": 1499,
+    "prelaunch_capture_failures": 3
+  },
+  "prelaunch_capture_failures": [
+    {
+      "attempt_id": "20261101T212351.495833Z_76288bbadc",
+      "execution_status": "capture_error",
+      "classification": "prelaunch_source_snapshot_environment_failure",
+      "child_started": false,
+      "source_snapshot_error": "FileNotFoundError(2, 'The system cannot find the file specified')"
+    },
+    {
+      "attempt_id": "20261102T064339.444888Z_94493d0796",
+      "execution_status": "capture_error",
+      "classification": "prelaunch_source_snapshot_environment_failure",
+      "child_started": false,
+      "source_snapshot_error": "FileNotFoundError(2, 'The system cannot find the file specified')"
+    },
+    {
+      "attempt_id": "20261102T064350.841678Z_8ba25d8953",
+      "execution_status": "capture_error",
+      "classification": "prelaunch_source_snapshot_environment_failure",
+      "child_started": false,
+      "source_snapshot_error": "FileNotFoundError(2, 'The system cannot find the file specified')"
+    }
+  ],
+  "error_count": 0,
+  "errors": [],
+  "status": "pass",
+  "scope_note": "Archive integrity only; no solver, verifier, corpus, or performance code was executed."
+}

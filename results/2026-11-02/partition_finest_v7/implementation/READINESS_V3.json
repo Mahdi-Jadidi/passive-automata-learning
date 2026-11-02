@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "candidate": "C007 finest solver v4 staged swap preprocessing",
+  "provider_version": "finest_solver_v4.py",
+  "method": "c007-unknown-k-finest-v4-staged-swap",
+  "status": "local_smoke_pending_independent_audit",
+  "failed_prior_attempts_preserved": [
+    {
+      "attempt_id": "20261101T213532.787902Z_88c4524c29",
+      "cause": "smoke-driver test mislabeled an exact adjacent reversal as a negative edge case"
+    }
+  ],
+  "gate_driver": "smoke_v5.py",
+  "gates": {
+    "local_independent_rgs_oracle": "pending",
+    "auditor_218_input_regate": "pending",
+    "single_historical_long_cell": "pending",
+    "official_timing_claim": "not_authorized"
+  },
+  "prior_source_hashes": {
+    "finest_solver_v4.py": "c6c803da1088450d352d56bc1a208d6fa7c0d19416bd702255d866052e454fff",
+    "finest_cli_v2.py": "46642a86c315b95de7b784eb614af4000b52fa96ce55c965f1bbb3de1d15e879"
+  }
+}

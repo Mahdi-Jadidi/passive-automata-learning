@@ -1,0 +1,116 @@
+{
+  "all_k_rgs_sha256": "a4216c69d0328419086096ff7b28f7efc39f98fb85ff904d798c5a6f54421281",
+  "cases": {
+    "c007_gen_m04_013": {
+      "all_k_compatible_bipartitions": 7,
+      "all_k_expected_meet": [
+        [
+          "a"
+        ],
+        [
+          "b"
+        ],
+        [
+          "c"
+        ],
+        [
+          "d"
+        ]
+      ],
+      "all_k_expected_status": "multiple_maximal_exist",
+      "alphabet_size": 4,
+      "bytes": 337,
+      "max_word_length": 8,
+      "negative_count": 14,
+      "path": "inputs/c007_gen_m04_013.json",
+      "payload_sha256": "81205170622582989a7ab9f022e478a70a091fdeecdc507725cf1c5fdb596014",
+      "positive_count": 5,
+      "sha256": "48337501cea5b2d20f7395b34a644df1234b7ac65ef69e008c02e15ecb38e75f",
+      "validated_v4_adaptive_fallback": true,
+      "validated_v4_adaptive_path": null,
+      "validated_v4_adaptive_status": "multiple_maximal_exist"
+    },
+    "c007_gen_m06_000": {
+      "all_k_compatible_bipartitions": 31,
+      "all_k_expected_meet": [
+        [
+          "a"
+        ],
+        [
+          "b"
+        ],
+        [
+          "c"
+        ],
+        [
+          "d"
+        ],
+        [
+          "e"
+        ],
+        [
+          "f"
+        ]
+      ],
+      "all_k_expected_status": "finest_unique",
+      "alphabet_size": 6,
+      "bytes": 410,
+      "max_word_length": 10,
+      "negative_count": 22,
+      "path": "inputs/c007_gen_m06_000.json",
+      "payload_sha256": "cdf4c3b20dbbc477926b8477fd4d280d71fd801866d6abfa004c7e258817763e",
+      "positive_count": 1,
+      "sha256": "e5315ad4ad5dc474227e3644f73274af507c7213cad784c9d0838211ab5d9f27",
+      "validated_v4_adaptive_fallback": false,
+      "validated_v4_adaptive_path": "swap_only_stage",
+      "validated_v4_adaptive_status": "finest_unique"
+    },
+    "c007_gen_m08_000": {
+      "all_k_compatible_bipartitions": 127,
+      "all_k_expected_meet": [
+        [
+          "a"
+        ],
+        [
+          "b"
+        ],
+        [
+          "c"
+        ],
+        [
+          "d"
+        ],
+        [
+          "e"
+        ],
+        [
+          "f"
+        ],
+        [
+          "g"
+        ],
+        [
+          "h"
+        ]
+      ],
+      "all_k_expected_status": "finest_unique",
+      "alphabet_size": 8,
+      "bytes": 377,
+      "max_word_length": 12,
+      "negative_count": 18,
+      "path": "inputs/c007_gen_m08_000.json",
+      "payload_sha256": "518dcb1b1717f7c80472f339ebea9c9304e04b30c6e75b843fa412a143c0d959",
+      "positive_count": 1,
+      "sha256": "1dceaeed743e0ae32b263ba7597399e26ce2b2fb7efbebb6fda6419752840e57",
+      "validated_v4_adaptive_fallback": false,
+      "validated_v4_adaptive_path": "swap_only_stage",
+      "validated_v4_adaptive_status": "finest_unique"
+    }
+  },
+  "schema_version": 1,
+  "selection_correctness_capture": "20261102T064415.454215Z_56c9af5e1d",
+  "selection_correctness_stdout_sha256": "0e4a38c50bd95a8d9e9955aad059885abe038ae2620a34644f7b036a19ba080d",
+  "selection_rule": "one registered corpus row per m in {4,6,8}; choose an m=4 fallback/multiple-maximal case, then m=6 and m=8 swap-only unique-finest cases; within the class, maximize compatible binary cuts, then max word length, then lexicographic case_id; no timing observations used",
+  "source_inputs_sha256": "906152be7d6830fac80b722da24873195687ca257650b30a02ec8ace2025c39b",
+  "status": "frozen_inputs_prepared_no_timing_run"
+}

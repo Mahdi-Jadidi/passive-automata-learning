@@ -1,0 +1,117 @@
+{
+  "schema_version": 2,
+  "state": "frozen_proposal_waiting_for_explicit_master_go",
+  "provider_timing_jobs_run": 0,
+  "planned_provider_processes": 18,
+  "v1_preserved_unrun": {
+    "proposal_path": "../timing_v1/PROPOSAL_V1.md",
+    "proposal_sha256": "c3f8b42d81a1defeb08fd54cc57e56ead4e3a94759464e8c93d29a274839e357",
+    "input_manifest_path": "../timing_v1/input_manifest_v1.json",
+    "input_manifest_sha256": "0ff7527b1762105971e6883062ab430f2e29203af50f8cf03d4b1eb2579fff17"
+  },
+  "proposal": {
+    "path": "PROPOSAL_V2.md",
+    "sha256": "fcf908fd7b32d445d256b3cd75d20be970001c86a4c1a6a3bf75e9cf0b6b3f89"
+  },
+  "input_manifest": {
+    "path": "input_manifest_v2.json",
+    "sha256": "e07b0a15559becc5b13a44a5baee978b7ccefb86f06a0a4034aaa668b4625737",
+    "preparation_script": "../prepare_v4_timing_inputs_v2.py",
+    "preparation_script_sha256": "e0db9e1514dbc61be34a3162d5d048e3017fe0bbdf0fe6d0100bce170918873e",
+    "preparation_attempt_id": "20261102T070122.774429Z_5d06e8cc9e",
+    "preparation_capture_stdout_sha256": "4dea99de86c0041d07258c1d934faea5af461d55be10816e8551e5ef2d40e1b0"
+  },
+  "per_run_independent_validator": {
+    "path": "../validate_v4_timing_capture_v2.py",
+    "sha256": "b85467c83b28752286711f653c079187ff1163bc70810c9adb04548d4579668e"
+  },
+  "frozen_runtime_sources": {
+    "provider_v4_sha256": "c6c803da1088450d352d56bc1a208d6fa7c0d19416bd702255d866052e454fff",
+    "cli_v2_sha256": "46642a86c315b95de7b784eb614af4000b52fa96ce55c965f1bbb3de1d15e879",
+    "public_root_wrapper_sha256": "d4d1644fa3144c68c626fc8daff818e9500a89453a21871df45ffb3e7b7232de",
+    "protocol_v5_sha256": "74ee1895c49e40abc5cc1c328bc1fad006e06dde397963dc1779c7266a2a06bd",
+    "readiness_v4_sha256": "cff6e5e5156d1c8abe8069cde7182195742762a387817ea465ccdb66adbe5ef9",
+    "capture_sha256": "68ee700f391fb6a1cf135e4b55a11a247b45f25164553c917d1664f6fc4a31cf",
+    "c006_dependency_sha256": "e83c8d13e8eac248415160f6d29fb3309f19b5d447c932e00b69e24e7cb60792",
+    "c005_dependency_sha256": "9f08dd645e7fcccbe8ea8022c758b7cf3277a5f01b6533fb9c1ad0cf08b6c84d"
+  },
+  "correctness_gates": {
+    "218_case_v4_gate": {
+      "path": "../validation_v2/provider_gate_v4.json",
+      "sha256": "b411a01b232d117a9f906ae03ed26b941bc04272aff953316fae4e32f782738e",
+      "status": "accepted",
+      "cases_per_mode": 218,
+      "independent_certificate_replays": 436
+    },
+    "targeted_empty_graph_v4": {
+      "path": "../targeted_empty_graph/provider_gate_v2.json",
+      "sha256": "aa87929527cb843b2851a7f6a11b5c6cc8b1a88fa02e38f8f101a4fba5dbd999",
+      "status": "accepted",
+      "compatible_all_k_partitions": 5,
+      "compatible_binary_partitions": 3,
+      "forced_edges": 0
+    },
+    "root_cli_v4": {
+      "path": "../root_cli_v2.json",
+      "sha256": "9aec1ba29d856bc6e438440bbfae31a8c6231f351be88f8a5bcb8ca4c5d125c3",
+      "status": "accepted"
+    },
+    "historical_long_v4": {
+      "path": "../scale_v1/long_v4_replay_v1.json",
+      "sha256": "0cb7b0af8dff0bd3d1f19e0977090636ac3cbdc3cc72c6c80965375b4dc910d5",
+      "status": "accepted",
+      "attempt_id": "20261101T213654.444396Z_b24663495c",
+      "context_length": 65536,
+      "forced_edges_replayed": 12,
+      "provider_rerun": false
+    },
+    "deadline_interrupt_invalid_controls_v4": {
+      "path": "../validation_v2/provider_controls_v4.json",
+      "sha256": "76d7395afcc1de27aef0763fcdc8f9a58bac8e0fdac8ba92d42bf58c122738d6",
+      "status": "accepted",
+      "checks": [
+        "six_invalid_input_mode_calls_rejected",
+        "invalid_mode_rejected",
+        "expired_deadline_returns_incomplete_without_finality",
+        "injected_stop_during_swap_stage_returns_incomplete_without_finality",
+        "stop_after_separator_retains_partial_meet_without_finality",
+        "keyboard_interrupt_after_separator_retains_partial_meet_without_finality"
+      ],
+      "provider_attempt_id": "20261102T065951.720335Z_2b104dce14"
+    }
+  },
+  "cases": [
+    {
+      "case_id": "c007_gen_m04_013",
+      "input_sha256": "48337501cea5b2d20f7395b34a644df1234b7ac65ef69e008c02e15ecb38e75f",
+      "expected_decision": "multiple_maximal_exist",
+      "adaptive_path": "fallback",
+      "compatible_binary_cuts": 7
+    },
+    {
+      "case_id": "ctrl_empty_must_link_unique_3",
+      "input_sha256": "d4b6f1a05e14ec43ff2ce9bc317d6c48d781a5132b7fcb3aab70d1645cebce86",
+      "payload_sha256": "d47874dba3d5d025295adf01c04479896062a1c9d6d64dd0beb03a2bee850dab",
+      "expected_decision": "finest_unique",
+      "expected_partition": [["a", "b"], ["c", "d"], ["e", "f"]],
+      "forced_edges": 0,
+      "compatible_binary_cuts": 3
+    },
+    {
+      "case_id": "c007_gen_m08_000",
+      "input_sha256": "1dceaeed743e0ae32b263ba7597399e26ce2b2fb7efbebb6fda6419752840e57",
+      "expected_decision": "finest_unique",
+      "adaptive_path": "swap_only_stage",
+      "compatible_binary_cuts": 127
+    }
+  ],
+  "execution_limits": {
+    "repetitions_per_case_per_mode": 3,
+    "cooperative_deadline_seconds": 28,
+    "hard_capture_seconds": 30,
+    "maximum_subprocess_seconds_per_method": 300,
+    "serial": true,
+    "memory_measurement": false,
+    "explicit_go_required": true
+  }
+}

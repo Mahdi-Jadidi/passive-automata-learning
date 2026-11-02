@@ -1,0 +1,35 @@
+{
+  "schema_version": 1,
+  "cycle": "C007",
+  "script": "C007_prepare_delivery_v3.py",
+  "script_sha256": "e7f8f78d8d561ee0c2795b7bcbfaa9f97394b49c781511e2dd1bdfb4a43082e8",
+  "supersedes_for_master_review": "C007_prepare_delivery_v2.py",
+  "v1_and_v2_preserved": true,
+  "master_decision_candidate": "MASTER_DECISION_CANDIDATE_FA_v1.md",
+  "final_report_candidate": "theory/SCIENTIFIC_REPORT_CANDIDATE_FA_v4.md",
+  "timing_adapter": {
+    "input": "audit/timing_v2/final_audit_v1.json",
+    "summary": "audit/timing_v2/suite_summary_v1.json",
+    "statistics_schema": "cell_statistics[]: case_id, mode, subprocess_seconds{median,min,max}, stdout_bytes{median}, median_binary_cuts_checked",
+    "acceptance_anchor": "coordination/PERFORMANCE_ACCEPTANCE.json path+sha256 must match final_audit_v1.json",
+    "expected": "18 complete uncensored provider processes; 18 accepted independent validation reports; zero output mismatches"
+  },
+  "frozen_wrapper": {
+    "path": "solver.py",
+    "sha256": "d4d1644fa3144c68c626fc8daff818e9500a89453a21871df45ffb3e7b7232de",
+    "mutation": "none; hash is checked and exact bytes are retained"
+  },
+  "document_adapter": [
+    "removes pending timing language from report/README",
+    "table retains case and mode, process median/range, and output bytes",
+    "includes Python startup, parsing, solving, and serialization in process-time boundary",
+    "records m4 adaptive slower than reference and m6 near-equal times despite 41 versus 31 cuts",
+    "states timing is startup-dominated and shows no general win",
+    "links timing report, Sources, and Protocol V5",
+    "states alphabet symbols use one-character identifiers"
+  ],
+  "separate_finalization": "only after archive_integrity_v2 reports pass and zero errors; verifies runtime hashes/links before writing CYCLE_OUTCOME, DELIVERY_LINKS, CLOSURE_CHECKS",
+  "execution_status": "not_run; master inspection only",
+  "provider_or_timing_runs": false,
+  "outside_implementation_edits_performed": false
+}

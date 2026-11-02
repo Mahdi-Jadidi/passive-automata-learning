@@ -1,0 +1,35 @@
+{
+  "schema_version": 1,
+  "cycle": "C007",
+  "script": "C007_prepare_delivery_v2.py",
+  "script_sha256": "710ab2357495a1889d84c5625c0880f96f5e487472746f453429538e56e71d03",
+  "supersedes_for_master_review": "C007_prepare_delivery_v1.py",
+  "v1_preserved": true,
+  "master_decision_candidate": "MASTER_DECISION_CANDIDATE_FA_v1.md",
+  "master_decision_candidate_sha256": "aee213820dc0c60b1324d785934d0d40b7834e63ebc3280a872d9924ffae4b25",
+  "final_report_candidate": "theory/SCIENTIFIC_REPORT_CANDIDATE_FA_v4.md",
+  "final_report_sha256": "674403f5a2ad4919da863182e6171f790c0bbb26226efd9d717abc9841692b9c",
+  "timing_protocol": "audit/timing_v2/PROPOSAL_V2.md",
+  "timing_result_schema": "not available yet; do not invoke prepare until actual result exists and adapter is reviewed",
+  "distinct_performance_acceptance_required": "coordination/PERFORMANCE_ACCEPTANCE.json must point to and hash the passed timing result",
+  "wrapper_policy": {
+    "path": "solver.py",
+    "sha256": "d4d1644fa3144c68c626fc8daff818e9500a89453a21871df45ffb3e7b7232de",
+    "mutated_by_script": false,
+    "checked_before_promotion": true
+  },
+  "documentation_changes": [
+    "replace pending-timing language with bounded accepted results",
+    "report table includes case, mode, median whole-process seconds, and output bytes",
+    "state process boundary includes Python startup, input parsing, preprocessing, search, and serialization",
+    "link theory/SOURCES_v1.md and implementation/PROTOCOL_V5.md",
+    "state alphabet identifiers are one-character strings"
+  ],
+  "phases": {
+    "prepare": "requires frozen report + explicitly accepted timing result and separate master performance acceptance; validates v4 gates; preserves/promotes docs without changing solver.py",
+    "finalize": "requires archive_integrity_v2 pass with zero errors; verifies runtime manifest and document links; writes cycle outcome, delivery links and closure checks"
+  },
+  "execution_status": "not_run; master inspection only",
+  "no_provider_or_timing_runs": true,
+  "outside_implementation_edits_performed": false
+}

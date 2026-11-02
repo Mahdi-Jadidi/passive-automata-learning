@@ -1,0 +1,135 @@
+{
+  "adaptive_rows": 218,
+  "adaptive_status_counts": {
+    "finest_unique": 202,
+    "multiple_maximal_exist": 8,
+    "one_block_only": 8
+  },
+  "all_k_independent_sha256": "290a82bd7fd1cae7d4e0aebb27a6ea90b91148ee47d0963012319d6339680d25",
+  "all_k_primary_sha256": "a4216c69d0328419086096ff7b28f7efc39f98fb85ff904d798c5a6f54421281",
+  "batch_attempt_ids": {
+    "adaptive": "20261101T211720.643221Z_2a996513a8",
+    "reference": "20261101T211732.579969Z_a9947f46f2"
+  },
+  "batch_capture_bytes": {
+    "adaptive": 657181,
+    "reference": 13577314
+  },
+  "complete_cover_cut_records_replayed": 7446,
+  "early_ambiguity_certificates_replayed": 0,
+  "failures": [
+    {
+      "case_id": "c007_gen_m03_004",
+      "mode": "adaptive",
+      "reason": "oracle_partition_violates_partial_meet",
+      "scope": "certificate"
+    },
+    {
+      "case_id": "c007_gen_m03_014",
+      "mode": "adaptive",
+      "reason": "oracle_partition_violates_partial_meet",
+      "scope": "certificate"
+    },
+    {
+      "case_id": "c007_gen_m04_013",
+      "mode": "adaptive",
+      "reason": "oracle_partition_violates_partial_meet",
+      "scope": "certificate"
+    },
+    {
+      "case_id": "c007_gen_m05_025",
+      "mode": "adaptive",
+      "reason": "oracle_partition_violates_partial_meet",
+      "scope": "certificate"
+    },
+    {
+      "case_id": "c007_gen_m07_000",
+      "mode": "adaptive",
+      "reason": "oracle_partition_violates_partial_meet",
+      "scope": "certificate"
+    },
+    {
+      "case_id": "c007_gen_m07_004",
+      "mode": "adaptive",
+      "reason": "oracle_partition_violates_partial_meet",
+      "scope": "certificate"
+    },
+    {
+      "case_id": "ctrl_multiple_maximal_refinements",
+      "mode": "adaptive",
+      "reason": "oracle_partition_violates_partial_meet",
+      "scope": "certificate"
+    },
+    {
+      "case_id": "ctrl_partial_meet_ambiguity",
+      "mode": "adaptive",
+      "reason": "oracle_partition_violates_partial_meet",
+      "scope": "certificate"
+    },
+    {
+      "case_id": "ctrl_unique_finest_3plus",
+      "mode": "adaptive",
+      "reason": "target_control_not_hit",
+      "scope": "target_control"
+    },
+    {
+      "case_id": "ctrl_unique_finest_3plus",
+      "mode": "reference",
+      "reason": "target_control_not_hit",
+      "scope": "target_control"
+    },
+    {
+      "case_id": "ctrl_no_positives",
+      "mode": "adaptive",
+      "reason": "target_control_not_hit",
+      "scope": "target_control"
+    },
+    {
+      "case_id": "ctrl_no_positives",
+      "mode": "reference",
+      "reason": "target_control_not_hit",
+      "scope": "target_control"
+    },
+    {
+      "case_id": "ctrl_no_negatives",
+      "mode": "adaptive",
+      "reason": "target_control_not_hit",
+      "scope": "target_control"
+    },
+    {
+      "case_id": "ctrl_no_negatives",
+      "mode": "reference",
+      "reason": "target_control_not_hit",
+      "scope": "target_control"
+    },
+    {
+      "case_id": "ctrl_unused_symbol",
+      "mode": "adaptive",
+      "reason": "target_control_not_hit",
+      "scope": "target_control"
+    },
+    {
+      "case_id": "ctrl_unused_symbol",
+      "mode": "reference",
+      "reason": "target_control_not_hit",
+      "scope": "target_control"
+    }
+  ],
+  "independent_certificate_replays": 436,
+  "input_sha256": "906152be7d6830fac80b722da24873195687ca257650b30a02ec8ace2025c39b",
+  "mutations_rejected": {
+    "forged_collision_rejected": true,
+    "missing_cut_branch_rejected": true,
+    "partial_meet_as_final_rejected": true,
+    "partial_meet_missing_separator_rejected": true
+  },
+  "reference_rows": 218,
+  "reference_status_counts": {
+    "finest_unique": 202,
+    "multiple_maximal_exist": 8,
+    "one_block_only": 8
+  },
+  "schema_version": 1,
+  "status": "rejected",
+  "valid_rows": 218
+}

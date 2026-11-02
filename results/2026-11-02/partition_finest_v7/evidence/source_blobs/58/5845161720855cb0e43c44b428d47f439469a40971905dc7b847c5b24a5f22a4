@@ -1,0 +1,160 @@
+#!/usr/bin/env python3
+"""Independent source and output audit of the captured C007 v4 controls."""
+from __future__ import annotations
+
+import hashlib
+import json
+import sys
+from pathlib import Path
+
+
+ROOT = Path(__file__).resolve().parents[1]
+EXPECTED = {
+    "provider": "c6c803da1088450d352d56bc1a208d6fa7c0d19416bd702255d866052e454fff",
+    "cli": "46642a86c315b95de7b784eb614af4000b52fa96ce55c965f1bbb3de1d15e879",
+    "protocol": "74ee1895c49e40abc5cc1c328bc1fad006e06dde397963dc1779c7266a2a06bd",
+    "valid_inputs": "906152be7d6830fac80b722da24873195687ca257650b30a02ec8ace2025c39b",
+    "invalid_inputs": "481b50913d7ebf30ddeb74c3ec01594c2db18cc673594233bb7d5fce871a99d1",
+    "readiness": "cff6e5e5156d1c8abe8069cde7182195742762a387817ea465ccdb66adbe5ef9",
+    "c006": "e83c8d13e8eac248415160f6d29fb3309f19b5d447c932e00b69e24e7cb60792",
+    "c005": "9f08dd645e7fcccbe8ea8022c758b7cf3277a5f01b6533fb9c1ad0cf08b6c84d",
+    "capture": "68ee700f391fb6a1cf135e4b55a11a247b45f25164553c917d1664f6fc4a31cf",
+}
+
+
+def sha(data: bytes) -> str:
+    return hashlib.sha256(data).hexdigest()
+
+
+def file_sha(path: Path) -> str:
+    return sha(path.read_bytes())
+
+
+def main() -> int:
+    if len(sys.argv) != 2:
+        raise SystemExit("usage: validate_provider_controls_v2.py CONTROL_ATTEMPT_DIR")
+    attempt = Path(sys.argv[1]).resolve()
+    manifest = json.loads((attempt / "manifest.json").read_text(encoding="utf-8"))
+    captured = json.loads((attempt / "result.json").read_text(encoding="utf-8"))
+    stdout = attempt / "stdout.bin"
+    stderr = attempt / "stderr.bin"
+    impl = ROOT / "implementation"
+    valid = ROOT / "audit" / "corpus_v1" / "all_valid_inputs.jsonl"
+    invalid = ROOT / "audit" / "corpus_v1" / "invalid_controls.jsonl"
+    c006 = ROOT.parents[1] / "2026-11-01" / "partition_identifiability_v6" / "implementation" / "solver_v5.py"
+    c005 = ROOT.parents[1] / "2026-10-31" / "partition_coverage_v5" / "general" / "known_k_qexact_v2.py"
+    required = {
+        ROOT / "evidence" / "capture.py": EXPECTED["capture"],
+        ROOT / "audit" / "run_provider_controls_v2.py": file_sha(ROOT / "audit" / "run_provider_controls_v2.py"),
+        impl / "finest_solver_v4.py": EXPECTED["provider"],
+        impl / "finest_cli_v2.py": EXPECTED["cli"],
+        impl / "PROTOCOL_V5.md": EXPECTED["protocol"],
+        impl / "READINESS_V4.json": EXPECTED["readiness"],
+        valid: EXPECTED["valid_inputs"], invalid: EXPECTED["invalid_inputs"],
+        c006: EXPECTED["c006"], c005: EXPECTED["c005"],
+    }
+    source_by_path = {entry["path"]: entry for entry in manifest.get("sources", [])}
+    failures = []
+    for path, expected_hash in required.items():
+        entry = source_by_path.get(str(path.resolve()))
+        if entry is None or entry.get("sha256") != expected_hash:
+            failures.append("required_source_missing_or_drifted:" + path.name)
+    for entry in manifest.get("sources", []):
+        blob = ROOT / "evidence" / entry.get("snapshot", "")
+        if not blob.is_file() or file_sha(blob) != entry.get("sha256"):
+            failures.append("source_snapshot_invalid:" + Path(entry.get("path", "unknown")).name)
+    if captured.get("execution_status") != "success" or captured.get("exit_code") != 0 or captured.get("child_reaped") is not True:
+        failures.append("control_capture_not_clean_success")
+    if captured.get("stdout_sha256") != file_sha(stdout) or captured.get("stderr_sha256") != file_sha(stderr):
+        failures.append("capture_stream_hash_mismatch")
+    if stderr.stat().st_size:
+        failures.append("unexpected_stderr")
+
+    rows = [json.loads(line) for line in stdout.read_text(encoding="utf-8").splitlines() if line]
+    if not rows or rows[-1].get("record_type") != "control_summary":
+        raise AssertionError("control summary missing")
+    summary, controls = rows[-1], rows[:-1]
+    expected_invalid_ids = {row["case_id"] for row in
+                            (json.loads(line) for line in invalid.read_text(encoding="utf-8").splitlines() if line)}
+    invalid_results = [row for row in controls if row.get("control") == "invalid_input"]
+    if len(invalid_results) != 6 or {row.get("case_id") for row in invalid_results} != expected_invalid_ids:
+        failures.append("invalid_input_run_count_or_case_set_mismatch")
+    for row in invalid_results:
+        result = row.get("result") or {}
+        if result.get("status") != "invalid_input" or result.get("complete") is not True:
+            failures.append("invalid_input_not_rejected:" + str(row.get("case_id")) + ":" + str(row.get("mode")))
+        if result.get("finality_certificate") is not None or result.get("decision_complete") is True:
+            failures.append("invalid_input_has_finality:" + str(row.get("case_id")))
+
+    mode_rows = [row for row in controls if row.get("control") == "invalid_mode_rejected"]
+    if (len(mode_rows) != 1 or mode_rows[0].get("exception_type") != "ValueError"
+            or mode_rows[0].get("mode") != "unsupported"):
+        failures.append("invalid_mode_not_cleanly_rejected")
+    if any(row.get("control") in ("invalid_mode_returned", "invalid_mode_exception") for row in controls):
+        failures.append("invalid_mode_was_not_rejected_as_expected")
+
+    expected = {
+        "expired_deadline_before_work": ("ctrl_expired_deadline", 0, "deadline_during_swap_stage"),
+        "injected_stop_during_swap_stage": ("ctrl_swap_stage_deadline", 0, "deadline_during_swap_stage"),
+        "ctrl_stop_after_partial_separator": ("ctrl_partial_separator", 1, "deadline_or_interruption"),
+        "ctrl_interrupt_after_partial_separator": ("ctrl_partial_separator", 1, "deadline_or_interruption"),
+    }
+    observed = {}
+    for row in controls:
+        if row.get("control") not in expected:
+            continue
+        control = row["control"]
+        case_id, history_count, reason = expected[control]
+        result = row.get("result") or {}
+        observed[control] = row
+        if row.get("case_id") != case_id:
+            failures.append("control_case_id_mismatch:" + control)
+        if result.get("status") != "incomplete" or result.get("complete") is not False or result.get("decision_complete") is not False:
+            failures.append("control_did_not_return_incomplete:" + control)
+        if result.get("finality_certificate") is not None or result.get("finest_witness") is not None:
+            failures.append("incomplete_control_contains_final_claim:" + control)
+        if result.get("reason") != reason:
+            failures.append("control_reason_mismatch:" + control)
+        history = result.get("successful_separators", [])
+        if len(history) != history_count:
+            failures.append("partial_separator_history_count_mismatch:" + control)
+        if history_count and not result.get("partial_meet"):
+            failures.append("partial_separator_meet_not_retained:" + control)
+        if row.get("injected_mask_rounds") is not None and row["injected_mask_rounds"] != 2:
+            failures.append("interruption_injection_boundary_mismatch:" + control)
+    if len(observed) != 4:
+        failures.append("required_cooperative_controls_missing")
+    stage = observed.get("injected_stop_during_swap_stage", {})
+    if stage.get("injected_check_calls") != 4:
+        failures.append("swap_stage_deadline_injection_not_inside_stage")
+
+    if summary.get("unexpected_errors") != 0 or summary.get("invalid_input_calls") != 6 or summary.get("invalid_mode_checks") != 1:
+        failures.append("control_runner_summary_mismatch")
+    report = {
+        "schema_version": 2,
+        "status": "accepted" if not failures else "rejected",
+        "provider": "finest_solver_v4.py",
+        "provider_sha256": EXPECTED["provider"],
+        "capture_attempt_id": captured.get("attempt_id"),
+        "capture_execution_status": captured.get("execution_status"),
+        "capture_stdout_sha256": captured.get("stdout_sha256"),
+        "invalid_input_both_modes": len(invalid_results),
+        "invalid_mode_rejected": len(mode_rows) == 1,
+        "expired_deadline_incomplete_no_finality": "expired_deadline_before_work" in observed,
+        "swap_stage_stop_incomplete_no_finality": "injected_stop_during_swap_stage" in observed,
+        "post_separator_stop_retains_partial_no_finality": "ctrl_stop_after_partial_separator" in observed,
+        "post_separator_keyboardinterrupt_retains_partial_no_finality": "ctrl_interrupt_after_partial_separator" in observed,
+        "partial_history_counts": {key: len((row.get("result") or {}).get("successful_separators", []))
+                                   for key, row in observed.items()},
+        "failures": failures,
+    }
+    report_path = ROOT / "audit" / "validation_v2" / "provider_controls_v4.json"
+    report_path.parent.mkdir(parents=True, exist_ok=True)
+    report_path.write_text(json.dumps(report, ensure_ascii=False, sort_keys=True, indent=2) + "\n",
+                           encoding="utf-8", newline="\n")
+    print(json.dumps(report, ensure_ascii=False, sort_keys=True))
+    return 0 if report["status"] == "accepted" else 1
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())

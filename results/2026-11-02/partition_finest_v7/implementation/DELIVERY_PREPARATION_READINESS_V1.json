@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "cycle": "C007",
+  "script": "C007_prepare_delivery_v1.py",
+  "script_sha256": "1361eec79fcd8814f9a08e2c9d6a21bad6323a511cfdb940bb76cd1165c877e2",
+  "master_decision_candidate": "MASTER_DECISION_CANDIDATE_FA_v1.md",
+  "master_decision_candidate_sha256": "aee213820dc0c60b1324d785934d0d40b7834e63ebc3280a872d9924ffae4b25",
+  "expected_final_report_candidate": "theory/SCIENTIFIC_REPORT_CANDIDATE_FA_v4.md",
+  "expected_report_sha256": "674403f5a2ad4919da863182e6171f790c0bbb26226efd9d717abc9841692b9c",
+  "timing_protocol": "audit/timing_v2/PROPOSAL_V2.md",
+  "timing_result": "await accepted auditor result; schema-specific adaptation may be needed before master invocation",
+  "phases": {
+    "prepare": "requires report and explicitly accepted timing result; validates frozen v4 hashes and correctness/scale/targeted/CLI gates; prepares root wrapper, docs, runtime manifest and journal/promotion records",
+    "finalize": "requires archive_integrity_v2 pass with zero errors; checks runtime hashes and document links; writes CYCLE_OUTCOME, DELIVERY_LINKS and CLOSURE_CHECKS"
+  },
+  "execution_status": "not_run_by_worker; for master inspection and later invocation",
+  "writes_if_run": [
+    "C007 root wrapper and public README/report/decision",
+    "workspace START_HERE_FA.md",
+    "C007 coordination runtime_final, promotion, journal, and post-integrity closure records"
+  ],
+  "outside_implementation_edits_performed": false
+}

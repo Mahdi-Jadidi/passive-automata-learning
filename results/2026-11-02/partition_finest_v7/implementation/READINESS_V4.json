@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "candidate": "C007 finest solver v4 staged swap preprocessing",
+  "method": "c007-unknown-k-finest-v4-staged-swap",
+  "status": "local_correctness_passed_independent_regate_pending",
+  "provider_sha256": "c6c803da1088450d352d56bc1a208d6fa7c0d19416bd702255d866052e454fff",
+  "cli_sha256": "46642a86c315b95de7b784eb614af4000b52fa96ce55c965f1bbb3de1d15e879",
+  "protocol_sha256": "74ee1895c49e40abc5cc1c328bc1fad006e06dde397963dc1779c7266a2a06bd",
+  "local_smoke": {
+    "driver": "smoke_v5.py",
+    "driver_sha256": "bd9004e544a8ede1f34d1811249da3604aca22d6caf28d53e230ae5867ae8fd0",
+    "attempt_id": "20261101T213604.384097Z_0e3ca0329c",
+    "execution_status": "success",
+    "scientific_status": "passed",
+    "coverage": "eight RGS-oracle inputs; adaptive/reference; proof replay; staged fast path and fallback; interruption; edge recognition; invalid labels"
+  },
+  "preserved_failed_smoke": {
+    "attempt_id": "20261101T213532.787902Z_88c4524c29",
+    "scientific_status": "invalid_test_case",
+    "reason": "abc/bac is a valid adjacent reversal; corrected in smoke_v5.py"
+  },
+  "gates": {
+    "cli_smoke": "pending",
+    "independent_auditor_218_input_regate": "pending",
+    "single_historical_long_cell": "pending",
+    "official_timing_claim": "not_authorized"
+  },
+  "parent_dependencies": {
+    "C006_solver_v5.py": "e83c8d13e8eac248415160f6d29fb3309f19b5d447c932e00b69e24e7cb60792",
+    "C005_graph_helper_v2.py": "9f08dd645e7fcccbe8ea8022c758b7cf3277a5f01b6533fb9c1ad0cf08b6c84d"
+  }
+}

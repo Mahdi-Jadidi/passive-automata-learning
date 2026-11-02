@@ -1,0 +1,133 @@
+{
+  "cells": [
+    {
+      "alphabet_size": 64,
+      "block_sizes": [
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8
+      ],
+      "case_id": "scale_m64_equal8",
+      "context_length": 64,
+      "intended_blocks": 8,
+      "negative_count": 56
+    },
+    {
+      "alphabet_size": 64,
+      "block_sizes": [
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        29
+      ],
+      "case_id": "scale_m64_unequal8",
+      "context_length": 64,
+      "intended_blocks": 8,
+      "negative_count": 56
+    },
+    {
+      "alphabet_size": 128,
+      "block_sizes": [
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8
+      ],
+      "case_id": "scale_m128_equal16",
+      "context_length": 128,
+      "intended_blocks": 16,
+      "negative_count": 112
+    },
+    {
+      "alphabet_size": 256,
+      "block_sizes": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        136
+      ],
+      "case_id": "scale_m256_unequal16",
+      "context_length": 256,
+      "intended_blocks": 16,
+      "negative_count": 240
+    },
+    {
+      "alphabet_size": 16,
+      "block_sizes": [
+        4,
+        4,
+        4,
+        4
+      ],
+      "case_id": "scale_m16_len65536",
+      "context_length": 65536,
+      "intended_blocks": 4,
+      "negative_count": 12
+    }
+  ],
+  "corpus": "C007_ADAPTIVE_SCALE_CORRECTNESS_V1",
+  "execution_policy": {
+    "capture_hard_seconds": 30,
+    "cooperative_seconds": 28,
+    "fresh_serial_processes": true,
+    "mode": "adaptive",
+    "reference_at_16_atoms": "excluded"
+  },
+  "files": {
+    "inputs.jsonl": {
+      "bytes": 2812327,
+      "sha256": "441a2b4e21bb933cc66fd9b1d068070a45b4fe108dd8b89c930de05cb6ef1008"
+    },
+    "truth_sidecars.jsonl": {
+      "bytes": 235998,
+      "sha256": "e4d69cc4e03d2461e9116327d153cbf4fb13f7541f0eb51f79540e184c450542"
+    }
+  },
+  "generator_sha256": "2d2598f852928b8e55eecf23fbc79cc3440927f1790ec247c6439eb369549fd0",
+  "protocol_sha256": "5d46fe473e55e39f337b2daca1c9b07d654776b38053b0536922803000c0f027",
+  "schema_version": 1,
+  "sidecar_fields_excluded_from_solver": [
+    "expected_finest_partition",
+    "base_positive_word",
+    "swap_edges"
+  ],
+  "solver_fields": [
+    "alphabet",
+    "positive",
+    "negative"
+  ],
+  "timing_status": "held_pending_master_go"
+}
