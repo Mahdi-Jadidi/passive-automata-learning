@@ -1,0 +1,9 @@
+Traceback (most recent call last):
+  File "C:\Users\Mahdi\Documents\ChatGPT\passive automata learning\results\2026-11-02\partition_coverage_v9\audit\validate_stage_a_v1.py", line 246, in <module>
+    raise SystemExit(main())
+                     ^^^^^^
+  File "C:\Users\Mahdi\Documents\ChatGPT\passive automata learning\results\2026-11-02\partition_coverage_v9\audit\validate_stage_a_v1.py", line 190, in main
+    require(not wanted or (same_count == len(wanted) if same else same_count == 0), f"missing pair witness {case['case_id']} {pair['symbols']} {side}")
+  File "C:\Users\Mahdi\Documents\ChatGPT\passive automata learning\results\2026-11-02\partition_coverage_v9\audit\validate_stage_a_v1.py", line 111, in require
+    raise AssertionError(message)
+AssertionError: missing pair witness rand_m2_02 ['a', 'b'] same

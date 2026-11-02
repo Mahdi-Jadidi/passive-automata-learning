@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "status": "preserved_harness_error",
+  "runner": "run_provider_gate_v1.py",
+  "runner_sha256": "fb831300d5f4c8360f904d779d58ed57e88dea0495d6653bdc1b19dc9c757f52",
+  "command": "python -B -X utf8 results/2026-11-02/partition_coverage_v9/audit/run_provider_gate_v1.py",
+  "driver_exit_code": 1,
+  "cause": "ledger opened in binary mode (xb), then json.dumps string was written; TypeError: a bytes-like object is required, not 'str'.",
+  "provider_case_invocations": 1,
+  "provider_capture_attempt_id": "20261102T105532.160951Z_4e6a888f5d",
+  "provider_capture_status": "success",
+  "provider_capture_exit_code": 0,
+  "provider_child_reaped": true,
+  "provider_output_sha256": "85beaba149fbd4fd1f83d4056cf60e6076a80c78b79ffe27b302b3cc2c9535db",
+  "attempted_case_id": "rand_m2_01",
+  "ledger_created_by_failed_runner": "provider_gate_ledger_v1.jsonl",
+  "ledger_bytes_at_inspection": 0,
+  "runner_stderr": "Traceback (most recent call last):\n  File \"C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-02\\partition_coverage_v9\\audit\\run_provider_gate_v1.py\", line 165, in <module>\n    raise SystemExit(main())\n                     ^^^^^^\n  File \"C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-02\\partition_coverage_v9\\audit\\run_provider_gate_v1.py\", line 127, in main\n    ledger.write(json.dumps(row, ensure_ascii=False, sort_keys=True) + \"\\n\")\nTypeError: a bytes-like object is required, not 'str'\n",
+  "recovery_policy": "preserve the successful first-case capture, verify its frozen hashes/source manifest, and continue with later frozen cases only; never rerun rand_m2_01 in this gate."
+}

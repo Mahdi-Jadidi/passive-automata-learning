@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "status": "frozen_named_mathematical_control",
+  "valid_cases": [
+    {
+      "case_id": "feasible_count_not_unique_ownership_v1",
+      "origin": "named_mathematical_control",
+      "constraint_kind": "exact",
+      "path": "feasible_count_not_unique_ownership_v1.json",
+      "input_sha256": "cc7fb05a6069f10dc4f36e8f9b1c80a81bb2f2d616f7153a687589cfcf93c0f1",
+      "alphabet_size": 3,
+      "positive_count": 2,
+      "negative_count": 1
+    }
+  ],
+  "expected_partition_count": 2,
+  "expected_compatible_partitions": [[ ["a", "b"], ["c"] ], [ ["a", "c"], ["b"] ]],
+  "expected_relations": {"ab": "ambiguous", "ac": "ambiguous", "bc": "forced_different"}
+}

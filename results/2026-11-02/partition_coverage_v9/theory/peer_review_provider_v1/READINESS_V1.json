@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "cycle": "C009",
+  "deliverable": "exact ownership partial-identification DP API v1",
+  "status": "core_candidate_ready_for_auditor_feedback",
+  "files": {
+    "ownership_solver_v1.py": "79255b0a306f8a30dffdd813c018bc4fd9368dad880c07489a86abd50968a5e7",
+    "ownership_cli_v1.py": "356ac0db3ca272403d95bc275e4babc48c5d7fc29caf00cb9685f8e49aed8507",
+    "ownership_example_v1.json": "9b63ab6dfe5964a0f0c881917e6306a188c6a9aca52cd4f71332a134f54dfffd",
+    "API_PROTOCOL_V1.md": "111226b52eef31fd67dc599082e10ca53ae941f4527e8db48063809a85fd761b"
+  },
+  "api": "solve(data, allowed_k=None, deadline=None, enumerate_partitions=False)",
+  "features": [
+    "default K=1..m and trusted nonempty allowed_k subset",
+    "known-k through allowed_k=[k]",
+    "exact total count and per-k counts",
+    "exact same/different partition counts for every symbol pair",
+    "relation witnesses and representative projection witness",
+    "optional full enumeration without silent truncation",
+    "model_inconsistent distinct from identified",
+    "deadline/interrupt returns unknown with no exact claims"
+  ],
+  "algorithm": "canonical least-remaining-symbol block-cover DP with per-state total and coownership-count vectors",
+  "independent_100_case_gate": "pending auditor review; not run",
+  "bounded_scale_cells": "not started",
+  "capture_before_local_execution": "required; copied C007 evidence/capture.py will be placed under implementation/evidence",
+  "freeze_policy": "candidate source hashes are frozen pending auditor feedback; changes require a new version",
+  "execution_status": "no local run performed yet"
+}

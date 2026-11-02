@@ -1,0 +1,36 @@
+{
+  "provider_edits": false,
+  "sources": [
+    {
+      "snapshot": "ownership_solver_v1.py",
+      "sha256": "79255b0a306f8a30dffdd813c018bc4fd9368dad880c07489a86abd50968a5e7",
+      "source": "implementation/ownership_solver_v1.py"
+    },
+    {
+      "snapshot": "ownership_cli_v1.py",
+      "sha256": "356ac0db3ca272403d95bc275e4babc48c5d7fc29caf00cb9685f8e49aed8507",
+      "source": "implementation/ownership_cli_v1.py"
+    },
+    {
+      "snapshot": "API_PROTOCOL_V1.md",
+      "sha256": "111226b52eef31fd67dc599082e10ca53ae941f4527e8db48063809a85fd761b",
+      "source": "implementation/API_PROTOCOL_V1.md"
+    },
+    {
+      "snapshot": "READINESS_V1.json",
+      "sha256": "e0c362047b3c63a1a0e25be52396357a900add60e37dde91c025a3c8fa2d0087",
+      "source": "implementation/READINESS_V1.json"
+    }
+  ],
+  "review": "../PEER_REVIEW_PROVIDER_V1.md",
+  "new_experiments": 0,
+  "id": "C009-THEORY-PEER-001",
+  "status": "static_core_alignment_no_mathematical_defect_found_independent_gate_pending",
+  "review_sha256": "6cd737930c6a8a57bcc0f53cf853556af732046cd8616fcb676960320561de59",
+  "findings": [
+    "R1 partial interrupt protection",
+    "R2 cooperative wall scope",
+    "R3 unused counter and inconsistent phase timer",
+    "R4 unsupported extra keys not restrictions"
+  ]
+}

@@ -1,0 +1,11 @@
+Traceback (most recent call last):
+  File "C:\Users\Mahdi\Documents\ChatGPT\passive automata learning\results\2026-11-02\partition_coverage_v9\audit\validate_controls_v2.py", line 139, in <module>
+    raise SystemExit(main())
+                     ^^^^^^
+  File "C:\Users\Mahdi\Documents\ChatGPT\passive automata learning\results\2026-11-02\partition_coverage_v9\audit\validate_controls_v2.py", line 129, in main
+    "provider_cli_sha256": sha(run.CLI),
+                           ^^^^^^^^^^^^
+  File "C:\Users\Mahdi\Documents\ChatGPT\passive automata learning\results\2026-11-02\partition_coverage_v9\audit\validate_controls_v2.py", line 17, in sha
+    return hashlib.sha256(raw).hexdigest()
+           ^^^^^^^^^^^^^^^^^^^
+TypeError: object supporting the buffer API required

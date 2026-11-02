@@ -1,0 +1,112 @@
+{
+  "check_count": 21,
+  "checks": [
+    {
+      "check": "frozen:ownership_cli_v1.py",
+      "ok": true,
+      "sha256": "356ac0db3ca272403d95bc275e4babc48c5d7fc29caf00cb9685f8e49aed8507"
+    },
+    {
+      "check": "frozen:ownership_solver_v1.py",
+      "ok": true,
+      "sha256": "79255b0a306f8a30dffdd813c018bc4fd9368dad880c07489a86abd50968a5e7"
+    },
+    {
+      "check": "frozen:API_PROTOCOL_V1.md",
+      "ok": true,
+      "sha256": "111226b52eef31fd67dc599082e10ca53ae941f4527e8db48063809a85fd761b"
+    },
+    {
+      "check": "frozen:READINESS_V1.json",
+      "ok": true,
+      "sha256": "e0c362047b3c63a1a0e25be52396357a900add60e37dde91c025a3c8fa2d0087"
+    },
+    {
+      "check": "frozen:manifest.json",
+      "ok": true,
+      "sha256": "bfe267967d6c759725cbdee77a93aa71edaef15ee8319695f7ae22f0f48bbd40"
+    },
+    {
+      "check": "frozen:oracle_v1.jsonl",
+      "ok": true,
+      "sha256": "5d23984b5c502a883b76761cf430ab2495555c3282cdc99e650019c0e473161a"
+    },
+    {
+      "check": "frozen:SCALE_PROTOCOL_V1.md",
+      "ok": true,
+      "sha256": "114a96eef1cb8bc38014cda16b72c209236b92d9071d3bbfd0efbbcb5af1960c"
+    },
+    {
+      "check": "frozen:CONTRACT.md",
+      "ok": true,
+      "sha256": "c3f5fddc4e8356e57c01870648234cfbb02a0a6e893bd78484661df7426b1521"
+    },
+    {
+      "check": "capture_helper",
+      "ok": true
+    },
+    {
+      "check": "python_syntax",
+      "ok": true
+    },
+    {
+      "check": "four_exact_scale_answers",
+      "ok": true,
+      "partition_counts": {
+        "long_word_m4_len4096_k2": 3,
+        "pair_atoms_m10_k2_4": 25,
+        "pair_atoms_m12_k3_5": 105,
+        "pair_atoms_m14_k2_4": 413
+      }
+    },
+    {
+      "check": "input:pair_atoms_m10_k2_4",
+      "ok": true
+    },
+    {
+      "check": "oracle:pair_atoms_m10_k2_4",
+      "ok": true
+    },
+    {
+      "check": "input:pair_atoms_m12_k3_5",
+      "ok": true
+    },
+    {
+      "check": "oracle:pair_atoms_m12_k3_5",
+      "ok": true
+    },
+    {
+      "check": "input:pair_atoms_m14_k2_4",
+      "ok": true
+    },
+    {
+      "check": "oracle:pair_atoms_m14_k2_4",
+      "ok": true
+    },
+    {
+      "check": "input:long_word_m4_len4096_k2",
+      "ok": true
+    },
+    {
+      "check": "oracle:long_word_m4_len4096_k2",
+      "ok": true
+    },
+    {
+      "check": "prerequisites_accepted",
+      "ok": true
+    },
+    {
+      "check": "no_prior_scale_provider_run",
+      "ok": true
+    }
+  ],
+  "failure_count": 0,
+  "manifest_sha256": "bfe267967d6c759725cbdee77a93aa71edaef15ee8319695f7ae22f0f48bbd40",
+  "oracle_sha256": "5d23984b5c502a883b76761cf430ab2495555c3282cdc99e650019c0e473161a",
+  "preflight_sha256": "69c37cb9f3bc11c7879d9dc12049a1251e4411620716adfbaff1a6c42e5baefc",
+  "protocol_sha256": "114a96eef1cb8bc38014cda16b72c209236b92d9071d3bbfd0efbbcb5af1960c",
+  "provider_jobs": 0,
+  "runner_sha256": "3c03f9a4bd807e65dde400c1eef18680d776598981fb92623b1a8253462a6dfa",
+  "schema_version": 1,
+  "status": "scale_preflight_passed"
+}

@@ -1,0 +1,22 @@
+{
+  "id": "C009-THEORY-001",
+  "scientific_status": "direct_proofs_ready_for_independent_review",
+  "execution_status": "not_applicable_no_experiments",
+  "new_experiments": 0,
+  "novelty_claim": false,
+  "proof": "PROOFS_v1.md",
+  "rejected_ideas": "REJECTED_IDEAS_v1.md",
+  "assumptions": ["known nonempty disjoint alphabet","independent regular local acceptor languages","exact whole-word labels","trusted allowed count set K","true model belongs to declared class"],
+  "claims": [
+    {"id":"T1","claim":"Rejection-mask union coverage exactly characterizes feasible partitions for arbitrary regular local factors"},
+    {"id":"T2","claim":"Least-remaining-symbol exact-cover DP is sound complete and counts each unordered partition once"},
+    {"id":"T3","claim":"Summing exact count vector over literal trusted K handles arbitrary noncontiguous count sets"},
+    {"id":"T4","claim":"Coownership vector recurrence counts each pair relation exactly with child totals for pairs inside selected block"},
+    {"id":"T5","claim":"For nonempty completed version space q=Z/0/intermediate gives forced same/different/ambiguous"},
+    {"id":"T6","claim":"Positive-contribution recurrence paths extract partitions and explicit finite regular witness models"},
+    {"id":"T7","claim":"Doubled pairs have five total answers and unique k3 answer despite empty old swap/rescue graph; lower-bound3 also suffices"}
+  ],
+  "boundaries": ["no universal claims from incomplete search","no vacuous identification from empty version space","no unconditional true-k inference","no named physical-ID inference","no prime or state-bound admissibility inference","no probabilistic interpretation of partition fractions","default K cannot force different"],
+  "performance_claim": "exponential worst case; no general speed claim",
+  "independent_audit": "pending"
+}

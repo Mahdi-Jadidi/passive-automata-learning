@@ -1,0 +1,28 @@
+{
+  "cycle": "C009",
+  "scientific_status": "under_review",
+  "ideas": [
+    {
+      "id": "C009-I1",
+      "parent": "C008-T10",
+      "hypothesis": "Exact-cover dynamic programming on symbol subsets and uncovered negatives counts all compatible ownerships without listing every Bell partition.",
+      "purpose": "Broaden usable exact identification beyond the sufficient graph r=k test; no polynomial complexity claim."
+    },
+    {
+      "id": "C009-I2",
+      "parent": "C008-T8",
+      "hypothesis": "A trusted allowed count set can certify ownership without an exact trusted k; constraints may eliminate all but one count and partition.",
+      "candidate": "Doubled-pairs abcdef with P={epsilon,aabb,ccdd,eeff}, N={bbaa,ddcc,ffee}, allowed_k=[3,4].",
+      "boundary": "The allowed set must contain the true count by external assumption; it is not invented from the sample."
+    },
+    {
+      "id": "C009-I3",
+      "parent": "C008-T1",
+      "hypothesis": "Exact pair coownership counts certify partial ownership even when the whole partition is ambiguous.",
+      "candidate": "abcd with P={abcd}, N={bacd}, allowed_k=[2]: a,b forced together while other pairs may remain ambiguous.",
+      "boundary": "No universal pair claims on an empty version space or incomplete DP."
+    }
+  ],
+  "retained_assumptions": ["known disjoint alphabet", "independent arbitrary regular local factors", "exact whole-word labels", "true model in declared class"],
+  "not_claimed": ["unconditional recovery of physical hardware", "no-state-bound prime-factor inference from finite traces", "general performance superiority", "new algorithmic novelty"]
+}

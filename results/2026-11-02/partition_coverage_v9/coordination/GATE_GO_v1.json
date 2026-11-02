@@ -1,0 +1,11 @@
+{
+  "cycle": "C009",
+  "decision": "GO_first_independent_provider_gate",
+  "provider": "implementation/ownership_solver_v1.py",
+  "sha256": "79255b0a306f8a30dffdd813c018bc4fd9368dad880c07489a86abd50968a5e7",
+  "prior_state": "frozen candidate with static mathematical review; no prior runtime correctness claim",
+  "independent_corpus": "129 frozen RGS-oracle cases (120 random plus 9 controls)",
+  "protocol_correction": "Audit V1 accidentally required an earlier main gate before Stage B. Stage B itself is the main gate. Preserve V1 and capture a versioned amendment removing this circular dependency.",
+  "allowed": ["one independent full-set/pair-witness gate on frozen inputs", "bounded execution/input controls", "four scale correctness cells only after main gate passes"],
+  "not_authorized": ["silently overwriting tested source", "claiming an unperformed earlier gate", "official speed comparison"]
+}

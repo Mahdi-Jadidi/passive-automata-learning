@@ -1,0 +1,9 @@
+Traceback (most recent call last):
+  File "C:\Users\Mahdi\Documents\ChatGPT\passive automata learning\results\2026-11-02\partition_coverage_v9\audit\validate_controls_v1.py", line 139, in <module>
+    raise SystemExit(main())
+                     ^^^^^^
+  File "C:\Users\Mahdi\Documents\ChatGPT\passive automata learning\results\2026-11-02\partition_coverage_v9\audit\validate_controls_v1.py", line 82, in main
+    require(all(source_hashes.get(str(path.resolve())) == digest for path, digest in expected_sources.items()),
+  File "C:\Users\Mahdi\Documents\ChatGPT\passive automata learning\results\2026-11-02\partition_coverage_v9\audit\validate_controls_v1.py", line 22, in require
+    raise AssertionError(message)
+AssertionError: captured control source/input mismatch: feasible_count_not_unique_ownership_v1

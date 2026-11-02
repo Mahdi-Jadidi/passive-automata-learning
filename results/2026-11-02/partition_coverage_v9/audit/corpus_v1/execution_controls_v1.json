@@ -1,0 +1,16 @@
+{
+  "api_specific_invocation": null,
+  "controls": [
+    {
+      "case_id": "expired_deadline",
+      "required_semantics": "complete=false; no final universal ownership/count claim; child reaped; stdout/stderr preserved"
+    },
+    {
+      "case_id": "interruption_after_partial_work",
+      "required_semantics": "complete=false; no final universal ownership/count claim; partial work preserved; child reaped; stdout/stderr preserved"
+    }
+  ],
+  "note": "No provider/API is present in the initial C009 workspace; commands and provider outcomes are intentionally not fabricated.",
+  "schema_version": 1,
+  "status": "pending_provider_api_readiness"
+}
