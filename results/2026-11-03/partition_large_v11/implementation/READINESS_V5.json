@@ -1,0 +1,67 @@
+{
+  "schema_version": 1,
+  "cycle": "C011",
+  "version": "candidate_v4_pair_witness_none_guard",
+  "status": "frozen_pending_delta_static_approval",
+  "execution_status": "not_run",
+  "provider_execution": false,
+  "correctness_tested": false,
+  "performance_measured": false,
+  "files": {
+    "unrestricted_solver_v3.py": {
+      "bytes": 32838,
+      "sha256": "42726e740198787645783acefd1fa06f6490ec16d609ef07d22cbfafd34a00fa"
+    },
+    "unrestricted_cli_v3.py": {
+      "bytes": 1595,
+      "sha256": "169d7d468a5e3d8a0ba93b686ccb2b058ba231fa1b8e85150d5840df4fec563c"
+    },
+    "API_PROTOCOL_V3.md": {
+      "bytes": 5239,
+      "sha256": "73a89169040d0d2bfe678f9d4f54dbd214de700c1e791364449dbc289eb792f7"
+    },
+    "unrestricted_example_v1.json": {
+      "bytes": 82,
+      "sha256": "5f68ac9b510b743f742243ee76df32c247a322054077dca8ec5d515257d6b4f5"
+    },
+    "STATIC_COUNTEREXAMPLE_V1.md": {
+      "bytes": 2220,
+      "sha256": "a54cb9ea8855eb1a5e72595a77cb44986ddc32377185d4decbfeffff0da660f8"
+    },
+    "RLE_INTERVAL_INDEX_PROOF_v1.md": {
+      "path": "../theory/RLE_INTERVAL_INDEX_PROOF_v1.md",
+      "bytes": 8471,
+      "sha256": "7b59106887d99abce6102af22d439061a51f2e8cbe049d292db92e284f30f1f9"
+    }
+  },
+  "supersedes": {
+    "path": "READINESS_V4.json",
+    "reason": "new static counterexample found a None witness passed to partition interning in fallback pair-row construction; v4 and v2 source remain preserved"
+  },
+  "baseline": {
+    "cycle": "C010",
+    "path": "../../2026-11-02/partition_unrestricted_v10/implementation/unrestricted_solver_v2.py",
+    "sha256": "4c7959e96c02023d85943c8c52fae3f198c0de67ea172a72ad0669485f60c502"
+  },
+  "delta_from_v3": "Only guard both same/different witness interning against None at a given k; continue searching later k when the relation exists only at other k. CLI and protocol binding follow the new versioned module name.",
+  "static_counterexample": {
+    "path": "STATIC_COUNTEREXAMPLE_V1.md",
+    "execution": "not run; mathematically derived",
+    "input": {
+      "alphabet": ["a", "b", "c"],
+      "positive": ["", "abc"],
+      "negative": ["a"]
+    },
+    "expected_compatible_partition_counts_by_k": {
+      "1": 1,
+      "2": 2,
+      "3": 0
+    }
+  },
+  "review": {
+    "delta_static_review": "pending",
+    "prior_v3_static_approval": "retained at READINESS_V4.json; does not cover this delta",
+    "no_runtime_evidence": true
+  },
+  "next_gate": "independent static review of the frozen one-guard delta; no provider execution before approval"
+}

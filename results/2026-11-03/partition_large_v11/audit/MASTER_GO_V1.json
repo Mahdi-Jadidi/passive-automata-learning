@@ -1,0 +1,30 @@
+{
+  "status": "GO",
+  "baseline_runs_authorized": true,
+  "candidate_runs_authorized": true,
+  "performance_authorized": true,
+  "phase": "preregistered_paired_performance_and_separate_memory",
+  "created_utc": "2026-11-02T21:29:01.816128+00:00",
+  "accepted_correctness": {
+    "path": "audit/correctness_runs_v2/20261102T212508.065062Z_a4e9c4818d/validation_report.json",
+    "sha256": "f568b3f6ca81f0cce7f45ae93a6f6cd47eacf2d706a4c954714395789a86395e"
+  },
+  "candidate_binding_sha256": "d37a4cdebcea6d344d8eb1926bce112f8b6dd3bff5fd4c826235b854fe82c3a2",
+  "protocol": "audit/PROTOCOL_V2.md",
+  "limits": {
+    "cells": 8,
+    "fresh_timing_repetitions": 3,
+    "hard_seconds_per_timing_process": 30,
+    "memory_probes_per_method": 8,
+    "hard_seconds_per_memory_probe": 12,
+    "all_in_seconds_per_method": 900
+  },
+  "requirements": [
+    "Freeze final runner/validator sources before timed launch; no solver changes",
+    "Use accepted oracle V3 and full default semantic output",
+    "Pair methods in frozen balanced order; record all failures/timeouts/output bytes",
+    "Run separate peak Python allocation probes; no RSS claim",
+    "Validate every completed timing and memory result; preserve censored outputs separately",
+    "No further scope expansion or repeated benchmark after success"
+  ]
+}

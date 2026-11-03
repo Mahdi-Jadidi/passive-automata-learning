@@ -1,0 +1,7 @@
+# C011-I002: sparse context fingerprints (deferred design)
+
+Scientific status: untested proposal, not accepted implementation. Execution status: not run. Parent: I001 verified maximal binary-interval index. Keep I001 v1 simple and independently gated first.
+
+Observation from static code review: full rolling-prefix and power arrays use O(L) temporary integer storage even when an RLE word has very few context endpoints. Proposed alternative: collect the starts/ends needed by RLE windows and the legacy adjacent-swap index; compute forward prefix hashes and backward suffix hashes only at those endpoints, storing O(number of run boundaries) hashes. Equal outside strings still have equal fingerprints and exact verification remains mandatory. Full-word binary intervals have empty outside context; their fingerprints are known zero. Legacy adjacent-swap fields still require interior boundary hashes, so one cannot skip all hashing just because the maximal binary interval spans a whole word.
+
+Potential benefit: reduced temporary memory on very long low-run words. Risks/tradeoffs: high-run words may have O(L) endpoints; dictionary overhead may exceed packed arrays, additional boundary bookkeeping and altered private collision-hook interface require a new source version and gate. No claimed end-to-end speed or memory result. Need measured v1 profile before choosing this or packed stdlib array('Q') storage. Do not silently insert this into a frozen/timed candidate.

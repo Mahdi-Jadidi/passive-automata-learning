@@ -1,0 +1,45 @@
+{
+  "id": "C011-THEORY-STATIC-003",
+  "counterexample": {
+    "negative": [
+      "a"
+    ],
+    "alphabet": [
+      "a",
+      "b",
+      "c"
+    ],
+    "positive": [
+      "",
+      "abc"
+    ]
+  },
+  "review_sha256": "71148cd699be7c2271801dbd68141f4a335ece0bb25a428e2b7ceb79eaaa1093",
+  "decision": "blocked_optional_None_witness_interning",
+  "provider_changes": false,
+  "sources": [
+    {
+      "sha256": "699f88004cc12201642eccb801fde5a0f6a720b063815a99032cac078fa29ba0",
+      "snapshot": "unrestricted_solver_v2.py",
+      "source": "implementation/unrestricted_solver_v2.py"
+    },
+    {
+      "sha256": "842dd27b149e1b1aade9ff2692f9ab25191259b027a2414c28edbb2d62e2471c",
+      "snapshot": "unrestricted_cli_v2.py",
+      "source": "implementation/unrestricted_cli_v2.py"
+    },
+    {
+      "sha256": "9ed1f7f0358731753af81406cf41bb4ca061a317ec58bf17d0779c583c7c5519",
+      "snapshot": "API_PROTOCOL_V2.md",
+      "source": "implementation/API_PROTOCOL_V2.md"
+    },
+    {
+      "sha256": "e7ddabdf87b08f309866dffb73d584d7a664b45265c1c601fcd9e25159b7df9c",
+      "snapshot": "READINESS_V3.json",
+      "source": "implementation/READINESS_V3.json"
+    }
+  ],
+  "review": "../STATIC_REVIEW_V3.md",
+  "new_experiments": 0,
+  "counterexample_status": "source_derivation_not_executed"
+}

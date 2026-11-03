@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "status": "uncaptured_control_input_write_error_preserved",
+  "recorded_utc": "2026-11-02T20:52:06Z",
+  "attempt": {
+    "attempt_id": "manual_json_write_collision_controls_v1",
+    "execution_status_observed": "input_write_succeeded_json_parse_failed",
+    "error": "ConvertFrom-Json: Conversion from JSON failed with error: Invalid property identifier character: backtick.",
+    "raw_logs": "not captured as files; raw command output bytes unavailable",
+    "files_written": [
+      {
+        "path": "audit/cases/collision_controls/hash_collision_keep_all_contexts.json",
+        "sha256": "ff487e3dd5e70aa3160cee7176d78b6fc96cc520000cd9828e78b402d3d770a4",
+        "valid_json": false
+      },
+      {
+        "path": "audit/cases/collision_controls/hash_collision_exact_context_guard.json",
+        "sha256": "b3e455df989465de35d942372885e578c10087c1e284a096cf68d954da252118",
+        "valid_json": false
+      }
+    ],
+    "scientific_runs_started": false,
+    "note": "Malformed files are preserved under original paths; corrected inputs are versioned in collision_controls_v2."
+  }
+}

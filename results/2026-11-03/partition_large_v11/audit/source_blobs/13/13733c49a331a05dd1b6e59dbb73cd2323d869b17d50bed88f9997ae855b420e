@@ -1,0 +1,55 @@
+{
+  "schema_version": 1,
+  "cycle": "C010",
+  "deliverable": "unrestricted no-K exact ownership candidate v2",
+  "status": "frozen_after_theory_review_and_three_captured_preflight_cases",
+  "files": {
+    "unrestricted_solver_v2.py": {
+      "sha256": "4c7959e96c02023d85943c8c52fae3f198c0de67ea172a72ad0669485f60c502",
+      "bytes": 19265
+    },
+    "unrestricted_cli_v2.py": {
+      "sha256": "3140df25bab5d60c6c2705098029db9061e3c9d76743bf1dfd48d46aaf2d5eaa",
+      "bytes": 1590
+    },
+    "API_PROTOCOL_V2.md": {
+      "sha256": "0120261cec26de42a812a18760d0dea598b9085fb14a9e72f63da073bc3a9562",
+      "bytes": 4189
+    },
+    "PREFLIGHT_CASES_V1.json": {
+      "sha256": "64234c3b2e0caeb392a9f469d0bc781f2e1d2f9cb400cb710201e48cb7a71470",
+      "bytes": 1192
+    },
+    "proofcase_no_labels_r2_v1.json": {
+      "sha256": "a871746df7b8292e3cf78061c873cc94bb3c3a426a06b8d509e902dfb96aa091",
+      "bytes": 65
+    },
+    "proofcase_no_labels_r3_v1.json": {
+      "sha256": "06ad1295ba5815ce387c83be66b19cd3fa6bd9139e7cd411099ca66a2a90af3f",
+      "bytes": 70
+    },
+    "proofcase_graph_empty_fallback_v1.json": {
+      "sha256": "652c4f31f5dfdc8ccc2bb35b50b97aa924f0dd929e2d529b31a46479223c0f19",
+      "bytes": 133
+    },
+    "LOCAL_CAPTURE_SUMMARY_V1.json": {
+      "sha256": "e31f580b6437e38af275c706ae5eddf434ac71509d6d5ac4bc2693fe1b84d8f7",
+      "bytes": 1896
+    }
+  },
+  "supersedes_readiness": {
+    "path": "implementation/READINESS_V2.json",
+    "sha256": "610cecf727498b7061c2b76196fdc6df7a81e2499287332df669d64537242611",
+    "role": "preserved pre-capture readiness snapshot; its execution_status is time-scoped"
+  },
+  "theory_review": "C010 theory proof and static review received; B1 spectrum and L1 protected swap/union-find preprocessing fixed in v2",
+  "captures": [
+    "20261102T190333.996485Z_0a40bdf170",
+    "20261102T190334.541108Z_0657841683",
+    "20261102T190335.105197Z_9e0cce7ed9"
+  ],
+  "source_freeze": "v2 solver, CLI, protocol and proof inputs have no edits after the three captured runs",
+  "v1": "preserved unchanged; static flaw retained in audit review and v2 protocol; no v1 provider run",
+  "next_gate": "independent >=100-case full-set audit before any scale cells",
+  "claims": "bounded preflight correctness only; no benchmark or general speed claim"
+}

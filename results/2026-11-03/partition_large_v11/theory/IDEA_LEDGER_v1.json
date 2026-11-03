@@ -1,0 +1,22 @@
+{
+  "id":"C011-THEORY-PHASE1-001",
+  "proof":"PROOFS_AND_RECOMMENDATION_v1.md",
+  "references":"SOURCES_v1.md",
+  "scientific_status":"direct_proofs_ready_for_independent_review",
+  "execution_status":"not_applicable_no_runtime",
+  "new_experiments":0,
+  "novelty_claim":false,
+  "ideas":[
+    {"id":"T1","idea":"Contextual equal-count two-letter anagram interval mustlink","decision":"sound under exact premises"},
+    {"id":"T1-F1","idea":"Infer link using mismatching-position letters only","decision":"rejected","counterexample":{"positive":"acb","negative":"bca","compatible_partition":"ac|b","factors":[["ac"],["b"]]}},
+    {"id":"T2","idea":"Exact Parikh buckets and optional maximal binary-run context index","decision":"sound verified discovery; worst-case quadratic or m-squared scan overhead remains"},
+    {"id":"T3","idea":"Unary/pair support symbolic exact block masks","decision":"proved exact, full preprocessing not recommended by default; prior C002 ingredient"},
+    {"id":"T3-F1","idea":"A distinct rejecting block may be selected separately for every positive","decision":"rejected quantifier exchange; each negative needs one block rejecting all positives"},
+    {"id":"T4","idea":"Share exact projection and canonical witness computation preserving default expansion","decision":"sound immutable memoization; output cost remains"},
+    {"id":"T5","idea":"BDD/ZDD or frontier compilation guarantees cheap counting","decision":"unproved performance/width assumption rejected; retain future research direction"},
+    {"id":"F-HASH","idea":"Hash equality proves exact context/projection equality","decision":"rejected unless exact verification follows"},
+    {"id":"F-EDGE","idea":"Missing graph edges prove separate owners","decision":"rejected; graph may be incomplete"}
+  ],
+  "recommendation":"Bounded verified interval candidates plus exact count indexing and projection/witness reuse; retain C010 exact fallback and full default output. Supports/DD only separate measured candidate.",
+  "historical_sources_changed":false
+}

@@ -1,0 +1,92 @@
+{
+  "schema_version": 1,
+  "cycle": "C011",
+  "version": "candidate_v4_static_delta_approved",
+  "status": "ready_for_preregistered_correctness_gate",
+  "execution_status": "not_run",
+  "provider_execution": false,
+  "correctness_tested": false,
+  "performance_measured": false,
+  "implementation": {
+    "unrestricted_solver_v3.py": {
+      "bytes": 32838,
+      "sha256": "42726e740198787645783acefd1fa06f6490ec16d609ef07d22cbfafd34a00fa"
+    },
+    "unrestricted_cli_v3.py": {
+      "bytes": 1595,
+      "sha256": "169d7d468a5e3d8a0ba93b686ccb2b058ba231fa1b8e85150d5840df4fec563c"
+    },
+    "API_PROTOCOL_V3.md": {
+      "bytes": 5239,
+      "sha256": "73a89169040d0d2bfe678f9d4f54dbd214de700c1e791364449dbc289eb792f7"
+    },
+    "unrestricted_example_v1.json": {
+      "bytes": 82,
+      "sha256": "5f68ac9b510b743f742243ee76df32c247a322054077dca8ec5d515257d6b4f5"
+    },
+    "STATIC_COUNTEREXAMPLE_V1.md": {
+      "bytes": 2220,
+      "sha256": "a54cb9ea8855eb1a5e72595a77cb44986ddc32377185d4decbfeffff0da660f8"
+    },
+    "STATIC_COUNTEREXAMPLE_ADDENDUM_V1.md": {
+      "bytes": 816,
+      "sha256": "d5bbd76e5612e55fa82c12d3825c90471c28984a3bd629f56ac7edc7c6d476d0"
+    },
+    "FROZEN_REVIEW_V4.md": {
+      "bytes": 1339,
+      "sha256": "fe54626b1a04f19847d861a7a481db595e04ed22f4660111ce2c9c8aa6a2b8b2"
+    },
+    "HANDOFF_FINAL_V1.md": {
+      "bytes": 5736,
+      "sha256": "54a1161253326845419c315d488904d0495e14ad59377fc9518a5e7518be35a7"
+    },
+    "RLE_INTERVAL_INDEX_PROOF_v1.md": {
+      "path": "../theory/RLE_INTERVAL_INDEX_PROOF_v1.md",
+      "bytes": 8471,
+      "sha256": "7b59106887d99abce6102af22d439061a51f2e8cbe049d292db92e284f30f1f9"
+    }
+  },
+  "baseline": {
+    "cycle": "C010",
+    "path": "../../2026-11-02/partition_unrestricted_v10/implementation/unrestricted_solver_v2.py",
+    "sha256": "4c7959e96c02023d85943c8c52fae3f198c0de67ea172a72ad0669485f60c502"
+  },
+  "supersedes": {
+    "path": "READINESS_V5.json",
+    "reason": "independent implementation and theory reviewers approved the exact one-guard delta; review clarification recorded"
+  },
+  "delta": "Both same and different pair-witness recovery paths now skip a None result at k and continue to later k. No solver/provider execution occurred.",
+  "static_counterexample": {
+    "input": {
+      "alphabet": ["a", "b", "c"],
+      "positive": ["", "abc"],
+      "negative": ["a"]
+    },
+    "compatible_counts_by_k": {
+      "1": 1,
+      "2": 2,
+      "3": 0
+    },
+    "family": [
+      [["a", "b", "c"]],
+      [["a", "b"], ["c"]],
+      [["a", "c"], ["b"]]
+    ],
+    "first_alphabetic_pair_row": "(a,b); (b,c) analysis is documented as row-local",
+    "execution": "not run"
+  },
+  "review": {
+    "implementation": "approved for next correctness gate; hashes and byte sizes verified",
+    "theory": "approved; hand-derived example and guarded control flow validated",
+    "remaining_caveats": [
+      "static approval does not establish runtime correctness",
+      "completeness claim is for T1 symbol-pair edges, not all semantic must-links",
+      "no frozen-corpus run, collision run, benchmark, or memory measurement",
+      "input validation precedes deadline checks, inherited from C010",
+      "provider_seconds excludes final representative witness construction",
+      "returned Python witness objects may share nested mutable partition lists",
+      "projection LRU is bounded by entry count rather than bytes"
+    ]
+  },
+  "next_gate": "preregistered correctness comparison of full partition sets and independent witness replay; only proceed to timing after the correctness gate passes"
+}

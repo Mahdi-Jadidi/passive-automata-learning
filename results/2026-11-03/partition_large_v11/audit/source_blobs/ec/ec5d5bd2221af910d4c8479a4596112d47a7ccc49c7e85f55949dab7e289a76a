@@ -1,0 +1,38 @@
+{
+  "status": "GO",
+  "phase": "correctness_and_controls_only",
+  "candidate_runs_authorized": true,
+  "baseline_timing_authorized": false,
+  "performance_authorized": false,
+  "created_utc": "2026-11-02T21:15:52.105577+00:00",
+  "bindings": {
+    "solver": {
+      "path": "implementation/unrestricted_solver_v3.py",
+      "sha256": "42726e740198787645783acefd1fa06f6490ec16d609ef07d22cbfafd34a00fa"
+    },
+    "cli": {
+      "path": "implementation/unrestricted_cli_v3.py",
+      "sha256": "169d7d468a5e3d8a0ba93b686ccb2b058ba231fa1b8e85150d5840df4fec563c"
+    },
+    "readiness": {
+      "path": "implementation/READINESS_V6.json",
+      "sha256": "da444c56ce7fe33174ec5efd7b51b622f583af38fc4b13b30baf9936cdb7aec8"
+    },
+    "theory_review": {
+      "path": "theory/STATIC_REVIEW_V5_DELTA.md",
+      "sha256": "c6bfba99d54a451e86460005ed47c4822c29f5abfcc317d4e70f9cadfca9f413"
+    },
+    "oracle_validation": {
+      "path": "audit/ORACLE_VALIDATION_REPORT_V4.json",
+      "sha256": "ea752b2be1a1965835b72825f67c02a03a025800334392d9369c769ff41bc6a8"
+    }
+  },
+  "requirements": [
+    "Compare all138 complete partition sets and exact per-k and pair counts against independently accepted oracle",
+    "Replay every projection/pair/interval and legacy adjacent-swap certificate; collisions must be forced and exact extractor coverage checked",
+    "Include None witness regression; use preserved corpus case if identical, otherwise one supplemental input",
+    "Invalid/deadline/injected interruption controls; both incomplete labels mean no finality, never normalize complete counts",
+    "No timing or memory launch until a second master GO after accepted correctness+controls"
+  ],
+  "reason": "Independent oracle passed and frozen None-guard delta statically cleared; bounded exact gate now authorized."
+}

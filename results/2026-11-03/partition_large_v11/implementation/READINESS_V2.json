@@ -1,0 +1,73 @@
+{
+  "schema_version": 1,
+  "cycle": "C011",
+  "version": "candidate_v2_after_review_adjudication",
+  "status": "frozen_pending_hash_bound_static_review",
+  "execution_status": "not_run",
+  "provider_execution": false,
+  "correctness_tested": false,
+  "performance_measured": false,
+  "files": {
+    "unrestricted_solver_v1.py": {
+      "bytes": 32610,
+      "sha256": "43731d701f52a1b25883483515d4f8e26d2da9ea00ccefc0aa80e377cc76e3ae"
+    },
+    "unrestricted_cli_v1.py": {
+      "bytes": 1595,
+      "sha256": "137c92906addbe5430f725525cd7a6f0c6a2d32a3a34f67f0e62d6b0c7f0a938"
+    },
+    "API_PROTOCOL_V1.md": {
+      "bytes": 5239,
+      "sha256": "957e66e447f0cd52a50e3430d1f0deb2a8a4d4f23d7891ed01bede312df2b1ff"
+    },
+    "unrestricted_example_v1.json": {
+      "bytes": 82,
+      "sha256": "5f68ac9b510b743f742243ee76df32c247a322054077dca8ec5d515257d6b4f5"
+    },
+    "STATIC_AUDIT_LOG_V1.md": {
+      "bytes": 4323,
+      "sha256": "b1852a98b451c09d8408007700684faa7758980aea6af7b1a745238edd253f11"
+    },
+    "PROOF_REVIEW_V1.md": {
+      "bytes": 1749,
+      "sha256": "39fa81da228ed4cc7318e843fe218164b1d4b5c3b7957fbeba8bb147e6c40f87"
+    },
+    "RLE_INTERVAL_INDEX_PROOF_v1.md": {
+      "path": "../theory/RLE_INTERVAL_INDEX_PROOF_v1.md",
+      "bytes": 8471,
+      "sha256": "7b59106887d99abce6102af22d439061a51f2e8cbe049d292db92e284f30f1f9"
+    }
+  },
+  "supersedes": {
+    "path": "READINESS_V1.json",
+    "reason": "v1 static reviewer found two plan/deadline issues; v1 and its findings are preserved"
+  },
+  "baseline": {
+    "cycle": "C010",
+    "path": "../../2026-11-02/partition_unrestricted_v10/implementation/unrestricted_solver_v2.py",
+    "sha256": "4c7959e96c02023d85943c8c52fae3f198c0de67ea172a72ad0669485f60c502"
+  },
+  "changes_after_v1": [
+    "deadline/interruption result status changed from inherited C010 unknown to the plan-required incomplete; CLI exit code 3 follows the new status",
+    "total_input_characters is counted with cooperative deadline polling inside the protected preprocessing region"
+  ],
+  "api": {
+    "default_fields_preserved": true,
+    "new_field": "binary_interval_must_link_certificates",
+    "incomplete_result": "status=incomplete, complete=false, exact counts/relations null",
+    "legacy_swap_edge_witnesses": "adjacent swaps only"
+  },
+  "review": {
+    "v1_frozen_review": "blocked for status mismatch and unpolled input-character metric; recorded in STATIC_AUDIT_LOG_V1.md",
+    "v2_hash_bound_review": "pending",
+    "known_limitations": [
+      "completeness claim is for T1 symbol-pair edges, not all semantic must-links",
+      "input validation precedes deadline checks, inherited from C010",
+      "provider_seconds ends before final representative witness construction",
+      "returned Python witness objects may share nested mutable partition lists",
+      "projection LRU is bounded by entry count, not memory bytes",
+      "no frozen-corpus run, constant-fingerprint run, benchmark, or memory measurement"
+    ]
+  },
+  "next_gate": "hash-bound independent static approval before any execution"
+}

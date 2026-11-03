@@ -1,0 +1,39 @@
+{
+  "status": "GO",
+  "phase": "correctness_and_controls_only",
+  "candidate_runs_authorized": true,
+  "baseline_timing_authorized": false,
+  "performance_authorized": false,
+  "created_utc": "2026-11-02T21:26:17.541886+00:00",
+  "bindings": {
+    "solver": {
+      "path": "implementation/unrestricted_solver_v3.py",
+      "sha256": "42726e740198787645783acefd1fa06f6490ec16d609ef07d22cbfafd34a00fa"
+    },
+    "cli": {
+      "path": "implementation/unrestricted_cli_v3.py",
+      "sha256": "169d7d468a5e3d8a0ba93b686ccb2b058ba231fa1b8e85150d5840df4fec563c"
+    },
+    "readiness": {
+      "path": "implementation/READINESS_V6.json",
+      "sha256": "b8ea2e9903528658b87537566141fe79ee3e8fbe06ef6a261a6160cdc1293124"
+    },
+    "theory_review": {
+      "path": "theory/STATIC_REVIEW_V5_DELTA.md",
+      "sha256": "c6bfba99d54a451e86460005ed47c4822c29f5abfcc317d4e70f9cadfca9f413"
+    },
+    "oracle_validation": {
+      "path": "audit/ORACLE_VALIDATION_REPORT_V4.json",
+      "sha256": "ea752b2be1a1965835b72825f67c02a03a025800334392d9369c769ff41bc6a8"
+    }
+  },
+  "requirements": [
+    "Compare all138 complete partition sets and exact per-k and pair counts against independently accepted oracle",
+    "Replay every projection/pair/interval and legacy adjacent-swap certificate; collisions must be forced and exact extractor coverage checked",
+    "Include None witness regression; use preserved corpus case if identical, otherwise one supplemental input",
+    "Invalid/deadline/injected interruption controls; both incomplete labels mean no finality, never normalize complete counts",
+    "No timing or memory launch until a second master GO after accepted correctness+controls"
+  ],
+  "reason": "Readiness metadata hash changed after V1 binding; all 8 referenced source/protocol/proof files independently rechecked and core solver/CLI hashes remain unchanged. Approve actual current metadata; V1 receipt and preflight failure are preserved.",
+  "supersedes": "MASTER_CORRECTNESS_GO_V1.json"
+}

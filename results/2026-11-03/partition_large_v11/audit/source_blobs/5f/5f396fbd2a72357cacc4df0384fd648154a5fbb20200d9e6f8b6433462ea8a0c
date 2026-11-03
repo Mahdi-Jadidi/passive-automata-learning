@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "status": "uncaptured_source_patch_anchor_failure_preserved",
+  "recorded_utc": "2026-11-02T21:10:00Z",
+  "attempt": {
+    "attempt_id": "manual_memory_runner_budget_patch_v1",
+    "target": "audit/run_memory_probe_capture_v1.py",
+    "execution_status_observed": "patch_anchor_not_found",
+    "error": "memory budget insertion anchor missing",
+    "raw_logs": "not captured as files; raw command output bytes unavailable",
+    "writes_occurred": false,
+    "runner_unchanged": true,
+    "note": "Existing baseline suite caps timed captures at 760 seconds, reserving at least 140 seconds for eight 12-second memory probes; no memory run occurred."
+  }
+}

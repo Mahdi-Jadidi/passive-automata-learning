@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "status": "source_patch_error_preserved_before_any_run",
+  "recorded_utc": "2026-11-02T21:15:00Z",
+  "attempt": {
+    "attempt_id": "manual_oracle_capture_source_list_literal_backtick_n",
+    "execution_status_observed": "source_generation_error",
+    "source_path": "audit/run_oracle_capture_v2_broken_literal_newline.py",
+    "source_sha256": "1712cceb38eaa0539f09f3febdf5a6a4f1cb2c6bc586d8e5ea91cabd5b92686a",
+    "error": "PowerShell single-quoted replacement preserved literal backtick-n tokens, creating invalid Python source list syntax.",
+    "raw_execution_log": "none; runner was inspected before execution",
+    "provider_oracle_timing_runs": false,
+    "note": "Broken source retained separately; corrected runner will receive a new SHA before capture."
+  }
+}

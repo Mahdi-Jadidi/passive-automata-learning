@@ -1,0 +1,41 @@
+{
+  "status": "awaiting_master_performance_GO",
+  "accepted_correctness": {
+    "path": "audit/correctness_runs_v2/20261102T212508.065062Z_a4e9c4818d/validation_report.json",
+    "sha256": "f568b3f6ca81f0cce7f45ae93a6f6cd47eacf2d706a4c954714395789a86395e"
+  },
+  "GO_path": "audit/MASTER_GO_V1.json",
+  "GO_required_fields": {
+    "status": "GO",
+    "baseline_runs_authorized": true,
+    "candidate_runs_authorized": true,
+    "performance_authorized": true
+  },
+  "candidate_binding_path": "audit/CANDIDATE_BINDING_V1.json",
+  "candidate_binding_required": {
+    "status": "static_review_passed",
+    "solver": {
+      "path": "implementation/unrestricted_solver_v3.py",
+      "sha256": "42726e740198787645783acefd1fa06f6490ec16d609ef07d22cbfafd34a00fa"
+    },
+    "cli": {
+      "path": "implementation/unrestricted_cli_v3.py",
+      "sha256": "169d7d468a5e3d8a0ba93b686ccb2b058ba231fa1b8e85150d5840df4fec563c"
+    },
+    "readiness": {
+      "path": "implementation/READINESS_V6.json",
+      "sha256": "b8ea2e9903528658b87537566141fe79ee3e8fbe06ef6a261a6160cdc1293124"
+    },
+    "static_review": {
+      "path": "theory/STATIC_REVIEW_V5_DELTA.md",
+      "sha256": "c6bfba99d54a451e86460005ed47c4822c29f5abfcc317d4e70f9cadfca9f413"
+    }
+  },
+  "remaining_before_performance": [
+    "Master must create performance GO; none is issued by this artifact.",
+    "Version paired runner to use accepted oracle receipt V3, family certificates V3, protocol V2, accepted correctness report, and exact candidate binding. Existing runner V1 references obsolete oracle V2 paths.",
+    "Version memory capture driver for both methods and final V3 oracle bindings; existing driver supports baseline only.",
+    "Freeze runner/validator hashes before any timed jobs."
+  ],
+  "timing_or_memory_executed": false
+}

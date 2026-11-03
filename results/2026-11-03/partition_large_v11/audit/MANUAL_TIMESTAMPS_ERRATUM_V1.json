@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "status": "timestamp_provenance_correction",
+  "clock_checked_utc": "2026-11-02T21:07:12Z",
+  "records": [
+    "audit/MANUAL_ATTEMPTS_V1.json",
+    "audit/MANUAL_ATTEMPTS_V2.json",
+    "audit/MANUAL_ATTEMPTS_V3.json",
+    "audit/MANUAL_ATTEMPTS_V4.json",
+    "audit/MANUAL_ATTEMPTS_V5.json",
+    "audit/MANUAL_ATTEMPTS_V6.json"
+  ],
+  "correction": "Treat recorded_utc values inside the manual-attempt records as administrative labels only, not certified event times. V2 and V4-V6 timestamps were manually supplied without a contemporaneous clock read; their actual event times are unverified. No timestamps are reconstructed here. Durable capture manifest/result UTC fields remain authoritative for captured attempts.",
+  "scientific_execution_timing_claims": false
+}

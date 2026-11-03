@@ -1,0 +1,3 @@
+# Readiness binding count correction
+
+The verification creating MASTER_CORRECTNESS_GO_V2.json checked every entry in the current readiness mapping: **9 files**, as the actual tool output records. The explanatory reason text says 8, inherited from the earlier readiness layout; that number is a documentation count error. The source-file loop actually visited and verified all 9 entries. Solver v3, CLI v3 and protocol v3 hashes did not change. The current readiness bytes are preserved in READINESS_APPROVED_SNAPSHOT_V1.json. Do not rewrite the approval or frozen metadata to fix this cosmetic count and trigger another binding cycle.

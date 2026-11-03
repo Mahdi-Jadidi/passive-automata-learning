@@ -1,0 +1,16 @@
+{
+  "controls": [
+    {
+      "case_id": "expired_deadline",
+      "expected": "unknown/incomplete; no final exact count or ownership claim; child reaped; raw streams retained"
+    },
+    {
+      "case_id": "interruption_after_partial_work",
+      "expected": "unknown/incomplete; no final exact count or ownership claim; partial progress/streams retained; child reaped"
+    }
+  ],
+  "note": "No C010 provider/API is present at preregistration; no outcomes or command syntax are fabricated.",
+  "provider_invocation": null,
+  "schema_version": 1,
+  "status": "pending_frozen_provider_api"
+}

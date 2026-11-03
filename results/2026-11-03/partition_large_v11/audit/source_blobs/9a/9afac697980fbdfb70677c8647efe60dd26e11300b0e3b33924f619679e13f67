@@ -1,0 +1,1076 @@
+{
+  "none_regression_existing_aliases": [],
+  "phase": "correctness_and_controls_only",
+  "run_id": "20261102T212508.065062Z_a4e9c4818d",
+  "schema_version": 1,
+  "source_hashes": {
+    "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-02\\partition_unrestricted_v10\\audit\\corpus_v1\\execution_controls_v1.json": "110b18400191e11031726181da7962af8bbe20620413c696cebd3ded5bb76ed4",
+    "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-02\\partition_unrestricted_v10\\audit\\corpus_v1\\invalid\\conflicting_labels.json": "0253099c803678a18d9030dbdc3b9499c24741ea08fb45c87c0660a4b598d91a",
+    "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-02\\partition_unrestricted_v10\\audit\\corpus_v1\\invalid\\duplicate_alphabet_symbol.json": "e63092d965d353fc102d94a9a261a6731fc06e3f9e19e264b0a1231ce49fa94f",
+    "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-02\\partition_unrestricted_v10\\audit\\corpus_v1\\invalid\\empty_alphabet.json": "7db205f1d69e46c87cf5832c7388c99820a60d104c04b561b57ce3af578da8fc",
+    "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-02\\partition_unrestricted_v10\\audit\\corpus_v1\\invalid\\stale_allowed_k.json": "8079260c57fce966a6e13db07f1c42b354b398e0570e6232daaf8722a934385b",
+    "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-02\\partition_unrestricted_v10\\audit\\corpus_v1\\invalid\\stale_legacy_k.json": "5c351907ce0f3e9f2a0f8a1587c0d96264d08c99f618f75fa22bc86eb60b5bc5",
+    "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-02\\partition_unrestricted_v10\\audit\\corpus_v1\\invalid\\word_outside_alphabet.json": "ad675f87ab19e8decc23065ba2d247fe426646fe3ea560bb9d3f3f33a0cce01e",
+    "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-02\\partition_unrestricted_v10\\audit\\corpus_v1\\invalid_cases.jsonl": "6074924e34537f2ab0002a5b000aa84d0001e66aca2f2784ec11ebbae73e0d28",
+    "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-02\\partition_unrestricted_v10\\audit\\validate_provider_v2.py": "cac75329c2c75c289b5aede331c968f2301c436f0022da6b78afba4df59a5135",
+    "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_large_v11\\audit\\CORRECTNESS_MANIFEST_V2.json": "33d4054fbea394084e32fae3aa8f3a6cdfce62789b7856a7ae8fda21c81fd6b9",
+    "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_large_v11\\audit\\FULL_CORRECTNESS_ORACLE_V3.jsonl": "ee1992079e2565c2ebfb9e71a0fdbfed30a9d1e81c0ce369548d24e96fbd89cc",
+    "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_large_v11\\audit\\ORACLE_FREEZE_RECEIPT_V3.json": "7e61f036025f1513bb7d64d488fcef6984c90a77db66e87144d659bd9be00606",
+    "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_large_v11\\audit\\ORACLE_VALIDATION_REPORT_V4.json": "ea752b2be1a1965835b72825f67c02a03a025800334392d9369c769ff41bc6a8",
+    "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_large_v11\\audit\\PROTOCOL_V2.md": "c3eb6d5b694518ff644b1c1b55f73305e8cbc74ec6c9d31560f3448e4cc4950b",
+    "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_large_v11\\audit\\capture.py": "68ee700f391fb6a1cf135e4b55a11a247b45f25164553c917d1664f6fc4a31cf",
+    "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_large_v11\\audit\\cases\\base_c010\\no_labels_all_partitions.json": "46d19e22023fcf489967fe9f61d101fb36046900a34527fea4dbcf71056c58e4",
+    "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_large_v11\\audit\\cases\\targeted\\interval_two_symbol_nonadjacent.json": "6cd0b1dd763dd4a07497660a566e6d5406a9389579e45b2254aaa335ee8c057d",
+    "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_large_v11\\audit\\controls\\execution_controls_v1.json": "110b18400191e11031726181da7962af8bbe20620413c696cebd3ded5bb76ed4",
+    "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_large_v11\\audit\\correctness_case_v2.py": "b9dff973518e629d3d7fb4927e001e0a4474eb5db6b63819f56dc97ff2de5567",
+    "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_large_v11\\audit\\readiness_go_bound_original_v1.json": "da444c56ce7fe33174ec5efd7b51b622f583af38fc4b13b30baf9936cdb7aec8",
+    "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_large_v11\\audit\\run_correctness_gate_v3.py": "f1fcfdbaa515af343e1de005f99dd092be0497aa9664bb11eef120cf7ed2d158",
+    "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_large_v11\\audit\\validate_correctness_gate_v2.py": "bb7b9e4034da150e2f67d3e9dd8e18e638952399af82a249da7fab804b335c31",
+    "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_large_v11\\coordination\\MASTER_CORRECTNESS_GO_V1.json": "ec5d5bd2221af910d4c8479a4596112d47a7ccc49c7e85f55949dab7e289a76a",
+    "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_large_v11\\implementation\\API_PROTOCOL_V3.md": "73a89169040d0d2bfe678f9d4f54dbd214de700c1e791364449dbc289eb792f7",
+    "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_large_v11\\implementation\\HANDOFF_FINAL_V1.md": "54a1161253326845419c315d488904d0495e14ad59377fc9518a5e7518be35a7",
+    "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_large_v11\\implementation\\READINESS_V6.json": "b8ea2e9903528658b87537566141fe79ee3e8fbe06ef6a261a6160cdc1293124",
+    "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_large_v11\\implementation\\unrestricted_cli_v3.py": "169d7d468a5e3d8a0ba93b686ccb2b058ba231fa1b8e85150d5840df4fec563c",
+    "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_large_v11\\implementation\\unrestricted_solver_v3.py": "42726e740198787645783acefd1fa06f6490ec16d609ef07d22cbfafd34a00fa",
+    "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_large_v11\\theory\\STATIC_REVIEW_V5_DELTA.md": "c6bfba99d54a451e86460005ed47c4822c29f5abfcc317d4e70f9cadfca9f413"
+  },
+  "specs": [
+    {
+      "case_id": "one_block_only_unrestricted",
+      "input": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_large_v11\\audit\\cases\\base_c010\\one_block_only_unrestricted.json",
+      "input_sha256": "3daaed2c03fb3e5576eda896b3a2eb8b3065088af7fe4fbc55cf92982a597aef",
+      "kind": "full",
+      "mode": "normal"
+    },
+    {
+      "case_id": "no_labels_all_partitions",
+      "input": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_large_v11\\audit\\cases\\base_c010\\no_labels_all_partitions.json",
+      "input_sha256": "46d19e22023fcf489967fe9f61d101fb36046900a34527fea4dbcf71056c58e4",
+      "kind": "full",
+      "mode": "normal"
+    },
+    {
+      "case_id": "doubled_pairs_default",
+      "input": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_large_v11\\audit\\cases\\base_c010\\doubled_pairs_default.json",
+      "input_sha256": "d4b6f1a05e14ec43ff2ce9bc317d6c48d781a5132b7fcb3aab70d1645cebce86",
+      "kind": "full",
+      "mode": "normal"
+    },
+    {
+      "case_id": "forced_ab_other_pairs_ambiguous",
+      "input": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_large_v11\\audit\\cases\\base_c010\\forced_ab_other_pairs_ambiguous.json",
+      "input_sha256": "f90e67d29aa83178a36f97a25e1f1451412cb451e6ed997b971e17352b1dd00e",
+      "kind": "full",
+      "mode": "normal"
+    },
+    {
+      "case_id": "known_k_forces_different",
+      "input": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_large_v11\\audit\\cases\\base_c010\\known_k_forces_different.json",
+      "input_sha256": "b87608f657493f0bc109042187f94e47c1bfcf23c78b7e52f3665c5b72d8ce8d",
+      "kind": "full",
+      "mode": "normal"
+    },
+    {
+      "case_id": "positive_only_all_partitions",
+      "input": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_large_v11\\audit\\cases\\base_c010\\positive_only_all_partitions.json",
+      "input_sha256": "bae20e57f772c40702ea7a8b82c1e663724e1cd18acb0fd3e2edb605bd98c1f3",
+      "kind": "full",
+      "mode": "normal"
+    },
+    {
+      "case_id": "epsilon_and_unused_symbols",
+      "input": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_large_v11\\audit\\cases\\base_c010\\epsilon_and_unused_symbols.json",
+      "input_sha256": "821208ca17be9dda1d95f823f82e241520a2a440acd75e45ffa68d95fbc4dd3e",
+      "kind": "full",
+      "mode": "normal"
+    },
+    {
+      "case_id": "no_positive_boundary",
+      "input": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_large_v11\\audit\\cases\\base_c010\\no_positive_boundary.json",
+      "input_sha256": "e9c2fbd47a89775414ebce0c9de12707c4fa0b876b0f3e04079d582ccf026b9e",
+      "kind": "full",
+      "mode": "normal"
+    },
+    {
+      "case_id": "rand_m2_01",
+      "input": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_large_v11\\audit\\cases\\base_c010\\rand_m2_01.json",
+      "input_sha256": "53a778ef09e2b798305a322c6f0efb556758bdcb7c6bd33f592624c03feb391d",
+      "kind": "full",
+      "mode": "normal"
+    },
+    {
+      "case_id": "rand_m2_02",
+      "input": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_large_v11\\audit\\cases\\base_c010\\rand_m2_02.json",
+      "input_sha256": "1fcf8e1eb4499b53aaed040ebaf02177bef32ee155876250286542f5d83fd726",
+      "kind": "full",
+      "mode": "normal"
+    },
+    {
+      "case_id": "rand_m2_03",
+      "input": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_large_v11\\audit\\cases\\base_c010\\rand_m2_03.json",
+      "input_sha256": "f2074f2c2b27f47aeee9c8469e020aa88021f3056d82c95454b0e5e8ebc5610c",
+      "kind": "full",
+      "mode": "normal"
+    },
+    {
+      "case_id": "rand_m2_04",
+      "input": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_large_v11\\audit\\cases\\base_c010\\rand_m2_04.json",
+      "input_sha256": "0474f75c41ce77f0f2e2f5d3cca06743f214f387e9589d6f7be4df4dc96e481d",
+      "kind": "full",
+      "mode": "normal"
+    },
+    {
+      "case_id": "rand_m2_05",
+      "input": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_large_v11\\audit\\cases\\base_c010\\rand_m2_05.json",
+      "input_sha256": "f0e7b711a23f964f22d30bfee419e59e42ea2f6a6d24e47ef90ef58237ffcef7",
+      "kind": "full",
+      "mode": "normal"
+    },
+    {
+      "case_id": "rand_m2_06",
+      "input": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_large_v11\\audit\\cases\\base_c010\\rand_m2_06.json",
+      "input_sha256": "ca85d32f809ae71b29b2d83e873dc77b8dc2a278432f0af10f808701b7ead6f0",
+      "kind": "full",
+      "mode": "normal"
+    },
+    {
+      "case_id": "rand_m2_07",
+      "input": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_large_v11\\audit\\cases\\base_c010\\rand_m2_07.json",
+      "input_sha256": "7f874172df4b31fd19a879214f854aef9677ea8aa7dbc31f1f44db17f5b60e85",
+      "kind": "full",
+      "mode": "normal"
+    },
+    {
+      "case_id": "rand_m2_08",
+      "input": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_large_v11\\audit\\cases\\base_c010\\rand_m2_08.json",
+      "input_sha256": "41ed4330ad42521b25d80b27573d8fde0e096e1ae9163dbf5423cafb74d8ce4e",
+      "kind": "full",
+      "mode": "normal"
+    },
+    {
+      "case_id": "rand_m2_09",
+      "input": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_large_v11\\audit\\cases\\base_c010\\rand_m2_09.json",
+      "input_sha256": "fe29a91c5f689af7ddcfbc345624b7b077d72de868994ad9e1596d06605b5e42",
+      "kind": "full",
+      "mode": "normal"
+    },
+    {
+      "case_id": "rand_m2_10",
+      "input": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_large_v11\\audit\\cases\\base_c010\\rand_m2_10.json",
+      "input_sha256": "f5f84fd248d4510049de82520b74b909ff7715c6100310f0fff186f142d50749",
+      "kind": "full",
+      "mode": "normal"
+    },
+    {
+      "case_id": "rand_m2_11",
+      "input": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_large_v11\\audit\\cases\\base_c010\\rand_m2_11.json",
+      "input_sha256": "1268a4c2f2638a23e312661970c51c000c0c2c97d083e1809e53f0ec0b618d13",
+      "kind": "full",
+      "mode": "normal"
+    },
+    {
+      "case_id": "rand_m2_12",
+      "input": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_large_v11\\audit\\cases\\base_c010\\rand_m2_12.json",
+      "input_sha256": "739bea8ffea3e2ead833596be22f2ff21792256a25e4d61e7e3b6e80ec9cb115",
+      "kind": "full",
+      "mode": "normal"
+    },
+    {
+      "case_id": "rand_m2_13",
+      "input": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_large_v11\\audit\\cases\\base_c010\\rand_m2_13.json",
+      "input_sha256": "acc8ab144fbc1be7a3352d10a33e0b302a656ba1e047763742e78b05e2b0b5c4",
+      "kind": "full",
+      "mode": "normal"
+    },
+    {
+      "case_id": "rand_m2_14",
+      "input": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_large_v11\\audit\\cases\\base_c010\\rand_m2_14.json",
+      "input_sha256": "fdcbb4ff53067e982594dd40dc0e28222bc02ca013d4897eb93a51e6f3ffdd49",
+      "kind": "full",
+      "mode": "normal"
+    },
+    {
+      "case_id": "rand_m2_15",
+      "input": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_large_v11\\audit\\cases\\base_c010\\rand_m2_15.json",
+      "input_sha256": "ec910c0a53c6895662b799036d9a534c4052831e56a180cb69bcd62462b05e78",
+      "kind": "full",
+      "mode": "normal"
+    },
+    {
+      "case_id": "rand_m2_16",
+      "input": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_large_v11\\audit\\cases\\base_c010\\rand_m2_16.json",
+      "input_sha256": "d2c6107ee41cedb84f9fae7e3e4abaef490b26d3f333307bd61709ca98f43e25",
+      "kind": "full",
+      "mode": "normal"
+    },
+    {
+      "case_id": "rand_m2_17",
+      "input": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_large_v11\\audit\\cases\\base_c010\\rand_m2_17.json",
+      "input_sha256": "e9636e1d57ebd4c1c95c77d4cec75b0b7d16f0c310fb9659e6cf285a78b0f271",
+      "kind": "full",
+      "mode": "normal"
+    },
+    {
+      "case_id": "rand_m2_18",
+      "input": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_large_v11\\audit\\cases\\base_c010\\rand_m2_18.json",
+      "input_sha256": "1f4c1888678e00abdc5a0b6d54545c2dc6e55a843f20a2de5d1a91701b2f9b38",
+      "kind": "full",
+      "mode": "normal"
+    },
+    {
+      "case_id": "rand_m2_19",
+      "input": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_large_v11\\audit\\cases\\base_c010\\rand_m2_19.json",
+      "input_sha256": "4dbceb7a8ea120bf07b49cc7cd4f4b15f3f96a37b00385e4deef2937ae4e7f34",
+      "kind": "full",
+      "mode": "normal"
+    },
+    {
+      "case_id": "rand_m3_01",
+      "input": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_large_v11\\audit\\cases\\base_c010\\rand_m3_01.json",
+      "input_sha256": "86fc01c6029583147a3e42cadc840e520b6e174e3217c557a75ec9a443af6a7a",
+      "kind": "full",
+      "mode": "normal"
+    },
+    {
+      "case_id": "rand_m3_02",
+      "input": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_large_v11\\audit\\cases\\base_c010\\rand_m3_02.json",
+      "input_sha256": "ff0cf5a4ac91ae93876a28a648c69958626ee51218641306ca386de5acb7dc96",
+      "kind": "full",
+      "mode": "normal"
+    },
+    {
+      "case_id": "rand_m3_03",
+      "input": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_large_v11\\audit\\cases\\base_c010\\rand_m3_03.json",
+      "input_sha256": "bbe3ab34a1e5d984c8a3eb39178cf7c12eb87377c72a44d7ac8ae6a3f7946770",
+      "kind": "full",
+      "mode": "normal"
+    },
+    {
+      "case_id": "rand_m3_04",
+      "input": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_large_v11\\audit\\cases\\base_c010\\rand_m3_04.json",
+      "input_sha256": "5e55cfa18cf384e2c25ab9a4c71bd626601fca15b34e6d0f839234a0d2097ae9",
+      "kind": "full",
+      "mode": "normal"
+    },
+    {
+      "case_id": "rand_m3_05",
+      "input": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_large_v11\\audit\\cases\\base_c010\\rand_m3_05.json",
+      "input_sha256": "c089db99ce5c6ef990aca1932a78d53fb57d28f0b386ecf5e347e7c1d056cc2d",
+      "kind": "full",
+      "mode": "normal"
+    },
+    {
+      "case_id": "rand_m3_06",
+      "input": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_large_v11\\audit\\cases\\base_c010\\rand_m3_06.json",
+      "input_sha256": "b3cc1efc359a4e5ba9b15827d4269746cccfa099c51dfa84b5cb5bc341469ef8",
+      "kind": "full",
+      "mode": "normal"
+    },
+    {
+      "case_id": "rand_m3_07",
+      "input": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_large_v11\\audit\\cases\\base_c010\\rand_m3_07.json",
+      "input_sha256": "d6f1d007ec1c8c192e32c71d760e5e27da75ba605d9d531c146093fd8cbca674",
+      "kind": "full",
+      "mode": "normal"
+    },
+    {
+      "case_id": "rand_m3_08",
+      "input": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_large_v11\\audit\\cases\\base_c010\\rand_m3_08.json",
+      "input_sha256": "9eba3217d299e978bd502124d1e377d33c76f1439b2470ff7ad033d5adff1e73",
+      "kind": "full",
+      "mode": "normal"
+    },
+    {
+      "case_id": "rand_m3_09",
+      "input": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_large_v11\\audit\\cases\\base_c010\\rand_m3_09.json",
+      "input_sha256": "a54311609969637b0f1d0d8a83d7fe186950f52f006a30ac9cf1ac0e704dc580",
+      "kind": "full",
+      "mode": "normal"
+    },
+    {
+      "case_id": "rand_m3_10",
+      "input": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_large_v11\\audit\\cases\\base_c010\\rand_m3_10.json",
+      "input_sha256": "221daf17b0cc3180026f73fa790822a04f99970e08db605588a1f1b0140a39ab",
+      "kind": "full",
+      "mode": "normal"
+    },
+    {
+      "case_id": "rand_m3_11",
+      "input": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_large_v11\\audit\\cases\\base_c010\\rand_m3_11.json",
+      "input_sha256": "461ffcad36cca9adf6d0e5cd91b2e224503c607d3ff11195037d9af0007e1b26",
+      "kind": "full",
+      "mode": "normal"
+    },
+    {
+      "case_id": "rand_m3_12",
+      "input": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_large_v11\\audit\\cases\\base_c010\\rand_m3_12.json",
+      "input_sha256": "27727a2a91efa0474a00cf77dd8a963b4a11705722fb9c280a1987b49773ca61",
+      "kind": "full",
+      "mode": "normal"
+    },
+    {
+      "case_id": "rand_m3_13",
+      "input": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_large_v11\\audit\\cases\\base_c010\\rand_m3_13.json",
+      "input_sha256": "cc5715e545e88052042fc62c220ec98a01acee5f4e4658dabff49c7272ecc74a",
+      "kind": "full",
+      "mode": "normal"
+    },
+    {
+      "case_id": "rand_m3_14",
+      "input": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_large_v11\\audit\\cases\\base_c010\\rand_m3_14.json",
+      "input_sha256": "60e86820b21e3373914dbf639b2ab655f2e4020ce5ed992eeb28e7d78b283545",
+      "kind": "full",
+      "mode": "normal"
+    },
+    {
+      "case_id": "rand_m3_15",
+      "input": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_large_v11\\audit\\cases\\base_c010\\rand_m3_15.json",
+      "input_sha256": "f26b55c5d6e4aaad75a52d020a1687427d2f8f4c35b74885227cfc318c7db43f",
+      "kind": "full",
+      "mode": "normal"
+    },
+    {
+      "case_id": "rand_m3_17",
+      "input": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_large_v11\\audit\\cases\\base_c010\\rand_m3_17.json",
+      "input_sha256": "7c36b7f8051f4cfcf4de63a97ff78adf261852ac985d4d9a27a817720f479d92",
+      "kind": "full",
+      "mode": "normal"
+    },
+    {
+      "case_id": "rand_m3_18",
+      "input": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_large_v11\\audit\\cases\\base_c010\\rand_m3_18.json",
+      "input_sha256": "b1db5fd124615df1195e723c416dc326337c2a833c535c534413768354c6af8e",
+      "kind": "full",
+      "mode": "normal"
+    },
+    {
+      "case_id": "rand_m3_19",
+      "input": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_large_v11\\audit\\cases\\base_c010\\rand_m3_19.json",
+      "input_sha256": "1a3540e36a93a940ad47f67cb5778b7072862f1dce44ee47a590afc7c8ab23e7",
+      "kind": "full",
+      "mode": "normal"
+    },
+    {
+      "case_id": "rand_m3_20",
+      "input": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_large_v11\\audit\\cases\\base_c010\\rand_m3_20.json",
+      "input_sha256": "a08d3befdb6049036926193d8afb7fa9046c1a0652d460189ce6b225da8f8488",
+      "kind": "full",
+      "mode": "normal"
+    },
+    {
+      "case_id": "rand_m4_01",
+      "input": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_large_v11\\audit\\cases\\base_c010\\rand_m4_01.json",
+      "input_sha256": "311f6437b9f2a16aca8eee904de6befdebd7067381aa030b73a0fa8f49310ddb",
+      "kind": "full",
+      "mode": "normal"
+    },
+    {
+      "case_id": "rand_m4_02",
+      "input": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_large_v11\\audit\\cases\\base_c010\\rand_m4_02.json",
+      "input_sha256": "7dce27134812a8efc2ef20a39409be13280aac1b28ca383c9c3a8f6a1044bf70",
+      "kind": "full",
+      "mode": "normal"
+    },
+    {
+      "case_id": "rand_m4_03",
+      "input": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_large_v11\\audit\\cases\\base_c010\\rand_m4_03.json",
+      "input_sha256": "82381985e4380710f2fe2dd18046b9702361ace2b4e1442e92a3ea9c98c38e07",
+      "kind": "full",
+      "mode": "normal"
+    },
+    {
+      "case_id": "rand_m4_04",
+      "input": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_large_v11\\audit\\cases\\base_c010\\rand_m4_04.json",
+      "input_sha256": "4c1e1cee2d7831eb6cbcf699f9e85b647d3e00725a0a548152f741111ab18df0",
+      "kind": "full",
+      "mode": "normal"
+    },
+    {
+      "case_id": "rand_m4_05",
+      "input": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_large_v11\\audit\\cases\\base_c010\\rand_m4_05.json",
+      "input_sha256": "c83eba335648f83c689f7880f0952b4a0fd4c4d2c6cd5d8dfe8acc90046aeb01",
+      "kind": "full",
+      "mode": "normal"
+    },
+    {
+      "case_id": "rand_m4_06",
+      "input": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_large_v11\\audit\\cases\\base_c010\\rand_m4_06.json",
+      "input_sha256": "47171c7b1fb44b6d9cbe00c397cd9c247129b2f5cd9a8b64b1cc7531b41c1b59",
+      "kind": "full",
+      "mode": "normal"
+    },
+    {
+      "case_id": "rand_m4_07",
+      "input": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_large_v11\\audit\\cases\\base_c010\\rand_m4_07.json",
+      "input_sha256": "7ab112d45b66b230ab8ba7f9fdfe3f334b300af9a309290dee180a89011f1566",
+      "kind": "full",
+      "mode": "normal"
+    },
+    {
+      "case_id": "rand_m4_08",
+      "input": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_large_v11\\audit\\cases\\base_c010\\rand_m4_08.json",
+      "input_sha256": "a581b2df8f9137afe693d6ebf2c376e0533c3ff4fda9f168a3c7d31bea2b543a",
+      "kind": "full",
+      "mode": "normal"
+    },
+    {
+      "case_id": "rand_m4_09",
+      "input": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_large_v11\\audit\\cases\\base_c010\\rand_m4_09.json",
+      "input_sha256": "df7df7083a6da23b64a6dbdd9715cf0c697dc9da984db7feb047e2146d17f6bd",
+      "kind": "full",
+      "mode": "normal"
+    },
+    {
+      "case_id": "rand_m4_10",
+      "input": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_large_v11\\audit\\cases\\base_c010\\rand_m4_10.json",
+      "input_sha256": "e13e3d01f158a55e78c96c028ff7f9f24b74c0b5f2d58159d23326d638e2258a",
+      "kind": "full",
+      "mode": "normal"
+    },
+    {
+      "case_id": "rand_m4_11",
+      "input": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_large_v11\\audit\\cases\\base_c010\\rand_m4_11.json",
+      "input_sha256": "7738acd0c4be3577f5a6770b4d1ec77964885dd0066e89aa79ff73c48c390f3a",
+      "kind": "full",
+      "mode": "normal"
+    },
+    {
+      "case_id": "rand_m4_12",
+      "input": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_large_v11\\audit\\cases\\base_c010\\rand_m4_12.json",
+      "input_sha256": "53531cc3dab40c060db7aad2766d77446977e60b9addde6a0acf117c8a7c8357",
+      "kind": "full",
+      "mode": "normal"
+    },
+    {
+      "case_id": "rand_m4_13",
+      "input": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_large_v11\\audit\\cases\\base_c010\\rand_m4_13.json",
+      "input_sha256": "c6bbdf890bd0d65cc17a2b4c4f0ee30a669540dcbaff25b3518d618db951ebb2",
+      "kind": "full",
+      "mode": "normal"
+    },
+    {
+      "case_id": "rand_m4_14",
+      "input": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_large_v11\\audit\\cases\\base_c010\\rand_m4_14.json",
+      "input_sha256": "df6f41244e8c21b3991090ef23c5f5399ecca0cb3e9332dd9aa0577efc394acf",
+      "kind": "full",
+      "mode": "normal"
+    },
+    {
+      "case_id": "rand_m4_15",
+      "input": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_large_v11\\audit\\cases\\base_c010\\rand_m4_15.json",
+      "input_sha256": "1cb9e34e3e9b29c0bb0cf7d640c7b361ee23e1f8f5795f2027c88ea2c667c1fc",
+      "kind": "full",
+      "mode": "normal"
+    },
+    {
+      "case_id": "rand_m4_16",
+      "input": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_large_v11\\audit\\cases\\base_c010\\rand_m4_16.json",
+      "input_sha256": "6edce223509f5c31719237a2f51a7acbc96ef173e12fdb2b68b0146c2b33ccd9",
+      "kind": "full",
+      "mode": "normal"
+    },
+    {
+      "case_id": "rand_m4_17",
+      "input": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_large_v11\\audit\\cases\\base_c010\\rand_m4_17.json",
+      "input_sha256": "155ba3b2eff3913c86f10a9ba316f0980ffb521db2291cd9451f5afecc5ca61a",
+      "kind": "full",
+      "mode": "normal"
+    },
+    {
+      "case_id": "rand_m4_18",
+      "input": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_large_v11\\audit\\cases\\base_c010\\rand_m4_18.json",
+      "input_sha256": "ba51a4dfb5b7b547930d131b408c772fb97d57c522311c1a3e6f5a6f4f143d6b",
+      "kind": "full",
+      "mode": "normal"
+    },
+    {
+      "case_id": "rand_m4_19",
+      "input": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_large_v11\\audit\\cases\\base_c010\\rand_m4_19.json",
+      "input_sha256": "7603fe9935036e65049a97e1d53fd835f25fda73d063a76ae7a52d7ac7b227ab",
+      "kind": "full",
+      "mode": "normal"
+    },
+    {
+      "case_id": "rand_m5_01",
+      "input": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_large_v11\\audit\\cases\\base_c010\\rand_m5_01.json",
+      "input_sha256": "f5a12d25ce35b53986033103faf8fcec4d0a53253c615d40ecc0c4d45c9ad60b",
+      "kind": "full",
+      "mode": "normal"
+    },
+    {
+      "case_id": "rand_m5_02",
+      "input": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_large_v11\\audit\\cases\\base_c010\\rand_m5_02.json",
+      "input_sha256": "8328ec6d26beeac7720f353c0e8a9b7a4539068fd77415853b3f3c7565cb31ce",
+      "kind": "full",
+      "mode": "normal"
+    },
+    {
+      "case_id": "rand_m5_03",
+      "input": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_large_v11\\audit\\cases\\base_c010\\rand_m5_03.json",
+      "input_sha256": "e90a834c0f25182b8de4e9d7d690aee224586480f9d80d25d74e64c24da0dca4",
+      "kind": "full",
+      "mode": "normal"
+    },
+    {
+      "case_id": "rand_m5_04",
+      "input": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_large_v11\\audit\\cases\\base_c010\\rand_m5_04.json",
+      "input_sha256": "86dd0820d3df180282c1b6cb50e3ca4ad6cb5c7ad552adae01d080a4e098c04f",
+      "kind": "full",
+      "mode": "normal"
+    },
+    {
+      "case_id": "rand_m5_05",
+      "input": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_large_v11\\audit\\cases\\base_c010\\rand_m5_05.json",
+      "input_sha256": "a4abf8828bbb3525aaa30bc903d43b6c18f30dd7d09c3f967e30a148d26b04eb",
+      "kind": "full",
+      "mode": "normal"
+    },
+    {
+      "case_id": "rand_m5_06",
+      "input": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_large_v11\\audit\\cases\\base_c010\\rand_m5_06.json",
+      "input_sha256": "1825ec273a15cf1dd7447c46fcddca3bed84bb740c941bc9963dbcaf4a67586f",
+      "kind": "full",
+      "mode": "normal"
+    },
+    {
+      "case_id": "rand_m5_07",
+      "input": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_large_v11\\audit\\cases\\base_c010\\rand_m5_07.json",
+      "input_sha256": "57d25d207ddaf74e6cb11b6b604f66a5589a7e33e15a6ae35a2e5f06510822bf",
+      "kind": "full",
+      "mode": "normal"
+    },
+    {
+      "case_id": "rand_m5_08",
+      "input": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_large_v11\\audit\\cases\\base_c010\\rand_m5_08.json",
+      "input_sha256": "9e802e7fba6c64597808f79c4686fc5ecac5f2d03a118ed609c86f30da7bbc71",
+      "kind": "full",
+      "mode": "normal"
+    },
+    {
+      "case_id": "rand_m5_09",
+      "input": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_large_v11\\audit\\cases\\base_c010\\rand_m5_09.json",
+      "input_sha256": "e329621dcf65dd21fa1c7914691b9ae153cea9f3da2787f96d10678f92ddbca6",
+      "kind": "full",
+      "mode": "normal"
+    },
+    {
+      "case_id": "rand_m5_10",
+      "input": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_large_v11\\audit\\cases\\base_c010\\rand_m5_10.json",
+      "input_sha256": "aefff11d16dea5400188705292ef565efd18da76681c619f3693e5da6ff4d1ec",
+      "kind": "full",
+      "mode": "normal"
+    },
+    {
+      "case_id": "rand_m5_11",
+      "input": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_large_v11\\audit\\cases\\base_c010\\rand_m5_11.json",
+      "input_sha256": "bbe8ee30a3f62bfe5839fc28acc78b951835bb3b3833f6a4c50f89136a3fdf53",
+      "kind": "full",
+      "mode": "normal"
+    },
+    {
+      "case_id": "rand_m5_12",
+      "input": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_large_v11\\audit\\cases\\base_c010\\rand_m5_12.json",
+      "input_sha256": "5355a2bd1c2ba4a44c7397c2d83233ba72d7e46586b50cf4f1a542c9a66075f4",
+      "kind": "full",
+      "mode": "normal"
+    },
+    {
+      "case_id": "rand_m5_13",
+      "input": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_large_v11\\audit\\cases\\base_c010\\rand_m5_13.json",
+      "input_sha256": "d94d61fc6aa95ce8b1267f6e3ec3f1579d06fe7d93556b6d51fcc69e25b2fa88",
+      "kind": "full",
+      "mode": "normal"
+    },
+    {
+      "case_id": "rand_m5_14",
+      "input": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_large_v11\\audit\\cases\\base_c010\\rand_m5_14.json",
+      "input_sha256": "d279e1d6ee3172bc4f5ee485dbc6367aabd1b59ba497037154a6178e8841f5ee",
+      "kind": "full",
+      "mode": "normal"
+    },
+    {
+      "case_id": "rand_m5_15",
+      "input": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_large_v11\\audit\\cases\\base_c010\\rand_m5_15.json",
+      "input_sha256": "7c964ac3f2adc3518630ff1ee36da3863f7cfb4a5a805fab973d96d5d017b45a",
+      "kind": "full",
+      "mode": "normal"
+    },
+    {
+      "case_id": "rand_m5_16",
+      "input": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_large_v11\\audit\\cases\\base_c010\\rand_m5_16.json",
+      "input_sha256": "eca4b5b938fb6a892217a4f599cfb4ed191c600e18bdbcebe8233e874adb72de",
+      "kind": "full",
+      "mode": "normal"
+    },
+    {
+      "case_id": "rand_m5_17",
+      "input": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_large_v11\\audit\\cases\\base_c010\\rand_m5_17.json",
+      "input_sha256": "406c509dcddbdfe4f12db3ecc531f79dc3ad7e9515b2dfa2e5001129e8704752",
+      "kind": "full",
+      "mode": "normal"
+    },
+    {
+      "case_id": "rand_m5_18",
+      "input": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_large_v11\\audit\\cases\\base_c010\\rand_m5_18.json",
+      "input_sha256": "74e23557b14084f253105b74e888e29e4f50e47038cc1b3b0ad8e347f6d81d5a",
+      "kind": "full",
+      "mode": "normal"
+    },
+    {
+      "case_id": "rand_m5_19",
+      "input": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_large_v11\\audit\\cases\\base_c010\\rand_m5_19.json",
+      "input_sha256": "a56d358903b5f56c13e2c04651d4dfa673ff3c1c1df353bf518216509b53a9cc",
+      "kind": "full",
+      "mode": "normal"
+    },
+    {
+      "case_id": "rand_m5_20",
+      "input": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_large_v11\\audit\\cases\\base_c010\\rand_m5_20.json",
+      "input_sha256": "96c96d3452b132f954f72ccacf66cbbdfb892c3c1b82b00c9c319cdd5cf6db68",
+      "kind": "full",
+      "mode": "normal"
+    },
+    {
+      "case_id": "rand_m6_01",
+      "input": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_large_v11\\audit\\cases\\base_c010\\rand_m6_01.json",
+      "input_sha256": "4e58ec6748a636402fee671c094ef2b9ae64fac17f1355ac3280f048b72e906b",
+      "kind": "full",
+      "mode": "normal"
+    },
+    {
+      "case_id": "rand_m6_02",
+      "input": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_large_v11\\audit\\cases\\base_c010\\rand_m6_02.json",
+      "input_sha256": "c618a4ec5be05b7acf37b33c853e16a638ae083bdff351fccd5305e3e5952550",
+      "kind": "full",
+      "mode": "normal"
+    },
+    {
+      "case_id": "rand_m6_03",
+      "input": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_large_v11\\audit\\cases\\base_c010\\rand_m6_03.json",
+      "input_sha256": "fd403beba5bf1987b5768d2687228282928746abcf82bf94ec981fa7564eb221",
+      "kind": "full",
+      "mode": "normal"
+    },
+    {
+      "case_id": "rand_m6_04",
+      "input": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_large_v11\\audit\\cases\\base_c010\\rand_m6_04.json",
+      "input_sha256": "30175cf6ad35d649ef0c8b01e82f45480dcd03aeb09e4d727f9c24b11a74b9e2",
+      "kind": "full",
+      "mode": "normal"
+    },
+    {
+      "case_id": "rand_m6_05",
+      "input": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_large_v11\\audit\\cases\\base_c010\\rand_m6_05.json",
+      "input_sha256": "df73d6e810ffb4e9ac04a8839b3882495fac319666b52fdb9666cdcf968ce01c",
+      "kind": "full",
+      "mode": "normal"
+    },
+    {
+      "case_id": "rand_m6_06",
+      "input": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_large_v11\\audit\\cases\\base_c010\\rand_m6_06.json",
+      "input_sha256": "d6a63d3355bef3600e45242c8e6658aaff64095d1e71b59f0e9d18242fc6c474",
+      "kind": "full",
+      "mode": "normal"
+    },
+    {
+      "case_id": "rand_m6_07",
+      "input": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_large_v11\\audit\\cases\\base_c010\\rand_m6_07.json",
+      "input_sha256": "73f0ccf1e6db9a8c1c3efb734d1bc14bb66bcb47bfbc6781bf54f6e90908e529",
+      "kind": "full",
+      "mode": "normal"
+    },
+    {
+      "case_id": "rand_m6_08",
+      "input": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_large_v11\\audit\\cases\\base_c010\\rand_m6_08.json",
+      "input_sha256": "65adec6b0be1614dd493750b2b80fd244efc2f9c5e7313378ba13edc0ebf9909",
+      "kind": "full",
+      "mode": "normal"
+    },
+    {
+      "case_id": "rand_m6_09",
+      "input": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_large_v11\\audit\\cases\\base_c010\\rand_m6_09.json",
+      "input_sha256": "a4163bcc797f6e351d08a33835f15d604967d21974fec946ccd8161a564ac012",
+      "kind": "full",
+      "mode": "normal"
+    },
+    {
+      "case_id": "rand_m6_10",
+      "input": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_large_v11\\audit\\cases\\base_c010\\rand_m6_10.json",
+      "input_sha256": "544b937d7e76fee624a795d035702a78ee6e269e81d3ce5d9eeb9d1627c6d97a",
+      "kind": "full",
+      "mode": "normal"
+    },
+    {
+      "case_id": "rand_m6_11",
+      "input": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_large_v11\\audit\\cases\\base_c010\\rand_m6_11.json",
+      "input_sha256": "d4f325dffc400a94e4c2f6716f024030bd9db44b62d87cd94a0f232432b77fa9",
+      "kind": "full",
+      "mode": "normal"
+    },
+    {
+      "case_id": "rand_m6_12",
+      "input": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_large_v11\\audit\\cases\\base_c010\\rand_m6_12.json",
+      "input_sha256": "b3e3b1138c2f75c55869d3dfa1c5a000152abc435dd714a33d81e2bc62298940",
+      "kind": "full",
+      "mode": "normal"
+    },
+    {
+      "case_id": "rand_m6_13",
+      "input": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_large_v11\\audit\\cases\\base_c010\\rand_m6_13.json",
+      "input_sha256": "d5c2c93b5fd8ba8f09c216b7f75477c9e31bb0bb0e2ae32d1033d57e9e6d04e1",
+      "kind": "full",
+      "mode": "normal"
+    },
+    {
+      "case_id": "rand_m6_14",
+      "input": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_large_v11\\audit\\cases\\base_c010\\rand_m6_14.json",
+      "input_sha256": "673f005eb588fe3d3c5db8fd85001e9432d76682d6a107348e88923bbc66f32f",
+      "kind": "full",
+      "mode": "normal"
+    },
+    {
+      "case_id": "rand_m6_15",
+      "input": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_large_v11\\audit\\cases\\base_c010\\rand_m6_15.json",
+      "input_sha256": "81aa145a71d8e19d8c3480a4f33018ef1fad7f5bbd95ad83ddc283e69afedcfc",
+      "kind": "full",
+      "mode": "normal"
+    },
+    {
+      "case_id": "rand_m6_16",
+      "input": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_large_v11\\audit\\cases\\base_c010\\rand_m6_16.json",
+      "input_sha256": "7704783ad8bd60856be714747c4b24812be8f99374ce168a08788d8f2d68d6d5",
+      "kind": "full",
+      "mode": "normal"
+    },
+    {
+      "case_id": "rand_m6_17",
+      "input": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_large_v11\\audit\\cases\\base_c010\\rand_m6_17.json",
+      "input_sha256": "1b759f5f825112ca4832d32ed7ebaba93f3ab73e745cf8c074332819a38b5f96",
+      "kind": "full",
+      "mode": "normal"
+    },
+    {
+      "case_id": "rand_m6_18",
+      "input": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_large_v11\\audit\\cases\\base_c010\\rand_m6_18.json",
+      "input_sha256": "767a4a56ab31de925eda9a81698839f1f13bead52bceb60319ebf814cc04b9a1",
+      "kind": "full",
+      "mode": "normal"
+    },
+    {
+      "case_id": "rand_m6_19",
+      "input": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_large_v11\\audit\\cases\\base_c010\\rand_m6_19.json",
+      "input_sha256": "3f459bd144262b995b4f2be2c9e2810a698dca62e77f291e3eee7cd208d6c02a",
+      "kind": "full",
+      "mode": "normal"
+    },
+    {
+      "case_id": "rand_m6_20",
+      "input": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_large_v11\\audit\\cases\\base_c010\\rand_m6_20.json",
+      "input_sha256": "c880e3c8ff1e9e344d5438490be06198519742d132bd70153b80fd9b2c49d5c6",
+      "kind": "full",
+      "mode": "normal"
+    },
+    {
+      "case_id": "rand_m7_01",
+      "input": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_large_v11\\audit\\cases\\base_c010\\rand_m7_01.json",
+      "input_sha256": "5461ff3e78d1c96549386a860c708449305db57eae1fd55503a6df1ebac0f076",
+      "kind": "full",
+      "mode": "normal"
+    },
+    {
+      "case_id": "rand_m7_02",
+      "input": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_large_v11\\audit\\cases\\base_c010\\rand_m7_02.json",
+      "input_sha256": "09d337c1774cfe94c359076edaae4a173b8fe68b9b394ba302697e851aa80585",
+      "kind": "full",
+      "mode": "normal"
+    },
+    {
+      "case_id": "rand_m7_03",
+      "input": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_large_v11\\audit\\cases\\base_c010\\rand_m7_03.json",
+      "input_sha256": "9872e1465e99d39bc5e83751825ea121c2372e073cadf7428b717fd00121ecf3",
+      "kind": "full",
+      "mode": "normal"
+    },
+    {
+      "case_id": "rand_m7_04",
+      "input": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_large_v11\\audit\\cases\\base_c010\\rand_m7_04.json",
+      "input_sha256": "46a71774dc377ff6e639d41227c409a6740d338e2c3207ad671caf2e6bf992e5",
+      "kind": "full",
+      "mode": "normal"
+    },
+    {
+      "case_id": "rand_m7_05",
+      "input": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_large_v11\\audit\\cases\\base_c010\\rand_m7_05.json",
+      "input_sha256": "07ad827772be6b0a8bb5263c320a478fd9e1a17599fa2fe9680bf31d89006e94",
+      "kind": "full",
+      "mode": "normal"
+    },
+    {
+      "case_id": "rand_m7_06",
+      "input": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_large_v11\\audit\\cases\\base_c010\\rand_m7_06.json",
+      "input_sha256": "c5fe0b9988bc7468046eb1cacfd434a68964b03ba5dcad6aaf9f05c4b4189c2d",
+      "kind": "full",
+      "mode": "normal"
+    },
+    {
+      "case_id": "rand_m7_07",
+      "input": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_large_v11\\audit\\cases\\base_c010\\rand_m7_07.json",
+      "input_sha256": "2ecf6a68e7556e8bbf6c5756d228fc4cd797b7afebb8ff19e8a9400c14ce08dc",
+      "kind": "full",
+      "mode": "normal"
+    },
+    {
+      "case_id": "rand_m7_08",
+      "input": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_large_v11\\audit\\cases\\base_c010\\rand_m7_08.json",
+      "input_sha256": "90952ed0fadf79a4fe40d397f9efa33f0adbb4159d3cce009ad4a37502dec8e8",
+      "kind": "full",
+      "mode": "normal"
+    },
+    {
+      "case_id": "rand_m7_09",
+      "input": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_large_v11\\audit\\cases\\base_c010\\rand_m7_09.json",
+      "input_sha256": "188ab60bc0a353f93e31ae1e95aa248206b0944a33277fae09cbb64713ea80a4",
+      "kind": "full",
+      "mode": "normal"
+    },
+    {
+      "case_id": "rand_m7_10",
+      "input": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_large_v11\\audit\\cases\\base_c010\\rand_m7_10.json",
+      "input_sha256": "82d9c0ea8ace14146ee9463483e1299dd790f40f9f3fa3f95e0060001c1f87a7",
+      "kind": "full",
+      "mode": "normal"
+    },
+    {
+      "case_id": "rand_m7_11",
+      "input": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_large_v11\\audit\\cases\\base_c010\\rand_m7_11.json",
+      "input_sha256": "64520070419c4abfb8c1b4ecde3674380ce56b3a5d25facda7ea619f97c3ac7c",
+      "kind": "full",
+      "mode": "normal"
+    },
+    {
+      "case_id": "rand_m7_12",
+      "input": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_large_v11\\audit\\cases\\base_c010\\rand_m7_12.json",
+      "input_sha256": "e83edb0325770d09c5cea059af67229a0de6685176cc76a96d1f92ddf088c3a7",
+      "kind": "full",
+      "mode": "normal"
+    },
+    {
+      "case_id": "rand_m7_13",
+      "input": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_large_v11\\audit\\cases\\base_c010\\rand_m7_13.json",
+      "input_sha256": "0979c63ca55558d3be1a3cdae0d0aa52af859631d27a657879197b80655353b4",
+      "kind": "full",
+      "mode": "normal"
+    },
+    {
+      "case_id": "rand_m7_14",
+      "input": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_large_v11\\audit\\cases\\base_c010\\rand_m7_14.json",
+      "input_sha256": "556be83c402688e95693e0f39c86f1bdfd56223ddccb6304bdbcad2182e2b038",
+      "kind": "full",
+      "mode": "normal"
+    },
+    {
+      "case_id": "rand_m7_15",
+      "input": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_large_v11\\audit\\cases\\base_c010\\rand_m7_15.json",
+      "input_sha256": "6f72c4679c49d4eb97dc49c273cb7319e8733a1ed855876b65619cb521a0c379",
+      "kind": "full",
+      "mode": "normal"
+    },
+    {
+      "case_id": "rand_m7_16",
+      "input": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_large_v11\\audit\\cases\\base_c010\\rand_m7_16.json",
+      "input_sha256": "523d994e370fdd88bf52bfcc3e0f21cc73d7334f3c05898072a0b28c51fffc56",
+      "kind": "full",
+      "mode": "normal"
+    },
+    {
+      "case_id": "rand_m7_17",
+      "input": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_large_v11\\audit\\cases\\base_c010\\rand_m7_17.json",
+      "input_sha256": "5b4cc950f5e67a4d39db795ec6bccf59bb7f3de1c01c6d92316ad34b00c90eb1",
+      "kind": "full",
+      "mode": "normal"
+    },
+    {
+      "case_id": "rand_m7_18",
+      "input": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_large_v11\\audit\\cases\\base_c010\\rand_m7_18.json",
+      "input_sha256": "f5f6342554112b578bd92b54a76e65f2a927d00416fb274999ccb856c3cb47af",
+      "kind": "full",
+      "mode": "normal"
+    },
+    {
+      "case_id": "rand_m7_19",
+      "input": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_large_v11\\audit\\cases\\base_c010\\rand_m7_19.json",
+      "input_sha256": "00725a139c06fb0b1315cafc2a3f87633c246fc4538a3f7fe4401f727039d180",
+      "kind": "full",
+      "mode": "normal"
+    },
+    {
+      "case_id": "rand_m7_20",
+      "input": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_large_v11\\audit\\cases\\base_c010\\rand_m7_20.json",
+      "input_sha256": "765ff43793e098213314f75836b4b3848a30f7a69c42b2a933088c6058fda5c1",
+      "kind": "full",
+      "mode": "normal"
+    },
+    {
+      "case_id": "interval_two_symbol_nonadjacent",
+      "input": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_large_v11\\audit\\cases\\targeted\\interval_two_symbol_nonadjacent.json",
+      "input_sha256": "6cd0b1dd763dd4a07497660a566e6d5406a9389579e45b2254aaa335ee8c057d",
+      "kind": "full",
+      "mode": "normal"
+    },
+    {
+      "case_id": "interval_binary_with_context",
+      "input": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_large_v11\\audit\\cases\\targeted\\interval_binary_with_context.json",
+      "input_sha256": "bfe0b77297edbac99d541a6175195becdae0c7e3bf0e2924d04fad638455ee84",
+      "kind": "full",
+      "mode": "normal"
+    },
+    {
+      "case_id": "interval_full_anagram_repeated",
+      "input": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_large_v11\\audit\\cases\\targeted\\interval_full_anagram_repeated.json",
+      "input_sha256": "3b128b29251ead1b26736f718f0d922ab28d12ca23651656a55b14c9f207d6c3",
+      "kind": "full",
+      "mode": "normal"
+    },
+    {
+      "case_id": "unsafe_three_symbol_acb_bca",
+      "input": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_large_v11\\audit\\cases\\targeted\\unsafe_three_symbol_acb_bca.json",
+      "input_sha256": "a2515587d21c53d41b322a1d697c3e2908914bc5d8a5a60e2cabb214c5c34147",
+      "kind": "full",
+      "mode": "normal"
+    },
+    {
+      "case_id": "duplicate_label_idempotence",
+      "input": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_large_v11\\audit\\cases\\targeted\\duplicate_label_idempotence.json",
+      "input_sha256": "3c93d9462c94e3db127c8dd4448df9daa1bc4023d9bd35bc2c3eb8f65d60fb28",
+      "kind": "full",
+      "mode": "normal"
+    },
+    {
+      "case_id": "unary_boundary",
+      "input": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_large_v11\\audit\\cases\\targeted\\unary_boundary.json",
+      "input_sha256": "725d99f3735b295ee72d18a43e7fba9dff66b358dbd95db00e1cb0f1b9837b05",
+      "kind": "full",
+      "mode": "normal"
+    },
+    {
+      "case_id": "no_negative_epsilon_boundary",
+      "input": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_large_v11\\audit\\cases\\targeted\\no_negative_epsilon_boundary.json",
+      "input_sha256": "c9405683f6700924b91e29de2a5dd92c047925e5e861c1a9a2c4bfd944b6251a",
+      "kind": "full",
+      "mode": "normal"
+    },
+    {
+      "case_id": "graph_empty_no_label_boundary",
+      "input": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_large_v11\\audit\\cases\\targeted\\graph_empty_no_label_boundary.json",
+      "input_sha256": "09ad6a8e2468e45ff548c32f1345893a58731cf485db5bb6c2a726b7e6e2f6e8",
+      "kind": "full",
+      "mode": "normal"
+    },
+    {
+      "case_id": "graph_empty_anagram_fallback",
+      "input": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_large_v11\\audit\\cases\\targeted\\graph_empty_anagram_fallback.json",
+      "input_sha256": "fd3a8fcd6308720b849a4e420c8a4eea05e55287d8904c3daaf576a04e563e05",
+      "kind": "full",
+      "mode": "normal"
+    },
+    {
+      "case_id": "adjacent_swap_repeated_symbol_boundary",
+      "input": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_large_v11\\audit\\cases\\targeted\\adjacent_swap_repeated_symbol_boundary.json",
+      "input_sha256": "cb978cf9dea3616b4dd6e5cffdf29e0e9883041f9a102ab439dbbf12655ccde6",
+      "kind": "full",
+      "mode": "normal"
+    },
+    {
+      "case_id": "unstructured_graph_empty_m8",
+      "input": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_large_v11\\audit\\cases\\performance\\unstructured_graph_empty_m8.json",
+      "input_sha256": "8662f809fed319b60c6be2051c4b8e70331346957403759f2d25ea68f54dd670",
+      "kind": "full",
+      "mode": "normal"
+    },
+    {
+      "case_id": "hash_collision_keep_all_contexts",
+      "input": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_large_v11\\audit\\cases\\collision_controls_v2\\hash_collision_keep_all_contexts.json",
+      "input_sha256": "8a85298deb9d2d9e3daa65665df200cd419f339b9c9a897e46f1a0d849319e9c",
+      "kind": "full",
+      "mode": "constant"
+    },
+    {
+      "case_id": "hash_collision_exact_context_guard",
+      "input": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_large_v11\\audit\\cases\\collision_controls_v2\\hash_collision_exact_context_guard.json",
+      "input_sha256": "d73f375bdfafb1b7cc64230f5e164b790cebc559c49abde28fc3aa4865655710",
+      "kind": "full",
+      "mode": "constant"
+    },
+    {
+      "case_id": "none_witness_regression_v1",
+      "input": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_large_v11\\audit\\controls\\none_witness_regression_v1.json",
+      "input_sha256": "8f6099a4927f8321fc3f8b572eed63072cfa7a02fb8bbb2dfef49b7b116b095c",
+      "kind": "full",
+      "mode": "normal"
+    },
+    {
+      "case_id": "invalid_stale_allowed_k",
+      "input": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-02\\partition_unrestricted_v10\\audit\\corpus_v1\\invalid\\stale_allowed_k.json",
+      "input_sha256": "8079260c57fce966a6e13db07f1c42b354b398e0570e6232daaf8722a934385b",
+      "kind": "invalid",
+      "mode": "normal"
+    },
+    {
+      "case_id": "invalid_stale_legacy_k",
+      "input": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-02\\partition_unrestricted_v10\\audit\\corpus_v1\\invalid\\stale_legacy_k.json",
+      "input_sha256": "5c351907ce0f3e9f2a0f8a1587c0d96264d08c99f618f75fa22bc86eb60b5bc5",
+      "kind": "invalid",
+      "mode": "normal"
+    },
+    {
+      "case_id": "invalid_empty_alphabet",
+      "input": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-02\\partition_unrestricted_v10\\audit\\corpus_v1\\invalid\\empty_alphabet.json",
+      "input_sha256": "7db205f1d69e46c87cf5832c7388c99820a60d104c04b561b57ce3af578da8fc",
+      "kind": "invalid",
+      "mode": "normal"
+    },
+    {
+      "case_id": "invalid_duplicate_alphabet_symbol",
+      "input": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-02\\partition_unrestricted_v10\\audit\\corpus_v1\\invalid\\duplicate_alphabet_symbol.json",
+      "input_sha256": "e63092d965d353fc102d94a9a261a6731fc06e3f9e19e264b0a1231ce49fa94f",
+      "kind": "invalid",
+      "mode": "normal"
+    },
+    {
+      "case_id": "invalid_conflicting_labels",
+      "input": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-02\\partition_unrestricted_v10\\audit\\corpus_v1\\invalid\\conflicting_labels.json",
+      "input_sha256": "0253099c803678a18d9030dbdc3b9499c24741ea08fb45c87c0660a4b598d91a",
+      "kind": "invalid",
+      "mode": "normal"
+    },
+    {
+      "case_id": "invalid_word_outside_alphabet",
+      "input": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-02\\partition_unrestricted_v10\\audit\\corpus_v1\\invalid\\word_outside_alphabet.json",
+      "input_sha256": "ad675f87ab19e8decc23065ba2d247fe426646fe3ea560bb9d3f3f33a0cce01e",
+      "kind": "invalid",
+      "mode": "normal"
+    },
+    {
+      "case_id": "control_expired",
+      "input": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_large_v11\\audit\\cases\\base_c010\\no_labels_all_partitions.json",
+      "input_sha256": "46d19e22023fcf489967fe9f61d101fb36046900a34527fea4dbcf71056c58e4",
+      "kind": "expired",
+      "mode": "expired"
+    },
+    {
+      "case_id": "control_interrupt",
+      "input": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_large_v11\\audit\\cases\\targeted\\interval_two_symbol_nonadjacent.json",
+      "input_sha256": "6cd0b1dd763dd4a07497660a566e6d5406a9389579e45b2254aaa335ee8c057d",
+      "kind": "interrupt",
+      "mode": "interrupt"
+    },
+    {
+      "case_id": "cli_smoke_no_labels",
+      "input": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_large_v11\\audit\\cases\\base_c010\\no_labels_all_partitions.json",
+      "input_sha256": "46d19e22023fcf489967fe9f61d101fb36046900a34527fea4dbcf71056c58e4",
+      "kind": "cli",
+      "mode": "normal",
+      "oracle_case_id": "no_labels_all_partitions"
+    }
+  ]
+}

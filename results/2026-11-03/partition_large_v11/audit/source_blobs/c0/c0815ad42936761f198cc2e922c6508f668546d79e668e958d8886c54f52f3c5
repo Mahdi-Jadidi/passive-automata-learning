@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "status": "pre_registered_hash_collision_controls",
+  "fingerprint_function": "forced constant in test-only seam or audit monkeypatch",
+  "cases": [
+    {
+      "case_id": "hash_collision_keep_all_contexts",
+      "positive": "cabc,dabd",
+      "negative": "dbad",
+      "required": "retain second representative in collision class; emit replayable ab interval certificate"
+    },
+    {
+      "case_id": "hash_collision_exact_context_guard",
+      "positive": "cabc",
+      "negative": "dbad",
+      "near_key": "same interval boundaries and a/b counts but outside contexts c/c and d/d differ",
+      "required": "no ab certificate or false forced_same; direct oracle must provide separating witness"
+    }
+  ],
+  "source_files": [
+    "audit/cases/collision_controls_v2/hash_collision_keep_all_contexts.json",
+    "audit/cases/collision_controls_v2/hash_collision_exact_context_guard.json"
+  ]
+}

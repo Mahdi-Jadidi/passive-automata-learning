@@ -1,0 +1,71 @@
+{
+  "schema_version": 1,
+  "cycle": "C011",
+  "candidate": "RLE-indexed binary interval contractions with exact C010 coarsening search",
+  "status": "static_candidate_frozen_pending_hash_bound_review",
+  "execution_status": "not_run",
+  "provider_execution": false,
+  "correctness_tested": false,
+  "performance_measured": false,
+  "files": {
+    "unrestricted_solver_v1.py": {
+      "bytes": 32458,
+      "sha256": "cfcc7c0ab3bc61663e7245cbc8f662f6c828f3eed2b2159d1d251ebdba1fb9e2"
+    },
+    "unrestricted_cli_v1.py": {
+      "bytes": 1592,
+      "sha256": "c8e491159cf4d63ca2f6595a89a5d86d395205e280730b9a9fdd5b5c1d710b4d"
+    },
+    "API_PROTOCOL_V1.md": {
+      "bytes": 5236,
+      "sha256": "fc3a26f120ed8ffea1d3de5ef913bbac58fbb904075f3cbf3d6b17419de3f366"
+    },
+    "unrestricted_example_v1.json": {
+      "bytes": 82,
+      "sha256": "5f68ac9b510b743f742243ee76df32c247a322054077dca8ec5d515257d6b4f5"
+    },
+    "STATIC_AUDIT_LOG_V1.md": {
+      "bytes": 3540,
+      "sha256": "5d1591a78793a8c0c0ed6098207f55eaae96a8af2ce6f84dbb27efe5450d1c6d"
+    },
+    "PROOF_REVIEW_V1.md": {
+      "bytes": 1749,
+      "sha256": "39fa81da228ed4cc7318e843fe218164b1d4b5c3b7957fbeba8bb147e6c40f87"
+    },
+    "RLE_INTERVAL_INDEX_PROOF_v1.md": {
+      "path": "../theory/RLE_INTERVAL_INDEX_PROOF_v1.md",
+      "bytes": 8471,
+      "sha256": "7b59106887d99abce6102af22d439061a51f2e8cbe049d292db92e284f30f1f9"
+    }
+  },
+  "baseline": {
+    "cycle": "C010",
+    "path": "../../2026-11-02/partition_unrestricted_v10/implementation/unrestricted_solver_v2.py",
+    "sha256": "4c7959e96c02023d85943c8c52fae3f198c0de67ea172a72ad0669485f60c502"
+  },
+  "api": {
+    "default_fields_preserved": true,
+    "new_field": "binary_interval_must_link_certificates",
+    "incomplete_status": "unknown with complete=false, preserving frozen C010 API",
+    "legacy_swap_edge_witnesses": "adjacent swaps only"
+  },
+  "methods": {
+    "index": "RLE maximal same-unordered-pair transition intervals",
+    "fingerprint": "deterministic 64-bit rolling key; exact collision verification is authoritative",
+    "projection_cache": "4096-entry LRU; entry-count bound, not memory-byte bound",
+    "search": "unchanged exact atom-coarsening Bell shortcut and DP"
+  },
+  "review": {
+    "pre_freeze_static_proof_review": "accepted under T1 assumptions; no counterexample found",
+    "pre_freeze_static_implementation_review": "collision checks accepted; deadline/status/cache caveats recorded",
+    "hash_bound_review": "pending",
+    "limitations": [
+      "completeness claim is for T1 symbol-pair edges, not all semantic must-links",
+      "input validation precedes deadline checks, inherited from C010",
+      "provider_seconds ends before final representative witness construction",
+      "returned Python witness objects may share nested mutable partition lists",
+      "no frozen-corpus run, constant-fingerprint run, benchmark, or memory measurement"
+    ]
+  },
+  "next_gate": "hash-bound independent static review before any execution"
+}

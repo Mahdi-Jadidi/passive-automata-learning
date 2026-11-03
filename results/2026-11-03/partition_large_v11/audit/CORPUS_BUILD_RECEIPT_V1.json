@@ -1,0 +1,31 @@
+{
+  "c010_commit": "0e0c52cc33825b9e820e083b8a90db2a9ab120d0",
+  "correctness_case_count": 136,
+  "correctness_manifest": "audit/CORRECTNESS_MANIFEST_V1.json",
+  "generator_sha256": "648c5d3d1104fbe5559d08ff6357f325e9d5b892b7b31979456066570082254f",
+  "performance_cell_count": 8,
+  "performance_cell_ids": [
+    "small_volume_128_each_m8",
+    "small_volume_512_each_m8",
+    "scale_volume_1000_each_m8",
+    "small_long_word_10000_m8",
+    "scale_long_word_100000_m8",
+    "scale_structured_m64_groups8",
+    "scale_structured_m128_groups8",
+    "scale_unstructured_fallback_m8"
+  ],
+  "performance_manifest": "audit/PERFORMANCE_MANIFEST_V1.json",
+  "schema_version": 1,
+  "targeted_case_ids": [
+    "interval_two_symbol_nonadjacent",
+    "interval_binary_with_context",
+    "interval_full_anagram_repeated",
+    "unsafe_three_symbol_acb_bca",
+    "duplicate_label_idempotence",
+    "unary_boundary",
+    "no_negative_epsilon_boundary",
+    "graph_empty_no_label_boundary",
+    "graph_empty_anagram_fallback",
+    "adjacent_swap_repeated_symbol_boundary"
+  ]
+}

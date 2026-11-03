@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "status": "uncaptured_early_audit_commands_recorded_without_reconstructed_raw_logs",
+  "recorded_utc": "2026-11-02T20:52:06Z",
+  "attempts": [
+    {
+      "attempt_id": "manual_uncaptured_build_suite_v1",
+      "command": "& C:\\Users\\Mahdi\\AppData\\Local\\Python\\bin\\python3.exe -B -X utf8 audit/build_suite_v1.py",
+      "source_path": "audit/build_suite_v1.py",
+      "source_sha256": "648c5d3d1104fbe5559d08ff6357f325e9d5b892b7b31979456066570082254f",
+      "execution_status_observed": "success",
+      "exit_code_observed": 0,
+      "observed_result": "built_once: 125 base + 10 targeted + 1 fallback correctness cases; 8 performance cells",
+      "raw_stdout_file": null,
+      "raw_stderr_file": null,
+      "raw_logs": "not captured at execution time; exact raw bytes unavailable",
+      "note": "No provider or timing run. Result summary is retained as observed, not represented as raw output."
+    },
+    {
+      "attempt_id": "manual_uncaptured_oracle_v1",
+      "command": "& C:\\Users\\Mahdi\\AppData\\Local\\Python\\bin\\python3.exe -B -X utf8 audit/oracle_audit_v1.py",
+      "source_path": "audit/oracle_audit_v1.py",
+      "source_sha256": "4745e0b614bd057e46d7a54450e3720886b634a1c2ddc965801175869d257d6b",
+      "execution_status_observed": "uncaught_auditor_assertion",
+      "exit_code_observed": null,
+      "observed_error": "AssertionError: atom partition infeasible: small_volume_128_each_m8 negative#10",
+      "files_written_before_failure": [
+        "audit/C011_RGS_ORACLE_V1.jsonl",
+        "audit/FULL_CORRECTNESS_ORACLE_V1.jsonl"
+      ],
+      "files_not_written": [
+        "audit/PERFORMANCE_FAMILY_CERTIFICATES_V1.json",
+        "audit/ORACLE_FREEZE_RECEIPT_V1.json"
+      ],
+      "raw_stdout_file": null,
+      "raw_stderr_file": null,
+      "raw_logs": "not captured at execution time; full traceback bytes unavailable",
+      "note": "Auditor family assumption failed before any provider execution or timing. V1 artifacts remain preserved. Correction will use pair-local contexts and a new versioned oracle run."
+    }
+  ]
+}

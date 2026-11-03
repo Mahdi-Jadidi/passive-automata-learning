@@ -1,0 +1,70 @@
+{
+  "schema_version": 1,
+  "cycle": "C011",
+  "version": "candidate_v3_static_gate_approved",
+  "status": "ready_for_preregistered_correctness_gate",
+  "execution_status": "not_run",
+  "provider_execution": false,
+  "correctness_tested": false,
+  "performance_measured": false,
+  "files": {
+    "unrestricted_solver_v2.py": {
+      "bytes": 32622,
+      "sha256": "699f88004cc12201642eccb801fde5a0f6a720b063815a99032cac078fa29ba0"
+    },
+    "unrestricted_cli_v2.py": {
+      "bytes": 1595,
+      "sha256": "842dd27b149e1b1aade9ff2692f9ab25191259b027a2414c28edbb2d62e2471c"
+    },
+    "API_PROTOCOL_V2.md": {
+      "bytes": 5239,
+      "sha256": "9ed1f7f0358731753af81406cf41bb4ca061a317ec58bf17d0779c583c7c5519"
+    },
+    "unrestricted_example_v1.json": {
+      "bytes": 82,
+      "sha256": "5f68ac9b510b743f742243ee76df32c247a322054077dca8ec5d515257d6b4f5"
+    },
+    "STATIC_AUDIT_LOG_V2.md": {
+      "bytes": 1322,
+      "sha256": "b44b8e0e34f0e74f9f9cb9c4f986ee88c5a159cd19ed1caa390d36bc8da88e03"
+    },
+    "FROZEN_REVIEW_V3.md": {
+      "bytes": 1440,
+      "sha256": "5ec346b65c14b5fbce369d497802b3c23dd6924dacc8f6f028607fd724765b10"
+    },
+    "RLE_INTERVAL_INDEX_PROOF_v1.md": {
+      "path": "../theory/RLE_INTERVAL_INDEX_PROOF_v1.md",
+      "bytes": 8471,
+      "sha256": "7b59106887d99abce6102af22d439061a51f2e8cbe049d292db92e284f30f1f9"
+    }
+  },
+  "supersedes": {
+    "path": "READINESS_V3.json",
+    "reason": "hash-bound independent proof and implementation reviewers approved the unchanged v3 candidate for the correctness gate"
+  },
+  "baseline": {
+    "cycle": "C010",
+    "path": "../../2026-11-02/partition_unrestricted_v10/implementation/unrestricted_solver_v2.py",
+    "sha256": "4c7959e96c02023d85943c8c52fae3f198c0de67ea172a72ad0669485f60c502"
+  },
+  "api": {
+    "incomplete_result": "status=incomplete, complete=false, exact counts/relations null",
+    "legacy_swap_edge_witnesses": "adjacent swaps only",
+    "binary_interval_certificates": "T1 pair-edge witnesses with exact contexts and counts"
+  },
+  "static_review": {
+    "proof": "approved under T1 assumptions; no counterexample found",
+    "implementation": "approved to proceed to next preregistered correctness gate",
+    "record": "FROZEN_REVIEW_V3.md",
+    "execution_or_performance_evidence": false
+  },
+  "known_limitations": [
+    "completeness claim is for T1 symbol-pair edges, not all semantic must-links",
+    "input validation precedes deadline checking, inherited from C010",
+    "provider_seconds ends before final representative witness construction",
+    "returned Python witness objects may share nested mutable partition lists; treat them as read-only",
+    "projection LRU is bounded by entry count, not memory bytes",
+    "no frozen-corpus run, constant-fingerprint run, correctness comparison, benchmark, or memory measurement"
+  ],
+  "next_gate": "run frozen correctness corpus, including exact complete-partition-set comparison and independent witness replay; preserve all outputs; do not claim performance until the later preregistered timing gate"
+}
