@@ -1,0 +1,36 @@
+{
+  "schema_version": 1,
+  "cycle": "C013",
+  "status": "frozen_pending_independent_static_review",
+  "execution_status": "not_run",
+  "files": {
+    "run_case_v1.py": {
+      "bytes": 8506,
+      "sha256": "d4972b7074e550352eb3c7ad63bda990e7cfb9a13b755da3fb3ceb3ffded91f4"
+    },
+    "PIPELINE_USAGE_V1.md": {
+      "bytes": 4417,
+      "sha256": "37ddc602fddd6892494adfbc8f8daed36c803d2d648e94de25d39f4624a44afe"
+    }
+  },
+  "frozen_dependencies": {
+    "generate_v1.py": "0b649344035f449b0a17cd6410dd41db67c6b1e06025b78262807740b93ba410",
+    "generator_READINESS_V1.json": "bcf5bd0a2fff802471aea3932304931bed834eae3d29e78cb85d5244f72c07bf",
+    "C010/unrestricted_solver_v2.py": "4c7959e96c02023d85943c8c52fae3f198c0de67ea172a72ad0669485f60c502",
+    "C010/unrestricted_cli_v2.py": "3140df25bab5d60c6c2705098029db9061e3c9d76743bf1dfd48d46aaf2d5eaa"
+  },
+  "runtime": "stdlib only; same Python interpreter in fresh generator and inference subprocesses",
+  "solver": "frozen C010 exact no-K baseline only; no C011 or heuristic selector",
+  "observational_boundary": "solver input path alone; wrapper never opens world.json",
+  "timing": "separate subprocess wall times; raw streams and manifests saved; reused generation time null",
+  "enumeration": "off by default; only explicit --enumerate; no complete-family-list claim without successful full enumeration",
+  "shortfall": "generator exit3 still permits exact solving of actual retained observations; generation shortfall separately recorded",
+  "review_obligations": [
+    "verify path binding and frozen source checks",
+    "verify fresh subprocess execution and preserved raw streams",
+    "verify hard/cooperative cutoff semantics and full-listing metadata",
+    "verify reuse isolation and input observational boundary",
+    "verify failure manifests and distinct generation/inference walltime definitions"
+  ],
+  "next_gate": "independent static review before generator/provider execution"
+}

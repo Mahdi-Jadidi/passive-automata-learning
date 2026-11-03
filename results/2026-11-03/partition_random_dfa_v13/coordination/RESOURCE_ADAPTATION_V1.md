@@ -1,0 +1,5 @@
+# C013 resource adaptation decision (before additional runs)
+
+The first million-cap prepared cases took 64.7714344s (K1) and 55.0188331s (K2), externally captured. The original 720s preparation reserve cannot plausibly cover all twenty million-cap worlds. To fulfill the requested K1..20 and max-length sweep, master authorizes preparing a new immutable resource-only continuation protocol: preparation ceiling1800 active seconds, total ceiling4500 active seconds, same generator/C010 algorithm and same seeds/grid. First-pass inference cutoffs remain5s cooperative/7s hard. Preserve V3, every successful dataset and any partial timed-out case. Successful preparations must not be regenerated. Retry a partial failed preparation only in a fresh path with provenance to the original. New runner hashes require master review before continuation. This decision itself does not authorize mutating or executing a changed runner.
+
+No timing observation from the original protocol is erased. The extension is disclosed in the final report; it is not evidence of a speed improvement and does not change mathematical assumptions.

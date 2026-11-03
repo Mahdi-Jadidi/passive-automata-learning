@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "cycle": "C013",
+  "status": "frozen_pending_independent_static_review",
+  "execution_status": "not_run",
+  "files": {
+    "generate_v1.py": {
+      "bytes": 11578,
+      "sha256": "0b649344035f449b0a17cd6410dd41db67c6b1e06025b78262807740b93ba410"
+    },
+    "API_PROTOCOL_V1.md": {
+      "bytes": 6718,
+      "sha256": "747c1e7313bcdf2c483415e6a386a7a4eeea42cdd08e6bf0be7fdac65f5c41e4"
+    },
+    "DESIGN_V1.md": {
+      "bytes": 1005,
+      "sha256": "76403b61eafa13dcd6ec1a4c564df8eb4271f0a532a1744b38dc6bae2c45e0cd"
+    }
+  },
+  "scope": "stdlib random complete DFA world generator and observational input exporter only; no solver changes",
+  "outputs": {
+    "world.json": "all complete devices, ownership, generation parameters, final states, actual lengths, run counts and statistics",
+    "solver_input.json": "exactly alphabet, positive, negative; no generator truth or count constraints"
+  },
+  "reproducibility": {
+    "world": "seed/K/alphabet-size substream independent of length and sample count",
+    "observations": "seed/K/alphabet-size/label/candidate-index/event-profile substreams, independent of requested count and length",
+    "prefix_repair_length": "independent substreams; changing length shares candidate prefix events but can change repairs",
+    "caveat": "wall-clock generation_seconds is nondeterministic"
+  },
+  "review_obligations": [
+    "verify strongly connected complete conditional model generation and accepting starts",
+    "verify active-device BFS repair bound b+min(K,b)*(max_states-1)<=max_length",
+    "verify direct short-cap fallback and explicit zero-cap impossible negatives",
+    "verify uniqueness, bounded attempts, explicit shortfall and independent label replay",
+    "verify observational boundary and nested sample counts across requested2/requested8",
+    "verify uniform device/local-event profile and declared skewed weights",
+    "review source statically before generation execution; no runtime evidence exists yet"
+  ],
+  "next_gate": "theory and auditor hash-bound static review before any generator run"
+}

@@ -1,0 +1,11 @@
+Traceback (most recent call last):
+  File "C:\Users\Mahdi\Documents\ChatGPT\passive automata learning\results\2026-11-03\partition_random_dfa_v13\audit\diagnose_control_v1.py", line 7, in <module>
+    audit.validate(data,world,result,True)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mahdi\Documents\ChatGPT\passive automata learning\results\2026-11-03\partition_random_dfa_v13\audit\validate_results_v2.py", line 25, in validate
+    routing.evaluate(data,result['representative']['partition'],result['representative'])
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mahdi\Documents\ChatGPT\passive automata learning\results\2026-11-03\partition_random_dfa_v13\audit\routing_v2.py", line 27, in evaluate
+    assert feasible and witness['positive_projection_languages']==[sorted(x) for x in languages] and witness['negative_witnesses']==negative_records
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError

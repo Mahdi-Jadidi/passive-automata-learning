@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "cycle": "C013",
+  "status": "source_frozen_pending_static_review_and_final_ledger_GO",
+  "execution_status": "not_run",
+  "files": {
+    "analyze_grid_v1.py": {
+      "bytes": 17766,
+      "sha256": "3b587ea78c729a84fd912d0ebcf3668c0d761346cefa107e233abb6ce139a85a"
+    },
+    "ANALYSIS_USAGE_V1.md": {
+      "bytes": 4147,
+      "sha256": "243559cc3dbb5d810df1d62fec6346acd3da4b6b80d2712f9675ba50524b872e"
+    }
+  },
+  "scope": "stdlib descriptive analysis only; no inference/generation/replay execution, no audit writes, no plotting dependency",
+  "planned_slots": {"broad_5_seconds": 720, "confirmation_20_seconds": 2},
+  "input_freeze": "one explicit final SHA256 per input inference ledger; all additional files hashed at reading and rechecked before output",
+  "output": "fresh analysis_UUID outside audit tree; JSON, slot/cell/generation CSV, Persian per-cell summary",
+  "censoring": "every planned slot retained; absent ledger rows unstarted; no median unless all three broad replicates independently validated complete",
+  "fits": "descriptive logtime-logactualT within fixed K/world/count/profile; >=3 distinct completed caps/T; confirmations excluded; all excluded caps listed",
+  "timing": "capture wall/subprocess wall and internal generation/replay kept separate; shared generation parent not charged repeatedly",
+  "pending": [
+    "independent static review of analysis tooling",
+    "final ledger and validation freeze",
+    "master GO before running analysis",
+    "no analysis results or plots yet"
+  ]
+}

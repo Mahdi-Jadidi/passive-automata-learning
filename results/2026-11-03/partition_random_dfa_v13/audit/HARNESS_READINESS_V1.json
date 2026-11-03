@@ -1,0 +1,28 @@
+{
+  "status": "ready_for_captured_preparation_and_small_controls_after_master_GO",
+  "source_execution": false,
+  "AST_parse": "passed_without_importing_generator_or_provider",
+  "freeze_sha256": "6becf501a28eb29a6e8d5926f2526fb33e989fe01ce84c77835c4dff8a294564",
+  "protocol_sha256": "7903ae2a5020b508ad6fefb804824f11e99cc6226f537aef591484c004cebc49",
+  "static_review_sha256": "94548bd61ee4d996f89e7eed0a7c748005754013f372c45c4497790bfa8c18ee",
+  "requested_GO_path": "audit/STATIC_GATE_GO_V1.json",
+  "requested_GO_fields": {
+    "status": "GO",
+    "generation_authorized": true,
+    "controls_authorized": true,
+    "grid_authorized": false,
+    "execution_freeze_sha256": "6becf501a28eb29a6e8d5926f2526fb33e989fe01ce84c77835c4dff8a294564"
+  },
+  "commands_after_GO": [
+    "audit/run_preparation_v1.py --phase controls",
+    "audit/run_inference_v1.py --phase controls"
+  ],
+  "broad_grid_requires": "accepted SMALL_CONTROL_ACCEPTANCE_V1.json and separate MASTER_GRID_GO_V1.json; prepare-grid after accepted controls",
+  "source_hashes": {
+    "capture.py": "68ee700f391fb6a1cf135e4b55a11a247b45f25164553c917d1664f6fc4a31cf",
+    "prepare_case_v1.py": "2805cbc89750a2f5b25ee85948fc271d629896658f349daa5ef0eeaba73f845e",
+    "run_inference_v1.py": "230b40350fc1229d16a05abe7bb800799442e9d49db3a370ea399567c26555a8",
+    "run_preparation_v1.py": "33bc3a905e6d0f87ba00f8723c2b746af91ca207e4c5a769be22120e27571be0",
+    "validate_results_v1.py": "a8a095060b9d62eb491e17938ae0abef187ea075fcadee6db959249f07687f8c"
+  }
+}

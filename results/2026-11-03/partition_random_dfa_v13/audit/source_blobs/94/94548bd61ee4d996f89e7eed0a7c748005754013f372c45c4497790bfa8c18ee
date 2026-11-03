@@ -1,0 +1,15 @@
+# Independent static review: C013 generator v1
+
+Bound source: implementation/generate_v1.py, 11578 bytes, SHA256 0b649344035f449b0a17cd6410dd41db67c6b1e06025b78262807740b93ba410. Reviewed source and API_PROTOCOL_V1.md; no generator/provider executed.
+
+Decision: cleared for captured generation and small-control gate, subject to master GO and source freeze. No static correctness blocker found. This is not runtime acceptance.
+
+World tables are complete over disjoint local alphabets and sampled until strongly connected, bounded at 10000 attempts. With m>=2K every group is nonempty. Start0 accepts; selecting a nonempty rejecting subset of other states ensures both target labels are reachable locally. State0's accepting expression short-circuits before the negative-shift expression. The distribution is conditional, with unequal representation of isomorphic DFAs; the API documents conditioning.
+
+prefix_limit computes the largest b satisfying b+min(K,b)*R<=cap. At most min(K,b) devices are active, each shortest repair has length <=states-1<=R. Inactive devices remain at accepting starts. A negative targets one active device, all others accept. Weighted remaining-path selection is uniform over labelled order-preserving interleavings of those fixed repairs; it does not imply uniform complete traces. Labels and length bound follow. If b=0 the bounded direct fallback may miss a desired label, so shortfall is explicit rather than an infinite loop. At cap0 negatives are impossible and multiple unique positives are impossible; these are recorded shortfalls.
+
+World RNG excludes sample count and cap. Observation candidate RNG excludes requested count and uses label-specific candidate indices, with separate prefix/repair/length streams. Retained sample order is stable as count increases, provided both executions reach the requested counts within their respective attempt limits. The limits differ (200 for count2,800 for count8), so deriving a two-sample subset from a complete eight-sample run is valid but does not prove a hypothetical count2 CLI would always complete. Small controls must test actual count2/count8 equivalence; broad derivations must record their provenance honestly.
+
+The observation exporter contains exactly alphabet/positive/negative. Saving truth in world.json is appropriate only if the solver reads the observation input alone. Allowed-device arguments select a hidden physical world and never become known-K constraints. Master has now explicitly selected no-K.
+
+Limits: generation_seconds omits build_world and disk writes; wall capture time and independent replay time must also be recorded. Runtime replay inside the generator is not independent audit evidence. Nonempty accepting starts plus repairs avoid exponential whole-world rejection, but do not eliminate uniqueness shortfalls. Memory/time for million-character traces remains empirical. Existing-output checks are not atomic transaction/rollback; preserve partial output on failure. These caveats require measurement and validation, not algorithm edits.

@@ -1,0 +1,110 @@
+{
+  "actual_sample_counts": {
+    "negative": 2,
+    "positive": 2
+  },
+  "complete": true,
+  "enumeration_requested": true,
+  "full_partition_listing": true,
+  "generation": {
+    "command": [
+      "C:\\Users\\Mahdi\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+      "-B",
+      "-X",
+      "utf8",
+      "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_random_dfa_v13\\implementation\\generate_v1.py",
+      "--max-length",
+      "64",
+      "--samples-per-label",
+      "2",
+      "--seed",
+      "20261103",
+      "--out",
+      "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_random_dfa_v13\\implementation\\smoke_case_v1\\data",
+      "--length-mode",
+      "near-max",
+      "--event-profile",
+      "uniform",
+      "--devices",
+      "2",
+      "--alphabet-size",
+      "4"
+    ],
+    "execution_status": "exited",
+    "exit_code": 0,
+    "stderr.bin": {
+      "bytes": 0,
+      "path": "generation.stderr.bin",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "stdout.bin": {
+      "bytes": 450,
+      "path": "generation.stdout.bin",
+      "sha256": "c955bcd58708fc63542a9195b38f533eabfe0d51a737b533a03d4653e18c26f8"
+    },
+    "timeout_seconds": 120,
+    "wall_seconds": 0.25723259999995207
+  },
+  "generation_shortfall": false,
+  "inference": {
+    "command": [
+      "C:\\Users\\Mahdi\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+      "-B",
+      "-X",
+      "utf8",
+      "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-02\\partition_unrestricted_v10\\implementation\\unrestricted_cli_v2.py",
+      "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_random_dfa_v13\\implementation\\smoke_case_v1\\data\\solver_input.json",
+      "--seconds",
+      "5",
+      "--enumerate"
+    ],
+    "execution_status": "exited",
+    "exit_code": 0,
+    "stderr.bin": {
+      "bytes": 0,
+      "path": "inference.stderr.bin",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "stdout.bin": {
+      "bytes": 11963,
+      "path": "inference.stdout.bin",
+      "sha256": "8e90db2afadd5e1f7eaa572cd4fa199afc05f71bc98856fd5ed58d8b5116866c"
+    },
+    "timeout_seconds": 7,
+    "wall_seconds": 0.2188092000000097
+  },
+  "python": "C:\\Users\\Mahdi\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+  "python_version": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]",
+  "requested_parameters": {
+    "allowed_devices": null,
+    "alphabet_size": 4,
+    "devices": 2,
+    "enumerate": true,
+    "event_profile": "uniform",
+    "generation_seconds": 120,
+    "hard_seconds": 7,
+    "length_mode": "near-max",
+    "max_attempts_per_label": null,
+    "max_length": 64,
+    "out": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_random_dfa_v13\\implementation\\smoke_case_v1",
+    "reuse_input": false,
+    "samples_per_label": 2,
+    "seconds": 5,
+    "seed": 20261103
+  },
+  "reuse_input": false,
+  "run": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_random_dfa_v13\\implementation\\smoke_case_v1\\runs\\583a10c3035e4afd87d7fe4eb95b0489",
+  "schema_version": 1,
+  "solver_input": {
+    "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_random_dfa_v13\\implementation\\smoke_case_v1\\data\\solver_input.json",
+    "sha256": "6ae1b6d540b4ca609ea8912eaaea18fadc671437e3fcebc58bb108e49d96e274"
+  },
+  "solver_status": "partial_ownership_identification",
+  "source_hashes": {
+    "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-02\\partition_unrestricted_v10\\implementation\\unrestricted_cli_v2.py": "3140df25bab5d60c6c2705098029db9061e3c9d76743bf1dfd48d46aaf2d5eaa",
+    "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-02\\partition_unrestricted_v10\\implementation\\unrestricted_solver_v2.py": "4c7959e96c02023d85943c8c52fae3f198c0de67ea172a72ad0669485f60c502",
+    "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_random_dfa_v13\\implementation\\generate_v1.py": "0b649344035f449b0a17cd6410dd41db67c6b1e06025b78262807740b93ba410",
+    "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_random_dfa_v13\\implementation\\run_case_v1.py": "d4972b7074e550352eb3c7ad63bda990e7cfb9a13b755da3fb3ceb3ffded91f4"
+  },
+  "status": "complete"
+}

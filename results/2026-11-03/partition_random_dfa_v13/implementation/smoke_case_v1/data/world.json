@@ -1,0 +1,207 @@
+{
+  "allowed_device_counts_for_world_selection": [
+    2
+  ],
+  "alphabet": [
+    "a",
+    "b",
+    "c",
+    "d"
+  ],
+  "devices": [
+    {
+      "accepting": [
+        0,
+        1,
+        3
+      ],
+      "alphabet": [
+        "a",
+        "d"
+      ],
+      "id": 0,
+      "start": 0,
+      "states": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "transition_table_attempts": 1,
+      "transitions": [
+        {
+          "a": 3,
+          "d": 2
+        },
+        {
+          "a": 3,
+          "d": 3
+        },
+        {
+          "a": 0,
+          "d": 1
+        },
+        {
+          "a": 0,
+          "d": 1
+        }
+      ]
+    },
+    {
+      "accepting": [
+        0
+      ],
+      "alphabet": [
+        "b",
+        "c"
+      ],
+      "id": 1,
+      "start": 0,
+      "states": [
+        0,
+        1,
+        2
+      ],
+      "transition_table_attempts": 2,
+      "transitions": [
+        {
+          "b": 2,
+          "c": 1
+        },
+        {
+          "b": 1,
+          "c": 0
+        },
+        {
+          "b": 2,
+          "c": 0
+        }
+      ]
+    }
+  ],
+  "distribution": "random complete tables conditioned on strong connectivity; accepting start, uniform nonempty rejecting subset; observations conditioned by prefix/BFS repair and uniqueness",
+  "generation": {
+    "attempts": {
+      "negative": {
+        "attempts": 2,
+        "duplicate_attempts": 0,
+        "generated": 2,
+        "requested": 2,
+        "shortfall": 0,
+        "wrong_label_attempts": 0
+      },
+      "positive": {
+        "attempts": 2,
+        "duplicate_attempts": 0,
+        "generated": 2,
+        "requested": 2,
+        "shortfall": 0,
+        "wrong_label_attempts": 0
+      }
+    },
+    "complete": true,
+    "device_probabilities": [
+      0.5,
+      0.5
+    ],
+    "event_frequencies": {
+      "a": 70,
+      "b": 53,
+      "c": 64,
+      "d": 51
+    },
+    "event_profile": "uniform",
+    "generation_seconds": 0.0013331000000107451,
+    "impossibility": null,
+    "length_mode": "near-max",
+    "max_attempts_per_label": 200,
+    "max_length": 64,
+    "observed_alphabet": [
+      "a",
+      "b",
+      "c",
+      "d"
+    ],
+    "samples": [
+      {
+        "active_devices": 2,
+        "candidate_index": 1,
+        "final_states": [
+          0,
+          0
+        ],
+        "index": 0,
+        "label": "positive",
+        "length": 60,
+        "prefix_length": 58,
+        "reject_device": null,
+        "repair_length": 2,
+        "rng_purpose": "candidate:2:4:True:1:uniform",
+        "run_count": 48,
+        "strategy": "prefix_bfs_repair"
+      },
+      {
+        "active_devices": 2,
+        "candidate_index": 2,
+        "final_states": [
+          3,
+          0
+        ],
+        "index": 1,
+        "label": "positive",
+        "length": 58,
+        "prefix_length": 58,
+        "reject_device": null,
+        "repair_length": 0,
+        "rng_purpose": "candidate:2:4:True:2:uniform",
+        "run_count": 44,
+        "strategy": "prefix_bfs_repair"
+      },
+      {
+        "active_devices": 2,
+        "candidate_index": 1,
+        "final_states": [
+          3,
+          1
+        ],
+        "index": 0,
+        "label": "negative",
+        "length": 58,
+        "prefix_length": 58,
+        "reject_device": 1,
+        "repair_length": 0,
+        "rng_purpose": "candidate:2:4:False:1:uniform",
+        "run_count": 51,
+        "strategy": "prefix_bfs_repair"
+      },
+      {
+        "active_devices": 2,
+        "candidate_index": 2,
+        "final_states": [
+          2,
+          0
+        ],
+        "index": 1,
+        "label": "negative",
+        "length": 62,
+        "prefix_length": 58,
+        "reject_device": 0,
+        "repair_length": 4,
+        "rng_purpose": "candidate:2:4:False:2:uniform",
+        "run_count": 47,
+        "strategy": "prefix_bfs_repair"
+      }
+    ],
+    "samples_per_label": 2
+  },
+  "ownership": {
+    "a": 0,
+    "b": 1,
+    "c": 1,
+    "d": 0
+  },
+  "schema_version": 1,
+  "seed": 20261103,
+  "true_devices": 2,
+  "world_rng_purpose": "world:2:4"
+}
