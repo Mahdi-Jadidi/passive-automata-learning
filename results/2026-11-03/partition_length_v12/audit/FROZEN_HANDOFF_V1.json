@@ -1,0 +1,164 @@
+{
+  "status": "closed_accepted_with_censoring",
+  "provider_reruns": 0,
+  "all_36_actual_CLI_outputs_r4_Bell4_15_dp_states_zero": true,
+  "checked_attempt_ids": [
+    "20261103T080554.943273Z_4df91e7296",
+    "20261103T080557.209044Z_e740ccc2fc",
+    "20261103T080600.709737Z_9c7d93ef28",
+    "20261103T080605.119042Z_99cd7f09a6",
+    "20261103T080614.023008Z_730f026723",
+    "20261103T080624.499834Z_fea16cc2ce",
+    "20261103T080650.251456Z_a6ca518444",
+    "20261103T080651.149049Z_74f3c74bae",
+    "20261103T080652.781936Z_598486776e",
+    "20261103T080654.434054Z_cf5640f614",
+    "20261103T080658.552443Z_2c37fb1173",
+    "20261103T080700.138386Z_122d342619",
+    "20261103T080710.884300Z_f534febf6f",
+    "20261103T080714.094473Z_bc9f06c034",
+    "20261103T080715.798008Z_978ee29f1b",
+    "20261103T080723.778644Z_41d53a7804",
+    "20261103T080728.794876Z_76fcca17a5",
+    "20261103T080754.817421Z_5a44decb5f",
+    "20261103T080806.562059Z_268a56f504",
+    "20261103T080809.022565Z_0a16764610",
+    "20261103T080809.971396Z_e333482d75",
+    "20261103T080814.727993Z_d9ea2d6353",
+    "20261103T080815.620108Z_6a5bc80a71",
+    "20261103T080827.818149Z_b3f40589c3",
+    "20261103T080830.358199Z_293031bcf0",
+    "20261103T080832.735107Z_196a953276",
+    "20261103T080836.593176Z_61fa74f4b1",
+    "20261103T080841.011745Z_79757e922b",
+    "20261103T080849.889854Z_4fc51a15eb",
+    "20261103T080900.931591Z_8818abad90",
+    "20261103T080926.046679Z_c6bd8b6e02",
+    "20261103T080926.929898Z_0b4d94466c",
+    "20261103T080929.306787Z_5f6cab3044",
+    "20261103T080930.214217Z_dea49a1405",
+    "20261103T080935.379023Z_745ee47780",
+    "20261103T080937.260851Z_68fb7261cf"
+  ],
+  "family_cells": {
+    "lowrun": [
+      {
+        "case_id": "lowrun_L100000",
+        "length": 100000,
+        "run_counts_eight_words": [
+          3,
+          3,
+          3,
+          3,
+          2,
+          3,
+          3,
+          3
+        ],
+        "total_runs": 23,
+        "total_characters": 800000
+      },
+      {
+        "case_id": "lowrun_L300000",
+        "length": 300000,
+        "run_counts_eight_words": [
+          3,
+          3,
+          3,
+          3,
+          2,
+          3,
+          3,
+          3
+        ],
+        "total_runs": 23,
+        "total_characters": 2400000
+      },
+      {
+        "case_id": "lowrun_L1000000",
+        "length": 1000000,
+        "run_counts_eight_words": [
+          3,
+          3,
+          3,
+          3,
+          2,
+          3,
+          3,
+          3
+        ],
+        "total_runs": 23,
+        "total_characters": 8000000
+      }
+    ],
+    "highrun": [
+      {
+        "case_id": "highrun_L10000",
+        "length": 10000,
+        "run_counts_eight_words": [
+          10000,
+          10000,
+          10000,
+          10000,
+          9999,
+          10000,
+          10000,
+          10000
+        ],
+        "total_runs": 79999,
+        "total_characters": 80000
+      },
+      {
+        "case_id": "highrun_L30000",
+        "length": 30000,
+        "run_counts_eight_words": [
+          30000,
+          30000,
+          30000,
+          30000,
+          29999,
+          30000,
+          30000,
+          30000
+        ],
+        "total_runs": 239999,
+        "total_characters": 240000
+      },
+      {
+        "case_id": "highrun_L100000",
+        "length": 100000,
+        "run_counts_eight_words": [
+          100000,
+          100000,
+          100000,
+          100000,
+          99999,
+          100000,
+          100000,
+          100000
+        ],
+        "total_runs": 799999,
+        "total_characters": 800000
+      }
+    ]
+  },
+  "total_runs_across_three_distinct_inputs_per_family": {
+    "lowrun": 69,
+    "highrun": 1119997
+  },
+  "timing_complete": 36,
+  "memory_complete": 1,
+  "memory_timeouts": 3,
+  "validation_errors": {},
+  "integrity_checks_already_completed": 1281,
+  "anchors": {
+    "performance_runs_v2\\20261103T080554.862063Z\\ledger.jsonl": "47ad9d5aa66b7007c29eb590e28b78cf8edae531758900bb4859f89b96dac151",
+    "performance_runs_v2\\20261103T080554.862063Z\\plan.json": "7a21ec1147fc7f96c87a285a501a11e8517626068787530e31c3702bff01d551",
+    "performance_runs_v2\\20261103T080554.862063Z\\summary.json": "719185ccab7bd9fded2830a4308e89be15190414f88fa4b80770c34376ee0999",
+    "performance_runs_v2\\20261103T080554.862063Z\\validation_capture.json": "0a5e8ff54d4aa3afe8257d48caf108a844a72ca66e39e879ea633174fc49909d",
+    "PERFORMANCE_FREEZE_V1.json": "f863a9707a039e49d84fe6b04948bebf7ae75e008d7d7e432ca47fd642c23cb5",
+    "LENGTH_SCALING_SUMMARY_V1.json": "9c48e3c470c5a761caa35c193eead1d1559868c077638aad5a05233f0b70bfce",
+    "LENGTH_SCALING_AUDIT_FA_V1.md": "a33da8609dbb29de91b8d76218da516e786b0bec9d6663c5f049d80d8318fca3"
+  },
+  "closure": "Read existing outputs only; no new provider or integrity run. Master owns final byte manifest and Git."
+}

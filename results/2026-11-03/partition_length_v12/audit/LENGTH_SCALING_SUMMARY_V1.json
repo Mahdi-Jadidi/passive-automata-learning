@@ -1,0 +1,402 @@
+{
+  "status": "accepted_with_censoring",
+  "timing_complete": 36,
+  "memory_complete": 1,
+  "memory_censored": 3,
+  "errors": {},
+  "comparisons": [
+    {
+      "actual_lengths": [
+        100000,
+        100000,
+        100000,
+        100000,
+        100000,
+        100000,
+        100000,
+        100000
+      ],
+      "case_id": "lowrun_L100000",
+      "family": "lowrun",
+      "input_sha256": "dbda483b5033e811c8662a2260bc77624f67fa82d04a0a215db8eaea9a6b05c7",
+      "length": 100000,
+      "memory_probe": false,
+      "path": "cases\\lowrun_L100000.json",
+      "run_counts": [
+        3,
+        3,
+        3,
+        3,
+        2,
+        3,
+        3,
+        3
+      ],
+      "total_characters": 800000,
+      "methods": {
+        "baseline": {
+          "timing_statuses": [
+            "validated_complete",
+            "validated_complete",
+            "validated_complete"
+          ],
+          "median_cli_seconds": 1.758798700000625,
+          "median_stdout_bytes": 2008649,
+          "memory_status": "missing",
+          "peak_python_bytes": null,
+          "seconds_per_input_character": 2.1984983750007813e-06,
+          "relative_to_previous_length": null
+        },
+        "candidate": {
+          "timing_statuses": [
+            "validated_complete",
+            "validated_complete",
+            "validated_complete"
+          ],
+          "median_cli_seconds": 2.941306099994108,
+          "median_stdout_bytes": 3110216,
+          "memory_status": "missing",
+          "peak_python_bytes": null,
+          "seconds_per_input_character": 3.6766326249926352e-06,
+          "relative_to_previous_length": null
+        }
+      },
+      "baseline_over_candidate_cli_ratio": 0.5979652032830409
+    },
+    {
+      "actual_lengths": [
+        300000,
+        300000,
+        300000,
+        300000,
+        300000,
+        300000,
+        300000,
+        300000
+      ],
+      "case_id": "lowrun_L300000",
+      "family": "lowrun",
+      "input_sha256": "20b72438bd13a0974c82ffabc85327028d1ef09a1ef524e934828412e2c3b13a",
+      "length": 300000,
+      "memory_probe": false,
+      "path": "cases\\lowrun_L300000.json",
+      "run_counts": [
+        3,
+        3,
+        3,
+        3,
+        2,
+        3,
+        3,
+        3
+      ],
+      "total_characters": 2400000,
+      "methods": {
+        "baseline": {
+          "timing_statuses": [
+            "validated_complete",
+            "validated_complete",
+            "validated_complete"
+          ],
+          "median_cli_seconds": 4.179929500009166,
+          "median_stdout_bytes": 6008649,
+          "memory_status": "missing",
+          "peak_python_bytes": null,
+          "seconds_per_input_character": 1.741637291670486e-06,
+          "relative_to_previous_length": {
+            "length_ratio": 3.0,
+            "time_ratio": 2.376582095499434
+          }
+        },
+        "candidate": {
+          "timing_statuses": [
+            "validated_complete",
+            "validated_complete",
+            "validated_complete"
+          ],
+          "median_cli_seconds": 8.611210100003518,
+          "median_stdout_bytes": 9310222,
+          "memory_status": "missing",
+          "peak_python_bytes": null,
+          "seconds_per_input_character": 3.5880042083347993e-06,
+          "relative_to_previous_length": {
+            "length_ratio": 3.0,
+            "time_ratio": 2.927682399332993
+          }
+        }
+      },
+      "baseline_over_candidate_cli_ratio": 0.48540558777069653
+    },
+    {
+      "actual_lengths": [
+        1000000,
+        1000000,
+        1000000,
+        1000000,
+        1000000,
+        1000000,
+        1000000,
+        1000000
+      ],
+      "case_id": "lowrun_L1000000",
+      "family": "lowrun",
+      "input_sha256": "d994121be1a7bd13441098e6752519e76ff7e61d20b2cf9ac26d73c0e5d12f92",
+      "length": 1000000,
+      "memory_probe": true,
+      "path": "cases\\lowrun_L1000000.json",
+      "run_counts": [
+        3,
+        3,
+        3,
+        3,
+        2,
+        3,
+        3,
+        3
+      ],
+      "total_characters": 8000000,
+      "methods": {
+        "baseline": {
+          "timing_statuses": [
+            "validated_complete",
+            "validated_complete",
+            "validated_complete"
+          ],
+          "median_cli_seconds": 10.672043599974131,
+          "median_stdout_bytes": 20008647,
+          "memory_status": "timed_out",
+          "peak_python_bytes": null,
+          "seconds_per_input_character": 1.3340054499967664e-06,
+          "relative_to_previous_length": {
+            "length_ratio": 3.3333333333333335,
+            "time_ratio": 2.5531635401866777
+          }
+        },
+        "candidate": {
+          "timing_statuses": [
+            "validated_complete",
+            "validated_complete",
+            "validated_complete"
+          ],
+          "median_cli_seconds": 25.381326700007776,
+          "median_stdout_bytes": 31010226,
+          "memory_status": "timed_out",
+          "peak_python_bytes": null,
+          "seconds_per_input_character": 3.172665837500972e-06,
+          "relative_to_previous_length": {
+            "length_ratio": 3.3333333333333335,
+            "time_ratio": 2.9474750244448695
+          }
+        }
+      },
+      "baseline_over_candidate_cli_ratio": 0.4204683122403866
+    },
+    {
+      "actual_lengths": [
+        10000,
+        10000,
+        10000,
+        10000,
+        10000,
+        10000,
+        10000,
+        10000
+      ],
+      "case_id": "highrun_L10000",
+      "family": "highrun",
+      "input_sha256": "590c367d8ca55fd7aa6f39899af779223192cdca20b579749999b6ad4668f6c4",
+      "length": 10000,
+      "memory_probe": false,
+      "path": "cases\\highrun_L10000.json",
+      "run_counts": [
+        10000,
+        10000,
+        10000,
+        10000,
+        9999,
+        10000,
+        10000,
+        10000
+      ],
+      "total_characters": 80000,
+      "methods": {
+        "baseline": {
+          "timing_statuses": [
+            "validated_complete",
+            "validated_complete",
+            "validated_complete"
+          ],
+          "median_cli_seconds": 0.7022107999946456,
+          "median_stdout_bytes": 208650,
+          "memory_status": "missing",
+          "peak_python_bytes": null,
+          "seconds_per_input_character": 8.77763499993307e-06,
+          "relative_to_previous_length": null
+        },
+        "candidate": {
+          "timing_statuses": [
+            "validated_complete",
+            "validated_complete",
+            "validated_complete"
+          ],
+          "median_cli_seconds": 2.1696959999972023,
+          "median_stdout_bytes": 330214,
+          "memory_status": "missing",
+          "peak_python_bytes": null,
+          "seconds_per_input_character": 2.7121199999965028e-05,
+          "relative_to_previous_length": null
+        }
+      },
+      "baseline_over_candidate_cli_ratio": 0.323644787101765
+    },
+    {
+      "actual_lengths": [
+        30000,
+        30000,
+        30000,
+        30000,
+        30000,
+        30000,
+        30000,
+        30000
+      ],
+      "case_id": "highrun_L30000",
+      "family": "highrun",
+      "input_sha256": "8eea9f3d2147578392f42d9ad7b7f1f8e3f9bd483b057e6dfa1501eb20eebc61",
+      "length": 30000,
+      "memory_probe": false,
+      "path": "cases\\highrun_L30000.json",
+      "run_counts": [
+        30000,
+        30000,
+        30000,
+        30000,
+        29999,
+        30000,
+        30000,
+        30000
+      ],
+      "total_characters": 240000,
+      "methods": {
+        "baseline": {
+          "timing_statuses": [
+            "validated_complete",
+            "validated_complete",
+            "validated_complete"
+          ],
+          "median_cli_seconds": 0.6909417000133544,
+          "median_stdout_bytes": 608649,
+          "memory_status": "missing",
+          "peak_python_bytes": null,
+          "seconds_per_input_character": 2.8789237500556433e-06,
+          "relative_to_previous_length": {
+            "length_ratio": 3.0,
+            "time_ratio": 0.9839519700047662
+          }
+        },
+        "candidate": {
+          "timing_statuses": [
+            "validated_complete",
+            "validated_complete",
+            "validated_complete"
+          ],
+          "median_cli_seconds": 4.540942500025267,
+          "median_stdout_bytes": 970222,
+          "memory_status": "missing",
+          "peak_python_bytes": null,
+          "seconds_per_input_character": 1.8920593750105277e-05,
+          "relative_to_previous_length": {
+            "length_ratio": 3.0,
+            "time_ratio": 2.0928934284024683
+          }
+        }
+      },
+      "baseline_over_candidate_cli_ratio": 0.15215821385307343
+    },
+    {
+      "actual_lengths": [
+        100000,
+        100000,
+        100000,
+        100000,
+        100000,
+        100000,
+        100000,
+        100000
+      ],
+      "case_id": "highrun_L100000",
+      "family": "highrun",
+      "input_sha256": "96e1d67a4709bec89b85bd7cafeb8cc001d2b6b0fec3fe2bab8cfe0667c41eaf",
+      "length": 100000,
+      "memory_probe": true,
+      "path": "cases\\highrun_L100000.json",
+      "run_counts": [
+        100000,
+        100000,
+        100000,
+        100000,
+        99999,
+        100000,
+        100000,
+        100000
+      ],
+      "total_characters": 800000,
+      "methods": {
+        "baseline": {
+          "timing_statuses": [
+            "validated_complete",
+            "validated_complete",
+            "validated_complete"
+          ],
+          "median_cli_seconds": 1.6517935000010766,
+          "median_stdout_bytes": 2008649,
+          "memory_status": "validated_complete",
+          "peak_python_bytes": 6525149,
+          "seconds_per_input_character": 2.064741875001346e-06,
+          "relative_to_previous_length": {
+            "length_ratio": 3.3333333333333335,
+            "time_ratio": 2.390640917995181
+          }
+        },
+        "candidate": {
+          "timing_statuses": [
+            "validated_complete",
+            "validated_complete",
+            "validated_complete"
+          ],
+          "median_cli_seconds": 11.566846400004579,
+          "median_stdout_bytes": 3210225,
+          "memory_status": "timed_out",
+          "peak_python_bytes": null,
+          "seconds_per_input_character": 1.4458558000005723e-05,
+          "relative_to_previous_length": {
+            "length_ratio": 3.3333333333333335,
+            "time_ratio": 2.547234720532184
+          }
+        }
+      },
+      "baseline_over_candidate_cli_ratio": 0.14280413544701542
+    }
+  ],
+  "capture_integrity_checks": 1281,
+  "pair_witness_references": 1924,
+  "distinct_partition_feasibility_evaluations": 12,
+  "certificates_replayed": 220,
+  "method_capture_seconds": {
+    "baseline": 89.61242039996432,
+    "candidate": 207.03317980005522
+  },
+  "anchors": {
+    "performance_runs_v2\\20261103T080554.862063Z\\summary.json": "719185ccab7bd9fded2830a4308e89be15190414f88fa4b80770c34376ee0999",
+    "performance_runs_v2\\20261103T080554.862063Z\\ledger.jsonl": "47ad9d5aa66b7007c29eb590e28b78cf8edae531758900bb4859f89b96dac151",
+    "performance_runs_v2\\20261103T080554.862063Z\\plan.json": "7a21ec1147fc7f96c87a285a501a11e8517626068787530e31c3702bff01d551",
+    "performance_runs_v2\\20261103T080554.862063Z\\validation_capture.json": "0a5e8ff54d4aa3afe8257d48caf108a844a72ca66e39e879ea633174fc49909d",
+    "PERFORMANCE_FREEZE_V1.json": "f863a9707a039e49d84fe6b04948bebf7ae75e008d7d7e432ca47fd642c23cb5"
+  },
+  "limits": [
+    "Six fixed structural inputs only; no asymptotic inference.",
+    "Compare methods within this paired suite; cross-cycle wall times can differ with host load.",
+    "Memory timeouts are censored; no peak estimate or lower bound inferred.",
+    "Report postprocessing did not rerun a provider or integrity suite."
+  ]
+}
