@@ -1,0 +1,48 @@
+{
+  "goal_status": "active",
+  "target": "Paper case-study trace partitioning, progressively relaxed explicit assumptions",
+  "source_pdf": "source/CAV_2026_LANCER_Case_Study.pdf",
+  "milestones": [
+    {
+      "id": "M0",
+      "task": "Read/version paper and formalize observation semantics",
+      "status": "initial_findings_recorded"
+    },
+    {
+      "id": "M1",
+      "task": "Locate exact original artifact and verify license/checksums",
+      "status": "official_archive_downloaded_size_and_MD5_verified",
+      "archive_sha256": "06039a2cb4c8a5e2230aa7681f2b7e09914ce7ce44a7721b272a437ce2daef76"
+    },
+    {
+      "id": "M2",
+      "task": "Inspect actual raw/processed traces and exact preprocessing",
+      "status": "selected_six_original_files_safely_parsed_and_inventoried_no_errors; full_dataset_ingestion_pending"
+    },
+    {
+      "id": "M3",
+      "task": "First restricted real-data partition evaluation with declared baseline and model semantics",
+      "status": "not_started"
+    },
+    {
+      "id": "M4",
+      "task": "Relax assumptions one at a time with counterexamples and independent checks",
+      "status": "not_started"
+    }
+  ],
+  "default_initial_target": "host-related behavior first, clarification pending; known-host grouping is baseline not learned partition",
+  "first_model_risk": "Last-event outcome labels do not generally factor as AND of independent projected DFA acceptance states",
+  "paper_version_note": "Local draft System Event Logs 20pages versus published Cybersecurity Logs chapter497-510; do not conflate",
+  "official_sources": [
+    {
+      "url": "https://link.springer.com/chapter/10.1007/978-3-032-32519-8_25",
+      "claim": "Data Availability Statement links Zenodo19828945"
+    },
+    {
+      "url": "https://zenodo.org/records/19828945",
+      "claim": "Artifact v1 includes source ZIP and Docker image, README describes5000rawCAGE2traces"
+    }
+  ],
+  "source_archive_note": "Public original244813827bytes cached outside researchbundle in .cache/lancer; DOI/hash/inventory retained, selected unmodified source samples archived with both MIT licenses. No Docker image downloaded, no original artifact code executed.",
+  "checkpoint": "C016 initial paper, acquisition and selected-schema milestone; no partition or model-training claim"
+}

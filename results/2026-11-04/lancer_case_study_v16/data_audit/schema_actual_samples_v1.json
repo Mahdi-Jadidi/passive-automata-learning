@@ -1,0 +1,143 @@
+[
+  {
+    "path": "artifact/data/one_host_network_validity_only/trial_1/random_15steps/training_traces/output_1.txt",
+    "episodes": 1,
+    "steps": [
+      15
+    ],
+    "events": 30,
+    "keys": [
+      "action",
+      "agent",
+      "episode",
+      "hostname",
+      "ip_address",
+      "step",
+      "success"
+    ],
+    "success_counts": {
+      "TRUE": 22,
+      "FALSE": 8
+    },
+    "agents_by_pair": [
+      [
+        "Blue",
+        "Red"
+      ]
+    ],
+    "first_pair": [
+      {
+        "episode": 1,
+        "step": 1,
+        "action": "NoOp",
+        "agent": "Blue",
+        "hostname": "Host_0",
+        "ip_address": "10.0.100.10",
+        "success": "TRUE"
+      },
+      {
+        "episode": 1,
+        "step": 1,
+        "action": "DiscoverNetworkServices",
+        "agent": "Red",
+        "hostname": "Host_0",
+        "ip_address": "10.0.100.10",
+        "success": "TRUE"
+      }
+    ]
+  },
+  {
+    "path": "artifact/data/one_host_network_validity_only/trial_1/heuristic_15steps/training_traces/output_1.txt",
+    "episodes": 1,
+    "steps": [
+      15
+    ],
+    "events": 30,
+    "keys": [
+      "action",
+      "agent",
+      "episode",
+      "hostname",
+      "ip_address",
+      "step",
+      "success"
+    ],
+    "success_counts": {
+      "TRUE": 25,
+      "FALSE": 5
+    },
+    "agents_by_pair": [
+      [
+        "Blue",
+        "Red"
+      ]
+    ],
+    "first_pair": [
+      {
+        "episode": 1,
+        "step": 1,
+        "action": "Remove",
+        "agent": "Blue",
+        "hostname": "Host_0",
+        "ip_address": "10.0.100.10",
+        "success": "TRUE"
+      },
+      {
+        "episode": 1,
+        "step": 1,
+        "action": "DiscoverRemoteSystems",
+        "agent": "Red",
+        "hostname": "Host_0",
+        "ip_address": "10.0.100.10",
+        "success": "TRUE"
+      }
+    ]
+  },
+  {
+    "path": "artifact/data/one_host_network_validity_only/eval_traces/eval_50steps/trace1.txt",
+    "episodes": 1,
+    "steps": [
+      50
+    ],
+    "events": 100,
+    "keys": [
+      "action",
+      "agent",
+      "episode",
+      "hostname",
+      "ip_address",
+      "step",
+      "success"
+    ],
+    "success_counts": {
+      "TRUE": 69,
+      "FALSE": 31
+    },
+    "agents_by_pair": [
+      [
+        "Blue",
+        "Red"
+      ]
+    ],
+    "first_pair": [
+      {
+        "episode": 1,
+        "step": 1,
+        "action": "Remove",
+        "agent": "Blue",
+        "hostname": "Host_0",
+        "ip_address": "10.0.100.10",
+        "success": "TRUE"
+      },
+      {
+        "episode": 1,
+        "step": 1,
+        "action": "DiscoverNetworkServices",
+        "agent": "Red",
+        "hostname": "Host_0",
+        "ip_address": "10.0.100.10",
+        "success": "TRUE"
+      }
+    ]
+  }
+]

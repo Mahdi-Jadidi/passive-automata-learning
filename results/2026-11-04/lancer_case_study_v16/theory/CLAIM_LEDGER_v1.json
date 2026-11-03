@@ -1,0 +1,27 @@
+{
+  "id":"C016-THEORY-001",
+  "source_pdf_sha256":"6a12434a6153277431a1eb00533eaa2cd343cc70ea9e54a92e4bcede9c79dbee",
+  "paper_pages_read":"1-20 including appendix/references; supplied extracted text",
+  "documents":["PAPER_ALIGNMENT_FA_v1.md","STAGED_EXPERIMENT_FA_v1.md"],
+  "paper_facts":[
+    {"id":"F05","pages":[5],"claim":"Action and parameter values are full tokens, not characters"},
+    {"id":"F06","pages":[4,5,13],"claim":"Event-boundary cumulative histories labelled by last event success/failure"},
+    {"id":"F07","pages":[5],"claim":"Formal global-history definition assumes no reset across episodes"},
+    {"id":"F09","pages":[6],"claim":"Subnet/IP/exploit-class preprocessing alters symbolic input representation"},
+    {"id":"F14","pages":[12],"claim":"BabyCyborg includes host monitors and global cross-action constraints, AND of monitor votes"},
+    {"id":"F18","pages":[15,16],"claim":"Two-host network-validity-only experiments reported"}
+  ],
+  "direct_derivations":[
+    {"id":"D1","claim":"Last-event outcome language does not automatically factor as independent disjoint acceptor product","witness":{"positive":["y","yxy"],"negative":["yx"],"proposed_partition":"x|y","physical_example":"independent fixed-output y success/x fail"}},
+    {"id":"D2","claim":"Positive event-boundary histories need not form a prefix-closed accepted language"},
+    {"id":"D3","claim":"Separate action/parameter token alphabet does not imply host-ownership partition"},
+    {"id":"D4","claim":"NoK sample consistency cannot certify nontrivial physical uniqueness"}
+  ],
+  "hypotheses_pending_source_or_data":["Exact reset/collector behavior","Parameter ordering and token collision policy","Local host output depends only on selected host history","Available raw logs and their license/version","Unknown-partition theorem for last-event conditional-output model"],
+  "first_experiment":"Audit source/raw token-label-reset semantics; then two-host network-validity-only known-metadata local-output baseline vs monolithic on same raw runs if locality verified",
+  "not_claimed":["real physical hardware traces","raw dataset availability verified","paper reproduced","independent disjoint host model proved","100percent holdout proves language equivalence","K from host count is valid language-factor count"],
+  "scientific_status":"paper_fact_mapping_and_direct_counterexample_ready_for_review",
+  "execution_status":"no_external_code_or_scientific_runs",
+  "new_experiments":0,
+  "historical_changes":false
+}

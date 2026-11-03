@@ -1,0 +1,3927 @@
+{
+  "archive_sha256": "06039a2cb4c8a5e2230aa7681f2b7e09914ce7ce44a7721b272a437ce2daef76",
+  "manifest_sha256": "b604f684af371ad4979d3f340b39ac77e7577dbbc648c78ecaa831ea6d5a2dc0",
+  "script_sha256": "70c90519bf5455f2f67a4898198fa66397f1264e6686b163518bb78b4d0c05f0",
+  "python": "3.14.6 (tags/v3.14.6:c63aec6, Jun 10 2026, 10:26:10) [MSC v.1944 64 bit (AMD64)]",
+  "external_artifact_code_executed": false,
+  "files": [
+    {
+      "archive_path": "artifact/data/cage2/cage2_raw_traces/raw_1.yaml",
+      "local_path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-04\\lancer_case_study_v16\\data_audit\\selected_v1\\artifact\\data\\cage2\\cage2_raw_traces\\raw_1.yaml",
+      "expected_sha256": "65bd39d037016314dffb8051f5e61453e8b2b9b33a2d7c418608248cbcef5e7b",
+      "bytes": 961539,
+      "sha256": "65bd39d037016314dffb8051f5e61453e8b2b9b33a2d7c418608248cbcef5e7b",
+      "inventory": {
+        "format": "YAML_list_of_step_dictionaries",
+        "yaml_version": "6.0.3",
+        "raw_step_count": 100,
+        "raw_step_keys": {
+          "Blue": 100,
+          "Red": 100,
+          "TrueState": 100,
+          "step": 100
+        },
+        "action_types": {
+          "Blue:DecoySSHD": 1,
+          "Red:DiscoverRemoteSystems": 5,
+          "Blue:Analyse": 61,
+          "Red:DiscoverNetworkServices": 19,
+          "Red:ExploitRemoteService": 40,
+          "Blue:Restore": 33,
+          "Red:PrivilegeEscalate": 36,
+          "Blue:Remove": 5
+        },
+        "next_observation_status_codes": {
+          "Blue:3": 1,
+          "Red:1": 75,
+          "Blue:1": 98,
+          "Red:3": 24
+        },
+        "nested_key_value_types": {
+          "str:10.0.227.18": {
+            "dict": 1
+          },
+          "str:10.0.227.20": {
+            "dict": 1
+          },
+          "str:10.0.227.23": {
+            "dict": 19
+          },
+          "str:10.0.227.29": {
+            "dict": 1
+          },
+          "str:10.0.227.30": {
+            "dict": 37
+          },
+          "str:10.0.38.146": {
+            "dict": 4
+          },
+          "str:10.0.38.147": {
+            "dict": 4
+          },
+          "str:10.0.38.152": {
+            "dict": 19
+          },
+          "str:10.0.38.158": {
+            "dict": 20
+          },
+          "str:10.0.75.78": {
+            "dict": 1
+          },
+          "str:Access": {
+            "str": 889
+          },
+          "str:Activity": {
+            "str": 1300
+          },
+          "str:Agent": {
+            "str": 66
+          },
+          "str:Alert": {
+            "NoneType": 1300
+          },
+          "str:Architecture": {
+            "int": 109
+          },
+          "str:Blue": {
+            "dict": 100
+          },
+          "str:Compromised": {
+            "str": 1300
+          },
+          "str:Connections": {
+            "list": 570
+          },
+          "str:Defaced": {
+            "NoneType": 1300
+          },
+          "str:Defender": {
+            "dict": 201
+          },
+          "str:Density": {
+            "float": 15
+          },
+          "str:Enterprise0": {
+            "dict": 206
+          },
+          "str:Enterprise1": {
+            "dict": 235
+          },
+          "str:Enterprise2": {
+            "dict": 233
+          },
+          "str:File Name": {
+            "str": 15
+          },
+          "str:Files": {
+            "list": 108
+          },
+          "str:GID": {
+            "int": 47
+          },
+          "str:Groups": {
+            "list": 57
+          },
+          "str:Hostname": {
+            "str": 2334
+          },
+          "str:ID": {
+            "int": 66
+          },
+          "str:IP Address": {
+            "str": 2431
+          },
+          "str:Interface": {
+            "list": 255
+          },
+          "str:Interface Name": {
+            "NoneType": 213,
+            "str": 29
+          },
+          "str:Known File": {
+            "int": 15
+          },
+          "str:Known Path": {
+            "int": 15
+          },
+          "str:Known Process": {
+            "NoneType": 364
+          },
+          "str:OSDistribution": {
+            "int": 109
+          },
+          "str:OSType": {
+            "int": 145
+          },
+          "str:OSVersion": {
+            "int": 109
+          },
+          "str:Op_Host0": {
+            "dict": 201
+          },
+          "str:Op_Host1": {
+            "dict": 201
+          },
+          "str:Op_Host2": {
+            "dict": 201
+          },
+          "str:Op_Server0": {
+            "dict": 208
+          },
+          "str:PID": {
+            "int": 70,
+            "NoneType": 342
+          },
+          "str:PPID": {
+            "NoneType": 364
+          },
+          "str:Password": {
+            "str": 14,
+            "NoneType": 45
+          },
+          "str:Path": {
+            "str": 15
+          },
+          "str:Process Name": {
+            "NoneType": 364
+          },
+          "str:Process Type": {
+            "int": 106,
+            "NoneType": 86
+          },
+          "str:Processes": {
+            "list": 255
+          },
+          "str:Properties": {
+            "list": 364
+          },
+          "str:Red": {
+            "dict": 100
+          },
+          "str:Scanned": {
+            "bool": 889
+          },
+          "str:Service Name": {
+            "NoneType": 556
+          },
+          "str:Sessions": {
+            "list": 255
+          },
+          "str:Signed": {
+            "bool": 15
+          },
+          "str:Status": {
+            "int": 36,
+            "NoneType": 516
+          },
+          "str:Subnet": {
+            "str": 2239,
+            "NoneType": 192
+          },
+          "str:System info": {
+            "dict": 145,
+            "NoneType": 110
+          },
+          "str:Timeout": {
+            "NoneType": 12,
+            "int": 18
+          },
+          "str:TrueState": {
+            "dict": 100
+          },
+          "str:Type": {
+            "int": 66
+          },
+          "str:UID": {
+            "str": 2
+          },
+          "str:User Info": {
+            "list": 228
+          },
+          "str:User0": {
+            "dict": 209
+          },
+          "str:User1": {
+            "dict": 208
+          },
+          "str:User2": {
+            "dict": 234
+          },
+          "str:User3": {
+            "dict": 204
+          },
+          "str:User4": {
+            "dict": 207
+          },
+          "str:Username": {
+            "NoneType": 398,
+            "str": 109
+          },
+          "str:act_spc": {
+            "dict": 200
+          },
+          "str:action": {
+            "dict": 200
+          },
+          "str:any_session": {
+            "bool": 1300
+          },
+          "str:complaints": {
+            "list": 99
+          },
+          "str:decoy_flags": {
+            "int": 1300
+          },
+          "str:defaced_status": {
+            "NoneType": 108
+          },
+          "str:exfiltration_times": {
+            "NoneType": 109
+          },
+          "str:exploit_class": {
+            "str": 80
+          },
+          "str:exploit_name": {
+            "NoneType": 80
+          },
+          "str:exploit_port": {
+            "NoneType": 80
+          },
+          "str:exploit_port2": {
+            "NoneType": 80
+          },
+          "str:hostname": {
+            "str": 272
+          },
+          "str:hostname_known": {
+            "bool": 1300
+          },
+          "str:hostnames": {
+            "dict": 100
+          },
+          "str:hosts": {
+            "dict": 99
+          },
+          "str:ip_addr_known": {
+            "bool": 1300
+          },
+          "str:ip_address": {
+            "str": 118
+          },
+          "str:ip_addrs": {
+            "dict": 100
+          },
+          "str:local_address": {
+            "str": 552
+          },
+          "str:local_port": {
+            "int": 552
+          },
+          "str:obs": {
+            "dict": 200
+          },
+          "str:prev_action_status": {
+            "int": 199
+          },
+          "str:privileged_session": {
+            "bool": 1300
+          },
+          "str:remote_address": {
+            "NoneType": 116,
+            "str": 436
+          },
+          "str:remote_port": {
+            "NoneType": 116,
+            "int": 436
+          },
+          "str:req action": {
+            "dict": 200
+          },
+          "str:reward": {
+            "float": 200
+          },
+          "str:services_scanned": {
+            "bool": 1300
+          },
+          "str:step": {
+            "int": 100
+          },
+          "str:subnet": {
+            "str": 10
+          },
+          "str:sus_activities": {
+            "list": 99
+          },
+          "str:suspicious_network_activity": {
+            "NoneType": 109
+          },
+          "str:table": {
+            "list": 100,
+            "dict": 100
+          },
+          "str:tunnel": {
+            "NoneType": 109
+          },
+          "str:type": {
+            "str": 400
+          }
+        },
+        "preview": [
+          {
+            "step_container_index": 0,
+            "actor": "Blue",
+            "action": {
+              "hostname": "Enterprise1",
+              "type": "DecoySSHD"
+            },
+            "actor_record_fields": [
+              "act_spc",
+              "action",
+              "obs",
+              "req action",
+              "reward",
+              "table"
+            ],
+            "current_observation_prev_action_status": "__MISSING__"
+          },
+          {
+            "step_container_index": 0,
+            "actor": "Red",
+            "action": {
+              "subnet": "10.0.227.16/28",
+              "type": "DiscoverRemoteSystems"
+            },
+            "actor_record_fields": [
+              "act_spc",
+              "action",
+              "obs",
+              "req action",
+              "reward",
+              "table"
+            ],
+            "current_observation_prev_action_status": 2
+          },
+          {
+            "step_container_index": 1,
+            "actor": "Blue",
+            "action": {
+              "hostname": "User2",
+              "type": "Analyse"
+            },
+            "actor_record_fields": [
+              "act_spc",
+              "action",
+              "obs",
+              "req action",
+              "reward",
+              "table"
+            ],
+            "current_observation_prev_action_status": 3
+          },
+          {
+            "step_container_index": 1,
+            "actor": "Red",
+            "action": {
+              "ip_address": "10.0.227.23",
+              "type": "DiscoverNetworkServices"
+            },
+            "actor_record_fields": [
+              "act_spc",
+              "action",
+              "obs",
+              "req action",
+              "reward",
+              "table"
+            ],
+            "current_observation_prev_action_status": 1
+          }
+        ],
+        "converter_code_policy": "3->FALSE; 2->TRUE; all_other_values->TRUE; missing defaults1; final raw step discarded",
+        "converted_or_labelled_here": false,
+        "raw_truth_fields_not_used_as_tokens": true
+      },
+      "status": "inventoried"
+    },
+    {
+      "archive_path": "artifact/data/cage2/cage2_raw_traces/raw_2.yaml",
+      "local_path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-04\\lancer_case_study_v16\\data_audit\\selected_v1\\artifact\\data\\cage2\\cage2_raw_traces\\raw_2.yaml",
+      "expected_sha256": "40aee57b19543796bfd791cf8873f7e7b1b0f0f3cf5e82ad71843789ce88d7ce",
+      "bytes": 942814,
+      "sha256": "40aee57b19543796bfd791cf8873f7e7b1b0f0f3cf5e82ad71843789ce88d7ce",
+      "inventory": {
+        "format": "YAML_list_of_step_dictionaries",
+        "yaml_version": "6.0.3",
+        "raw_step_count": 100,
+        "raw_step_keys": {
+          "Blue": 100,
+          "Red": 100,
+          "TrueState": 100,
+          "step": 100
+        },
+        "action_types": {
+          "Blue:DecoySSHD": 1,
+          "Red:DiscoverRemoteSystems": 6,
+          "Blue:Analyse": 60,
+          "Red:DiscoverNetworkServices": 13,
+          "Red:ExploitRemoteService": 44,
+          "Blue:Remove": 6,
+          "Red:PrivilegeEscalate": 37,
+          "Blue:Restore": 33
+        },
+        "next_observation_status_codes": {
+          "Blue:3": 1,
+          "Red:1": 67,
+          "Blue:1": 98,
+          "Red:3": 32
+        },
+        "nested_key_value_types": {
+          "str:10.0.102.33": {
+            "dict": 38
+          },
+          "str:10.0.102.35": {
+            "dict": 1
+          },
+          "str:10.0.102.36": {
+            "dict": 1
+          },
+          "str:10.0.102.40": {
+            "dict": 5
+          },
+          "str:10.0.102.44": {
+            "dict": 1
+          },
+          "str:10.0.231.50": {
+            "dict": 1
+          },
+          "str:10.0.80.10": {
+            "dict": 5
+          },
+          "str:10.0.80.11": {
+            "dict": 29
+          },
+          "str:10.0.80.13": {
+            "dict": 5
+          },
+          "str:10.0.80.4": {
+            "dict": 23
+          },
+          "str:Access": {
+            "str": 925
+          },
+          "str:Activity": {
+            "str": 1300
+          },
+          "str:Agent": {
+            "str": 63
+          },
+          "str:Alert": {
+            "NoneType": 1300
+          },
+          "str:Architecture": {
+            "int": 104
+          },
+          "str:Blue": {
+            "dict": 100
+          },
+          "str:Compromised": {
+            "str": 1300
+          },
+          "str:Connections": {
+            "list": 520
+          },
+          "str:Defaced": {
+            "NoneType": 1300
+          },
+          "str:Defender": {
+            "dict": 201
+          },
+          "str:Density": {
+            "float": 12
+          },
+          "str:Enterprise0": {
+            "dict": 208
+          },
+          "str:Enterprise1": {
+            "dict": 237
+          },
+          "str:Enterprise2": {
+            "dict": 236
+          },
+          "str:File Name": {
+            "str": 12
+          },
+          "str:Files": {
+            "list": 99
+          },
+          "str:GID": {
+            "int": 47
+          },
+          "str:Groups": {
+            "list": 57
+          },
+          "str:Hostname": {
+            "str": 2366
+          },
+          "str:ID": {
+            "int": 63
+          },
+          "str:IP Address": {
+            "str": 2455
+          },
+          "str:Interface": {
+            "list": 239
+          },
+          "str:Interface Name": {
+            "NoneType": 205,
+            "str": 25
+          },
+          "str:Known File": {
+            "int": 12
+          },
+          "str:Known Path": {
+            "int": 12
+          },
+          "str:Known Process": {
+            "NoneType": 334
+          },
+          "str:OSDistribution": {
+            "int": 104
+          },
+          "str:OSType": {
+            "int": 141
+          },
+          "str:OSVersion": {
+            "int": 104
+          },
+          "str:Op_Host0": {
+            "dict": 201
+          },
+          "str:Op_Host1": {
+            "dict": 201
+          },
+          "str:Op_Host2": {
+            "dict": 201
+          },
+          "str:Op_Server0": {
+            "dict": 206
+          },
+          "str:PID": {
+            "NoneType": 311,
+            "int": 66
+          },
+          "str:PPID": {
+            "NoneType": 334
+          },
+          "str:Password": {
+            "str": 15,
+            "NoneType": 45
+          },
+          "str:Path": {
+            "str": 12
+          },
+          "str:Process Name": {
+            "NoneType": 334
+          },
+          "str:Process Type": {
+            "int": 108,
+            "NoneType": 64
+          },
+          "str:Processes": {
+            "list": 239
+          },
+          "str:Properties": {
+            "list": 334
+          },
+          "str:Red": {
+            "dict": 100
+          },
+          "str:Scanned": {
+            "bool": 925
+          },
+          "str:Service Name": {
+            "NoneType": 506
+          },
+          "str:Sessions": {
+            "list": 239
+          },
+          "str:Signed": {
+            "bool": 12
+          },
+          "str:Status": {
+            "NoneType": 466,
+            "int": 37
+          },
+          "str:Subnet": {
+            "str": 2275,
+            "NoneType": 180
+          },
+          "str:System info": {
+            "dict": 141,
+            "NoneType": 98
+          },
+          "str:Timeout": {
+            "NoneType": 9,
+            "int": 17
+          },
+          "str:TrueState": {
+            "dict": 100
+          },
+          "str:Type": {
+            "int": 63
+          },
+          "str:UID": {
+            "str": 3
+          },
+          "str:User Info": {
+            "list": 221
+          },
+          "str:User0": {
+            "dict": 206
+          },
+          "str:User1": {
+            "dict": 210
+          },
+          "str:User2": {
+            "dict": 215
+          },
+          "str:User3": {
+            "dict": 206
+          },
+          "str:User4": {
+            "dict": 202
+          },
+          "str:Username": {
+            "NoneType": 368,
+            "str": 106
+          },
+          "str:act_spc": {
+            "dict": 200
+          },
+          "str:action": {
+            "dict": 200
+          },
+          "str:any_session": {
+            "bool": 1300
+          },
+          "str:complaints": {
+            "list": 99
+          },
+          "str:decoy_flags": {
+            "int": 1300
+          },
+          "str:defaced_status": {
+            "NoneType": 103
+          },
+          "str:exfiltration_times": {
+            "NoneType": 104
+          },
+          "str:exploit_class": {
+            "str": 88
+          },
+          "str:exploit_name": {
+            "NoneType": 88
+          },
+          "str:exploit_port": {
+            "NoneType": 88
+          },
+          "str:exploit_port2": {
+            "NoneType": 88
+          },
+          "str:hostname": {
+            "str": 274
+          },
+          "str:hostname_known": {
+            "bool": 1300
+          },
+          "str:hostnames": {
+            "dict": 100
+          },
+          "str:hosts": {
+            "dict": 99
+          },
+          "str:ip_addr_known": {
+            "bool": 1300
+          },
+          "str:ip_address": {
+            "str": 114
+          },
+          "str:ip_addrs": {
+            "dict": 100
+          },
+          "str:local_address": {
+            "str": 503
+          },
+          "str:local_port": {
+            "int": 503
+          },
+          "str:obs": {
+            "dict": 200
+          },
+          "str:prev_action_status": {
+            "int": 199
+          },
+          "str:privileged_session": {
+            "bool": 1300
+          },
+          "str:remote_address": {
+            "str": 408,
+            "NoneType": 95
+          },
+          "str:remote_port": {
+            "int": 408,
+            "NoneType": 95
+          },
+          "str:req action": {
+            "dict": 200
+          },
+          "str:reward": {
+            "float": 200
+          },
+          "str:services_scanned": {
+            "bool": 1300
+          },
+          "str:step": {
+            "int": 100
+          },
+          "str:subnet": {
+            "str": 12
+          },
+          "str:sus_activities": {
+            "list": 99
+          },
+          "str:suspicious_network_activity": {
+            "NoneType": 104
+          },
+          "str:table": {
+            "list": 100,
+            "dict": 100
+          },
+          "str:tunnel": {
+            "NoneType": 104
+          },
+          "str:type": {
+            "str": 400
+          }
+        },
+        "preview": [
+          {
+            "step_container_index": 0,
+            "actor": "Blue",
+            "action": {
+              "hostname": "Enterprise1",
+              "type": "DecoySSHD"
+            },
+            "actor_record_fields": [
+              "act_spc",
+              "action",
+              "obs",
+              "req action",
+              "reward",
+              "table"
+            ],
+            "current_observation_prev_action_status": "__MISSING__"
+          },
+          {
+            "step_container_index": 0,
+            "actor": "Red",
+            "action": {
+              "subnet": "10.0.102.32/28",
+              "type": "DiscoverRemoteSystems"
+            },
+            "actor_record_fields": [
+              "act_spc",
+              "action",
+              "obs",
+              "req action",
+              "reward",
+              "table"
+            ],
+            "current_observation_prev_action_status": 2
+          },
+          {
+            "step_container_index": 1,
+            "actor": "Blue",
+            "action": {
+              "hostname": "Defender",
+              "type": "Analyse"
+            },
+            "actor_record_fields": [
+              "act_spc",
+              "action",
+              "obs",
+              "req action",
+              "reward",
+              "table"
+            ],
+            "current_observation_prev_action_status": 3
+          },
+          {
+            "step_container_index": 1,
+            "actor": "Red",
+            "action": {
+              "ip_address": "10.0.102.40",
+              "type": "DiscoverNetworkServices"
+            },
+            "actor_record_fields": [
+              "act_spc",
+              "action",
+              "obs",
+              "req action",
+              "reward",
+              "table"
+            ],
+            "current_observation_prev_action_status": 1
+          }
+        ],
+        "converter_code_policy": "3->FALSE; 2->TRUE; all_other_values->TRUE; missing defaults1; final raw step discarded",
+        "converted_or_labelled_here": false,
+        "raw_truth_fields_not_used_as_tokens": true
+      },
+      "status": "inventoried"
+    },
+    {
+      "archive_path": "artifact/data/cage2/cage2_raw_traces/raw_3.yaml",
+      "local_path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-04\\lancer_case_study_v16\\data_audit\\selected_v1\\artifact\\data\\cage2\\cage2_raw_traces\\raw_3.yaml",
+      "expected_sha256": "eeedbd7274e9ad6619836273f897fd06ca2efd851bf6335dacf7766691c4d3c6",
+      "bytes": 962113,
+      "sha256": "eeedbd7274e9ad6619836273f897fd06ca2efd851bf6335dacf7766691c4d3c6",
+      "inventory": {
+        "format": "YAML_list_of_step_dictionaries",
+        "yaml_version": "6.0.3",
+        "raw_step_count": 100,
+        "raw_step_keys": {
+          "Blue": 100,
+          "Red": 100,
+          "TrueState": 100,
+          "step": 100
+        },
+        "action_types": {
+          "Blue:DecoySSHD": 1,
+          "Red:DiscoverRemoteSystems": 4,
+          "Blue:Analyse": 55,
+          "Red:DiscoverNetworkServices": 11,
+          "Red:ExploitRemoteService": 43,
+          "Blue:Restore": 34,
+          "Red:PrivilegeEscalate": 42,
+          "Blue:Remove": 10
+        },
+        "next_observation_status_codes": {
+          "Blue:3": 1,
+          "Red:1": 65,
+          "Blue:1": 98,
+          "Red:3": 34
+        },
+        "nested_key_value_types": {
+          "str:10.0.234.10": {
+            "dict": 15
+          },
+          "str:10.0.234.4": {
+            "dict": 43
+          },
+          "str:10.0.234.6": {
+            "dict": 1
+          },
+          "str:10.0.234.8": {
+            "dict": 1
+          },
+          "str:10.0.234.9": {
+            "dict": 1
+          },
+          "str:10.0.61.168": {
+            "dict": 11
+          },
+          "str:10.0.61.170": {
+            "dict": 2
+          },
+          "str:10.0.61.173": {
+            "dict": 30
+          },
+          "str:10.0.61.174": {
+            "dict": 2
+          },
+          "str:Access": {
+            "str": 835
+          },
+          "str:Activity": {
+            "str": 1300
+          },
+          "str:Agent": {
+            "str": 66
+          },
+          "str:Alert": {
+            "NoneType": 1300
+          },
+          "str:Architecture": {
+            "int": 118
+          },
+          "str:Blue": {
+            "dict": 100
+          },
+          "str:Compromised": {
+            "str": 1300
+          },
+          "str:Connections": {
+            "list": 589
+          },
+          "str:Defaced": {
+            "NoneType": 1300
+          },
+          "str:Defender": {
+            "dict": 201
+          },
+          "str:Density": {
+            "float": 11
+          },
+          "str:Enterprise0": {
+            "dict": 205
+          },
+          "str:Enterprise1": {
+            "dict": 247
+          },
+          "str:Enterprise2": {
+            "dict": 216
+          },
+          "str:File Name": {
+            "str": 11
+          },
+          "str:Files": {
+            "list": 109
+          },
+          "str:GID": {
+            "int": 47
+          },
+          "str:Groups": {
+            "list": 57
+          },
+          "str:Hostname": {
+            "str": 2295
+          },
+          "str:ID": {
+            "int": 66
+          },
+          "str:IP Address": {
+            "str": 2374
+          },
+          "str:Interface": {
+            "list": 244
+          },
+          "str:Interface Name": {
+            "str": 23,
+            "NoneType": 216
+          },
+          "str:Known File": {
+            "int": 11
+          },
+          "str:Known Path": {
+            "int": 11
+          },
+          "str:Known Process": {
+            "NoneType": 390
+          },
+          "str:OSDistribution": {
+            "int": 118
+          },
+          "str:OSType": {
+            "int": 160
+          },
+          "str:OSVersion": {
+            "int": 118
+          },
+          "str:Op_Host0": {
+            "dict": 201
+          },
+          "str:Op_Host1": {
+            "dict": 201
+          },
+          "str:Op_Host2": {
+            "dict": 201
+          },
+          "str:Op_Server0": {
+            "dict": 203
+          },
+          "str:PID": {
+            "NoneType": 358,
+            "int": 75
+          },
+          "str:PPID": {
+            "NoneType": 390
+          },
+          "str:Password": {
+            "str": 16,
+            "NoneType": 45
+          },
+          "str:Path": {
+            "str": 11
+          },
+          "str:Process Name": {
+            "NoneType": 390
+          },
+          "str:Process Type": {
+            "int": 122,
+            "NoneType": 63
+          },
+          "str:Processes": {
+            "list": 244
+          },
+          "str:Properties": {
+            "list": 390
+          },
+          "str:Red": {
+            "dict": 100
+          },
+          "str:Scanned": {
+            "bool": 835
+          },
+          "str:Service Name": {
+            "NoneType": 575
+          },
+          "str:Sessions": {
+            "list": 244
+          },
+          "str:Signed": {
+            "bool": 11
+          },
+          "str:Status": {
+            "NoneType": 528,
+            "int": 42
+          },
+          "str:Subnet": {
+            "str": 2171,
+            "NoneType": 203
+          },
+          "str:System info": {
+            "NoneType": 84,
+            "dict": 160
+          },
+          "str:Timeout": {
+            "NoneType": 5,
+            "int": 19
+          },
+          "str:TrueState": {
+            "dict": 100
+          },
+          "str:Type": {
+            "int": 66
+          },
+          "str:UID": {
+            "str": 4
+          },
+          "str:User Info": {
+            "list": 228
+          },
+          "str:User0": {
+            "dict": 207
+          },
+          "str:User1": {
+            "dict": 213
+          },
+          "str:User2": {
+            "dict": 229
+          },
+          "str:User3": {
+            "dict": 209
+          },
+          "str:User4": {
+            "dict": 205
+          },
+          "str:Username": {
+            "str": 108,
+            "NoneType": 428
+          },
+          "str:act_spc": {
+            "dict": 200
+          },
+          "str:action": {
+            "dict": 200
+          },
+          "str:any_session": {
+            "bool": 1300
+          },
+          "str:complaints": {
+            "list": 99
+          },
+          "str:decoy_flags": {
+            "int": 1300
+          },
+          "str:defaced_status": {
+            "NoneType": 117
+          },
+          "str:exfiltration_times": {
+            "NoneType": 118
+          },
+          "str:exploit_class": {
+            "str": 86
+          },
+          "str:exploit_name": {
+            "NoneType": 86
+          },
+          "str:exploit_port": {
+            "NoneType": 86
+          },
+          "str:exploit_port2": {
+            "NoneType": 86
+          },
+          "str:hostname": {
+            "str": 284
+          },
+          "str:hostname_known": {
+            "bool": 1300
+          },
+          "str:hostnames": {
+            "dict": 100
+          },
+          "str:hosts": {
+            "dict": 99
+          },
+          "str:ip_addr_known": {
+            "bool": 1300
+          },
+          "str:ip_address": {
+            "str": 108
+          },
+          "str:ip_addrs": {
+            "dict": 100
+          },
+          "str:local_address": {
+            "str": 570
+          },
+          "str:local_port": {
+            "int": 570
+          },
+          "str:obs": {
+            "dict": 200
+          },
+          "str:prev_action_status": {
+            "int": 199
+          },
+          "str:privileged_session": {
+            "bool": 1300
+          },
+          "str:remote_address": {
+            "str": 474,
+            "NoneType": 96
+          },
+          "str:remote_port": {
+            "int": 474,
+            "NoneType": 96
+          },
+          "str:req action": {
+            "dict": 200
+          },
+          "str:reward": {
+            "float": 200
+          },
+          "str:services_scanned": {
+            "bool": 1300
+          },
+          "str:step": {
+            "int": 100
+          },
+          "str:subnet": {
+            "str": 8
+          },
+          "str:sus_activities": {
+            "list": 99
+          },
+          "str:suspicious_network_activity": {
+            "NoneType": 118
+          },
+          "str:table": {
+            "list": 100,
+            "dict": 100
+          },
+          "str:tunnel": {
+            "NoneType": 118
+          },
+          "str:type": {
+            "str": 400
+          }
+        },
+        "preview": [
+          {
+            "step_container_index": 0,
+            "actor": "Blue",
+            "action": {
+              "hostname": "Op_Server0",
+              "type": "DecoySSHD"
+            },
+            "actor_record_fields": [
+              "act_spc",
+              "action",
+              "obs",
+              "req action",
+              "reward",
+              "table"
+            ],
+            "current_observation_prev_action_status": "__MISSING__"
+          },
+          {
+            "step_container_index": 0,
+            "actor": "Red",
+            "action": {
+              "subnet": "10.0.234.0/28",
+              "type": "DiscoverRemoteSystems"
+            },
+            "actor_record_fields": [
+              "act_spc",
+              "action",
+              "obs",
+              "req action",
+              "reward",
+              "table"
+            ],
+            "current_observation_prev_action_status": 2
+          },
+          {
+            "step_container_index": 1,
+            "actor": "Blue",
+            "action": {
+              "hostname": "User2",
+              "type": "Analyse"
+            },
+            "actor_record_fields": [
+              "act_spc",
+              "action",
+              "obs",
+              "req action",
+              "reward",
+              "table"
+            ],
+            "current_observation_prev_action_status": 3
+          },
+          {
+            "step_container_index": 1,
+            "actor": "Red",
+            "action": {
+              "ip_address": "10.0.234.10",
+              "type": "DiscoverNetworkServices"
+            },
+            "actor_record_fields": [
+              "act_spc",
+              "action",
+              "obs",
+              "req action",
+              "reward",
+              "table"
+            ],
+            "current_observation_prev_action_status": 1
+          }
+        ],
+        "converter_code_policy": "3->FALSE; 2->TRUE; all_other_values->TRUE; missing defaults1; final raw step discarded",
+        "converted_or_labelled_here": false,
+        "raw_truth_fields_not_used_as_tokens": true
+      },
+      "status": "inventoried"
+    },
+    {
+      "archive_path": "artifact/data/one_host_network_validity_only/trial_1/random_15steps/training_traces/output_1.txt",
+      "local_path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-04\\lancer_case_study_v16\\data_audit\\selected_v1\\artifact\\data\\one_host_network_validity_only\\trial_1\\random_15steps\\training_traces\\output_1.txt",
+      "expected_sha256": "92658b2b15c0ed5d4e07f08df5d0fdce7f62af65c472b97c12091b8c03ec634d",
+      "bytes": 4210,
+      "sha256": "92658b2b15c0ed5d4e07f08df5d0fdce7f62af65c472b97c12091b8c03ec634d",
+      "inventory": {
+        "format": "Python_literal_episodes_steps_BlueRed_pairs",
+        "episode_count": 1,
+        "steps_per_episode": [
+          15
+        ],
+        "event_count": 30,
+        "actions": {
+          "NoOp": 8,
+          "DiscoverNetworkServices": 3,
+          "Remove": 7,
+          "PrivilegeEscalate": 4,
+          "DiscoverRemoteSystems": 4,
+          "Impact": 3,
+          "ExploitRemoteService": 1
+        },
+        "actors": {
+          "Blue": 15,
+          "Red": 15
+        },
+        "outcomes": {
+          "Blue:TRUE": 15,
+          "Red:TRUE": 7,
+          "Red:FALSE": 8
+        },
+        "field_types": {
+          "episode": {
+            "int": 30
+          },
+          "step": {
+            "int": 30
+          },
+          "action": {
+            "str": 30
+          },
+          "agent": {
+            "str": 30
+          },
+          "hostname": {
+            "str": 30
+          },
+          "ip_address": {
+            "str": 30
+          },
+          "success": {
+            "str": 30
+          }
+        },
+        "preview": [
+          {
+            "raw_event": {
+              "episode": 1,
+              "step": 1,
+              "action": "NoOp",
+              "agent": "Blue",
+              "hostname": "Host_0",
+              "ip_address": "10.0.100.10",
+              "success": "TRUE"
+            },
+            "selected_token_fields": [
+              "action",
+              "hostname"
+            ],
+            "tokens": [
+              "NoOp",
+              "Host_0"
+            ],
+            "excluded_fields": [
+              "episode",
+              "step",
+              "agent",
+              "ip_address",
+              "success"
+            ]
+          },
+          {
+            "raw_event": {
+              "episode": 1,
+              "step": 1,
+              "action": "DiscoverNetworkServices",
+              "agent": "Red",
+              "hostname": "Host_0",
+              "ip_address": "10.0.100.10",
+              "success": "TRUE"
+            },
+            "selected_token_fields": [
+              "action",
+              "hostname"
+            ],
+            "tokens": [
+              "DiscoverNetworkServices",
+              "Host_0"
+            ],
+            "excluded_fields": [
+              "episode",
+              "step",
+              "agent",
+              "ip_address",
+              "success"
+            ]
+          },
+          {
+            "raw_event": {
+              "episode": 1,
+              "step": 2,
+              "action": "Remove",
+              "agent": "Blue",
+              "hostname": "Host_0",
+              "ip_address": "10.0.100.10",
+              "success": "TRUE"
+            },
+            "selected_token_fields": [
+              "action",
+              "hostname"
+            ],
+            "tokens": [
+              "Remove",
+              "Host_0"
+            ],
+            "excluded_fields": [
+              "episode",
+              "step",
+              "agent",
+              "ip_address",
+              "success"
+            ]
+          },
+          {
+            "raw_event": {
+              "episode": 1,
+              "step": 2,
+              "action": "PrivilegeEscalate",
+              "agent": "Red",
+              "hostname": "Host_0",
+              "ip_address": "10.0.100.10",
+              "success": "FALSE"
+            },
+            "selected_token_fields": [
+              "action",
+              "hostname"
+            ],
+            "tokens": [
+              "PrivilegeEscalate",
+              "Host_0"
+            ],
+            "excluded_fields": [
+              "episode",
+              "step",
+              "agent",
+              "ip_address",
+              "success"
+            ]
+          },
+          {
+            "raw_event": {
+              "episode": 1,
+              "step": 3,
+              "action": "Remove",
+              "agent": "Blue",
+              "hostname": "Host_0",
+              "ip_address": "10.0.100.10",
+              "success": "TRUE"
+            },
+            "selected_token_fields": [
+              "action",
+              "hostname"
+            ],
+            "tokens": [
+              "Remove",
+              "Host_0"
+            ],
+            "excluded_fields": [
+              "episode",
+              "step",
+              "agent",
+              "ip_address",
+              "success"
+            ]
+          },
+          {
+            "raw_event": {
+              "episode": 1,
+              "step": 3,
+              "action": "DiscoverRemoteSystems",
+              "agent": "Red",
+              "hostname": "Host_0",
+              "ip_address": "10.0.100.10",
+              "success": "TRUE"
+            },
+            "selected_token_fields": [
+              "action",
+              "hostname"
+            ],
+            "tokens": [
+              "DiscoverRemoteSystems",
+              "Host_0"
+            ],
+            "excluded_fields": [
+              "episode",
+              "step",
+              "agent",
+              "ip_address",
+              "success"
+            ]
+          }
+        ],
+        "token_policy": [
+          "action",
+          "hostname",
+          "exploit_class",
+          "exploit_port",
+          "subnetname"
+        ],
+        "token_stream": [
+          "NoOp",
+          "Host_0",
+          "DiscoverNetworkServices",
+          "Host_0",
+          "Remove",
+          "Host_0",
+          "PrivilegeEscalate",
+          "Host_0",
+          "Remove",
+          "Host_0",
+          "DiscoverRemoteSystems",
+          "Host_0",
+          "Remove",
+          "Host_0",
+          "PrivilegeEscalate",
+          "Host_0",
+          "NoOp",
+          "Host_0",
+          "DiscoverRemoteSystems",
+          "Host_0",
+          "Remove",
+          "Host_0",
+          "DiscoverNetworkServices",
+          "Host_0",
+          "NoOp",
+          "Host_0",
+          "Impact",
+          "Host_0",
+          "NoOp",
+          "Host_0",
+          "PrivilegeEscalate",
+          "Host_0",
+          "NoOp",
+          "Host_0",
+          "DiscoverRemoteSystems",
+          "Host_0",
+          "Remove",
+          "Host_0",
+          "Impact",
+          "Host_0",
+          "Remove",
+          "Host_0",
+          "ExploitRemoteService",
+          "Host_0",
+          "NoOp",
+          "Host_0",
+          "DiscoverRemoteSystems",
+          "Host_0",
+          "NoOp",
+          "Host_0",
+          "DiscoverNetworkServices",
+          "Host_0",
+          "Remove",
+          "Host_0",
+          "PrivilegeEscalate",
+          "Host_0",
+          "NoOp",
+          "Host_0",
+          "Impact",
+          "Host_0"
+        ],
+        "prefix_endpoints": [
+          {
+            "episode_container_index": 0,
+            "step_container_index": 0,
+            "episode": 1,
+            "step": 1,
+            "actor": "Blue",
+            "token_start": 0,
+            "prefix_end_exclusive": 2,
+            "positive": true
+          },
+          {
+            "episode_container_index": 0,
+            "step_container_index": 0,
+            "episode": 1,
+            "step": 1,
+            "actor": "Red",
+            "token_start": 2,
+            "prefix_end_exclusive": 4,
+            "positive": true
+          },
+          {
+            "episode_container_index": 0,
+            "step_container_index": 1,
+            "episode": 1,
+            "step": 2,
+            "actor": "Blue",
+            "token_start": 4,
+            "prefix_end_exclusive": 6,
+            "positive": true
+          },
+          {
+            "episode_container_index": 0,
+            "step_container_index": 1,
+            "episode": 1,
+            "step": 2,
+            "actor": "Red",
+            "token_start": 6,
+            "prefix_end_exclusive": 8,
+            "positive": false
+          },
+          {
+            "episode_container_index": 0,
+            "step_container_index": 2,
+            "episode": 1,
+            "step": 3,
+            "actor": "Blue",
+            "token_start": 8,
+            "prefix_end_exclusive": 10,
+            "positive": true
+          },
+          {
+            "episode_container_index": 0,
+            "step_container_index": 2,
+            "episode": 1,
+            "step": 3,
+            "actor": "Red",
+            "token_start": 10,
+            "prefix_end_exclusive": 12,
+            "positive": true
+          },
+          {
+            "episode_container_index": 0,
+            "step_container_index": 3,
+            "episode": 1,
+            "step": 4,
+            "actor": "Blue",
+            "token_start": 12,
+            "prefix_end_exclusive": 14,
+            "positive": true
+          },
+          {
+            "episode_container_index": 0,
+            "step_container_index": 3,
+            "episode": 1,
+            "step": 4,
+            "actor": "Red",
+            "token_start": 14,
+            "prefix_end_exclusive": 16,
+            "positive": false
+          },
+          {
+            "episode_container_index": 0,
+            "step_container_index": 4,
+            "episode": 1,
+            "step": 5,
+            "actor": "Blue",
+            "token_start": 16,
+            "prefix_end_exclusive": 18,
+            "positive": true
+          },
+          {
+            "episode_container_index": 0,
+            "step_container_index": 4,
+            "episode": 1,
+            "step": 5,
+            "actor": "Red",
+            "token_start": 18,
+            "prefix_end_exclusive": 20,
+            "positive": true
+          },
+          {
+            "episode_container_index": 0,
+            "step_container_index": 5,
+            "episode": 1,
+            "step": 6,
+            "actor": "Blue",
+            "token_start": 20,
+            "prefix_end_exclusive": 22,
+            "positive": true
+          },
+          {
+            "episode_container_index": 0,
+            "step_container_index": 5,
+            "episode": 1,
+            "step": 6,
+            "actor": "Red",
+            "token_start": 22,
+            "prefix_end_exclusive": 24,
+            "positive": true
+          },
+          {
+            "episode_container_index": 0,
+            "step_container_index": 6,
+            "episode": 1,
+            "step": 7,
+            "actor": "Blue",
+            "token_start": 24,
+            "prefix_end_exclusive": 26,
+            "positive": true
+          },
+          {
+            "episode_container_index": 0,
+            "step_container_index": 6,
+            "episode": 1,
+            "step": 7,
+            "actor": "Red",
+            "token_start": 26,
+            "prefix_end_exclusive": 28,
+            "positive": false
+          },
+          {
+            "episode_container_index": 0,
+            "step_container_index": 7,
+            "episode": 1,
+            "step": 8,
+            "actor": "Blue",
+            "token_start": 28,
+            "prefix_end_exclusive": 30,
+            "positive": true
+          },
+          {
+            "episode_container_index": 0,
+            "step_container_index": 7,
+            "episode": 1,
+            "step": 8,
+            "actor": "Red",
+            "token_start": 30,
+            "prefix_end_exclusive": 32,
+            "positive": false
+          },
+          {
+            "episode_container_index": 0,
+            "step_container_index": 8,
+            "episode": 1,
+            "step": 9,
+            "actor": "Blue",
+            "token_start": 32,
+            "prefix_end_exclusive": 34,
+            "positive": true
+          },
+          {
+            "episode_container_index": 0,
+            "step_container_index": 8,
+            "episode": 1,
+            "step": 9,
+            "actor": "Red",
+            "token_start": 34,
+            "prefix_end_exclusive": 36,
+            "positive": true
+          },
+          {
+            "episode_container_index": 0,
+            "step_container_index": 9,
+            "episode": 1,
+            "step": 10,
+            "actor": "Blue",
+            "token_start": 36,
+            "prefix_end_exclusive": 38,
+            "positive": true
+          },
+          {
+            "episode_container_index": 0,
+            "step_container_index": 9,
+            "episode": 1,
+            "step": 10,
+            "actor": "Red",
+            "token_start": 38,
+            "prefix_end_exclusive": 40,
+            "positive": false
+          },
+          {
+            "episode_container_index": 0,
+            "step_container_index": 10,
+            "episode": 1,
+            "step": 11,
+            "actor": "Blue",
+            "token_start": 40,
+            "prefix_end_exclusive": 42,
+            "positive": true
+          },
+          {
+            "episode_container_index": 0,
+            "step_container_index": 10,
+            "episode": 1,
+            "step": 11,
+            "actor": "Red",
+            "token_start": 42,
+            "prefix_end_exclusive": 44,
+            "positive": false
+          },
+          {
+            "episode_container_index": 0,
+            "step_container_index": 11,
+            "episode": 1,
+            "step": 12,
+            "actor": "Blue",
+            "token_start": 44,
+            "prefix_end_exclusive": 46,
+            "positive": true
+          },
+          {
+            "episode_container_index": 0,
+            "step_container_index": 11,
+            "episode": 1,
+            "step": 12,
+            "actor": "Red",
+            "token_start": 46,
+            "prefix_end_exclusive": 48,
+            "positive": true
+          },
+          {
+            "episode_container_index": 0,
+            "step_container_index": 12,
+            "episode": 1,
+            "step": 13,
+            "actor": "Blue",
+            "token_start": 48,
+            "prefix_end_exclusive": 50,
+            "positive": true
+          },
+          {
+            "episode_container_index": 0,
+            "step_container_index": 12,
+            "episode": 1,
+            "step": 13,
+            "actor": "Red",
+            "token_start": 50,
+            "prefix_end_exclusive": 52,
+            "positive": true
+          },
+          {
+            "episode_container_index": 0,
+            "step_container_index": 13,
+            "episode": 1,
+            "step": 14,
+            "actor": "Blue",
+            "token_start": 52,
+            "prefix_end_exclusive": 54,
+            "positive": true
+          },
+          {
+            "episode_container_index": 0,
+            "step_container_index": 13,
+            "episode": 1,
+            "step": 14,
+            "actor": "Red",
+            "token_start": 54,
+            "prefix_end_exclusive": 56,
+            "positive": false
+          },
+          {
+            "episode_container_index": 0,
+            "step_container_index": 14,
+            "episode": 1,
+            "step": 15,
+            "actor": "Blue",
+            "token_start": 56,
+            "prefix_end_exclusive": 58,
+            "positive": true
+          },
+          {
+            "episode_container_index": 0,
+            "step_container_index": 14,
+            "episode": 1,
+            "step": 15,
+            "actor": "Red",
+            "token_start": 58,
+            "prefix_end_exclusive": 60,
+            "positive": false
+          }
+        ],
+        "learner_evaluator_token_differences": [],
+        "continuity": "per-file cumulative preview matching learner default; no inter-file concatenation",
+        "not_solver_input": true
+      },
+      "status": "inventoried"
+    },
+    {
+      "archive_path": "artifact/data/one_host_network_validity_only/trial_1/heuristic_15steps/training_traces/output_1.txt",
+      "local_path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-04\\lancer_case_study_v16\\data_audit\\selected_v1\\artifact\\data\\one_host_network_validity_only\\trial_1\\heuristic_15steps\\training_traces\\output_1.txt",
+      "expected_sha256": "c2daaf1f1b8a157e85d52e4f948372a2f778fde89ff46b834443f4906c52f269",
+      "bytes": 4246,
+      "sha256": "c2daaf1f1b8a157e85d52e4f948372a2f778fde89ff46b834443f4906c52f269",
+      "inventory": {
+        "format": "Python_literal_episodes_steps_BlueRed_pairs",
+        "episode_count": 1,
+        "steps_per_episode": [
+          15
+        ],
+        "event_count": 30,
+        "actions": {
+          "Remove": 8,
+          "DiscoverRemoteSystems": 1,
+          "NoOp": 7,
+          "DiscoverNetworkServices": 6,
+          "ExploitRemoteService": 4,
+          "PrivilegeEscalate": 3,
+          "Impact": 1
+        },
+        "actors": {
+          "Blue": 15,
+          "Red": 15
+        },
+        "outcomes": {
+          "Blue:TRUE": 15,
+          "Red:TRUE": 10,
+          "Red:FALSE": 5
+        },
+        "field_types": {
+          "episode": {
+            "int": 30
+          },
+          "step": {
+            "int": 30
+          },
+          "action": {
+            "str": 30
+          },
+          "agent": {
+            "str": 30
+          },
+          "hostname": {
+            "str": 30
+          },
+          "ip_address": {
+            "str": 30
+          },
+          "success": {
+            "str": 30
+          }
+        },
+        "preview": [
+          {
+            "raw_event": {
+              "episode": 1,
+              "step": 1,
+              "action": "Remove",
+              "agent": "Blue",
+              "hostname": "Host_0",
+              "ip_address": "10.0.100.10",
+              "success": "TRUE"
+            },
+            "selected_token_fields": [
+              "action",
+              "hostname"
+            ],
+            "tokens": [
+              "Remove",
+              "Host_0"
+            ],
+            "excluded_fields": [
+              "episode",
+              "step",
+              "agent",
+              "ip_address",
+              "success"
+            ]
+          },
+          {
+            "raw_event": {
+              "episode": 1,
+              "step": 1,
+              "action": "DiscoverRemoteSystems",
+              "agent": "Red",
+              "hostname": "Host_0",
+              "ip_address": "10.0.100.10",
+              "success": "TRUE"
+            },
+            "selected_token_fields": [
+              "action",
+              "hostname"
+            ],
+            "tokens": [
+              "DiscoverRemoteSystems",
+              "Host_0"
+            ],
+            "excluded_fields": [
+              "episode",
+              "step",
+              "agent",
+              "ip_address",
+              "success"
+            ]
+          },
+          {
+            "raw_event": {
+              "episode": 1,
+              "step": 2,
+              "action": "NoOp",
+              "agent": "Blue",
+              "hostname": "Host_0",
+              "ip_address": "10.0.100.10",
+              "success": "TRUE"
+            },
+            "selected_token_fields": [
+              "action",
+              "hostname"
+            ],
+            "tokens": [
+              "NoOp",
+              "Host_0"
+            ],
+            "excluded_fields": [
+              "episode",
+              "step",
+              "agent",
+              "ip_address",
+              "success"
+            ]
+          },
+          {
+            "raw_event": {
+              "episode": 1,
+              "step": 2,
+              "action": "DiscoverNetworkServices",
+              "agent": "Red",
+              "hostname": "Host_0",
+              "ip_address": "10.0.100.10",
+              "success": "TRUE"
+            },
+            "selected_token_fields": [
+              "action",
+              "hostname"
+            ],
+            "tokens": [
+              "DiscoverNetworkServices",
+              "Host_0"
+            ],
+            "excluded_fields": [
+              "episode",
+              "step",
+              "agent",
+              "ip_address",
+              "success"
+            ]
+          },
+          {
+            "raw_event": {
+              "episode": 1,
+              "step": 3,
+              "action": "Remove",
+              "agent": "Blue",
+              "hostname": "Host_0",
+              "ip_address": "10.0.100.10",
+              "success": "TRUE"
+            },
+            "selected_token_fields": [
+              "action",
+              "hostname"
+            ],
+            "tokens": [
+              "Remove",
+              "Host_0"
+            ],
+            "excluded_fields": [
+              "episode",
+              "step",
+              "agent",
+              "ip_address",
+              "success"
+            ]
+          },
+          {
+            "raw_event": {
+              "episode": 1,
+              "step": 3,
+              "action": "ExploitRemoteService",
+              "agent": "Red",
+              "hostname": "Host_0",
+              "ip_address": "10.0.100.10",
+              "success": "FALSE"
+            },
+            "selected_token_fields": [
+              "action",
+              "hostname"
+            ],
+            "tokens": [
+              "ExploitRemoteService",
+              "Host_0"
+            ],
+            "excluded_fields": [
+              "episode",
+              "step",
+              "agent",
+              "ip_address",
+              "success"
+            ]
+          }
+        ],
+        "token_policy": [
+          "action",
+          "hostname",
+          "exploit_class",
+          "exploit_port",
+          "subnetname"
+        ],
+        "token_stream": [
+          "Remove",
+          "Host_0",
+          "DiscoverRemoteSystems",
+          "Host_0",
+          "NoOp",
+          "Host_0",
+          "DiscoverNetworkServices",
+          "Host_0",
+          "Remove",
+          "Host_0",
+          "ExploitRemoteService",
+          "Host_0",
+          "NoOp",
+          "Host_0",
+          "DiscoverNetworkServices",
+          "Host_0",
+          "NoOp",
+          "Host_0",
+          "ExploitRemoteService",
+          "Host_0",
+          "NoOp",
+          "Host_0",
+          "PrivilegeEscalate",
+          "Host_0",
+          "NoOp",
+          "Host_0",
+          "DiscoverNetworkServices",
+          "Host_0",
+          "Remove",
+          "Host_0",
+          "Impact",
+          "Host_0",
+          "Remove",
+          "Host_0",
+          "DiscoverNetworkServices",
+          "Host_0",
+          "Remove",
+          "Host_0",
+          "PrivilegeEscalate",
+          "Host_0",
+          "Remove",
+          "Host_0",
+          "DiscoverNetworkServices",
+          "Host_0",
+          "Remove",
+          "Host_0",
+          "ExploitRemoteService",
+          "Host_0",
+          "NoOp",
+          "Host_0",
+          "DiscoverNetworkServices",
+          "Host_0",
+          "NoOp",
+          "Host_0",
+          "ExploitRemoteService",
+          "Host_0",
+          "Remove",
+          "Host_0",
+          "PrivilegeEscalate",
+          "Host_0"
+        ],
+        "prefix_endpoints": [
+          {
+            "episode_container_index": 0,
+            "step_container_index": 0,
+            "episode": 1,
+            "step": 1,
+            "actor": "Blue",
+            "token_start": 0,
+            "prefix_end_exclusive": 2,
+            "positive": true
+          },
+          {
+            "episode_container_index": 0,
+            "step_container_index": 0,
+            "episode": 1,
+            "step": 1,
+            "actor": "Red",
+            "token_start": 2,
+            "prefix_end_exclusive": 4,
+            "positive": true
+          },
+          {
+            "episode_container_index": 0,
+            "step_container_index": 1,
+            "episode": 1,
+            "step": 2,
+            "actor": "Blue",
+            "token_start": 4,
+            "prefix_end_exclusive": 6,
+            "positive": true
+          },
+          {
+            "episode_container_index": 0,
+            "step_container_index": 1,
+            "episode": 1,
+            "step": 2,
+            "actor": "Red",
+            "token_start": 6,
+            "prefix_end_exclusive": 8,
+            "positive": true
+          },
+          {
+            "episode_container_index": 0,
+            "step_container_index": 2,
+            "episode": 1,
+            "step": 3,
+            "actor": "Blue",
+            "token_start": 8,
+            "prefix_end_exclusive": 10,
+            "positive": true
+          },
+          {
+            "episode_container_index": 0,
+            "step_container_index": 2,
+            "episode": 1,
+            "step": 3,
+            "actor": "Red",
+            "token_start": 10,
+            "prefix_end_exclusive": 12,
+            "positive": false
+          },
+          {
+            "episode_container_index": 0,
+            "step_container_index": 3,
+            "episode": 1,
+            "step": 4,
+            "actor": "Blue",
+            "token_start": 12,
+            "prefix_end_exclusive": 14,
+            "positive": true
+          },
+          {
+            "episode_container_index": 0,
+            "step_container_index": 3,
+            "episode": 1,
+            "step": 4,
+            "actor": "Red",
+            "token_start": 14,
+            "prefix_end_exclusive": 16,
+            "positive": true
+          },
+          {
+            "episode_container_index": 0,
+            "step_container_index": 4,
+            "episode": 1,
+            "step": 5,
+            "actor": "Blue",
+            "token_start": 16,
+            "prefix_end_exclusive": 18,
+            "positive": true
+          },
+          {
+            "episode_container_index": 0,
+            "step_container_index": 4,
+            "episode": 1,
+            "step": 5,
+            "actor": "Red",
+            "token_start": 18,
+            "prefix_end_exclusive": 20,
+            "positive": true
+          },
+          {
+            "episode_container_index": 0,
+            "step_container_index": 5,
+            "episode": 1,
+            "step": 6,
+            "actor": "Blue",
+            "token_start": 20,
+            "prefix_end_exclusive": 22,
+            "positive": true
+          },
+          {
+            "episode_container_index": 0,
+            "step_container_index": 5,
+            "episode": 1,
+            "step": 6,
+            "actor": "Red",
+            "token_start": 22,
+            "prefix_end_exclusive": 24,
+            "positive": true
+          },
+          {
+            "episode_container_index": 0,
+            "step_container_index": 6,
+            "episode": 1,
+            "step": 7,
+            "actor": "Blue",
+            "token_start": 24,
+            "prefix_end_exclusive": 26,
+            "positive": true
+          },
+          {
+            "episode_container_index": 0,
+            "step_container_index": 6,
+            "episode": 1,
+            "step": 7,
+            "actor": "Red",
+            "token_start": 26,
+            "prefix_end_exclusive": 28,
+            "positive": true
+          },
+          {
+            "episode_container_index": 0,
+            "step_container_index": 7,
+            "episode": 1,
+            "step": 8,
+            "actor": "Blue",
+            "token_start": 28,
+            "prefix_end_exclusive": 30,
+            "positive": true
+          },
+          {
+            "episode_container_index": 0,
+            "step_container_index": 7,
+            "episode": 1,
+            "step": 8,
+            "actor": "Red",
+            "token_start": 30,
+            "prefix_end_exclusive": 32,
+            "positive": false
+          },
+          {
+            "episode_container_index": 0,
+            "step_container_index": 8,
+            "episode": 1,
+            "step": 9,
+            "actor": "Blue",
+            "token_start": 32,
+            "prefix_end_exclusive": 34,
+            "positive": true
+          },
+          {
+            "episode_container_index": 0,
+            "step_container_index": 8,
+            "episode": 1,
+            "step": 9,
+            "actor": "Red",
+            "token_start": 34,
+            "prefix_end_exclusive": 36,
+            "positive": true
+          },
+          {
+            "episode_container_index": 0,
+            "step_container_index": 9,
+            "episode": 1,
+            "step": 10,
+            "actor": "Blue",
+            "token_start": 36,
+            "prefix_end_exclusive": 38,
+            "positive": true
+          },
+          {
+            "episode_container_index": 0,
+            "step_container_index": 9,
+            "episode": 1,
+            "step": 10,
+            "actor": "Red",
+            "token_start": 38,
+            "prefix_end_exclusive": 40,
+            "positive": false
+          },
+          {
+            "episode_container_index": 0,
+            "step_container_index": 10,
+            "episode": 1,
+            "step": 11,
+            "actor": "Blue",
+            "token_start": 40,
+            "prefix_end_exclusive": 42,
+            "positive": true
+          },
+          {
+            "episode_container_index": 0,
+            "step_container_index": 10,
+            "episode": 1,
+            "step": 11,
+            "actor": "Red",
+            "token_start": 42,
+            "prefix_end_exclusive": 44,
+            "positive": true
+          },
+          {
+            "episode_container_index": 0,
+            "step_container_index": 11,
+            "episode": 1,
+            "step": 12,
+            "actor": "Blue",
+            "token_start": 44,
+            "prefix_end_exclusive": 46,
+            "positive": true
+          },
+          {
+            "episode_container_index": 0,
+            "step_container_index": 11,
+            "episode": 1,
+            "step": 12,
+            "actor": "Red",
+            "token_start": 46,
+            "prefix_end_exclusive": 48,
+            "positive": false
+          },
+          {
+            "episode_container_index": 0,
+            "step_container_index": 12,
+            "episode": 1,
+            "step": 13,
+            "actor": "Blue",
+            "token_start": 48,
+            "prefix_end_exclusive": 50,
+            "positive": true
+          },
+          {
+            "episode_container_index": 0,
+            "step_container_index": 12,
+            "episode": 1,
+            "step": 13,
+            "actor": "Red",
+            "token_start": 50,
+            "prefix_end_exclusive": 52,
+            "positive": true
+          },
+          {
+            "episode_container_index": 0,
+            "step_container_index": 13,
+            "episode": 1,
+            "step": 14,
+            "actor": "Blue",
+            "token_start": 52,
+            "prefix_end_exclusive": 54,
+            "positive": true
+          },
+          {
+            "episode_container_index": 0,
+            "step_container_index": 13,
+            "episode": 1,
+            "step": 14,
+            "actor": "Red",
+            "token_start": 54,
+            "prefix_end_exclusive": 56,
+            "positive": true
+          },
+          {
+            "episode_container_index": 0,
+            "step_container_index": 14,
+            "episode": 1,
+            "step": 15,
+            "actor": "Blue",
+            "token_start": 56,
+            "prefix_end_exclusive": 58,
+            "positive": true
+          },
+          {
+            "episode_container_index": 0,
+            "step_container_index": 14,
+            "episode": 1,
+            "step": 15,
+            "actor": "Red",
+            "token_start": 58,
+            "prefix_end_exclusive": 60,
+            "positive": false
+          }
+        ],
+        "learner_evaluator_token_differences": [],
+        "continuity": "per-file cumulative preview matching learner default; no inter-file concatenation",
+        "not_solver_input": true
+      },
+      "status": "inventoried"
+    },
+    {
+      "archive_path": "artifact/data/one_host_network_validity_only/eval_traces/eval_50steps/trace1.txt",
+      "local_path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-04\\lancer_case_study_v16\\data_audit\\selected_v1\\artifact\\data\\one_host_network_validity_only\\eval_traces\\eval_50steps\\trace1.txt",
+      "expected_sha256": "90e5e027926ddd6872671dd1a5a9a1494074a5d009f98bccf29e262c2dce3b5c",
+      "bytes": 14033,
+      "sha256": "90e5e027926ddd6872671dd1a5a9a1494074a5d009f98bccf29e262c2dce3b5c",
+      "inventory": {
+        "format": "Python_literal_episodes_steps_BlueRed_pairs",
+        "episode_count": 1,
+        "steps_per_episode": [
+          50
+        ],
+        "event_count": 100,
+        "actions": {
+          "Remove": 31,
+          "DiscoverNetworkServices": 7,
+          "DiscoverRemoteSystems": 11,
+          "ExploitRemoteService": 8,
+          "NoOp": 19,
+          "Impact": 14,
+          "PrivilegeEscalate": 10
+        },
+        "actors": {
+          "Blue": 50,
+          "Red": 50
+        },
+        "outcomes": {
+          "Blue:TRUE": 50,
+          "Red:TRUE": 19,
+          "Red:FALSE": 31
+        },
+        "field_types": {
+          "episode": {
+            "int": 100
+          },
+          "step": {
+            "int": 100
+          },
+          "action": {
+            "str": 100
+          },
+          "agent": {
+            "str": 100
+          },
+          "hostname": {
+            "str": 100
+          },
+          "ip_address": {
+            "str": 100
+          },
+          "success": {
+            "str": 100
+          }
+        },
+        "preview": [
+          {
+            "raw_event": {
+              "episode": 1,
+              "step": 1,
+              "action": "Remove",
+              "agent": "Blue",
+              "hostname": "Host_0",
+              "ip_address": "10.0.100.10",
+              "success": "TRUE"
+            },
+            "selected_token_fields": [
+              "action",
+              "hostname"
+            ],
+            "tokens": [
+              "Remove",
+              "Host_0"
+            ],
+            "excluded_fields": [
+              "episode",
+              "step",
+              "agent",
+              "ip_address",
+              "success"
+            ]
+          },
+          {
+            "raw_event": {
+              "episode": 1,
+              "step": 1,
+              "action": "DiscoverNetworkServices",
+              "agent": "Red",
+              "hostname": "Host_0",
+              "ip_address": "10.0.100.10",
+              "success": "TRUE"
+            },
+            "selected_token_fields": [
+              "action",
+              "hostname"
+            ],
+            "tokens": [
+              "DiscoverNetworkServices",
+              "Host_0"
+            ],
+            "excluded_fields": [
+              "episode",
+              "step",
+              "agent",
+              "ip_address",
+              "success"
+            ]
+          },
+          {
+            "raw_event": {
+              "episode": 1,
+              "step": 2,
+              "action": "Remove",
+              "agent": "Blue",
+              "hostname": "Host_0",
+              "ip_address": "10.0.100.10",
+              "success": "TRUE"
+            },
+            "selected_token_fields": [
+              "action",
+              "hostname"
+            ],
+            "tokens": [
+              "Remove",
+              "Host_0"
+            ],
+            "excluded_fields": [
+              "episode",
+              "step",
+              "agent",
+              "ip_address",
+              "success"
+            ]
+          },
+          {
+            "raw_event": {
+              "episode": 1,
+              "step": 2,
+              "action": "DiscoverRemoteSystems",
+              "agent": "Red",
+              "hostname": "Host_0",
+              "ip_address": "10.0.100.10",
+              "success": "TRUE"
+            },
+            "selected_token_fields": [
+              "action",
+              "hostname"
+            ],
+            "tokens": [
+              "DiscoverRemoteSystems",
+              "Host_0"
+            ],
+            "excluded_fields": [
+              "episode",
+              "step",
+              "agent",
+              "ip_address",
+              "success"
+            ]
+          },
+          {
+            "raw_event": {
+              "episode": 1,
+              "step": 3,
+              "action": "Remove",
+              "agent": "Blue",
+              "hostname": "Host_0",
+              "ip_address": "10.0.100.10",
+              "success": "TRUE"
+            },
+            "selected_token_fields": [
+              "action",
+              "hostname"
+            ],
+            "tokens": [
+              "Remove",
+              "Host_0"
+            ],
+            "excluded_fields": [
+              "episode",
+              "step",
+              "agent",
+              "ip_address",
+              "success"
+            ]
+          },
+          {
+            "raw_event": {
+              "episode": 1,
+              "step": 3,
+              "action": "ExploitRemoteService",
+              "agent": "Red",
+              "hostname": "Host_0",
+              "ip_address": "10.0.100.10",
+              "success": "FALSE"
+            },
+            "selected_token_fields": [
+              "action",
+              "hostname"
+            ],
+            "tokens": [
+              "ExploitRemoteService",
+              "Host_0"
+            ],
+            "excluded_fields": [
+              "episode",
+              "step",
+              "agent",
+              "ip_address",
+              "success"
+            ]
+          }
+        ],
+        "token_policy": [
+          "action",
+          "hostname",
+          "exploit_class",
+          "exploit_port",
+          "subnetname"
+        ],
+        "token_stream": [
+          "Remove",
+          "Host_0",
+          "DiscoverNetworkServices",
+          "Host_0",
+          "Remove",
+          "Host_0",
+          "DiscoverRemoteSystems",
+          "Host_0",
+          "Remove",
+          "Host_0",
+          "ExploitRemoteService",
+          "Host_0",
+          "Remove",
+          "Host_0",
+          "ExploitRemoteService",
+          "Host_0",
+          "NoOp",
+          "Host_0",
+          "DiscoverNetworkServices",
+          "Host_0",
+          "Remove",
+          "Host_0",
+          "Impact",
+          "Host_0",
+          "NoOp",
+          "Host_0",
+          "ExploitRemoteService",
+          "Host_0",
+          "Remove",
+          "Host_0",
+          "DiscoverNetworkServices",
+          "Host_0",
+          "NoOp",
+          "Host_0",
+          "DiscoverRemoteSystems",
+          "Host_0",
+          "NoOp",
+          "Host_0",
+          "DiscoverRemoteSystems",
+          "Host_0",
+          "Remove",
+          "Host_0",
+          "PrivilegeEscalate",
+          "Host_0",
+          "Remove",
+          "Host_0",
+          "PrivilegeEscalate",
+          "Host_0",
+          "Remove",
+          "Host_0",
+          "DiscoverRemoteSystems",
+          "Host_0",
+          "NoOp",
+          "Host_0",
+          "PrivilegeEscalate",
+          "Host_0",
+          "Remove",
+          "Host_0",
+          "DiscoverRemoteSystems",
+          "Host_0",
+          "Remove",
+          "Host_0",
+          "DiscoverNetworkServices",
+          "Host_0",
+          "NoOp",
+          "Host_0",
+          "Impact",
+          "Host_0",
+          "Remove",
+          "Host_0",
+          "DiscoverRemoteSystems",
+          "Host_0",
+          "NoOp",
+          "Host_0",
+          "Impact",
+          "Host_0",
+          "Remove",
+          "Host_0",
+          "ExploitRemoteService",
+          "Host_0",
+          "NoOp",
+          "Host_0",
+          "ExploitRemoteService",
+          "Host_0",
+          "Remove",
+          "Host_0",
+          "Impact",
+          "Host_0",
+          "NoOp",
+          "Host_0",
+          "DiscoverRemoteSystems",
+          "Host_0",
+          "Remove",
+          "Host_0",
+          "Impact",
+          "Host_0",
+          "Remove",
+          "Host_0",
+          "ExploitRemoteService",
+          "Host_0",
+          "Remove",
+          "Host_0",
+          "Impact",
+          "Host_0",
+          "Remove",
+          "Host_0",
+          "Impact",
+          "Host_0",
+          "Remove",
+          "Host_0",
+          "DiscoverRemoteSystems",
+          "Host_0",
+          "NoOp",
+          "Host_0",
+          "Impact",
+          "Host_0",
+          "NoOp",
+          "Host_0",
+          "DiscoverNetworkServices",
+          "Host_0",
+          "NoOp",
+          "Host_0",
+          "Impact",
+          "Host_0",
+          "NoOp",
+          "Host_0",
+          "PrivilegeEscalate",
+          "Host_0",
+          "NoOp",
+          "Host_0",
+          "ExploitRemoteService",
+          "Host_0",
+          "Remove",
+          "Host_0",
+          "DiscoverNetworkServices",
+          "Host_0",
+          "Remove",
+          "Host_0",
+          "PrivilegeEscalate",
+          "Host_0",
+          "Remove",
+          "Host_0",
+          "PrivilegeEscalate",
+          "Host_0",
+          "Remove",
+          "Host_0",
+          "Impact",
+          "Host_0",
+          "NoOp",
+          "Host_0",
+          "PrivilegeEscalate",
+          "Host_0",
+          "Remove",
+          "Host_0",
+          "DiscoverRemoteSystems",
+          "Host_0",
+          "NoOp",
+          "Host_0",
+          "Impact",
+          "Host_0",
+          "Remove",
+          "Host_0",
+          "PrivilegeEscalate",
+          "Host_0",
+          "Remove",
+          "Host_0",
+          "DiscoverNetworkServices",
+          "Host_0",
+          "Remove",
+          "Host_0",
+          "PrivilegeEscalate",
+          "Host_0",
+          "NoOp",
+          "Host_0",
+          "Impact",
+          "Host_0",
+          "NoOp",
+          "Host_0",
+          "ExploitRemoteService",
+          "Host_0",
+          "Remove",
+          "Host_0",
+          "PrivilegeEscalate",
+          "Host_0",
+          "Remove",
+          "Host_0",
+          "DiscoverRemoteSystems",
+          "Host_0",
+          "NoOp",
+          "Host_0",
+          "DiscoverRemoteSystems",
+          "Host_0",
+          "Remove",
+          "Host_0",
+          "Impact",
+          "Host_0",
+          "Remove",
+          "Host_0",
+          "Impact",
+          "Host_0"
+        ],
+        "prefix_endpoints": [
+          {
+            "episode_container_index": 0,
+            "step_container_index": 0,
+            "episode": 1,
+            "step": 1,
+            "actor": "Blue",
+            "token_start": 0,
+            "prefix_end_exclusive": 2,
+            "positive": true
+          },
+          {
+            "episode_container_index": 0,
+            "step_container_index": 0,
+            "episode": 1,
+            "step": 1,
+            "actor": "Red",
+            "token_start": 2,
+            "prefix_end_exclusive": 4,
+            "positive": true
+          },
+          {
+            "episode_container_index": 0,
+            "step_container_index": 1,
+            "episode": 1,
+            "step": 2,
+            "actor": "Blue",
+            "token_start": 4,
+            "prefix_end_exclusive": 6,
+            "positive": true
+          },
+          {
+            "episode_container_index": 0,
+            "step_container_index": 1,
+            "episode": 1,
+            "step": 2,
+            "actor": "Red",
+            "token_start": 6,
+            "prefix_end_exclusive": 8,
+            "positive": true
+          },
+          {
+            "episode_container_index": 0,
+            "step_container_index": 2,
+            "episode": 1,
+            "step": 3,
+            "actor": "Blue",
+            "token_start": 8,
+            "prefix_end_exclusive": 10,
+            "positive": true
+          },
+          {
+            "episode_container_index": 0,
+            "step_container_index": 2,
+            "episode": 1,
+            "step": 3,
+            "actor": "Red",
+            "token_start": 10,
+            "prefix_end_exclusive": 12,
+            "positive": false
+          },
+          {
+            "episode_container_index": 0,
+            "step_container_index": 3,
+            "episode": 1,
+            "step": 4,
+            "actor": "Blue",
+            "token_start": 12,
+            "prefix_end_exclusive": 14,
+            "positive": true
+          },
+          {
+            "episode_container_index": 0,
+            "step_container_index": 3,
+            "episode": 1,
+            "step": 4,
+            "actor": "Red",
+            "token_start": 14,
+            "prefix_end_exclusive": 16,
+            "positive": false
+          },
+          {
+            "episode_container_index": 0,
+            "step_container_index": 4,
+            "episode": 1,
+            "step": 5,
+            "actor": "Blue",
+            "token_start": 16,
+            "prefix_end_exclusive": 18,
+            "positive": true
+          },
+          {
+            "episode_container_index": 0,
+            "step_container_index": 4,
+            "episode": 1,
+            "step": 5,
+            "actor": "Red",
+            "token_start": 18,
+            "prefix_end_exclusive": 20,
+            "positive": true
+          },
+          {
+            "episode_container_index": 0,
+            "step_container_index": 5,
+            "episode": 1,
+            "step": 6,
+            "actor": "Blue",
+            "token_start": 20,
+            "prefix_end_exclusive": 22,
+            "positive": true
+          },
+          {
+            "episode_container_index": 0,
+            "step_container_index": 5,
+            "episode": 1,
+            "step": 6,
+            "actor": "Red",
+            "token_start": 22,
+            "prefix_end_exclusive": 24,
+            "positive": false
+          },
+          {
+            "episode_container_index": 0,
+            "step_container_index": 6,
+            "episode": 1,
+            "step": 7,
+            "actor": "Blue",
+            "token_start": 24,
+            "prefix_end_exclusive": 26,
+            "positive": true
+          },
+          {
+            "episode_container_index": 0,
+            "step_container_index": 6,
+            "episode": 1,
+            "step": 7,
+            "actor": "Red",
+            "token_start": 26,
+            "prefix_end_exclusive": 28,
+            "positive": false
+          },
+          {
+            "episode_container_index": 0,
+            "step_container_index": 7,
+            "episode": 1,
+            "step": 8,
+            "actor": "Blue",
+            "token_start": 28,
+            "prefix_end_exclusive": 30,
+            "positive": true
+          },
+          {
+            "episode_container_index": 0,
+            "step_container_index": 7,
+            "episode": 1,
+            "step": 8,
+            "actor": "Red",
+            "token_start": 30,
+            "prefix_end_exclusive": 32,
+            "positive": true
+          },
+          {
+            "episode_container_index": 0,
+            "step_container_index": 8,
+            "episode": 1,
+            "step": 9,
+            "actor": "Blue",
+            "token_start": 32,
+            "prefix_end_exclusive": 34,
+            "positive": true
+          },
+          {
+            "episode_container_index": 0,
+            "step_container_index": 8,
+            "episode": 1,
+            "step": 9,
+            "actor": "Red",
+            "token_start": 34,
+            "prefix_end_exclusive": 36,
+            "positive": true
+          },
+          {
+            "episode_container_index": 0,
+            "step_container_index": 9,
+            "episode": 1,
+            "step": 10,
+            "actor": "Blue",
+            "token_start": 36,
+            "prefix_end_exclusive": 38,
+            "positive": true
+          },
+          {
+            "episode_container_index": 0,
+            "step_container_index": 9,
+            "episode": 1,
+            "step": 10,
+            "actor": "Red",
+            "token_start": 38,
+            "prefix_end_exclusive": 40,
+            "positive": true
+          },
+          {
+            "episode_container_index": 0,
+            "step_container_index": 10,
+            "episode": 1,
+            "step": 11,
+            "actor": "Blue",
+            "token_start": 40,
+            "prefix_end_exclusive": 42,
+            "positive": true
+          },
+          {
+            "episode_container_index": 0,
+            "step_container_index": 10,
+            "episode": 1,
+            "step": 11,
+            "actor": "Red",
+            "token_start": 42,
+            "prefix_end_exclusive": 44,
+            "positive": false
+          },
+          {
+            "episode_container_index": 0,
+            "step_container_index": 11,
+            "episode": 1,
+            "step": 12,
+            "actor": "Blue",
+            "token_start": 44,
+            "prefix_end_exclusive": 46,
+            "positive": true
+          },
+          {
+            "episode_container_index": 0,
+            "step_container_index": 11,
+            "episode": 1,
+            "step": 12,
+            "actor": "Red",
+            "token_start": 46,
+            "prefix_end_exclusive": 48,
+            "positive": false
+          },
+          {
+            "episode_container_index": 0,
+            "step_container_index": 12,
+            "episode": 1,
+            "step": 13,
+            "actor": "Blue",
+            "token_start": 48,
+            "prefix_end_exclusive": 50,
+            "positive": true
+          },
+          {
+            "episode_container_index": 0,
+            "step_container_index": 12,
+            "episode": 1,
+            "step": 13,
+            "actor": "Red",
+            "token_start": 50,
+            "prefix_end_exclusive": 52,
+            "positive": true
+          },
+          {
+            "episode_container_index": 0,
+            "step_container_index": 13,
+            "episode": 1,
+            "step": 14,
+            "actor": "Blue",
+            "token_start": 52,
+            "prefix_end_exclusive": 54,
+            "positive": true
+          },
+          {
+            "episode_container_index": 0,
+            "step_container_index": 13,
+            "episode": 1,
+            "step": 14,
+            "actor": "Red",
+            "token_start": 54,
+            "prefix_end_exclusive": 56,
+            "positive": false
+          },
+          {
+            "episode_container_index": 0,
+            "step_container_index": 14,
+            "episode": 1,
+            "step": 15,
+            "actor": "Blue",
+            "token_start": 56,
+            "prefix_end_exclusive": 58,
+            "positive": true
+          },
+          {
+            "episode_container_index": 0,
+            "step_container_index": 14,
+            "episode": 1,
+            "step": 15,
+            "actor": "Red",
+            "token_start": 58,
+            "prefix_end_exclusive": 60,
+            "positive": true
+          },
+          {
+            "episode_container_index": 0,
+            "step_container_index": 15,
+            "episode": 1,
+            "step": 16,
+            "actor": "Blue",
+            "token_start": 60,
+            "prefix_end_exclusive": 62,
+            "positive": true
+          },
+          {
+            "episode_container_index": 0,
+            "step_container_index": 15,
+            "episode": 1,
+            "step": 16,
+            "actor": "Red",
+            "token_start": 62,
+            "prefix_end_exclusive": 64,
+            "positive": true
+          },
+          {
+            "episode_container_index": 0,
+            "step_container_index": 16,
+            "episode": 1,
+            "step": 17,
+            "actor": "Blue",
+            "token_start": 64,
+            "prefix_end_exclusive": 66,
+            "positive": true
+          },
+          {
+            "episode_container_index": 0,
+            "step_container_index": 16,
+            "episode": 1,
+            "step": 17,
+            "actor": "Red",
+            "token_start": 66,
+            "prefix_end_exclusive": 68,
+            "positive": false
+          },
+          {
+            "episode_container_index": 0,
+            "step_container_index": 17,
+            "episode": 1,
+            "step": 18,
+            "actor": "Blue",
+            "token_start": 68,
+            "prefix_end_exclusive": 70,
+            "positive": true
+          },
+          {
+            "episode_container_index": 0,
+            "step_container_index": 17,
+            "episode": 1,
+            "step": 18,
+            "actor": "Red",
+            "token_start": 70,
+            "prefix_end_exclusive": 72,
+            "positive": true
+          },
+          {
+            "episode_container_index": 0,
+            "step_container_index": 18,
+            "episode": 1,
+            "step": 19,
+            "actor": "Blue",
+            "token_start": 72,
+            "prefix_end_exclusive": 74,
+            "positive": true
+          },
+          {
+            "episode_container_index": 0,
+            "step_container_index": 18,
+            "episode": 1,
+            "step": 19,
+            "actor": "Red",
+            "token_start": 74,
+            "prefix_end_exclusive": 76,
+            "positive": false
+          },
+          {
+            "episode_container_index": 0,
+            "step_container_index": 19,
+            "episode": 1,
+            "step": 20,
+            "actor": "Blue",
+            "token_start": 76,
+            "prefix_end_exclusive": 78,
+            "positive": true
+          },
+          {
+            "episode_container_index": 0,
+            "step_container_index": 19,
+            "episode": 1,
+            "step": 20,
+            "actor": "Red",
+            "token_start": 78,
+            "prefix_end_exclusive": 80,
+            "positive": false
+          },
+          {
+            "episode_container_index": 0,
+            "step_container_index": 20,
+            "episode": 1,
+            "step": 21,
+            "actor": "Blue",
+            "token_start": 80,
+            "prefix_end_exclusive": 82,
+            "positive": true
+          },
+          {
+            "episode_container_index": 0,
+            "step_container_index": 20,
+            "episode": 1,
+            "step": 21,
+            "actor": "Red",
+            "token_start": 82,
+            "prefix_end_exclusive": 84,
+            "positive": false
+          },
+          {
+            "episode_container_index": 0,
+            "step_container_index": 21,
+            "episode": 1,
+            "step": 22,
+            "actor": "Blue",
+            "token_start": 84,
+            "prefix_end_exclusive": 86,
+            "positive": true
+          },
+          {
+            "episode_container_index": 0,
+            "step_container_index": 21,
+            "episode": 1,
+            "step": 22,
+            "actor": "Red",
+            "token_start": 86,
+            "prefix_end_exclusive": 88,
+            "positive": false
+          },
+          {
+            "episode_container_index": 0,
+            "step_container_index": 22,
+            "episode": 1,
+            "step": 23,
+            "actor": "Blue",
+            "token_start": 88,
+            "prefix_end_exclusive": 90,
+            "positive": true
+          },
+          {
+            "episode_container_index": 0,
+            "step_container_index": 22,
+            "episode": 1,
+            "step": 23,
+            "actor": "Red",
+            "token_start": 90,
+            "prefix_end_exclusive": 92,
+            "positive": true
+          },
+          {
+            "episode_container_index": 0,
+            "step_container_index": 23,
+            "episode": 1,
+            "step": 24,
+            "actor": "Blue",
+            "token_start": 92,
+            "prefix_end_exclusive": 94,
+            "positive": true
+          },
+          {
+            "episode_container_index": 0,
+            "step_container_index": 23,
+            "episode": 1,
+            "step": 24,
+            "actor": "Red",
+            "token_start": 94,
+            "prefix_end_exclusive": 96,
+            "positive": false
+          },
+          {
+            "episode_container_index": 0,
+            "step_container_index": 24,
+            "episode": 1,
+            "step": 25,
+            "actor": "Blue",
+            "token_start": 96,
+            "prefix_end_exclusive": 98,
+            "positive": true
+          },
+          {
+            "episode_container_index": 0,
+            "step_container_index": 24,
+            "episode": 1,
+            "step": 25,
+            "actor": "Red",
+            "token_start": 98,
+            "prefix_end_exclusive": 100,
+            "positive": false
+          },
+          {
+            "episode_container_index": 0,
+            "step_container_index": 25,
+            "episode": 1,
+            "step": 26,
+            "actor": "Blue",
+            "token_start": 100,
+            "prefix_end_exclusive": 102,
+            "positive": true
+          },
+          {
+            "episode_container_index": 0,
+            "step_container_index": 25,
+            "episode": 1,
+            "step": 26,
+            "actor": "Red",
+            "token_start": 102,
+            "prefix_end_exclusive": 104,
+            "positive": false
+          },
+          {
+            "episode_container_index": 0,
+            "step_container_index": 26,
+            "episode": 1,
+            "step": 27,
+            "actor": "Blue",
+            "token_start": 104,
+            "prefix_end_exclusive": 106,
+            "positive": true
+          },
+          {
+            "episode_container_index": 0,
+            "step_container_index": 26,
+            "episode": 1,
+            "step": 27,
+            "actor": "Red",
+            "token_start": 106,
+            "prefix_end_exclusive": 108,
+            "positive": false
+          },
+          {
+            "episode_container_index": 0,
+            "step_container_index": 27,
+            "episode": 1,
+            "step": 28,
+            "actor": "Blue",
+            "token_start": 108,
+            "prefix_end_exclusive": 110,
+            "positive": true
+          },
+          {
+            "episode_container_index": 0,
+            "step_container_index": 27,
+            "episode": 1,
+            "step": 28,
+            "actor": "Red",
+            "token_start": 110,
+            "prefix_end_exclusive": 112,
+            "positive": true
+          },
+          {
+            "episode_container_index": 0,
+            "step_container_index": 28,
+            "episode": 1,
+            "step": 29,
+            "actor": "Blue",
+            "token_start": 112,
+            "prefix_end_exclusive": 114,
+            "positive": true
+          },
+          {
+            "episode_container_index": 0,
+            "step_container_index": 28,
+            "episode": 1,
+            "step": 29,
+            "actor": "Red",
+            "token_start": 114,
+            "prefix_end_exclusive": 116,
+            "positive": false
+          },
+          {
+            "episode_container_index": 0,
+            "step_container_index": 29,
+            "episode": 1,
+            "step": 30,
+            "actor": "Blue",
+            "token_start": 116,
+            "prefix_end_exclusive": 118,
+            "positive": true
+          },
+          {
+            "episode_container_index": 0,
+            "step_container_index": 29,
+            "episode": 1,
+            "step": 30,
+            "actor": "Red",
+            "token_start": 118,
+            "prefix_end_exclusive": 120,
+            "positive": true
+          },
+          {
+            "episode_container_index": 0,
+            "step_container_index": 30,
+            "episode": 1,
+            "step": 31,
+            "actor": "Blue",
+            "token_start": 120,
+            "prefix_end_exclusive": 122,
+            "positive": true
+          },
+          {
+            "episode_container_index": 0,
+            "step_container_index": 30,
+            "episode": 1,
+            "step": 31,
+            "actor": "Red",
+            "token_start": 122,
+            "prefix_end_exclusive": 124,
+            "positive": false
+          },
+          {
+            "episode_container_index": 0,
+            "step_container_index": 31,
+            "episode": 1,
+            "step": 32,
+            "actor": "Blue",
+            "token_start": 124,
+            "prefix_end_exclusive": 126,
+            "positive": true
+          },
+          {
+            "episode_container_index": 0,
+            "step_container_index": 31,
+            "episode": 1,
+            "step": 32,
+            "actor": "Red",
+            "token_start": 126,
+            "prefix_end_exclusive": 128,
+            "positive": false
+          },
+          {
+            "episode_container_index": 0,
+            "step_container_index": 32,
+            "episode": 1,
+            "step": 33,
+            "actor": "Blue",
+            "token_start": 128,
+            "prefix_end_exclusive": 130,
+            "positive": true
+          },
+          {
+            "episode_container_index": 0,
+            "step_container_index": 32,
+            "episode": 1,
+            "step": 33,
+            "actor": "Red",
+            "token_start": 130,
+            "prefix_end_exclusive": 132,
+            "positive": true
+          },
+          {
+            "episode_container_index": 0,
+            "step_container_index": 33,
+            "episode": 1,
+            "step": 34,
+            "actor": "Blue",
+            "token_start": 132,
+            "prefix_end_exclusive": 134,
+            "positive": true
+          },
+          {
+            "episode_container_index": 0,
+            "step_container_index": 33,
+            "episode": 1,
+            "step": 34,
+            "actor": "Red",
+            "token_start": 134,
+            "prefix_end_exclusive": 136,
+            "positive": true
+          },
+          {
+            "episode_container_index": 0,
+            "step_container_index": 34,
+            "episode": 1,
+            "step": 35,
+            "actor": "Blue",
+            "token_start": 136,
+            "prefix_end_exclusive": 138,
+            "positive": true
+          },
+          {
+            "episode_container_index": 0,
+            "step_container_index": 34,
+            "episode": 1,
+            "step": 35,
+            "actor": "Red",
+            "token_start": 138,
+            "prefix_end_exclusive": 140,
+            "positive": false
+          },
+          {
+            "episode_container_index": 0,
+            "step_container_index": 35,
+            "episode": 1,
+            "step": 36,
+            "actor": "Blue",
+            "token_start": 140,
+            "prefix_end_exclusive": 142,
+            "positive": true
+          },
+          {
+            "episode_container_index": 0,
+            "step_container_index": 35,
+            "episode": 1,
+            "step": 36,
+            "actor": "Red",
+            "token_start": 142,
+            "prefix_end_exclusive": 144,
+            "positive": false
+          },
+          {
+            "episode_container_index": 0,
+            "step_container_index": 36,
+            "episode": 1,
+            "step": 37,
+            "actor": "Blue",
+            "token_start": 144,
+            "prefix_end_exclusive": 146,
+            "positive": true
+          },
+          {
+            "episode_container_index": 0,
+            "step_container_index": 36,
+            "episode": 1,
+            "step": 37,
+            "actor": "Red",
+            "token_start": 146,
+            "prefix_end_exclusive": 148,
+            "positive": false
+          },
+          {
+            "episode_container_index": 0,
+            "step_container_index": 37,
+            "episode": 1,
+            "step": 38,
+            "actor": "Blue",
+            "token_start": 148,
+            "prefix_end_exclusive": 150,
+            "positive": true
+          },
+          {
+            "episode_container_index": 0,
+            "step_container_index": 37,
+            "episode": 1,
+            "step": 38,
+            "actor": "Red",
+            "token_start": 150,
+            "prefix_end_exclusive": 152,
+            "positive": false
+          },
+          {
+            "episode_container_index": 0,
+            "step_container_index": 38,
+            "episode": 1,
+            "step": 39,
+            "actor": "Blue",
+            "token_start": 152,
+            "prefix_end_exclusive": 154,
+            "positive": true
+          },
+          {
+            "episode_container_index": 0,
+            "step_container_index": 38,
+            "episode": 1,
+            "step": 39,
+            "actor": "Red",
+            "token_start": 154,
+            "prefix_end_exclusive": 156,
+            "positive": true
+          },
+          {
+            "episode_container_index": 0,
+            "step_container_index": 39,
+            "episode": 1,
+            "step": 40,
+            "actor": "Blue",
+            "token_start": 156,
+            "prefix_end_exclusive": 158,
+            "positive": true
+          },
+          {
+            "episode_container_index": 0,
+            "step_container_index": 39,
+            "episode": 1,
+            "step": 40,
+            "actor": "Red",
+            "token_start": 158,
+            "prefix_end_exclusive": 160,
+            "positive": false
+          },
+          {
+            "episode_container_index": 0,
+            "step_container_index": 40,
+            "episode": 1,
+            "step": 41,
+            "actor": "Blue",
+            "token_start": 160,
+            "prefix_end_exclusive": 162,
+            "positive": true
+          },
+          {
+            "episode_container_index": 0,
+            "step_container_index": 40,
+            "episode": 1,
+            "step": 41,
+            "actor": "Red",
+            "token_start": 162,
+            "prefix_end_exclusive": 164,
+            "positive": false
+          },
+          {
+            "episode_container_index": 0,
+            "step_container_index": 41,
+            "episode": 1,
+            "step": 42,
+            "actor": "Blue",
+            "token_start": 164,
+            "prefix_end_exclusive": 166,
+            "positive": true
+          },
+          {
+            "episode_container_index": 0,
+            "step_container_index": 41,
+            "episode": 1,
+            "step": 42,
+            "actor": "Red",
+            "token_start": 166,
+            "prefix_end_exclusive": 168,
+            "positive": true
+          },
+          {
+            "episode_container_index": 0,
+            "step_container_index": 42,
+            "episode": 1,
+            "step": 43,
+            "actor": "Blue",
+            "token_start": 168,
+            "prefix_end_exclusive": 170,
+            "positive": true
+          },
+          {
+            "episode_container_index": 0,
+            "step_container_index": 42,
+            "episode": 1,
+            "step": 43,
+            "actor": "Red",
+            "token_start": 170,
+            "prefix_end_exclusive": 172,
+            "positive": false
+          },
+          {
+            "episode_container_index": 0,
+            "step_container_index": 43,
+            "episode": 1,
+            "step": 44,
+            "actor": "Blue",
+            "token_start": 172,
+            "prefix_end_exclusive": 174,
+            "positive": true
+          },
+          {
+            "episode_container_index": 0,
+            "step_container_index": 43,
+            "episode": 1,
+            "step": 44,
+            "actor": "Red",
+            "token_start": 174,
+            "prefix_end_exclusive": 176,
+            "positive": false
+          },
+          {
+            "episode_container_index": 0,
+            "step_container_index": 44,
+            "episode": 1,
+            "step": 45,
+            "actor": "Blue",
+            "token_start": 176,
+            "prefix_end_exclusive": 178,
+            "positive": true
+          },
+          {
+            "episode_container_index": 0,
+            "step_container_index": 44,
+            "episode": 1,
+            "step": 45,
+            "actor": "Red",
+            "token_start": 178,
+            "prefix_end_exclusive": 180,
+            "positive": false
+          },
+          {
+            "episode_container_index": 0,
+            "step_container_index": 45,
+            "episode": 1,
+            "step": 46,
+            "actor": "Blue",
+            "token_start": 180,
+            "prefix_end_exclusive": 182,
+            "positive": true
+          },
+          {
+            "episode_container_index": 0,
+            "step_container_index": 45,
+            "episode": 1,
+            "step": 46,
+            "actor": "Red",
+            "token_start": 182,
+            "prefix_end_exclusive": 184,
+            "positive": false
+          },
+          {
+            "episode_container_index": 0,
+            "step_container_index": 46,
+            "episode": 1,
+            "step": 47,
+            "actor": "Blue",
+            "token_start": 184,
+            "prefix_end_exclusive": 186,
+            "positive": true
+          },
+          {
+            "episode_container_index": 0,
+            "step_container_index": 46,
+            "episode": 1,
+            "step": 47,
+            "actor": "Red",
+            "token_start": 186,
+            "prefix_end_exclusive": 188,
+            "positive": true
+          },
+          {
+            "episode_container_index": 0,
+            "step_container_index": 47,
+            "episode": 1,
+            "step": 48,
+            "actor": "Blue",
+            "token_start": 188,
+            "prefix_end_exclusive": 190,
+            "positive": true
+          },
+          {
+            "episode_container_index": 0,
+            "step_container_index": 47,
+            "episode": 1,
+            "step": 48,
+            "actor": "Red",
+            "token_start": 190,
+            "prefix_end_exclusive": 192,
+            "positive": true
+          },
+          {
+            "episode_container_index": 0,
+            "step_container_index": 48,
+            "episode": 1,
+            "step": 49,
+            "actor": "Blue",
+            "token_start": 192,
+            "prefix_end_exclusive": 194,
+            "positive": true
+          },
+          {
+            "episode_container_index": 0,
+            "step_container_index": 48,
+            "episode": 1,
+            "step": 49,
+            "actor": "Red",
+            "token_start": 194,
+            "prefix_end_exclusive": 196,
+            "positive": false
+          },
+          {
+            "episode_container_index": 0,
+            "step_container_index": 49,
+            "episode": 1,
+            "step": 50,
+            "actor": "Blue",
+            "token_start": 196,
+            "prefix_end_exclusive": 198,
+            "positive": true
+          },
+          {
+            "episode_container_index": 0,
+            "step_container_index": 49,
+            "episode": 1,
+            "step": 50,
+            "actor": "Red",
+            "token_start": 198,
+            "prefix_end_exclusive": 200,
+            "positive": false
+          }
+        ],
+        "learner_evaluator_token_differences": [],
+        "continuity": "per-file cumulative preview matching learner default; no inter-file concatenation",
+        "not_solver_input": true
+      },
+      "status": "inventoried"
+    }
+  ],
+  "errors": [],
+  "wall_seconds": 8.779734499999904,
+  "status": "complete_selected_six_file_inventory"
+}
