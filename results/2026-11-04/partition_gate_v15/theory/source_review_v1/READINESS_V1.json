@@ -1,0 +1,46 @@
+{
+  "schema_version": 1,
+  "cycle": "C015",
+  "status": "frozen_pending_independent_static_review",
+  "execution_status": "not_run",
+  "files": {
+    "gate_v1.py": {
+      "bytes": 14652,
+      "sha256": "630850cc1e0ae469438340c5bf6e73bb9fa2ca71e24429d1e58d966c85e4cc05"
+    },
+    "partition_gate_v1.py": {
+      "bytes": 2745,
+      "sha256": "60a5865a1846ed060b0954eef9cc7937d8709cb2a1aec4a4dbfc0925fac27758"
+    },
+    "API_PROTOCOL_V1.md": {
+      "bytes": 7499,
+      "sha256": "828eada435681f5ca4c7b33b7437a429efd1ee94a027aac2f3865ddc5a067a4e"
+    },
+    "REVIEW_OBLIGATIONS_V1.md": {
+      "bytes": 2611,
+      "sha256": "461e7c85341213825aeb0442ec163c6196deb7dc92aa4a8e03d677318751110e"
+    }
+  },
+  "input": "exactly alphabet/positive/negative; optional externally trusted known_k API/CLI argument",
+  "statuses": ["certified_unique", "ambiguous", "incompatible", "unresolved", "invalid_input"],
+  "partition_release": "selected partition only in certified_unique; ambiguous supplies two compatible distinct alternatives; unresolved releases none",
+  "routes": [
+    "sparse exact unary all-partitions certificate",
+    "consistent labels and explicit known_k=1",
+    "sound adjacent-swap spanning forest + exact component feasibility",
+    "trusted-count atom upper-bound contradiction or exact-r atom infeasibility",
+    "complete canonical atom-RGS search stopping after two exact witnesses"
+  ],
+  "search": "canonical RGS; only safe count pruning; lazy4096-entry reject-mask LRU; no eager2^m allocation",
+  "certificate": "input indices, partitions and local-language rule; no repeated trace projection strings",
+  "dependencies": "Python standard library only; no C009/C010/C011 imports or calls",
+  "limitations": [
+    "uniqueness depends on declared independence/regular-factor/noise-free assumptions and any explicit K",
+    "two witnesses certify ambiguity without enumerating all answers",
+    "unique/incompatible may require exponential complete search",
+    "native parsing/hashing/sorting/allocation/serialization need external hard timeout",
+    "cache entry bound is not a byte bound"
+  ],
+  "next_gate": "independent theory/auditor static review of exact hashes, then master GO before captured runtime checks",
+  "source_execution_claim": false
+}

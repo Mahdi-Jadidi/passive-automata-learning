@@ -1,0 +1,1 @@
+Master launches frozen run_audit_v1.py directly after source-hash GO. Exclusive audit launch guard prevents duplicates. Auditor must observe this existing run, not start a second run. All code written by delegated implementation/audit agents; master executes reviewed orchestration only.

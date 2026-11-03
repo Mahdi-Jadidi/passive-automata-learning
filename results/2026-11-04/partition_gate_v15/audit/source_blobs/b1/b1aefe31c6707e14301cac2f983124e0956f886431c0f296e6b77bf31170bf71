@@ -1,0 +1,9 @@
+# C015: prerequisite gate and conditional unique partition
+
+User goal: first determine whether a definitive partition is justified, return it only if justified, progressively cover more samples. Parent b2ef740041c71658907eef179c24056cd9d2ab50. Same three existing research chats/model Sol medium; theory, implementation, audit own their new folders. Master coordinates shared files/Git/report. Old artifacts immutable; stdlib, all failures preserved.
+
+Finite observational input alphabet/positive/negative; optional knownK explicit and externally trusted. Logical prerequisite: exactly one feasible partition under stated model/count assumptions. Two feasible distinct partitions prove ambiguity. Exhaustive zero proves incompatibility. Budget failure is unresolved, NOT data-insufficient. Invalid syntax/type separate. Only certified_unique carries a selected partition; ambiguous carries alternatives as evidence, never a guess. Model assumptions are conditions, not facts proven from finite traces.
+
+One unified CLI: exact unary and swap certificates followed by a complete, budget-aware goal-directed search stopping at two witnesses. No heuristic, no all-count enumeration requirement, no eager 2^m block tables. Unique declaration requires complete exhaustion or sound certificate. Progressive certificate coverage may reduce unresolved cases but cannot uniquely identify all inherently ambiguous datasets.
+
+Bounded independent audit <=300seconds; reuse prior small inputs plus200 seeded cases and targeted graph-failure-yet-unique examples. KnownK slices independently checked, all ambiguity witnesses checked, timeouts nonfinal. Agents freeze sources/proofs/protocol for static review before masterGO. No new heavy timinggrid. All runs raw-captured. PrivateGitpublication remains authorized.
