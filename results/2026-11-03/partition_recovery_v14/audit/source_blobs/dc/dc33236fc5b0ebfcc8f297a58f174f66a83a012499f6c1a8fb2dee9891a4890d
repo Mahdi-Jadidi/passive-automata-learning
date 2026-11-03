@@ -1,0 +1,1706 @@
+{
+  "schema_version": 1,
+  "attempt_id": "20261103T202957.634604Z_dcf528a085",
+  "label": "c014_timing_new_held_million_K20_n8_3",
+  "started_utc": "2026-11-03T20:29:57.636392+00:00",
+  "command_argv": [
+    "C:\\Users\\Mahdi\\AppData\\Local\\Python\\pythoncore-3.14-64\\python.exe",
+    "-B",
+    "-X",
+    "utf8",
+    "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_recovery_v14\\implementation\\solve_v1.py",
+    "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_random_dfa_v13\\audit\\data\\grid_resume_v4\\K20_M40_L1000000\\input8.json",
+    "--seconds",
+    "5"
+  ],
+  "cwd": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_recovery_v14",
+  "timeout_seconds": 7,
+  "environment": {
+    "python_executable": "C:\\Users\\Mahdi\\AppData\\Local\\Python\\pythoncore-3.14-64\\python.exe",
+    "python_version": "3.14.6 (tags/v3.14.6:c63aec6, Jun 10 2026, 10:26:10) [MSC v.1944 64 bit (AMD64)]",
+    "python_implementation": "CPython",
+    "python_flags": "sys.flags(debug=0, inspect=0, interactive=0, optimize=0, dont_write_bytecode=1, no_user_site=0, no_site=0, ignore_environment=0, verbose=0, bytes_warning=0, quiet=0, hash_randomization=1, isolated=0, dev_mode=False, utf8_mode=1, warn_default_encoding=0, safe_path=False, int_max_str_digits=4300)",
+    "platform": "Windows-11-10.0.26300-SP0",
+    "machine": "AMD64",
+    "preferred_encoding": "utf-8",
+    "cwd": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_recovery_v14",
+    "allowlisted_environment_values": {
+      "LANG": "C.UTF-8",
+      "LC_ALL": "C.UTF-8",
+      "PROCESSOR_ARCHITECTURE": "AMD64"
+    },
+    "omitted_environment_variable_count": 72,
+    "environment_policy": "allowlisted values only; remaining values omitted"
+  },
+  "sources": [
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-02\\partition_unrestricted_v10\\audit\\validate_provider_v2.py",
+      "sha256": "cac75329c2c75c289b5aede331c968f2301c436f0022da6b78afba4df59a5135",
+      "snapshot": "source_blobs\\ca\\cac75329c2c75c289b5aede331c968f2301c436f0022da6b78afba4df59a5135",
+      "bytes": "17359"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-02\\partition_unrestricted_v10\\implementation\\unrestricted_cli_v2.py",
+      "sha256": "3140df25bab5d60c6c2705098029db9061e3c9d76743bf1dfd48d46aaf2d5eaa",
+      "snapshot": "source_blobs\\31\\3140df25bab5d60c6c2705098029db9061e3c9d76743bf1dfd48d46aaf2d5eaa",
+      "bytes": "1590"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-02\\partition_unrestricted_v10\\implementation\\unrestricted_solver_v2.py",
+      "sha256": "4c7959e96c02023d85943c8c52fae3f198c0de67ea172a72ad0669485f60c502",
+      "snapshot": "source_blobs\\4c\\4c7959e96c02023d85943c8c52fae3f198c0de67ea172a72ad0669485f60c502",
+      "bytes": "19265"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_random_dfa_v13\\audit\\GRID_INPUT_MAP_V4.json",
+      "sha256": "187b06c85b52d21bc8cf0f7f6e5df9f8656678174fc0217b5b1535d5d4996fe2",
+      "snapshot": "source_blobs\\18\\187b06c85b52d21bc8cf0f7f6e5df9f8656678174fc0217b5b1535d5d4996fe2",
+      "bytes": "56184"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_random_dfa_v13\\audit\\data\\controls\\K1_M2_L64\\input2.json",
+      "sha256": "514705b454722b1889f3530666594d9e8d72519f49bcb98a0647f4ab4665f42a",
+      "snapshot": "source_blobs\\51\\514705b454722b1889f3530666594d9e8d72519f49bcb98a0647f4ab4665f42a",
+      "bytes": "320"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_random_dfa_v13\\audit\\data\\controls\\K1_M2_L64\\world.json",
+      "sha256": "2b2a861ed64eca1a8ee6ceeb75f7c9a328d9242ff4333782e72aec0162fe92bc",
+      "snapshot": "source_blobs\\2b\\2b2a861ed64eca1a8ee6ceeb75f7c9a328d9242ff4333782e72aec0162fe92bc",
+      "bytes": "353"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_random_dfa_v13\\audit\\data\\controls\\K1_M2_L8\\input2.json",
+      "sha256": "662ca4b223da315b03a3a9a3f10ce0248da1d829d2ead94a7e7f213751a66870",
+      "snapshot": "source_blobs\\66\\662ca4b223da315b03a3a9a3f10ce0248da1d829d2ead94a7e7f213751a66870",
+      "bytes": "96"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_random_dfa_v13\\audit\\data\\controls\\K1_M2_L8\\world.json",
+      "sha256": "2b2a861ed64eca1a8ee6ceeb75f7c9a328d9242ff4333782e72aec0162fe92bc",
+      "snapshot": "source_blobs\\2b\\2b2a861ed64eca1a8ee6ceeb75f7c9a328d9242ff4333782e72aec0162fe92bc",
+      "bytes": "353"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_random_dfa_v13\\audit\\data\\controls\\K2_M4_L64\\input2.json",
+      "sha256": "33992e2eedb2944b3d4f1da0b56eabecb1299c858ea74090e09a31600c7bfc72",
+      "snapshot": "source_blobs\\33\\33992e2eedb2944b3d4f1da0b56eabecb1299c858ea74090e09a31600c7bfc72",
+      "bytes": "317"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_random_dfa_v13\\audit\\data\\controls\\K2_M4_L64\\world.json",
+      "sha256": "37755c363ce914acaf34103481dbd03ec419d4a9425fd9b9b2cd094ecbcd3987",
+      "snapshot": "source_blobs\\37\\37755c363ce914acaf34103481dbd03ec419d4a9425fd9b9b2cd094ecbcd3987",
+      "bytes": "592"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_random_dfa_v13\\audit\\data\\controls\\K2_M4_L8\\input2.json",
+      "sha256": "02114d49b2ede85a1191e0159e67d5f4088f599646f8fffbba43c7a8c65cda9e",
+      "snapshot": "source_blobs\\02\\02114d49b2ede85a1191e0159e67d5f4088f599646f8fffbba43c7a8c65cda9e",
+      "bytes": "93"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_random_dfa_v13\\audit\\data\\controls\\K2_M4_L8\\world.json",
+      "sha256": "37755c363ce914acaf34103481dbd03ec419d4a9425fd9b9b2cd094ecbcd3987",
+      "snapshot": "source_blobs\\37\\37755c363ce914acaf34103481dbd03ec419d4a9425fd9b9b2cd094ecbcd3987",
+      "bytes": "592"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_random_dfa_v13\\audit\\data\\controls\\K3_M6_L64\\input2.json",
+      "sha256": "1b7b9a58491035844371459246bc11eef3abf2d9eb69a87fa84ba83c8f2cae06",
+      "snapshot": "source_blobs\\1b\\1b7b9a58491035844371459246bc11eef3abf2d9eb69a87fa84ba83c8f2cae06",
+      "bytes": "317"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_random_dfa_v13\\audit\\data\\controls\\K3_M6_L64\\world.json",
+      "sha256": "74be5427a2d4f7f4594b573b235a7f1107793486a058c4627af2910e82c2f0e1",
+      "snapshot": "source_blobs\\74\\74be5427a2d4f7f4594b573b235a7f1107793486a058c4627af2910e82c2f0e1",
+      "bytes": "810"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_random_dfa_v13\\audit\\data\\controls\\K3_M6_L8\\input2.json",
+      "sha256": "ae03b6175d4f77135285f88f8c5d6ab8411e75f1074c39842837caf6b01862e1",
+      "snapshot": "source_blobs\\ae\\ae03b6175d4f77135285f88f8c5d6ab8411e75f1074c39842837caf6b01862e1",
+      "bytes": "102"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_random_dfa_v13\\audit\\data\\controls\\K3_M6_L8\\world.json",
+      "sha256": "74be5427a2d4f7f4594b573b235a7f1107793486a058c4627af2910e82c2f0e1",
+      "snapshot": "source_blobs\\74\\74be5427a2d4f7f4594b573b235a7f1107793486a058c4627af2910e82c2f0e1",
+      "bytes": "810"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_random_dfa_v13\\audit\\data\\controls\\K4_M8_L64\\input2.json",
+      "sha256": "6e25ee79fc4109c4a65eb6471869e569fbedfa8d15d034be50701ab78928bf95",
+      "snapshot": "source_blobs\\6e\\6e25ee79fc4109c4a65eb6471869e569fbedfa8d15d034be50701ab78928bf95",
+      "bytes": "314"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_random_dfa_v13\\audit\\data\\controls\\K4_M8_L64\\world.json",
+      "sha256": "b75a7dfcd3bbeeedaff3a297f98ab731afb4e04b6c04ff72b9d89e1a5545d7e6",
+      "snapshot": "source_blobs\\b7\\b75a7dfcd3bbeeedaff3a297f98ab731afb4e04b6c04ff72b9d89e1a5545d7e6",
+      "bytes": "1046"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_random_dfa_v13\\audit\\data\\controls\\K4_M8_L8\\input2.json",
+      "sha256": "e05ecbca069471663733bf505b2a20acfb80a0a0af8464ada68794b65353f9f9",
+      "snapshot": "source_blobs\\e0\\e05ecbca069471663733bf505b2a20acfb80a0a0af8464ada68794b65353f9f9",
+      "bytes": "114"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_random_dfa_v13\\audit\\data\\controls\\K4_M8_L8\\world.json",
+      "sha256": "b75a7dfcd3bbeeedaff3a297f98ab731afb4e04b6c04ff72b9d89e1a5545d7e6",
+      "snapshot": "source_blobs\\b7\\b75a7dfcd3bbeeedaff3a297f98ab731afb4e04b6c04ff72b9d89e1a5545d7e6",
+      "bytes": "1046"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_random_dfa_v13\\audit\\data\\grid\\K1_M40_L1000000\\input2.json",
+      "sha256": "64d2b5560e04fd91e45b9f9f72bc6af642aac1caea6502426a26e35925d0cfd9",
+      "snapshot": "source_blobs\\64\\64d2b5560e04fd91e45b9f9f72bc6af642aac1caea6502426a26e35925d0cfd9",
+      "bytes": "4000254"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_random_dfa_v13\\audit\\data\\grid\\K1_M40_L1000000\\input8.json",
+      "sha256": "ada411cea0814f2014548819ee17565000cd565cc58ce6cd18dd2bcde583bd5f",
+      "snapshot": "source_blobs\\ad\\ada411cea0814f2014548819ee17565000cd565cc58ce6cd18dd2bcde583bd5f",
+      "bytes": "16000286"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_random_dfa_v13\\audit\\data\\grid\\K1_M40_L1000000\\world.json",
+      "sha256": "3f60f75007e1d4c07baa5372ce7926b57be04dd1fd24065e491480b2f58932dc",
+      "snapshot": "source_blobs\\3f\\3f60f75007e1d4c07baa5372ce7926b57be04dd1fd24065e491480b2f58932dc",
+      "bytes": "1947"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_random_dfa_v13\\audit\\data\\grid_resume_v4\\K20_M40_L1000000\\input2.json",
+      "sha256": "c19d2a8a1a8997bf8519e46bb6d20ee3002367ca4309f079712700294300dc3e",
+      "snapshot": "source_blobs\\c1\\c19d2a8a1a8997bf8519e46bb6d20ee3002367ca4309f079712700294300dc3e",
+      "bytes": "4000065"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_random_dfa_v13\\audit\\data\\grid_resume_v4\\K20_M40_L1000000\\input8.json",
+      "sha256": "923b29f6daacf3c858fccf364a170ebc900cf8ffc33ab4497f0e9fd9e57edb99",
+      "snapshot": "source_blobs\\92\\923b29f6daacf3c858fccf364a170ebc900cf8ffc33ab4497f0e9fd9e57edb99",
+      "bytes": "15999564"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_random_dfa_v13\\audit\\data\\grid_resume_v4\\K20_M40_L1000000\\world.json",
+      "sha256": "cff292ecb701f1d97b7493d2654cd84f82642794337cbb03e59debd77a71c27b",
+      "snapshot": "source_blobs\\cf\\cff292ecb701f1d97b7493d2654cd84f82642794337cbb03e59debd77a71c27b",
+      "bytes": "4504"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_recovery_v14\\audit\\BINDINGS_V1.json",
+      "sha256": "8f5ac4f48ab896de62d490bda13780632e3c83001f988685286413c75c818f81",
+      "snapshot": "source_blobs\\8f\\8f5ac4f48ab896de62d490bda13780632e3c83001f988685286413c75c818f81",
+      "bytes": "1139"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_recovery_v14\\audit\\DATA_MANIFEST_V1.json",
+      "sha256": "881013228730e3d1903e2a93bb96ad7058cc125ed3703f10f5db2497f9ab01a6",
+      "snapshot": "source_blobs\\88\\881013228730e3d1903e2a93bb96ad7058cc125ed3703f10f5db2497f9ab01a6",
+      "bytes": "75243"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_recovery_v14\\audit\\EXECUTION_FREEZE_V1.json",
+      "sha256": "9193c81c6d5ea0e4713f7b3cd6743b5683bd6b7962c8a2e9170b8c3658e284f0",
+      "snapshot": "source_blobs\\91\\9193c81c6d5ea0e4713f7b3cd6743b5683bd6b7962c8a2e9170b8c3658e284f0",
+      "bytes": "10991"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_recovery_v14\\audit\\HELD_ORACLES_V1.json",
+      "sha256": "9540e91812e10e5efbc4ee708fbaea31fab09032b2788ce92b5790ce16838106",
+      "snapshot": "source_blobs\\95\\9540e91812e10e5efbc4ee708fbaea31fab09032b2788ce92b5790ce16838106",
+      "bytes": "10507"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_recovery_v14\\audit\\MASTER_GO_V1.json",
+      "sha256": "6d33259b5abba5bfd12e519a9e809e7cec74b0244fce2a6b6eea6dc9f3f8efb8",
+      "snapshot": "source_blobs\\6d\\6d33259b5abba5bfd12e519a9e809e7cec74b0244fce2a6b6eea6dc9f3f8efb8",
+      "bytes": "340"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_recovery_v14\\audit\\PROTOCOL_V1.md",
+      "sha256": "0635ccfd2c16a6f1396aa28a84787dd2bcc9002c05a6de6ef77cf2fd823d3610",
+      "snapshot": "source_blobs\\06\\0635ccfd2c16a6f1396aa28a84787dd2bcc9002c05a6de6ef77cf2fd823d3610",
+      "bytes": "6216"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_recovery_v14\\audit\\SMALL_ORACLES_V1.json",
+      "sha256": "a87a079a2a8d231e0e6d6b4cf8ea2635df61e5c99b0ae48dc2f241e2cd6d16a9",
+      "snapshot": "source_blobs\\a8\\a87a079a2a8d231e0e6d6b4cf8ea2635df61e5c99b0ae48dc2f241e2cd6d16a9",
+      "bytes": "3170066"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_recovery_v14\\audit\\STATIC_REVIEW_V1.md",
+      "sha256": "eaf31e8e408ac2b3bd125067b7fcf6d35f1104f537bebb64c22e2f22078b1169",
+      "snapshot": "source_blobs\\ea\\eaf31e8e408ac2b3bd125067b7fcf6d35f1104f537bebb64c22e2f22078b1169",
+      "bytes": "3693"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_recovery_v14\\audit\\build_data_v1.py",
+      "sha256": "4ed2910162b6401e4ef9263c3edaaea85af02ad83999dc8e0ffc9c3cddcfe122",
+      "snapshot": "source_blobs\\4e\\4ed2910162b6401e4ef9263c3edaaea85af02ad83999dc8e0ffc9c3cddcfe122",
+      "bytes": "4410"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_recovery_v14\\audit\\capture.py",
+      "sha256": "68ee700f391fb6a1cf135e4b55a11a247b45f25164553c917d1664f6fc4a31cf",
+      "snapshot": "source_blobs\\68\\68ee700f391fb6a1cf135e4b55a11a247b45f25164553c917d1664f6fc4a31cf",
+      "bytes": "10624"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_recovery_v14\\audit\\check_results_v1.py",
+      "sha256": "339815fd659dc6daf4142bfa2904a2c4b770223291755d8eb222c2aa563f71d1",
+      "snapshot": "source_blobs\\33\\339815fd659dc6daf4142bfa2904a2c4b770223291755d8eb222c2aa563f71d1",
+      "bytes": "9110"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_recovery_v14\\audit\\check_timing_v1.py",
+      "sha256": "6e0fc5a62d89d746b3455efd198ed3706abd2e98ac3ed354fb6ab8aa7d131b73",
+      "snapshot": "source_blobs\\6e\\6e0fc5a62d89d746b3455efd198ed3706abd2e98ac3ed354fb6ab8aa7d131b73",
+      "bytes": "6178"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_recovery_v14\\audit\\correctness_batch_v1.py",
+      "sha256": "da9dba0fd32c1c0eea9df9bf7d2410881239086dff4d99e4fee17f8581f7d8b0",
+      "snapshot": "source_blobs\\da\\da9dba0fd32c1c0eea9df9bf7d2410881239086dff4d99e4fee17f8581f7d8b0",
+      "bytes": "1221"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_recovery_v14\\audit\\data\\calibration\\calibration_K2_commuting0_full.json",
+      "sha256": "6f78c05ca6ef1835481db2a4858ae98e5f7d8e91a3a698121318e51a22b2d157",
+      "snapshot": "source_blobs\\6f\\6f78c05ca6ef1835481db2a4858ae98e5f7d8e91a3a698121318e51a22b2d157",
+      "bytes": "87"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_recovery_v14\\audit\\data\\calibration\\calibration_K2_commuting0_full_queries.json",
+      "sha256": "ecfc5446e8144aaf2c868fceb9219a25e2c2d55ead80d7cb294886ec22280cc1",
+      "snapshot": "source_blobs\\ec\\ecfc5446e8144aaf2c868fceb9219a25e2c2d55ead80d7cb294886ec22280cc1",
+      "bytes": "411"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_recovery_v14\\audit\\data\\calibration\\calibration_K2_commuting0_missing_last.json",
+      "sha256": "0ef6c524dbab64d64d3e23a38e5b3debd80992e11aa14534c4e85bc12e7da2d2",
+      "snapshot": "source_blobs\\0e\\0ef6c524dbab64d64d3e23a38e5b3debd80992e11aa14534c4e85bc12e7da2d2",
+      "bytes": "75"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_recovery_v14\\audit\\data\\calibration\\calibration_K2_commuting0_missing_last_queries.json",
+      "sha256": "7087b6e57b65e4c574ae9827ce281f7b39a528a0c4b3fd3e682c87a1f87adc80",
+      "snapshot": "source_blobs\\70\\7087b6e57b65e4c574ae9827ce281f7b39a528a0c4b3fd3e682c87a1f87adc80",
+      "bytes": "304"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_recovery_v14\\audit\\data\\calibration\\calibration_K2_commuting1_full.json",
+      "sha256": "c99956dec102a967884b153cb988e98a352f362e4153e207a68e664ebcc11455",
+      "snapshot": "source_blobs\\c9\\c99956dec102a967884b153cb988e98a352f362e4153e207a68e664ebcc11455",
+      "bytes": "135"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_recovery_v14\\audit\\data\\calibration\\calibration_K2_commuting1_full_queries.json",
+      "sha256": "dc644b6a3a94f3a195bc2f8cdb7e6c4f2b1d76e58303effcbe44c0891c6ba64e",
+      "snapshot": "source_blobs\\dc\\dc644b6a3a94f3a195bc2f8cdb7e6c4f2b1d76e58303effcbe44c0891c6ba64e",
+      "bytes": "979"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_recovery_v14\\audit\\data\\calibration\\calibration_K3_commuting0_full.json",
+      "sha256": "05aac7eeab390b6cd2c514d4143202cdcb01d2a4d5afb73e50660a3afdb87c63",
+      "snapshot": "source_blobs\\05\\05aac7eeab390b6cd2c514d4143202cdcb01d2a4d5afb73e50660a3afdb87c63",
+      "bytes": "109"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_recovery_v14\\audit\\data\\calibration\\calibration_K3_commuting0_full_queries.json",
+      "sha256": "9822e78fdcabf2f15e4b7a85875533ded3e4c82e54a1566e3129b9a00b705a8a",
+      "snapshot": "source_blobs\\98\\9822e78fdcabf2f15e4b7a85875533ded3e4c82e54a1566e3129b9a00b705a8a",
+      "bytes": "526"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_recovery_v14\\audit\\data\\calibration\\calibration_K3_commuting0_missing_last.json",
+      "sha256": "fc12c783ca73adfe21dc9c1585bc76e8c1f20cc6088a55e8b98cb77026c5735a",
+      "snapshot": "source_blobs\\fc\\fc12c783ca73adfe21dc9c1585bc76e8c1f20cc6088a55e8b98cb77026c5735a",
+      "bytes": "97"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_recovery_v14\\audit\\data\\calibration\\calibration_K3_commuting0_missing_last_queries.json",
+      "sha256": "8b8c94dd3c32c804526c571902c0b72f651412e273c3cfb935cd922123fafe37",
+      "snapshot": "source_blobs\\8b\\8b8c94dd3c32c804526c571902c0b72f651412e273c3cfb935cd922123fafe37",
+      "bytes": "419"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_recovery_v14\\audit\\data\\calibration\\calibration_K3_commuting1_full.json",
+      "sha256": "6747cc5dad16d8d85c52fd8d834e6d77071995e2aa7851d81bf586d236aa6126",
+      "snapshot": "source_blobs\\67\\6747cc5dad16d8d85c52fd8d834e6d77071995e2aa7851d81bf586d236aa6126",
+      "bytes": "179"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_recovery_v14\\audit\\data\\calibration\\calibration_K3_commuting1_full_queries.json",
+      "sha256": "a0899a94bcd204862e62d89f790ee249ded94966b3421c4f5a2059021e06b3bd",
+      "snapshot": "source_blobs\\a0\\a0899a94bcd204862e62d89f790ee249ded94966b3421c4f5a2059021e06b3bd",
+      "bytes": "1378"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_recovery_v14\\audit\\data\\calibration\\calibration_K4_commuting0_full.json",
+      "sha256": "cb1263e07a633a363f5313f8f53d1516f8cf4eed29b482f3b08b38ae0797a8f5",
+      "snapshot": "source_blobs\\cb\\cb1263e07a633a363f5313f8f53d1516f8cf4eed29b482f3b08b38ae0797a8f5",
+      "bytes": "131"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_recovery_v14\\audit\\data\\calibration\\calibration_K4_commuting0_full_queries.json",
+      "sha256": "5e5c1a9bd4494662e0ae667ae70efd7572e7759e262c6fa3f89d82230c319033",
+      "snapshot": "source_blobs\\5e\\5e5c1a9bd4494662e0ae667ae70efd7572e7759e262c6fa3f89d82230c319033",
+      "bytes": "641"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_recovery_v14\\audit\\data\\calibration\\calibration_K4_commuting0_missing_last.json",
+      "sha256": "a099fe1b6d627cd84cc7f3f9238b3651a7d1580850272dc29553a8d7f32b6535",
+      "snapshot": "source_blobs\\a0\\a099fe1b6d627cd84cc7f3f9238b3651a7d1580850272dc29553a8d7f32b6535",
+      "bytes": "119"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_recovery_v14\\audit\\data\\calibration\\calibration_K4_commuting0_missing_last_queries.json",
+      "sha256": "55ebf1978917269c30acfa3623b70ae50bab497bd2de08c6fea2c565e2606d66",
+      "snapshot": "source_blobs\\55\\55ebf1978917269c30acfa3623b70ae50bab497bd2de08c6fea2c565e2606d66",
+      "bytes": "534"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_recovery_v14\\audit\\data\\calibration\\calibration_K4_commuting1_full.json",
+      "sha256": "1a88fcd4283caf989496149cd114babdd2fbfae0e508c9e832229cec27c09260",
+      "snapshot": "source_blobs\\1a\\1a88fcd4283caf989496149cd114babdd2fbfae0e508c9e832229cec27c09260",
+      "bytes": "223"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_recovery_v14\\audit\\data\\calibration\\calibration_K4_commuting1_full_queries.json",
+      "sha256": "0196d5a29c4feb5aa673ad73632dcacfc74daea29bffc0ebb5c874b273bd35de",
+      "snapshot": "source_blobs\\01\\0196d5a29c4feb5aa673ad73632dcacfc74daea29bffc0ebb5c874b273bd35de",
+      "bytes": "1777"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_recovery_v14\\audit\\data\\random\\m2_0.json",
+      "sha256": "ec052e31abaf9d83bafa5244621fded52ea140e76835725204d4f96a07ebd4c4",
+      "snapshot": "source_blobs\\ec\\ec052e31abaf9d83bafa5244621fded52ea140e76835725204d4f96a07ebd4c4",
+      "bytes": "96"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_recovery_v14\\audit\\data\\random\\m2_1.json",
+      "sha256": "01e6838b29d24979f2a1f721cd3356a5bcd9a47ff7207d34972b1a4b967695fe",
+      "snapshot": "source_blobs\\01\\01e6838b29d24979f2a1f721cd3356a5bcd9a47ff7207d34972b1a4b967695fe",
+      "bytes": "71"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_recovery_v14\\audit\\data\\random\\m2_10.json",
+      "sha256": "a3d2efe73edc01d96b50996bbd5db0d3bf9655a2b5dacbce6c46c937e42f743f",
+      "snapshot": "source_blobs\\a3\\a3d2efe73edc01d96b50996bbd5db0d3bf9655a2b5dacbce6c46c937e42f743f",
+      "bytes": "84"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_recovery_v14\\audit\\data\\random\\m2_11.json",
+      "sha256": "b18b3d2b75893a49d1c40806b09ec1d1278a563d17c20db74ac6470b7a4bfb2b",
+      "snapshot": "source_blobs\\b1\\b18b3d2b75893a49d1c40806b09ec1d1278a563d17c20db74ac6470b7a4bfb2b",
+      "bytes": "69"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_recovery_v14\\audit\\data\\random\\m2_12.json",
+      "sha256": "99d8bd13c6d2ec6f1cd483b74b14758e5058e3525c7f08a4ee913a49077c22ac",
+      "snapshot": "source_blobs\\99\\99d8bd13c6d2ec6f1cd483b74b14758e5058e3525c7f08a4ee913a49077c22ac",
+      "bytes": "114"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_recovery_v14\\audit\\data\\random\\m2_13.json",
+      "sha256": "f4b5ba44a67f20b71067a5f58aeb9dad77dac1a85cf949fb9cc4b222fb2662b5",
+      "snapshot": "source_blobs\\f4\\f4b5ba44a67f20b71067a5f58aeb9dad77dac1a85cf949fb9cc4b222fb2662b5",
+      "bytes": "120"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_recovery_v14\\audit\\data\\random\\m2_14.json",
+      "sha256": "153c63097cd6e1a521a77d461244ddd737edd2f7efbd79f88d6c3037357800ec",
+      "snapshot": "source_blobs\\15\\153c63097cd6e1a521a77d461244ddd737edd2f7efbd79f88d6c3037357800ec",
+      "bytes": "66"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_recovery_v14\\audit\\data\\random\\m2_15.json",
+      "sha256": "dfe278090679f719d7714d3ddc87907cd93dd3931db9fbc8622987bb2e9daed6",
+      "snapshot": "source_blobs\\df\\dfe278090679f719d7714d3ddc87907cd93dd3931db9fbc8622987bb2e9daed6",
+      "bytes": "103"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_recovery_v14\\audit\\data\\random\\m2_16.json",
+      "sha256": "5db2a6dd44055fff29b5da21dc2b7c851e30bc7cf31bd706c2f866f526a57c47",
+      "snapshot": "source_blobs\\5d\\5db2a6dd44055fff29b5da21dc2b7c851e30bc7cf31bd706c2f866f526a57c47",
+      "bytes": "94"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_recovery_v14\\audit\\data\\random\\m2_17.json",
+      "sha256": "8fb38d0ef9dc6ab95452c9dc8d0a9aa922d2b4bca96b062d0cb54e7a17c7036c",
+      "snapshot": "source_blobs\\8f\\8fb38d0ef9dc6ab95452c9dc8d0a9aa922d2b4bca96b062d0cb54e7a17c7036c",
+      "bytes": "127"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_recovery_v14\\audit\\data\\random\\m2_18.json",
+      "sha256": "4ca0b4e2581d1dcd671d50fb25c79f4d03c1fd2f2c3baba2080582d060fb7e02",
+      "snapshot": "source_blobs\\4c\\4ca0b4e2581d1dcd671d50fb25c79f4d03c1fd2f2c3baba2080582d060fb7e02",
+      "bytes": "65"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_recovery_v14\\audit\\data\\random\\m2_19.json",
+      "sha256": "648a2913c18b5f1562db96dc22ba7681ccd0a0f975785aff729e13a71be98739",
+      "snapshot": "source_blobs\\64\\648a2913c18b5f1562db96dc22ba7681ccd0a0f975785aff729e13a71be98739",
+      "bytes": "73"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_recovery_v14\\audit\\data\\random\\m2_2.json",
+      "sha256": "801d69db411ce570582acd81bac60c2893d548e23bc47ad7a8b148f3d38ff9df",
+      "snapshot": "source_blobs\\80\\801d69db411ce570582acd81bac60c2893d548e23bc47ad7a8b148f3d38ff9df",
+      "bytes": "90"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_recovery_v14\\audit\\data\\random\\m2_20.json",
+      "sha256": "824db092a684310615e05f12838f441f41eb328009491ebe7d0ab8fc64cd75d1",
+      "snapshot": "source_blobs\\82\\824db092a684310615e05f12838f441f41eb328009491ebe7d0ab8fc64cd75d1",
+      "bytes": "121"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_recovery_v14\\audit\\data\\random\\m2_21.json",
+      "sha256": "ac3fd89702794aed1980566c1f8141eb4c723e73bec6cd3b4078b9eb5505e4d1",
+      "snapshot": "source_blobs\\ac\\ac3fd89702794aed1980566c1f8141eb4c723e73bec6cd3b4078b9eb5505e4d1",
+      "bytes": "108"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_recovery_v14\\audit\\data\\random\\m2_22.json",
+      "sha256": "b511b6b6826acb6ed556978c414bf9bc17688af1df5c66edb50d7d7a267049b8",
+      "snapshot": "source_blobs\\b5\\b511b6b6826acb6ed556978c414bf9bc17688af1df5c66edb50d7d7a267049b8",
+      "bytes": "73"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_recovery_v14\\audit\\data\\random\\m2_23.json",
+      "sha256": "01b5ce8c9feeae7adcf2cc50b6372d43a72f763da444d8f5e07c083fe88f3f10",
+      "snapshot": "source_blobs\\01\\01b5ce8c9feeae7adcf2cc50b6372d43a72f763da444d8f5e07c083fe88f3f10",
+      "bytes": "73"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_recovery_v14\\audit\\data\\random\\m2_24.json",
+      "sha256": "c1d8ed5447471ef1f7f37ab5114ec9306082ecb4204767a48a29bd525b393eb4",
+      "snapshot": "source_blobs\\c1\\c1d8ed5447471ef1f7f37ab5114ec9306082ecb4204767a48a29bd525b393eb4",
+      "bytes": "99"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_recovery_v14\\audit\\data\\random\\m2_25.json",
+      "sha256": "e75caf8f0748872823deaf130ad682d2f69dc53b8e04bbfe95bd8f90d2a8a6ba",
+      "snapshot": "source_blobs\\e7\\e75caf8f0748872823deaf130ad682d2f69dc53b8e04bbfe95bd8f90d2a8a6ba",
+      "bytes": "99"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_recovery_v14\\audit\\data\\random\\m2_26.json",
+      "sha256": "0204a5da62a40514d1cd7591731c3b8701f77d9a1fd245aa2581c515322de568",
+      "snapshot": "source_blobs\\02\\0204a5da62a40514d1cd7591731c3b8701f77d9a1fd245aa2581c515322de568",
+      "bytes": "57"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_recovery_v14\\audit\\data\\random\\m2_27.json",
+      "sha256": "d5c7e188dcd72048e0cb28f6d228a4b4ea6ff27cecf57c984fc7580edd7855ca",
+      "snapshot": "source_blobs\\d5\\d5c7e188dcd72048e0cb28f6d228a4b4ea6ff27cecf57c984fc7580edd7855ca",
+      "bytes": "91"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_recovery_v14\\audit\\data\\random\\m2_28.json",
+      "sha256": "68348a05f7c93d3dff06e39a98f5de62cd6fab941687db3fb4d98d58625a51aa",
+      "snapshot": "source_blobs\\68\\68348a05f7c93d3dff06e39a98f5de62cd6fab941687db3fb4d98d58625a51aa",
+      "bytes": "96"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_recovery_v14\\audit\\data\\random\\m2_29.json",
+      "sha256": "5ece0bf55f9dbb3b0949f8885f05745e8ea8d1d19c92da9f805897e3ce974ea9",
+      "snapshot": "source_blobs\\5e\\5ece0bf55f9dbb3b0949f8885f05745e8ea8d1d19c92da9f805897e3ce974ea9",
+      "bytes": "93"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_recovery_v14\\audit\\data\\random\\m2_3.json",
+      "sha256": "ce66ca0970da43df93b6f97b90a595a37d0ff0d64e81f7f38c437ffea96109a4",
+      "snapshot": "source_blobs\\ce\\ce66ca0970da43df93b6f97b90a595a37d0ff0d64e81f7f38c437ffea96109a4",
+      "bytes": "72"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_recovery_v14\\audit\\data\\random\\m2_30.json",
+      "sha256": "d0c8951eac988f4a25c1014fb63f16d48deaf3b28a33db03a259e5021a1883b4",
+      "snapshot": "source_blobs\\d0\\d0c8951eac988f4a25c1014fb63f16d48deaf3b28a33db03a259e5021a1883b4",
+      "bytes": "77"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_recovery_v14\\audit\\data\\random\\m2_31.json",
+      "sha256": "63c99d2219b084a3bf2731c48dff11163d4e330a13d9054ea1a75724391e34c0",
+      "snapshot": "source_blobs\\63\\63c99d2219b084a3bf2731c48dff11163d4e330a13d9054ea1a75724391e34c0",
+      "bytes": "102"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_recovery_v14\\audit\\data\\random\\m2_32.json",
+      "sha256": "3478149b6aa33f8e24ced5a2d7c45e7cfce4e44b0e276e38e38481f2e93c960d",
+      "snapshot": "source_blobs\\34\\3478149b6aa33f8e24ced5a2d7c45e7cfce4e44b0e276e38e38481f2e93c960d",
+      "bytes": "82"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_recovery_v14\\audit\\data\\random\\m2_33.json",
+      "sha256": "3e64372f011c06e38490bc394461ab757631e81a56887ae868cd86dfd6fdc0c6",
+      "snapshot": "source_blobs\\3e\\3e64372f011c06e38490bc394461ab757631e81a56887ae868cd86dfd6fdc0c6",
+      "bytes": "69"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_recovery_v14\\audit\\data\\random\\m2_34.json",
+      "sha256": "21cd0c1debc3d08daaffb54537beb6ad2249758bccf74dbcf918bfe5445afd90",
+      "snapshot": "source_blobs\\21\\21cd0c1debc3d08daaffb54537beb6ad2249758bccf74dbcf918bfe5445afd90",
+      "bytes": "84"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_recovery_v14\\audit\\data\\random\\m2_35.json",
+      "sha256": "57dbdb7e68dbf46d4e7c4b0010e1cdf39de4afc05c8e7f6b5c6f2184a0979e3b",
+      "snapshot": "source_blobs\\57\\57dbdb7e68dbf46d4e7c4b0010e1cdf39de4afc05c8e7f6b5c6f2184a0979e3b",
+      "bytes": "108"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_recovery_v14\\audit\\data\\random\\m2_36.json",
+      "sha256": "c88d015da734d9bff05e53c7b9ed63eedba958eb9fc843dda3b247e8adf7ca6d",
+      "snapshot": "source_blobs\\c8\\c88d015da734d9bff05e53c7b9ed63eedba958eb9fc843dda3b247e8adf7ca6d",
+      "bytes": "62"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_recovery_v14\\audit\\data\\random\\m2_37.json",
+      "sha256": "1342e513eab2c0b417fa5c05436c645f40ec94cf5c6e6221117a004236c99bb8",
+      "snapshot": "source_blobs\\13\\1342e513eab2c0b417fa5c05436c645f40ec94cf5c6e6221117a004236c99bb8",
+      "bytes": "74"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_recovery_v14\\audit\\data\\random\\m2_38.json",
+      "sha256": "b7951c616aad5f826431be838a0da533022a2e72586f6ab2d6505fcbf3397e0c",
+      "snapshot": "source_blobs\\b7\\b7951c616aad5f826431be838a0da533022a2e72586f6ab2d6505fcbf3397e0c",
+      "bytes": "96"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_recovery_v14\\audit\\data\\random\\m2_39.json",
+      "sha256": "6c34c957dbe48bb610579a9f24be52e4720f1a2792b33d4dbf8669d6666fea81",
+      "snapshot": "source_blobs\\6c\\6c34c957dbe48bb610579a9f24be52e4720f1a2792b33d4dbf8669d6666fea81",
+      "bytes": "128"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_recovery_v14\\audit\\data\\random\\m2_4.json",
+      "sha256": "00257299a6d9892c78c0dcf34642fe3bb59e8680cc3c120fde79bd47e21b90e3",
+      "snapshot": "source_blobs\\00\\00257299a6d9892c78c0dcf34642fe3bb59e8680cc3c120fde79bd47e21b90e3",
+      "bytes": "108"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_recovery_v14\\audit\\data\\random\\m2_5.json",
+      "sha256": "ce777aed26527dcb550199437094be29591ba1a6a09e69d0921fb7335550ce96",
+      "snapshot": "source_blobs\\ce\\ce777aed26527dcb550199437094be29591ba1a6a09e69d0921fb7335550ce96",
+      "bytes": "88"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_recovery_v14\\audit\\data\\random\\m2_6.json",
+      "sha256": "9825f80b076d428064270b48b59f5bf27be107fefbd7af149a3c8b42172d5767",
+      "snapshot": "source_blobs\\98\\9825f80b076d428064270b48b59f5bf27be107fefbd7af149a3c8b42172d5767",
+      "bytes": "103"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_recovery_v14\\audit\\data\\random\\m2_7.json",
+      "sha256": "7eb77efb946b4f0566dc7c25888cc3efa5d01b3518b94758036b03c3b0147890",
+      "snapshot": "source_blobs\\7e\\7eb77efb946b4f0566dc7c25888cc3efa5d01b3518b94758036b03c3b0147890",
+      "bytes": "62"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_recovery_v14\\audit\\data\\random\\m2_8.json",
+      "sha256": "b7eff5d766a123d15182cad70ebf4982aef9988813a56520bceed86b9a326aeb",
+      "snapshot": "source_blobs\\b7\\b7eff5d766a123d15182cad70ebf4982aef9988813a56520bceed86b9a326aeb",
+      "bytes": "116"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_recovery_v14\\audit\\data\\random\\m2_9.json",
+      "sha256": "3b0bb61bd84f597fbe6e696be31d67197b5a3e960cceb49f589e91d66be6b16c",
+      "snapshot": "source_blobs\\3b\\3b0bb61bd84f597fbe6e696be31d67197b5a3e960cceb49f589e91d66be6b16c",
+      "bytes": "114"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_recovery_v14\\audit\\data\\random\\m3_0.json",
+      "sha256": "2eea2096ef1f4e47c982ee2947849360a279e659883f0c7a62ef1d6f032f322f",
+      "snapshot": "source_blobs\\2e\\2eea2096ef1f4e47c982ee2947849360a279e659883f0c7a62ef1d6f032f322f",
+      "bytes": "92"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_recovery_v14\\audit\\data\\random\\m3_1.json",
+      "sha256": "045c93ed6e05ca3cfa41feb831f7626f3d665543f65b8a3543219bcf88b3bbc8",
+      "snapshot": "source_blobs\\04\\045c93ed6e05ca3cfa41feb831f7626f3d665543f65b8a3543219bcf88b3bbc8",
+      "bytes": "113"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_recovery_v14\\audit\\data\\random\\m3_10.json",
+      "sha256": "2da846f14d5ceb5f689c60c13bec4751249be8755d76b7c61bd5c6dd59c9d043",
+      "snapshot": "source_blobs\\2d\\2da846f14d5ceb5f689c60c13bec4751249be8755d76b7c61bd5c6dd59c9d043",
+      "bytes": "66"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_recovery_v14\\audit\\data\\random\\m3_11.json",
+      "sha256": "97c62acd7d3d0d03bd671ed8e6b541d226fca6c45cb2cb06de9c3b38aa13d451",
+      "snapshot": "source_blobs\\97\\97c62acd7d3d0d03bd671ed8e6b541d226fca6c45cb2cb06de9c3b38aa13d451",
+      "bytes": "78"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_recovery_v14\\audit\\data\\random\\m3_12.json",
+      "sha256": "2cbb2f557c4bea685b8132939847c39152db4837010ee245930e5cb8f56c23f5",
+      "snapshot": "source_blobs\\2c\\2cbb2f557c4bea685b8132939847c39152db4837010ee245930e5cb8f56c23f5",
+      "bytes": "96"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_recovery_v14\\audit\\data\\random\\m3_13.json",
+      "sha256": "d335749551edae54e7c4ce3f481d0629d7c224cd2749d6384a774b8a6d5fefc2",
+      "snapshot": "source_blobs\\d3\\d335749551edae54e7c4ce3f481d0629d7c224cd2749d6384a774b8a6d5fefc2",
+      "bytes": "66"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_recovery_v14\\audit\\data\\random\\m3_14.json",
+      "sha256": "44c42436a7adf8740f85c61f5325b933f9af5e4d8d417ac7a733280863ff1ac3",
+      "snapshot": "source_blobs\\44\\44c42436a7adf8740f85c61f5325b933f9af5e4d8d417ac7a733280863ff1ac3",
+      "bytes": "114"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_recovery_v14\\audit\\data\\random\\m3_15.json",
+      "sha256": "a396437c1a58c9d570530d43bd26b0455d537e944f3db3c8b48f20dd1d2a5d3e",
+      "snapshot": "source_blobs\\a3\\a396437c1a58c9d570530d43bd26b0455d537e944f3db3c8b48f20dd1d2a5d3e",
+      "bytes": "78"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_recovery_v14\\audit\\data\\random\\m3_16.json",
+      "sha256": "3da9595dfe01b2e27ac22f3bb2b87445efd2d218f79bf385b5848bb579b2adf5",
+      "snapshot": "source_blobs\\3d\\3da9595dfe01b2e27ac22f3bb2b87445efd2d218f79bf385b5848bb579b2adf5",
+      "bytes": "69"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_recovery_v14\\audit\\data\\random\\m3_17.json",
+      "sha256": "43bde08d836d04052da4888ef13197eda2ea2689492008ec47760a8237d99305",
+      "snapshot": "source_blobs\\43\\43bde08d836d04052da4888ef13197eda2ea2689492008ec47760a8237d99305",
+      "bytes": "95"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_recovery_v14\\audit\\data\\random\\m3_18.json",
+      "sha256": "58b2dcc49454a430f4a223d9b9ca22cb4a7c9646494e69f8b479543e2d6bf180",
+      "snapshot": "source_blobs\\58\\58b2dcc49454a430f4a223d9b9ca22cb4a7c9646494e69f8b479543e2d6bf180",
+      "bytes": "106"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_recovery_v14\\audit\\data\\random\\m3_19.json",
+      "sha256": "ff5fa84c743cd902b4533e823e9159e595a5f9ead3080b50eecff62808cda2d9",
+      "snapshot": "source_blobs\\ff\\ff5fa84c743cd902b4533e823e9159e595a5f9ead3080b50eecff62808cda2d9",
+      "bytes": "113"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_recovery_v14\\audit\\data\\random\\m3_2.json",
+      "sha256": "a9e50168fa62b60aa6e8eb1b1d40724521217de8286839906818ae929ea02fe1",
+      "snapshot": "source_blobs\\a9\\a9e50168fa62b60aa6e8eb1b1d40724521217de8286839906818ae929ea02fe1",
+      "bytes": "79"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_recovery_v14\\audit\\data\\random\\m3_20.json",
+      "sha256": "c94541dd43ab064797631a18ed6938975486988163c813daec7ea7e10ed08801",
+      "snapshot": "source_blobs\\c9\\c94541dd43ab064797631a18ed6938975486988163c813daec7ea7e10ed08801",
+      "bytes": "119"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_recovery_v14\\audit\\data\\random\\m3_21.json",
+      "sha256": "a2f17324274db507ec1054c2c59c4b0ec46288c7a724f0cfac076d384599ca42",
+      "snapshot": "source_blobs\\a2\\a2f17324274db507ec1054c2c59c4b0ec46288c7a724f0cfac076d384599ca42",
+      "bytes": "106"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_recovery_v14\\audit\\data\\random\\m3_22.json",
+      "sha256": "7f49d16f56bda7d8697598af0f0e766d16efb23b9dbcaab3c823f6440c730e3e",
+      "snapshot": "source_blobs\\7f\\7f49d16f56bda7d8697598af0f0e766d16efb23b9dbcaab3c823f6440c730e3e",
+      "bytes": "80"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_recovery_v14\\audit\\data\\random\\m3_23.json",
+      "sha256": "f6d77395cad39fba882046f4df155ae7e2f3d9227059974d1b1e8519003e4b46",
+      "snapshot": "source_blobs\\f6\\f6d77395cad39fba882046f4df155ae7e2f3d9227059974d1b1e8519003e4b46",
+      "bytes": "86"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_recovery_v14\\audit\\data\\random\\m3_24.json",
+      "sha256": "214d880d3ed5fffddecb3aab51ec265b636136ad31885f80400faa6b5f335b51",
+      "snapshot": "source_blobs\\21\\214d880d3ed5fffddecb3aab51ec265b636136ad31885f80400faa6b5f335b51",
+      "bytes": "83"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_recovery_v14\\audit\\data\\random\\m3_25.json",
+      "sha256": "9322308483e26e1f950450efa6d3cb7370b0c5efe44f76409e1819c018f5a0ad",
+      "snapshot": "source_blobs\\93\\9322308483e26e1f950450efa6d3cb7370b0c5efe44f76409e1819c018f5a0ad",
+      "bytes": "84"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_recovery_v14\\audit\\data\\random\\m3_26.json",
+      "sha256": "0ee1c557a1e80528c45bb327dac8df9948972459955d764f7565626aee9501fb",
+      "snapshot": "source_blobs\\0e\\0ee1c557a1e80528c45bb327dac8df9948972459955d764f7565626aee9501fb",
+      "bytes": "103"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_recovery_v14\\audit\\data\\random\\m3_27.json",
+      "sha256": "745e7bf02dbe23c607ff01a3b26d7ebbb82dc1f43f9ca563e63c24f8fc544688",
+      "snapshot": "source_blobs\\74\\745e7bf02dbe23c607ff01a3b26d7ebbb82dc1f43f9ca563e63c24f8fc544688",
+      "bytes": "109"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_recovery_v14\\audit\\data\\random\\m3_28.json",
+      "sha256": "a63cb98e0f200aeee87f4b06e51ff018265309bdc0a0ad54739ac42dc426eeeb",
+      "snapshot": "source_blobs\\a6\\a63cb98e0f200aeee87f4b06e51ff018265309bdc0a0ad54739ac42dc426eeeb",
+      "bytes": "73"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_recovery_v14\\audit\\data\\random\\m3_29.json",
+      "sha256": "9b22a0592cc7d7e0e90238e84398f1e4090fc4009ba8fd7cefaee31e048da716",
+      "snapshot": "source_blobs\\9b\\9b22a0592cc7d7e0e90238e84398f1e4090fc4009ba8fd7cefaee31e048da716",
+      "bytes": "74"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_recovery_v14\\audit\\data\\random\\m3_3.json",
+      "sha256": "11b3a89b44d059c00e69ff3e226790e6d2e885bded39e7e70e71f682ce24ad83",
+      "snapshot": "source_blobs\\11\\11b3a89b44d059c00e69ff3e226790e6d2e885bded39e7e70e71f682ce24ad83",
+      "bytes": "93"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_recovery_v14\\audit\\data\\random\\m3_30.json",
+      "sha256": "978b101406f26a23544b5958adfc017124e06bf1cdae09930e2407bf121655b6",
+      "snapshot": "source_blobs\\97\\978b101406f26a23544b5958adfc017124e06bf1cdae09930e2407bf121655b6",
+      "bytes": "89"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_recovery_v14\\audit\\data\\random\\m3_31.json",
+      "sha256": "4a1ad16ebc57f7fdf084140708415177f5fc4e098916a8ed151c12d27a2e0b66",
+      "snapshot": "source_blobs\\4a\\4a1ad16ebc57f7fdf084140708415177f5fc4e098916a8ed151c12d27a2e0b66",
+      "bytes": "90"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_recovery_v14\\audit\\data\\random\\m3_32.json",
+      "sha256": "9ef20bd7c496e1396f2f6a2f79322a5f039a9d57418539cf98de517bb45677ac",
+      "snapshot": "source_blobs\\9e\\9ef20bd7c496e1396f2f6a2f79322a5f039a9d57418539cf98de517bb45677ac",
+      "bytes": "99"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_recovery_v14\\audit\\data\\random\\m3_33.json",
+      "sha256": "d95f590c6de7021dbb45050c965250f0eba0a224c0a678eb4e6aa012878ded53",
+      "snapshot": "source_blobs\\d9\\d95f590c6de7021dbb45050c965250f0eba0a224c0a678eb4e6aa012878ded53",
+      "bytes": "110"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_recovery_v14\\audit\\data\\random\\m3_34.json",
+      "sha256": "98411c93a5c315d63e4ae586fc971d84b71600483501f326a2f954e6dabadbc1",
+      "snapshot": "source_blobs\\98\\98411c93a5c315d63e4ae586fc971d84b71600483501f326a2f954e6dabadbc1",
+      "bytes": "111"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_recovery_v14\\audit\\data\\random\\m3_35.json",
+      "sha256": "c936541a97ddb863c42f341342c73cd0921a00b1e63d7cdff85b28fb9da90569",
+      "snapshot": "source_blobs\\c9\\c936541a97ddb863c42f341342c73cd0921a00b1e63d7cdff85b28fb9da90569",
+      "bytes": "115"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_recovery_v14\\audit\\data\\random\\m3_36.json",
+      "sha256": "dfa50679a323c3b5112d87049d06dbe8ab52878cb16a7099bcafbde3711cf398",
+      "snapshot": "source_blobs\\df\\dfa50679a323c3b5112d87049d06dbe8ab52878cb16a7099bcafbde3711cf398",
+      "bytes": "131"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_recovery_v14\\audit\\data\\random\\m3_37.json",
+      "sha256": "bea54d5a11dcaa2f21aefed03c73b80353036fe3ef6ca7ea3f7f6cc69c2c0813",
+      "snapshot": "source_blobs\\be\\bea54d5a11dcaa2f21aefed03c73b80353036fe3ef6ca7ea3f7f6cc69c2c0813",
+      "bytes": "73"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_recovery_v14\\audit\\data\\random\\m3_38.json",
+      "sha256": "f1d474523a1324c5108aafb4d932335f9573f8004c1fa19eb1fb60046dbac775",
+      "snapshot": "source_blobs\\f1\\f1d474523a1324c5108aafb4d932335f9573f8004c1fa19eb1fb60046dbac775",
+      "bytes": "86"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_recovery_v14\\audit\\data\\random\\m3_39.json",
+      "sha256": "a3a80d13acfe12d9028c95edd391952f53bd6a860bb49c2678c8b60060c518c0",
+      "snapshot": "source_blobs\\a3\\a3a80d13acfe12d9028c95edd391952f53bd6a860bb49c2678c8b60060c518c0",
+      "bytes": "74"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_recovery_v14\\audit\\data\\random\\m3_4.json",
+      "sha256": "b13eb49569cb6f27e42312bce58d654e3956d9c596aaf01c20d649af9998bdad",
+      "snapshot": "source_blobs\\b1\\b13eb49569cb6f27e42312bce58d654e3956d9c596aaf01c20d649af9998bdad",
+      "bytes": "67"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_recovery_v14\\audit\\data\\random\\m3_5.json",
+      "sha256": "a57e30c2b1ad21b3f2f81f35322352dbb4eddced9060a8b8b0e4082aad4e658c",
+      "snapshot": "source_blobs\\a5\\a57e30c2b1ad21b3f2f81f35322352dbb4eddced9060a8b8b0e4082aad4e658c",
+      "bytes": "85"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_recovery_v14\\audit\\data\\random\\m3_6.json",
+      "sha256": "fe5b2db9d56fcb2c3d322a102c9079d9eacaecd88468481517cedf77eb8e6f15",
+      "snapshot": "source_blobs\\fe\\fe5b2db9d56fcb2c3d322a102c9079d9eacaecd88468481517cedf77eb8e6f15",
+      "bytes": "114"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_recovery_v14\\audit\\data\\random\\m3_7.json",
+      "sha256": "214c48919b09e03dfd0c9d208822cd39a55829661815f101b117b7919dfa0076",
+      "snapshot": "source_blobs\\21\\214c48919b09e03dfd0c9d208822cd39a55829661815f101b117b7919dfa0076",
+      "bytes": "120"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_recovery_v14\\audit\\data\\random\\m3_8.json",
+      "sha256": "36b258034c2ecb975649c679586026f0a7ea33898bc80dda868b1a67ec55db35",
+      "snapshot": "source_blobs\\36\\36b258034c2ecb975649c679586026f0a7ea33898bc80dda868b1a67ec55db35",
+      "bytes": "118"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_recovery_v14\\audit\\data\\random\\m3_9.json",
+      "sha256": "eae942b741bee6780ec9ab803a549040f784d060695c66dac28aac5e6af7cae6",
+      "snapshot": "source_blobs\\ea\\eae942b741bee6780ec9ab803a549040f784d060695c66dac28aac5e6af7cae6",
+      "bytes": "117"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_recovery_v14\\audit\\data\\random\\m4_0.json",
+      "sha256": "addc15877c9847932bfdfe4590d4144de238ee132790363de8da30c25c2b38d3",
+      "snapshot": "source_blobs\\ad\\addc15877c9847932bfdfe4590d4144de238ee132790363de8da30c25c2b38d3",
+      "bytes": "67"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_recovery_v14\\audit\\data\\random\\m4_1.json",
+      "sha256": "f63e7b0ef7ba62906f752280f72da30e3270b8929df391f19eade0d5a0d8b58c",
+      "snapshot": "source_blobs\\f6\\f63e7b0ef7ba62906f752280f72da30e3270b8929df391f19eade0d5a0d8b58c",
+      "bytes": "128"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_recovery_v14\\audit\\data\\random\\m4_10.json",
+      "sha256": "59a99be2b9fda07519eed60cc4dfe9fde2656855befd7cc2a8f407b1017c088a",
+      "snapshot": "source_blobs\\59\\59a99be2b9fda07519eed60cc4dfe9fde2656855befd7cc2a8f407b1017c088a",
+      "bytes": "136"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_recovery_v14\\audit\\data\\random\\m4_11.json",
+      "sha256": "db243ab078b81b88fa51199f5ffb3d3a8cc9620342707228a77225d9db38f5d4",
+      "snapshot": "source_blobs\\db\\db243ab078b81b88fa51199f5ffb3d3a8cc9620342707228a77225d9db38f5d4",
+      "bytes": "72"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_recovery_v14\\audit\\data\\random\\m4_12.json",
+      "sha256": "3c24d965260564998c4a09aa53b76126d550a5d99c2f47a8b39506911369bf71",
+      "snapshot": "source_blobs\\3c\\3c24d965260564998c4a09aa53b76126d550a5d99c2f47a8b39506911369bf71",
+      "bytes": "115"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_recovery_v14\\audit\\data\\random\\m4_13.json",
+      "sha256": "addc15877c9847932bfdfe4590d4144de238ee132790363de8da30c25c2b38d3",
+      "snapshot": "source_blobs\\ad\\addc15877c9847932bfdfe4590d4144de238ee132790363de8da30c25c2b38d3",
+      "bytes": "67"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_recovery_v14\\audit\\data\\random\\m4_14.json",
+      "sha256": "8c3d4f6ec50adfc973299d3479f5d83f4610a8b8db52fce8c4f07de1f557678b",
+      "snapshot": "source_blobs\\8c\\8c3d4f6ec50adfc973299d3479f5d83f4610a8b8db52fce8c4f07de1f557678b",
+      "bytes": "89"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_recovery_v14\\audit\\data\\random\\m4_15.json",
+      "sha256": "0f471bd18281e60da61c833e6323bb2745c93091f2d0e8685f9ff8ca0b15b239",
+      "snapshot": "source_blobs\\0f\\0f471bd18281e60da61c833e6323bb2745c93091f2d0e8685f9ff8ca0b15b239",
+      "bytes": "72"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_recovery_v14\\audit\\data\\random\\m4_16.json",
+      "sha256": "c7661db093f779ea4f2e51e6795c6fe878cf50d4c0dd0e26606d0db7acf6065a",
+      "snapshot": "source_blobs\\c7\\c7661db093f779ea4f2e51e6795c6fe878cf50d4c0dd0e26606d0db7acf6065a",
+      "bytes": "129"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_recovery_v14\\audit\\data\\random\\m4_17.json",
+      "sha256": "e30ecd7ccc15cc4aa17a71ee7460165ff81c9df8713d337c9b2f586dbade913e",
+      "snapshot": "source_blobs\\e3\\e30ecd7ccc15cc4aa17a71ee7460165ff81c9df8713d337c9b2f586dbade913e",
+      "bytes": "79"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_recovery_v14\\audit\\data\\random\\m4_18.json",
+      "sha256": "b411a4ce1536fe3cf014766e952694dff30fa6b59592ac2c01c98528ef3d8c80",
+      "snapshot": "source_blobs\\b4\\b411a4ce1536fe3cf014766e952694dff30fa6b59592ac2c01c98528ef3d8c80",
+      "bytes": "94"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_recovery_v14\\audit\\data\\random\\m4_19.json",
+      "sha256": "90e37f6acab7de37fe4e8aa330b611073e2b94a86607fa33c975d580e150a602",
+      "snapshot": "source_blobs\\90\\90e37f6acab7de37fe4e8aa330b611073e2b94a86607fa33c975d580e150a602",
+      "bytes": "78"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_recovery_v14\\audit\\data\\random\\m4_2.json",
+      "sha256": "8e778ed0221cd4421031424947176a42dca0a2f52466d8568ad148a33e0dfe12",
+      "snapshot": "source_blobs\\8e\\8e778ed0221cd4421031424947176a42dca0a2f52466d8568ad148a33e0dfe12",
+      "bytes": "72"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_recovery_v14\\audit\\data\\random\\m4_20.json",
+      "sha256": "9137945a8f211a64c1cf5ea81f01fe0aee676297156a2d0b541a0db33735e1fb",
+      "snapshot": "source_blobs\\91\\9137945a8f211a64c1cf5ea81f01fe0aee676297156a2d0b541a0db33735e1fb",
+      "bytes": "78"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_recovery_v14\\audit\\data\\random\\m4_21.json",
+      "sha256": "1cc87d7f86aabb9dd86f161b0d21e685a5912c73d4215884e7b5764ad2734b4d",
+      "snapshot": "source_blobs\\1c\\1cc87d7f86aabb9dd86f161b0d21e685a5912c73d4215884e7b5764ad2734b4d",
+      "bytes": "87"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_recovery_v14\\audit\\data\\random\\m4_22.json",
+      "sha256": "95945cb3d19e7453c3f932c2514292f5c95c7557db8decfc221b56f22d9ae13a",
+      "snapshot": "source_blobs\\95\\95945cb3d19e7453c3f932c2514292f5c95c7557db8decfc221b56f22d9ae13a",
+      "bytes": "111"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_recovery_v14\\audit\\data\\random\\m4_23.json",
+      "sha256": "a3c78393802f5acbccf4853b819d5050968ced764d668baafaf8b148710cac7d",
+      "snapshot": "source_blobs\\a3\\a3c78393802f5acbccf4853b819d5050968ced764d668baafaf8b148710cac7d",
+      "bytes": "137"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_recovery_v14\\audit\\data\\random\\m4_24.json",
+      "sha256": "ff87f82dd86db4d2854edd9e614d285c6f304f2248be9a830db6f02d8f452e46",
+      "snapshot": "source_blobs\\ff\\ff87f82dd86db4d2854edd9e614d285c6f304f2248be9a830db6f02d8f452e46",
+      "bytes": "86"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_recovery_v14\\audit\\data\\random\\m4_25.json",
+      "sha256": "c20667796feb90f5458be4f6ef281cc6cf99c3e11ad834692ee6fa3bb5dc29cb",
+      "snapshot": "source_blobs\\c2\\c20667796feb90f5458be4f6ef281cc6cf99c3e11ad834692ee6fa3bb5dc29cb",
+      "bytes": "137"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_recovery_v14\\audit\\data\\random\\m4_26.json",
+      "sha256": "2ea738008dec1a51636bcdbdf66d6c4cb1c51eb86b7bba586d2987c745d3b131",
+      "snapshot": "source_blobs\\2e\\2ea738008dec1a51636bcdbdf66d6c4cb1c51eb86b7bba586d2987c745d3b131",
+      "bytes": "78"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_recovery_v14\\audit\\data\\random\\m4_27.json",
+      "sha256": "0ec0b75b33c85eebe8160849ec4ba85b1f4e4eabaedce2b3b61d92012a7bc34c",
+      "snapshot": "source_blobs\\0e\\0ec0b75b33c85eebe8160849ec4ba85b1f4e4eabaedce2b3b61d92012a7bc34c",
+      "bytes": "115"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_recovery_v14\\audit\\data\\random\\m4_28.json",
+      "sha256": "b2cfcedf24dd653c3016ea924e7003cf7289a98607d72ff5e0ed04b9ea3df1cd",
+      "snapshot": "source_blobs\\b2\\b2cfcedf24dd653c3016ea924e7003cf7289a98607d72ff5e0ed04b9ea3df1cd",
+      "bytes": "124"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_recovery_v14\\audit\\data\\random\\m4_29.json",
+      "sha256": "e0a6741a0d5643de1b09e88ac2c3525526878621821ff792106dc8fec67f66f6",
+      "snapshot": "source_blobs\\e0\\e0a6741a0d5643de1b09e88ac2c3525526878621821ff792106dc8fec67f66f6",
+      "bytes": "105"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_recovery_v14\\audit\\data\\random\\m4_3.json",
+      "sha256": "ebc915731dafe42b7b40cba89aca4e9b8f9b4feed7ee275fb73639c62082f70e",
+      "snapshot": "source_blobs\\eb\\ebc915731dafe42b7b40cba89aca4e9b8f9b4feed7ee275fb73639c62082f70e",
+      "bytes": "77"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_recovery_v14\\audit\\data\\random\\m4_30.json",
+      "sha256": "ec1014b02137434b240ded6ed0a82d721365ee987df535641cee8d749e4bf5e5",
+      "snapshot": "source_blobs\\ec\\ec1014b02137434b240ded6ed0a82d721365ee987df535641cee8d749e4bf5e5",
+      "bytes": "72"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_recovery_v14\\audit\\data\\random\\m4_31.json",
+      "sha256": "0bcf31c89212946031c585b93978a5f4c5556f16ba11d7e489208e7bfa280611",
+      "snapshot": "source_blobs\\0b\\0bcf31c89212946031c585b93978a5f4c5556f16ba11d7e489208e7bfa280611",
+      "bytes": "85"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_recovery_v14\\audit\\data\\random\\m4_32.json",
+      "sha256": "6020089f49de088ba19fc2759e1cbe0da1c4e08baac62de6b7e6774c2034f185",
+      "snapshot": "source_blobs\\60\\6020089f49de088ba19fc2759e1cbe0da1c4e08baac62de6b7e6774c2034f185",
+      "bytes": "101"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_recovery_v14\\audit\\data\\random\\m4_33.json",
+      "sha256": "c470d5d8ee3a0915f137a2b9dfc3346c631abe62727d5ecf52671d5d7b85fdea",
+      "snapshot": "source_blobs\\c4\\c470d5d8ee3a0915f137a2b9dfc3346c631abe62727d5ecf52671d5d7b85fdea",
+      "bytes": "90"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_recovery_v14\\audit\\data\\random\\m4_34.json",
+      "sha256": "dfbfd2ba68082ab3375efc5ee59c478199dd5f440844800c8860d40a8c6d550f",
+      "snapshot": "source_blobs\\df\\dfbfd2ba68082ab3375efc5ee59c478199dd5f440844800c8860d40a8c6d550f",
+      "bytes": "109"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_recovery_v14\\audit\\data\\random\\m4_35.json",
+      "sha256": "0e8949abe675747f32c9bfe51a0ed1828126b47958109a9bbdf3d9570ef7917c",
+      "snapshot": "source_blobs\\0e\\0e8949abe675747f32c9bfe51a0ed1828126b47958109a9bbdf3d9570ef7917c",
+      "bytes": "91"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_recovery_v14\\audit\\data\\random\\m4_36.json",
+      "sha256": "9b3183533df4015e4ee392d6862a86fe04d65182c84fc459ebe762fca33cbd93",
+      "snapshot": "source_blobs\\9b\\9b3183533df4015e4ee392d6862a86fe04d65182c84fc459ebe762fca33cbd93",
+      "bytes": "103"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_recovery_v14\\audit\\data\\random\\m4_37.json",
+      "sha256": "e2b7ba3c5d329a81b35bc653b992bb482f57e516c2f6a8089a424a632e34ef4e",
+      "snapshot": "source_blobs\\e2\\e2b7ba3c5d329a81b35bc653b992bb482f57e516c2f6a8089a424a632e34ef4e",
+      "bytes": "111"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_recovery_v14\\audit\\data\\random\\m4_38.json",
+      "sha256": "f4c26605a4cdb38e30c5e9ccbe796f2463988e4906ae281f717bd04b770fb39f",
+      "snapshot": "source_blobs\\f4\\f4c26605a4cdb38e30c5e9ccbe796f2463988e4906ae281f717bd04b770fb39f",
+      "bytes": "71"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_recovery_v14\\audit\\data\\random\\m4_39.json",
+      "sha256": "e063458b1b9b2d84ba876dec0ebdb3ef78bd5678a1a46fbf173306f3e4c4eb95",
+      "snapshot": "source_blobs\\e0\\e063458b1b9b2d84ba876dec0ebdb3ef78bd5678a1a46fbf173306f3e4c4eb95",
+      "bytes": "102"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_recovery_v14\\audit\\data\\random\\m4_4.json",
+      "sha256": "fde72ea6b6dee86f5a38170f9622ebba3e1f19ab2fbe9b489240753cb1545cf5",
+      "snapshot": "source_blobs\\fd\\fde72ea6b6dee86f5a38170f9622ebba3e1f19ab2fbe9b489240753cb1545cf5",
+      "bytes": "91"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_recovery_v14\\audit\\data\\random\\m4_5.json",
+      "sha256": "ac89f20cf10e00999770e5be0a598fe1e49b86877f7b122dfae7cf9ec1b3c308",
+      "snapshot": "source_blobs\\ac\\ac89f20cf10e00999770e5be0a598fe1e49b86877f7b122dfae7cf9ec1b3c308",
+      "bytes": "130"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_recovery_v14\\audit\\data\\random\\m4_6.json",
+      "sha256": "ceec55bf47a7dd03f23c0d1f4da7935cb63f1e2c4e2a5dd7c03a540b6f6c6fb5",
+      "snapshot": "source_blobs\\ce\\ceec55bf47a7dd03f23c0d1f4da7935cb63f1e2c4e2a5dd7c03a540b6f6c6fb5",
+      "bytes": "119"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_recovery_v14\\audit\\data\\random\\m4_7.json",
+      "sha256": "af465ccfc84ff1604ba800729f00d9ff158df4a4fc37dc1fd2ebcad704223c2b",
+      "snapshot": "source_blobs\\af\\af465ccfc84ff1604ba800729f00d9ff158df4a4fc37dc1fd2ebcad704223c2b",
+      "bytes": "90"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_recovery_v14\\audit\\data\\random\\m4_8.json",
+      "sha256": "b622bae53855e2fb151c8a3599abbb102e4719f4b779b878ed7c9945a56043d6",
+      "snapshot": "source_blobs\\b6\\b622bae53855e2fb151c8a3599abbb102e4719f4b779b878ed7c9945a56043d6",
+      "bytes": "116"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_recovery_v14\\audit\\data\\random\\m4_9.json",
+      "sha256": "15492ad48d1ace13cb3932b82f456847ea3c2573c86a33c2bb4bc37bd6806727",
+      "snapshot": "source_blobs\\15\\15492ad48d1ace13cb3932b82f456847ea3c2573c86a33c2bb4bc37bd6806727",
+      "bytes": "72"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_recovery_v14\\audit\\data\\random\\m5_0.json",
+      "sha256": "bd1d68c6c90350cd0858f44b30f7f8c7b70c4112d11a5b864b782ea417d0c22b",
+      "snapshot": "source_blobs\\bd\\bd1d68c6c90350cd0858f44b30f7f8c7b70c4112d11a5b864b782ea417d0c22b",
+      "bytes": "123"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_recovery_v14\\audit\\data\\random\\m5_1.json",
+      "sha256": "e3fdd6b1a40feae4bb579aaf5f83da5d6495ac9d20fd2a14882044aa2fa01b19",
+      "snapshot": "source_blobs\\e3\\e3fdd6b1a40feae4bb579aaf5f83da5d6495ac9d20fd2a14882044aa2fa01b19",
+      "bytes": "136"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_recovery_v14\\audit\\data\\random\\m5_10.json",
+      "sha256": "80f79e6359cbcda12bedb12dc8cbbaa8cf8a1d1414c2fbe252923f683c3d1eee",
+      "snapshot": "source_blobs\\80\\80f79e6359cbcda12bedb12dc8cbbaa8cf8a1d1414c2fbe252923f683c3d1eee",
+      "bytes": "108"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_recovery_v14\\audit\\data\\random\\m5_11.json",
+      "sha256": "f2c43c0d515dbf21b3c1d4f966963ac4be3be04b59e113551ce5879a487daafb",
+      "snapshot": "source_blobs\\f2\\f2c43c0d515dbf21b3c1d4f966963ac4be3be04b59e113551ce5879a487daafb",
+      "bytes": "141"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_recovery_v14\\audit\\data\\random\\m5_12.json",
+      "sha256": "431604a476644087fa85e5d6aea24b9673696da4fcdf27b434ddc23c4bfb72b9",
+      "snapshot": "source_blobs\\43\\431604a476644087fa85e5d6aea24b9673696da4fcdf27b434ddc23c4bfb72b9",
+      "bytes": "82"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_recovery_v14\\audit\\data\\random\\m5_13.json",
+      "sha256": "ca772fb38a55400a4b0e1f5b284cd6a47b23d7e3a574f6ae4bbced07db022907",
+      "snapshot": "source_blobs\\ca\\ca772fb38a55400a4b0e1f5b284cd6a47b23d7e3a574f6ae4bbced07db022907",
+      "bytes": "89"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_recovery_v14\\audit\\data\\random\\m5_14.json",
+      "sha256": "8e3b9c2f101ee8525de5bb664785e3143961b9cdb8e5761196804cccce03fb5f",
+      "snapshot": "source_blobs\\8e\\8e3b9c2f101ee8525de5bb664785e3143961b9cdb8e5761196804cccce03fb5f",
+      "bytes": "77"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_recovery_v14\\audit\\data\\random\\m5_15.json",
+      "sha256": "96082c17feea3f917d29e615e71088ca2917b6bec0f38c73abd462131cee7bec",
+      "snapshot": "source_blobs\\96\\96082c17feea3f917d29e615e71088ca2917b6bec0f38c73abd462131cee7bec",
+      "bytes": "136"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_recovery_v14\\audit\\data\\random\\m5_16.json",
+      "sha256": "88b4babfa3674ac4f2b371f034f224855da8559668795c1841846f4df0dc32a4",
+      "snapshot": "source_blobs\\88\\88b4babfa3674ac4f2b371f034f224855da8559668795c1841846f4df0dc32a4",
+      "bytes": "81"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_recovery_v14\\audit\\data\\random\\m5_17.json",
+      "sha256": "60dd5aa9644c65365f998ad6f77cd63b1ce6e15103a7aa850bfbaf882c71d485",
+      "snapshot": "source_blobs\\60\\60dd5aa9644c65365f998ad6f77cd63b1ce6e15103a7aa850bfbaf882c71d485",
+      "bytes": "90"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_recovery_v14\\audit\\data\\random\\m5_18.json",
+      "sha256": "11be4e41ddef0a2921975065f7cd932b38364c43158054b06c3779236be08548",
+      "snapshot": "source_blobs\\11\\11be4e41ddef0a2921975065f7cd932b38364c43158054b06c3779236be08548",
+      "bytes": "119"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_recovery_v14\\audit\\data\\random\\m5_19.json",
+      "sha256": "a1ad72416c5e39184132ccac2ef52ac5f8f4209f8c0e64dd25f593dd2d9d6079",
+      "snapshot": "source_blobs\\a1\\a1ad72416c5e39184132ccac2ef52ac5f8f4209f8c0e64dd25f593dd2d9d6079",
+      "bytes": "117"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_recovery_v14\\audit\\data\\random\\m5_2.json",
+      "sha256": "b18a3a20f489c3344e88fd34f476ff3e1c721e287985f911f08f72230ed2c182",
+      "snapshot": "source_blobs\\b1\\b18a3a20f489c3344e88fd34f476ff3e1c721e287985f911f08f72230ed2c182",
+      "bytes": "82"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_recovery_v14\\audit\\data\\random\\m5_20.json",
+      "sha256": "29feead0e1b618f723157233cb887785d72091ca34f91cc306de4413f7034b88",
+      "snapshot": "source_blobs\\29\\29feead0e1b618f723157233cb887785d72091ca34f91cc306de4413f7034b88",
+      "bytes": "83"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_recovery_v14\\audit\\data\\random\\m5_21.json",
+      "sha256": "91757dc06befb26f7daba399f7edd052e51d70b94886ab9239cff7ce1d85a35a",
+      "snapshot": "source_blobs\\91\\91757dc06befb26f7daba399f7edd052e51d70b94886ab9239cff7ce1d85a35a",
+      "bytes": "84"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_recovery_v14\\audit\\data\\random\\m5_22.json",
+      "sha256": "6a051a2cd3c392c66c99defea1ebb046cacbd807f0810fdbe007b7f12d964f1f",
+      "snapshot": "source_blobs\\6a\\6a051a2cd3c392c66c99defea1ebb046cacbd807f0810fdbe007b7f12d964f1f",
+      "bytes": "102"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_recovery_v14\\audit\\data\\random\\m5_23.json",
+      "sha256": "6810c8f917daa04f7534049a412ab665db8a146ef837712261b02bf14e1878b7",
+      "snapshot": "source_blobs\\68\\6810c8f917daa04f7534049a412ab665db8a146ef837712261b02bf14e1878b7",
+      "bytes": "129"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_recovery_v14\\audit\\data\\random\\m5_24.json",
+      "sha256": "5d100a3d549b5b09620c7cadb41ef456101645a3e808c79be97634b6e4d44831",
+      "snapshot": "source_blobs\\5d\\5d100a3d549b5b09620c7cadb41ef456101645a3e808c79be97634b6e4d44831",
+      "bytes": "96"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_recovery_v14\\audit\\data\\random\\m5_25.json",
+      "sha256": "632075eca117598e4800741f6d502836d313e88ac1b9908bce26ca4791df9a09",
+      "snapshot": "source_blobs\\63\\632075eca117598e4800741f6d502836d313e88ac1b9908bce26ca4791df9a09",
+      "bytes": "116"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_recovery_v14\\audit\\data\\random\\m5_26.json",
+      "sha256": "10426eedfee970bc22229dd000fef3f206dce73eb8f5baa43f8bdfdbfa3262c7",
+      "snapshot": "source_blobs\\10\\10426eedfee970bc22229dd000fef3f206dce73eb8f5baa43f8bdfdbfa3262c7",
+      "bytes": "95"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_recovery_v14\\audit\\data\\random\\m5_27.json",
+      "sha256": "af72a8335429d61e854e47960e3b6ad84a3e319fb59a87320c30495b2379f251",
+      "snapshot": "source_blobs\\af\\af72a8335429d61e854e47960e3b6ad84a3e319fb59a87320c30495b2379f251",
+      "bytes": "130"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_recovery_v14\\audit\\data\\random\\m5_28.json",
+      "sha256": "150649e02bdf05e2f496a4eb721c7bf5a7bc9a3f949c1d0a5aab839aeeb1a4df",
+      "snapshot": "source_blobs\\15\\150649e02bdf05e2f496a4eb721c7bf5a7bc9a3f949c1d0a5aab839aeeb1a4df",
+      "bytes": "128"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_recovery_v14\\audit\\data\\random\\m5_29.json",
+      "sha256": "e88f71152561a9f691252b9f56bea4d8cb30032cb04807d29b9e8b8cc42e4b92",
+      "snapshot": "source_blobs\\e8\\e88f71152561a9f691252b9f56bea4d8cb30032cb04807d29b9e8b8cc42e4b92",
+      "bytes": "82"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_recovery_v14\\audit\\data\\random\\m5_3.json",
+      "sha256": "a125f86b24f7acc276a25b06cafcf8d647c4b0d1e2e8a2afd8b9c69500faea33",
+      "snapshot": "source_blobs\\a1\\a125f86b24f7acc276a25b06cafcf8d647c4b0d1e2e8a2afd8b9c69500faea33",
+      "bytes": "110"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_recovery_v14\\audit\\data\\random\\m5_30.json",
+      "sha256": "1f3075f5834cb54b04eab5d4d69b2afb95d34075a1844f9d4c01a193592da397",
+      "snapshot": "source_blobs\\1f\\1f3075f5834cb54b04eab5d4d69b2afb95d34075a1844f9d4c01a193592da397",
+      "bytes": "116"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_recovery_v14\\audit\\data\\random\\m5_31.json",
+      "sha256": "cbeb6c8b98bc68ac6529c839b956d26619144dfc3e4ad3085a2173d603190b3d",
+      "snapshot": "source_blobs\\cb\\cbeb6c8b98bc68ac6529c839b956d26619144dfc3e4ad3085a2173d603190b3d",
+      "bytes": "115"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_recovery_v14\\audit\\data\\random\\m5_32.json",
+      "sha256": "4d73accef13f51e5b580e437c739f8a73936268c731bbdfc15b41d145aa3593e",
+      "snapshot": "source_blobs\\4d\\4d73accef13f51e5b580e437c739f8a73936268c731bbdfc15b41d145aa3593e",
+      "bytes": "77"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_recovery_v14\\audit\\data\\random\\m5_33.json",
+      "sha256": "39d522e59c5599576b7df008ed761485101e83711fe5a1a601062cc9b3308695",
+      "snapshot": "source_blobs\\39\\39d522e59c5599576b7df008ed761485101e83711fe5a1a601062cc9b3308695",
+      "bytes": "88"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_recovery_v14\\audit\\data\\random\\m5_34.json",
+      "sha256": "5e69fcf37bb11500d9f6b243f2ba8edcfe7e3bbca28d8b68243a9606dbd6ea9e",
+      "snapshot": "source_blobs\\5e\\5e69fcf37bb11500d9f6b243f2ba8edcfe7e3bbca28d8b68243a9606dbd6ea9e",
+      "bytes": "95"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_recovery_v14\\audit\\data\\random\\m5_35.json",
+      "sha256": "0cc6e5193b55790783e8f42a5f12c1ec79bd1743c0c96234326c68c230f8319c",
+      "snapshot": "source_blobs\\0c\\0cc6e5193b55790783e8f42a5f12c1ec79bd1743c0c96234326c68c230f8319c",
+      "bytes": "157"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_recovery_v14\\audit\\data\\random\\m5_36.json",
+      "sha256": "d7d7f125886440e0cd8d77f45de47fef181825ad9c71c01ced37e27cbd90a6a6",
+      "snapshot": "source_blobs\\d7\\d7d7f125886440e0cd8d77f45de47fef181825ad9c71c01ced37e27cbd90a6a6",
+      "bytes": "116"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_recovery_v14\\audit\\data\\random\\m5_37.json",
+      "sha256": "363a6fd1874fb0c5a25d834721dcdd7f51678770d7dfdecbc241b34e15fb544e",
+      "snapshot": "source_blobs\\36\\363a6fd1874fb0c5a25d834721dcdd7f51678770d7dfdecbc241b34e15fb544e",
+      "bytes": "102"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_recovery_v14\\audit\\data\\random\\m5_38.json",
+      "sha256": "05566a4e064a158478a8a6fd19b6a47be8cfb67bd2eb8b6ef29f230b39f9435f",
+      "snapshot": "source_blobs\\05\\05566a4e064a158478a8a6fd19b6a47be8cfb67bd2eb8b6ef29f230b39f9435f",
+      "bytes": "122"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_recovery_v14\\audit\\data\\random\\m5_39.json",
+      "sha256": "e81105bd53119d30eb75c24363d3e107f678e1170b1b6246804c454175433730",
+      "snapshot": "source_blobs\\e8\\e81105bd53119d30eb75c24363d3e107f678e1170b1b6246804c454175433730",
+      "bytes": "135"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_recovery_v14\\audit\\data\\random\\m5_4.json",
+      "sha256": "f419b6ef36268f5f09b19d2cc2755ab5175ede80a366448cbb9b37d0d60f2993",
+      "snapshot": "source_blobs\\f4\\f419b6ef36268f5f09b19d2cc2755ab5175ede80a366448cbb9b37d0d60f2993",
+      "bytes": "152"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_recovery_v14\\audit\\data\\random\\m5_5.json",
+      "sha256": "f52b725a4af2d14dca69f721f5c90bede2fd9b7ab5e30eb4dd96650d20aefa56",
+      "snapshot": "source_blobs\\f5\\f52b725a4af2d14dca69f721f5c90bede2fd9b7ab5e30eb4dd96650d20aefa56",
+      "bytes": "96"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_recovery_v14\\audit\\data\\random\\m5_6.json",
+      "sha256": "21043fa80d0a49843418c8f7984215cc398411649953b2b5a3add762e735f751",
+      "snapshot": "source_blobs\\21\\21043fa80d0a49843418c8f7984215cc398411649953b2b5a3add762e735f751",
+      "bytes": "103"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_recovery_v14\\audit\\data\\random\\m5_7.json",
+      "sha256": "24dfe680d97c1fab404cd356545e3595c2fbff563d6d0227b7ee3c0635d931f6",
+      "snapshot": "source_blobs\\24\\24dfe680d97c1fab404cd356545e3595c2fbff563d6d0227b7ee3c0635d931f6",
+      "bytes": "136"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_recovery_v14\\audit\\data\\random\\m5_8.json",
+      "sha256": "3cfd854a52b1197f3af93dc1c1603166d764042415af3b1a0a8622c9dc6c9432",
+      "snapshot": "source_blobs\\3c\\3cfd854a52b1197f3af93dc1c1603166d764042415af3b1a0a8622c9dc6c9432",
+      "bytes": "120"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_recovery_v14\\audit\\data\\random\\m5_9.json",
+      "sha256": "fba81d2fd7dae2055016e91223860a16f1db5d1b88c0b3e8c2d6d193ee3664dc",
+      "snapshot": "source_blobs\\fb\\fba81d2fd7dae2055016e91223860a16f1db5d1b88c0b3e8c2d6d193ee3664dc",
+      "bytes": "84"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_recovery_v14\\audit\\data\\random\\m6_0.json",
+      "sha256": "de94ce2326ada515631cac1bb511b888f258b4db4d0a340a7fc5732cdf1d80f7",
+      "snapshot": "source_blobs\\de\\de94ce2326ada515631cac1bb511b888f258b4db4d0a340a7fc5732cdf1d80f7",
+      "bytes": "122"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_recovery_v14\\audit\\data\\random\\m6_1.json",
+      "sha256": "9f8ea349db419a80e67d8e561d1662c8da13779d32eec50c63020ad5bbf3a0d7",
+      "snapshot": "source_blobs\\9f\\9f8ea349db419a80e67d8e561d1662c8da13779d32eec50c63020ad5bbf3a0d7",
+      "bytes": "82"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_recovery_v14\\audit\\data\\random\\m6_10.json",
+      "sha256": "e7fa5753764e539a95fc3627c06d8dbc72f5dc48bcb692bd6af5074a0393748f",
+      "snapshot": "source_blobs\\e7\\e7fa5753764e539a95fc3627c06d8dbc72f5dc48bcb692bd6af5074a0393748f",
+      "bytes": "87"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_recovery_v14\\audit\\data\\random\\m6_11.json",
+      "sha256": "cae0f8fce3ff0a6b3d390183e494518c7cb8a6990d749656e731c5094cc8f62a",
+      "snapshot": "source_blobs\\ca\\cae0f8fce3ff0a6b3d390183e494518c7cb8a6990d749656e731c5094cc8f62a",
+      "bytes": "89"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_recovery_v14\\audit\\data\\random\\m6_12.json",
+      "sha256": "b592b413ee9fc9467b2ecc45ec0f233e2525996a9117dcf908f1dff486ad5b68",
+      "snapshot": "source_blobs\\b5\\b592b413ee9fc9467b2ecc45ec0f233e2525996a9117dcf908f1dff486ad5b68",
+      "bytes": "82"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_recovery_v14\\audit\\data\\random\\m6_13.json",
+      "sha256": "ba0c1d4008ae7b60c5988a01a5be9cac8c21e0968323c92d84842449fe769999",
+      "snapshot": "source_blobs\\ba\\ba0c1d4008ae7b60c5988a01a5be9cac8c21e0968323c92d84842449fe769999",
+      "bytes": "86"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_recovery_v14\\audit\\data\\random\\m6_14.json",
+      "sha256": "ca7b24548f45fa8c4344bd751296e734cb0164c83a4d6e17b142c2a065c2d0ca",
+      "snapshot": "source_blobs\\ca\\ca7b24548f45fa8c4344bd751296e734cb0164c83a4d6e17b142c2a065c2d0ca",
+      "bytes": "136"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_recovery_v14\\audit\\data\\random\\m6_15.json",
+      "sha256": "0e59aa2469df12ad07f5f9d872ad9ecfe56352198be5152cd348db1d48f64cb7",
+      "snapshot": "source_blobs\\0e\\0e59aa2469df12ad07f5f9d872ad9ecfe56352198be5152cd348db1d48f64cb7",
+      "bytes": "151"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_recovery_v14\\audit\\data\\random\\m6_16.json",
+      "sha256": "0e675feb50036cb9c24bf336f0114c9fd884af82b7e9c21ddb5b355e2610cc07",
+      "snapshot": "source_blobs\\0e\\0e675feb50036cb9c24bf336f0114c9fd884af82b7e9c21ddb5b355e2610cc07",
+      "bytes": "129"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_recovery_v14\\audit\\data\\random\\m6_17.json",
+      "sha256": "71f7e7342c015860389ab3c8441c3d8cdcc5e14f18873e50b5c1041f84926911",
+      "snapshot": "source_blobs\\71\\71f7e7342c015860389ab3c8441c3d8cdcc5e14f18873e50b5c1041f84926911",
+      "bytes": "122"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_recovery_v14\\audit\\data\\random\\m6_18.json",
+      "sha256": "5106accb23d39884b2461bfbba2b98b3732b00e4a6ae3ed8a69e28bd84d4ce1a",
+      "snapshot": "source_blobs\\51\\5106accb23d39884b2461bfbba2b98b3732b00e4a6ae3ed8a69e28bd84d4ce1a",
+      "bytes": "86"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_recovery_v14\\audit\\data\\random\\m6_19.json",
+      "sha256": "45b17957c3a0b630a89a2af8e2519a07386f732604b32bc61ebcbf6dc412492d",
+      "snapshot": "source_blobs\\45\\45b17957c3a0b630a89a2af8e2519a07386f732604b32bc61ebcbf6dc412492d",
+      "bytes": "113"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_recovery_v14\\audit\\data\\random\\m6_2.json",
+      "sha256": "0a7aba316dc30768c416e3a56101ad14232e1ee6d4048efccd3faa591bd8bd09",
+      "snapshot": "source_blobs\\0a\\0a7aba316dc30768c416e3a56101ad14232e1ee6d4048efccd3faa591bd8bd09",
+      "bytes": "87"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_recovery_v14\\audit\\data\\random\\m6_20.json",
+      "sha256": "9ba7cda6d58cd7b6615630fa04e80e08a9f9c559e10340e9c97fffc72e35281b",
+      "snapshot": "source_blobs\\9b\\9ba7cda6d58cd7b6615630fa04e80e08a9f9c559e10340e9c97fffc72e35281b",
+      "bytes": "136"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_recovery_v14\\audit\\data\\random\\m6_21.json",
+      "sha256": "5fbf8ad981e58b63068c42b065b5b15d838236d7fbd4bc491e262779dc319c86",
+      "snapshot": "source_blobs\\5f\\5fbf8ad981e58b63068c42b065b5b15d838236d7fbd4bc491e262779dc319c86",
+      "bytes": "127"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_recovery_v14\\audit\\data\\random\\m6_22.json",
+      "sha256": "1a2fd48d305becce85e6b6a23c02f75bcbff1b4e4d6be244d347b9e992ba3f34",
+      "snapshot": "source_blobs\\1a\\1a2fd48d305becce85e6b6a23c02f75bcbff1b4e4d6be244d347b9e992ba3f34",
+      "bytes": "82"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_recovery_v14\\audit\\data\\random\\m6_23.json",
+      "sha256": "764ba43c3cf8acb4a5cd7a99a9bf43b5484dbbee78bfbf883bd6d171cdc99835",
+      "snapshot": "source_blobs\\76\\764ba43c3cf8acb4a5cd7a99a9bf43b5484dbbee78bfbf883bd6d171cdc99835",
+      "bytes": "101"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_recovery_v14\\audit\\data\\random\\m6_24.json",
+      "sha256": "b5e331a81022196a61506a4e0b6997b740050e2fc96d78ab854e09071d83c55c",
+      "snapshot": "source_blobs\\b5\\b5e331a81022196a61506a4e0b6997b740050e2fc96d78ab854e09071d83c55c",
+      "bytes": "126"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_recovery_v14\\audit\\data\\random\\m6_25.json",
+      "sha256": "9ef62c851c635eff5acd0b8290d99c4b898fc7357dfea9b7d9aea9e12ffe3ae6",
+      "snapshot": "source_blobs\\9e\\9ef62c851c635eff5acd0b8290d99c4b898fc7357dfea9b7d9aea9e12ffe3ae6",
+      "bytes": "107"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_recovery_v14\\audit\\data\\random\\m6_26.json",
+      "sha256": "e6126c1d08a55ec8b0d0ba09114c596dc7322289467085861a122398dabb3c28",
+      "snapshot": "source_blobs\\e6\\e6126c1d08a55ec8b0d0ba09114c596dc7322289467085861a122398dabb3c28",
+      "bytes": "157"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_recovery_v14\\audit\\data\\random\\m6_27.json",
+      "sha256": "e6eaa19004c46af79bfda0734d970349c70d4b72efd0c38ce9431a712b49b0bd",
+      "snapshot": "source_blobs\\e6\\e6eaa19004c46af79bfda0734d970349c70d4b72efd0c38ce9431a712b49b0bd",
+      "bytes": "87"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_recovery_v14\\audit\\data\\random\\m6_28.json",
+      "sha256": "f7582d5a4f44b5ae9f36767c35a0866e0a4abb1c1f130e58e06a403af952acd2",
+      "snapshot": "source_blobs\\f7\\f7582d5a4f44b5ae9f36767c35a0866e0a4abb1c1f130e58e06a403af952acd2",
+      "bytes": "106"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_recovery_v14\\audit\\data\\random\\m6_29.json",
+      "sha256": "0668ee3786c78fef749bea9bde61fe7c498775bc1442250035e4cb20c53a9572",
+      "snapshot": "source_blobs\\06\\0668ee3786c78fef749bea9bde61fe7c498775bc1442250035e4cb20c53a9572",
+      "bytes": "107"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_recovery_v14\\audit\\data\\random\\m6_3.json",
+      "sha256": "f0aebd78949202dd1567fac8a2d26da6e7db14bf340b5d2eb4d2b81d4d80d83c",
+      "snapshot": "source_blobs\\f0\\f0aebd78949202dd1567fac8a2d26da6e7db14bf340b5d2eb4d2b81d4d80d83c",
+      "bytes": "141"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_recovery_v14\\audit\\data\\random\\m6_30.json",
+      "sha256": "e9978a6fc12ed9cc6f3e84cbc09e3422f47f3287f2f2a9ca50ee5a220891e83a",
+      "snapshot": "source_blobs\\e9\\e9978a6fc12ed9cc6f3e84cbc09e3422f47f3287f2f2a9ca50ee5a220891e83a",
+      "bytes": "126"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_recovery_v14\\audit\\data\\random\\m6_31.json",
+      "sha256": "941111520e6298bb000211cd348b6b814b96f00c6c44ddcf1d0014242234a158",
+      "snapshot": "source_blobs\\94\\941111520e6298bb000211cd348b6b814b96f00c6c44ddcf1d0014242234a158",
+      "bytes": "94"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_recovery_v14\\audit\\data\\random\\m6_32.json",
+      "sha256": "59faccda338efa66d68e0ef05072bcb1dbf5b65832688d9162413efe9526aeff",
+      "snapshot": "source_blobs\\59\\59faccda338efa66d68e0ef05072bcb1dbf5b65832688d9162413efe9526aeff",
+      "bytes": "122"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_recovery_v14\\audit\\data\\random\\m6_33.json",
+      "sha256": "df55b6e35afab29a5ff150a820d4e28138bee48cc3fcef56b0dfed31739dfe7f",
+      "snapshot": "source_blobs\\df\\df55b6e35afab29a5ff150a820d4e28138bee48cc3fcef56b0dfed31739dfe7f",
+      "bytes": "135"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_recovery_v14\\audit\\data\\random\\m6_34.json",
+      "sha256": "a63c5063ae812407f409d63bac6651098f4b5b0d3ff77fa9944061d90d49365f",
+      "snapshot": "source_blobs\\a6\\a63c5063ae812407f409d63bac6651098f4b5b0d3ff77fa9944061d90d49365f",
+      "bytes": "141"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_recovery_v14\\audit\\data\\random\\m6_35.json",
+      "sha256": "dc5e2d76655d043cf09cdefc019e0586d6bf09625125803a2a45161022283eb9",
+      "snapshot": "source_blobs\\dc\\dc5e2d76655d043cf09cdefc019e0586d6bf09625125803a2a45161022283eb9",
+      "bytes": "93"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_recovery_v14\\audit\\data\\random\\m6_36.json",
+      "sha256": "bd03307ebd08b8448f715e2ae329cc680026476a54e9bf1321e703c51582645a",
+      "snapshot": "source_blobs\\bd\\bd03307ebd08b8448f715e2ae329cc680026476a54e9bf1321e703c51582645a",
+      "bytes": "87"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_recovery_v14\\audit\\data\\random\\m6_37.json",
+      "sha256": "d3286977dcfcefd19233f82424273c6b2a1d810837c4f65b748daf70ddc74b84",
+      "snapshot": "source_blobs\\d3\\d3286977dcfcefd19233f82424273c6b2a1d810837c4f65b748daf70ddc74b84",
+      "bytes": "114"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_recovery_v14\\audit\\data\\random\\m6_38.json",
+      "sha256": "f24576c89a0178f661bbeaa6ced5f7056419f68223ab1f5ce24f4e147500555a",
+      "snapshot": "source_blobs\\f2\\f24576c89a0178f661bbeaa6ced5f7056419f68223ab1f5ce24f4e147500555a",
+      "bytes": "100"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_recovery_v14\\audit\\data\\random\\m6_39.json",
+      "sha256": "2546e082a9810fd1cf0dfba5aa0459d12a07fc869531c53738caf2609d72b875",
+      "snapshot": "source_blobs\\25\\2546e082a9810fd1cf0dfba5aa0459d12a07fc869531c53738caf2609d72b875",
+      "bytes": "114"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_recovery_v14\\audit\\data\\random\\m6_4.json",
+      "sha256": "89a25f0d1c094880e64d1d9fb2f0639ec91053df408e74984729ef48c95f833e",
+      "snapshot": "source_blobs\\89\\89a25f0d1c094880e64d1d9fb2f0639ec91053df408e74984729ef48c95f833e",
+      "bytes": "99"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_recovery_v14\\audit\\data\\random\\m6_5.json",
+      "sha256": "1956c1c6398be61314afbd1dd7a88082cb13da68d772e2557da7c1bcbf750c65",
+      "snapshot": "source_blobs\\19\\1956c1c6398be61314afbd1dd7a88082cb13da68d772e2557da7c1bcbf750c65",
+      "bytes": "122"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_recovery_v14\\audit\\data\\random\\m6_6.json",
+      "sha256": "f0477c94d15ab3ffcf00db328326811fd8243a3eda87ee601862a4c397256b4b",
+      "snapshot": "source_blobs\\f0\\f0477c94d15ab3ffcf00db328326811fd8243a3eda87ee601862a4c397256b4b",
+      "bytes": "157"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_recovery_v14\\audit\\data\\random\\m6_7.json",
+      "sha256": "6a9d7f0aadced29b04bdb01e027f6deac3b3ee7af62661e147e8aa03894a285e",
+      "snapshot": "source_blobs\\6a\\6a9d7f0aadced29b04bdb01e027f6deac3b3ee7af62661e147e8aa03894a285e",
+      "bytes": "127"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_recovery_v14\\audit\\data\\random\\m6_8.json",
+      "sha256": "f64d561e952d9cb293d288399ac4f846636e0248ac1ff062a9ab16d22e1ff203",
+      "snapshot": "source_blobs\\f6\\f64d561e952d9cb293d288399ac4f846636e0248ac1ff062a9ab16d22e1ff203",
+      "bytes": "129"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_recovery_v14\\audit\\data\\random\\m6_9.json",
+      "sha256": "cc5bb88900fa074c7e18aa247ef65a69b1d3f4b679d67b74cd60bece309d26b2",
+      "snapshot": "source_blobs\\cc\\cc5bb88900fa074c7e18aa247ef65a69b1d3f4b679d67b74cd60bece309d26b2",
+      "bytes": "131"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_recovery_v14\\audit\\data\\worlds\\K2_commuting0.json",
+      "sha256": "23d2a16cf1730fa1a9532c05630492a94465c8e6fb34455270837638f3500995",
+      "snapshot": "source_blobs\\23\\23d2a16cf1730fa1a9532c05630492a94465c8e6fb34455270837638f3500995",
+      "bytes": "434"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_recovery_v14\\audit\\data\\worlds\\K2_commuting1.json",
+      "sha256": "fef077487ef46396bf036dd994f39094702cb5210510ea86e89cefa2095b134f",
+      "snapshot": "source_blobs\\fe\\fef077487ef46396bf036dd994f39094702cb5210510ea86e89cefa2095b134f",
+      "bytes": "524"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_recovery_v14\\audit\\data\\worlds\\K3_commuting0.json",
+      "sha256": "4d4b26d848e9f28bbef40f3ee9ef7ce1a2dea8dde0eab97c5150c920b0c52153",
+      "snapshot": "source_blobs\\4d\\4d4b26d848e9f28bbef40f3ee9ef7ce1a2dea8dde0eab97c5150c920b0c52153",
+      "bytes": "596"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_recovery_v14\\audit\\data\\worlds\\K3_commuting1.json",
+      "sha256": "373dba1b9bb35ae591783d03b448b10ae19070e4bcef9464b5a0ef3fd5282987",
+      "snapshot": "source_blobs\\37\\373dba1b9bb35ae591783d03b448b10ae19070e4bcef9464b5a0ef3fd5282987",
+      "bytes": "728"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_recovery_v14\\audit\\data\\worlds\\K4_commuting0.json",
+      "sha256": "ea1ab73762885a22a46a56c07a0a798d2272e8316893d4ef26598ad3d48b5720",
+      "snapshot": "source_blobs\\ea\\ea1ab73762885a22a46a56c07a0a798d2272e8316893d4ef26598ad3d48b5720",
+      "bytes": "758"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_recovery_v14\\audit\\data\\worlds\\K4_commuting1.json",
+      "sha256": "6783a955a3c2c1574274582dc0863d11563254f8e2dd189c280d7f80a60766b6",
+      "snapshot": "source_blobs\\67\\6783a955a3c2c1574274582dc0863d11563254f8e2dd189c280d7f80a60766b6",
+      "bytes": "932"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_recovery_v14\\audit\\recovery_certificate_v2.py",
+      "sha256": "c31c3603ff91972fa0efe9094fd0ba62ac7f0795bad186eb1bc2e11fad33f6e2",
+      "snapshot": "source_blobs\\c3\\c31c3603ff91972fa0efe9094fd0ba62ac7f0795bad186eb1bc2e11fad33f6e2",
+      "bytes": "4619"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_recovery_v14\\audit\\routing_witness_v1.py",
+      "sha256": "ccb1ccb6f094b04d5ff25295a486932132df8d0904c1340285ac231a2c36e8c6",
+      "snapshot": "source_blobs\\cc\\ccb1ccb6f094b04d5ff25295a486932132df8d0904c1340285ac231a2c36e8c6",
+      "bytes": "1460"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_recovery_v14\\audit\\run_audit_v1.py",
+      "sha256": "6f10b635a9a14a8466a06d665c5925529328bef0e23d6840016c8473ef13f92c",
+      "snapshot": "source_blobs\\6f\\6f10b635a9a14a8466a06d665c5925529328bef0e23d6840016c8473ef13f92c",
+      "bytes": "4959"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_recovery_v14\\audit\\runs\\20261103T202605.631818Z\\correctness_report.json",
+      "sha256": "937f9b2042c04ee7de1b8a6228d992f50122f26eee9296bebbe0863d1c472f47",
+      "snapshot": "source_blobs\\93\\937f9b2042c04ee7de1b8a6228d992f50122f26eee9296bebbe0863d1c472f47",
+      "bytes": "178"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_recovery_v14\\audit\\verify_data_v1.py",
+      "sha256": "f0704b4bed8199ab2bb641dffb4dbbfc9d3e6a93db769fc2ca29beaf9487cc52",
+      "snapshot": "source_blobs\\f0\\f0704b4bed8199ab2bb641dffb4dbbfc9d3e6a93db769fc2ca29beaf9487cc52",
+      "bytes": "5622"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_recovery_v14\\coordination\\CONTRACT.md",
+      "sha256": "6913475a0a15502cf1fa2ff6bdeb73a93dc6723e686c405729cf20f201b1efe9",
+      "snapshot": "source_blobs\\69\\6913475a0a15502cf1fa2ff6bdeb73a93dc6723e686c405729cf20f201b1efe9",
+      "bytes": "1720"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_recovery_v14\\implementation\\API_PROTOCOL_V1.md",
+      "sha256": "48dd12e1b26822f6c5c7bb1a1f1d6013785795ae498dbfe5416ebeef265f7082",
+      "snapshot": "source_blobs\\48\\48dd12e1b26822f6c5c7bb1a1f1d6013785795ae498dbfe5416ebeef265f7082",
+      "bytes": "6755"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_recovery_v14\\implementation\\PROOF_OBLIGATIONS_V1.md",
+      "sha256": "25d439309aab6f276e2bbdd58daa571292e77ea6594b9401b7416729fbf1db9e",
+      "snapshot": "source_blobs\\25\\25d439309aab6f276e2bbdd58daa571292e77ea6594b9401b7416729fbf1db9e",
+      "bytes": "2037"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_recovery_v14\\implementation\\READINESS_V1.json",
+      "sha256": "98256677b8b7d5ccac9e8fe9304fe9ff3ea1d2dcc6eec4114476ca4c01d1635e",
+      "snapshot": "source_blobs\\98\\98256677b8b7d5ccac9e8fe9304fe9ff3ea1d2dcc6eec4114476ca4c01d1635e",
+      "bytes": "1726"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_recovery_v14\\implementation\\exact_partition_v1.py",
+      "sha256": "e943e3f4f6d71713e7a49a39efcec0c36fa9ffceaf25bd8e4acffe03e9a5b74b",
+      "snapshot": "source_blobs\\e9\\e943e3f4f6d71713e7a49a39efcec0c36fa9ffceaf25bd8e4acffe03e9a5b74b",
+      "bytes": "7912"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_recovery_v14\\implementation\\solve_v1.py",
+      "sha256": "7812e1cac73fb0aaf3d827bcf000430ff8c1703eb981f683ebd469d30f8598d5",
+      "snapshot": "source_blobs\\78\\7812e1cac73fb0aaf3d827bcf000430ff8c1703eb981f683ebd469d30f8598d5",
+      "bytes": "1877"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_recovery_v14\\theory\\CLAIM_LEDGER_v1.json",
+      "sha256": "ddd8922bdc010e79f35ce276a3a729f7ddddb80e3b2b3c89544116dead04454e",
+      "snapshot": "source_blobs\\dd\\ddd8922bdc010e79f35ce276a3a729f7ddddb80e3b2b3c89544116dead04454e",
+      "bytes": "1498"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_recovery_v14\\theory\\PROOFS_v1.md",
+      "sha256": "50662da3d64b616f5c6c84b6758a71d340cb8c8506eac15c8023755fb9c7bb50",
+      "snapshot": "source_blobs\\50\\50662da3d64b616f5c6c84b6758a71d340cb8c8506eac15c8023755fb9c7bb50",
+      "bytes": "10636"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_recovery_v14\\theory\\READINESS_v1.json",
+      "sha256": "5cdcb7f5b66ebf4520f9f520d6ca717993ee322e999c1a85cdf639885dfb51d3",
+      "snapshot": "source_blobs\\5c\\5cdcb7f5b66ebf4520f9f520d6ca717993ee322e999c1a85cdf639885dfb51d3",
+      "bytes": "488"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-03\\partition_recovery_v14\\theory\\SOURCE_REVIEW_V1.md",
+      "sha256": "8111fd85d99964c6927b9853f54f0949b7cfc6a89f3c6dfa9317f2b3a36a39cf",
+      "snapshot": "source_blobs\\81\\8111fd85d99964c6927b9853f54f0949b7cfc6a89f3c6dfa9317f2b3a36a39cf",
+      "bytes": "6162"
+    }
+  ],
+  "source_snapshot_error": null
+}

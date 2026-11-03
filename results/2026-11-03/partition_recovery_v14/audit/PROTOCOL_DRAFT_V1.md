@@ -1,0 +1,27 @@
+# C014 bounded independent audit, before any execution
+
+Status: data/oracle/collector scripts prepared; exact shortcut implementation and compact API have not yet been provided for independent static review. No generation or provider execution authorized by this document. Master GO and immutable runtime/input hashes required. Old cycles immutable; C010 exact reference only, C011 excluded.
+
+Default model is no-K. Compact output may represent an entire compatible family. Compare exact total/per-k/pair counts and relations, kmax and valid available witnesses. Never equate a compact family description to an enumerated partition list or recovered physical ownership. Document differing output payload/serialization cost in any speed claim. Final helper bindings must follow the actual frozen new API, not an assumed schema.
+
+## Fixed correctness data
+
+Reuse all eight C013 input2 controls, preserving hashes/worlds/accepted prior audit and independently recomputing complete RGS families. Add exactly200 seeded finite labeled-sample controls:40 per alphabet size2..6, words from epsilon and words length<=3, random three-way positive/negative/unobserved assignments, disjoint labels, seed2026110314. These are finite consistency tests, not physical-world data. Include their complete independent RGS spectra and pair counts. This stage need not start one costly process per tiny case: one captured bounded batch per provider, preserving every case/result/error, can compare counts against the independent oracle without exceeding the10-minute budget.
+
+## Recovery calibration: additional label access, not original passive learning
+
+Construct six complete saved DFA worlds: K2/3/4, each with two symbols per device, either noncommutative a*b* or a commutative even-parity machine. For each K collect three datasets: full adjacent-pair coverage on noncommutative world; omit the final device's contrast; same full query policy on commutative world. Nine datasets total. Opposite-label adjacent swaps certify same-owner edges. Labels always come from interpreting saved transition tables; the collector may know truth to schedule calibration, the solver receives only alphabet/P/N.
+
+Record all queries including same-label pairs, saved worlds, deliberate omissions, graph components, independent label replay, exact compatible RGS family, and whether the observed graph equals truth. Verify edges from actual opposing labels. Full edge coverage within every physical block is an external recoverability assumption; comparing components with ground truth is an evaluation, not a passive certificate of coverage. Connected observed components give sound must-links only. If their partition itself is sample-compatible, coarsening closure certifies its entire coarsening family and a finest compatible partition, not unique hidden physical ownership under no-K. Known-K filtering is a separately labelled oracle analysis, never silently added to solver input/default. Full coverage plus explicit true K may isolate truth; missing coverage and commutative worlds test failure. Noncommutativity by itself does not guarantee observed coverage. Constructed machines need not be strongly connected; C013 random-world sampling assumptions are not imported.
+
+## Held large inputs and timing budget
+
+Reuse exactly C013 K1/K20, cap1m, counts2/8 via GRID_INPUT_MAP_V4.json and existing bytes, four cells. Verify their hashes and labels before timing. Three fresh CLI calls/method/cell, alternating order baseline/new, new/baseline, baseline/new. Each has5s cooperative/7s hard =>24calls, max168s child time. Full baseline output is retained; compact output is retained as specified. Report whole CLI time and output bytes separately from provider/preprocessing metrics, with startup and output-format caveat. No grid expansion, memory probes, or replacement of censored runs.
+
+Global active budget600s includes captured data/replay/oracle construction, correctness batches, timing, validation and harness overhead. Reserve60s data/oracle,90s correctness batches (45s each),168s timing,90s final independent validation and90s overhead,102s slack. Per-case failed/censored correctness is nonacceptance, not a match. No large timing launch before correctness acceptance. No repeated whole correctness/benchmark after success. Preserve every failure/raw stream/partial result; version corrected harnesses separately.
+
+## Independent checks and delivery
+
+Replay all saved-world labels with a one-pass routing interpreter. For small data independently enumerate the entire compatible family and derive total/per-k/pair counts, witnesses and known-K oracle slice. Check shortcut all-partitions predicate against that full oracle, including false-predicate cases requiring exact fallback. On held data, compare completed shared count semantics with exact baseline/independently proved predicates where available; otherwise retain large-count evidence limits. Nonfinal output never certifies uniqueness or incompatibility. Every returned witness must be sample-compatible and requested same/different relation must hold. Required compact fields and certificate validation await actual implementation contract.
+
+Save source/input/world/oracle hashes, preparation/replay times, attempt ledger, raw outputs, scientific vs execution statuses, Persian report, compact machine summary and explicit assumptions/criticisms. Master owns final manifest/private archive.

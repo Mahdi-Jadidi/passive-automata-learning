@@ -1,0 +1,37 @@
+{
+  "review": "../SOURCE_REVIEW_V1.md",
+  "id": "C014-THEORY-SOURCE-001",
+  "sources": [
+    {
+      "snapshot": "exact_partition_v1.py",
+      "source": "implementation/exact_partition_v1.py",
+      "sha256": "e943e3f4f6d71713e7a49a39efcec0c36fa9ffceaf25bd8e4acffe03e9a5b74b"
+    },
+    {
+      "snapshot": "solve_v1.py",
+      "source": "implementation/solve_v1.py",
+      "sha256": "7812e1cac73fb0aaf3d827bcf000430ff8c1703eb981f683ebd469d30f8598d5"
+    },
+    {
+      "snapshot": "API_PROTOCOL_V1.md",
+      "source": "implementation/API_PROTOCOL_V1.md",
+      "sha256": "48dd12e1b26822f6c5c7bb1a1f1d6013785795ae498dbfe5416ebeef265f7082"
+    },
+    {
+      "snapshot": "PROOF_OBLIGATIONS_V1.md",
+      "source": "implementation/PROOF_OBLIGATIONS_V1.md",
+      "sha256": "25d439309aab6f276e2bbdd58daa571292e77ea6594b9401b7416729fbf1db9e"
+    },
+    {
+      "snapshot": "READINESS_V1.json",
+      "source": "implementation/READINESS_V1.json",
+      "sha256": "98256677b8b7d5ccac9e8fe9304fe9ff3ea1d2dcc6eec4114476ca4c01d1635e"
+    }
+  ],
+  "runtime_acceptance": false,
+  "output_scope": "explicit compact fast family; expanded frozen C010 fallback",
+  "provider_changes": false,
+  "review_sha256": "8111fd85d99964c6927b9853f54f0949b7cfc6a89f3c6dfa9317f2b3a36a39cf",
+  "decision": "static_clearance_for_independent_captured_controls",
+  "new_experiments": 0
+}

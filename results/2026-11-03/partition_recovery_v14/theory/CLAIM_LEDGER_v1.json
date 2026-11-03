@@ -1,0 +1,17 @@
+{
+  "id":"C014-THEORY-001",
+  "proof":"PROOFS_v1.md",
+  "scientific_status":"direct_proofs_ready_for_independent_review",
+  "execution_status":"no_runs",
+  "new_experiments":0,
+  "claims":[
+    {"id":"T1","claim":"Unary-count condition iff singleton feasibility iff all partitions feasible; exact Bell/Stirling/pair counts and existing expanded witnesses"},
+    {"id":"T1-K","claim":"Optional explicitly trusted allowedK restricts counts and witnesses, never implicit noK truth information"},
+    {"id":"T2","claim":"Actual opposite-label adjacent swap forces coownership in every consistent independent model"},
+    {"id":"T3","claim":"True-block connected witness coverage makes graph components actual blocks; trustedK=componentcount yields unique K-compatible ownership"}
+  ],
+  "counterexamples":["Commutative parity DFAs have no opposite-label swap even with complete behavior and same-K grouping ambiguity","Sparse even/odd unary examples make every partition compatible","Doubled-pair reversals force links missed by adjacent-swap graph","NoK retains all coarsenings even when components equal the actual blocks"],
+  "limits":["Coverage is explicit additional information, not guaranteed from arbitrary passive traces","Prime local factors alone do not certify finite-sample atomicity","Calibration queries belong to separate collector not passive solver","Shared noK witnesses may violate optionalK and must be replaced then"],
+  "historical_changes":false,
+  "runtime_acceptance":false
+}
