@@ -1,0 +1,28 @@
+{
+  "parent_commit": "f0807ba491bf40aa4f155decdf1259fca99e7691",
+  "source_hashes": {
+    "results\\2026-11-04\\preflight_certificates_v19\\theory\\PREFLIGHT_PROOFS_FA_v1.md": "2a2c55e4f29e5807035b1a22eab096c8301f8f8a92116d00e4e5efd1a150e773",
+    "results\\2026-11-04\\scaling_v20\\audit\\benchmark_runs\\20261104T120316.506188Z\\validation_report.json": "deb62e3effc416dee7eff5ba9cb0352003bd0dc94cbcba8c16d1f264d179df96",
+    "partition.py": "948cab41bcc752b185533734f4d70413db358b1923b2181bb37be7c774e8a78b"
+  },
+  "agents": [
+    {
+      "task": "/root/advisor_theory",
+      "model": "gpt-6.1-sol",
+      "reasoning": "medium",
+      "scope": "proof brief, defense Q&A and polished speaker notes",
+      "status": "delivered"
+    },
+    {
+      "task": "/root/advisor_evidence",
+      "model": "gpt-6-luna",
+      "reasoning": "high",
+      "scope": "independent numbers/claim audit and limited primary literature check",
+      "status": "delivered"
+    }
+  ],
+  "new_research_benchmarks": 0,
+  "demo_scope": "five expected statuses verified in repo and extracted portable bundle",
+  "paper_goal": "paused",
+  "destination": "local PPTX following prior local deck; new separate presentation, previous deliverables preserved"
+}

@@ -1,0 +1,87 @@
+{
+  "package": "advisor_package_v21",
+  "audit_date": "2026-11-04",
+  "scope": "Evidence audit of C020 final validation/report, C019 proofs, algorithm tutorial, and selected primary literature. No experiments run.",
+  "supported_claims": [
+    {
+      "id": "model_and_output",
+      "claim": "For finite, noiseless positive/negative word labels over a known alphabet, disjoint symbol ownership, independent regular factors with no state bound, and trusted allowed component counts K, the solver enumerates compatible alphabet partitions. A unique partition is conditional on those assumptions and supplied K; it is not a learned set of local DFAs.",
+      "evidence": ["docs/ALGORITHM_TUTORIAL_FA.md", "results/2026-11-04/preflight_certificates_v19/theory/PREFLIGHT_PROOFS_FA_v1.md"],
+      "caveat": "A finite sample can admit multiple compatible partitions or a unique one under the model without identifying physical hardware ownership outside that model."
+    },
+    {
+      "id": "c019_theory",
+      "claim": "C019 proves that sample count and trace length alone give no general uniqueness threshold under the stated model; it also gives a constructed one-positive/m−K-negative family sufficient to force a chosen K-block partition, and exact preflight certificates for selected cases.",
+      "evidence": ["results/2026-11-04/preflight_certificates_v19/theory/PREFLIGHT_PROOFS_FA_v1.md"],
+      "caveat": "The construction is a sufficient designed family, not a claim that arbitrary data of those sizes suffice or that m−K is a general lower bound. C019 is proof work, not a new solver run."
+    },
+    {
+      "id": "benchmark_protocol",
+      "claim": "The C020 final gate was accepted_with_censoring with zero reported validation errors: 5,130 small-gate rows, 54 timing runs, and 6 separate memory runs. Timing used three fresh processes per provider/cell, 20-second soft and 25-second hard limits; full-process medians include CLI process startup, input reading, preprocessing, solving, and output. The validation report has 18 cooperative unresolved timing runs and no hard-timeout or budget-skip rows.",
+      "evidence": ["results/2026-11-04/scaling_v20/audit/benchmark_runs/20261104T120316.506188Z/validation_report.json", "results/2026-11-04/scaling_v20/audit/AUDIT_REPORT_FA_V1.md", "results/2026-11-04/scaling_v20/RESEARCH_REPORT_FA.md"],
+      "caveat": "Censored cells have no completion median or speed ratio. The three-repetition bounded suite is not a population estimate."
+    },
+    {
+      "id": "suite_inputs",
+      "claim": "A: 4 devices × 64 minimal states, alphabet 8, 4,066,861 characters, 513 positive and 516 negative words. B: 8 × 256 states, alphabet 16, 16,537,492 characters, 129 positive and 136 negative words. C: 20 × 1,024 states, alphabet 40, 32,338,004 characters, 17 positive and 36 negative words; its longest trace is 992,622 characters. D: four 258-state minimal finite-language factors, 2,048 characters, 5 positive and 4 negative words; the swap graph is empty.",
+      "evidence": ["results/2026-11-04/scaling_v20/RESEARCH_REPORT_FA.md", "results/2026-11-04/scaling_v20/audit/AUDIT_REPORT_FA_V1.md", "results/2026-11-04/scaling_v20/audit/FIXTURE_AUDIT_V1.json"],
+      "caveat": "A/B/C are structured generated instances: cycle plus a noncommuting permutation, repaired prefixes, and deliberately inserted witnesses. They are not iid/random-world traces. D is a separate constructed control."
+    },
+    {
+      "id": "timing_a",
+      "claim": "Median end-to-end seconds, baseline/C1/C2: A_unknown 8.533/7.107/0.648; A_K4 6.403/5.653/0.658. Baseline-to-C2 median ratios are 13.17× and 9.73× for these two completed A cells.",
+      "evidence": ["results/2026-11-04/scaling_v20/audit/benchmark_runs/20261104T120316.506188Z/validation_report.json", "results/2026-11-04/scaling_v20/RESEARCH_REPORT_FA.md"],
+      "caveat": "Ratios describe these exact paired cells only, not expected speedup on other inputs."
+    },
+    {
+      "id": "timing_b_c",
+      "claim": "C2 completed all three repetitions in B_unknown (median 2.653 s, ambiguous), B_K8 (3.174 s, unique), and C_unknown (7.942 s, ambiguous). Baseline and C1 each returned cooperative unresolved in all three repetitions for each of those cells.",
+      "evidence": ["results/2026-11-04/scaling_v20/audit/benchmark_runs/20261104T120316.506188Z/validation_report.json"],
+      "caveat": "No numerical speedup ratio can be reported for these cells because baseline/C1 did not complete; unresolved is computationally incomplete, not ambiguity, inconsistency, or evidence that the input is insufficient."
+    },
+    {
+      "id": "timing_regression_d",
+      "claim": "On D_K4, median end-to-end time was 0.812 s baseline, 1.132 s C1, 0.974 s C2. C2 is about 19.9% slower than baseline by elapsed time (baseline/C2 ratio 0.834). C2's pipeline-only median was 0.070 s versus 0.247 s baseline, but that does not establish why total process time regressed.",
+      "evidence": ["results/2026-11-04/scaling_v20/audit/benchmark_runs/20261104T120316.506188Z/validation_report.json", "results/2026-11-04/scaling_v20/RESEARCH_REPORT_FA.md"],
+      "caveat": "Keep this negative result visible; three repetitions do not establish a causal explanation for the difference between pipeline and whole-process timings."
+    },
+    {
+      "id": "optimizations",
+      "claim": "C1 skips adjacent-swap candidate pairs with unequal exact length/Parikh signatures, then retains exact swap checks. C2 computes the same exact alphabet projection via chunked Unicode code-point deletion with str.translate. Static reviews and independent validation accept semantic equivalence on the bounded gate; C1/C2 leave exact partition search intact.",
+      "evidence": ["results/2026-11-04/scaling_v20/theory/SOURCE_REVIEW_C1_V1.md", "results/2026-11-04/scaling_v20/theory/SOURCE_REVIEW_C2_V1.md", "results/2026-11-04/scaling_v20/audit/benchmark_runs/20261104T120316.506188Z/validation_report.json"],
+      "caveat": "This supports the reviewed implementation and tested suite, not a new algorithmic novelty or general speed guarantee. Worst-case partition search remains combinatorial."
+    },
+    {
+      "id": "k20_functional_control",
+      "claim": "A separate post-suite functional control on the saved C input with explicitly supplied known_k=20 returned certified_unique in 5.284 s subprocess time (5.022 s pipeline time); 20 forced components and a feasible witness were independently replayed.",
+      "evidence": ["results/2026-11-04/scaling_v20/coordination/k20_functional_control_v1/result.json", "results/2026-11-04/scaling_v20/RESEARCH_REPORT_FA.md"],
+      "caveat": "One functional run only. It is not one of the six-cell timing repetitions, not an accuracy rate, and does not show the solver learned 20 DFAs."
+    },
+    {
+      "id": "memory",
+      "claim": "Memory was measured separately with Python tracemalloc, not RSS. Completed D peaks were 1,868,664 bytes baseline, 1,930,828 C1, and 1,967,923 C2. On A_unknown only C2 completed (12,274,102 bytes), so there is no completed-run memory ratio for that cell.",
+      "evidence": ["results/2026-11-04/scaling_v20/audit/benchmark_runs/20261104T120316.506188Z/validation_report.json", "results/2026-11-04/scaling_v20/audit/AUDIT_REPORT_FA_V1.md"],
+      "caveat": "Do not generalize either cell to a global memory bound or RSS usage."
+    }
+  ],
+  "do_not_claim": [
+    "100% recovery, 100% accuracy, or a statistical accuracy rate on real devices or natural traces",
+    "A novel theorem or novelty over prior work before a scoped prior-art review",
+    "Accuracy across all devices, architectures, datasets, or distributions",
+    "Removal of the exponential/combinatorial worst case or polynomial-time general inference",
+    "That the solver learned/reconstructed the individual DFAs or their transition tables; only a partition under a stated compatibility model is inferred",
+    "That C020 solves the paper's applied real-world problem or proves actual physical ownership",
+    "A numeric speedup for B/C, a general speedup factor, or reduced memory from incomplete baselines",
+    "That all Bell(r) partitions were enumerated on the largest instances; large-case claims use exact certificates/proofs, not exhaustive Bell(40) enumeration",
+    "That generated true K/state counts were hidden truth discovered by the solver; K is supplied only in explicit known-K cells",
+    "That C019's constructed sufficient sample family is a universal sample-size bound"
+  ],
+  "slide_figures": {
+    "suite": "A 4×64 states; B 8×256; C 20×1,024; D 4×258; largest T=32.34M characters; longest trace=992,622 characters.",
+    "correctness_gate": "5,130 small checks, 54 timing runs, 6 memory runs; accepted_with_censoring, zero validation errors.",
+    "end_to_end": "A unknown K: 8.533→0.648 s (13.17×); A K=4: 6.403→0.658 s (9.73×). B/C: baseline and C1 censored; C2 completed.",
+    "negative_control": "D K=4: 0.812→0.974 s end-to-end (+19.9% elapsed); retain as a measured regression.",
+    "separate_control": "C, explicitly supplied K=20: certified unique in one 5.284 s run; not a benchmark or accuracy rate."
+  },
+  "literature_boundary": "The references in SOURCES_V1.json establish neighboring learning, finite-data identification, and DFA decomposition contexts. They do not establish that prior work solves this exact unknown-alphabet-partition problem, and no novelty conclusion is made."
+}

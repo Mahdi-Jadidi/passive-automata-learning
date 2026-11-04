@@ -1,0 +1,112 @@
+{
+  "status": "passed",
+  "presentation_demo_not_benchmark": true,
+  "python": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]",
+  "records": [
+    {
+      "name": "unique_K2",
+      "command": [
+        "C:\\Users\\Mahdi\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+        "-B",
+        "-X",
+        "utf8",
+        "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-04\\advisor_package_v21\\private\\portable_check_v1\\partition.py",
+        "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-04\\advisor_package_v21\\private\\portable_check_v1\\demo\\runs\\20261104T194844.426617Z\\unique_K2.input.json",
+        "--seconds",
+        "5",
+        "--known-k",
+        "2"
+      ],
+      "expected": "certified_unique",
+      "actual": "certified_unique",
+      "exit_code": 0,
+      "input_sha256": "0460aa1d8623f2b7d591257dbae5a18df9c8022e5ef9d01851bac22fa2e88942",
+      "stdout_sha256": "612822c1a503acbcc83d2d3b0592563f2fd5b9ef2c9ee0bc0d35aa364c4271ff",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "ambiguous_unknown_K",
+      "command": [
+        "C:\\Users\\Mahdi\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+        "-B",
+        "-X",
+        "utf8",
+        "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-04\\advisor_package_v21\\private\\portable_check_v1\\partition.py",
+        "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-04\\advisor_package_v21\\private\\portable_check_v1\\demo\\runs\\20261104T194844.426617Z\\ambiguous_unknown_K.input.json",
+        "--seconds",
+        "5"
+      ],
+      "expected": "ambiguous",
+      "actual": "ambiguous",
+      "exit_code": 0,
+      "input_sha256": "0460aa1d8623f2b7d591257dbae5a18df9c8022e5ef9d01851bac22fa2e88942",
+      "stdout_sha256": "ae813f39f58e5e35dd334191ccb7bc878169bf6d4a134f6d0e20a5f380352f71",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "ambiguous_same_summary_K2",
+      "command": [
+        "C:\\Users\\Mahdi\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+        "-B",
+        "-X",
+        "utf8",
+        "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-04\\advisor_package_v21\\private\\portable_check_v1\\partition.py",
+        "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-04\\advisor_package_v21\\private\\portable_check_v1\\demo\\runs\\20261104T194844.426617Z\\ambiguous_same_summary_K2.input.json",
+        "--seconds",
+        "5",
+        "--known-k",
+        "2"
+      ],
+      "expected": "ambiguous",
+      "actual": "ambiguous",
+      "exit_code": 0,
+      "input_sha256": "bf1d95f4cb07eb050076adaf275a080418a5b3b02f372ffb5be67927f13336d9",
+      "stdout_sha256": "7efc921e7ff74fc50df50046fa4c0891962f34bd1c5dd8cdc9bfb889ce64e401",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "incompatible_K2",
+      "command": [
+        "C:\\Users\\Mahdi\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+        "-B",
+        "-X",
+        "utf8",
+        "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-04\\advisor_package_v21\\private\\portable_check_v1\\partition.py",
+        "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-04\\advisor_package_v21\\private\\portable_check_v1\\demo\\runs\\20261104T194844.426617Z\\incompatible_K2.input.json",
+        "--seconds",
+        "5",
+        "--known-k",
+        "2"
+      ],
+      "expected": "incompatible",
+      "actual": "incompatible",
+      "exit_code": 0,
+      "input_sha256": "dd779fb411575754acfd9aa0ca180158380f44a59c6766a3d0dd39b2bbe9f295",
+      "stdout_sha256": "5f567192cab82e5cabd0b8cd31f69c3263817449719e984ab0fee5e1d4cb54ff",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "unresolved_zero_budget",
+      "command": [
+        "C:\\Users\\Mahdi\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+        "-B",
+        "-X",
+        "utf8",
+        "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-04\\advisor_package_v21\\private\\portable_check_v1\\partition.py",
+        "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-04\\advisor_package_v21\\private\\portable_check_v1\\demo\\runs\\20261104T194844.426617Z\\unresolved_zero_budget.input.json",
+        "--seconds",
+        "0",
+        "--known-k",
+        "2"
+      ],
+      "expected": "unresolved",
+      "actual": "unresolved",
+      "exit_code": 3,
+      "input_sha256": "0460aa1d8623f2b7d591257dbae5a18df9c8022e5ef9d01851bac22fa2e88942",
+      "stdout_sha256": "65b2ab6e469d3c7c6e973076c0da8ce5ab12bdd4c3bed48957c2cd817d6a31fb",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "source_sha256": "8f388808c21ce6878c98c9cc59970f37fafb693fc2b3b88c95c7f92d6f0f8fcc",
+  "entry_sha256": "45a1db84633d8fee6c20456adfff2013c44d210f968d8e3ec5c2d03cfbc7e0ff"
+}
