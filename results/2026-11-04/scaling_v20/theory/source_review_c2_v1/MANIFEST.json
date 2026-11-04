@@ -1,0 +1,42 @@
+{
+  "runtime_acceptance": false,
+  "provider_changes": false,
+  "id": "C020-THEORY-SOURCE-C2-001",
+  "review_sha256": "02b7d62e0edf40b9b01e508c7c0359dc6f37afa97f9c348c5c4fc15f4d0c2fb2",
+  "new_experiments": 0,
+  "review": "../SOURCE_REVIEW_C2_V1.md",
+  "decision": "static_clearance_for_independent_captured_correctness_gate",
+  "profile_artifacts_independently_validated": false,
+  "sources": [
+    {
+      "source": "implementation/candidate_c2_v1/gate_v1.py",
+      "sha256": "5331a1787a9ff74afe1afcbea1668dbe9ee69ef1f7121fec14c7281caa2d8680",
+      "snapshot": "candidate_c2_v1__gate_v1.py"
+    },
+    {
+      "source": "implementation/candidate_c2_v1/partition_gate_v1.py",
+      "sha256": "60a5865a1846ed060b0954eef9cc7937d8709cb2a1aec4a4dbfc0925fac27758",
+      "snapshot": "candidate_c2_v1__partition_gate_v1.py"
+    },
+    {
+      "source": "implementation/candidate_c2_v1/PROTOCOL_V1.md",
+      "sha256": "25031f126782245dbd37b67c18527900064fd8fb41fbbf5da886c8aa4f19b2a5",
+      "snapshot": "candidate_c2_v1__PROTOCOL_V1.md"
+    },
+    {
+      "source": "implementation/C2_ARGUMENT_AND_PROFILE_V1.md",
+      "sha256": "b6718787a877df7e9781e1dac7d8bf510b8418a5cd6cd917735df11b3d229bd3",
+      "snapshot": "C2_ARGUMENT_AND_PROFILE_V1.md"
+    },
+    {
+      "source": "implementation/C2_C1_DELTA_V1.patch",
+      "sha256": "d51f5eee9a150a4fdbd6ab71bd175ff132badefcf8ae5ad63a51e60ea3df7e36",
+      "snapshot": "C2_C1_DELTA_V1.patch"
+    },
+    {
+      "source": "implementation/READINESS_C2_V1.json",
+      "sha256": "a676ce8a2e6ce665682fb00f82c765dc2b7f6fc4693a6d96fff6a395f635df17",
+      "snapshot": "READINESS_C2_V1.json"
+    }
+  ]
+}

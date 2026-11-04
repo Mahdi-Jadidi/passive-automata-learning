@@ -1,0 +1,23 @@
+{
+  "cycle": "C020",
+  "created_utc": "2026-11-04T11:34:48.324957+00:00",
+  "scope": "synthetic large-state and large-trace exact improvements; paper goal paused",
+  "parent": "C018/C019",
+  "baseline": {
+    "results\\2026-11-04\\synthetic_gate_v18\\implementation\\gate_v1.py": "c288448f4a11849f74293b13201fdc578a79e6fbbe24165684807bd32ceeb83d",
+    "results\\2026-11-04\\synthetic_gate_v18\\implementation\\partition_gate_v1.py": "60a5865a1846ed060b0954eef9cc7937d8709cb2a1aec4a4dbfc0925fac27758"
+  },
+  "threads": {
+    "theory": "01a17781-7e07-7021-b7eb-1feb2ddf06fb",
+    "implementation": "01a17782-1aea-7a21-9b17-f0907d389492",
+    "audit": "01a17783-2875-71c3-b64d-73cb14c21c6f"
+  },
+  "limits": {
+    "optimization_candidates": 2,
+    "per_provider_timing_seconds": 600,
+    "case_soft_seconds": 20,
+    "case_hard_seconds": 25
+  },
+  "acceptance": "exact correctness review before timing; compare completed paired measurements; no physical recovery claim from consistency",
+  "stop": "after at most two measured candidates; stop earlier if both evidence and profiling show no supported next improvement"
+}

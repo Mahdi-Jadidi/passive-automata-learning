@@ -1,0 +1,59 @@
+{
+  "schema_version": 1,
+  "cycle": "C020",
+  "status": "frozen_pending_independent_static_review",
+  "execution_status": "not_run",
+  "candidate_slot": 1,
+  "files": {
+    "candidate_c1_v1/gate_v1.py": {
+      "bytes": 16845,
+      "sha256": "334772356836e5dcc5376af756518125c94cf8df3119b9a0492bff86f7b7d8f0"
+    },
+    "candidate_c1_v1/partition_gate_v1.py": {
+      "bytes": 2745,
+      "sha256": "60a5865a1846ed060b0954eef9cc7937d8709cb2a1aec4a4dbfc0925fac27758"
+    },
+    "candidate_c1_v1/PROTOCOL_V1.md": {
+      "bytes": 2383,
+      "sha256": "5e316fa99ee4c48e6b0acc1365941af114fd99cbfde0e897f1e106a978f8e008"
+    },
+    "C1_ARGUMENT_V1.md": {
+      "bytes": 2865,
+      "sha256": "9bffc1b30443d0d9d76a16aaad03a78acefd250ee070fa34190aead2d04c746b"
+    },
+    "C1_BASELINE_DELTA_V1.patch": {
+      "bytes": 3521,
+      "sha256": "46d44e6e914ab022d68b075a1249f2055af0513dda232a065c26541bf8536eb2"
+    },
+    "C1_DECISION_V1.md": {
+      "bytes": 1327,
+      "sha256": "56b6303b3e9eafcefa389dee7dc576f45a8a0ae6c6ae0186856f3572a23e282e"
+    },
+    "PROFILE_AND_SELECTION_V1.md": {
+      "bytes": 3867,
+      "sha256": "3cb0598f93de1008da35e5bc24a2389b3b564fc06d0f85c59b37c780cb467446"
+    },
+    "profile_baseline_v1.py": {
+      "bytes": 3999,
+      "sha256": "42af21debce9e878584c322ed361221de558f86fa287e8f9760d46fbc40e4969"
+    },
+    "PRE_FREEZE_NOTES_V1.md": {
+      "bytes": 986,
+      "sha256": "732dca24584485ac991028a6882ebe0b3735e31897202f2097507f1b825ddcf0"
+    }
+  },
+  "baseline": {
+    "gate_sha256": "c288448f4a11849f74293b13201fdc578a79e6fbbe24165684807bd32ceeb83d",
+    "CLI_sha256": "60a5865a1846ed060b0954eef9cc7937d8709cb2a1aec4a4dbfc0925fac27758"
+  },
+  "optimization": "retain exact validated length/Parikh summaries; compare graph pairs only inside equal-signature buckets; unchanged exact verifier and sample traversal order",
+  "contract": "same C018 compact statuses/witnesses/known-K assumptions; no generator truth read",
+  "proof_claim": "nonedges only are filtered; every actual baseline edge and relative edge order retained; no digest-only acceptance",
+  "new_costs": "signature support sorting/storage and exact key hashing; possible regressions on unary cases; no measured speed claim",
+  "fixture_owner": "independent auditor; approved MATRIX_APPROVAL_V1 six cells; no duplicate generator implemented",
+  "candidate2": "not implemented; conditional on remaining measured profile and master review",
+  "budgets": {"timing_seconds_per_provider": 600, "soft_seconds": 20, "hard_seconds": 25},
+  "next_gate": "independent static review of candidate/profile sources and approved fixture freeze, master GO, captured profiling/correctness then timing",
+  "source_execution": false,
+  "paper_goal": "paused"
+}

@@ -1,0 +1,15 @@
+{
+  "id":"C020-THEORY-001",
+  "proof":"EXACT_SCALING_PROPOSAL_v1.md",
+  "scientific_status":"direct_proofs_ready_for_candidate_review",
+  "execution_status":"no_runs",
+  "new_experiments":0,
+  "candidates":[
+    {"id":"A","priority":"primary","idea":"length/fullword-swapped-fingerprint negative index with exact adjacent-swap verification","claim":"baseline graph components and exact gate decision family preserved","performance":"unmeasured; candidate generation linear but collisions/verification/output can dominate"},
+    {"id":"B","priority":"conditional second slot only if search dominates","idea":"exact remaining-atom rejection envelope for RGS pruning","claim":"no feasible completion removed","performance":"unmeasured; extra mask/cache work can regress"}
+  ],
+  "rejected_ideas":["fingerprint equality alone proves adjacency","one record per hash bucket is complete","fabricated negative swapped traces","current partial RGS coverage failure proves no completion","larger hidden DFA state count implies observed inference harder","more candidates/cells after measured plateau"],
+  "source_review":"pending frozen candidate",
+  "paper_goal":"paused",
+  "historical_changes":false
+}

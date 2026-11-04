@@ -1,0 +1,46 @@
+{
+  "status": "accepted",
+  "not_benchmark": true,
+  "entry_sha256": "98496d52af9359b87862a85922a82162b6987f66b69502358c62d4b9f90ff73d",
+  "records": [
+    {
+      "command": [
+        "C:\\Users\\Mahdi\\AppData\\Local\\Python\\pythoncore-3.14-64\\python.exe",
+        "-B",
+        "-X",
+        "utf8",
+        "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\partition.py",
+        "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-04\\scaling_v20\\coordination\\public_smoke_v1\\input.json",
+        "--seconds",
+        "5",
+        "--known-k",
+        "2"
+      ],
+      "exit_code": 0,
+      "status": "certified_unique",
+      "wall_seconds": 0.34493929999734974,
+      "stdout_sha256": "46882f6348dc214ac46ac6ba5d0e4d5fc045af16dc5570707d64f9aafeb2a2d3",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "command": [
+        "C:\\Users\\Mahdi\\AppData\\Local\\Python\\pythoncore-3.14-64\\python.exe",
+        "-B",
+        "-X",
+        "utf8",
+        "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\partition.py",
+        "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-04\\scaling_v20\\coordination\\public_smoke_v1\\input.json",
+        "--seconds",
+        "5"
+      ],
+      "exit_code": 0,
+      "status": "ambiguous",
+      "wall_seconds": 0.2610426999963238,
+      "stdout_sha256": "be1abdbfb59b0aafbbf9351512ba214f744ca5cf4bbadfe20d7d6fd4b2f2bd84",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "tested_entry_snapshot": "tested_entry_snapshot.py",
+  "current_entry_after_newline_preservation_sha256": "948cab41bcc752b185533734f4d70413db358b1923b2181bb37be7c774e8a78b",
+  "postcheck_change": "Restored existing repository newline convention only; dispatch target identical."
+}

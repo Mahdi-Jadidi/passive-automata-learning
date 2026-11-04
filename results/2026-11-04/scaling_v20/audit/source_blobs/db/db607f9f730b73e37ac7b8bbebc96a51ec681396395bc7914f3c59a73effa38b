@@ -1,0 +1,1293 @@
+{
+  "status": "accepted",
+  "fixtures": [
+    {
+      "case_id": "A",
+      "status": "accepted_labels_minimality_and_scope",
+      "T": 4066861,
+      "class_counts": {
+        "positive": 513,
+        "negative": 516
+      },
+      "actual_word_lengths": {
+        "positive": {
+          "min": 379,
+          "max": 4076
+        },
+        "negative": {
+          "min": 379,
+          "max": 4065
+        }
+      },
+      "coverage": [
+        {
+          "device": 0,
+          "declared": 64,
+          "structurally_reachable": 64,
+          "certified_minimal": 64,
+          "minimality_proof": "single_accepting_state_on_complete_a_cycle_distinguishes_all_states",
+          "observed_visited": 64,
+          "base_observed_visited": 64,
+          "base_used_cycle_transition_states": 64,
+          "base_used_permutation_transition_states": 64,
+          "terminal_outcomes": {
+            "accept": 900,
+            "reject": 129,
+            "base_accept": 896,
+            "base_reject": 128
+          },
+          "projection_lengths": {
+            "min": 123,
+            "max": 1110,
+            "mean": 990.8007774538387,
+            "zero_count": 0
+          }
+        },
+        {
+          "device": 1,
+          "declared": 64,
+          "structurally_reachable": 64,
+          "certified_minimal": 64,
+          "minimality_proof": "single_accepting_state_on_complete_a_cycle_distinguishes_all_states",
+          "observed_visited": 64,
+          "base_observed_visited": 64,
+          "base_used_cycle_transition_states": 64,
+          "base_used_permutation_transition_states": 64,
+          "terminal_outcomes": {
+            "accept": 900,
+            "reject": 129,
+            "base_accept": 896,
+            "base_reject": 128
+          },
+          "projection_lengths": {
+            "min": 69,
+            "max": 1089,
+            "mean": 986.8756073858115,
+            "zero_count": 0
+          }
+        },
+        {
+          "device": 2,
+          "declared": 64,
+          "structurally_reachable": 64,
+          "certified_minimal": 64,
+          "minimality_proof": "single_accepting_state_on_complete_a_cycle_distinguishes_all_states",
+          "observed_visited": 64,
+          "base_observed_visited": 64,
+          "base_used_cycle_transition_states": 64,
+          "base_used_permutation_transition_states": 64,
+          "terminal_outcomes": {
+            "accept": 900,
+            "reject": 129,
+            "base_accept": 896,
+            "base_reject": 128
+          },
+          "projection_lengths": {
+            "min": 87,
+            "max": 1091,
+            "mean": 987.9037900874636,
+            "zero_count": 0
+          }
+        },
+        {
+          "device": 3,
+          "declared": 64,
+          "structurally_reachable": 64,
+          "certified_minimal": 64,
+          "minimality_proof": "single_accepting_state_on_complete_a_cycle_distinguishes_all_states",
+          "observed_visited": 64,
+          "base_observed_visited": 64,
+          "base_used_cycle_transition_states": 64,
+          "base_used_permutation_transition_states": 64,
+          "terminal_outcomes": {
+            "accept": 900,
+            "reject": 129,
+            "base_accept": 896,
+            "base_reject": 128
+          },
+          "projection_lengths": {
+            "min": 100,
+            "max": 1104,
+            "mean": 986.6656948493683,
+            "zero_count": 0
+          }
+        }
+      ],
+      "oracle": {
+        "method": "K disjoint sound adjacent_swap_edges plus independently_verified_truth_model",
+        "forced_groups": [
+          [
+            "c",
+            "f"
+          ],
+          [
+            "a",
+            "b"
+          ],
+          [
+            "d",
+            "h"
+          ],
+          [
+            "e",
+            "g"
+          ]
+        ],
+        "counts_by_k": [
+          0,
+          1,
+          7,
+          6,
+          1
+        ],
+        "unknown_status": "ambiguous",
+        "trusted_K_status": "certified_unique"
+      },
+      "input_sha256": "d4def66ffc40bbd0a383382008171622e4fde36fe1122c9b46d629e60f3295d3",
+      "world_sha256": "92085e256ea2ab661da4ec2842f68398145372c36a05d50de007532973048ecc"
+    },
+    {
+      "case_id": "B",
+      "status": "accepted_labels_minimality_and_scope",
+      "T": 16537492,
+      "class_counts": {
+        "positive": 129,
+        "negative": 136
+      },
+      "actual_word_lengths": {
+        "positive": {
+          "min": 2947,
+          "max": 65076
+        },
+        "negative": {
+          "min": 2947,
+          "max": 65050
+        }
+      },
+      "coverage": [
+        {
+          "device": 0,
+          "declared": 256,
+          "structurally_reachable": 256,
+          "certified_minimal": 256,
+          "minimality_proof": "single_accepting_state_on_complete_a_cycle_distinguishes_all_states",
+          "observed_visited": 256,
+          "base_observed_visited": 256,
+          "base_used_cycle_transition_states": 256,
+          "base_used_permutation_transition_states": 256,
+          "terminal_outcomes": {
+            "accept": 248,
+            "reject": 17,
+            "base_accept": 240,
+            "base_reject": 16
+          },
+          "projection_lengths": {
+            "min": 308,
+            "max": 8404,
+            "mean": 7791.581132075472,
+            "zero_count": 0
+          }
+        },
+        {
+          "device": 1,
+          "declared": 256,
+          "structurally_reachable": 256,
+          "certified_minimal": 256,
+          "minimality_proof": "single_accepting_state_on_complete_a_cycle_distinguishes_all_states",
+          "observed_visited": 256,
+          "base_observed_visited": 256,
+          "base_used_cycle_transition_states": 256,
+          "base_used_permutation_transition_states": 256,
+          "terminal_outcomes": {
+            "accept": 248,
+            "reject": 17,
+            "base_accept": 240,
+            "base_reject": 16
+          },
+          "projection_lengths": {
+            "min": 425,
+            "max": 8292,
+            "mean": 7805.82641509434,
+            "zero_count": 0
+          }
+        },
+        {
+          "device": 2,
+          "declared": 256,
+          "structurally_reachable": 256,
+          "certified_minimal": 256,
+          "minimality_proof": "single_accepting_state_on_complete_a_cycle_distinguishes_all_states",
+          "observed_visited": 256,
+          "base_observed_visited": 256,
+          "base_used_cycle_transition_states": 256,
+          "base_used_permutation_transition_states": 256,
+          "terminal_outcomes": {
+            "accept": 248,
+            "reject": 17,
+            "base_accept": 240,
+            "base_reject": 16
+          },
+          "projection_lengths": {
+            "min": 403,
+            "max": 8335,
+            "mean": 7794.890566037736,
+            "zero_count": 0
+          }
+        },
+        {
+          "device": 3,
+          "declared": 256,
+          "structurally_reachable": 256,
+          "certified_minimal": 256,
+          "minimality_proof": "single_accepting_state_on_complete_a_cycle_distinguishes_all_states",
+          "observed_visited": 256,
+          "base_observed_visited": 256,
+          "base_used_cycle_transition_states": 256,
+          "base_used_permutation_transition_states": 256,
+          "terminal_outcomes": {
+            "accept": 248,
+            "reject": 17,
+            "base_accept": 240,
+            "base_reject": 16
+          },
+          "projection_lengths": {
+            "min": 355,
+            "max": 8362,
+            "mean": 7799.516981132076,
+            "zero_count": 0
+          }
+        },
+        {
+          "device": 4,
+          "declared": 256,
+          "structurally_reachable": 256,
+          "certified_minimal": 256,
+          "minimality_proof": "single_accepting_state_on_complete_a_cycle_distinguishes_all_states",
+          "observed_visited": 256,
+          "base_observed_visited": 256,
+          "base_used_cycle_transition_states": 256,
+          "base_used_permutation_transition_states": 256,
+          "terminal_outcomes": {
+            "accept": 248,
+            "reject": 17,
+            "base_accept": 240,
+            "base_reject": 16
+          },
+          "projection_lengths": {
+            "min": 363,
+            "max": 8362,
+            "mean": 7812.105660377359,
+            "zero_count": 0
+          }
+        },
+        {
+          "device": 5,
+          "declared": 256,
+          "structurally_reachable": 256,
+          "certified_minimal": 256,
+          "minimality_proof": "single_accepting_state_on_complete_a_cycle_distinguishes_all_states",
+          "observed_visited": 256,
+          "base_observed_visited": 256,
+          "base_used_cycle_transition_states": 256,
+          "base_used_permutation_transition_states": 256,
+          "terminal_outcomes": {
+            "accept": 248,
+            "reject": 17,
+            "base_accept": 240,
+            "base_reject": 16
+          },
+          "projection_lengths": {
+            "min": 457,
+            "max": 8393,
+            "mean": 7816.864150943396,
+            "zero_count": 0
+          }
+        },
+        {
+          "device": 6,
+          "declared": 256,
+          "structurally_reachable": 256,
+          "certified_minimal": 256,
+          "minimality_proof": "single_accepting_state_on_complete_a_cycle_distinguishes_all_states",
+          "observed_visited": 256,
+          "base_observed_visited": 256,
+          "base_used_cycle_transition_states": 256,
+          "base_used_permutation_transition_states": 256,
+          "terminal_outcomes": {
+            "accept": 248,
+            "reject": 17,
+            "base_accept": 240,
+            "base_reject": 16
+          },
+          "projection_lengths": {
+            "min": 304,
+            "max": 8388,
+            "mean": 7797.392452830189,
+            "zero_count": 0
+          }
+        },
+        {
+          "device": 7,
+          "declared": 256,
+          "structurally_reachable": 256,
+          "certified_minimal": 256,
+          "minimality_proof": "single_accepting_state_on_complete_a_cycle_distinguishes_all_states",
+          "observed_visited": 256,
+          "base_observed_visited": 256,
+          "base_used_cycle_transition_states": 256,
+          "base_used_permutation_transition_states": 256,
+          "terminal_outcomes": {
+            "accept": 248,
+            "reject": 17,
+            "base_accept": 240,
+            "base_reject": 16
+          },
+          "projection_lengths": {
+            "min": 332,
+            "max": 8385,
+            "mean": 7787.452830188679,
+            "zero_count": 0
+          }
+        }
+      ],
+      "oracle": {
+        "method": "K disjoint sound adjacent_swap_edges plus independently_verified_truth_model",
+        "forced_groups": [
+          [
+            "i",
+            "j"
+          ],
+          [
+            "m",
+            "p"
+          ],
+          [
+            "d",
+            "e"
+          ],
+          [
+            "b",
+            "l"
+          ],
+          [
+            "c",
+            "n"
+          ],
+          [
+            "a",
+            "k"
+          ],
+          [
+            "f",
+            "h"
+          ],
+          [
+            "g",
+            "o"
+          ]
+        ],
+        "counts_by_k": [
+          0,
+          1,
+          127,
+          966,
+          1701,
+          1050,
+          266,
+          28,
+          1
+        ],
+        "unknown_status": "ambiguous",
+        "trusted_K_status": "certified_unique"
+      },
+      "input_sha256": "c5f3e08d5891207b8fe27ba540c1ee73c375883238cdf73cd0b16d4a326ef107",
+      "world_sha256": "aa2488120a5edb899f9212bfc0e758274f8f60f850035f3a2d2b996d84f293cb"
+    },
+    {
+      "case_id": "C",
+      "status": "accepted_labels_minimality_and_scope",
+      "T": 32338004,
+      "class_counts": {
+        "positive": 17,
+        "negative": 36
+      },
+      "actual_word_lengths": {
+        "positive": {
+          "min": 31621,
+          "max": 991715
+        },
+        "negative": {
+          "min": 31621,
+          "max": 992622
+        }
+      },
+      "coverage": [
+        {
+          "device": 0,
+          "declared": 1024,
+          "structurally_reachable": 1024,
+          "certified_minimal": 1024,
+          "minimality_proof": "single_accepting_state_on_complete_a_cycle_distinguishes_all_states",
+          "observed_visited": 1024,
+          "base_observed_visited": 1024,
+          "base_used_cycle_transition_states": 1024,
+          "base_used_permutation_transition_states": 1024,
+          "terminal_outcomes": {
+            "accept": 51,
+            "reject": 2,
+            "base_accept": 31,
+            "base_reject": 1
+          },
+          "projection_lengths": {
+            "min": 1525,
+            "max": 50280,
+            "mean": 30500.735849056604,
+            "zero_count": 0
+          }
+        },
+        {
+          "device": 1,
+          "declared": 1024,
+          "structurally_reachable": 1024,
+          "certified_minimal": 1024,
+          "minimality_proof": "single_accepting_state_on_complete_a_cycle_distinguishes_all_states",
+          "observed_visited": 1024,
+          "base_observed_visited": 1024,
+          "base_used_cycle_transition_states": 1024,
+          "base_used_permutation_transition_states": 1024,
+          "terminal_outcomes": {
+            "accept": 51,
+            "reject": 2,
+            "base_accept": 31,
+            "base_reject": 1
+          },
+          "projection_lengths": {
+            "min": 1634,
+            "max": 50200,
+            "mean": 30516.79245283019,
+            "zero_count": 0
+          }
+        },
+        {
+          "device": 2,
+          "declared": 1024,
+          "structurally_reachable": 1024,
+          "certified_minimal": 1024,
+          "minimality_proof": "single_accepting_state_on_complete_a_cycle_distinguishes_all_states",
+          "observed_visited": 1024,
+          "base_observed_visited": 1024,
+          "base_used_cycle_transition_states": 1024,
+          "base_used_permutation_transition_states": 1024,
+          "terminal_outcomes": {
+            "accept": 51,
+            "reject": 2,
+            "base_accept": 31,
+            "base_reject": 1
+          },
+          "projection_lengths": {
+            "min": 1595,
+            "max": 50231,
+            "mean": 30440.32075471698,
+            "zero_count": 0
+          }
+        },
+        {
+          "device": 3,
+          "declared": 1024,
+          "structurally_reachable": 1024,
+          "certified_minimal": 1024,
+          "minimality_proof": "single_accepting_state_on_complete_a_cycle_distinguishes_all_states",
+          "observed_visited": 1024,
+          "base_observed_visited": 1024,
+          "base_used_cycle_transition_states": 1024,
+          "base_used_permutation_transition_states": 1024,
+          "terminal_outcomes": {
+            "accept": 51,
+            "reject": 2,
+            "base_accept": 31,
+            "base_reject": 1
+          },
+          "projection_lengths": {
+            "min": 2019,
+            "max": 50295,
+            "mean": 30686.22641509434,
+            "zero_count": 0
+          }
+        },
+        {
+          "device": 4,
+          "declared": 1024,
+          "structurally_reachable": 1024,
+          "certified_minimal": 1024,
+          "minimality_proof": "single_accepting_state_on_complete_a_cycle_distinguishes_all_states",
+          "observed_visited": 1024,
+          "base_observed_visited": 1024,
+          "base_used_cycle_transition_states": 1024,
+          "base_used_permutation_transition_states": 1024,
+          "terminal_outcomes": {
+            "accept": 51,
+            "reject": 2,
+            "base_accept": 31,
+            "base_reject": 1
+          },
+          "projection_lengths": {
+            "min": 1188,
+            "max": 50229,
+            "mean": 30411.188679245282,
+            "zero_count": 0
+          }
+        },
+        {
+          "device": 5,
+          "declared": 1024,
+          "structurally_reachable": 1024,
+          "certified_minimal": 1024,
+          "minimality_proof": "single_accepting_state_on_complete_a_cycle_distinguishes_all_states",
+          "observed_visited": 1024,
+          "base_observed_visited": 1024,
+          "base_used_cycle_transition_states": 1024,
+          "base_used_permutation_transition_states": 1024,
+          "terminal_outcomes": {
+            "accept": 51,
+            "reject": 2,
+            "base_accept": 31,
+            "base_reject": 1
+          },
+          "projection_lengths": {
+            "min": 1848,
+            "max": 50205,
+            "mean": 30619.075471698114,
+            "zero_count": 0
+          }
+        },
+        {
+          "device": 6,
+          "declared": 1024,
+          "structurally_reachable": 1024,
+          "certified_minimal": 1024,
+          "minimality_proof": "single_accepting_state_on_complete_a_cycle_distinguishes_all_states",
+          "observed_visited": 1024,
+          "base_observed_visited": 1024,
+          "base_used_cycle_transition_states": 1024,
+          "base_used_permutation_transition_states": 1024,
+          "terminal_outcomes": {
+            "accept": 51,
+            "reject": 2,
+            "base_accept": 31,
+            "base_reject": 1
+          },
+          "projection_lengths": {
+            "min": 1829,
+            "max": 50240,
+            "mean": 30636.509433962263,
+            "zero_count": 0
+          }
+        },
+        {
+          "device": 7,
+          "declared": 1024,
+          "structurally_reachable": 1024,
+          "certified_minimal": 1024,
+          "minimality_proof": "single_accepting_state_on_complete_a_cycle_distinguishes_all_states",
+          "observed_visited": 1024,
+          "base_observed_visited": 1024,
+          "base_used_cycle_transition_states": 1024,
+          "base_used_permutation_transition_states": 1024,
+          "terminal_outcomes": {
+            "accept": 51,
+            "reject": 2,
+            "base_accept": 31,
+            "base_reject": 1
+          },
+          "projection_lengths": {
+            "min": 1969,
+            "max": 50208,
+            "mean": 30592.584905660377,
+            "zero_count": 0
+          }
+        },
+        {
+          "device": 8,
+          "declared": 1024,
+          "structurally_reachable": 1024,
+          "certified_minimal": 1024,
+          "minimality_proof": "single_accepting_state_on_complete_a_cycle_distinguishes_all_states",
+          "observed_visited": 1024,
+          "base_observed_visited": 1024,
+          "base_used_cycle_transition_states": 1024,
+          "base_used_permutation_transition_states": 1024,
+          "terminal_outcomes": {
+            "accept": 51,
+            "reject": 2,
+            "base_accept": 31,
+            "base_reject": 1
+          },
+          "projection_lengths": {
+            "min": 1308,
+            "max": 50102,
+            "mean": 30413.471698113208,
+            "zero_count": 0
+          }
+        },
+        {
+          "device": 9,
+          "declared": 1024,
+          "structurally_reachable": 1024,
+          "certified_minimal": 1024,
+          "minimality_proof": "single_accepting_state_on_complete_a_cycle_distinguishes_all_states",
+          "observed_visited": 1024,
+          "base_observed_visited": 1024,
+          "base_used_cycle_transition_states": 1024,
+          "base_used_permutation_transition_states": 1024,
+          "terminal_outcomes": {
+            "accept": 51,
+            "reject": 2,
+            "base_accept": 31,
+            "base_reject": 1
+          },
+          "projection_lengths": {
+            "min": 1975,
+            "max": 50110,
+            "mean": 30629.169811320753,
+            "zero_count": 0
+          }
+        },
+        {
+          "device": 10,
+          "declared": 1024,
+          "structurally_reachable": 1024,
+          "certified_minimal": 1024,
+          "minimality_proof": "single_accepting_state_on_complete_a_cycle_distinguishes_all_states",
+          "observed_visited": 1024,
+          "base_observed_visited": 1024,
+          "base_used_cycle_transition_states": 1024,
+          "base_used_permutation_transition_states": 1024,
+          "terminal_outcomes": {
+            "accept": 51,
+            "reject": 2,
+            "base_accept": 31,
+            "base_reject": 1
+          },
+          "projection_lengths": {
+            "min": 1716,
+            "max": 50226,
+            "mean": 30550.849056603773,
+            "zero_count": 0
+          }
+        },
+        {
+          "device": 11,
+          "declared": 1024,
+          "structurally_reachable": 1024,
+          "certified_minimal": 1024,
+          "minimality_proof": "single_accepting_state_on_complete_a_cycle_distinguishes_all_states",
+          "observed_visited": 1024,
+          "base_observed_visited": 1024,
+          "base_used_cycle_transition_states": 1024,
+          "base_used_permutation_transition_states": 1024,
+          "terminal_outcomes": {
+            "accept": 51,
+            "reject": 2,
+            "base_accept": 31,
+            "base_reject": 1
+          },
+          "projection_lengths": {
+            "min": 1078,
+            "max": 50188,
+            "mean": 30372.075471698114,
+            "zero_count": 0
+          }
+        },
+        {
+          "device": 12,
+          "declared": 1024,
+          "structurally_reachable": 1024,
+          "certified_minimal": 1024,
+          "minimality_proof": "single_accepting_state_on_complete_a_cycle_distinguishes_all_states",
+          "observed_visited": 1024,
+          "base_observed_visited": 1024,
+          "base_used_cycle_transition_states": 1024,
+          "base_used_permutation_transition_states": 1024,
+          "terminal_outcomes": {
+            "accept": 51,
+            "reject": 2,
+            "base_accept": 31,
+            "base_reject": 1
+          },
+          "projection_lengths": {
+            "min": 1270,
+            "max": 50159,
+            "mean": 30424.622641509435,
+            "zero_count": 0
+          }
+        },
+        {
+          "device": 13,
+          "declared": 1024,
+          "structurally_reachable": 1024,
+          "certified_minimal": 1024,
+          "minimality_proof": "single_accepting_state_on_complete_a_cycle_distinguishes_all_states",
+          "observed_visited": 1024,
+          "base_observed_visited": 1024,
+          "base_used_cycle_transition_states": 1024,
+          "base_used_permutation_transition_states": 1024,
+          "terminal_outcomes": {
+            "accept": 51,
+            "reject": 2,
+            "base_accept": 31,
+            "base_reject": 1
+          },
+          "projection_lengths": {
+            "min": 1702,
+            "max": 50238,
+            "mean": 30510.264150943396,
+            "zero_count": 0
+          }
+        },
+        {
+          "device": 14,
+          "declared": 1024,
+          "structurally_reachable": 1024,
+          "certified_minimal": 1024,
+          "minimality_proof": "single_accepting_state_on_complete_a_cycle_distinguishes_all_states",
+          "observed_visited": 1024,
+          "base_observed_visited": 1024,
+          "base_used_cycle_transition_states": 1024,
+          "base_used_permutation_transition_states": 1024,
+          "terminal_outcomes": {
+            "accept": 51,
+            "reject": 2,
+            "base_accept": 31,
+            "base_reject": 1
+          },
+          "projection_lengths": {
+            "min": 1165,
+            "max": 50043,
+            "mean": 30361.094339622643,
+            "zero_count": 0
+          }
+        },
+        {
+          "device": 15,
+          "declared": 1024,
+          "structurally_reachable": 1024,
+          "certified_minimal": 1024,
+          "minimality_proof": "single_accepting_state_on_complete_a_cycle_distinguishes_all_states",
+          "observed_visited": 1024,
+          "base_observed_visited": 1024,
+          "base_used_cycle_transition_states": 1024,
+          "base_used_permutation_transition_states": 1024,
+          "terminal_outcomes": {
+            "accept": 51,
+            "reject": 2,
+            "base_accept": 31,
+            "base_reject": 1
+          },
+          "projection_lengths": {
+            "min": 1090,
+            "max": 50015,
+            "mean": 30322.509433962263,
+            "zero_count": 0
+          }
+        },
+        {
+          "device": 16,
+          "declared": 1024,
+          "structurally_reachable": 1024,
+          "certified_minimal": 1024,
+          "minimality_proof": "single_accepting_state_on_complete_a_cycle_distinguishes_all_states",
+          "observed_visited": 1024,
+          "base_observed_visited": 1024,
+          "base_used_cycle_transition_states": 1024,
+          "base_used_permutation_transition_states": 1024,
+          "terminal_outcomes": {
+            "accept": 52,
+            "reject": 1,
+            "base_accept": 32,
+            "base_reject": 0
+          },
+          "projection_lengths": {
+            "min": 1337,
+            "max": 49998,
+            "mean": 30350.67924528302,
+            "zero_count": 0
+          }
+        },
+        {
+          "device": 17,
+          "declared": 1024,
+          "structurally_reachable": 1024,
+          "certified_minimal": 1024,
+          "minimality_proof": "single_accepting_state_on_complete_a_cycle_distinguishes_all_states",
+          "observed_visited": 1024,
+          "base_observed_visited": 1024,
+          "base_used_cycle_transition_states": 1024,
+          "base_used_permutation_transition_states": 1024,
+          "terminal_outcomes": {
+            "accept": 52,
+            "reject": 1,
+            "base_accept": 32,
+            "base_reject": 0
+          },
+          "projection_lengths": {
+            "min": 2028,
+            "max": 50268,
+            "mean": 30663.77358490566,
+            "zero_count": 0
+          }
+        },
+        {
+          "device": 18,
+          "declared": 1024,
+          "structurally_reachable": 1024,
+          "certified_minimal": 1024,
+          "minimality_proof": "single_accepting_state_on_complete_a_cycle_distinguishes_all_states",
+          "observed_visited": 1024,
+          "base_observed_visited": 1024,
+          "base_used_cycle_transition_states": 1024,
+          "base_used_permutation_transition_states": 1024,
+          "terminal_outcomes": {
+            "accept": 52,
+            "reject": 1,
+            "base_accept": 32,
+            "base_reject": 0
+          },
+          "projection_lengths": {
+            "min": 1479,
+            "max": 50319,
+            "mean": 30497.33962264151,
+            "zero_count": 0
+          }
+        },
+        {
+          "device": 19,
+          "declared": 1024,
+          "structurally_reachable": 1024,
+          "certified_minimal": 1024,
+          "minimality_proof": "single_accepting_state_on_complete_a_cycle_distinguishes_all_states",
+          "observed_visited": 1024,
+          "base_observed_visited": 1024,
+          "base_used_cycle_transition_states": 1024,
+          "base_used_permutation_transition_states": 1024,
+          "terminal_outcomes": {
+            "accept": 52,
+            "reject": 1,
+            "base_accept": 32,
+            "base_reject": 0
+          },
+          "projection_lengths": {
+            "min": 1866,
+            "max": 50351,
+            "mean": 30651.735849056604,
+            "zero_count": 0
+          }
+        }
+      ],
+      "oracle": {
+        "method": "K disjoint sound adjacent_swap_edges plus independently_verified_truth_model",
+        "forced_groups": [
+          [
+            "e",
+            "o"
+          ],
+          [
+            "H",
+            "g"
+          ],
+          [
+            "J",
+            "l"
+          ],
+          [
+            "N",
+            "n"
+          ],
+          [
+            "K",
+            "t"
+          ],
+          [
+            "L",
+            "z"
+          ],
+          [
+            "d",
+            "f"
+          ],
+          [
+            "G",
+            "x"
+          ],
+          [
+            "k",
+            "y"
+          ],
+          [
+            "v",
+            "w"
+          ],
+          [
+            "B",
+            "i"
+          ],
+          [
+            "c",
+            "p"
+          ],
+          [
+            "C",
+            "E"
+          ],
+          [
+            "M",
+            "r"
+          ],
+          [
+            "F",
+            "q"
+          ],
+          [
+            "I",
+            "m"
+          ],
+          [
+            "a",
+            "h"
+          ],
+          [
+            "j",
+            "u"
+          ],
+          [
+            "A",
+            "b"
+          ],
+          [
+            "D",
+            "s"
+          ]
+        ],
+        "counts_by_k": [
+          0,
+          1,
+          524287,
+          580606446,
+          45232115901,
+          749206090500,
+          4306078895384,
+          11143554045652,
+          15170932662679,
+          12011282644725,
+          5917584964655,
+          1900842429486,
+          411016633391,
+          61068660380,
+          6302524580,
+          452329200,
+          22350954,
+          741285,
+          15675,
+          190,
+          1
+        ],
+        "unknown_status": "ambiguous",
+        "trusted_K_status": "certified_unique"
+      },
+      "input_sha256": "5b4db148b017d23c35171e38775cdd740980ec0f7eb7ad81e9a54a8f494d3499",
+      "world_sha256": "391a9d39d5ee3831ae34255dec660177b53f96c508287b01d764f138c0fd9358"
+    },
+    {
+      "case_id": "D",
+      "status": "accepted_labels_minimality_and_scope",
+      "T": 2048,
+      "class_counts": {
+        "positive": 5,
+        "negative": 4
+      },
+      "actual_word_lengths": {
+        "positive": {
+          "min": 0,
+          "max": 256
+        },
+        "negative": {
+          "min": 256,
+          "max": 256
+        }
+      },
+      "coverage": [
+        {
+          "device": 0,
+          "declared": 258,
+          "structurally_reachable": 258,
+          "certified_minimal": 258,
+          "minimality_proof": "distinct_single_suffix_prefix_residuals_plus_accepting_start_and_rejecting_sink",
+          "observed_visited": 258,
+          "base_observed_visited": 0,
+          "base_used_cycle_transition_states": 0,
+          "base_used_permutation_transition_states": 0,
+          "terminal_outcomes": {
+            "accept": 8,
+            "reject": 1,
+            "base_accept": 0,
+            "base_reject": 0
+          },
+          "projection_lengths": {
+            "min": 0,
+            "max": 256,
+            "mean": 56.888888888888886,
+            "zero_count": 7
+          }
+        },
+        {
+          "device": 1,
+          "declared": 258,
+          "structurally_reachable": 258,
+          "certified_minimal": 258,
+          "minimality_proof": "distinct_single_suffix_prefix_residuals_plus_accepting_start_and_rejecting_sink",
+          "observed_visited": 258,
+          "base_observed_visited": 0,
+          "base_used_cycle_transition_states": 0,
+          "base_used_permutation_transition_states": 0,
+          "terminal_outcomes": {
+            "accept": 8,
+            "reject": 1,
+            "base_accept": 0,
+            "base_reject": 0
+          },
+          "projection_lengths": {
+            "min": 0,
+            "max": 256,
+            "mean": 56.888888888888886,
+            "zero_count": 7
+          }
+        },
+        {
+          "device": 2,
+          "declared": 258,
+          "structurally_reachable": 258,
+          "certified_minimal": 258,
+          "minimality_proof": "distinct_single_suffix_prefix_residuals_plus_accepting_start_and_rejecting_sink",
+          "observed_visited": 258,
+          "base_observed_visited": 0,
+          "base_used_cycle_transition_states": 0,
+          "base_used_permutation_transition_states": 0,
+          "terminal_outcomes": {
+            "accept": 8,
+            "reject": 1,
+            "base_accept": 0,
+            "base_reject": 0
+          },
+          "projection_lengths": {
+            "min": 0,
+            "max": 256,
+            "mean": 56.888888888888886,
+            "zero_count": 7
+          }
+        },
+        {
+          "device": 3,
+          "declared": 258,
+          "structurally_reachable": 258,
+          "certified_minimal": 258,
+          "minimality_proof": "distinct_single_suffix_prefix_residuals_plus_accepting_start_and_rejecting_sink",
+          "observed_visited": 258,
+          "base_observed_visited": 0,
+          "base_used_cycle_transition_states": 0,
+          "base_used_permutation_transition_states": 0,
+          "terminal_outcomes": {
+            "accept": 8,
+            "reject": 1,
+            "base_accept": 0,
+            "base_reject": 0
+          },
+          "projection_lengths": {
+            "min": 0,
+            "max": 256,
+            "mean": 56.888888888888886,
+            "zero_count": 7
+          }
+        }
+      ],
+      "oracle": {
+        "method": "direct_full_Bell8_projection_enumeration",
+        "families_by_k": {
+          "0": [],
+          "1": [
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ]
+          ],
+          "2": [
+            [
+              0,
+              0,
+              0,
+              1,
+              0,
+              1,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              1,
+              0,
+              0,
+              0,
+              1,
+              0
+            ],
+            [
+              0,
+              0,
+              1,
+              1,
+              0,
+              1,
+              1,
+              0
+            ],
+            [
+              0,
+              1,
+              0,
+              0,
+              1,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              1,
+              0,
+              1,
+              1,
+              1,
+              0,
+              0
+            ],
+            [
+              0,
+              1,
+              1,
+              0,
+              1,
+              0,
+              1,
+              0
+            ],
+            [
+              0,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              0
+            ]
+          ],
+          "3": [
+            [
+              0,
+              0,
+              1,
+              2,
+              0,
+              2,
+              1,
+              0
+            ],
+            [
+              0,
+              1,
+              0,
+              2,
+              1,
+              2,
+              0,
+              0
+            ],
+            [
+              0,
+              1,
+              1,
+              2,
+              1,
+              2,
+              1,
+              0
+            ],
+            [
+              0,
+              1,
+              2,
+              0,
+              1,
+              0,
+              2,
+              0
+            ],
+            [
+              0,
+              1,
+              2,
+              1,
+              1,
+              1,
+              2,
+              0
+            ],
+            [
+              0,
+              1,
+              2,
+              2,
+              1,
+              2,
+              2,
+              0
+            ]
+          ],
+          "4": [
+            [
+              0,
+              1,
+              2,
+              3,
+              1,
+              3,
+              2,
+              0
+            ]
+          ],
+          "5": [],
+          "6": [],
+          "7": [],
+          "8": []
+        },
+        "trusted_K_status": "certified_unique",
+        "unknown_status": "ambiguous",
+        "adjacent_swap_graph_edges": 0
+      },
+      "input_sha256": "b70f130793c7ee067a58de579f5e2512e065daa092e187a353b005e1e625dfe1",
+      "world_sha256": "b5cf9249c29d795361d9236bb78c88900efeca2e8a249e172bd8a796afebffc1"
+    }
+  ],
+  "elapsed_seconds": 130.13629100000253,
+  "solver_imports": false,
+  "notes": [
+    "conditional base sampling and planted informative anchors explicitly separated",
+    "minimality proven from independently checked transition structure, not declarations",
+    "world metadata must never be supplied to solver"
+  ]
+}

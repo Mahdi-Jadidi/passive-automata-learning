@@ -1,0 +1,9 @@
+# Final bounded execution details
+
+Master explicitly approved a single generic baseline/C1/C2 suite after the complete Aprofile supplied independent evidence for candidate2. All three correctness batches precede timing. Exactly two candidate slots, no later favorable cases or third candidate. Dynamic small-gate expected row count is len(providers)*len(jobs); final validator reports baseline/C1,baseline/C2,C1/C2 paired ratios and regressions. Same six-cell matrix,20/25s caps and selected memory calls apply unchanged.
+
+Final scripts: run_benchmark_v2.py, small_batch_v2.py, verify_small_v3.py, validate_benchmark_v2.py, memory_worker_v1.py. Immutable small_ledger_checkpoint and final_ledger_checkpoint snapshots avoid append-only ledger hash drift. Each provider budget charges actual whole capture/guard wall time, including correctness, profile and memory; preparation/independent reference validation are not provider timings. Independent final audit is bounded180s, progress flushed per capture. Budget exhaustion yields explicit unstarted entries, not invented timeouts.
+
+Preparation version1 timed out at15s while writing SMALL_ORACLES_V1.json; the partially written original is preserved and is NOT used. Version2 hashes each unique held input once, adds progress, writes separate SMALL_MANIFEST_V2/SMALL_ORACLES_V2 and small_added_v2 directory, cap60s; it completed successfully. Exact input strings/expected families unchanged. Auditor sourcev1 had a parenthesis typo caught by static AST inspection before execution; corrected audit_fixtures_v2.py passed the full saved-table audit. No failed attempt has been overwritten.
+
+No source or input will be edited while frozen benchmark runs. Master approved audit's single exclusive launch; root partition.py and baseline remain unchanged. Paper goal remains paused.

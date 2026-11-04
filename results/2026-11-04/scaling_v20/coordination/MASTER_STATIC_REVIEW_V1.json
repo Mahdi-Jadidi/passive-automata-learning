@@ -1,0 +1,16 @@
+{
+  "reviewed_utc": "2026-11-04T12:00:50.057143+00:00",
+  "review_scope": "actual candidate diffs and benchmark control flow",
+  "sources": {
+    "results\\2026-11-04\\scaling_v20\\implementation\\candidate_c1_v1\\gate_v1.py": "334772356836e5dcc5376af756518125c94cf8df3119b9a0492bff86f7b7d8f0",
+    "results\\2026-11-04\\scaling_v20\\implementation\\candidate_c2_v1\\gate_v1.py": "5331a1787a9ff74afe1afcbea1668dbe9ee69ef1f7121fec14c7281caa2d8680",
+    "results\\2026-11-04\\scaling_v20\\audit\\run_benchmark_v1.py": "4d81079f92c61626a36a8100954490aef5db8ec39933f146d4e13ebb2e1ae431"
+  },
+  "decision": "static acceptable; runtime acceptance conditional on independent gates and captures",
+  "C1": "Exact Parikh equality necessary for adjacent swap; original order within buckets and exact verifier preserved. All sample constraints retained.",
+  "C2": "Input validated first; ordinal deletion outside block, chunk order and joins preserve exact projection. Completed results equivalent; interruption timing may differ.",
+  "complexity": "C1 adds per-word support sorting/storage; worst-case equal signatures retain quadratic pair count. C2 reduces interpreter overhead, does not remove total-character scanning or exponential partition-search worst case.",
+  "temporal_plan_update": "Complete A profile supports C2; baseline,c1,c2 share one frozen 6-cell benchmark; both candidates reviewed before timing, avoiding rerun of baseline.",
+  "publication": "Only adopt public entry after independent correctness and timing review; disclose censored runs, conditioned generator, planted anchors, minimum-state versus observation limits.",
+  "paper_goal": "paused"
+}

@@ -1,0 +1,71 @@
+diff --git a/results/2026-11-04/scaling_v20/implementation/candidate_c1_v1/gate_v1.py b/results/2026-11-04/scaling_v20/implementation/candidate_c2_v1/gate_v1.py
+index 251d697a..ef73979a 100644
+--- a/results/2026-11-04/scaling_v20/implementation/candidate_c1_v1/gate_v1.py
++++ b/results/2026-11-04/scaling_v20/implementation/candidate_c2_v1/gate_v1.py
+@@ -4,7 +4,7 @@ from collections import Counter
+ import math
+ import time
+ 
+-METHOD = 'C020-parikh-filter-gate-c1-v1'
++METHOD = 'C020-parikh-native-projection-gate-c2-v1'
+ # <=64KiB of UTF-32 character payload per temporary chunk; headers/Counter
+ # entries are additional. ASCII synthetic inputs use <=16KiB per chunk.
+ COUNT_CHUNK_CHARS = 16 * 1024
+@@ -26,7 +26,8 @@ def solve(data, *, known_k=None, deadline=None):
+                'count_chunks': 0, 'counter_characters_processed': 0,
+                'invalid_validation_characters': 0,
+                'word_signatures': 0, 'graph_pair_universe': 0,
+-               'graph_pairs_filtered': 0}
++               'graph_pairs_filtered': 0,
++               'projection_chunks': 0, 'deletion_tables_built': 0}
+     assumptions = ['finite noiseless full-word labels', 'known disjoint symbol ownership',
+                    'independent regular factors without a state bound',
+                    'all component counts allowed' if known_k is None else 'externally trusted exact known_k']
+@@ -271,28 +272,37 @@ def solve(data, *, known_k=None, deadline=None):
+                     block.extend(atom)
+             return sorted(block)
+ 
+-        def project(word, allowed):
++        def project(word, deletion_table):
+             out = []
+-            for i, ch in enumerate(word):
+-                if i % 1024 == 0:
+-                    poll()
+-                metrics['projection_characters'] += 1
+-                if ch in allowed:
+-                    out.append(ch)
+-            return ''.join(out)
++            for offset in range(0, len(word), COUNT_CHUNK_CHARS):
++                poll()
++                chunk = word[offset:offset + COUNT_CHUNK_CHARS]
++                out.append(chunk.translate(deletion_table))
++                metrics['projection_characters'] += len(chunk)
++                metrics['projection_chunks'] += 1
++                poll()
++            value = ''.join(out)
++            poll()
++            return value
+ 
+         @lru_cache(maxsize=4096)
+         def reject(mask):
+             poll()
+             allowed = set(block_symbols(mask))
++            deletion_table = {}
++            for symbol in alphabet:
++                poll()
++                if symbol not in allowed:
++                    deletion_table[ord(symbol)] = None
++            metrics['deletion_tables_built'] += 1
+             language = set()
+             for p in P:
+                 poll()
+-                language.add(project(p, allowed))
++                language.add(project(p, deletion_table))
+             result = 0
+             for ni, n in enumerate(N):
+                 poll()
+-                if project(n, allowed) not in language:
++                if project(n, deletion_table) not in language:
+                     result |= 1 << ni
+             metrics['block_masks_computed'] += 1
+             return result

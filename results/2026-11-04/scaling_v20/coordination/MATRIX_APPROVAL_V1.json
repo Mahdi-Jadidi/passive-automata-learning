@@ -1,0 +1,66 @@
+{
+  "revision": 1,
+  "timing_cells": [
+    {
+      "name": "A",
+      "states": 64,
+      "K": 4,
+      "m": 8,
+      "per_label": 512,
+      "max_length": 4096,
+      "modes": [
+        "unknown",
+        "known"
+      ]
+    },
+    {
+      "name": "B",
+      "states": 256,
+      "K": 8,
+      "m": 16,
+      "per_label": 128,
+      "max_length": 65536,
+      "modes": [
+        "unknown",
+        "known"
+      ]
+    },
+    {
+      "name": "C",
+      "states": 1024,
+      "K": 20,
+      "m": 40,
+      "per_label": 16,
+      "max_length": 1000000,
+      "modes": [
+        "unknown"
+      ]
+    },
+    {
+      "name": "D",
+      "family": "doubled-run",
+      "run": 128,
+      "K": 4,
+      "m": 8,
+      "modes": [
+        "known"
+      ]
+    }
+  ],
+  "repetitions": 3,
+  "per_provider_total_seconds": 600,
+  "soft_seconds": 20,
+  "hard_seconds": 25,
+  "candidate_limit": 2,
+  "generation_is_conditioned": true,
+  "proof_obligations": [
+    "exact feasibility/status equivalence",
+    "known-K assumptions explicit",
+    "independent original-world replay",
+    "minimal/reachable/visited states separate",
+    "fresh end-to-end timing",
+    "preserve all failures and regressions"
+  ],
+  "paper_goal": "paused",
+  "stop_rule": "finish preregistered bounded comparisons; stop when no supported measured next improvement remains; no global optimality claim"
+}

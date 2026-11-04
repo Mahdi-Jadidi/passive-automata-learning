@@ -1,0 +1,70 @@
+diff --git a/results/2026-11-04/synthetic_gate_v18/implementation/gate_v1.py b/results/2026-11-04/scaling_v20/implementation/candidate_c1_v1/gate_v1.py
+index 960bd152..251d697a 100644
+--- a/results/2026-11-04/synthetic_gate_v18/implementation/gate_v1.py
++++ b/results/2026-11-04/scaling_v20/implementation/candidate_c1_v1/gate_v1.py
+@@ -4,7 +4,7 @@ from collections import Counter
+ import math
+ import time
+ 
+-METHOD = 'C018-exact-chunked-count-gate-v1'
++METHOD = 'C020-parikh-filter-gate-c1-v1'
+ # <=64KiB of UTF-32 character payload per temporary chunk; headers/Counter
+ # entries are additional. ASCII synthetic inputs use <=16KiB per chunk.
+ COUNT_CHUNK_CHARS = 16 * 1024
+@@ -24,7 +24,9 @@ def solve(data, *, known_k=None, deadline=None):
+                'swap_pairs': 0, 'search_nodes': 0, 'complete_candidates': 0,
+                'block_masks_computed': 0, 'reject_cache_limit': 4096,
+                'count_chunks': 0, 'counter_characters_processed': 0,
+-               'invalid_validation_characters': 0}
++               'invalid_validation_characters': 0,
++               'word_signatures': 0, 'graph_pair_universe': 0,
++               'graph_pairs_filtered': 0}
+     assumptions = ['finite noiseless full-word labels', 'known disjoint symbol ownership',
+                    'independent regular factors without a state bound',
+                    'all component counts allowed' if known_k is None else 'externally trusted exact known_k']
+@@ -83,6 +85,7 @@ def solve(data, *, known_k=None, deadline=None):
+         unary = True
+         contradiction = None
+         universal = []
++        positive_signatures, negative_signatures = [], []
+         for label, words in (('positive', P), ('negative', N)):
+             if label == 'negative':
+                 for a in alphabet:
+@@ -120,13 +123,19 @@ def solve(data, *, known_k=None, deadline=None):
+                     counts.update(partial)
+                     metrics['characters_counted'] += len(chunk)
+                     poll()
++                poll()
++                signature = (len(word), tuple(sorted(counts.items())))
++                poll()
++                metrics['word_signatures'] += 1
+                 if label == 'positive':
++                    positive_signatures.append(signature)
+                     positives.setdefault(word, wi)
+                     for a, c in counts.items():
+                         poll()
+                         counts_seen[a].add(c)
+                         presence[a] += 1
+                 else:
++                    negative_signatures.append(signature)
+                     if word in positives and contradiction is None:
+                         contradiction = {'positive_index': positives[word], 'negative_index': wi}
+                     reject = None
+@@ -211,8 +220,16 @@ def solve(data, *, known_k=None, deadline=None):
+                 a = parent[a]
+             return a
+         edges = []
++        negative_groups = {}
++        for ni, n in enumerate(N):
++            poll()
++            negative_groups.setdefault(negative_signatures[ni], []).append((ni, n))
++        metrics['graph_pair_universe'] = len(P) * len(N)
+         for pi, p in enumerate(P):
+-            for ni, n in enumerate(N):
++            poll()
++            bucket = negative_groups.get(positive_signatures[pi], ())
++            metrics['graph_pairs_filtered'] += len(N) - len(bucket)
++            for ni, n in bucket:
+                 poll()
+                 metrics['swap_pairs'] += 1
+                 if len(p) != len(n):

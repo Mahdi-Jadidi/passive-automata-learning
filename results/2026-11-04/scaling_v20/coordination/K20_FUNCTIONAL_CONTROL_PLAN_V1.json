@@ -1,0 +1,12 @@
+{
+  "status": "preregistered_before_C_timing_completion",
+  "purpose": "functional recovery coverage at K20 and1024minimalstates/device; not added to timing comparison matrix",
+  "input": "../audit/fixtures_v1/C/solver_input.json",
+  "provider": "C2 only after independent main-suite acceptance",
+  "known_k": 20,
+  "soft_seconds": 20,
+  "hard_seconds": 25,
+  "acceptance": "independently replay exact witness and sound forest with20 components; public entry smoke optional after adoption",
+  "separation": "single functional control, no3repetition speed ratio or broad recovery rate claim",
+  "reason": "main six-cell protocol times C only with unknownK, so cannot by itself evidence20-device unique recovery"
+}

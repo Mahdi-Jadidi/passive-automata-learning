@@ -1,0 +1,38 @@
+{
+  "schema_version": 1,
+  "command": [
+    "implementation/profile_baseline_v1.py",
+    "audit/fixtures_v1/A/solver_input.json",
+    "--known-k",
+    "4",
+    "--seconds",
+    "20",
+    "--out",
+    "audit/profile_baseline_A_K4_v1"
+  ],
+  "python": "3.14.6 (tags/v3.14.6:c63aec6, Jun 10 2026, 10:26:10) [MSC v.1944 64 bit (AMD64)]",
+  "profiling_is_not_benchmark_timing": true,
+  "known_k": 4,
+  "soft_seconds": 20.0,
+  "baseline_path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-04\\synthetic_gate_v18\\implementation\\gate_v1.py",
+  "execution_status": "returned",
+  "script_sha256": "42af21debce9e878584c322ed361221de558f86fa287e8f9760d46fbc40e4969",
+  "baseline_sha256": "c288448f4a11849f74293b13201fdc578a79e6fbbe24165684807bd32ceeb83d",
+  "input_sha256": "d4def66ffc40bbd0a383382008171622e4fde36fe1122c9b46d629e60f3295d3",
+  "gate_status": "certified_unique",
+  "profile_process_seconds_before_receipt": 14.743796900002053,
+  "files": {
+    "functions.json": {
+      "bytes": 17205,
+      "sha256": "82aa324bd80cfb1f0cc382fb7ce6e9637fa79ec578677f01d90c292d322570f9"
+    },
+    "profile.pstats": {
+      "bytes": 5519,
+      "sha256": "a652337315c8f31f9cd06df3b90c9d27d5a1921e867b7520aab13bb6d27e1a40"
+    },
+    "result.json": {
+      "bytes": 26643,
+      "sha256": "5fbc14b0dee4c13d081112c7972462f59b0fd3ce0b27d6af06a9c0bf453039de"
+    }
+  }
+}
