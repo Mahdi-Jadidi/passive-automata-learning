@@ -1,0 +1,12 @@
+{
+  "id":"C019-THEORY-001",
+  "proof":"PREFLIGHT_PROOFS_FA_v1.md",
+  "scientific_status":"direct_proofs_ready_for_independent_review",
+  "execution_status":"no_runs",
+  "new_experiments":0,
+  "claims":["T1 arbitrary positive/negative cardinality and arbitrarily long words can leave all partitions compatible","T2 one positive plus m-K selected adjacent-swap negatives constructs uniquely K-compatible ownership","m-K independent forest edges necessary only for this graph certificate, not universal negative-sample lower bound","T3 sound atom/feasibility preflight table with exact S(r,K) family decision","T4 graph-empty doubled pairs still uniquely compatible at trustedK2"],
+  "counterexamples":["P_i=a^(2i)bcd,N_j=a^(2j+1)bcd,K2 gives seven partitions","knownK2 even-parity complete language has alternative pairings","graph certificate failure need not mean ambiguous sample"],
+  "assumptions":["known finite nonempty disjoint alphabet","independent unrestricted regular acceptors","exact complete-word labels","explicit trusted exact K"],
+  "not_claimed":["universal count-only threshold","universal minimum m-K negative samples","fabricated negative labels for swapped words","universally cheap prerequisite checker","NP-hardness or runtime result"],
+  "historical_changes":false
+}

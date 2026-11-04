@@ -1,0 +1,4 @@
+# C019 preflight conditions: user asks known-K prerequisites before full inference
+Scope: prove and independently sanity-check sufficient certificates, show why sample counts alone do not guarantee identification. Paper goal remains paused. No new solver or performance grid.
+Theory and independent tiny complete partition enumeration delegated to same existing research chats. Direct mathematical proof and small examples; prior C015/C018 algorithms are not modified.
+Key distinctions: necessary/sufficient exact version-space condition versus efficient sufficient prechecks; unavailable cheap certificate versus genuine ambiguity versus computation timeout; graph m-K independent edges versus number of positive traces. All user-facing guarantees conditional on finite noiseless independent-disjoint regular-factor model and trusted true K.
