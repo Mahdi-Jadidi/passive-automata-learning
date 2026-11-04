@@ -1,0 +1,14 @@
+{
+  "id":"C018-THEORY-001",
+  "proof":"FASTSCAN_EQUIVALENCE_v1.md",
+  "adversarial_spec":"ADVERSARIAL_SPEC_v1.md",
+  "scientific_status":"direct_equivalence_obligations_ready_for_source_review",
+  "execution_status":"no_runs",
+  "new_experiments":0,
+  "baseline_sha256":"630850cc1e0ae469438340c5bf6e73bb9fa2ca71e24429d1e58d966c85e4cc05",
+  "claims":["disjoint chunk Counters accumulate exact full-word counts","all-chunk symbol validation equivalent to all-character membership","sparse-zero and duplicate conventions unchanged","completed gate decisions preserved when only exact scan substitution changes","optional RGS rejection-envelope pruning sound but not activated"],
+  "rejected_ideas":["overwrite chunk counts","validate only first chunk","skip later malformed words on unary failure/contradiction","mix deduplicated presence with raw positive length","normalise Unicode silently","partial RGS current rejection failure implies no extension","fingerprint alone proves equality","proof of equivalence implies measured speedup"],
+  "paper_goal":"C017 paused; drafts preserved; selected-output assumptions excluded",
+  "source_clearance":"pending frozen candidate",
+  "historical_changes":false
+}

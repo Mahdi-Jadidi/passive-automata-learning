@@ -1,0 +1,13 @@
+{
+  "id":"C017-THEORY-001",
+  "proof":"SELECTED_OUTPUT_PROOFS_v1.md",
+  "scientific_status":"direct_proofs_ready_for_independent_review",
+  "execution_status":"no_runs",
+  "new_experiments":0,
+  "claims":["T1 identical selected-output local context cannot have conflicting labels iff consistency","T2 finite suffix shift-register and full-observed-history trie give finite Mealy witnesses","T3 increasing memory depth expands compatible family","T4 finite d>=1 coarsening closure fails; d0 partition irrelevant; full history restores coarsening","T5 exact bounded-m block admissibility plus RGS/exact cover enumerates full compatible family"],
+  "counterexample":{"depth":"any d>=1","file1":"y^d alloutputs0 then x output0","file2":"x output0 then y^d alloutputs0 then x output1","fine_partition":"x|y fits","merged_partition":"xy conflicts at final x"},
+  "rejected_transfers":["C015 AND-acceptance swap mustlinks","finite-suffix coarsening monotonicity","pruning incomplete RGS blocks for current inconsistency","unseen heldout contexts have forced witness-default prediction","known-host baseline is recovered ownership"],
+  "temporary_assumptions":["opaque atomic target-qualified eventtypes","d counts prior local events, current separately","file boundaries reset modeled context","unknown labels excluded but events retained","selected-subset projection ignores unselected events"],
+  "physical_scope":"restricted sample/model consistency only; host truth used exclusively for evaluation",
+  "historical_changes":false
+}

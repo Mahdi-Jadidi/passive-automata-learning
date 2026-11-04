@@ -1,0 +1,44 @@
+{
+  "schema_version": 1,
+  "cycle": "C018",
+  "status": "frozen_pending_independent_static_review",
+  "execution_status": "not_run",
+  "files": {
+    "gate_v1.py": {
+      "bytes": 16029,
+      "sha256": "c288448f4a11849f74293b13201fdc578a79e6fbbe24165684807bd32ceeb83d"
+    },
+    "partition_gate_v1.py": {
+      "bytes": 2745,
+      "sha256": "60a5865a1846ed060b0954eef9cc7937d8709cb2a1aec4a4dbfc0925fac27758"
+    },
+    "API_PROTOCOL_V1.md": {
+      "bytes": 5112,
+      "sha256": "17c68663afe52863afd83d45677dffbee16af12f190153ae5b62301518a35b02"
+    },
+    "EQUIVALENCE_ARGUMENT_V1.md": {
+      "bytes": 3900,
+      "sha256": "0a0ecc514d713b9e0a110990f5d4c8edf52f21c1ffa388a6e46ec00ea7661422"
+    },
+    "BASELINE_DELTA_V1.patch": {
+      "bytes": 3720,
+      "sha256": "fe065d2c0eebd2b1255512d5a05b235ef7f71c4b8e29850c17afa6234d7a682d"
+    }
+  },
+  "baseline": {
+    "cycle": "C015",
+    "gate_sha256": "630850cc1e0ae469438340c5bf6e73bb9fa2ca71e24429d1e58d966c85e4cc05",
+    "CLI_sha256": "60a5865a1846ed060b0954eef9cc7937d8709cb2a1aec4a4dbfc0925fac27758",
+    "old_files_modified": false
+  },
+  "change_scope": "count-loop only: bounded stdlib Counter pieces, key-based alphabet validation, rare first-invalid-prefix fallback; method and diagnostic work metrics updated",
+  "count_chunk_characters": 16384,
+  "maximum_chunk_UTF32_payload_bytes": 65536,
+  "byte_bound_excludes": "Python object/Counter overhead",
+  "inference_semantics": "unchanged C015 exact compact gate routes/statuses/witnesses/search/knownK assumptions; CLI byte-identical",
+  "static_inspection": "saved exact baseline diff; git diff exit1 signifies differences, not a provider run/failure",
+  "source_execution": false,
+  "tests_or_timings": "none before review; no speed claim",
+  "paused_scope": "C017 LANCER drafts preserved and paused; no parsing or real-data experiment resumed",
+  "next_gate": "theory/auditor review of source hashes and counter equivalence, then master GO for captured synthetic controls and bounded same-contract long timing"
+}

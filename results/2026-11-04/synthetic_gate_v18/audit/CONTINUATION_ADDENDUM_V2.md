@@ -1,0 +1,3 @@
+# Continuation static cache fix — before execution
+
+Final sources are run_continuation_v3.py, validate_continuation_v2.py and large_replay_v2.py. Previously prepared versions remain unexecuted. Static review caught canonical partition cache identity losing the caller block order while cached negative rejection indices remained block-order dependent. V2 keys the cache by ordered blocks (symbols sorted inside each block), retaining exact reference indices; semantic partition comparison still uses canonical RGS. No input, oracle, provider, timing matrix or budget changed. Immutable ledger checkpoint fix in run_continuation_v2/small_gate_v2 remains unchanged. New freezeV2/GO_V2 supersede unexecuted freezeV1/GO_V1; no first-continuation marker may be removed for relaunch.

@@ -1,0 +1,58 @@
+{
+  "status": "complete_independent_audit_accepted_with_censoring",
+  "scientific_result": "finite-sample exact decision equivalence verified on fixed controls; long-case completion improvement under identical cap; no physical unique recovery",
+  "paper_goal": "paused",
+  "provider_sources": {
+    "baseline": "630850cc1e0ae469438340c5bf6e73bb9fa2ca71e24429d1e58d966c85e4cc05",
+    "candidate": "c288448f4a11849f74293b13201fdc578a79e6fbbe24165684807bd32ceeb83d"
+  },
+  "accepted_run": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-04\\synthetic_gate_v18\\audit\\reuse_runs\\20261104T064554.025700Z",
+  "active_seconds": 399.2366481000063,
+  "active_budget_seconds": 600,
+  "correctness": {
+    "jobs_per_method": 1695,
+    "semantic_rows": 3390,
+    "errors": 0,
+    "expected_deadline0_rows": 4,
+    "complete_or_invalid_rows": 3386,
+    "witness_records": 4298,
+    "negative_rejection_refs": 28060,
+    "reused_original_baseline_rows": 1694,
+    "reused_targeted_baseline_rows": 1,
+    "reused_candidate_rows": 1695
+  },
+  "performance": {
+    "planned_rows": 48,
+    "observed_rows": 48,
+    "candidate_complete": 24,
+    "baseline_complete": 12,
+    "baseline_cooperative_incomplete": 12,
+    "hard_timeouts": 0,
+    "budget_skips": 0,
+    "complete_witness_records": 72,
+    "complete_negative_rejection_refs": 360,
+    "independent_world_replays": 8,
+    "paired_fully_complete_cells": 4,
+    "pipeline_and_subprocess_scopes_separate": true,
+    "million_case_numeric_speed_ratio": "undefined due baseline censoring"
+  },
+  "artifacts": {
+    "AUDIT_REPORT_FA_V1.md": "57e3fa7c19454a6505a6c66032c0926df920623d26f16294d33ad9f1edb66f6f",
+    "reuse_runs/20261104T064554.025700Z/validation_report.json": "e22bc19cd6b3882fb9492491cb9630548628d2e860b89fb40011b0fb7f8c7f1c",
+    "reuse_runs/20261104T064554.025700Z/small_gate_report.json": "220f378dbe9237f7ee94cdacd11bcbcee231fc8346654a9ebe009713e40fcc69",
+    "reuse_runs/20261104T064554.025700Z/closure.json": "c49d43a7bc25b7c235dc0e096af18b750f03b632c1aa8422d5893e39eaf1aea9",
+    "reuse_runs/20261104T064554.025700Z/ledger.jsonl": "8d401e710992c8d8d5485146613b2354fbaa19434d03232cacfa7bb76a4edd25",
+    "REUSE_FREEZE_V1.json": "8d1f85036439fc0cb71440bef8d5c95fb5cdbfb67749c876b94ac2f5d100db4a",
+    "FINAL_FILES_MANIFEST_V1.json": "cb85bb9b90eb6bcbaa02f950bd4f9839edc0790fbf217eca042604f6db357088"
+  },
+  "preserved_failures": [
+    "initial baseline Unicode deadline0.25 incomplete",
+    "initial final validator hard50s timeout with empty streams",
+    "first continuation small gate hard60s timeout",
+    "first continuation final validator correctly rejected absent accepted small gate",
+    "unexecuted static drafting mistakes/versioned fixes"
+  ],
+  "no_more_provider_or_test_runs": true,
+  "master_owns_root_reports_git_archive": true,
+  "manifest_file_count": 909
+}

@@ -1,0 +1,71 @@
+diff --git a/results/2026-11-04/partition_gate_v15/implementation/gate_v1.py b/results/2026-11-04/synthetic_gate_v18/implementation/gate_v1.py
+index b4bf543c..960bd152 100644
+--- a/results/2026-11-04/partition_gate_v15/implementation/gate_v1.py
++++ b/results/2026-11-04/synthetic_gate_v18/implementation/gate_v1.py
+@@ -1,9 +1,13 @@
+ """Exact goal-directed ownership gate; no physical truth or heuristic guesses."""
+ from functools import lru_cache
++from collections import Counter
+ import math
+ import time
+ 
+-METHOD = 'C015-exact-goal-directed-gate-v1'
++METHOD = 'C018-exact-chunked-count-gate-v1'
++# <=64KiB of UTF-32 character payload per temporary chunk; headers/Counter
++# entries are additional. ASCII synthetic inputs use <=16KiB per chunk.
++COUNT_CHUNK_CHARS = 16 * 1024
+ 
+ 
+ class Halt(Exception):
+@@ -18,7 +22,9 @@ def solve(data, *, known_k=None, deadline=None):
+     start = time.perf_counter()
+     metrics = {'characters_counted': 0, 'projection_characters': 0,
+                'swap_pairs': 0, 'search_nodes': 0, 'complete_candidates': 0,
+-               'block_masks_computed': 0, 'reject_cache_limit': 4096}
++               'block_masks_computed': 0, 'reject_cache_limit': 4096,
++               'count_chunks': 0, 'counter_characters_processed': 0,
++               'invalid_validation_characters': 0}
+     assumptions = ['finite noiseless full-word labels', 'known disjoint symbol ownership',
+                    'independent regular factors without a state bound',
+                    'all component counts allowed' if known_k is None else 'externally trusted exact known_k']
+@@ -87,14 +93,33 @@ def solve(data, *, known_k=None, deadline=None):
+                 poll()
+                 if not isinstance(word, str):
+                     raise BadInput('words must be strings')
+-                counts = {}
+-                for i, ch in enumerate(word):
+-                    if i % 1024 == 0:
++                counts = Counter()
++                for offset in range(0, len(word), COUNT_CHUNK_CHARS):
++                    poll()
++                    chunk = word[offset:offset + COUNT_CHUNK_CHARS]
++                    partial = Counter(chunk)
++                    metrics['count_chunks'] += 1
++                    metrics['counter_characters_processed'] += len(chunk)
++                    invalid = False
++                    for ch in partial:
+                         poll()
+-                    if ch not in seen:
+-                        raise BadInput('word contains undeclared symbol')
+-                    counts[ch] = counts.get(ch, 0) + 1
+-                    metrics['characters_counted'] += 1
++                        if ch not in seen:
++                            invalid = True
++                            break
++                    if invalid:
++                        # Match baseline first-invalid-character error/metric
++                        # semantics without doing this Python scan on valid data.
++                        for i, ch in enumerate(chunk):
++                            if i % 1024 == 0:
++                                poll()
++                            metrics['invalid_validation_characters'] += 1
++                            if ch not in seen:
++                                metrics['characters_counted'] += i
++                                raise BadInput('word contains undeclared symbol')
++                        raise AssertionError('invalid count key absent from chunk')
++                    counts.update(partial)
++                    metrics['characters_counted'] += len(chunk)
++                    poll()
+                 if label == 'positive':
+                     positives.setdefault(word, wi)
+                     for a, c in counts.items():
