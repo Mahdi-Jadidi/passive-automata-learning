@@ -1,0 +1,38 @@
+{
+  "id": "C022-transfer-v1",
+  "parent": "C020-C2",
+  "scientific_status": "confirmed_under_assumptions",
+  "performance_status": "mixed_not_promoted",
+  "execution_status": "successful",
+  "candidate_sha256": "1161543b49d49c1f6eaadf6819099871f13e2ce77f431d6f38bcf6577fc855ff",
+  "baseline_sha256": "5331a1787a9ff74afe1afcbea1668dbe9ee69ef1f7121fec14c7281caa2d8680",
+  "master_decision": "retain C020 C2 public default",
+  "agents": [
+    {
+      "id": "/root/advisor_theory",
+      "parent": "/root",
+      "requested_model": "gpt-6.1-sol",
+      "effort": "medium",
+      "tasks": "implementation, proof, timing/replay handover"
+    },
+    {
+      "id": "/root/advisor_evidence",
+      "parent": "/root",
+      "requested_model": "gpt-6-luna",
+      "effort": "high",
+      "tasks": "independent controls, small audit, initial timing tools",
+      "interruption": "usage limit before timing"
+    }
+  ],
+  "small_checks": 3420,
+  "timing_calls": 30,
+  "personnel_disclosure": "implementation author ran timing with independent existing replay tools, master independently reviewed",
+  "negative_attempts_preserved": [
+    "audit/validate_timing_v1.py",
+    "audit/validate_timing_v2.py",
+    "audit/validate_timing_v3.py",
+    "audit/PRE_RUN_FAILURES_V1.json",
+    "audit/HANDOVER_AND_VALIDATOR_FIX_V1.json"
+  ],
+  "paper_goal": "paused"
+}

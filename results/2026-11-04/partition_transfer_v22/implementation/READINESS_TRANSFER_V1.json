@@ -1,0 +1,44 @@
+{
+  "schema_version": 1,
+  "cycle": "C022",
+  "candidate_slot": 1,
+  "candidate_count": 1,
+  "status": "frozen_pending_independent_static_correctness_audit",
+  "execution_status": "not_run",
+  "syntax_check": "ast.parse passed for candidate gate and unchanged CLI",
+  "parent_gate_sha256": "5331a1787a9ff74afe1afcbea1668dbe9ee69ef1f7121fec14c7281caa2d8680",
+  "files": {
+    "implementation/candidate_transfer_v1/gate_v1.py": {
+      "bytes": 18130,
+      "sha256": "1161543b49d49c1f6eaadf6819099871f13e2ce77f431d6f38bcf6577fc855ff"
+    },
+    "implementation/candidate_transfer_v1/partition_gate_v1.py": {
+      "bytes": 2745,
+      "sha256": "60a5865a1846ed060b0954eef9cc7937d8709cb2a1aec4a4dbfc0925fac27758"
+    },
+    "implementation/candidate_transfer_v1/PROTOCOL_V1.md": {
+      "bytes": 1609,
+      "sha256": "3071bf48d225f8ad045952c225cf5691208473ac7340745095486f12289f2196"
+    },
+    "implementation/TRANSFER_C2_DELTA_V1.patch": {
+      "bytes": 2918,
+      "sha256": "42da12495bb138bfe61554b15f3ca9e6a85f9dc56f7c6145b9fe5bf319fe37c3"
+    },
+    "theory/TRANSFER_PROOF_V1.md": {
+      "bytes": 5504,
+      "sha256": "fed7fff8313235d99b12a725450a0286fec860870cd821c3586f471f5d75376e"
+    },
+    "theory/COUNTEREXAMPLE_ATTEMPTS_V1.md": {
+      "bytes": 3315,
+      "sha256": "7a9cfc41101d79b434dbf8f2bf92b00bd2d56fbeb2acc378029b067e5c22ecfb"
+    }
+  },
+  "change": "only compatible_forced_atoms ambiguity witness replay replaced with transfer from validated atom_witness; METHOD updated",
+  "unchanged": "validation, graph, unique/unary logic, exact search, cache cap, CLI, exception handling",
+  "completed_equivalence": "same status/partitions/solution family; valid rejecting blocks may differ",
+  "interruption_equivalence": false,
+  "runtime_claim": false,
+  "new_generator": false,
+  "initial_tool_attempt": "bare python alias unavailable; failed before script execution; subsequent py invocation completed",
+  "next_gate": "independent source review and exhaustive/sampled correctness with independent certificate replay; no timing authorized for implementer"
+}

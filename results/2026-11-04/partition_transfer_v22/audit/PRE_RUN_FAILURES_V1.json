@@ -1,0 +1,8 @@
+{
+  "run_id": "C022-IND-20261104-01",
+  "preserved_setup_failures": [
+    {"stage":"first small-runner preflight","failure":"wrong freeze field compared small_batch.py to runner_sha256","solver_execution":false,"timing_started":false,"resolution":"corrected in run_small_gate_v1.py before the first child capture; final runner/hash frozen in SOURCE_INPUT_FREEZE_V1.json"},
+    {"stage":"freeze metadata update","failure":"attempted property assignment before adding absent small_batch_sha256","solver_execution":false,"timing_started":false,"resolution":"added the field and froze the corrected runner before any child capture"},
+    {"stage":"named small-control summary","failure":"asserted duplicate-edge case had an empty swap graph; actual independently replayed case has one edge","candidate_execution":false,"timing_started":false,"resolution":"preserved audit_special_controls_v1.py and created v2 with empty-graph assertion limited to designated graph-empty controls; v2 passed"}
+  ]
+}

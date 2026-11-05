@@ -1,0 +1,97 @@
+[
+  {
+    "slide": 1,
+    "title": "Alphabet Partitioning\nfrom Interleaved Traces",
+    "notes": "This presentation separates mathematical guarantees from measurements and open research questions. It does not claim universal recovery of physical devices.\n\nSource: https://github.com/Mahdi-Jadidi/passive-automata-learning/blob/main/results/2026-11-04/scaling_v20/RESEARCH_REPORT_FA.md"
+  },
+  {
+    "slide": 2,
+    "title": "Research Question",
+    "notes": "The original motivation is to separate components before passive automata learning. End-to-end RPNI benefits have not been measured.\n\nSource: https://github.com/Mahdi-Jadidi/passive-automata-learning/blob/main/results/2026-11-04/scaling_v20/RESEARCH_REPORT_FA.md"
+  },
+  {
+    "slide": 3,
+    "title": "Assumptions",
+    "notes": "An absent word is not a negative example. Last-event success labels need a different observation model. Synthetic characters encode events; they are not raw event records.\n\nSource: https://github.com/Mahdi-Jadidi/passive-automata-learning/blob/main/results/2026-11-04/preflight_certificates_v19/theory/PREFLIGHT_PROOFS_FA_v1.md"
+  },
+  {
+    "slide": 4,
+    "title": "Projection onto a Block",
+    "notes": "The mathematical notation pi(B,w) denotes this projection. This is exact sequence filtering, not similarity clustering.\n\nSource: https://github.com/Mahdi-Jadidi/passive-automata-learning/blob/main/results/2026-11-04/preflight_certificates_v19/theory/PREFLIGHT_PROOFS_FA_v1.md"
+  },
+  {
+    "slide": 5,
+    "title": "Exact Feasibility Criterion",
+    "notes": "The quantifier order is for every negative, there exists one block, for every positive. The finite-language witness uses the absence of a local state bound.\n\nSource: https://github.com/Mahdi-Jadidi/passive-automata-learning/blob/main/results/2026-11-04/preflight_certificates_v19/theory/PREFLIGHT_PROOFS_FA_v1.md"
+  },
+  {
+    "slide": 6,
+    "title": "Example: Unique under Known K",
+    "notes": "If unequal adjacent swapped symbols were in different blocks, every block would see identical projections of the positive and negative. Such a split is impossible.\n\nSource: https://github.com/Mahdi-Jadidi/passive-automata-learning/blob/main/results/2026-11-04/preflight_certificates_v19/theory/PREFLIGHT_PROOFS_FA_v1.md"
+  },
+  {
+    "slide": 7,
+    "title": "Certificate-Based Precheck",
+    "notes": "When the atom partition fails and1<K<r, the precheck is undecided and exact search may be needed. KnownK1 is checked directly. r=K alone is not sufficient without feasibility.\n\nSource: https://github.com/Mahdi-Jadidi/passive-automata-learning/blob/main/results/2026-11-04/preflight_certificates_v19/theory/PREFLIGHT_PROOFS_FA_v1.md"
+  },
+  {
+    "slide": 8,
+    "title": "Meaning of the Four Outcomes",
+    "notes": "Only certified_unique releases a selected partition. Unresolved findings leave data_insufficient unknown, rather than asserting insufficiency.\n\nSource: https://github.com/Mahdi-Jadidi/passive-automata-learning/blob/main/results/2026-11-04/scaling_v20/RESEARCH_REPORT_FA.md"
+  },
+  {
+    "slide": 9,
+    "title": "Current Exact Algorithm",
+    "notes": "This decision gate stops after two compatible witnesses; it does not enumerate the whole output family. Small complete-family solvers remain independent correctness references.\n\nSource: https://github.com/Mahdi-Jadidi/passive-automata-learning/blob/main/results/2026-11-04/scaling_v20/RESEARCH_REPORT_FA.md"
+  },
+  {
+    "slide": 10,
+    "title": "Previously Audited Exact Speedups",
+    "notes": "These are C020 C1 and C2. Hash equality alone never establishes a constraint; Python dictionaries resolve full exact key equality.\n\nSource: https://github.com/Mahdi-Jadidi/passive-automata-learning/blob/main/results/2026-11-04/scaling_v20/RESEARCH_REPORT_FA.md"
+  },
+  {
+    "slide": 11,
+    "title": "New Exact Improvement: Witness Transfer",
+    "notes": "The transfer is invalid if an atom is split or the atom partition was never verified. It changes rejecting-block choices and work counters, not completed feasibility semantics. It does not affect unique, unary, or DFS routes.\n\nSource: https://github.com/Mahdi-Jadidi/passive-automata-learning/blob/main/results/2026-11-04/partition_transfer_v22/theory/TRANSFER_PROOF_V1.md"
+  },
+  {
+    "slide": 12,
+    "title": "Evaluation Design",
+    "notes": "LowerK coarsening controls measure mathematical ambiguity under declared count constraints; they are not recovery tests with the generator's physical device count. No hidden ownership or DFA tables are solver inputs.\n\nSource: https://github.com/Mahdi-Jadidi/passive-automata-learning/blob/main/results/2026-11-04/scaling_v20/RESEARCH_REPORT_FA.md\nSource: https://github.com/Mahdi-Jadidi/passive-automata-learning/blob/main/results/2026-11-04/partition_transfer_v22/theory/TRANSFER_PROOF_V1.md"
+  },
+  {
+    "slide": 13,
+    "title": "Established C020 Measurements",
+    "notes": "The main table uses medians of three fresh processes. The K20 functional control is one separate run. No finite speed ratio is assigned where the baseline was censored. These are not real-world recovery accuracy figures.\n\nSource: https://github.com/Mahdi-Jadidi/passive-automata-learning/blob/main/results/2026-11-04/scaling_v20/RESEARCH_REPORT_FA.md"
+  },
+  {
+    "slide": 14,
+    "title": "New Candidate: Evaluation Boundary",
+    "notes": "Only measured completed comparisons can support numeric ratios. A proof of soundness alone is not evidence of a speedup.\n\nSource: https://github.com/Mahdi-Jadidi/passive-automata-learning/blob/main/results/2026-11-04/partition_transfer_v22/theory/TRANSFER_PROOF_V1.md"
+  },
+  {
+    "slide": 15,
+    "title": "Complexity and Remaining Limits",
+    "notes": "Bell and Stirling values count possible partitions, not exact complete runtime. Transfer removes redundant replay on one proved route; it does not strengthen identifiability or improve every path.\n\nSource: https://github.com/Mahdi-Jadidi/passive-automata-learning/blob/main/results/2026-11-04/scaling_v20/RESEARCH_REPORT_FA.md\nSource: https://github.com/Mahdi-Jadidi/passive-automata-learning/blob/main/results/2026-11-04/partition_transfer_v22/theory/TRANSFER_PROOF_V1.md"
+  },
+  {
+    "slide": 16,
+    "title": "Research Position and Next Steps",
+    "notes": "The LANCER real-data goal remains paused at the user's request. No claim of universal physical ownership recovery is made.\n\nSource: https://github.com/Mahdi-Jadidi/passive-automata-learning/blob/main/results/2026-11-04/scaling_v20/RESEARCH_REPORT_FA.md"
+  },
+  {
+    "slide": 17,
+    "title": "Backup: Quantifier Counterexample",
+    "notes": "For every positive, a different block distinguishing it is insufficient. The correct order is for every negative, there exists one block, for every positive.\n\nSource: https://github.com/Mahdi-Jadidi/passive-automata-learning/blob/main/results/2026-11-04/preflight_certificates_v19/theory/PREFLIGHT_PROOFS_FA_v1.md"
+  },
+  {
+    "slide": 18,
+    "title": "Backup: Identifiability Limits",
+    "notes": "UnknownK is not always ambiguous: a sample may uniquely force one block. No general finite count or maximum-length threshold guarantees multicomponent recovery under unbounded regular factors.\n\nSource: https://github.com/Mahdi-Jadidi/passive-automata-learning/blob/main/results/2026-11-04/preflight_certificates_v19/theory/PREFLIGHT_PROOFS_FA_v1.md"
+  },
+  {
+    "slide": 19,
+    "title": "Selected References",
+    "notes": "Inferring Regular Languages in Polynomial Updated Time\nhttps://doi.org/10.1142/9789812797902_0004\nIntroduces the RPNI passive state-merging context for inferring a DFA consistent with positive and negative examples; this project instead reasons over ownership partitions and does not learn component DFAs.\n\nLanguage identification in the limit\nhttps://www.sciencedirect.com/science/article/pii/S0019995867911655\nFoundational identification-in-the-limit results distinguish positive-only text from labeled informants and motivate why finite observations require explicit assumptions and coverage conditions; it is not a direct theorem about this partition solver.\n\nLearning Regular Sets from Queries and Counterexamples\nhttps://homepages.math.uic.edu/~lreyzin/papers/angluin87.pdf\nDefines the active teacher/query setting for regular-language learning, useful as a contrast with the static labeled sample here; the paper's oracle access is not assumed by this project.\n\nDecomposing Permutation Automata\nhttps://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.CONCUR.2021.18\nStudies decomposition of a given DFA language into intersections of smaller DFA languages, a neighboring compositionality problem; its input, decomposition target, and hypotheses differ from inferring a disjoint alphabet partition from positive/negative words.\n\nSource: https://doi.org/10.1142/9789812797902_0004\nSource: https://www.sciencedirect.com/science/article/pii/S0019995867911655\nSource: https://homepages.math.uic.edu/~lreyzin/papers/angluin87.pdf\nSource: https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.CONCUR.2021.18"
+  }
+]

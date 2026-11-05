@@ -1,0 +1,22 @@
+{
+  "created_utc": "2026-11-05T17:50:40.790480+00:00",
+  "preserved_prior_files": [
+    "run_timing_v1.py",
+    "run_timing_v2.py",
+    "run_timing_v3.py",
+    "validate_timing_v1.py",
+    "validate_timing_v2.py",
+    "validate_timing_v3.py",
+    "SOURCE_INPUT_FREEZE_V1.json",
+    "SOURCE_INPUT_FREEZE_V2.json",
+    "SOURCE_INPUT_FREEZE_V3.json",
+    "SOURCE_INPUT_FREEZE_V4.json",
+    "PRE_RUN_FAILURES_V1.json"
+  ],
+  "handover_reason": "original auditor usage limit before timing matrix",
+  "new_preexecution_fix": "validate_timing_v3 extracted alternative witness dicts as partitions; v4 extracts blocks explicitly; runner v4 and SOURCE_INPUT_FREEZE_V5 created and hashes verified before first timing child",
+  "changed_scientific_files": false,
+  "personnel_disclosure": "candidate implementation author executes frozen matrix and existing independently authored certificate/oracle helpers; master reviews independently; replay is algorithmically independent, not independent personnel execution",
+  "scope": "exactly 30 timing calls, same frozen C020 inputs, no rerun for favorable outcomes; no memory run or new generator",
+  "interpretation": "declared K2/K4/K10 below physical generator counts is assumption sensitivity with compatible merged explanations, not physical ownership recovery or accuracy"
+}

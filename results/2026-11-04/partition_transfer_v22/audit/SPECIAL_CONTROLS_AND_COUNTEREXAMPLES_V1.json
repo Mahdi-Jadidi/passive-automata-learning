@@ -1,0 +1,166 @@
+{
+  "status": "accepted",
+  "small_gate_special_controls": [
+    {
+      "provider": "baseline_c2",
+      "job_id": "c020_duplicate_edge_unknown",
+      "status": "certified_unique",
+      "route": "compatible_forced_atoms",
+      "swap_edges": 1
+    },
+    {
+      "provider": "baseline_c2",
+      "job_id": "c018_graph_empty_unique_noK",
+      "status": "certified_unique",
+      "route": "exhausted_all_forced_atom_coarsenings",
+      "swap_edges": 0
+    },
+    {
+      "provider": "baseline_c2",
+      "job_id": "graph_failure_unique_K4",
+      "status": "incompatible",
+      "route": "only_forced_atom_partition_rejected",
+      "swap_edges": 0
+    },
+    {
+      "provider": "baseline_c2",
+      "job_id": "empty_P_noK",
+      "status": "ambiguous",
+      "route": "unary_all_partitions",
+      "swap_edges": 0
+    },
+    {
+      "provider": "baseline_c2",
+      "job_id": "empty_N_noK",
+      "status": "ambiguous",
+      "route": "unary_all_partitions",
+      "swap_edges": 0
+    },
+    {
+      "provider": "baseline_c2",
+      "job_id": "empty_both_noK",
+      "status": "ambiguous",
+      "route": "unary_all_partitions",
+      "swap_edges": 0
+    },
+    {
+      "provider": "baseline_c2",
+      "job_id": "c020_unicode_exact_unknown",
+      "status": "ambiguous",
+      "route": "compatible_forced_atoms",
+      "swap_edges": 1
+    },
+    {
+      "provider": "transfer",
+      "job_id": "c020_duplicate_edge_unknown",
+      "status": "certified_unique",
+      "route": "compatible_forced_atoms",
+      "swap_edges": 1
+    },
+    {
+      "provider": "transfer",
+      "job_id": "c018_graph_empty_unique_noK",
+      "status": "certified_unique",
+      "route": "exhausted_all_forced_atom_coarsenings",
+      "swap_edges": 0
+    },
+    {
+      "provider": "transfer",
+      "job_id": "graph_failure_unique_K4",
+      "status": "incompatible",
+      "route": "only_forced_atom_partition_rejected",
+      "swap_edges": 0
+    },
+    {
+      "provider": "transfer",
+      "job_id": "empty_P_noK",
+      "status": "ambiguous",
+      "route": "unary_all_partitions",
+      "swap_edges": 0
+    },
+    {
+      "provider": "transfer",
+      "job_id": "empty_N_noK",
+      "status": "ambiguous",
+      "route": "unary_all_partitions",
+      "swap_edges": 0
+    },
+    {
+      "provider": "transfer",
+      "job_id": "empty_both_noK",
+      "status": "ambiguous",
+      "route": "unary_all_partitions",
+      "swap_edges": 0
+    },
+    {
+      "provider": "transfer",
+      "job_id": "c020_unicode_exact_unknown",
+      "status": "ambiguous",
+      "route": "compatible_forced_atoms",
+      "swap_edges": 1
+    }
+  ],
+  "split_atom_counterexample": {
+    "compatible_forced_atoms": [
+      [
+        "a",
+        "b"
+      ],
+      [
+        "c",
+        "d"
+      ]
+    ],
+    "atom_partition_compatible": true,
+    "split_partition": [
+      [
+        "a"
+      ],
+      [
+        "b"
+      ],
+      [
+        "c"
+      ],
+      [
+        "d"
+      ]
+    ],
+    "split_partition_compatible": false,
+    "invalid_transfer_attempts": [
+      {
+        "negative_index": 0,
+        "split_partition_rejecting_blocks": [],
+        "reason": "candidate transfer is invalid if it splits the source rejecting atom"
+      },
+      {
+        "negative_index": 1,
+        "split_partition_rejecting_blocks": [],
+        "reason": "candidate transfer is invalid if it splits the source rejecting atom"
+      }
+    ]
+  },
+  "no_compatible_atom_witness_counterexample": {
+    "forced_atoms": [
+      [
+        "a",
+        "b"
+      ],
+      [
+        "c",
+        "d"
+      ]
+    ],
+    "forced_atom_partition_compatible": false,
+    "coarsening": [
+      [
+        "a",
+        "b",
+        "c",
+        "d"
+      ]
+    ],
+    "coarsening_compatible": true,
+    "conclusion": "transfer must remain gated on the successfully validated atom_witness; the exact search fallback remains necessary"
+  }
+}

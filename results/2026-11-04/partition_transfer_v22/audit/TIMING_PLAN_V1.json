@@ -1,0 +1,17 @@
+{
+  "run_id": "C022-IND-20261104-01",
+  "interpretation": "Lower-K cells test mathematical compatibility and assumption sensitivity, not physical-device recovery or accuracy.",
+  "cells": [
+    {"cell_id":"A_unknown","case_id":"A","known_k":null,"input_sha256":"d4def66ffc40bbd0a383382008171622e4fde36fe1122c9b46d629e60f3295d3"},
+    {"cell_id":"A_K2","case_id":"A","known_k":2,"input_sha256":"d4def66ffc40bbd0a383382008171622e4fde36fe1122c9b46d629e60f3295d3"},
+    {"cell_id":"B_K4","case_id":"B","known_k":4,"input_sha256":"c5f3e08d5891207b8fe27ba540c1ee73c375883238cdf73cd0b16d4a326ef107"},
+    {"cell_id":"C_K10","case_id":"C","known_k":10,"input_sha256":"5b4db148b017d23c35171e38775cdd740980ec0f7eb7ad81e9a54a8f494d3499"},
+    {"cell_id":"D_K4","case_id":"D","known_k":4,"input_sha256":"b70f130793c7ee067a58de579f5e2512e065daa092e187a353b005e1e625dfe1"}
+  ],
+  "repetitions": 3,
+  "soft_seconds": 20,
+  "hard_seconds": 25,
+  "provider_budget_seconds": 300,
+  "provider_order": "rotate by cell and repetition",
+  "memory": {"cell_id":"B_K4","repetitions":1,"soft_seconds":20,"hard_seconds":25,"optional":true,"decision":"omitted to preserve the frozen minimal timing comparison"}
+}

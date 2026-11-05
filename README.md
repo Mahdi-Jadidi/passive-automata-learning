@@ -1,5 +1,7 @@
 # Passive Automata Learning — research archive
 
+آخرین تحویل (۲۰۲۶/۱۱/۰۵): [پاورپوینت سادهٔ انگلیسی و فارسی](results/2026-11-04/presentation_english_text_v23/README_FA.md). [دور C022: انتقال شاهد، اثبات و زمان‌گیری مختلط](results/2026-11-04/partition_transfer_v22/RESEARCH_REPORT_FA.md)؛ نسخهٔ عمومی C020 C2 حفظ شد.
+
 آرشیو خصوصیِ پژوهش یادگیری غیرفعال اتوماتا، کشف افراز الفبا، شناسایی‌پذیری، اثبات‌ها و مثال‌های نقض.
 
 اجرای فعلی از ریشه: `python partition.py INPUT.json --seconds 5`؛ فقط اگر تعداد دستگاه‌ها معتبر و معلوم است، `--known-k 2` اضافه کنید.

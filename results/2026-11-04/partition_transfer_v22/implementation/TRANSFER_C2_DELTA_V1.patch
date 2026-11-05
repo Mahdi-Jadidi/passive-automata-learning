@@ -1,0 +1,59 @@
+--- C020_C2/gate_v1.py
++++ C022_transfer_v1/gate_v1.py
+@@ -4,7 +4,7 @@
+ import math
+ import time
+ 
+-METHOD = 'C020-parikh-native-projection-gate-c2-v1'
++METHOD = 'C022-coarsening-witness-transfer-gate-v1'
+ # <=64KiB of UTF-32 character payload per temporary chunk; headers/Counter
+ # entries are additional. ASCII synthetic inputs use <=16KiB per chunk.
+ COUNT_CHUNK_CHARS = 16 * 1024
+@@ -338,22 +338,35 @@
+             if r == 1 or known_k == r:
+                 return unique('compatible_forced_atoms', atom_witness, **graph_proof)
+             a, b = coarsenings(atoms, known_k)
+-            # Exact witness replay for both constructive coarsenings.
+-            symbol_to_atom = {a: i for i, atom in enumerate(atoms) for a in atom}
++            # Transfer the already validated atom witness to each coarsening.
++            # If pi_C(n) equalled a positive projection, projecting again onto
++            # its rejecting atom A subset C would contradict atom_witness.
+             candidates = []
+             for part in (a, b):
+-                masks = []
+-                for block in part:
+-                    poll()
+-                    mask = 0
++                metrics['complete_candidates'] += 1
++                symbol_owner = {}
++                for bi, block in enumerate(part):
++                    poll()
+                     for symbol in block:
+                         poll()
+-                        mask |= 1 << symbol_to_atom[symbol]
+-                    masks.append(mask)
+-                candidate = witness(masks)
+-                if candidate is None:
+-                    raise AssertionError('coarsening of compatible atoms must be compatible')
+-                candidates.append(candidate)
++                        symbol_owner[symbol] = bi
++                atom_owner = []
++                for atom in atoms:
++                    poll()
++                    owner = symbol_owner[atom[0]]
++                    for symbol in atom:
++                        poll()
++                        if symbol_owner[symbol] != owner:
++                            raise AssertionError('witness transfer cannot split a forced atom')
++                    atom_owner.append(owner)
++                rejections = []
++                for rejection in atom_witness['negative_rejections']:
++                    poll()
++                    rejections.append({
++                        'negative_index': rejection['negative_index'],
++                        'rejected_by_block': atom_owner[rejection['rejected_by_block']]})
++                candidates.append({'blocks': part, 'negative_rejections': rejections,
++                                   'local_language_rule': 'positive_projections_from_input'})
+             return ambiguous('compatible_forced_atoms', candidates, **graph_proof)
+         if known_k == r:
+             return emit('incompatible', 'only_forced_atom_partition_rejected', **graph_proof)
