@@ -1,0 +1,289 @@
+{
+  "case_count": 10,
+  "trial_count": 30,
+  "complete_matching_trials": 30,
+  "raw_sha256": "6c369e0380eca99c4d68f0917a395b5f2d07abcee3182d5866065fcd3d4c4dd2",
+  "comparison_caveat": "hybrid run followed earlier four-solver run; no contemporaneous randomization",
+  "cases": [
+    {
+      "case": "empty_all_8",
+      "route": "singleton_certificate",
+      "statuses": [
+        "OK",
+        "OK",
+        "OK"
+      ],
+      "matching_prior": 3,
+      "solve_seconds": [
+        0.0003839,
+        0.0003768,
+        0.0002893
+      ],
+      "startup_seconds": [
+        0.5325135,
+        0.4319635,
+        0.8688654
+      ],
+      "median_solve_seconds": 0.0003768,
+      "median_startup_seconds": 0.5325135,
+      "earlier_run_medians_solve_seconds": {
+        "C028": 0.0583894,
+        "C030": 0.000258,
+        "DP": 0.0207092,
+        "GRAPH": 0.0003174
+      }
+    },
+    {
+      "case": "all_compatible_10",
+      "route": "singleton_certificate",
+      "statuses": [
+        "OK",
+        "OK",
+        "OK"
+      ],
+      "matching_prior": 3,
+      "solve_seconds": [
+        0.0003311,
+        0.0003161,
+        0.0002935
+      ],
+      "startup_seconds": [
+        0.3990417,
+        0.3620782,
+        0.4352985
+      ],
+      "median_solve_seconds": 0.0003161,
+      "median_startup_seconds": 0.3990417,
+      "earlier_run_medians_solve_seconds": {
+        "C028": 1.6740766,
+        "C030": 0.0002715,
+        "DP": 0.1152929,
+        "GRAPH": 0.0003455
+      }
+    },
+    {
+      "case": "oneblock_8",
+      "route": "atom_certificate",
+      "statuses": [
+        "OK",
+        "OK",
+        "OK"
+      ],
+      "matching_prior": 3,
+      "solve_seconds": [
+        0.0015376,
+        0.0010722,
+        0.0010588
+      ],
+      "startup_seconds": [
+        0.3991254,
+        0.4090503,
+        0.343234
+      ],
+      "median_solve_seconds": 0.0010722,
+      "median_startup_seconds": 0.3991254,
+      "earlier_run_medians_solve_seconds": {
+        "C028": 0.1303368,
+        "C030": 0.0693214,
+        "DP": 0.0210267,
+        "GRAPH": 0.0007756
+      }
+    },
+    {
+      "case": "ties_8",
+      "route": "dp_fallback",
+      "statuses": [
+        "OK",
+        "OK",
+        "OK"
+      ],
+      "matching_prior": 3,
+      "solve_seconds": [
+        0.0155379,
+        0.0317965,
+        0.0244445
+      ],
+      "startup_seconds": [
+        0.4097794,
+        0.3838433,
+        0.3907502
+      ],
+      "median_solve_seconds": 0.0244445,
+      "median_startup_seconds": 0.3907502,
+      "earlier_run_medians_solve_seconds": {
+        "C028": 0.1411126,
+        "C030": 0.0528318,
+        "DP": 0.0187203,
+        "GRAPH": 0.1102902
+      }
+    },
+    {
+      "case": "reverse_9",
+      "route": "dp_fallback",
+      "statuses": [
+        "OK",
+        "OK",
+        "OK"
+      ],
+      "matching_prior": 3,
+      "solve_seconds": [
+        0.0915755,
+        0.0678458,
+        0.0738486
+      ],
+      "startup_seconds": [
+        0.4410129,
+        0.4269048,
+        0.3959756
+      ],
+      "median_solve_seconds": 0.0738486,
+      "median_startup_seconds": 0.4269048,
+      "earlier_run_medians_solve_seconds": {
+        "C028": 0.6779491,
+        "C030": 0.380697,
+        "DP": 0.0598513,
+        "GRAPH": 0.7882083
+      }
+    },
+    {
+      "case": "reverse_10",
+      "route": "dp_fallback",
+      "statuses": [
+        "OK",
+        "OK",
+        "OK"
+      ],
+      "matching_prior": 3,
+      "solve_seconds": [
+        0.2230803,
+        0.1889456,
+        0.2107557
+      ],
+      "startup_seconds": [
+        0.6375034,
+        1.0330847,
+        0.5198258
+      ],
+      "median_solve_seconds": 0.2107557,
+      "median_startup_seconds": 0.6375034,
+      "earlier_run_medians_solve_seconds": {
+        "C028": 4.4283258,
+        "C030": 2.0426338,
+        "DP": 0.1334259,
+        "GRAPH": 4.3827617
+      }
+    },
+    {
+      "case": "overlap_8",
+      "route": "dp_fallback",
+      "statuses": [
+        "OK",
+        "OK",
+        "OK"
+      ],
+      "matching_prior": 3,
+      "solve_seconds": [
+        0.0363223,
+        0.0417092,
+        0.0403745
+      ],
+      "startup_seconds": [
+        0.4604785,
+        0.4261738,
+        0.436272
+      ],
+      "median_solve_seconds": 0.0403745,
+      "median_startup_seconds": 0.436272,
+      "earlier_run_medians_solve_seconds": {
+        "C028": 0.1690945,
+        "C030": 0.0859204,
+        "DP": 0.0263338,
+        "GRAPH": 0.210609
+      }
+    },
+    {
+      "case": "repeated_projections_9",
+      "route": "singleton_certificate",
+      "statuses": [
+        "OK",
+        "OK",
+        "OK"
+      ],
+      "matching_prior": 3,
+      "solve_seconds": [
+        0.0011399,
+        0.0020004,
+        0.0019066
+      ],
+      "startup_seconds": [
+        0.4323268,
+        0.5482294,
+        0.4367019
+      ],
+      "median_solve_seconds": 0.0019066,
+      "median_startup_seconds": 0.4367019,
+      "earlier_run_medians_solve_seconds": {
+        "C028": 1.8058092,
+        "C030": 0.0015227,
+        "DP": 0.0770932,
+        "GRAPH": 0.0008897
+      }
+    },
+    {
+      "case": "long_words_4",
+      "route": "singleton_certificate",
+      "statuses": [
+        "OK",
+        "OK",
+        "OK"
+      ],
+      "matching_prior": 3,
+      "solve_seconds": [
+        0.0080979,
+        0.0083907,
+        0.0045301
+      ],
+      "startup_seconds": [
+        0.4591794,
+        0.3991639,
+        0.3994782
+      ],
+      "median_solve_seconds": 0.0080979,
+      "median_startup_seconds": 0.3994782,
+      "earlier_run_medians_solve_seconds": {
+        "C028": 0.0104944,
+        "C030": 0.0052834,
+        "DP": 0.0118575,
+        "GRAPH": 0.008545
+      }
+    },
+    {
+      "case": "many_words_3",
+      "route": "atom_certificate",
+      "statuses": [
+        "OK",
+        "OK",
+        "OK"
+      ],
+      "matching_prior": 3,
+      "solve_seconds": [
+        0.0093874,
+        0.0087519,
+        0.0101151
+      ],
+      "startup_seconds": [
+        0.413561,
+        0.4616273,
+        0.4016696
+      ],
+      "median_solve_seconds": 0.0093874,
+      "median_startup_seconds": 0.413561,
+      "earlier_run_medians_solve_seconds": {
+        "C028": 0.0089026,
+        "C030": 0.0100601,
+        "DP": 0.009175,
+        "GRAPH": 0.0081074
+      }
+    }
+  ]
+}

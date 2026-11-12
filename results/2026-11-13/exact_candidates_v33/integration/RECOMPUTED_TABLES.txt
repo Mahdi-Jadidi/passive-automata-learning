@@ -1,0 +1,44 @@
+All frozen hashes, 120 distinct trials, complete statuses, full outputs and 80 medians match.
+
+solve_ns (seconds; median of three)
+| Case | C028 | C030 | DP | Graph |
+|---|---:|---:|---:|---:|
+| empty_all_8 | 0.058389 | 0.000258 | 0.020709 | 0.000317 |
+| all_compatible_10 | 1.674077 | 0.000271 | 0.115293 | 0.000345 |
+| oneblock_8 | 0.130337 | 0.069321 | 0.021027 | 0.000776 |
+| ties_8 | 0.141113 | 0.052832 | 0.018720 | 0.110290 |
+| reverse_9 | 0.677949 | 0.380697 | 0.059851 | 0.788208 |
+| reverse_10 | 4.428326 | 2.042634 | 0.133426 | 4.382762 |
+| overlap_8 | 0.169095 | 0.085920 | 0.026334 | 0.210609 |
+| repeated_projections_9 | 1.805809 | 0.001523 | 0.077093 | 0.000890 |
+| long_words_4 | 0.010494 | 0.005283 | 0.011857 | 0.008545 |
+| many_words_3 | 0.008903 | 0.010060 | 0.009175 | 0.008107 |
+
+startup_wall_ns (seconds; median of three)
+| Case | C028 | C030 | DP | Graph |
+|---|---:|---:|---:|---:|
+| empty_all_8 | 0.340596 | 0.310673 | 0.321701 | 0.307924 |
+| all_compatible_10 | 1.977485 | 0.268162 | 0.393561 | 0.295429 |
+| oneblock_8 | 0.410830 | 0.355092 | 0.277780 | 0.282218 |
+| ties_8 | 0.423691 | 0.334276 | 0.271124 | 0.354597 |
+| reverse_9 | 0.957613 | 0.717374 | 0.406216 | 1.138394 |
+| reverse_10 | 4.664777 | 2.408910 | 0.482329 | 4.708055 |
+| overlap_8 | 0.514128 | 0.428148 | 0.376607 | 0.548160 |
+| repeated_projections_9 | 2.193265 | 0.369677 | 0.497097 | 0.357190 |
+| long_words_4 | 0.360541 | 0.384231 | 0.383282 | 0.382676 |
+| many_words_3 | 0.381207 | 0.390741 | 0.412112 | 0.388025 |
+
+Hybrid later round (seconds; median of three; cross-round comparisons descriptive only)
+| Case | Route | solve | startup-inclusive |
+|---|---|---:|---:|
+| empty_all_8 | singleton_certificate | 0.000377 | 0.532513 |
+| all_compatible_10 | singleton_certificate | 0.000316 | 0.399042 |
+| oneblock_8 | atom_certificate | 0.001072 | 0.399125 |
+| ties_8 | dp_fallback | 0.024445 | 0.390750 |
+| reverse_9 | dp_fallback | 0.073849 | 0.426905 |
+| reverse_10 | dp_fallback | 0.210756 | 0.637503 |
+| overlap_8 | dp_fallback | 0.040375 | 0.436272 |
+| repeated_projections_9 | singleton_certificate | 0.001907 | 0.436702 |
+| long_words_4 | singleton_certificate | 0.008098 | 0.399478 |
+| many_words_3 | atom_certificate | 0.009387 | 0.413561 |
+Hybrid frozen hashes, 30 distinct complete trials, full-output equality and 20 medians match.

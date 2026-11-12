@@ -1,0 +1,899 @@
+{
+  "status": "complete",
+  "raw_sha256": "65a69bc5cd07a2d897e2171faede6ec9ee9dd50774276bba3970ddce10e480ee",
+  "trial_count": 120,
+  "case_count": 10,
+  "output_mismatches": [],
+  "cases": [
+    {
+      "case": "empty_all_8",
+      "purpose": "singleton/all-compatible, no observations",
+      "outputs_agree": true,
+      "solvers": {
+        "C028": {
+          "statuses": [
+            "COMPLETE",
+            "COMPLETE",
+            "COMPLETE"
+          ],
+          "solve_seconds": [
+            0.0583894,
+            0.0610412,
+            0.0375164
+          ],
+          "startup_seconds": [
+            0.3758306,
+            0.3405964,
+            0.306794
+          ],
+          "median_solve_seconds": 0.0583894,
+          "median_startup_seconds": 0.3405964
+        },
+        "C030": {
+          "statuses": [
+            "COMPLETE",
+            "COMPLETE",
+            "COMPLETE"
+          ],
+          "solve_seconds": [
+            0.000258,
+            0.000345,
+            0.0001618
+          ],
+          "startup_seconds": [
+            0.3631207,
+            0.3106726,
+            0.2522723
+          ],
+          "median_solve_seconds": 0.000258,
+          "median_startup_seconds": 0.3106726
+        },
+        "DP": {
+          "statuses": [
+            "COMPLETE",
+            "COMPLETE",
+            "COMPLETE"
+          ],
+          "solve_seconds": [
+            0.0304438,
+            0.0198574,
+            0.0207092
+          ],
+          "startup_seconds": [
+            0.3828747,
+            0.3217009,
+            0.3038204
+          ],
+          "median_solve_seconds": 0.0207092,
+          "median_startup_seconds": 0.3217009
+        },
+        "GRAPH": {
+          "statuses": [
+            "COMPLETE",
+            "COMPLETE",
+            "COMPLETE"
+          ],
+          "solve_seconds": [
+            0.0003174,
+            0.0002034,
+            0.0003539
+          ],
+          "startup_seconds": [
+            0.6633466,
+            0.2936195,
+            0.3079235
+          ],
+          "median_solve_seconds": 0.0003174,
+          "median_startup_seconds": 0.3079235
+        }
+      },
+      "result": {
+        "status": "AMBIGUOUS",
+        "compatible_count": 4140,
+        "max_blocks": 8,
+        "optimal_count": 1
+      }
+    },
+    {
+      "case": "all_compatible_10",
+      "purpose": "Bell-heavy and unused IDs",
+      "outputs_agree": true,
+      "solvers": {
+        "C028": {
+          "statuses": [
+            "COMPLETE",
+            "COMPLETE",
+            "COMPLETE"
+          ],
+          "solve_seconds": [
+            1.8781293,
+            1.6740766,
+            1.3984772
+          ],
+          "startup_seconds": [
+            2.1842906,
+            1.9774846,
+            1.7397175
+          ],
+          "median_solve_seconds": 1.6740766,
+          "median_startup_seconds": 1.9774846
+        },
+        "C030": {
+          "statuses": [
+            "COMPLETE",
+            "COMPLETE",
+            "COMPLETE"
+          ],
+          "solve_seconds": [
+            0.0002867,
+            0.0002715,
+            0.0002627
+          ],
+          "startup_seconds": [
+            0.2914038,
+            0.2681623,
+            0.2607281
+          ],
+          "median_solve_seconds": 0.0002715,
+          "median_startup_seconds": 0.2681623
+        },
+        "DP": {
+          "statuses": [
+            "COMPLETE",
+            "COMPLETE",
+            "COMPLETE"
+          ],
+          "solve_seconds": [
+            0.0978503,
+            0.1152929,
+            0.1375072
+          ],
+          "startup_seconds": [
+            0.3935611,
+            0.3923014,
+            0.4110936
+          ],
+          "median_solve_seconds": 0.1152929,
+          "median_startup_seconds": 0.3935611
+        },
+        "GRAPH": {
+          "statuses": [
+            "COMPLETE",
+            "COMPLETE",
+            "COMPLETE"
+          ],
+          "solve_seconds": [
+            0.0003455,
+            0.0004026,
+            0.0003445
+          ],
+          "startup_seconds": [
+            0.2462687,
+            0.2954288,
+            0.2961234
+          ],
+          "median_solve_seconds": 0.0003455,
+          "median_startup_seconds": 0.2954288
+        }
+      },
+      "result": {
+        "status": "AMBIGUOUS",
+        "compatible_count": 115975,
+        "max_blocks": 10,
+        "optimal_count": 1
+      }
+    },
+    {
+      "case": "oneblock_8",
+      "purpose": "only whole block rejects each adjacent swap",
+      "outputs_agree": true,
+      "solvers": {
+        "C028": {
+          "statuses": [
+            "COMPLETE",
+            "COMPLETE",
+            "COMPLETE"
+          ],
+          "solve_seconds": [
+            0.1303368,
+            0.1318022,
+            0.1152665
+          ],
+          "startup_seconds": [
+            0.4108295,
+            0.4165295,
+            0.3757733
+          ],
+          "median_solve_seconds": 0.1303368,
+          "median_startup_seconds": 0.4108295
+        },
+        "C030": {
+          "statuses": [
+            "COMPLETE",
+            "COMPLETE",
+            "COMPLETE"
+          ],
+          "solve_seconds": [
+            0.0720969,
+            0.0693214,
+            0.0603902
+          ],
+          "startup_seconds": [
+            0.3674377,
+            0.355092,
+            0.3175616
+          ],
+          "median_solve_seconds": 0.0693214,
+          "median_startup_seconds": 0.355092
+        },
+        "DP": {
+          "statuses": [
+            "COMPLETE",
+            "COMPLETE",
+            "COMPLETE"
+          ],
+          "solve_seconds": [
+            0.0276179,
+            0.0153156,
+            0.0210267
+          ],
+          "startup_seconds": [
+            0.3339881,
+            0.2747547,
+            0.2777799
+          ],
+          "median_solve_seconds": 0.0210267,
+          "median_startup_seconds": 0.2777799
+        },
+        "GRAPH": {
+          "statuses": [
+            "COMPLETE",
+            "COMPLETE",
+            "COMPLETE"
+          ],
+          "solve_seconds": [
+            0.0007756,
+            0.001531,
+            0.0006724
+          ],
+          "startup_seconds": [
+            0.2592019,
+            0.289475,
+            0.2822178
+          ],
+          "median_solve_seconds": 0.0007756,
+          "median_startup_seconds": 0.2822178
+        }
+      },
+      "result": {
+        "status": "UNIQUE_COMPATIBLE",
+        "compatible_count": 1,
+        "max_blocks": 1,
+        "optimal_count": 1
+      }
+    },
+    {
+      "case": "ties_8",
+      "purpose": "alternative rejecting blocks, unused IDs",
+      "outputs_agree": true,
+      "solvers": {
+        "C028": {
+          "statuses": [
+            "COMPLETE",
+            "COMPLETE",
+            "COMPLETE"
+          ],
+          "solve_seconds": [
+            0.1411126,
+            0.0930947,
+            0.1557499
+          ],
+          "startup_seconds": [
+            0.4236909,
+            0.3510933,
+            0.426946
+          ],
+          "median_solve_seconds": 0.1411126,
+          "median_startup_seconds": 0.4236909
+        },
+        "C030": {
+          "statuses": [
+            "COMPLETE",
+            "COMPLETE",
+            "COMPLETE"
+          ],
+          "solve_seconds": [
+            0.0543248,
+            0.0528318,
+            0.0390913
+          ],
+          "startup_seconds": [
+            0.3342756,
+            0.358018,
+            0.2745412
+          ],
+          "median_solve_seconds": 0.0528318,
+          "median_startup_seconds": 0.3342756
+        },
+        "DP": {
+          "statuses": [
+            "COMPLETE",
+            "COMPLETE",
+            "COMPLETE"
+          ],
+          "solve_seconds": [
+            0.0187203,
+            0.0129348,
+            0.0207006
+          ],
+          "startup_seconds": [
+            0.2919231,
+            0.2529471,
+            0.2711239
+          ],
+          "median_solve_seconds": 0.0187203,
+          "median_startup_seconds": 0.2711239
+        },
+        "GRAPH": {
+          "statuses": [
+            "COMPLETE",
+            "COMPLETE",
+            "COMPLETE"
+          ],
+          "solve_seconds": [
+            0.1053784,
+            0.1102902,
+            0.1174011
+          ],
+          "startup_seconds": [
+            0.3407175,
+            0.3545974,
+            0.3946412
+          ],
+          "median_solve_seconds": 0.1102902,
+          "median_startup_seconds": 0.3545974
+        }
+      },
+      "result": {
+        "status": "AMBIGUOUS",
+        "compatible_count": 3263,
+        "max_blocks": 7,
+        "optimal_count": 7
+      }
+    },
+    {
+      "case": "reverse_9",
+      "purpose": "many order constraints, nontrivial coverage",
+      "outputs_agree": true,
+      "solvers": {
+        "C028": {
+          "statuses": [
+            "COMPLETE",
+            "COMPLETE",
+            "COMPLETE"
+          ],
+          "solve_seconds": [
+            0.6779491,
+            0.7554483,
+            0.596829
+          ],
+          "startup_seconds": [
+            0.9576131,
+            1.0539259,
+            0.8532481
+          ],
+          "median_solve_seconds": 0.6779491,
+          "median_startup_seconds": 0.9576131
+        },
+        "C030": {
+          "statuses": [
+            "COMPLETE",
+            "COMPLETE",
+            "COMPLETE"
+          ],
+          "solve_seconds": [
+            0.380697,
+            0.2968211,
+            0.7885801
+          ],
+          "startup_seconds": [
+            0.717374,
+            0.5713049,
+            1.1797147
+          ],
+          "median_solve_seconds": 0.380697,
+          "median_startup_seconds": 0.717374
+        },
+        "DP": {
+          "statuses": [
+            "COMPLETE",
+            "COMPLETE",
+            "COMPLETE"
+          ],
+          "solve_seconds": [
+            0.0598513,
+            0.0463763,
+            0.0618428
+          ],
+          "startup_seconds": [
+            0.4062165,
+            0.3629608,
+            0.428923
+          ],
+          "median_solve_seconds": 0.0598513,
+          "median_startup_seconds": 0.4062165
+        },
+        "GRAPH": {
+          "statuses": [
+            "COMPLETE",
+            "COMPLETE",
+            "COMPLETE"
+          ],
+          "solve_seconds": [
+            0.7882083,
+            1.1599862,
+            0.6540902
+          ],
+          "startup_seconds": [
+            1.1383941,
+            1.4879962,
+            0.9792599
+          ],
+          "median_solve_seconds": 0.7882083,
+          "median_startup_seconds": 1.1383941
+        }
+      },
+      "result": {
+        "status": "AMBIGUOUS",
+        "compatible_count": 21146,
+        "max_blocks": 8,
+        "optimal_count": 36
+      }
+    },
+    {
+      "case": "reverse_10",
+      "purpose": "Bell-heavy order constraint",
+      "outputs_agree": true,
+      "solvers": {
+        "C028": {
+          "statuses": [
+            "COMPLETE",
+            "COMPLETE",
+            "COMPLETE"
+          ],
+          "solve_seconds": [
+            3.4848342,
+            4.4283258,
+            4.8174139
+          ],
+          "startup_seconds": [
+            3.8055694,
+            4.6647765,
+            5.1581622
+          ],
+          "median_solve_seconds": 4.4283258,
+          "median_startup_seconds": 4.6647765
+        },
+        "C030": {
+          "statuses": [
+            "COMPLETE",
+            "COMPLETE",
+            "COMPLETE"
+          ],
+          "solve_seconds": [
+            2.4874322,
+            1.686094,
+            2.0426338
+          ],
+          "startup_seconds": [
+            2.8517722,
+            1.9326787,
+            2.4089095
+          ],
+          "median_solve_seconds": 2.0426338,
+          "median_startup_seconds": 2.4089095
+        },
+        "DP": {
+          "statuses": [
+            "COMPLETE",
+            "COMPLETE",
+            "COMPLETE"
+          ],
+          "solve_seconds": [
+            0.1607338,
+            0.1118986,
+            0.1334259
+          ],
+          "startup_seconds": [
+            0.4823287,
+            0.3687134,
+            0.4840405
+          ],
+          "median_solve_seconds": 0.1334259,
+          "median_startup_seconds": 0.4823287
+        },
+        "GRAPH": {
+          "statuses": [
+            "COMPLETE",
+            "COMPLETE",
+            "COMPLETE"
+          ],
+          "solve_seconds": [
+            4.3827617,
+            3.5528956,
+            4.655791
+          ],
+          "startup_seconds": [
+            4.7080548,
+            3.793407,
+            4.9921369
+          ],
+          "median_solve_seconds": 4.3827617,
+          "median_startup_seconds": 4.7080548
+        }
+      },
+      "result": {
+        "status": "AMBIGUOUS",
+        "compatible_count": 115974,
+        "max_blocks": 9,
+        "optimal_count": 45
+      }
+    },
+    {
+      "case": "overlap_8",
+      "purpose": "multiple negative coverage alternatives",
+      "outputs_agree": true,
+      "solvers": {
+        "C028": {
+          "statuses": [
+            "COMPLETE",
+            "COMPLETE",
+            "COMPLETE"
+          ],
+          "solve_seconds": [
+            0.1851236,
+            0.1690945,
+            0.1651194
+          ],
+          "startup_seconds": [
+            0.5574074,
+            0.4956231,
+            0.5141281
+          ],
+          "median_solve_seconds": 0.1690945,
+          "median_startup_seconds": 0.5141281
+        },
+        "C030": {
+          "statuses": [
+            "COMPLETE",
+            "COMPLETE",
+            "COMPLETE"
+          ],
+          "solve_seconds": [
+            0.0927443,
+            0.0789974,
+            0.0859204
+          ],
+          "startup_seconds": [
+            0.4493542,
+            0.4195407,
+            0.4281478
+          ],
+          "median_solve_seconds": 0.0859204,
+          "median_startup_seconds": 0.4281478
+        },
+        "DP": {
+          "statuses": [
+            "COMPLETE",
+            "COMPLETE",
+            "COMPLETE"
+          ],
+          "solve_seconds": [
+            0.0253203,
+            0.0306097,
+            0.0263338
+          ],
+          "startup_seconds": [
+            0.3766071,
+            0.3871714,
+            0.3629281
+          ],
+          "median_solve_seconds": 0.0263338,
+          "median_startup_seconds": 0.3766071
+        },
+        "GRAPH": {
+          "statuses": [
+            "COMPLETE",
+            "COMPLETE",
+            "COMPLETE"
+          ],
+          "solve_seconds": [
+            0.210609,
+            0.1986476,
+            0.218279
+          ],
+          "startup_seconds": [
+            0.5481603,
+            0.5399765,
+            0.5605814
+          ],
+          "median_solve_seconds": 0.210609,
+          "median_startup_seconds": 0.5481603
+        }
+      },
+      "result": {
+        "status": "AMBIGUOUS",
+        "compatible_count": 1657,
+        "max_blocks": 6,
+        "optimal_count": 3
+      }
+    },
+    {
+      "case": "repeated_projections_9",
+      "purpose": "shared masks and projections",
+      "outputs_agree": true,
+      "solvers": {
+        "C028": {
+          "statuses": [
+            "COMPLETE",
+            "COMPLETE",
+            "COMPLETE"
+          ],
+          "solve_seconds": [
+            1.6171307,
+            1.9050092,
+            1.8058092
+          ],
+          "startup_seconds": [
+            1.9674505,
+            2.3018351,
+            2.1932645
+          ],
+          "median_solve_seconds": 1.8058092,
+          "median_startup_seconds": 2.1932645
+        },
+        "C030": {
+          "statuses": [
+            "COMPLETE",
+            "COMPLETE",
+            "COMPLETE"
+          ],
+          "solve_seconds": [
+            0.0015325,
+            0.0007488,
+            0.0015227
+          ],
+          "startup_seconds": [
+            0.3696769,
+            0.3447859,
+            0.7865853
+          ],
+          "median_solve_seconds": 0.0015227,
+          "median_startup_seconds": 0.3696769
+        },
+        "DP": {
+          "statuses": [
+            "COMPLETE",
+            "COMPLETE",
+            "COMPLETE"
+          ],
+          "solve_seconds": [
+            0.0740485,
+            0.0989587,
+            0.0770932
+          ],
+          "startup_seconds": [
+            0.4578442,
+            0.4970966,
+            0.4994047
+          ],
+          "median_solve_seconds": 0.0770932,
+          "median_startup_seconds": 0.4970966
+        },
+        "GRAPH": {
+          "statuses": [
+            "COMPLETE",
+            "COMPLETE",
+            "COMPLETE"
+          ],
+          "solve_seconds": [
+            0.0009111,
+            0.0007099,
+            0.0008897
+          ],
+          "startup_seconds": [
+            0.3516869,
+            0.3571899,
+            0.4002806
+          ],
+          "median_solve_seconds": 0.0008897,
+          "median_startup_seconds": 0.3571899
+        }
+      },
+      "result": {
+        "status": "AMBIGUOUS",
+        "compatible_count": 21147,
+        "max_blocks": 9,
+        "optimal_count": 1
+      }
+    },
+    {
+      "case": "long_words_4",
+      "purpose": "long words, small alphabet",
+      "outputs_agree": true,
+      "solvers": {
+        "C028": {
+          "statuses": [
+            "COMPLETE",
+            "COMPLETE",
+            "COMPLETE"
+          ],
+          "solve_seconds": [
+            0.016741,
+            0.0090155,
+            0.0104944
+          ],
+          "startup_seconds": [
+            0.3904024,
+            0.3465005,
+            0.360541
+          ],
+          "median_solve_seconds": 0.0104944,
+          "median_startup_seconds": 0.360541
+        },
+        "C030": {
+          "statuses": [
+            "COMPLETE",
+            "COMPLETE",
+            "COMPLETE"
+          ],
+          "solve_seconds": [
+            0.0052834,
+            0.0085862,
+            0.0050673
+          ],
+          "startup_seconds": [
+            0.4015345,
+            0.3842308,
+            0.3781425
+          ],
+          "median_solve_seconds": 0.0052834,
+          "median_startup_seconds": 0.3842308
+        },
+        "DP": {
+          "statuses": [
+            "COMPLETE",
+            "COMPLETE",
+            "COMPLETE"
+          ],
+          "solve_seconds": [
+            0.0118575,
+            0.0118601,
+            0.0105371
+          ],
+          "startup_seconds": [
+            0.3832817,
+            0.3745454,
+            0.385197
+          ],
+          "median_solve_seconds": 0.0118575,
+          "median_startup_seconds": 0.3832817
+        },
+        "GRAPH": {
+          "statuses": [
+            "COMPLETE",
+            "COMPLETE",
+            "COMPLETE"
+          ],
+          "solve_seconds": [
+            0.0096173,
+            0.008545,
+            0.0081207
+          ],
+          "startup_seconds": [
+            0.3918759,
+            0.3826758,
+            0.376634
+          ],
+          "median_solve_seconds": 0.008545,
+          "median_startup_seconds": 0.3826758
+        }
+      },
+      "result": {
+        "status": "AMBIGUOUS",
+        "compatible_count": 15,
+        "max_blocks": 4,
+        "optimal_count": 1
+      }
+    },
+    {
+      "case": "many_words_3",
+      "purpose": "many traces, small alphabet",
+      "outputs_agree": true,
+      "solvers": {
+        "C028": {
+          "statuses": [
+            "COMPLETE",
+            "COMPLETE",
+            "COMPLETE"
+          ],
+          "solve_seconds": [
+            0.0075736,
+            0.0092848,
+            0.0089026
+          ],
+          "startup_seconds": [
+            0.3812066,
+            0.3800242,
+            0.3994335
+          ],
+          "median_solve_seconds": 0.0089026,
+          "median_startup_seconds": 0.3812066
+        },
+        "C030": {
+          "statuses": [
+            "COMPLETE",
+            "COMPLETE",
+            "COMPLETE"
+          ],
+          "solve_seconds": [
+            0.0072343,
+            0.0102819,
+            0.0100601
+          ],
+          "startup_seconds": [
+            0.3907406,
+            0.3852359,
+            0.4011039
+          ],
+          "median_solve_seconds": 0.0100601,
+          "median_startup_seconds": 0.3907406
+        },
+        "DP": {
+          "statuses": [
+            "COMPLETE",
+            "COMPLETE",
+            "COMPLETE"
+          ],
+          "solve_seconds": [
+            0.0114336,
+            0.009175,
+            0.0071832
+          ],
+          "startup_seconds": [
+            0.4121117,
+            0.3518531,
+            0.4259669
+          ],
+          "median_solve_seconds": 0.009175,
+          "median_startup_seconds": 0.4121117
+        },
+        "GRAPH": {
+          "statuses": [
+            "COMPLETE",
+            "COMPLETE",
+            "COMPLETE"
+          ],
+          "solve_seconds": [
+            0.0081074,
+            0.0041117,
+            0.0092527
+          ],
+          "startup_seconds": [
+            0.388025,
+            0.3717594,
+            0.3905307
+          ],
+          "median_solve_seconds": 0.0081074,
+          "median_startup_seconds": 0.388025
+        }
+      },
+      "result": {
+        "status": "UNIQUE_COMPATIBLE",
+        "compatible_count": 1,
+        "max_blocks": 1,
+        "optimal_count": 1
+      }
+    }
+  ]
+}
