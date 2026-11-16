@@ -1,0 +1,182 @@
+{
+  "audit": "C029 English paper-section document build and visual QA",
+  "python": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]",
+  "platform": "Windows-11-10.0.26300-SP0",
+  "python_docx": "1.2.0",
+  "approved_sha256": {
+    "english": "8009af278f09837e1cc8b5f9744d93601414f756b63f5417a289ddcac317dec2",
+    "persian_walkthrough": "ce8b787b3c45805c190d27ec3230488bfc7024f136764333ad7c0322d9164947",
+    "numbered_pseudocode": "4f87f5ed50cdafd53d8f02dcbf6d4cdb32b00030e3a2834b4295f8be88d002df"
+  },
+  "deliverables": {
+    "docx_sha256": "7e5547d68ea0e2e48eb2cf7f8e2492528df5d4923491baeccc658c9e5ed1e0da",
+    "pdf_sha256": "b065a4bda4d49b664b69a293e6274088535a0422cabfa8915924618397cd9552",
+    "page_count": 5,
+    "page_size": "A4"
+  },
+  "commands": [
+    "C:\\Users\\Mahdi\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe build_docx_v1.py",
+    "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-11\\paper_section_v29\\document\\render_with_word.ps1",
+    "C:\\Users\\Mahdi\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\poppler\\Library\\bin\\pdftoppm.exe -png -r 144 Exact_Alphabet_Partitioning_Method_EN.pdf page",
+    "C:\\Users\\Mahdi\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe ..\\audit\\docx_readback_qa_v1.py"
+  ],
+  "packaged_renderer": {
+    "attempted": true,
+    "command": "C:\\Users\\Mahdi\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe C:\\Users\\Mahdi\\.codex\\plugins\\cache\\openai-primary-runtime\\documents\\26.1105.12137\\skills\\documents\\render_docx.py Exact_Alphabet_Partitioning_Method_EN.docx --output_dir render --emit_pdf",
+    "outcome": "FileNotFoundError: LibreOffice soffice.exe was not found on PATH",
+    "fallback": "Hidden Microsoft Word COM export from the exact DOCX to PDF, then bundled Poppler to five page PNGs"
+  },
+  "visual_review": "All five final Word-rendered page PNGs inspected at original resolution; final pagination, math, tables, and text fit cleanly.",
+  "text_readback": {
+    "status": "passed",
+    "docx_sha256": "7E5547D68EA0E2E48EB2CF7F8E2492528DF5D4923491BAECCC658C9E5ED1E0DA",
+    "approved_english_sha256": "8009AF278F09837E1CC8B5F9744D93601414F756B63F5417A289DDCAC317DEC2",
+    "approved_pseudocode_sha256": "4F87F5ED50CDAFD53D8F02DCBF6D4CDB32B00030E3A2834B4295F8BE88D002DF",
+    "document_text_matches_approved_content": true,
+    "pseudocode_lines_checked": 37,
+    "native_equations": 3,
+    "subscripts": 5,
+    "superscripts": 1,
+    "hyperlinks": [
+      "https://arxiv.org/html/2504.16624v3",
+      "https://proceedings.mlr.press/v93/moerman19a.html"
+    ],
+    "page_size_twips": [
+      11906,
+      16838
+    ],
+    "readback_file": "DOCX_TEXT_READBACK_V1.txt"
+  },
+  "files": [
+    {
+      "path": "content/PAPER_SECTION_EN.md",
+      "bytes": 16375,
+      "sha256": "8009af278f09837e1cc8b5f9744d93601414f756b63f5417a289ddcac317dec2"
+    },
+    {
+      "path": "content/WALKTHROUGH_FA.md",
+      "bytes": 12824,
+      "sha256": "ce8b787b3c45805c190d27ec3230488bfc7024f136764333ad7c0322d9164947"
+    },
+    {
+      "path": "content/NUMBERED_PSEUDOCODE.txt",
+      "bytes": 1732,
+      "sha256": "4f87f5ed50cdafd53d8f02dcbf6d4cdb32b00030e3a2834b4295f8be88d002df"
+    },
+    {
+      "path": "review/FINAL_CONTENT_VERDICT.md",
+      "bytes": 4696,
+      "sha256": "1828e32c2f724c1c0956d5ead612d3b56d9cb52feb058d05c953779527b15701"
+    },
+    {
+      "path": "review/DOCX_MATH_VERDICT.md",
+      "bytes": 2391,
+      "sha256": "d29b2b25c0810d4ee56c0a7553a571471dfc2239e5eef842001bd53fd0a3c9c5"
+    },
+    {
+      "path": "document/build_docx_v1.py",
+      "bytes": 13138,
+      "sha256": "d32fa2b445103bc2f61aa735b3b8a7b814af551ffddddbee3fdd50e241e3e8d1"
+    },
+    {
+      "path": "document/render_with_word.ps1",
+      "bytes": 716,
+      "sha256": "19e5b55fff2ba6c5ff75c4605a723b4a90e81564e1536e7a4311b3f68d321240"
+    },
+    {
+      "path": "document/output/Exact_Alphabet_Partitioning_Method_EN.docx",
+      "bytes": 45804,
+      "sha256": "7e5547d68ea0e2e48eb2cf7f8e2492528df5d4923491baeccc658c9e5ed1e0da"
+    },
+    {
+      "path": "document/output/Exact_Alphabet_Partitioning_Method_EN.pdf",
+      "bytes": 546872,
+      "sha256": "b065a4bda4d49b664b69a293e6274088535a0422cabfa8915924618397cd9552"
+    },
+    {
+      "path": "document/render/Exact_Alphabet_Partitioning_Method_EN.pdf",
+      "bytes": 546872,
+      "sha256": "b065a4bda4d49b664b69a293e6274088535a0422cabfa8915924618397cd9552"
+    },
+    {
+      "path": "document/render/page-1.png",
+      "bytes": 282787,
+      "sha256": "d88037ce91f740b188807e3f4b5bd96fcb5b74bff9c021cedfed69ed38b8e659"
+    },
+    {
+      "path": "document/render/page-2.png",
+      "bytes": 213456,
+      "sha256": "dfd89cf644135eca4a231b3e747b51b288b9c6fc9ef56fa4a794f855b38b7c9a"
+    },
+    {
+      "path": "document/render/page-3.png",
+      "bytes": 237480,
+      "sha256": "fb7a1d93f1c21c8d04d8be051c9856aef700a87a5b30c2fe74e9be841a6e68be"
+    },
+    {
+      "path": "document/render/page-4.png",
+      "bytes": 304455,
+      "sha256": "fee3fe853f5c61bfd3a3f05e4b0c05003cd643df091a64b19ab882acbb5168f3"
+    },
+    {
+      "path": "document/render/page-5.png",
+      "bytes": 94419,
+      "sha256": "550659ebf49f856896fb5872d9c17b0aa54324873b998aeed7bcafcdf0068838"
+    },
+    {
+      "path": "audit/docx_readback_qa_v1.py",
+      "bytes": 6358,
+      "sha256": "308af02361e308f6507288c6aa5160cdea8e85eba3ca016c422ebfcbc31eef9b"
+    },
+    {
+      "path": "audit/DOCX_READBACK_V1.json",
+      "bytes": 695,
+      "sha256": "005a19252344acadffa7d62eb2aeae5b47d78e70e491ed9799ddd181ac7bbb44"
+    },
+    {
+      "path": "audit/DOCX_TEXT_READBACK_V1.txt",
+      "bytes": 15675,
+      "sha256": "7c55612d1250c9cc11fbd05d5ca54a6d3487b628a8dbfa7bccd0bd2c16b1b10a"
+    },
+    {
+      "path": "audit/DOCUMENT_QA_REPORT_V1.md",
+      "bytes": 2866,
+      "sha256": "262727c9640c80095e92120d1f617821a0b878c39ef80c557bc5b208df59a81d"
+    },
+    {
+      "path": "audit/preqa_v1/Exact_Alphabet_Partitioning_Method_EN.docx",
+      "bytes": 45810,
+      "sha256": "d70bd7f00109b72e0b78e0c5af7c1c8a213f25861aa47dc42c194d06955cb262"
+    },
+    {
+      "path": "audit/preqa_v1/Exact_Alphabet_Partitioning_Method_EN.pdf",
+      "bytes": 554132,
+      "sha256": "eb1252952a521df3ab1d0a97263b5ceac52063760014fc608a7ab319835109a8"
+    },
+    {
+      "path": "audit/preqa_v1/page-1.png",
+      "bytes": 301450,
+      "sha256": "bf5aadcd3a32c9184bb9d3de0dd47fe751cd5849d6619c791f5ea0db3bce1e13"
+    },
+    {
+      "path": "audit/preqa_v1/page-2.png",
+      "bytes": 209370,
+      "sha256": "5386673dc653dc47c5b869ea1be2dc3bab450c136a6cac347cad5d126a059f30"
+    },
+    {
+      "path": "audit/preqa_v1/page-3.png",
+      "bytes": 234914,
+      "sha256": "f303d27f0368ba0341c831265fc6635d3126b770362175d38677789c2800dd57"
+    },
+    {
+      "path": "audit/preqa_v1/page-4.png",
+      "bytes": 304455,
+      "sha256": "fee3fe853f5c61bfd3a3f05e4b0c05003cd643df091a64b19ab882acbb5168f3"
+    },
+    {
+      "path": "audit/preqa_v1/page-5.png",
+      "bytes": 94419,
+      "sha256": "550659ebf49f856896fb5872d9c17b0aa54324873b998aeed7bcafcdf0068838"
+    }
+  ]
+}
