@@ -1,0 +1,70 @@
+{
+  "origin": {
+    "CAGE2": "original published simulator-generated cybersecurity recordings",
+    "BabyCyborg": "original published one-host simulator-generated recordings",
+    "BGL": "operational BlueGene/L sample maintained by Loghub, commit pinned"
+  },
+  "production_scope": "only BGL operational sample; no demonstrated complete production histories",
+  "independence": "distinct origin families; no statistical independence or ownership truth established from file/trial/policy names",
+  "archive_verified": true,
+  "schema_inspection": {
+    "files": 168,
+    "groups": 28,
+    "errors": 0,
+    "event_type_opposite_output_files": 146,
+    "interpretation": "audit-only target-free current-type diagnostic; not a model benchmark or physical coupling claim"
+  },
+  "actual_benchmark_ingestion_replay": {
+    "status": "verified",
+    "sources_checked": 18,
+    "episodes_checked": 18,
+    "events_checked": 1560,
+    "errors": []
+  },
+  "CAGE2_UNKNOWN": {
+    "selected_six_known_statuses": [
+      1,
+      3
+    ],
+    "final_unlabeled_events": 12,
+    "UNKNOWN2_observed_in_selected_six": false,
+    "policy": "unknown2/missing/unrecognized retain event but omit output constraint; never default TRUE"
+  },
+  "implementation_aliasing": {
+    "action_only_token_count": 19,
+    "target_qualified_token_count": 122,
+    "action_types_with_multiple_observed_targets": 14
+  },
+  "observed_scope_categories": {
+    "ip_only_unresolved": 70,
+    "observed_hostname": 42,
+    "subnet_scope": 10
+  },
+  "whole_host_reference": "undefined until scope and alias obligations discharged; action-only mapping nonfunctional and qualified mapping includes unresolved/global scopes",
+  "BGL": {
+    "raw_rows": 2000,
+    "csv_rows": 2000,
+    "distinct_EventId": 120,
+    "distinct_nodes": 1778,
+    "labels": {
+      "nonalert_true": 1857,
+      "alert_false": 143
+    },
+    "shared_EventId_count": 69,
+    "known_node_partition_status": "undefined: EventId templates shared across nodes; not a functional symbol-owner map",
+    "completeness": "2k sample may omit intervening events; ordered rows do not establish complete physical history or common initial system state"
+  },
+  "AND_assumption": "last-event event-success/alert observations do not establish conjunction of component acceptance; do not feed as whole-word rejection for host recovery",
+  "sources_needed": [
+    "Collector-level action/status alignment and reset justification beyond converter intent",
+    "Reviewed solver input/output schema and actual source hash",
+    "Full-alphabet host/scope diagnostic with undefined categories retained"
+  ],
+  "primary_source_urls": {
+    "artifact": "https://zenodo.org/records/19828945",
+    "artifact_zip": "https://zenodo.org/records/19828945/files/cas-artifact-cav2026.zip?download=1",
+    "BGL_readme": "https://github.com/logpai/loghub/blob/dd61d0952749ee7963bde24220d1be5ede023033/BGL/README.md",
+    "BGL_original_project": "https://www.usenix.org/cfdr-data#hpc4"
+  },
+  "additional_primary_dataset_acquisition_required_for_this_bounded_stage": false
+}
