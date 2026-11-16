@@ -1,0 +1,3 @@
+# Preserved diagnostic fixture issue
+
+The first two-cut diagnostic generator solved a threshold-3 CNF directly. Production first queries threshold 4 and performs binary threshold search in the same solver. Learned clauses changed the tie-breaking candidate, so the generated sample correctly finished with only ONE cut and the diagnostic's >=2 assertion failed. The result was OPTIMAL k=3, blocks {a},{b},{c,d}, consumer ACCEPT through self-check. This was a fixture-generation assumption, not an incorrect optimum or teacher mismatch. The generator now mirrors the production threshold-call sequence before choosing the second negative. No production source was changed for this issue.

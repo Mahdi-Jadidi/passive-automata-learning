@@ -1,0 +1,88 @@
+{
+  "case": "obstruction_m8",
+  "known_k": null,
+  "command": "py -3.14 C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-05\\search_checkpoint_v24\\profile\\current_c020_v1\\profile_stage.py obstruction_m8",
+  "python": "3.14.6 (tags/v3.14.6:c63aec6, Jun 10 2026, 10:26:10) [MSC v.1944 64 bit (AMD64)]",
+  "executable": "C:\\Users\\Mahdi\\AppData\\Local\\Python\\pythoncore-3.14-64\\python.exe",
+  "platform": "Windows-11-10.0.26300-SP0",
+  "input_path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-05\\search_checkpoint_v24\\profile\\current_c020_v1\\obstruction_m8.json",
+  "input_sha256": "fe6dfd22e36e68671de46c6c79c163657166b36957b29035fc121c5dae38b81d",
+  "gate_sha256": "5331a1787a9ff74afe1afcbea1668dbe9ee69ef1f7121fec14c7281caa2d8680",
+  "read_json_seconds": 0.014543700002832338,
+  "profiled_solve_seconds": 0.6393567000050098,
+  "serialize_write_seconds": 0.002055300021311268,
+  "output_bytes": 1325,
+  "status": "certified_unique",
+  "certificate": {
+    "route": "exhausted_all_forced_atom_coarsenings",
+    "witness": {
+      "blocks": [
+        [
+          "a",
+          "b",
+          "c",
+          "d",
+          "e",
+          "f",
+          "g",
+          "h"
+        ]
+      ],
+      "negative_rejections": [
+        {
+          "negative_index": 0,
+          "rejected_by_block": 0
+        }
+      ],
+      "local_language_rule": "positive_projections_from_input"
+    },
+    "search_exhausted": true,
+    "forced_atoms": [
+      [
+        "a"
+      ],
+      [
+        "b"
+      ],
+      [
+        "c"
+      ],
+      [
+        "d"
+      ],
+      [
+        "e"
+      ],
+      [
+        "f"
+      ],
+      [
+        "g"
+      ],
+      [
+        "h"
+      ]
+    ],
+    "swap_forest": []
+  },
+  "metrics": {
+    "characters_counted": 64,
+    "projection_characters": 16320,
+    "swap_pairs": 0,
+    "search_nodes": 5296,
+    "complete_candidates": 4141,
+    "block_masks_computed": 255,
+    "reject_cache_limit": 4096,
+    "count_chunks": 9,
+    "counter_characters_processed": 64,
+    "invalid_validation_characters": 0,
+    "word_signatures": 9,
+    "graph_pair_universe": 8,
+    "graph_pairs_filtered": 8,
+    "projection_chunks": 2295,
+    "deletion_tables_built": 255,
+    "reject_cache_hits": 16760,
+    "solver_seconds": 0.637455999996746
+  },
+  "completed": true
+}

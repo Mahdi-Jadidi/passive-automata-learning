@@ -1,0 +1,13 @@
+# C024-B: known-K optimistic envelope
+
+This is independently copied from frozen C020, not A. Only METHOD, known-K DFS envelope pruning/counters, and proof metadata for exhaustive DFS results change. No-K output is identical apart from METHOD and wall time, verified on the m8 fallback. CLI, validation, fast paths, projection, reject cache and leaf witness are unchanged. No official benchmark was run.
+
+After deadline polling and cardinality bounds, a nonterminal known-K DFS node has existing block masks B_i and remaining atom mask U. Evaluate E = OR_i reject(B_i | U). Include reject(U) exactly when len(masks) < known_k. Poll for every mask. Increment envelope_checks once per evaluated node; if E omits any negative increment envelope_prunes and return. Passing E does not accept any partition: only the unchanged leaf witness does so.
+
+Soundness: every completion of an existing block is a subset of B_i union U; every newly opened block is a subset of U. Exact rejection is monotone under symbol-set inclusion: a negative matching some positive on a larger alphabet also matches that positive on every subset. Thus rejection by a final block implies rejection by its optimistic envelope block. If len(masks)==known_k, no new block can open because RGS only extends or creates blocks and the unchanged bound rejects any extra block. Otherwise reject(U) covers every possible new block. A missing negative cannot be rejected by any completion. Use of U in several blocks is intentionally optimistic and only weakens pruning. Current block coverage alone is never a pruning test.
+
+Basis: C020 EXACT_SCALING_PROPOSAL_v1.md Candidate B. Exhaustive known-K results retain their route and search_exhausted flag, adding envelope_rule and proof_basis. Counts measure calls/prunes, not runtime or standalone replayable proof. Pruning may remove recursive states and leaves; extra exact masks/cache churn can still cause regression. No tuning or cache policy changes were made.
+
+Targeted smoke: syntax; D_K4; obstruction m8 K4; unsafe current-coverage example abc/P=aaccbb/N=ccaabb/K2; both the saved epsilon quantifier counterexample and its ab-negative variant; no-K baseline equality; expired deadline; direct projection replay of emitted witnesses. The saved quantifier example is from C002 approaches/lazy/REJECTED_IDEAS.md B-TRAP-001. Independent oracle/audit remains required.
+
+Review concerns: metadata is an algorithm/proof reference, not a replay transcript of pruning; reject cache can evict masks earlier; cooperative polling cannot interrupt a single native operation. Search reductions are not speed claims. A gate source remains frozen at 9725a263266f4e131019936e771b5df1cb100cd5715ec85c7dae90040f7e33f4.

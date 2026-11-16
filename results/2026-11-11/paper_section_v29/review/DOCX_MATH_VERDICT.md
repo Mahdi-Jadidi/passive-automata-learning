@@ -1,0 +1,11 @@
+# C029 independent DOCX mathematics and text readback — APPROVED
+
+Biggest overlooked point: presentation conversion can silently change mathematical semantics even when the reviewed source is correct. The initial DOCX dropped the Kleene stars in `P,N ⊆ Σ*` and `F_B ⊆ B*`; that version was rejected. The builder was repaired and the document was rebuilt and rerendered; no source-theory change was made.
+
+Fresh DOCX SHA-256: 7E5547D68EA0E2E48EB2CF7F8E2492528DF5D4923491BAECCC658C9E5ED1E0DA. Fresh PDF SHA-256: B065A4BDA4D49B664B69A293E6274088535A0422CABFA8915924618397CD9552. Approved source hashes remain EN 8009AF278F09837E1CC8B5F9744D93601414F756B63F5417A289DDCAC317DEC2, FA CE8B787B3C45805C190D27EC3230488BFC7024F136764333AD7C0322D9164947 and numbered pseudo 4F87F5ED50CDAFD53D8F02DCBF6D4CDB32B00030E3A2834B4295F8BE88D002DF.
+
+Independently inspected fresh DOCX OOXML: the repaired paragraph contains both literal stars; all 37 numbered pseudocode rows match the approved numbered file after indentation normalization; RGS ≤ and indices, empty set and epsilon, contradiction, counter variables and comparison symbols are preserved. All three native equation structures were read with subscript/superscript semantics intact: `L(Π,(F_B))={w∈Σ*:∀B∈Π,π_B(w)∈F_B}`, the maximum objective, and `∀n∈N ∃B∈Π ∀p∈P:π_B(n)≠π_B(p)`. The CoALA locator specifies §4.1 Proposition 5 and §6.1 Corollary 12. Inline `H_B` notation remains explicit, and all content readback equality plus hyperlink checks are recorded in auditor `audit/DOCX_READBACK_V1.json`.
+
+I independently extracted the fresh PDF: five pages, both repaired starred expressions and the exact CoALA locator present; its metadata identifies Word for Microsoft 365, with creation after the current DOCX modification. The rendering script opens the same DOCX path read-only and exports to the delivered PDF path. These checks, together with the separate auditor's full render and five-page visual inspection, support that the PDF is the current render. I did not independently conduct visual layout inspection; that finding is attributed to the document auditor.
+
+No remaining scientific text/math fidelity defect identified. This verdict is independent coordinated AI review, not human or formal-proof-assistant certification; it does not establish physical recovery, novelty, or practical runtime.

@@ -1,0 +1,46 @@
+{
+  "candidate": "C024-integrated-v1",
+  "ready_for_independent_audit": true,
+  "public_promotion": false,
+  "full_benchmark_run": false,
+  "gate": {
+    "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-05\\search_checkpoint_v24\\implementation\\integrated_c024_v1\\gate_v1.py",
+    "sha256": "0aded302c5f9b0a364e3428a8319eab15b1d96be67fd98a64d117faa1b3a1d61"
+  },
+  "cli": {
+    "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-05\\search_checkpoint_v24\\implementation\\integrated_c024_v1\\partition_gate_v1.py",
+    "sha256": "60a5865a1846ed060b0954eef9cc7937d8709cb2a1aec4a4dbfc0925fac27758"
+  },
+  "baseline": {
+    "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-05\\search_checkpoint_v24\\implementation\\baseline_c020_v1\\gate_v1.py",
+    "sha256": "5331a1787a9ff74afe1afcbea1668dbe9ee69ef1f7121fec14c7281caa2d8680"
+  },
+  "frozen_a": {
+    "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-05\\search_checkpoint_v24\\implementation\\candidate_c024a_v1\\gate_v1.py",
+    "sha256": "9725a263266f4e131019936e771b5df1cb100cd5715ec85c7dae90040f7e33f4"
+  },
+  "frozen_b": {
+    "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-05\\search_checkpoint_v24\\implementation\\candidate_c024b_v1\\gate_v1.py",
+    "sha256": "4e5a8e39528efadf3d2eeaab2dfa02a0d77711d7028005737fe78a42b38cb9a3"
+  },
+  "diff": {
+    "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-05\\search_checkpoint_v24\\implementation\\integrated_c024_v1\\minimal_combined.diff",
+    "sha256": "75f7ccc5043224d6d6528f6c10e1ef0c61f92700a00e7756597be71f8bbc0bde"
+  },
+  "smoke": {
+    "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-05\\search_checkpoint_v24\\implementation\\integrated_c024_v1\\smoke_results_v1.json",
+    "sha256": "5827a7aa409108278a444d3bb272f76a766748c2b4038eb6b0ae33a610900a87"
+  },
+  "method": {
+    "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-05\\search_checkpoint_v24\\implementation\\integrated_c024_v1\\METHOD_v1.md",
+    "sha256": "d9de0398be6c66ecf39a0301d757bd9535473c1d0ab96faa1e2c20ffa165a94d"
+  },
+  "command": "py -3.14 results/2026-11-05/search_checkpoint_v24/implementation/integrated_c024_v1/verify_integration_v1.py",
+  "exit_code": 0,
+  "composition": "A returns on every unknown-K fallback before DFS; B modifies only known-K DFS. Shared validation/fast paths/cache/reject/witness unchanged. No combined extra optimization.",
+  "limits": [
+    "Independent integrated audit pending",
+    "No full benchmark",
+    "No public files or Git modified"
+  ]
+}

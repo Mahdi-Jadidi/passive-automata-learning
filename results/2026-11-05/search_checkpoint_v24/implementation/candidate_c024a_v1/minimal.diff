@@ -1,0 +1,40 @@
+--- C020/gate_v1.py
++++ C024-A/gate_v1.py
+@@ -4,7 +4,7 @@
+ import math
+ import time
+ 
+-METHOD = 'C020-parikh-native-projection-gate-c2-v1'
++METHOD = 'C024-A-forced-atom-bipartition-gate-v1'
+ # <=64KiB of UTF-32 character payload per temporary chunk; headers/Counter
+ # entries are additional. ASCII synthetic inputs use <=16KiB per chunk.
+ COUNT_CHUNK_CHARS = 16 * 1024
+@@ -358,6 +358,28 @@
+         if known_k == r:
+             return emit('incompatible', 'only_forced_atom_partition_rejected', **graph_proof)
+ 
++        if known_k is None:
++            # C006 PROOFS_v1.md T3: any nontrivial compatible coarsening
++            # merges to a compatible bipartition. Atom zero stays in side0.
++            full_mask = (1 << r) - 1
++            split_count = 0
++            for tail in range((1 << (r - 1)) - 1):
++                poll()
++                side0 = 1 | (tail << 1)
++                side1 = full_mask ^ side0
++                split_count += 1
++                metrics['search_nodes'] += 1
++                candidate = witness([side0, side1])
++                if candidate is not None:
++                    metrics['reject_cache_hits'] = reject.cache_info().hits
++                    return ambiguous('two_block_search_witness', [oneblock(), candidate],
++                                     search_exhausted=False, bipartitions_tested=split_count,
++                                     proof_basis='C006-T3-coarsening-to-bipartitions', **graph_proof)
++            metrics['reject_cache_hits'] = reject.cache_info().hits
++            return unique('exhausted_forced_atom_bipartitions', oneblock(),
++                          search_exhausted=True, bipartitions_tested=split_count,
++                          proof_basis='C006-T3-coarsening-to-bipartitions', **graph_proof)
++
+         solutions = []
+         def dfs(pos, masks):
+             poll()

@@ -1,0 +1,720 @@
+{
+  "passed": true,
+  "python": "3.14.6 (tags/v3.14.6:c63aec6, Jun 10 2026, 10:26:10) [MSC v.1944 64 bit (AMD64)]",
+  "cases": [
+    {
+      "name": "obstruction_noK",
+      "reference": "A",
+      "result": {
+        "schema_version": 1,
+        "method": "C024-integrated-exact-search",
+        "known_k": null,
+        "assumptions": [
+          "finite noiseless full-word labels",
+          "known disjoint symbol ownership",
+          "independent regular factors without a state bound",
+          "all component counts allowed"
+        ],
+        "physical_truth_read": false,
+        "metrics": {
+          "characters_counted": 64,
+          "projection_characters": 16256,
+          "swap_pairs": 0,
+          "search_nodes": 127,
+          "complete_candidates": 128,
+          "block_masks_computed": 254,
+          "reject_cache_limit": 4096,
+          "count_chunks": 9,
+          "counter_characters_processed": 64,
+          "invalid_validation_characters": 0,
+          "word_signatures": 9,
+          "graph_pair_universe": 8,
+          "graph_pairs_filtered": 8,
+          "projection_chunks": 2286,
+          "deletion_tables_built": 254,
+          "reject_cache_hits": 8,
+          "solver_seconds": 0.007881400000769645
+        },
+        "status": "certified_unique",
+        "findings": {
+          "data_insufficient": false,
+          "computation_incomplete": false
+        },
+        "certificate": {
+          "route": "exhausted_forced_atom_bipartitions",
+          "witness": {
+            "blocks": [
+              [
+                "a",
+                "b",
+                "c",
+                "d",
+                "e",
+                "f",
+                "g",
+                "h"
+              ]
+            ],
+            "negative_rejections": [
+              {
+                "negative_index": 0,
+                "rejected_by_block": 0
+              }
+            ],
+            "local_language_rule": "positive_projections_from_input"
+          },
+          "search_exhausted": true,
+          "bipartitions_tested": 127,
+          "proof_basis": "C006-T3-coarsening-to-bipartitions",
+          "forced_atoms": [
+            [
+              "a"
+            ],
+            [
+              "b"
+            ],
+            [
+              "c"
+            ],
+            [
+              "d"
+            ],
+            [
+              "e"
+            ],
+            [
+              "f"
+            ],
+            [
+              "g"
+            ],
+            [
+              "h"
+            ]
+          ],
+          "swap_forest": []
+        },
+        "partition": [
+          [
+            "a",
+            "b",
+            "c",
+            "d",
+            "e",
+            "f",
+            "g",
+            "h"
+          ]
+        ]
+      }
+    },
+    {
+      "name": "fallback_ambiguous",
+      "reference": "A",
+      "result": {
+        "schema_version": 1,
+        "method": "C024-integrated-exact-search",
+        "known_k": null,
+        "assumptions": [
+          "finite noiseless full-word labels",
+          "known disjoint symbol ownership",
+          "independent regular factors without a state bound",
+          "all component counts allowed"
+        ],
+        "physical_truth_read": false,
+        "metrics": {
+          "characters_counted": 6,
+          "projection_characters": 24,
+          "swap_pairs": 1,
+          "search_nodes": 1,
+          "complete_candidates": 2,
+          "block_masks_computed": 4,
+          "reject_cache_limit": 4096,
+          "count_chunks": 2,
+          "counter_characters_processed": 6,
+          "invalid_validation_characters": 0,
+          "word_signatures": 2,
+          "graph_pair_universe": 1,
+          "graph_pairs_filtered": 0,
+          "projection_chunks": 8,
+          "deletion_tables_built": 4,
+          "reject_cache_hits": 1,
+          "solver_seconds": 0.00012729997979477048
+        },
+        "status": "ambiguous",
+        "findings": {
+          "data_insufficient": true,
+          "computation_incomplete": false
+        },
+        "certificate": {
+          "route": "two_block_search_witness",
+          "search_exhausted": false,
+          "bipartitions_tested": 1,
+          "proof_basis": "C006-T3-coarsening-to-bipartitions",
+          "forced_atoms": [
+            [
+              "a"
+            ],
+            [
+              "b"
+            ],
+            [
+              "c"
+            ]
+          ],
+          "swap_forest": []
+        },
+        "alternatives": [
+          {
+            "blocks": [
+              [
+                "a",
+                "b",
+                "c"
+              ]
+            ],
+            "negative_rejections": [
+              {
+                "negative_index": 0,
+                "rejected_by_block": 0
+              }
+            ],
+            "local_language_rule": "positive_projections_from_input"
+          },
+          {
+            "blocks": [
+              [
+                "a"
+              ],
+              [
+                "b",
+                "c"
+              ]
+            ],
+            "negative_rejections": [
+              {
+                "negative_index": 0,
+                "rejected_by_block": 1
+              }
+            ],
+            "local_language_rule": "positive_projections_from_input"
+          }
+        ]
+      }
+    },
+    {
+      "name": "obstruction_K4",
+      "reference": "B",
+      "result": {
+        "schema_version": 1,
+        "method": "C024-integrated-exact-search",
+        "known_k": 4,
+        "assumptions": [
+          "finite noiseless full-word labels",
+          "known disjoint symbol ownership",
+          "independent regular factors without a state bound",
+          "externally trusted exact known_k"
+        ],
+        "physical_truth_read": false,
+        "metrics": {
+          "characters_counted": 64,
+          "projection_characters": 1280,
+          "swap_pairs": 0,
+          "search_nodes": 12,
+          "complete_candidates": 1,
+          "block_masks_computed": 20,
+          "reject_cache_limit": 4096,
+          "count_chunks": 9,
+          "counter_characters_processed": 64,
+          "invalid_validation_characters": 0,
+          "word_signatures": 9,
+          "graph_pair_universe": 8,
+          "graph_pairs_filtered": 8,
+          "projection_chunks": 180,
+          "deletion_tables_built": 20,
+          "envelope_checks": 11,
+          "envelope_prunes": 5,
+          "reject_cache_hits": 14,
+          "solver_seconds": 0.0006641999934799969
+        },
+        "status": "incompatible",
+        "findings": {
+          "data_insufficient": false,
+          "computation_incomplete": false
+        },
+        "certificate": {
+          "route": "exhausted_all_forced_atom_coarsenings",
+          "search_exhausted": true,
+          "envelope_rule": "growing_blocks_union_remaining_plus_remaining_if_new_block_allowed",
+          "proof_basis": "C020-exact-reject-monotonic-envelope",
+          "forced_atoms": [
+            [
+              "a"
+            ],
+            [
+              "b"
+            ],
+            [
+              "c"
+            ],
+            [
+              "d"
+            ],
+            [
+              "e"
+            ],
+            [
+              "f"
+            ],
+            [
+              "g"
+            ],
+            [
+              "h"
+            ]
+          ],
+          "swap_forest": []
+        }
+      }
+    },
+    {
+      "name": "D_K4",
+      "reference": "B",
+      "result": {
+        "schema_version": 1,
+        "method": "C024-integrated-exact-search",
+        "known_k": 4,
+        "assumptions": [
+          "finite noiseless full-word labels",
+          "known disjoint symbol ownership",
+          "independent regular factors without a state bound",
+          "externally trusted exact known_k"
+        ],
+        "physical_truth_read": false,
+        "metrics": {
+          "characters_counted": 2048,
+          "projection_characters": 161792,
+          "swap_pairs": 4,
+          "search_nodes": 207,
+          "complete_candidates": 11,
+          "block_masks_computed": 79,
+          "reject_cache_limit": 4096,
+          "count_chunks": 8,
+          "counter_characters_processed": 2048,
+          "invalid_validation_characters": 0,
+          "word_signatures": 9,
+          "graph_pair_universe": 20,
+          "graph_pairs_filtered": 16,
+          "projection_chunks": 632,
+          "deletion_tables_built": 79,
+          "envelope_checks": 160,
+          "envelope_prunes": 100,
+          "reject_cache_hits": 555,
+          "solver_seconds": 0.002685199986444786
+        },
+        "status": "certified_unique",
+        "findings": {
+          "data_insufficient": false,
+          "computation_incomplete": false
+        },
+        "certificate": {
+          "route": "exhausted_all_forced_atom_coarsenings",
+          "witness": {
+            "blocks": [
+              [
+                "a",
+                "h"
+              ],
+              [
+                "b",
+                "e"
+              ],
+              [
+                "c",
+                "g"
+              ],
+              [
+                "d",
+                "f"
+              ]
+            ],
+            "negative_rejections": [
+              {
+                "negative_index": 0,
+                "rejected_by_block": 3
+              },
+              {
+                "negative_index": 1,
+                "rejected_by_block": 2
+              },
+              {
+                "negative_index": 2,
+                "rejected_by_block": 1
+              },
+              {
+                "negative_index": 3,
+                "rejected_by_block": 0
+              }
+            ],
+            "local_language_rule": "positive_projections_from_input"
+          },
+          "search_exhausted": true,
+          "envelope_rule": "growing_blocks_union_remaining_plus_remaining_if_new_block_allowed",
+          "proof_basis": "C020-exact-reject-monotonic-envelope",
+          "forced_atoms": [
+            [
+              "a"
+            ],
+            [
+              "b"
+            ],
+            [
+              "c"
+            ],
+            [
+              "d"
+            ],
+            [
+              "e"
+            ],
+            [
+              "f"
+            ],
+            [
+              "g"
+            ],
+            [
+              "h"
+            ]
+          ],
+          "swap_forest": []
+        },
+        "partition": [
+          [
+            "a",
+            "h"
+          ],
+          [
+            "b",
+            "e"
+          ],
+          [
+            "c",
+            "g"
+          ],
+          [
+            "d",
+            "f"
+          ]
+        ]
+      }
+    },
+    {
+      "name": "unsafe_current_coverage",
+      "reference": "B",
+      "result": {
+        "schema_version": 1,
+        "method": "C024-integrated-exact-search",
+        "known_k": 2,
+        "assumptions": [
+          "finite noiseless full-word labels",
+          "known disjoint symbol ownership",
+          "independent regular factors without a state bound",
+          "externally trusted exact known_k"
+        ],
+        "physical_truth_read": false,
+        "metrics": {
+          "characters_counted": 12,
+          "projection_characters": 84,
+          "swap_pairs": 1,
+          "search_nodes": 9,
+          "complete_candidates": 4,
+          "block_masks_computed": 7,
+          "reject_cache_limit": 4096,
+          "count_chunks": 2,
+          "counter_characters_processed": 12,
+          "invalid_validation_characters": 0,
+          "word_signatures": 2,
+          "graph_pair_universe": 1,
+          "graph_pairs_filtered": 0,
+          "projection_chunks": 14,
+          "deletion_tables_built": 7,
+          "envelope_checks": 4,
+          "envelope_prunes": 0,
+          "reject_cache_hits": 9,
+          "solver_seconds": 0.00015780000831000507
+        },
+        "status": "certified_unique",
+        "findings": {
+          "data_insufficient": false,
+          "computation_incomplete": false
+        },
+        "certificate": {
+          "route": "exhausted_all_forced_atom_coarsenings",
+          "witness": {
+            "blocks": [
+              [
+                "a",
+                "c"
+              ],
+              [
+                "b"
+              ]
+            ],
+            "negative_rejections": [
+              {
+                "negative_index": 0,
+                "rejected_by_block": 0
+              }
+            ],
+            "local_language_rule": "positive_projections_from_input"
+          },
+          "search_exhausted": true,
+          "envelope_rule": "growing_blocks_union_remaining_plus_remaining_if_new_block_allowed",
+          "proof_basis": "C020-exact-reject-monotonic-envelope",
+          "forced_atoms": [
+            [
+              "a"
+            ],
+            [
+              "b"
+            ],
+            [
+              "c"
+            ]
+          ],
+          "swap_forest": []
+        },
+        "partition": [
+          [
+            "a",
+            "c"
+          ],
+          [
+            "b"
+          ]
+        ]
+      }
+    },
+    {
+      "name": "quantifier",
+      "reference": "B",
+      "result": {
+        "schema_version": 1,
+        "method": "C024-integrated-exact-search",
+        "known_k": 2,
+        "assumptions": [
+          "finite noiseless full-word labels",
+          "known disjoint symbol ownership",
+          "independent regular factors without a state bound",
+          "externally trusted exact known_k"
+        ],
+        "physical_truth_read": false,
+        "metrics": {
+          "characters_counted": 2,
+          "projection_characters": 4,
+          "swap_pairs": 0,
+          "search_nodes": 0,
+          "complete_candidates": 1,
+          "block_masks_computed": 2,
+          "reject_cache_limit": 4096,
+          "count_chunks": 2,
+          "counter_characters_processed": 2,
+          "invalid_validation_characters": 0,
+          "word_signatures": 3,
+          "graph_pair_universe": 2,
+          "graph_pairs_filtered": 2,
+          "projection_chunks": 4,
+          "deletion_tables_built": 2,
+          "solver_seconds": 6.839999696239829e-05
+        },
+        "status": "incompatible",
+        "findings": {
+          "data_insufficient": false,
+          "computation_incomplete": false
+        },
+        "certificate": {
+          "route": "only_forced_atom_partition_rejected",
+          "forced_atoms": [
+            [
+              "a"
+            ],
+            [
+              "b"
+            ]
+          ],
+          "swap_forest": []
+        }
+      }
+    },
+    {
+      "name": "unary",
+      "reference": "A",
+      "result": {
+        "schema_version": 1,
+        "method": "C024-integrated-exact-search",
+        "known_k": null,
+        "assumptions": [
+          "finite noiseless full-word labels",
+          "known disjoint symbol ownership",
+          "independent regular factors without a state bound",
+          "all component counts allowed"
+        ],
+        "physical_truth_read": false,
+        "metrics": {
+          "characters_counted": 3,
+          "projection_characters": 0,
+          "swap_pairs": 0,
+          "search_nodes": 0,
+          "complete_candidates": 0,
+          "block_masks_computed": 0,
+          "reject_cache_limit": 4096,
+          "count_chunks": 2,
+          "counter_characters_processed": 3,
+          "invalid_validation_characters": 0,
+          "word_signatures": 2,
+          "graph_pair_universe": 0,
+          "graph_pairs_filtered": 0,
+          "projection_chunks": 0,
+          "deletion_tables_built": 0,
+          "solver_seconds": 4.2499974370002747e-05
+        },
+        "status": "ambiguous",
+        "findings": {
+          "data_insufficient": true,
+          "computation_incomplete": false
+        },
+        "certificate": {
+          "route": "unary_all_partitions",
+          "negative_count_certificates": [
+            {
+              "negative_index": 0,
+              "symbol": "b",
+              "negative_count": 2
+            }
+          ],
+          "family": "all_set_partitions"
+        },
+        "alternatives": [
+          {
+            "blocks": [
+              [
+                "a",
+                "b"
+              ]
+            ],
+            "negative_rejections": [
+              {
+                "negative_index": 0,
+                "rejected_by_block": 0
+              }
+            ],
+            "local_language_rule": "positive_projections_from_input"
+          },
+          {
+            "blocks": [
+              [
+                "a"
+              ],
+              [
+                "b"
+              ]
+            ],
+            "negative_rejections": [
+              {
+                "negative_index": 0,
+                "rejected_by_block": 1
+              }
+            ],
+            "local_language_rule": "positive_projections_from_input"
+          }
+        ]
+      }
+    },
+    {
+      "name": "invalid",
+      "reference": "A",
+      "result": {
+        "schema_version": 1,
+        "method": "C024-integrated-exact-search",
+        "known_k": null,
+        "assumptions": [
+          "finite noiseless full-word labels",
+          "known disjoint symbol ownership",
+          "independent regular factors without a state bound",
+          "all component counts allowed"
+        ],
+        "physical_truth_read": false,
+        "metrics": {
+          "characters_counted": 0,
+          "projection_characters": 0,
+          "swap_pairs": 0,
+          "search_nodes": 0,
+          "complete_candidates": 0,
+          "block_masks_computed": 0,
+          "reject_cache_limit": 4096,
+          "count_chunks": 1,
+          "counter_characters_processed": 1,
+          "invalid_validation_characters": 1,
+          "word_signatures": 0,
+          "graph_pair_universe": 0,
+          "graph_pairs_filtered": 0,
+          "projection_chunks": 0,
+          "deletion_tables_built": 0,
+          "solver_seconds": 1.789999078027904e-05
+        },
+        "status": "invalid_input",
+        "error": "word contains undeclared symbol",
+        "findings": {
+          "data_insufficient": null,
+          "computation_incomplete": false
+        }
+      }
+    },
+    {
+      "name": "contradiction",
+      "reference": "A",
+      "result": {
+        "schema_version": 1,
+        "method": "C024-integrated-exact-search",
+        "known_k": null,
+        "assumptions": [
+          "finite noiseless full-word labels",
+          "known disjoint symbol ownership",
+          "independent regular factors without a state bound",
+          "all component counts allowed"
+        ],
+        "physical_truth_read": false,
+        "metrics": {
+          "characters_counted": 2,
+          "projection_characters": 0,
+          "swap_pairs": 0,
+          "search_nodes": 0,
+          "complete_candidates": 0,
+          "block_masks_computed": 0,
+          "reject_cache_limit": 4096,
+          "count_chunks": 2,
+          "counter_characters_processed": 2,
+          "invalid_validation_characters": 0,
+          "word_signatures": 2,
+          "graph_pair_universe": 0,
+          "graph_pairs_filtered": 0,
+          "projection_chunks": 0,
+          "deletion_tables_built": 0,
+          "solver_seconds": 2.609999501146376e-05
+        },
+        "status": "incompatible",
+        "findings": {
+          "data_insufficient": false,
+          "computation_incomplete": false
+        },
+        "certificate": {
+          "route": "contradictory_labels",
+          "positive_index": 0,
+          "negative_index": 0
+        }
+      }
+    }
+  ],
+  "expired_deadlines_passed": true
+}

@@ -1,0 +1,11 @@
+{
+  "date": "2026-11-06",
+  "solver": "implementation/recommend_v1.py",
+  "solver_sha256": "ff633fb352910005d9ccccd61255c20bcd6679e66dc43d5468610521aab05eb4",
+  "cli": "implementation/cli_v1.py",
+  "cli_sha256": "9ba02dc5a8e3a2c2e6393c11996a56c393ab60df50f625629ac294f606a03727",
+  "static_and_math_review": "MANAGER_REVIEW_V1.md",
+  "developer_smoke": "29 oracle fixtures plus validation/deadline/quota controls passed using known Python executable; results in implementation/developer_smoke_results_v1.json",
+  "ownership_takeover": "Implementation worker hit account usage limit after code and smoke script creation. Manager ran existing developer smoke and completes readiness/public integration; no new candidate or extra worker.",
+  "audit_go": "Independent correctness and theorem checks authorized; timing only after correctness passes"
+}

@@ -1,0 +1,20 @@
+# C025 audit addendum V2 — exact bounded benchmark scope
+
+Supersedes V1's broad readiness-inspection sample as benchmark scope. The 168-file/28-group read-only schema inspection already completed; it executed no solver and its records remain preserved. No benchmark expands beyond the following four datasets.
+
+1. CAGE2: implementation's same six first lexicographic original raw paths; first4 training, last2 heldout.
+2. Baby trial1 random15: same six paths; first4 training, last2 heldout.
+3. Baby trial1 heuristic15: same six paths; first4 training, last2 heldout.
+4. BGL2k operational sample: original EventId alphabet, True iff source label '-' (nonalert), False otherwise. One observed stream; first1400 rows training/selection, last600 heldout. Retain preceding history through heldout evaluation; no invented reset at split. Source may omit physical intervening records, and observed ordering alone does not establish complete histories.
+
+Select top8 atomic event types using training-input frequency including unknown-labelled events only; tie by opaque ID. Freeze the selected set once, shared across d=0,1,2,4,8,full and providers; never inspect heldout labels/host truth for selection. Preserve original whole streams; candidate histories project to selected final blocks. Selected-alphabet loss of same-owner unselected events is an additional abstraction. Report selected/omitted type, event, label, action and scope counts.
+
+Classification is training-only, no-K; optional K only as a clearly external conditional assumption. RGS oracle enumerates <=4140 partitions; independent direct final-block contexts and conflict witness replay, with memoization per final block allowed and direct replay cross-checks. No finite-depth coarsening, swap atoms or C024 masks/envelopes. Check all actual top8 families when tractable; unfinished oracle comparison stays explicitly undetermined. Solver stops after two witnesses for ambiguity; exhaustive proof or independently complete family required for unique/incompatible. Validate every completed status/witness. One bounded batch per dataset, max120s outer, max20s cooperative per cell; no repeated timing benchmark. Outer25s applies individual single-cell controls; dataset batch has the explicitly requested120s cap. Freeze reviewed solver hash, exact argv/input/depths and total launch budget after manager source review.
+
+Full original-alphabet known-host/scope diagnostic is separate and prerequisite. Targets come only from declared observed fields, never TrueState or hidden mapping. If any symbol has global/unknown/multiple or nonfunctional host scope, whole host partition membership is undefined and partial diagnostics named. BGL template EventIds shared across Nodes make whole node ownership undefined by construction; do not force or require a ground-truth partition. CAGE2 source qualification and aliases do not establish physical independence; Baby onehost cannot demonstrate multihost discovery.
+
+Heldout evaluation reports only constraints at previously observed exact local contexts: coverage, known-context opposite-label conflicts, unseen-context abstention. Arbitrary trie completion is a realizability witness, never heldout prediction accuracy. BGL must keep training past context while extending observed stream into heldout; six-file pools initialize separately per explicit episode. Reset validity remains an assumption.
+
+BGL provenance is independently operational-source backed (Loghub BGL README, pinned commit dd61d0952749ee7963bde24220d1be5ede023033). Hashes and 2000 ordered raw/CSV rows verified in BGL_ASSESSMENT_V1.json. Distinct source families do not imply statistically independent trials. No full production-state/physical-host recovery claim.
+
+Status at preparation delivery: selected-output solver/actual-family runs still await manager source-review/launch message. Copied C017 oracle and prepared synthetic controls remain unexecuted. No original artifact code or solver has run in audit preparation.

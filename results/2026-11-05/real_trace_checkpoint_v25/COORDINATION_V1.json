@@ -1,0 +1,23 @@
+{
+  "id": "C025-real-trace-initial-checkpoint",
+  "date": "2026-11-05",
+  "authorization": "User explicitly requested actual trace dataset checks, further algorithm work and an initial advisor-presentable stage. This resumes bounded real-data assessment formerly paused.",
+  "baseline": "Public C024 full-word AND acceptance, preserved",
+  "experimental_model": "Selected last-event output with deterministic local projected input contexts; finite depths 0,1,2,4,8 and full, explicit resets",
+  "provenance": [
+    {"source":"CAGE2", "kind":"published simulator-recorded cybersecurity logs", "artifact":"https://zenodo.org/records/19828945"},
+    {"source":"BabyCyborg", "kind":"published controlled simulator logs, same artifact lineage", "artifact":"https://zenodo.org/records/19828945"},
+    {"source":"BGL2k", "kind":"operational supercomputer log sample; alert labels, incomplete-history caveat", "repository":"https://github.com/logpai/loghub", "commit":"dd61d0952749ee7963bde24220d1be5ede023033"}
+  ],
+  "workers": [
+    {"thread_id":"01a1acf5-ac87-7ac2-84b7-3676ac71923b", "thinking":"low", "owns":["implementation", "inventory"]},
+    {"thread_id":"01a1acf5-fb24-7cc3-8054-5909cc9d7e1b", "thinking":"low", "owns":["theory"]},
+    {"thread_id":"01a1acf6-5f50-7f82-b56d-2c0d050ebf01", "thinking":"low", "owns":["audit"]}
+  ],
+  "scope": "Six fixed source-name-selected files per CAGE2, Baby random15 and Baby heuristic15 pool; first4 train,last2 holdout. BGL original2000message sample, first1400 selection/training and remaining600 heldout with observed history retained. Top8 selection based only on input frequency, no labels or ownership; full-alphabet reference diagnostics separately.",
+  "constraints": ["Unknown labels retained as input events", "No fabricated negatives", "No host/TrueState labels passed to inferencer", "Target qualification is an explicit observed-metadata abstraction", "No C024 finite-depth monotonic pruning", "No physical host recovery accuracy from compatibility", "No arbitrary heldout predictions on unconstrained contexts"],
+  "bounded_solver": "Final-block exact cover, m<=8, stop2; unique/incompatible only after exhaustion, resource interruption unresolved",
+  "provenance_requirements": "Hash original input, sidecars, code, commands, environment and outputs. Preserve parser/exclusion/UNKNOWN/reset issues and failed attempts.",
+  "deliverables": ["Reviewed model and limitations", "Faithful versioned ingestion", "Independent small-family and data replay", "Recorded bounded real-data results", "Experimental runnable entrypoint", "Advisor brief with concrete demo and assumptions table"],
+  "status": "in_progress"
+}

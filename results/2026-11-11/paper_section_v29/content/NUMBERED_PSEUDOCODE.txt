@@ -1,0 +1,37 @@
+01  GENERATE(m):
+02      if m = 0: yield []; return
+03      yield from EXTEND([0], 0, m)
+04  EXTEND(s, q, m):
+05      if |s| = m: yield s; return
+06      for x = 0, 1, ..., q+1:
+07          yield from EXTEND(s · [x], max(q,x), m)
+08  CHECK(Sigma, P, N, s):
+09      blocks ← nonempty label preimages of s in Sigma order
+10      for each block B: H[B] ← {projection(p,B) : p ∈ P}
+11      rejecting ← empty list
+12      for each n ∈ N in normalized input order:
+13          find first B in block-label order with projection(n,B) ∉ H[B]
+14          if no such B exists: return FAIL
+15          append index(B) to rejecting
+16      return witness(s, blocks, H, rejecting)
+17  EXACT(record):
+18      validate record and IDs; if malformed: return INVALID_INPUT
+19      Sigma, P, N ← normalized input; deduplicate each label set
+20      if P ∩ N ≠ ∅: return INCOMPATIBLE with counts 0
+21      C ← 0; O ← 0; best ← NONE; all_witnesses ← []; opt_witnesses ← []
+22      for each s yielded by GENERATE(|Sigma|):
+23          w ← CHECK(Sigma,P,N,s)
+24          if w = FAIL: continue
+25          C ← C+1
+26          if |all_witnesses| < 2: append w to all_witnesses
+27          k ← number of blocks in w
+28          if best = NONE or k > best:
+29              best ← k; O ← 1; opt_witnesses ← [w]
+30          else if k = best:
+31              O ← O+1
+32              if |opt_witnesses| < 2: append w to opt_witnesses
+33      if C = 0: return INCOMPATIBLE with counts 0
+34      replay retained witnesses; if replay fails: return ERROR
+35      status ← UNIQUE_COMPATIBLE if C = 1 else AMBIGUOUS
+36      return status, C, best, O, (O = 1), opt_witnesses[0],
+37             all_witnesses, opt_witnesses

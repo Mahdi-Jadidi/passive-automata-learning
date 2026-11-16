@@ -1,0 +1,192 @@
+{
+  "id": "C024-checkpoint-final-v1",
+  "date": "2026-11-05",
+  "timezone": "Asia/Tehran",
+  "execution_status": "successful_checkpoint_complete",
+  "public_status": "promoted_integrated_C024",
+  "public_entry_sha256": "7ebb89b824ef68235b787936a5bac15af598e6c586b4de78c0802ea44c52bd99",
+  "integrated_solver_sha256": "0aded302c5f9b0a364e3428a8319eab15b1d96be67fd98a64d117faa1b3a1d61",
+  "coordination": {
+    "id": "C024-management-v1",
+    "date": "2026-11-05",
+    "timezone": "Asia/Tehran",
+    "authorization": "User requested delegated execution in other chats at lower effort or weaker models, managed until a useful algorithm checkpoint.",
+    "efficiency_policy": "Three scoped low-effort worker chats; no worker subdelegation; concise summaries and bounded experiments. No token/cost savings measured or guaranteed.",
+    "baseline_commit": "c1edb08b",
+    "baseline_solver_sha256": "5331a1787a9ff74afe1afcbea1668dbe9ee69ef1f7121fec14c7281caa2d8680",
+    "model_override": null,
+    "requested_thinking": "low",
+    "threads": [
+      {
+        "role": "implementation",
+        "thread_id": "01a1acf5-ac87-7ac2-84b7-3676ac71923b",
+        "host_id": "local",
+        "owns": [
+          "implementation",
+          "profile"
+        ],
+        "initial_scope": "profile current baseline and implement A only"
+      },
+      {
+        "role": "theory",
+        "thread_id": "01a1acf5-fb24-7cc3-8054-5909cc9d7e1b",
+        "host_id": "local",
+        "owns": [
+          "theory"
+        ],
+        "initial_scope": "proofs, counterexamples and English method draft"
+      },
+      {
+        "role": "audit",
+        "thread_id": "01a1acf6-5f50-7f82-b56d-2c0d050ebf01",
+        "host_id": "local",
+        "owns": [
+          "audit"
+        ],
+        "initial_scope": "independent controls, freeze protocol, prepare harness; official timing held for manager source review"
+      }
+    ],
+    "manager_owns": [
+      "coordination",
+      "research report",
+      "paper checkpoint integration",
+      "public promotion decision"
+    ],
+    "public_entrypoint_change": "C024 integrated promoted after separate A/B accepted comparisons, independent integrated correctness, manager composition review and public CLI verification",
+    "research_status": "checkpoint_complete_public_c024_promoted",
+    "lancer": "paused",
+    "rpni_measurement": "outside this checkpoint",
+    "limits": {
+      "max_candidates": 2,
+      "official_cells_per_comparison": 6,
+      "repetitions": 5,
+      "soft_seconds_per_call": 20,
+      "hard_seconds_per_call": 25,
+      "timing_process_budget_seconds_per_provider": 600
+    },
+    "pre_registered_decision": {
+      "semantic_errors_allowed": 0,
+      "witness_errors_allowed": 0,
+      "target_benefit": "A: >=20% median end-to-end reduction on at least one target, or all candidate repetitions complete while baseline repetitions are incomplete; candidate count reduction independently checked",
+      "guardrails": "Known-K A_K4 and D_K4 median regression >15% blocks automatic promotion pending explanation and review; no selective reruns",
+      "negative_evidence": "preserve all regressions, failures, timeouts, screening attempts and budget-unstarted work"
+    },
+    "final_evidence": "audit/FINAL_SUMMARY_V2.json",
+    "public_verification": "PUBLIC_VERIFICATION_V1.json"
+  },
+  "ideas": [
+    {
+      "id": "C024-A",
+      "basis": "C006-T3",
+      "status": "exact; target benefit with retained regressions",
+      "source_sha256": "9725a263266f4e131019936e771b5df1cb100cd5715ec85c7dae90040f7e33f4",
+      "decision": "promote unknown-K route"
+    },
+    {
+      "id": "C024-B",
+      "basis": "C020-envelope-proposal",
+      "status": "exact; target benefit on frozen suite",
+      "source_sha256": "4e5a8e39528efadf3d2eeaab2dfa02a0d77711d7028005737fe78a42b38cb9a3",
+      "decision": "promote known-K route"
+    }
+  ],
+  "official_timing_attempts": 120,
+  "correctness": {
+    "A_errors": 0,
+    "A_calls_per_provider": 689,
+    "A_distinct_job_ids": 668,
+    "A_unique_inputs": 196,
+    "supplement_errors": 0,
+    "supplement_calls_per_provider": 10,
+    "B_errors": 0,
+    "B_calls_per_provider": 680,
+    "B_unique_inputs": 202,
+    "capture_integrity": {
+      "attempts_checked": 41,
+      "errors": []
+    }
+  },
+  "integrated": {
+    "correctness_calls": 680,
+    "errors": 0,
+    "CLI_smoke_errors": 0,
+    "CLI_cases": [
+      {
+        "case": "obstruction_noK",
+        "status": "certified_unique",
+        "search_nodes": 127
+      },
+      {
+        "case": "D_K4",
+        "status": "certified_unique",
+        "search_nodes": 207
+      },
+      {
+        "case": "expired",
+        "status": "unresolved",
+        "search_nodes": 0
+      },
+      {
+        "case": "midsearch",
+        "status": "unresolved",
+        "search_nodes": 131
+      }
+    ],
+    "official_timing_measured": false
+  },
+  "disclosures": [
+    "21 repeated A job IDs retained; V2 addendum corrects earlier count",
+    "Manager harness-review arrived after A launch; no discarded/restarted timing",
+    "Raw distributions.json includes unresolved durations; validated summary exclusively controls acceptance",
+    "Supplement preparation KeyError preserved as C024-SUPP-PREP-001; fixed in new script before any supplemental provider execution",
+    "Integrated: 680 independently replayed calls and four CLI checks pass; integrated timing unmeasured",
+    "No memory measurement performed; no historical cross-round ratios; no implementation or public changes",
+    "Manager final-ledger shell parse failure preserved separately; no command executed"
+  ],
+  "measurement_limits": [
+    "Integrated official timing unmeasured",
+    "Memory unmeasured",
+    "RPNI benefit unmeasured",
+    "Natural-log recovery accuracy unmeasured",
+    "External novelty review pending"
+  ],
+  "evidence": [
+    {
+      "path": "PLAN_FA_V1.md",
+      "sha256": "9af79194557cc6b626c093c10b6ba7becb6f736e4130b78e46acdfb8519cf76b"
+    },
+    {
+      "path": "COORDINATION_FINAL_V1.json",
+      "sha256": "b66c0d13067a1bc6ba3a5a0318d130a2cf610133dfc602657c06fd72210c0fc7"
+    },
+    {
+      "path": "MASTER_DECISION_FA.md",
+      "sha256": "fa7cb8712e36b7a413e9f85fa430971e5255977ee49f27fbd5d321730b023657"
+    },
+    {
+      "path": "MANAGER_REVIEW_A_V1.md",
+      "sha256": "f857f7d28ea0e010a0f522724afccebdce457d2af1470042ac4fcbd146855de1"
+    },
+    {
+      "path": "MANAGER_REVIEW_B_V1.md",
+      "sha256": "739e79d112da71635e978c82df75e7042851b83d210f7cd2a19e31c7928ba852"
+    },
+    {
+      "path": "RESEARCH_REPORT_FA.md",
+      "sha256": "637215582accd7af5c8fc4830ff6ae42a72040398728f714abd44b976d406876"
+    },
+    {
+      "path": "theory/PAPER_CHECKPOINT_EN_V1.md",
+      "sha256": "f484be5b755542c5e108edaae2891eea7f7af2d32b27e25ac0f876f407c64593"
+    },
+    {
+      "path": "audit/FINAL_SUMMARY_V2.json",
+      "sha256": "3a2528674fcc4b627e2c9999b002f9da4a2c58763059738ad376164ca75bd3f7"
+    },
+    {
+      "path": "PUBLIC_VERIFICATION_V1.json",
+      "sha256": "54ba7b922c6652a1e77f90e4db7f7be4805a66bf6cef158085565dba0dbcd6ca"
+    }
+  ],
+  "traceability": "Full commands, environment, source/input hashes, stdout/stderr and errors in audit captures and profile metadata"
+}

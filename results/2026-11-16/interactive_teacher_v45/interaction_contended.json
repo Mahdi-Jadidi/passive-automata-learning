@@ -1,0 +1,137 @@
+{
+  "method": "v45",
+  "input": {
+    "alphabet": [
+      "a",
+      "b",
+      "c"
+    ],
+    "positive": [
+      [
+        "c",
+        "b",
+        "a"
+      ]
+    ],
+    "negative": [
+      [
+        "a",
+        "b",
+        "c"
+      ],
+      [
+        "b",
+        "a",
+        "c"
+      ]
+    ]
+  },
+  "profile": {
+    "result": {
+      "status": "OPTIMAL",
+      "blocks": [
+        [
+          "a",
+          "c"
+        ],
+        [
+          "b"
+        ]
+      ],
+      "max_devices": 2,
+      "certificate": {
+        "type": "teacher_cut_drup",
+        "cuts": [
+          {
+            "negative_index": 0,
+            "regions": [
+              1,
+              2,
+              4
+            ],
+            "positive_indices": [
+              0,
+              0,
+              0
+            ]
+          }
+        ],
+        "proof": []
+      }
+    },
+    "metrics": {
+      "teacher_calls": 2,
+      "cuts": 1,
+      "sat_queries": 2,
+      "phase": "consumer_self_check",
+      "teacher_seconds": 6.250015400000848,
+      "atoms": 3,
+      "total_seconds": 6.259941100001015,
+      "projections": {
+        "dag_nodes": 12,
+        "cache_hits": 22,
+        "cache_misses": 7,
+        "transformed_nodes": 54,
+        "materialized_words": 12
+      },
+      "main_teacher": {
+        "dfa_representations": 1054474,
+        "cache_hits": 1,
+        "branches": 1,
+        "semijoin_checks": 5,
+        "local_rows": [
+          2,
+          1
+        ],
+        "q_rows": [
+          1,
+          1
+        ],
+        "vertices": 4,
+        "edges": 2,
+        "cycle_bits": 0,
+        "bounds": [
+          4,
+          3
+        ],
+        "completed_checks": 2
+      }
+    },
+    "trace": [
+      {
+        "partition_masks": [
+          1,
+          2,
+          4
+        ],
+        "teacher_status": "REJECT",
+        "seconds": 0.004189400002360344,
+        "cut": {
+          "negative_index": 0,
+          "regions": [
+            1,
+            2,
+            4
+          ],
+          "positive_indices": [
+            0,
+            0,
+            0
+          ]
+        }
+      },
+      {
+        "partition_masks": [
+          5,
+          2
+        ],
+        "teacher_status": "ACCEPT",
+        "seconds": 6.2458259999984875
+      }
+    ]
+  },
+  "checked": {
+    "status": "ACCEPT"
+  },
+  "pipeline_plus_consumer_seconds": 6.260261899999023
+}

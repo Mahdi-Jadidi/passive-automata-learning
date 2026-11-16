@@ -1,0 +1,25 @@
+{
+  "source": "results\\2026-11-05\\real_trace_checkpoint_v25\\external\\loghub_bgl_v1\\BGL_2k.log_structured.csv",
+  "sha256": "3fe74103c0b02a28514534e2a47257a3f770135ca61afd425bbd3b9d6a31fe26",
+  "rows": 2000,
+  "event_types": 120,
+  "label_counts": {
+    "-": 1857,
+    "APPREAD": 3,
+    "KERNDTLB": 60,
+    "KERNSTOR": 30,
+    "APPCHILD": 1,
+    "KERNRTSP": 2,
+    "KERNTERM": 7,
+    "APPSEV": 17,
+    "KERNMNTF": 11,
+    "KERNREC": 5,
+    "APPTO": 2,
+    "APPRES": 4,
+    "APPOUT": 1
+  },
+  "event_types_with_both_alert_and_nonalert": 0,
+  "and_model_field_tests": 0,
+  "status": "NOT_SEMANTICALLY_AUTHORIZED",
+  "reason": "Per-message alert labels do not establish whole-trace conjunctive acceptance. Prior adapter used selected last-event outputs. No relabeling or hidden partition ground truth is injected."
+}

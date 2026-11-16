@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "C:\Users\Mahdi\Documents\ChatGPT\passive automata learning\results\2026-11-06\recommendation_checkpoint_v26\audit\timing_v1.py", line 66, in <module>
+    if len(sys.argv)>1 and sys.argv[1]=='worker':worker(sys.argv[2],sys.argv[3])
+                                                 ~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mahdi\Documents\ChatGPT\passive automata learning\results\2026-11-06\recommendation_checkpoint_v26\audit\timing_v1.py", line 27, in worker
+    if result['status']=='certified_unique':out=dict(maximum_blocks=k,optimum_tieclass='unique',witness=result['witness'],completed=True)
+                                                                                                        ~~~~~~^^^^^^^^^^^
+KeyError: 'witness'

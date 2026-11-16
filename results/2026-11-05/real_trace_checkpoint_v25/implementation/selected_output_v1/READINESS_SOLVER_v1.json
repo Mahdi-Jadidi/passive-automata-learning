@@ -1,0 +1,63 @@
+{
+  "status": "ready_for_independent_source_and_small_family_audit",
+  "candidate": "C025-selected-output-v1",
+  "real_data_solver_runs": 0,
+  "public_solver_modified": false,
+  "files": {
+    "cli_v1.py": {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-05\\real_trace_checkpoint_v25\\implementation\\selected_output_v1\\cli_v1.py",
+      "sha256": "89f58a396593921ba8accc664de8d7e3ff94e7de9a7d7e8ca01211042ca6f2ef"
+    },
+    "README.md": {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-05\\real_trace_checkpoint_v25\\implementation\\selected_output_v1\\README.md",
+      "sha256": "b0c1e9a8d149d58be89b35e9cfe6fe370d132eb0134d71690f6f78335c2646cd"
+    },
+    "smoke.stderr.txt": {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-05\\real_trace_checkpoint_v25\\implementation\\selected_output_v1\\smoke.stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "smoke.stdout.txt": {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-05\\real_trace_checkpoint_v25\\implementation\\selected_output_v1\\smoke.stdout.txt",
+      "sha256": "ee8d84ed79da1fb5507162882d6665c419dbfd2cebdf548fafdea295f460df67"
+    },
+    "smoke_results_v1.json": {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-05\\real_trace_checkpoint_v25\\implementation\\selected_output_v1\\smoke_results_v1.json",
+      "sha256": "c1380885c7d4af4266f88d8af23fed04e446e2881cc715f1b8f07b3f21983055"
+    },
+    "smoke_v1.py": {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-05\\real_trace_checkpoint_v25\\implementation\\selected_output_v1\\smoke_v1.py",
+      "sha256": "f3fefd32c44f08ec4f1b291ad39fe55ccd57fc3dd21822eab9e1443d78d510d6"
+    },
+    "solver_v1.py": {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-05\\real_trace_checkpoint_v25\\implementation\\selected_output_v1\\solver_v1.py",
+      "sha256": "73ff8ecae70a55525ec6a2d3f1216e721ad2f1298d973d334e6f743080358e4e"
+    },
+    "write_readiness_v1.py": {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-05\\real_trace_checkpoint_v25\\implementation\\selected_output_v1\\write_readiness_v1.py",
+      "sha256": "95ce65901c31eb5f6fcf18ad4e36b3ad3ceb7e3fae779df4bbbb63422cd069ac"
+    }
+  },
+  "c017_copy": {
+    "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-05\\real_trace_checkpoint_v25\\implementation\\contexts_c017_copy_v1.py",
+    "sha256": "9f4613f24763cc3c309f96de38b2ae2d56729860421d991738749ab1f40ae565"
+  },
+  "c017_original": {
+    "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-04\\lancer_host_partition_v17\\implementation\\contexts_v1.py",
+    "sha256": "9f4613f24763cc3c309f96de38b2ae2d56729860421d991738749ab1f40ae565"
+  },
+  "contract": {
+    "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-05\\real_trace_checkpoint_v25\\theory\\MODEL_CONTRACT_V1.md",
+    "sha256": "662b15879807e4f243ef864532f47b5abd0cb9e11f18ebac0602f82eda20c0df"
+  },
+  "smoke_command": "py -3.14 results/2026-11-05/real_trace_checkpoint_v25/implementation/selected_output_v1/smoke_v1.py",
+  "smoke_exit_code": 0,
+  "oracle_controls": 162,
+  "delta": "new bounded solver reusing C017 block semantics; adds validation, polling, exact final-block cover, lazy cache and replayable output function witnesses",
+  "review_concerns": [
+    "No independent audit yet",
+    "Exhaustion metadata requires separate independent enumeration",
+    "Output rules can be large; deadline/resource interruption remains unresolved",
+    "No physical ownership or prediction claims",
+    "No data selection inside core"
+  ]
+}

@@ -1,0 +1,866 @@
+{
+  "developer_only": true,
+  "passed": true,
+  "records": [
+    {
+      "input": {
+        "alphabet": [
+          "a"
+        ],
+        "positive": [
+          "a"
+        ],
+        "negative": [
+          ""
+        ]
+      },
+      "status": "certified_unique",
+      "maximum": 1,
+      "tie_status": "unique"
+    },
+    {
+      "input": {
+        "alphabet": [
+          "a",
+          "b"
+        ],
+        "positive": [
+          "ab"
+        ],
+        "negative": [
+          "ba"
+        ]
+      },
+      "status": "certified_unique",
+      "maximum": 1,
+      "tie_status": "unique"
+    },
+    {
+      "input": {
+        "alphabet": [
+          "a",
+          "b",
+          "c",
+          "d"
+        ],
+        "positive": [
+          "",
+          "aabb",
+          "ccdd"
+        ],
+        "negative": [
+          "bbaa",
+          "ddcc"
+        ]
+      },
+      "status": "ambiguous",
+      "maximum": 2,
+      "tie_status": "unique"
+    },
+    {
+      "input": {
+        "alphabet": [
+          "a",
+          "b",
+          "c"
+        ],
+        "positive": [],
+        "negative": [
+          "abc",
+          ""
+        ]
+      },
+      "status": "ambiguous",
+      "maximum": 3,
+      "tie_status": "unique"
+    },
+    {
+      "input": {
+        "alphabet": [
+          "a",
+          "b",
+          "c"
+        ],
+        "positive": [
+          "abc"
+        ],
+        "negative": []
+      },
+      "status": "ambiguous",
+      "maximum": 3,
+      "tie_status": "unique"
+    },
+    {
+      "input": {
+        "alphabet": [
+          "a",
+          "b",
+          "c",
+          "d"
+        ],
+        "positive": [
+          "",
+          "bcc",
+          "dcd",
+          "dcb",
+          "cac",
+          "dd"
+        ],
+        "negative": [
+          "bdb",
+          "aba",
+          "bcb",
+          "ba",
+          "cda",
+          "aad"
+        ]
+      },
+      "status": "ambiguous",
+      "maximum": 3,
+      "tie_status": "unique"
+    },
+    {
+      "input": {
+        "alphabet": [
+          "a",
+          "b",
+          "c",
+          "d"
+        ],
+        "positive": [
+          "dc",
+          "add",
+          "dcd",
+          "dca",
+          "dcc",
+          "bc"
+        ],
+        "negative": [
+          "cb",
+          "bcc",
+          "aad",
+          "db",
+          "ccb",
+          "abb"
+        ]
+      },
+      "status": "ambiguous",
+      "maximum": 3,
+      "tie_status": "unique"
+    },
+    {
+      "input": {
+        "alphabet": [
+          "a",
+          "b",
+          "c",
+          "d"
+        ],
+        "positive": [
+          "ab",
+          "aba",
+          "ddc",
+          "ccc",
+          "b",
+          "dd"
+        ],
+        "negative": [
+          "aca",
+          "cdb",
+          "",
+          "ddd",
+          "bcd",
+          "bc"
+        ]
+      },
+      "status": "ambiguous",
+      "maximum": 2,
+      "tie_status": "unique"
+    },
+    {
+      "input": {
+        "alphabet": [
+          "a",
+          "b",
+          "c",
+          "d"
+        ],
+        "positive": [
+          "bc",
+          "acc",
+          "aca",
+          "dab",
+          "bca",
+          "bdb"
+        ],
+        "negative": [
+          "bac",
+          "dcd",
+          "aac",
+          "",
+          "db",
+          "b"
+        ]
+      },
+      "status": "ambiguous",
+      "maximum": 2,
+      "tie_status": "unique"
+    },
+    {
+      "input": {
+        "alphabet": [
+          "a",
+          "b",
+          "c",
+          "d"
+        ],
+        "positive": [
+          "dac",
+          "ccb",
+          "bcb",
+          "cbd",
+          "dcc",
+          "dad"
+        ],
+        "negative": [
+          "cdd",
+          "daa",
+          "dc",
+          "abc",
+          "abd",
+          "dca"
+        ]
+      },
+      "status": "ambiguous",
+      "maximum": 2,
+      "tie_status": "multiple"
+    },
+    {
+      "input": {
+        "alphabet": [
+          "a",
+          "b",
+          "c",
+          "d"
+        ],
+        "positive": [
+          "cac",
+          "aca",
+          "cbc",
+          "db",
+          "dda",
+          "ac"
+        ],
+        "negative": [
+          "dad",
+          "dbb",
+          "bcd",
+          "bbb",
+          "bdd",
+          "abc"
+        ]
+      },
+      "status": "ambiguous",
+      "maximum": 2,
+      "tie_status": "multiple"
+    },
+    {
+      "input": {
+        "alphabet": [
+          "a",
+          "b",
+          "c",
+          "d"
+        ],
+        "positive": [
+          "aaa",
+          "dc",
+          "bcb",
+          "ac",
+          "cab",
+          "bad"
+        ],
+        "negative": [
+          "cbc",
+          "bdb",
+          "cda",
+          "cbb",
+          "bca",
+          "bbc"
+        ]
+      },
+      "status": "ambiguous",
+      "maximum": 2,
+      "tie_status": "multiple"
+    },
+    {
+      "input": {
+        "alphabet": [
+          "a",
+          "b",
+          "c",
+          "d"
+        ],
+        "positive": [
+          "cbb",
+          "cda",
+          "cd",
+          "acd",
+          "abc",
+          "adc"
+        ],
+        "negative": [
+          "cba",
+          "acc",
+          "dda",
+          "dbd",
+          "bbd",
+          "dab"
+        ]
+      },
+      "status": "ambiguous",
+      "maximum": 3,
+      "tie_status": "multiple"
+    },
+    {
+      "input": {
+        "alphabet": [
+          "a",
+          "b",
+          "c",
+          "d"
+        ],
+        "positive": [
+          "d",
+          "da",
+          "aca",
+          "ddc",
+          "caa",
+          "dd"
+        ],
+        "negative": [
+          "baa",
+          "cb",
+          "cc",
+          "ccd",
+          "cdc",
+          ""
+        ]
+      },
+      "status": "ambiguous",
+      "maximum": 3,
+      "tie_status": "multiple"
+    },
+    {
+      "input": {
+        "alphabet": [
+          "a",
+          "b",
+          "c",
+          "d"
+        ],
+        "positive": [
+          "bb",
+          "acc",
+          "bc",
+          "bdc",
+          "cdc",
+          "aac"
+        ],
+        "negative": [
+          "dda",
+          "bad",
+          "add",
+          "ad",
+          "",
+          "caa"
+        ]
+      },
+      "status": "ambiguous",
+      "maximum": 2,
+      "tie_status": "unique"
+    },
+    {
+      "input": {
+        "alphabet": [
+          "a",
+          "b",
+          "c",
+          "d"
+        ],
+        "positive": [
+          "cbc",
+          "bda",
+          "bbc",
+          "abc",
+          "abb",
+          "aba"
+        ],
+        "negative": [
+          "cab",
+          "cdd",
+          "ddb",
+          "cdb",
+          "caa",
+          "dcc"
+        ]
+      },
+      "status": "ambiguous",
+      "maximum": 3,
+      "tie_status": "unique"
+    },
+    {
+      "input": {
+        "alphabet": [
+          "a",
+          "b",
+          "c",
+          "d"
+        ],
+        "positive": [
+          "dd",
+          "bcd",
+          "cba",
+          "bbc",
+          "dda",
+          "dc"
+        ],
+        "negative": [
+          "ad",
+          "dbb",
+          "adc",
+          "dbd",
+          "cdb",
+          "aab"
+        ]
+      },
+      "status": "ambiguous",
+      "maximum": 2,
+      "tie_status": "unique"
+    },
+    {
+      "input": {
+        "alphabet": [
+          "a",
+          "b",
+          "c",
+          "d"
+        ],
+        "positive": [
+          "bdd",
+          "bda",
+          "da",
+          "dba",
+          "db",
+          "cab"
+        ],
+        "negative": [
+          "aca",
+          "ddb",
+          "ccc",
+          "dbd",
+          "abb",
+          "adc"
+        ]
+      },
+      "status": "ambiguous",
+      "maximum": 2,
+      "tie_status": "multiple"
+    },
+    {
+      "input": {
+        "alphabet": [
+          "a",
+          "b",
+          "c",
+          "d"
+        ],
+        "positive": [
+          "bcc",
+          "a",
+          "bbc",
+          "cab",
+          "bd",
+          "cc"
+        ],
+        "negative": [
+          "bca",
+          "cdd",
+          "bdc",
+          "abd",
+          "caa",
+          "d"
+        ]
+      },
+      "status": "ambiguous",
+      "maximum": 2,
+      "tie_status": "unique"
+    },
+    {
+      "input": {
+        "alphabet": [
+          "a",
+          "b",
+          "c",
+          "d"
+        ],
+        "positive": [
+          "cd",
+          "dbd",
+          "bda",
+          "cbd",
+          "ca",
+          "dcd"
+        ],
+        "negative": [
+          "db",
+          "dbc",
+          "cbb",
+          "dab",
+          "adb",
+          "bdb"
+        ]
+      },
+      "status": "ambiguous",
+      "maximum": 3,
+      "tie_status": "unique"
+    },
+    {
+      "input": {
+        "alphabet": [
+          "a",
+          "b",
+          "c",
+          "d"
+        ],
+        "positive": [
+          "dbd",
+          "bad",
+          "bdd",
+          "bcd",
+          "aac",
+          "bc"
+        ],
+        "negative": [
+          "cca",
+          "bcb",
+          "ca",
+          "dbb",
+          "aba",
+          "cac"
+        ]
+      },
+      "status": "ambiguous",
+      "maximum": 3,
+      "tie_status": "multiple"
+    },
+    {
+      "input": {
+        "alphabet": [
+          "a",
+          "b",
+          "c",
+          "d"
+        ],
+        "positive": [
+          "bac",
+          "adb",
+          "cdb",
+          "dd",
+          "cda",
+          "bda"
+        ],
+        "negative": [
+          "cba",
+          "abd",
+          "bdc",
+          "a",
+          "cab",
+          "cc"
+        ]
+      },
+      "status": "certified_unique",
+      "maximum": 1,
+      "tie_status": "unique"
+    },
+    {
+      "input": {
+        "alphabet": [
+          "a",
+          "b",
+          "c",
+          "d"
+        ],
+        "positive": [
+          "cdc",
+          "ccd",
+          "bc",
+          "bda",
+          "cba",
+          "aad"
+        ],
+        "negative": [
+          "cbc",
+          "bcd",
+          "bab",
+          "bdd",
+          "bad",
+          "cac"
+        ]
+      },
+      "status": "ambiguous",
+      "maximum": 2,
+      "tie_status": "unique"
+    },
+    {
+      "input": {
+        "alphabet": [
+          "a",
+          "b",
+          "c",
+          "d"
+        ],
+        "positive": [
+          "cbd",
+          "dda",
+          "",
+          "ba",
+          "bd",
+          "dca"
+        ],
+        "negative": [
+          "bcc",
+          "cdc",
+          "bcb",
+          "dab",
+          "adc",
+          "aba"
+        ]
+      },
+      "status": "ambiguous",
+      "maximum": 2,
+      "tie_status": "multiple"
+    },
+    {
+      "input": {
+        "alphabet": [
+          "a",
+          "b",
+          "c",
+          "d"
+        ],
+        "positive": [
+          "bcd",
+          "acd",
+          "bbb",
+          "bc",
+          "dda",
+          "bba"
+        ],
+        "negative": [
+          "cac",
+          "add",
+          "bbd",
+          "bcc",
+          "cd",
+          "aba"
+        ]
+      },
+      "status": "ambiguous",
+      "maximum": 2,
+      "tie_status": "unique"
+    },
+    {
+      "input": {
+        "alphabet": [
+          "a",
+          "b",
+          "c",
+          "d"
+        ],
+        "positive": [
+          "d",
+          "dc",
+          "ca",
+          "ada",
+          "baa",
+          "bbc"
+        ],
+        "negative": [
+          "cda",
+          "db",
+          "daa",
+          "aa",
+          "cac",
+          "cad"
+        ]
+      },
+      "status": "ambiguous",
+      "maximum": 2,
+      "tie_status": "unique"
+    },
+    {
+      "input": {
+        "alphabet": [
+          "a",
+          "b",
+          "c",
+          "d"
+        ],
+        "positive": [
+          "bc",
+          "cd",
+          "dba",
+          "cdd",
+          "ddc",
+          "cbc"
+        ],
+        "negative": [
+          "dac",
+          "acd",
+          "acc",
+          "adb",
+          "bcd",
+          "ac"
+        ]
+      },
+      "status": "ambiguous",
+      "maximum": 2,
+      "tie_status": "unique"
+    },
+    {
+      "input": {
+        "alphabet": [
+          "a",
+          "b",
+          "c",
+          "d"
+        ],
+        "positive": [
+          "bbc",
+          "dca",
+          "cba",
+          "da",
+          "cc",
+          "dab"
+        ],
+        "negative": [
+          "aaa",
+          "cab",
+          "daa",
+          "adc",
+          "caa",
+          "acc"
+        ]
+      },
+      "status": "ambiguous",
+      "maximum": 2,
+      "tie_status": "multiple"
+    },
+    {
+      "input": {
+        "alphabet": [
+          "a",
+          "b",
+          "c",
+          "d"
+        ],
+        "positive": [
+          "dc",
+          "ca",
+          "aaa",
+          "bbc",
+          "cdc",
+          "ccb"
+        ],
+        "negative": [
+          "acd",
+          "bbd",
+          "bab",
+          "ad",
+          "dbb",
+          "cba"
+        ]
+      },
+      "status": "ambiguous",
+      "maximum": 2,
+      "tie_status": "multiple"
+    },
+    {
+      "control": "quota",
+      "output": {
+        "schema_version": 1,
+        "method": "C026-max-blocks-v1",
+        "status": "unresolved",
+        "physical_truth_read": false,
+        "findings": {
+          "data_insufficient": null,
+          "computation_incomplete": true
+        },
+        "recommendation": {
+          "objective": "max_blocks",
+          "partition": [
+            [
+              "a",
+              "b",
+              "c",
+              "d"
+            ]
+          ],
+          "witness": {
+            "blocks": [
+              [
+                "a",
+                "b",
+                "c",
+                "d"
+              ]
+            ],
+            "negative_rejections": [
+              {
+                "negative_index": 0,
+                "rejected_by_block": 0
+              },
+              {
+                "negative_index": 1,
+                "rejected_by_block": 0
+              }
+            ],
+            "local_language_rule": "positive_projections_from_input"
+          },
+          "block_count": 1,
+          "lower_bound": 1,
+          "upper_bound": 3,
+          "optimality_proved": false,
+          "tie_status": "unresolved",
+          "optimal_witnesses": []
+        },
+        "certificate": {
+          "forced_atoms": [
+            [
+              "a"
+            ],
+            [
+              "b"
+            ],
+            [
+              "c"
+            ],
+            [
+              "d"
+            ]
+          ],
+          "swap_forest": []
+        },
+        "metrics": {
+          "dp_entries": 1,
+          "dp_calls": 2,
+          "block_masks_computed": 5,
+          "reject_cache_limit": 4096,
+          "solver_seconds": 8.589999924879521e-05
+        },
+        "reason": "memo_limit"
+      }
+    }
+  ]
+}

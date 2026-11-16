@@ -1,0 +1,77 @@
+{
+  "state": "prepared_awaiting_manager_source_review_and_launch",
+  "official_timing_run": false,
+  "candidate_executed": false,
+  "unique_inputs": 196,
+  "correctness_calls": 689,
+  "timing_cells": 6,
+  "screening_attempts": 63,
+  "bipartition_checks": [
+    {
+      "r": 2,
+      "count": 1,
+      "expected": 1,
+      "matches_full_RGS": true
+    },
+    {
+      "r": 3,
+      "count": 3,
+      "expected": 3,
+      "matches_full_RGS": true
+    },
+    {
+      "r": 4,
+      "count": 7,
+      "expected": 7,
+      "matches_full_RGS": true
+    },
+    {
+      "r": 5,
+      "count": 15,
+      "expected": 15,
+      "matches_full_RGS": true
+    },
+    {
+      "r": 6,
+      "count": 31,
+      "expected": 31,
+      "matches_full_RGS": true
+    },
+    {
+      "r": 7,
+      "count": 63,
+      "expected": 63,
+      "matches_full_RGS": true
+    },
+    {
+      "r": 8,
+      "count": 127,
+      "expected": 127,
+      "matches_full_RGS": true
+    },
+    {
+      "r": 9,
+      "count": 255,
+      "expected": 255,
+      "matches_full_RGS": true
+    },
+    {
+      "r": 10,
+      "count": 511,
+      "expected": 511,
+      "matches_full_RGS": true
+    }
+  ],
+  "checks": {
+    "full_oracle_generated": true,
+    "analytic_obstruction_m2_to_m12": true,
+    "fixtures_frozen": true,
+    "historical_files_unchanged": true,
+    "provider_binding_pending_review": true
+  },
+  "limitations": [
+    "A/D use prior independent structural oracle; final replay must retain that proof",
+    "No correctness or timing provider execution in preparation",
+    "New route names must match reviewed implementation before launch"
+  ]
+}

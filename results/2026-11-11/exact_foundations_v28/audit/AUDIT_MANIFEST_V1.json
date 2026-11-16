@@ -1,0 +1,147 @@
+{
+  "audit": "C028 independent finite correctness audit v1",
+  "python": "3.14.6 (tags/v3.14.6:c63aec6, Jun 10 2026, 10:26:10) [MSC v.1944 64 bit (AMD64)]",
+  "platform": "Windows-11-10.0.26300-SP0",
+  "commands": [
+    "& 'C:\\Users\\Mahdi\\AppData\\Local\\Python\\pythoncore-3.14-64\\python.exe' build_fixtures_v1.py",
+    "& 'C:\\Users\\Mahdi\\AppData\\Local\\Python\\pythoncore-3.14-64\\python.exe' run_independent_audit_v1.py 1> audit_stdout_v2.txt 2> audit_stderr_v2.txt"
+  ],
+  "results": {
+    "source_sha256": "5f60b27447b37ec07f1fd6bce75be6199b898573d4b32e90413e900e3a615a94",
+    "spec_sha256": "c42eedb77ee7f78aa0303fc4d568b73f24c547cfbf82a8a615688fffb067d669",
+    "amendment_sha256": "6a6004b9a8bbca4c120dc03f25cb2310ce5e570de4fd25c60f7d0401910c9193",
+    "python": "3.14.6 (tags/v3.14.6:c63aec6, Jun 10 2026, 10:26:10) [MSC v.1944 64 bit (AMD64)]",
+    "platform": "Windows-11-10.0.26300-SP0",
+    "exhaustive_cases": 2187,
+    "seeded_cases": 60,
+    "edge_cases": 19,
+    "failures": [],
+    "invalid_schema_cases": 11,
+    "controls": {
+      "status": "passed",
+      "invalid_cases": 11,
+      "rename_and_order": "passed",
+      "dedup": "passed"
+    },
+    "large_alphabet_budget_control": "passed (1200 IDs, one candidate budget)",
+    "dfa_controls": {
+      "status": "passed",
+      "withheld_target_cases": 3,
+      "input_word_max_length": 3,
+      "physical_recovery_asserted": false
+    },
+    "sample_extension": {
+      "old_max": 2,
+      "extended_max": 2,
+      "old_rgs": [
+        0,
+        0,
+        1
+      ],
+      "extended_rgs": [
+        0,
+        1,
+        0
+      ]
+    },
+    "elapsed_seconds": 6.574359099991852,
+    "status": "passed"
+  },
+  "files": [
+    {
+      "path": "implementation/reference.py",
+      "bytes": 8349,
+      "sha256": "5f60b27447b37ec07f1fd6bce75be6199b898573d4b32e90413e900e3a615a94"
+    },
+    {
+      "path": "implementation/FREEZE.md",
+      "bytes": 1240,
+      "sha256": "5e3c064ecd91c8a246c94f81b097823becb0dcbd870c3cf0cc2a28fbb6ed4045"
+    },
+    {
+      "path": "theory/SPEC.md",
+      "bytes": 7563,
+      "sha256": "c42eedb77ee7f78aa0303fc4d568b73f24c547cfbf82a8a615688fffb067d669"
+    },
+    {
+      "path": "theory/PROOFS.md",
+      "bytes": 7361,
+      "sha256": "96afde6cc60c51b2f247ea19f5ce4f9ba2131b05c6a65567fb927d1ca57392cb"
+    },
+    {
+      "path": "theory/AMENDMENT_1.md",
+      "bytes": 2246,
+      "sha256": "6a6004b9a8bbca4c120dc03f25cb2310ce5e570de4fd25c60f7d0401910c9193"
+    },
+    {
+      "path": "review/REVIEW_VERDICT.md",
+      "bytes": 3874,
+      "sha256": "fd9f2e997fe416f7d4261d1a5960054a02cc7a88880f7f546a1ce670c0b819e0"
+    },
+    {
+      "path": "audit/reference_oracle_v28.py",
+      "bytes": 6894,
+      "sha256": "ab49bc6f2c9b87dc4a1aa4bb7fde8134069615e71051614224c6603c148a7efc"
+    },
+    {
+      "path": "audit/build_fixtures_v1.py",
+      "bytes": 4450,
+      "sha256": "c397157faf51cb3283915c93464535a8ad9b824579a642544efa62bd692dfde7"
+    },
+    {
+      "path": "audit/run_independent_audit_v1.py",
+      "bytes": 11425,
+      "sha256": "03c3ab38cb1db0cc5072683bd7a0a1570ac0d6319e91963bf3e93e19c173a2d3"
+    },
+    {
+      "path": "audit/binary_ternary_length2_v1.jsonl",
+      "bytes": 189796,
+      "sha256": "37d678965ca2c6871f48f9c1ec4f29da20f5f1f213d08bbd614488116616fd9d"
+    },
+    {
+      "path": "audit/seeded_m3_to_m8_v1.jsonl",
+      "bytes": 46082,
+      "sha256": "c14872cac1b4b0a9f8b7e2de795da2090595c356898ea3edfdb51facd95951c9"
+    },
+    {
+      "path": "audit/edge_cases_v1.jsonl",
+      "bytes": 81327,
+      "sha256": "5cd6b89d0f31c23787b7afebd410528f8ffecc40a22dd3f16fa43deb8cb2d6e9"
+    },
+    {
+      "path": "audit/invalid_cases_v1.jsonl",
+      "bytes": 494,
+      "sha256": "79ccd28a236440fac1d921b9cc2fd786d3a26b318938892d49e5da5b124c169d"
+    },
+    {
+      "path": "audit/FIXTURE_MANIFEST_V1.json",
+      "bytes": 706,
+      "sha256": "940e72a2f268d39abe81d0cb73d56b13b0e94d0658676df738fa3eb6cab8e038"
+    },
+    {
+      "path": "audit/INDEPENDENT_AUDIT_RESULTS_V1.json",
+      "bytes": 1156,
+      "sha256": "0f65da4b4e1560781956baabfbb38ef0299930b0b8648c9cee2c68feba40bb95"
+    },
+    {
+      "path": "audit/audit_stdout_v2.txt",
+      "bytes": 974,
+      "sha256": "8c13da0daa8ceb82c9c0c18c24a4bb133f6ad7c761af7776c04e7d5b08e205c8"
+    },
+    {
+      "path": "audit/audit_stderr_v2.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "audit/audit_stderr_v1.txt",
+      "bytes": 990,
+      "sha256": "8e2d89e920e0699b165ff9efcce86b68880d9be656ada38474e4db02db21fd24"
+    },
+    {
+      "path": "audit/AUDIT_REPORT_V1.md",
+      "bytes": 4961,
+      "sha256": "c58c05e19b0840c435cf30a1bc75bb72a07784e50a04760edc1e34bae855d93e"
+    }
+  ]
+}

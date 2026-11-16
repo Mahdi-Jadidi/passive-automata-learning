@@ -1,0 +1,372 @@
+{
+  "passed": true,
+  "frozen_sources": [
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-05\\search_checkpoint_v24\\implementation\\baseline_c020_v1\\gate_v1.py",
+      "sha256": "5331a1787a9ff74afe1afcbea1668dbe9ee69ef1f7121fec14c7281caa2d8680"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-05\\search_checkpoint_v24\\implementation\\candidate_c024a_v1\\gate_v1.py",
+      "sha256": "9725a263266f4e131019936e771b5df1cb100cd5715ec85c7dae90040f7e33f4"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-05\\search_checkpoint_v24\\implementation\\candidate_c024b_v1\\gate_v1.py",
+      "sha256": "4e5a8e39528efadf3d2eeaab2dfa02a0d77711d7028005737fe78a42b38cb9a3"
+    },
+    {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-05\\search_checkpoint_v24\\implementation\\integrated_c024_v1\\gate_v1.py",
+      "sha256": "0aded302c5f9b0a364e3428a8319eab15b1d96be67fd98a64d117faa1b3a1d61"
+    }
+  ],
+  "composition_matches": true,
+  "historical_baseline_unchanged": true,
+  "public_CLI_checks": [
+    {
+      "name": "unknown_K",
+      "command": [
+        "C:\\Users\\Mahdi\\AppData\\Local\\Python\\pythoncore-3.14-64\\python.exe",
+        "-B",
+        "-X",
+        "utf8",
+        "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\partition.py",
+        "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-05\\search_checkpoint_v24\\audit\\fixtures\\obstruction_m10.json",
+        "--seconds",
+        "20"
+      ],
+      "exit_code": 0,
+      "process_seconds": 1.5630660000024363,
+      "stdout": {
+        "assumptions": [
+          "finite noiseless full-word labels",
+          "known disjoint symbol ownership",
+          "independent regular factors without a state bound",
+          "all component counts allowed"
+        ],
+        "certificate": {
+          "bipartitions_tested": 511,
+          "forced_atoms": [
+            [
+              "a"
+            ],
+            [
+              "b"
+            ],
+            [
+              "c"
+            ],
+            [
+              "d"
+            ],
+            [
+              "e"
+            ],
+            [
+              "f"
+            ],
+            [
+              "g"
+            ],
+            [
+              "h"
+            ],
+            [
+              "i"
+            ],
+            [
+              "j"
+            ]
+          ],
+          "proof_basis": "C006-T3-coarsening-to-bipartitions",
+          "route": "exhausted_forced_atom_bipartitions",
+          "search_exhausted": true,
+          "swap_forest": [],
+          "witness": {
+            "blocks": [
+              [
+                "a",
+                "b",
+                "c",
+                "d",
+                "e",
+                "f",
+                "g",
+                "h",
+                "i",
+                "j"
+              ]
+            ],
+            "local_language_rule": "positive_projections_from_input",
+            "negative_rejections": [
+              {
+                "negative_index": 0,
+                "rejected_by_block": 0
+              }
+            ]
+          }
+        },
+        "explanation": "Exactly one compatible partition under the stated assumptions; the certified partition is released.",
+        "findings": {
+          "computation_incomplete": false,
+          "data_insufficient": false
+        },
+        "input_and_solver_seconds": 0.17832000000635162,
+        "input_sha256": "d6af7f08be609b5b8ad57701bd67bf2ff55ab9ad25d2badca426079b86b6949c",
+        "known_k": null,
+        "method": "C024-integrated-exact-search",
+        "metrics": {
+          "block_masks_computed": 1022,
+          "characters_counted": 100,
+          "complete_candidates": 512,
+          "count_chunks": 11,
+          "counter_characters_processed": 100,
+          "deletion_tables_built": 1022,
+          "graph_pair_universe": 10,
+          "graph_pairs_filtered": 10,
+          "invalid_validation_characters": 0,
+          "projection_characters": 102200,
+          "projection_chunks": 11242,
+          "reject_cache_hits": 10,
+          "reject_cache_limit": 4096,
+          "search_nodes": 511,
+          "solver_seconds": 0.17728560001705773,
+          "swap_pairs": 0,
+          "word_signatures": 11
+        },
+        "partition": [
+          [
+            "a",
+            "b",
+            "c",
+            "d",
+            "e",
+            "f",
+            "g",
+            "h",
+            "i",
+            "j"
+          ]
+        ],
+        "physical_truth_read": false,
+        "schema_version": 1,
+        "status": "certified_unique"
+      },
+      "stderr": "",
+      "input_sha256": "d6af7f08be609b5b8ad57701bd67bf2ff55ab9ad25d2badca426079b86b6949c",
+      "public_entry_sha256": "7ebb89b824ef68235b787936a5bac15af598e6c586b4de78c0802ea44c52bd99"
+    },
+    {
+      "name": "known_K",
+      "command": [
+        "C:\\Users\\Mahdi\\AppData\\Local\\Python\\pythoncore-3.14-64\\python.exe",
+        "-B",
+        "-X",
+        "utf8",
+        "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\partition.py",
+        "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-04\\scaling_v20\\audit\\fixtures_v1\\D\\solver_input.json",
+        "--known-k",
+        "4",
+        "--seconds",
+        "20"
+      ],
+      "exit_code": 0,
+      "process_seconds": 0.6951629999966826,
+      "stdout": {
+        "assumptions": [
+          "finite noiseless full-word labels",
+          "known disjoint symbol ownership",
+          "independent regular factors without a state bound",
+          "externally trusted exact known_k"
+        ],
+        "certificate": {
+          "envelope_rule": "growing_blocks_union_remaining_plus_remaining_if_new_block_allowed",
+          "forced_atoms": [
+            [
+              "a"
+            ],
+            [
+              "b"
+            ],
+            [
+              "c"
+            ],
+            [
+              "d"
+            ],
+            [
+              "e"
+            ],
+            [
+              "f"
+            ],
+            [
+              "g"
+            ],
+            [
+              "h"
+            ]
+          ],
+          "proof_basis": "C020-exact-reject-monotonic-envelope",
+          "route": "exhausted_all_forced_atom_coarsenings",
+          "search_exhausted": true,
+          "swap_forest": [],
+          "witness": {
+            "blocks": [
+              [
+                "a",
+                "h"
+              ],
+              [
+                "b",
+                "e"
+              ],
+              [
+                "c",
+                "g"
+              ],
+              [
+                "d",
+                "f"
+              ]
+            ],
+            "local_language_rule": "positive_projections_from_input",
+            "negative_rejections": [
+              {
+                "negative_index": 0,
+                "rejected_by_block": 3
+              },
+              {
+                "negative_index": 1,
+                "rejected_by_block": 2
+              },
+              {
+                "negative_index": 2,
+                "rejected_by_block": 1
+              },
+              {
+                "negative_index": 3,
+                "rejected_by_block": 0
+              }
+            ]
+          }
+        },
+        "explanation": "Exactly one compatible partition under the stated assumptions; the certified partition is released.",
+        "findings": {
+          "computation_incomplete": false,
+          "data_insufficient": false
+        },
+        "input_and_solver_seconds": 0.007008599990513176,
+        "input_sha256": "b70f130793c7ee067a58de579f5e2512e065daa092e187a353b005e1e625dfe1",
+        "known_k": 4,
+        "method": "C024-integrated-exact-search",
+        "metrics": {
+          "block_masks_computed": 79,
+          "characters_counted": 2048,
+          "complete_candidates": 11,
+          "count_chunks": 8,
+          "counter_characters_processed": 2048,
+          "deletion_tables_built": 79,
+          "envelope_checks": 160,
+          "envelope_prunes": 100,
+          "graph_pair_universe": 20,
+          "graph_pairs_filtered": 16,
+          "invalid_validation_characters": 0,
+          "projection_characters": 161792,
+          "projection_chunks": 632,
+          "reject_cache_hits": 555,
+          "reject_cache_limit": 4096,
+          "search_nodes": 207,
+          "solver_seconds": 0.006242600007681176,
+          "swap_pairs": 4,
+          "word_signatures": 9
+        },
+        "partition": [
+          [
+            "a",
+            "h"
+          ],
+          [
+            "b",
+            "e"
+          ],
+          [
+            "c",
+            "g"
+          ],
+          [
+            "d",
+            "f"
+          ]
+        ],
+        "physical_truth_read": false,
+        "schema_version": 1,
+        "status": "certified_unique"
+      },
+      "stderr": "",
+      "input_sha256": "b70f130793c7ee067a58de579f5e2512e065daa092e187a353b005e1e625dfe1",
+      "public_entry_sha256": "7ebb89b824ef68235b787936a5bac15af598e6c586b4de78c0802ea44c52bd99"
+    },
+    {
+      "name": "expired",
+      "command": [
+        "C:\\Users\\Mahdi\\AppData\\Local\\Python\\pythoncore-3.14-64\\python.exe",
+        "-B",
+        "-X",
+        "utf8",
+        "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\partition.py",
+        "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-05\\search_checkpoint_v24\\audit\\fixtures\\obstruction_m10.json",
+        "--seconds",
+        "0"
+      ],
+      "exit_code": 3,
+      "process_seconds": 1.079081000003498,
+      "stdout": {
+        "assumptions": [
+          "finite noiseless full-word labels",
+          "known disjoint symbol ownership",
+          "independent regular factors without a state bound",
+          "all component counts allowed"
+        ],
+        "explanation": "Required proof work did not complete; this does not establish observational insufficiency.",
+        "findings": {
+          "computation_incomplete": true,
+          "data_insufficient": null
+        },
+        "input_and_solver_seconds": 0.0006250000151339918,
+        "input_sha256": "d6af7f08be609b5b8ad57701bd67bf2ff55ab9ad25d2badca426079b86b6949c",
+        "known_k": null,
+        "method": "C024-integrated-exact-search",
+        "metrics": {
+          "block_masks_computed": 0,
+          "characters_counted": 0,
+          "complete_candidates": 0,
+          "count_chunks": 0,
+          "counter_characters_processed": 0,
+          "deletion_tables_built": 0,
+          "graph_pair_universe": 0,
+          "graph_pairs_filtered": 0,
+          "invalid_validation_characters": 0,
+          "projection_characters": 0,
+          "projection_chunks": 0,
+          "reject_cache_limit": 4096,
+          "search_nodes": 0,
+          "solver_seconds": 4.809998790733516e-05,
+          "swap_pairs": 0,
+          "word_signatures": 0
+        },
+        "physical_truth_read": false,
+        "reason": "Halt",
+        "schema_version": 1,
+        "status": "unresolved"
+      },
+      "stderr": "",
+      "input_sha256": "d6af7f08be609b5b8ad57701bd67bf2ff55ab9ad25d2badca426079b86b6949c",
+      "public_entry_sha256": "7ebb89b824ef68235b787936a5bac15af598e6c586b4de78c0802ea44c52bd99"
+    }
+  ],
+  "environment": {
+    "executable": "C:\\Users\\Mahdi\\AppData\\Local\\Python\\pythoncore-3.14-64\\python.exe",
+    "python": "3.14.6 (tags/v3.14.6:c63aec6, Jun 10 2026, 10:26:10) [MSC v.1944 64 bit (AMD64)]",
+    "platform": "Windows-11-10.0.26300-SP0"
+  },
+  "performance_claim": "none; these are functional post-promotion checks"
+}

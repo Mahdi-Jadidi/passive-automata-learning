@@ -1,0 +1,11 @@
+Traceback (most recent call last):
+  File "C:\Users\Mahdi\Documents\ChatGPT\passive automata learning\results\2026-11-11\review_optimization_v30\audit\verify_v28_oracle.py", line 273, in <module>
+    main()
+    ~~~~^^
+  File "C:\Users\Mahdi\Documents\ChatGPT\passive automata learning\results\2026-11-11\review_optimization_v30\audit\verify_v28_oracle.py", line 267, in main
+    result["candidate_B_internal_regressions"] = lru_and_early_failure_checks(candidate)
+                                                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^
+  File "C:\Users\Mahdi\Documents\ChatGPT\passive automata learning\results\2026-11-11\review_optimization_v30\audit\verify_v28_oracle.py", line 169, in lru_and_early_failure_checks
+    assert candidate._candidate(alpha, pos, neg, rgs) is None
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError

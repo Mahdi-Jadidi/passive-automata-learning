@@ -1,0 +1,68 @@
+{
+  "id": "C024-management-v1",
+  "date": "2026-11-05",
+  "timezone": "Asia/Tehran",
+  "authorization": "User requested delegated execution in other chats at lower effort or weaker models, managed until a useful algorithm checkpoint.",
+  "efficiency_policy": "Three scoped low-effort worker chats; no worker subdelegation; concise summaries and bounded experiments. No token/cost savings measured or guaranteed.",
+  "baseline_commit": "c1edb08b",
+  "baseline_solver_sha256": "5331a1787a9ff74afe1afcbea1668dbe9ee69ef1f7121fec14c7281caa2d8680",
+  "model_override": null,
+  "requested_thinking": "low",
+  "threads": [
+    {
+      "role": "implementation",
+      "thread_id": "01a1acf5-ac87-7ac2-84b7-3676ac71923b",
+      "host_id": "local",
+      "owns": [
+        "implementation",
+        "profile"
+      ],
+      "initial_scope": "profile current baseline and implement A only"
+    },
+    {
+      "role": "theory",
+      "thread_id": "01a1acf5-fb24-7cc3-8054-5909cc9d7e1b",
+      "host_id": "local",
+      "owns": [
+        "theory"
+      ],
+      "initial_scope": "proofs, counterexamples and English method draft"
+    },
+    {
+      "role": "audit",
+      "thread_id": "01a1acf6-5f50-7f82-b56d-2c0d050ebf01",
+      "host_id": "local",
+      "owns": [
+        "audit"
+      ],
+      "initial_scope": "independent controls, freeze protocol, prepare harness; official timing held for manager source review"
+    }
+  ],
+  "manager_owns": [
+    "coordination",
+    "research report",
+    "paper checkpoint integration",
+    "public promotion decision"
+  ],
+  "public_entrypoint_change": "C024 integrated promoted after separate A/B accepted comparisons, independent integrated correctness, manager composition review and public CLI verification",
+  "research_status": "checkpoint_complete_public_c024_promoted",
+  "lancer": "paused",
+  "rpni_measurement": "outside this checkpoint",
+  "limits": {
+    "max_candidates": 2,
+    "official_cells_per_comparison": 6,
+    "repetitions": 5,
+    "soft_seconds_per_call": 20,
+    "hard_seconds_per_call": 25,
+    "timing_process_budget_seconds_per_provider": 600
+  },
+  "pre_registered_decision": {
+    "semantic_errors_allowed": 0,
+    "witness_errors_allowed": 0,
+    "target_benefit": "A: >=20% median end-to-end reduction on at least one target, or all candidate repetitions complete while baseline repetitions are incomplete; candidate count reduction independently checked",
+    "guardrails": "Known-K A_K4 and D_K4 median regression >15% blocks automatic promotion pending explanation and review; no selective reruns",
+    "negative_evidence": "preserve all regressions, failures, timeouts, screening attempts and budget-unstarted work"
+  },
+  "final_evidence": "audit/FINAL_SUMMARY_V2.json",
+  "public_verification": "PUBLIC_VERIFICATION_V1.json"
+}

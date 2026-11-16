@@ -1,0 +1,3 @@
+Command: py -3.14 results/2026-11-05/search_checkpoint_v24/implementation/write_readiness_v1.py
+Exit: 1
+Readiness JSON was written, then console summary failed with KeyError: 'candidate_c024a_v1/gate_v1.py' because Windows dictionary keys used backslash separators. Fixed by normalizing relative keys with Path.as_posix(). Solver and smoke were unaffected. Original failing version differs from current writer only in files comprehension: str(p.relative_to(here)) instead of p.relative_to(here).as_posix().

@@ -1,0 +1,131 @@
+{
+  "status": "not_launched_awaiting_source_review",
+  "datasets": [
+    {
+      "dataset": "cage2_raw",
+      "training_sources": [
+        "artifact/data/cage2/cage2_raw_traces/raw_1.yaml",
+        "artifact/data/cage2/cage2_raw_traces/raw_10.yaml",
+        "artifact/data/cage2/cage2_raw_traces/raw_100.yaml",
+        "artifact/data/cage2/cage2_raw_traces/raw_1000.yaml"
+      ],
+      "heldout_sources": [
+        "artifact/data/cage2/cage2_raw_traces/raw_1001.yaml",
+        "artifact/data/cage2/cage2_raw_traces/raw_1002.yaml"
+      ],
+      "member_sha256": {
+        "artifact/data/cage2/cage2_raw_traces/raw_1.yaml": "65bd39d037016314dffb8051f5e61453e8b2b9b33a2d7c418608248cbcef5e7b",
+        "artifact/data/cage2/cage2_raw_traces/raw_10.yaml": "2c78674e4a15362a7adf1801fa7043021bcaeb9b4af8eb0c26b2b6fb75b5fd0d",
+        "artifact/data/cage2/cage2_raw_traces/raw_100.yaml": "b538e947a38ccc126c010859d36b61e77b23911cf604aec3f228afbfa3c5165b",
+        "artifact/data/cage2/cage2_raw_traces/raw_1000.yaml": "a797696da3c13bb92d4054d6d245c530c170a887fd83747baf166ebb7ffa795f",
+        "artifact/data/cage2/cage2_raw_traces/raw_1001.yaml": "a83d7519e631378652db60d77fc993c98e7a63c3a0b7f7f7596de161724c86f5",
+        "artifact/data/cage2/cage2_raw_traces/raw_1002.yaml": "872452c66189f792562390bcb16c24e8d6aaf421b80f4028bee51a75b941d20a"
+      },
+      "depths": [
+        0,
+        1,
+        2,
+        4,
+        8,
+        "full"
+      ],
+      "known_k": null,
+      "selection": "training frequency top8; tie opaque ID",
+      "max_dataset_outer_seconds": 120,
+      "max_cell_cooperative_seconds": 20
+    },
+    {
+      "dataset": "baby_random15",
+      "training_sources": [
+        "artifact/data/one_host_network_validity_only/trial_1/random_15steps/training_traces/output_1.txt",
+        "artifact/data/one_host_network_validity_only/trial_1/random_15steps/training_traces/output_10.txt",
+        "artifact/data/one_host_network_validity_only/trial_1/random_15steps/training_traces/output_100.txt",
+        "artifact/data/one_host_network_validity_only/trial_1/random_15steps/training_traces/output_1000.txt"
+      ],
+      "heldout_sources": [
+        "artifact/data/one_host_network_validity_only/trial_1/random_15steps/training_traces/output_1001.txt",
+        "artifact/data/one_host_network_validity_only/trial_1/random_15steps/training_traces/output_1002.txt"
+      ],
+      "member_sha256": {
+        "artifact/data/one_host_network_validity_only/trial_1/random_15steps/training_traces/output_1.txt": "92658b2b15c0ed5d4e07f08df5d0fdce7f62af65c472b97c12091b8c03ec634d",
+        "artifact/data/one_host_network_validity_only/trial_1/random_15steps/training_traces/output_10.txt": "c3ad25be05aad6779a4724d95f03ae3e9c0cead84ada566607046e66c52e152e",
+        "artifact/data/one_host_network_validity_only/trial_1/random_15steps/training_traces/output_100.txt": "e53bba13d6ccb9828951a356168dd84d00d35344155adb4569af8603f662b998",
+        "artifact/data/one_host_network_validity_only/trial_1/random_15steps/training_traces/output_1000.txt": "36777ed8988983faf2aad53cd33f078a7866f869633b28440b1da25710146f7b",
+        "artifact/data/one_host_network_validity_only/trial_1/random_15steps/training_traces/output_1001.txt": "b906913b37246734a3f3d1db8df515abefadd8a41a70c75cbd392e0199c25406",
+        "artifact/data/one_host_network_validity_only/trial_1/random_15steps/training_traces/output_1002.txt": "35f6b467176047f484c737ad8099bd3ff0829e2c9b394f07da4a65cfae68490c"
+      },
+      "depths": [
+        0,
+        1,
+        2,
+        4,
+        8,
+        "full"
+      ],
+      "known_k": null,
+      "selection": "training frequency top8; tie opaque ID",
+      "max_dataset_outer_seconds": 120,
+      "max_cell_cooperative_seconds": 20
+    },
+    {
+      "dataset": "baby_heuristic15",
+      "training_sources": [
+        "artifact/data/one_host_network_validity_only/trial_1/heuristic_15steps/training_traces/output_1.txt",
+        "artifact/data/one_host_network_validity_only/trial_1/heuristic_15steps/training_traces/output_10.txt",
+        "artifact/data/one_host_network_validity_only/trial_1/heuristic_15steps/training_traces/output_100.txt",
+        "artifact/data/one_host_network_validity_only/trial_1/heuristic_15steps/training_traces/output_1000.txt"
+      ],
+      "heldout_sources": [
+        "artifact/data/one_host_network_validity_only/trial_1/heuristic_15steps/training_traces/output_1001.txt",
+        "artifact/data/one_host_network_validity_only/trial_1/heuristic_15steps/training_traces/output_1002.txt"
+      ],
+      "member_sha256": {
+        "artifact/data/one_host_network_validity_only/trial_1/heuristic_15steps/training_traces/output_1.txt": "c2daaf1f1b8a157e85d52e4f948372a2f778fde89ff46b834443f4906c52f269",
+        "artifact/data/one_host_network_validity_only/trial_1/heuristic_15steps/training_traces/output_10.txt": "f48944ac6a1d0afb39192ec7d4b014111cc7ce78ec08dabd9c2e2651c8758fad",
+        "artifact/data/one_host_network_validity_only/trial_1/heuristic_15steps/training_traces/output_100.txt": "8c81ed6f665fb9de29a42474537dee4558fc4d8bfa40863b3e0c7ef1a50ffa59",
+        "artifact/data/one_host_network_validity_only/trial_1/heuristic_15steps/training_traces/output_1000.txt": "9f58d1f257d33f04ee0f6b5c74877d776ace76ca2dbc024bcce3ddc5b0377a88",
+        "artifact/data/one_host_network_validity_only/trial_1/heuristic_15steps/training_traces/output_1001.txt": "cc6eaab1b1fd4a187da0a0b3a5e093c8d9a6a298d136941608d5431e1b419776",
+        "artifact/data/one_host_network_validity_only/trial_1/heuristic_15steps/training_traces/output_1002.txt": "0fe0369398612f93edab7884ae1c1173f7f038a9b9781564d5590d123e4e517a"
+      },
+      "depths": [
+        0,
+        1,
+        2,
+        4,
+        8,
+        "full"
+      ],
+      "known_k": null,
+      "selection": "training frequency top8; tie opaque ID",
+      "max_dataset_outer_seconds": 120,
+      "max_cell_cooperative_seconds": 20
+    },
+    {
+      "dataset": "BGL2k",
+      "training_rows_1based": [
+        1,
+        1400
+      ],
+      "heldout_rows_1based": [
+        1401,
+        2000
+      ],
+      "depths": [
+        0,
+        1,
+        2,
+        4,
+        8,
+        "full"
+      ],
+      "known_k": null,
+      "input": "EventId",
+      "output": "True iff -",
+      "boundary": "one observed stream; retain training history into heldout",
+      "max_dataset_outer_seconds": 120,
+      "max_cell_cooperative_seconds": 20
+    }
+  ],
+  "official_timing": false,
+  "solver_runs": 0
+}

@@ -1,0 +1,60 @@
+{
+  "candidate": "C024-B-v1",
+  "ready_for_source_review": true,
+  "ready_for_independent_audit": true,
+  "official_benchmarks_run": false,
+  "baseline": {
+    "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-05\\search_checkpoint_v24\\implementation\\baseline_c020_v1\\gate_v1.py",
+    "sha256": "5331a1787a9ff74afe1afcbea1668dbe9ee69ef1f7121fec14c7281caa2d8680"
+  },
+  "frozen_a": {
+    "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-05\\search_checkpoint_v24\\implementation\\candidate_c024a_v1\\gate_v1.py",
+    "sha256": "9725a263266f4e131019936e771b5df1cb100cd5715ec85c7dae90040f7e33f4"
+  },
+  "files": {
+    "gate_v1.py": {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-05\\search_checkpoint_v24\\implementation\\candidate_c024b_v1\\gate_v1.py",
+      "sha256": "4e5a8e39528efadf3d2eeaab2dfa02a0d77711d7028005737fe78a42b38cb9a3"
+    },
+    "METHOD_v1.md": {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-05\\search_checkpoint_v24\\implementation\\candidate_c024b_v1\\METHOD_v1.md",
+      "sha256": "012d0afdcf3446d96cd53b6ba48472d1e3ed45c7f412a18057e2f801552adda8"
+    },
+    "minimal.diff": {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-05\\search_checkpoint_v24\\implementation\\candidate_c024b_v1\\minimal.diff",
+      "sha256": "83f822cb2184c600a1cf977745f96bd82f3f0c9993aa55d40a950f3b9ef902e1"
+    },
+    "partition_gate_v1.py": {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-05\\search_checkpoint_v24\\implementation\\candidate_c024b_v1\\partition_gate_v1.py",
+      "sha256": "60a5865a1846ed060b0954eef9cc7937d8709cb2a1aec4a4dbfc0925fac27758"
+    },
+    "smoke.stderr.txt": {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-05\\search_checkpoint_v24\\implementation\\candidate_c024b_v1\\smoke.stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "smoke.stdout.txt": {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-05\\search_checkpoint_v24\\implementation\\candidate_c024b_v1\\smoke.stdout.txt",
+      "sha256": "14ce7a1d24cc7b2bd2568ead3111b17dcdc063955697981989c46f5620e6ff62"
+    },
+    "smoke_results_v1.json": {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-05\\search_checkpoint_v24\\implementation\\candidate_c024b_v1\\smoke_results_v1.json",
+      "sha256": "802ea18836d60bea187e35213dcf53db12e6cf3393da913e4f979033d77a1102"
+    },
+    "smoke_v1.py": {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-05\\search_checkpoint_v24\\implementation\\candidate_c024b_v1\\smoke_v1.py",
+      "sha256": "648420064dd16d53d295d8003bb9d918a0a990072c8caef9536df3b749d4415a"
+    },
+    "write_readiness_v1.py": {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-05\\search_checkpoint_v24\\implementation\\candidate_c024b_v1\\write_readiness_v1.py",
+      "sha256": "dd00fcfe3df7c1f7c2d8e38d7be4d96fa5baebc464d13bd998a167e9673d4f8c"
+    }
+  },
+  "smoke_command": "py -3.14 results/2026-11-05/search_checkpoint_v24/implementation/candidate_c024b_v1/smoke_v1.py",
+  "smoke_exit_code": 0,
+  "rule": "include reject(U) iff len(masks) < known_k; only nonterminal known-K DFS after count bounds",
+  "limits": [
+    "Independent full audit pending",
+    "No official benchmarks",
+    "No public promotion"
+  ]
+}
