@@ -1,0 +1,5 @@
+# Logic full-output implementation authorization
+
+Manager authorizes implementation of logic/DESIGN_CONTRACT_EN.md SHA-256 B6F357853F6D6D473FA1EE626268017E05EAAB36CDCA3D4166C4BC3D1AA5293E following independent review/LOGIC_DESIGN_GATE_EN.md SHA-256 8FA5C837F114E82EB312090F959007707107E291208C6D5CFF55A61199A44158. No V35 solver code precedes this gate.
+
+Scope is full returned-value compatibility with the frozen executable reference, exact exhaustive SAT counts and canonical witnesses. Bell preflight provides approved observable result equivalence for max_candidates; it does not execute the literal canonical candidate prefix. This limitation must be explicit in documentation and reports. A completed run and independently replayed witnesses do not constitute an independently verified count certificate. Reuse/adaptation of V34 independent Boolean machinery is allowed and must be disclosed; old reference/partition engines are audit oracles only. Preserve all frozen evidence. Independent source and output audit follows implementation. No benchmark, public default change, commit or push.
