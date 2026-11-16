@@ -1,0 +1,70 @@
+{
+  "cell": "m12_repeated3symbol",
+  "rep": 0,
+  "mode": "new",
+  "argv": [
+    "C:\\Users\\Mahdi\\AppData\\Local\\Python\\pythoncore-3.14-64\\python.exe",
+    "-B",
+    "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-06\\recommendation_checkpoint_v26\\audit\\timing_v1.py",
+    "worker",
+    "new",
+    "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-06\\recommendation_checkpoint_v26\\audit\\m12_repeated3symbol_INPUT_V1.json"
+  ],
+  "attempt": 30,
+  "timeout": false,
+  "exit_code": 0,
+  "outer_seconds": 0.469540699999925,
+  "stdout_path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-06\\recommendation_checkpoint_v26\\audit\\timing_captures_v2\\30_stdout.bin",
+  "stdout_sha256": "62aea87f0f4f62b63774a0cf9624b5fa0a42e23f3eabb9bd822800e0d2a30b8c",
+  "stderr_path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-06\\recommendation_checkpoint_v26\\audit\\timing_captures_v2\\30_stderr.bin",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "output": {
+    "maximum_blocks": 4,
+    "optimum_tieclass": "unique",
+    "witness": {
+      "blocks": [
+        [
+          "a",
+          "b",
+          "c"
+        ],
+        [
+          "d",
+          "e",
+          "f"
+        ],
+        [
+          "g",
+          "h",
+          "i"
+        ],
+        [
+          "j",
+          "k",
+          "l"
+        ]
+      ],
+      "negative_rejections": [
+        {
+          "negative_index": 0,
+          "rejected_by_block": 0
+        },
+        {
+          "negative_index": 1,
+          "rejected_by_block": 1
+        },
+        {
+          "negative_index": 2,
+          "rejected_by_block": 2
+        },
+        {
+          "negative_index": 3,
+          "rejected_by_block": 3
+        }
+      ],
+      "local_language_rule": "positive_projections_from_input"
+    },
+    "completed": true,
+    "solver_seconds": 0.1860296999984712
+  }
+}

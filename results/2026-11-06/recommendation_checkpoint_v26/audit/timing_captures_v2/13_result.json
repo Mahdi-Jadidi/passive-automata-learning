@@ -1,0 +1,52 @@
+{
+  "cell": "m6_repeated3symbol",
+  "rep": 0,
+  "mode": "baseline",
+  "argv": [
+    "C:\\Users\\Mahdi\\AppData\\Local\\Python\\pythoncore-3.14-64\\python.exe",
+    "-B",
+    "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-06\\recommendation_checkpoint_v26\\audit\\timing_v1.py",
+    "worker",
+    "baseline",
+    "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-06\\recommendation_checkpoint_v26\\audit\\m6_repeated3symbol_INPUT_V1.json"
+  ],
+  "attempt": 13,
+  "timeout": false,
+  "exit_code": 0,
+  "outer_seconds": 0.23690999999962514,
+  "stdout_path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-06\\recommendation_checkpoint_v26\\audit\\timing_captures_v2\\13_stdout.bin",
+  "stdout_sha256": "b518cced7bc9c1c4c83507df5fbb3d9e8115887b3f54b03dec83b15755307550",
+  "stderr_path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-06\\recommendation_checkpoint_v26\\audit\\timing_captures_v2\\13_stderr.bin",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "output": {
+    "maximum_blocks": 2,
+    "optimum_tieclass": "unique",
+    "witness": {
+      "blocks": [
+        [
+          "a",
+          "b",
+          "c"
+        ],
+        [
+          "d",
+          "e",
+          "f"
+        ]
+      ],
+      "negative_rejections": [
+        {
+          "negative_index": 0,
+          "rejected_by_block": 0
+        },
+        {
+          "negative_index": 1,
+          "rejected_by_block": 1
+        }
+      ],
+      "local_language_rule": "positive_projections_from_input"
+    },
+    "completed": true,
+    "solver_seconds": 0.0022057999995013233
+  }
+}
