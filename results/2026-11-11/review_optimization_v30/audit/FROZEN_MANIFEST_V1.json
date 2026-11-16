@@ -1,0 +1,52 @@
+{
+  "status": "FROZEN_BEFORE_CANDIDATE_RUNS",
+  "created_utc_local_clock_not_available": true,
+  "python_executable": "C:\\Users\\Mahdi\\AppData\\Local\\Python\\PythonCore-3.14-64\\python.exe",
+  "python_version": "3.14.6 (tags/v3.14.6:c63aec6, Jun 10 2026, 10:26:10) [MSC v.1944 64 bit (AMD64)]",
+  "platform": "Windows-11-10.0.26300-SP0",
+  "candidate_expected_sha256": "7501901c6de5d7bb78ffc60f152b818733e3bd4460c9a655b8d783f384e8fc2b",
+  "baseline_expected_sha256": "5f60b27447b37ec07f1fd6bce75be6199b898573d4b32e90413e900e3a615a94",
+  "proposal_proof_sha256": "4a11b61337b0a1dda5e9969fdb1741e5d87d43a03ec74f5afbddbb712955ef79",
+  "commands": [
+    "python freeze_suite.py",
+    "python verify_v28_oracle.py",
+    "python verify_v28_oracle.py --go",
+    "python run_timing.py"
+  ],
+  "correctness_corpus": {
+    "fixed": 24,
+    "exhaustive_binary": 2187,
+    "seeded_generic": 60,
+    "total_unlimited": 2271,
+    "budgets_per_variant": 8,
+    "invalid_per_variant": 9
+  },
+  "timing_matrix": {
+    "cases": 8,
+    "solvers": [
+      "baseline",
+      "combined"
+    ],
+    "repetitions": 3,
+    "max_observations": 48,
+    "budget": null,
+    "subprocess_timeout_seconds": 20
+  },
+  "files": {
+    "results\\2026-11-11\\review_optimization_v30\\optimization\\candidate_v1.py": "7501901c6de5d7bb78ffc60f152b818733e3bd4460c9a655b8d783f384e8fc2b",
+    "results\\2026-11-11\\exact_foundations_v28\\implementation\\reference.py": "5f60b27447b37ec07f1fd6bce75be6199b898573d4b32e90413e900e3a615a94",
+    "results\\2026-11-11\\review_optimization_v30\\review\\CANDIDATE_SOURCE_VERDICT.md": "480676de1e804ee44d48bb998e0d5419e27e496011ffc41eb1548ab276fb8c05",
+    "results\\2026-11-11\\review_optimization_v30\\optimization\\PROPOSAL_PROOFS_V1.md": "4a11b61337b0a1dda5e9969fdb1741e5d87d43a03ec74f5afbddbb712955ef79",
+    "results\\2026-11-11\\review_optimization_v30\\review\\OPTIMIZATION_PROOF_VERDICT.md": "7f659676a6ff9570deef0ef25fbbdf60d367aeb8f373291ee47423336cb6c8fb",
+    "results\\2026-11-11\\review_optimization_v30\\audit\\reference_oracle_v28.py": "ab49bc6f2c9b87dc4a1aa4bb7fde8134069615e71051614224c6603c148a7efc",
+    "results\\2026-11-11\\review_optimization_v30\\audit\\verify_v28_oracle.py": "a790a9ce94551e8e6829a6d1ffd957073fa52c1e1f4de60821294858bf51ba25",
+    "results\\2026-11-11\\review_optimization_v30\\audit\\freeze_suite.py": "57061e95f925558b4219b37223f037f739f48f91dfe3876b7c26a1b2e3fce0d2",
+    "results\\2026-11-11\\review_optimization_v30\\audit\\benchmark_protocol.md": "2a6120d8fd9eec3b0faed818ace1dfb087a01c5a5ca70974f07bdebf5e79af6a",
+    "results\\2026-11-11\\review_optimization_v30\\audit\\fixed_cases.jsonl": "23ec91aaffcf57b64a185352616878c97e4ced346b377048b6fd283050c82f28",
+    "results\\2026-11-11\\review_optimization_v30\\audit\\timing_cases.jsonl": "aced9d1a86f2498ae36be6adce72e083c43e0367cb0662a7d5b118b80a3eee9a",
+    "results\\2026-11-11\\review_optimization_v30\\audit\\timing_worker.py": "9ee41b6917ceb419e958d5c81bbac1e5755df1ec01528a0fd63f3aa2146efa23",
+    "results\\2026-11-11\\review_optimization_v30\\audit\\run_timing.py": "0450e22634611e0aa8bc8b54a2b33a00e7b92fdfc7474dc1fb10c30f39cf5432",
+    "results\\2026-11-11\\review_optimization_v30\\audit\\final_baseline_stdout.txt": "73bd2115e654f455b4c37d0177ca25b1be8fe605e7491f9a4e5371c0c535d299",
+    "results\\2026-11-11\\review_optimization_v30\\audit\\final_baseline_stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+}

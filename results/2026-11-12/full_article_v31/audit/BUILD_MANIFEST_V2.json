@@ -1,0 +1,410 @@
+{
+  "status": "FINAL_PDF_QA_PASS",
+  "python_executable": "C:\\Users\\Mahdi\\AppData\\Local\\Python\\pythoncore-3.14-64\\python.exe",
+  "python_version": "3.14.6 (tags/v3.14.6:c63aec6, Jun 10 2026, 10:26:10) [MSC v.1944 64 bit (AMD64)]",
+  "platform": "Windows-11-10.0.26300-SP0",
+  "word_executable": "C:\\Program Files\\Microsoft Office\\root\\Office16\\WINWORD.EXE",
+  "render_path": "Microsoft Word COM export from the exact working DOCX, then bundled Poppler",
+  "commands": [
+    "bundled python document/build_article_docx_v2.py",
+    "powershell -File document/render_with_word_v2.ps1",
+    "bundled Poppler pdfinfo.exe audit/render/v2/Exact_Alphabet_Partitioning_Article_EN.pdf",
+    "bundled Poppler pdftoppm.exe -png -r 144 audit/render/v2/Exact_Alphabet_Partitioning_Article_EN.pdf audit/render/v2/page",
+    "bundled python audit/readback_article_v2.py"
+  ],
+  "artifact_markers": [
+    "documents: create, output-format docx, expected-output-count 1",
+    "pdf: create, output-format pdf, expected-output-count 1"
+  ],
+  "packaged_renderer_attempt": {
+    "attempted_once": true,
+    "outcome": "FileNotFoundError: LibreOffice soffice.exe was not found on PATH",
+    "fallback": "Word COM using an owned invisible Word.Application instance; exported exact DOCX"
+  },
+  "page_count": 10,
+  "page_size": "A4",
+  "dpi": 144,
+  "visual_review": "All 10 final v2 page PNGs inspected individually at original resolution; layout, math, tables and all pseudocode indentation were checked.",
+  "readback": {
+    "status": "PASS",
+    "approved_source_hashes": {
+      "ARTICLE_EN.md": "43a786ba43256db277d76d80986a58a7506721c8b91d71f2c9755fe694c1e6af",
+      "NUMBERED_PSEUDOCODE.txt": "4f87f5ed50cdafd53d8f02dcbf6d4cdb32b00030e3a2834b4295f8be88d002df",
+      "EQUATION_INVENTORY_V1.md": "56e440a8c310060ea293f5bce8ba6f6e01b351e1365bdf2073b1b7856e3a6332"
+    },
+    "docx_sha256": "ef9e45afb607b2ead0e1507bf7c360ce2bf7f61bf488f3d4b58f1cc3e4e80ab5",
+    "pdf_sha256": "3310ea3c7b481a041907535ed23c922d2fa125449ed70b44bab4460bf4158144",
+    "pdf_pages": 10,
+    "complete_docx_text_matches_source": true,
+    "numbered_pseudocode_rows_exact": 37,
+    "pseudocode_source_indentation_compared": true,
+    "pseudocode_indentation_rows": [
+      {
+        "line": "01",
+        "text_exact": true,
+        "source_indent_spaces": 0,
+        "docx_indent_twips": 0
+      },
+      {
+        "line": "02",
+        "text_exact": true,
+        "source_indent_spaces": 4,
+        "docx_indent_twips": 432
+      },
+      {
+        "line": "03",
+        "text_exact": true,
+        "source_indent_spaces": 4,
+        "docx_indent_twips": 432
+      },
+      {
+        "line": "04",
+        "text_exact": true,
+        "source_indent_spaces": 0,
+        "docx_indent_twips": 0
+      },
+      {
+        "line": "05",
+        "text_exact": true,
+        "source_indent_spaces": 4,
+        "docx_indent_twips": 432
+      },
+      {
+        "line": "06",
+        "text_exact": true,
+        "source_indent_spaces": 4,
+        "docx_indent_twips": 432
+      },
+      {
+        "line": "07",
+        "text_exact": true,
+        "source_indent_spaces": 8,
+        "docx_indent_twips": 864
+      },
+      {
+        "line": "08",
+        "text_exact": true,
+        "source_indent_spaces": 0,
+        "docx_indent_twips": 0
+      },
+      {
+        "line": "09",
+        "text_exact": true,
+        "source_indent_spaces": 4,
+        "docx_indent_twips": 432
+      },
+      {
+        "line": "10",
+        "text_exact": true,
+        "source_indent_spaces": 4,
+        "docx_indent_twips": 432
+      },
+      {
+        "line": "11",
+        "text_exact": true,
+        "source_indent_spaces": 4,
+        "docx_indent_twips": 432
+      },
+      {
+        "line": "12",
+        "text_exact": true,
+        "source_indent_spaces": 4,
+        "docx_indent_twips": 432
+      },
+      {
+        "line": "13",
+        "text_exact": true,
+        "source_indent_spaces": 8,
+        "docx_indent_twips": 864
+      },
+      {
+        "line": "14",
+        "text_exact": true,
+        "source_indent_spaces": 8,
+        "docx_indent_twips": 864
+      },
+      {
+        "line": "15",
+        "text_exact": true,
+        "source_indent_spaces": 8,
+        "docx_indent_twips": 864
+      },
+      {
+        "line": "16",
+        "text_exact": true,
+        "source_indent_spaces": 4,
+        "docx_indent_twips": 432
+      },
+      {
+        "line": "17",
+        "text_exact": true,
+        "source_indent_spaces": 0,
+        "docx_indent_twips": 0
+      },
+      {
+        "line": "18",
+        "text_exact": true,
+        "source_indent_spaces": 4,
+        "docx_indent_twips": 432
+      },
+      {
+        "line": "19",
+        "text_exact": true,
+        "source_indent_spaces": 4,
+        "docx_indent_twips": 432
+      },
+      {
+        "line": "20",
+        "text_exact": true,
+        "source_indent_spaces": 4,
+        "docx_indent_twips": 432
+      },
+      {
+        "line": "21",
+        "text_exact": true,
+        "source_indent_spaces": 4,
+        "docx_indent_twips": 432
+      },
+      {
+        "line": "22",
+        "text_exact": true,
+        "source_indent_spaces": 4,
+        "docx_indent_twips": 432
+      },
+      {
+        "line": "23",
+        "text_exact": true,
+        "source_indent_spaces": 8,
+        "docx_indent_twips": 864
+      },
+      {
+        "line": "24",
+        "text_exact": true,
+        "source_indent_spaces": 8,
+        "docx_indent_twips": 864
+      },
+      {
+        "line": "25",
+        "text_exact": true,
+        "source_indent_spaces": 8,
+        "docx_indent_twips": 864
+      },
+      {
+        "line": "26",
+        "text_exact": true,
+        "source_indent_spaces": 8,
+        "docx_indent_twips": 864
+      },
+      {
+        "line": "27",
+        "text_exact": true,
+        "source_indent_spaces": 8,
+        "docx_indent_twips": 864
+      },
+      {
+        "line": "28",
+        "text_exact": true,
+        "source_indent_spaces": 8,
+        "docx_indent_twips": 864
+      },
+      {
+        "line": "29",
+        "text_exact": true,
+        "source_indent_spaces": 12,
+        "docx_indent_twips": 1296
+      },
+      {
+        "line": "30",
+        "text_exact": true,
+        "source_indent_spaces": 8,
+        "docx_indent_twips": 864
+      },
+      {
+        "line": "31",
+        "text_exact": true,
+        "source_indent_spaces": 12,
+        "docx_indent_twips": 1296
+      },
+      {
+        "line": "32",
+        "text_exact": true,
+        "source_indent_spaces": 12,
+        "docx_indent_twips": 1296
+      },
+      {
+        "line": "33",
+        "text_exact": true,
+        "source_indent_spaces": 4,
+        "docx_indent_twips": 432
+      },
+      {
+        "line": "34",
+        "text_exact": true,
+        "source_indent_spaces": 4,
+        "docx_indent_twips": 432
+      },
+      {
+        "line": "35",
+        "text_exact": true,
+        "source_indent_spaces": 4,
+        "docx_indent_twips": 432
+      },
+      {
+        "line": "36",
+        "text_exact": true,
+        "source_indent_spaces": 4,
+        "docx_indent_twips": 432
+      },
+      {
+        "line": "37",
+        "text_exact": true,
+        "source_indent_spaces": 11,
+        "docx_indent_twips": 1188
+      }
+    ],
+    "display_omml_equation_lines": 8,
+    "display_formula_readback": [
+      "L(Π,(FB)) = {w∈Σ* : ∀B∈Π, πB(w)∈FB}. (1)",
+      "C=|𝒱(P,N)|,   k*=max{|Π| : Π∈𝒱(P,N)},",
+      "O=|{Π∈𝒱(P,N) : |Π|=k*}|. (2)",
+      "HB={πB(p):p∈P},     R(B)={n∈N: πB(n)∉HB}. (3)",
+      "∀n∈N ∃B∈Π ∀p∈P: πB(n)≠πB(p),",
+      "equivalently ⋃B∈Π R(B)=N. (4)",
+      "s1=0,   0≤si≤1+max{s1,…,si−1}   for 2≤i≤m. (5)",
+      "VB[j]=true iff πB(nj)∉HB. (6)"
+    ],
+    "omml_subscripts": 51,
+    "omml_superscripts": 10,
+    "status_tokens_literal_in_word_runs": true,
+    "pdf_text_chars": 33184,
+    "pdf_critical_tokens_checked": true,
+    "pdf_text_readback": "PDF_TEXT_READBACK_V2.txt"
+  },
+  "reviewer_verdict_sha256": "6cd7d49ede1e732bf901bb639f910d2d4c2dcbce1ea47836ecf08a2a48b9df15",
+  "final_pdf_copy_byte_identical_to_word_render": true,
+  "files": {
+    "approved_english": {
+      "path": "content\\ARTICLE_EN.md",
+      "sha256": "43a786ba43256db277d76d80986a58a7506721c8b91d71f2c9755fe694c1e6af",
+      "bytes": 34306
+    },
+    "approved_pseudocode": {
+      "path": "content\\NUMBERED_PSEUDOCODE.txt",
+      "sha256": "4f87f5ed50cdafd53d8f02dcbf6d4cdb32b00030e3a2834b4295f8be88d002df",
+      "bytes": 1732
+    },
+    "approved_equation_inventory": {
+      "path": "content\\EQUATION_INVENTORY_V1.md",
+      "sha256": "56e440a8c310060ea293f5bce8ba6f6e01b351e1365bdf2073b1b7856e3a6332",
+      "bytes": 2758
+    },
+    "builder_v2": {
+      "path": "document\\build_article_docx_v2.py",
+      "sha256": "474cda5830104e0c8c34cac83ac57069a7d5631b211c39f96735b52de98b3184",
+      "bytes": 16523
+    },
+    "word_export_script_v2": {
+      "path": "document\\render_with_word_v2.ps1",
+      "sha256": "02c4cedf5a2b8ca3ed7e6ca12544e9fde6e58e33ac145b0a9a0f0d0d67ff0767",
+      "bytes": 762
+    },
+    "docx_working_v2": {
+      "path": "audit\\work\\v2\\Exact_Alphabet_Partitioning_Article_EN.docx",
+      "sha256": "ef9e45afb607b2ead0e1507bf7c360ce2bf7f61bf488f3d4b58f1cc3e4e80ab5",
+      "bytes": 53612
+    },
+    "word_rendered_pdf_v2": {
+      "path": "audit\\render\\v2\\Exact_Alphabet_Partitioning_Article_EN.pdf",
+      "sha256": "3310ea3c7b481a041907535ed23c922d2fa125449ed70b44bab4460bf4158144",
+      "bytes": 711497
+    },
+    "delivered_pdf": {
+      "path": "document\\output\\Exact_Alphabet_Partitioning_Article_EN.pdf",
+      "sha256": "3310ea3c7b481a041907535ed23c922d2fa125449ed70b44bab4460bf4158144",
+      "bytes": 711497
+    },
+    "readback_script": {
+      "path": "audit\\readback_article_v2.py",
+      "sha256": "164e733105ac1e137ec02de2b7dc2b6b8c6c9382d7d6d186f6b14438fe000d02",
+      "bytes": 9107
+    },
+    "readback_result": {
+      "path": "audit\\READBACK_QA_V2.json",
+      "sha256": "9ef644ae046d13a68159e925a8c7d9e109bd5c814cc2b707543d9aa7b3d103cb",
+      "bytes": 6220
+    },
+    "pdf_text_readback": {
+      "path": "audit\\PDF_TEXT_READBACK_V2.txt",
+      "sha256": "406ed02ac302224f8dfe4b8b5b509608c3de618732c02fff39469cd430dda97a",
+      "bytes": 34534
+    },
+    "packaged_renderer_stderr": {
+      "path": "audit\\packaged_renderer_stderr.txt",
+      "sha256": "78b36476ca93b77333f03f1bf7ebfdd507e2019d91159acc3e71d7893792e23e",
+      "bytes": 1189
+    },
+    "v1_rejected_pdf": {
+      "path": "audit\\render\\Exact_Alphabet_Partitioning_Article_EN_v1_failed_readback.pdf",
+      "sha256": "37a9242e58fc202013b6cd479857d91d55606b9442f404539c08e98e9f554961",
+      "bytes": 714211
+    },
+    "reviewer_verdict": {
+      "path": "review\\PDF_FIDELITY_VERDICT.md",
+      "sha256": "6cd7d49ede1e732bf901bb639f910d2d4c2dcbce1ea47836ecf08a2a48b9df15",
+      "bytes": 2848
+    }
+  },
+  "page_pngs": [
+    {
+      "path": "audit\\render\\v2\\page-01.png",
+      "sha256": "05e7f2f373f2db1f0dc43c485f5f2730a53aa3918cc60e4841d777ff8b8f7867",
+      "bytes": 279675
+    },
+    {
+      "path": "audit\\render\\v2\\page-02.png",
+      "sha256": "d718ada34ce00a1fc4ff501ab00ea8481ec3c8a8ef23f277ed039a61a5e01b77",
+      "bytes": 268061
+    },
+    {
+      "path": "audit\\render\\v2\\page-03.png",
+      "sha256": "3e8be00cd6581fe8f9c597b039dd430dbdd6e7ac06f25a4c70a8a71808c57592",
+      "bytes": 290745
+    },
+    {
+      "path": "audit\\render\\v2\\page-04.png",
+      "sha256": "28e157869327dd7191b6f3772f69df4d1101b03b8bd1ee9bf227a1b69a83ab92",
+      "bytes": 155314
+    },
+    {
+      "path": "audit\\render\\v2\\page-05.png",
+      "sha256": "941ebd29dc69db3fdcca3f22c85f653348a9ad8fde60dbf1063cb0b9ec2251b2",
+      "bytes": 322430
+    },
+    {
+      "path": "audit\\render\\v2\\page-06.png",
+      "sha256": "ce11ad0288dbc9f627b9fe5bdf87c4ac30ddd8bbea67330bfa0b9748281e8daa",
+      "bytes": 288571
+    },
+    {
+      "path": "audit\\render\\v2\\page-07.png",
+      "sha256": "4c2798b6e4fc8d778c23dbb66bcfe0b7e2b25bff22665deeca76a9f5a5908578",
+      "bytes": 304962
+    },
+    {
+      "path": "audit\\render\\v2\\page-08.png",
+      "sha256": "910b1b573e0d5b5629ddb0eecc6b1e58e23082a5a4bfd04096b7740cd04c9cc0",
+      "bytes": 308879
+    },
+    {
+      "path": "audit\\render\\v2\\page-09.png",
+      "sha256": "a6104975eb954899e65ed641232dbf2c5af192e15a80a713f4b0d23f3dece8ef",
+      "bytes": 311885
+    },
+    {
+      "path": "audit\\render\\v2\\page-10.png",
+      "sha256": "5cd2a2841956d7715790cab03a1c421c621d29952ce86bf7e6e61324e772d759",
+      "bytes": 131887
+    }
+  ],
+  "rejected_v1_pdf_sha256": "37a9242e58fc202013b6cd479857d91d55606b9442f404539c08e98e9f554961"
+}
