@@ -1,0 +1,46 @@
+{
+  "status": "prepared_for_independent_replay",
+  "solver_runs": 0,
+  "command": "py -3.14 results/2026-11-05/real_trace_checkpoint_v25/implementation/prepare_bgl_v1.py",
+  "exit_code": 0,
+  "files": {
+    "eventid_dictionary_metadata.json": {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-05\\real_trace_checkpoint_v25\\inventory\\bgl_v1\\eventid_dictionary_metadata.json",
+      "sha256": "3dc37f45d32f93a8de4c879b2a528697d5142a6482b1ffa782c0ab8ad5841e86"
+    },
+    "faithful_rows_and_metadata.json": {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-05\\real_trace_checkpoint_v25\\inventory\\bgl_v1\\faithful_rows_and_metadata.json",
+      "sha256": "17a04e1751aab45f259c04cf9c07132e82c0c691edf2d879b3e9ac558d6934cd"
+    },
+    "manifest.json": {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-05\\real_trace_checkpoint_v25\\inventory\\bgl_v1\\manifest.json",
+      "sha256": "f150d08a6472eba189c6175c1cf3ae1cc18a6aaf2350657acd01f7c24aee2be2"
+    },
+    "mechanical_top8_selection.json": {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-05\\real_trace_checkpoint_v25\\inventory\\bgl_v1\\mechanical_top8_selection.json",
+      "sha256": "3e1014bec96a9d0edc463af43fc18d1270eb8e0abfafcb1af9ab0e1f1837327c"
+    },
+    "observations.json": {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-05\\real_trace_checkpoint_v25\\inventory\\bgl_v1\\observations.json",
+      "sha256": "c8b530192f26d1b0ef2e96c473a6e626bc6496063857693c49c07dee19f176f6"
+    },
+    "sharing_diagnostics.json": {
+      "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-05\\real_trace_checkpoint_v25\\inventory\\bgl_v1\\sharing_diagnostics.json",
+      "sha256": "37b661420f51f5eb949d0bd7dd1169f5434c7449b25cbb04d2705b24a6c888b3"
+    }
+  },
+  "adapter": {
+    "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-05\\real_trace_checkpoint_v25\\implementation\\prepare_bgl_v1.py",
+    "sha256": "44f3d8f30873d32b2b06b92413e1c469f0faecea23d2ab5ae290ed2197952d7c"
+  },
+  "notes": {
+    "path": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-05\\real_trace_checkpoint_v25\\implementation\\BGL_ADAPTER_v1.md",
+    "sha256": "e69bbf0b6117a5ebdefabd5c454ef6e7ce4f191ac8fc9359eb77abb73115201b"
+  },
+  "caveats": [
+    "current-message alert output, not success or AND acceptance",
+    "one observed sample stream, no proven contiguity or reset",
+    "existing EventId may be shared across nodes",
+    "top8 diagnostic is transductive, not training split"
+  ]
+}

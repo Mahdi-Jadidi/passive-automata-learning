@@ -1,0 +1,108 @@
+{
+  "scope": "Five constructed advisor CLI demos, not real-data runs or a speed benchmark",
+  "entrypoint_sha256": "b60ea3c21819ac6b7ae1564238ab7dd9aeaa381152fcf289171c719c127c98ac",
+  "script_sha256": "535217d943e7e88d4658d1ddb1827cea2af96fb1788821b3bc5b34417365b4bb",
+  "results": [
+    {
+      "argv": [
+        "C:\\Users\\Mahdi\\AppData\\Local\\Python\\pythoncore-3.14-64\\python.exe",
+        "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\partition_events.py",
+        "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-05\\real_trace_checkpoint_v25\\demo\\finite_memory_boundary.json",
+        "--model-version",
+        "selected-output-v1",
+        "--depth",
+        "0",
+        "--seconds",
+        "5"
+      ],
+      "input_sha256": "fb233a0731883d6d4a7854688db5ede7e851060be6ff7443bad16eff29008a3b",
+      "expected": "incompatible",
+      "exit_code": 0,
+      "stdout_sha256": "9a072ddc41bc74081ce450846aa21254a6ad92ea2bc7b188cade4e8db09be6bd",
+      "actual": "incompatible",
+      "complete": true,
+      "passed": true
+    },
+    {
+      "argv": [
+        "C:\\Users\\Mahdi\\AppData\\Local\\Python\\pythoncore-3.14-64\\python.exe",
+        "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\partition_events.py",
+        "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-05\\real_trace_checkpoint_v25\\demo\\finite_memory_boundary.json",
+        "--model-version",
+        "selected-output-v1",
+        "--depth",
+        "1",
+        "--seconds",
+        "5"
+      ],
+      "input_sha256": "fb233a0731883d6d4a7854688db5ede7e851060be6ff7443bad16eff29008a3b",
+      "expected": "certified_unique",
+      "exit_code": 0,
+      "stdout_sha256": "545ed0de0ec990fea79111dcf934ade8537b5a261ffc638d424918677a96cedc",
+      "actual": "certified_unique",
+      "complete": true,
+      "passed": true
+    },
+    {
+      "argv": [
+        "C:\\Users\\Mahdi\\AppData\\Local\\Python\\pythoncore-3.14-64\\python.exe",
+        "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\partition_events.py",
+        "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-05\\real_trace_checkpoint_v25\\demo\\finite_memory_boundary.json",
+        "--model-version",
+        "selected-output-v1",
+        "--depth",
+        "full",
+        "--seconds",
+        "5"
+      ],
+      "input_sha256": "fb233a0731883d6d4a7854688db5ede7e851060be6ff7443bad16eff29008a3b",
+      "expected": "ambiguous",
+      "exit_code": 0,
+      "stdout_sha256": "b4afb0a7c6c5c33577b655b87e8cf2fd80102032dc82ebce97055d93df48281b",
+      "actual": "ambiguous",
+      "complete": true,
+      "passed": true
+    },
+    {
+      "argv": [
+        "C:\\Users\\Mahdi\\AppData\\Local\\Python\\pythoncore-3.14-64\\python.exe",
+        "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\partition_events.py",
+        "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-05\\real_trace_checkpoint_v25\\demo\\last_event_obstruction.json",
+        "--model-version",
+        "selected-output-v1",
+        "--depth",
+        "0",
+        "--seconds",
+        "5"
+      ],
+      "input_sha256": "cbe1c8e282858b4051ec1d5937ac5067d27e3ffb4ade3282a18535dc1e4b3324",
+      "expected": "ambiguous",
+      "exit_code": 0,
+      "stdout_sha256": "80f9a4b6046c2ea5ce2e2197c710630a68c9f6275b1350d80bd30de5be352745",
+      "actual": "ambiguous",
+      "complete": true,
+      "passed": true
+    },
+    {
+      "argv": [
+        "C:\\Users\\Mahdi\\AppData\\Local\\Python\\pythoncore-3.14-64\\python.exe",
+        "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\partition_events.py",
+        "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\results\\2026-11-05\\real_trace_checkpoint_v25\\demo\\last_event_obstruction.json",
+        "--model-version",
+        "selected-output-v1",
+        "--depth",
+        "full",
+        "--seconds",
+        "5"
+      ],
+      "input_sha256": "cbe1c8e282858b4051ec1d5937ac5067d27e3ffb4ade3282a18535dc1e4b3324",
+      "expected": "ambiguous",
+      "exit_code": 0,
+      "stdout_sha256": "61984d0336253508463b1911fdd30592299cc6e71b2a991d27e0903f38c90d0c",
+      "actual": "ambiguous",
+      "complete": true,
+      "passed": true
+    }
+  ],
+  "passed": true
+}
