@@ -1,0 +1,789 @@
+{
+  "warning": "NEW target-qualified abstraction deliberately uses observed target fields; not blind host recovery and not original learner token stream",
+  "dictionary": {
+    "q497347207acf9328cebed5346c4260222f220f2e7f013e6d7a136b86ac0d4486": {
+      "action": "DecoySSHD",
+      "observed_target_fields": {
+        "hostname": "Enterprise1"
+      }
+    },
+    "q8c0f5afc8b736bc313ebf855f17a277e02d7f37a81f6aebdb58699e09416ba91": {
+      "action": "DiscoverRemoteSystems",
+      "observed_target_fields": {
+        "subnet": "10.0.227.16/28"
+      }
+    },
+    "q9f1475dd7ac8b54d581961acb7b059b7326c64c897cebc96e38e1e5da7aadf03": {
+      "action": "Analyse",
+      "observed_target_fields": {
+        "hostname": "User2"
+      }
+    },
+    "q30d3f140f646839f8cbc8f7f064067725183a24fcf4e02e30c767e16267303bc": {
+      "action": "DiscoverNetworkServices",
+      "observed_target_fields": {
+        "ip_address": "10.0.227.23"
+      }
+    },
+    "q93f30a7e944797b6bed89decf94bee68ac1373b278dcc3189218056b0ca96368": {
+      "action": "ExploitRemoteService",
+      "exploit_class": "BlueKeep",
+      "observed_target_fields": {
+        "ip_address": "10.0.227.23"
+      }
+    },
+    "qbf050f56d2ad4354be35b2d2055d71564eed2983355e39aebac00780aef0299f": {
+      "action": "Restore",
+      "observed_target_fields": {
+        "hostname": "User2"
+      }
+    },
+    "q6014163bf2067f2789547b25a58e802fc312228b6fedd5705c9e33e4a78acdfd": {
+      "action": "PrivilegeEscalate",
+      "observed_target_fields": {
+        "hostname": "User2"
+      }
+    },
+    "q0a64cbd3ab21a85f9b80b78cb5aac1dc6fe08a1ec3cda27e9e46f55b2a78da23": {
+      "action": "Analyse",
+      "observed_target_fields": {
+        "hostname": "Enterprise0"
+      }
+    },
+    "q271ef4f5b7cb71be66243c81d597be0379177a132f06ba33f6014532f868deb3": {
+      "action": "ExploitRemoteService",
+      "exploit_class": "EternalBlue",
+      "observed_target_fields": {
+        "ip_address": "10.0.227.23"
+      }
+    },
+    "qc2e52c4550d067649477d1ec120b61b7154f849f58a78cde5b0fe068d70860c9": {
+      "action": "Analyse",
+      "observed_target_fields": {
+        "hostname": "Enterprise2"
+      }
+    },
+    "qbbac9e19096bff1665f2b5bc5c4ac69ce16e01127a4f684082e244904526608e": {
+      "action": "Analyse",
+      "observed_target_fields": {
+        "hostname": "User1"
+      }
+    },
+    "q42d036ef4029d360b89ad1326696fe61a433e1d5367abd82412b0be8b2146748": {
+      "action": "Remove",
+      "observed_target_fields": {
+        "hostname": "User2"
+      }
+    },
+    "qaa8d9218366b5a3bd51d388a413f748546f8647ef73c1eba2e7cc61fc822f067": {
+      "action": "Analyse",
+      "observed_target_fields": {
+        "hostname": "User3"
+      }
+    },
+    "q3259c000c950dd1fd3aebdfe7420997588e154a5d518c2300f9fcf179e3de893": {
+      "action": "DiscoverNetworkServices",
+      "observed_target_fields": {
+        "ip_address": "10.0.38.158"
+      }
+    },
+    "qa08bd01bc20ba701a3012ae96b7e4446e19292db50f41d4fe47f36d7e6a18f4f": {
+      "action": "ExploitRemoteService",
+      "exploit_class": "HTTPSRFI",
+      "observed_target_fields": {
+        "ip_address": "10.0.38.158"
+      }
+    },
+    "q06c547fe134f0f9a681bed474e0e6d8dcd429946285f242a5e59da8ecde42073": {
+      "action": "Remove",
+      "observed_target_fields": {
+        "hostname": "Enterprise1"
+      }
+    },
+    "q1d2d94cbf1600f317da93a589cd53b3f1fbd4e144254a7b20af17d84f84047eb": {
+      "action": "PrivilegeEscalate",
+      "observed_target_fields": {
+        "hostname": "Enterprise1"
+      }
+    },
+    "q194492674ba8c5ae48130b79839ca429fc9194abc61fc1a2652516724c1acca6": {
+      "action": "Analyse",
+      "observed_target_fields": {
+        "hostname": "Enterprise1"
+      }
+    },
+    "q1d77895f3d3c36c2ece03df5731586de1eb29f0fb51a62fb1ed0846e8d9226fe": {
+      "action": "ExploitRemoteService",
+      "exploit_class": "BlueKeep",
+      "observed_target_fields": {
+        "ip_address": "10.0.38.158"
+      }
+    },
+    "q85480ec8f2744fe178e770155d01903c1c0a0bb89cbb0bb897e5ecd31888ff3f": {
+      "action": "Restore",
+      "observed_target_fields": {
+        "hostname": "Enterprise1"
+      }
+    },
+    "q0ff2a2df009a0c703bc234e7a30937d7293891aa609e704138cab01c9bca1827": {
+      "action": "DiscoverRemoteSystems",
+      "observed_target_fields": {
+        "subnet": "10.0.38.144/28"
+      }
+    },
+    "q3ac7e9c478aab2afbdffe909c329c016c2b6d19b87284d8f2be602e5e513b6f9": {
+      "action": "DiscoverNetworkServices",
+      "observed_target_fields": {
+        "ip_address": "10.0.38.152"
+      }
+    },
+    "qa8ce7a4db4ca324cf6cc200682b89feab4e9fa4dd3ee5ae763ea7f08bde5ceae": {
+      "action": "ExploitRemoteService",
+      "exploit_class": "SSHBruteForce",
+      "observed_target_fields": {
+        "ip_address": "10.0.38.152"
+      }
+    },
+    "qb9d2e38013f79207cbabe5fb6cc2562f50c23aaacf1dd877747260f3dbb563c5": {
+      "action": "Restore",
+      "observed_target_fields": {
+        "hostname": "Enterprise2"
+      }
+    },
+    "qf4c69bba8b5cd261883e4db7306737551bb7e33ed15e00c39c67d2256f5ada0f": {
+      "action": "PrivilegeEscalate",
+      "observed_target_fields": {
+        "hostname": "Enterprise2"
+      }
+    },
+    "q1842102270fe287887d3188e359d7e6d1dc215ededbf0d1db33838c403d07a1a": {
+      "action": "ExploitRemoteService",
+      "exploit_class": "HTTPSRFI",
+      "observed_target_fields": {
+        "ip_address": "10.0.38.152"
+      }
+    },
+    "q805bda7afe82ad337ca605bda48d663f6a63d9a4e3f2c1777660de56485a6f43": {
+      "action": "DiscoverNetworkServices",
+      "observed_target_fields": {
+        "ip_address": "10.0.75.78"
+      }
+    },
+    "q5c215d122c7bafe12c8ce54fa321d519acee05ec5d02ade789e28f6779fd90ea": {
+      "action": "ExploitRemoteService",
+      "exploit_class": "HTTPRFI",
+      "observed_target_fields": {
+        "ip_address": "10.0.38.158"
+      }
+    },
+    "qc3fe9f25a19366b2455fecd670cfba1d8a13a46b2b6f9c256e156ecc399c7c4a": {
+      "action": "Analyse",
+      "observed_target_fields": {
+        "hostname": "Op_Host0"
+      }
+    },
+    "qd141b647a8d41fc118454a9b231fc1c4704c2fef6ad7e00c1163e20a48bb9e8a": {
+      "action": "Analyse",
+      "observed_target_fields": {
+        "hostname": "Op_Host1"
+      }
+    },
+    "q49923b301218b81b9bda99440b76cbfca5f24fce920676c37602c86c4fa6ec70": {
+      "action": "Analyse",
+      "observed_target_fields": {
+        "hostname": "User4"
+      }
+    },
+    "qc4ac3d8b2025656b0f91cacf1020335bafd70a28d0575d165501403aae59eb9b": {
+      "action": "ExploitRemoteService",
+      "exploit_class": "EternalBlue",
+      "observed_target_fields": {
+        "ip_address": "10.0.38.158"
+      }
+    },
+    "q53334c5232953e17f7c051c266ce14169bb8adb5cb545bd09b166b4da5427240": {
+      "action": "Analyse",
+      "observed_target_fields": {
+        "hostname": "Defender"
+      }
+    },
+    "q6d4a2ec3d99a9bfc0487e2c890bc7c84ae7b03de737244b7b7c22db67b34b0bd": {
+      "action": "ExploitRemoteService",
+      "exploit_class": "SSHBruteForce",
+      "observed_target_fields": {
+        "ip_address": "10.0.38.158"
+      }
+    },
+    "qf0a2d7f09f674c5033f30fd41e8340562c7ff8555f3fa80e0be4c66c9f3018c0": {
+      "action": "Analyse",
+      "observed_target_fields": {
+        "hostname": "User0"
+      }
+    },
+    "q98df03d14976b0c06415737b6ed574ebd45c052f5c469baad13877bcc0c97e0a": {
+      "action": "ExploitRemoteService",
+      "exploit_class": "SSHBruteForce",
+      "observed_target_fields": {
+        "ip_address": "10.0.75.78"
+      }
+    },
+    "q552b3958a79a8e4f2702c43a077288b3fecaf15fcdc76a7a2addaaf5395c4758": {
+      "action": "DecoySSHD",
+      "observed_target_fields": {
+        "hostname": "Op_Server0"
+      }
+    },
+    "qb26ae67208aa1ed8a9ecb8bcf21fa9cdfc582274df532a4b90f6c07b898a0aff": {
+      "action": "DiscoverRemoteSystems",
+      "observed_target_fields": {
+        "subnet": "10.0.135.32/28"
+      }
+    },
+    "qa820940c3e68374a864234d6080c25bb48bcd68cf347ef914c667e113ded40ca": {
+      "action": "DiscoverNetworkServices",
+      "observed_target_fields": {
+        "ip_address": "10.0.135.43"
+      }
+    },
+    "q425460c9eb721bae298b4d3e6d718c029f3265d879123a01ba7523fbe125ed62": {
+      "action": "ExploitRemoteService",
+      "exploit_class": "HarakaRCE",
+      "observed_target_fields": {
+        "ip_address": "10.0.135.43"
+      }
+    },
+    "q7850120c2070a5668a533df3e7c0412216bda3e25055033d43981f2ccb22896b": {
+      "action": "Remove",
+      "observed_target_fields": {
+        "hostname": "User3"
+      }
+    },
+    "qfb28577e7ffb578818dad5b6452ecd081cab04f4602a0ef94b65a6d6f971a55f": {
+      "action": "PrivilegeEscalate",
+      "observed_target_fields": {
+        "hostname": "User3"
+      }
+    },
+    "qa7001a40c5883df1134cea5853fc973d763d91dae185aef89a58c69a042ce2a3": {
+      "action": "DiscoverNetworkServices",
+      "observed_target_fields": {
+        "ip_address": "10.0.46.10"
+      }
+    },
+    "q46fbceeed340009867aa7d1f0e3836fddc5dd48b7c1ae3c90ff9a2105677ce41": {
+      "action": "ExploitRemoteService",
+      "exploit_class": "SSHBruteForce",
+      "observed_target_fields": {
+        "ip_address": "10.0.46.10"
+      }
+    },
+    "qc0045be9ada4824a9bbc3b071981fba756a2097a3d669969d0346eee5f8cc4dd": {
+      "action": "Restore",
+      "observed_target_fields": {
+        "hostname": "Enterprise0"
+      }
+    },
+    "q8f15cf9605712f56de46f812db3f2a8741294f7f76a7d3a9e7a0125afcc45326": {
+      "action": "PrivilegeEscalate",
+      "observed_target_fields": {
+        "hostname": "Enterprise0"
+      }
+    },
+    "q046048dc0ecfe616ed62a5f01eade5b6567d7082f3652f9014ed744a07cf727f": {
+      "action": "Remove",
+      "observed_target_fields": {
+        "hostname": "Enterprise0"
+      }
+    },
+    "q24fc110a80857ef3bc3f6d1323dabc1948975aa012a355025b67fc506373a513": {
+      "action": "DiscoverRemoteSystems",
+      "observed_target_fields": {
+        "subnet": "10.0.46.0/28"
+      }
+    },
+    "q599fdf217b9d9bfc997c6714e3be091e9c9e2541266a9c740fc4c020cec17bca": {
+      "action": "DiscoverNetworkServices",
+      "observed_target_fields": {
+        "ip_address": "10.0.46.14"
+      }
+    },
+    "q66bb043c8583708c1195f53b5d7c1df0abec5973c51286a1be6b541303529029": {
+      "action": "ExploitRemoteService",
+      "exploit_class": "HTTPSRFI",
+      "observed_target_fields": {
+        "ip_address": "10.0.46.14"
+      }
+    },
+    "q98cb1129b409ec44e840a772b3754ffa010bab9de16d129819a9070df46e3899": {
+      "action": "Restore",
+      "observed_target_fields": {
+        "hostname": "User3"
+      }
+    },
+    "q564c9c45ba2f6863ded86b6ccba64c12b254438521a5ccc4da17bfb8d1c89224": {
+      "action": "DiscoverNetworkServices",
+      "observed_target_fields": {
+        "ip_address": "10.0.213.54"
+      }
+    },
+    "qdd1cd3c604b453c22d6636c22aa1e4fef28e3bd405ef9309e504495852286dc4": {
+      "action": "ExploitRemoteService",
+      "exploit_class": "BlueKeep",
+      "observed_target_fields": {
+        "ip_address": "10.0.46.14"
+      }
+    },
+    "qb6cdfdbfd117773ab9a6e9473e182c926625dab6af6ef56265d9e2674dd241c6": {
+      "action": "ExploitRemoteService",
+      "exploit_class": "HTTPRFI",
+      "observed_target_fields": {
+        "ip_address": "10.0.46.14"
+      }
+    },
+    "qfce97ae6fa2899c51358028993188c3f6fb8a4e3b7aa79b8d977be5c4eae1c8d": {
+      "action": "ExploitRemoteService",
+      "exploit_class": "BlueKeep",
+      "observed_target_fields": {
+        "ip_address": "10.0.135.43"
+      }
+    },
+    "qe485556a6a2c0e7d5186aa5af287f3ee51e6c90e70a34cf201c17ce2bc74722b": {
+      "action": "DiscoverRemoteSystems",
+      "observed_target_fields": {
+        "subnet": "10.0.171.48/28"
+      }
+    },
+    "qa5a19199da00733c16d51ddd10afd3aa222b2694b8f8a6c2380d9c75cf7cd036": {
+      "action": "DiscoverNetworkServices",
+      "observed_target_fields": {
+        "ip_address": "10.0.171.61"
+      }
+    },
+    "qef0e9e6212fab01ad7c1647412b6a6ea3a840e6fa86da17b93161bc939f8ce32": {
+      "action": "ExploitRemoteService",
+      "exploit_class": "EternalBlue",
+      "observed_target_fields": {
+        "ip_address": "10.0.171.61"
+      }
+    },
+    "q2afd303d9cbc5b8c282bc941cfa5fdba631c0be9b7d273901c10d06755c89b57": {
+      "action": "DiscoverNetworkServices",
+      "observed_target_fields": {
+        "ip_address": "10.0.126.201"
+      }
+    },
+    "q6b1fe7843571027b1cb2952cfa51a6d93c0e15424941a38f4fee33e59a68cfa6": {
+      "action": "ExploitRemoteService",
+      "exploit_class": "HTTPSRFI",
+      "observed_target_fields": {
+        "ip_address": "10.0.126.201"
+      }
+    },
+    "qa60d7aed15b3f5fd44f23868b6fd4b37088a84003058d4672b811d03794981b9": {
+      "action": "ExploitRemoteService",
+      "exploit_class": "EternalBlue",
+      "observed_target_fields": {
+        "ip_address": "10.0.126.201"
+      }
+    },
+    "q0574c746787ec9ee9446bdf7f79225f8de1dd73b09403a117dfe1db63b4fbf5b": {
+      "action": "ExploitRemoteService",
+      "exploit_class": "BlueKeep",
+      "observed_target_fields": {
+        "ip_address": "10.0.126.201"
+      }
+    },
+    "q5dc2a4ec18f11a3af4634b980c8ab773e8c531e94d6508228c9ef927ae5a6406": {
+      "action": "DiscoverRemoteSystems",
+      "observed_target_fields": {
+        "subnet": "10.0.126.192/28"
+      }
+    },
+    "qf9a9161cefa9179b1fefa4d964c4d637f7428decb7f886942f9c5ead0b71dfa8": {
+      "action": "DiscoverNetworkServices",
+      "observed_target_fields": {
+        "ip_address": "10.0.126.196"
+      }
+    },
+    "qe0f693e44a9096dee8c495bb19200befc102de62107cbc426774da0ad8c781af": {
+      "action": "ExploitRemoteService",
+      "exploit_class": "HTTPSRFI",
+      "observed_target_fields": {
+        "ip_address": "10.0.126.196"
+      }
+    },
+    "q17a7762c0b88c9acd036f1e659f32be77a8a24825b04f36e155114110fb2b38c": {
+      "action": "ExploitRemoteService",
+      "exploit_class": "EternalBlue",
+      "observed_target_fields": {
+        "ip_address": "10.0.126.196"
+      }
+    },
+    "qf066c184496f5aed696bfcd3c64feffd247b92f11a06bc61f1b1d755b4a71316": {
+      "action": "ExploitRemoteService",
+      "exploit_class": "HTTPRFI",
+      "observed_target_fields": {
+        "ip_address": "10.0.126.196"
+      }
+    },
+    "qa0769f7e157a4dcbb6ffa177947dfa4fb3ee6109d461ab24575ad1fae7779034": {
+      "action": "ExploitRemoteService",
+      "exploit_class": "BlueKeep",
+      "observed_target_fields": {
+        "ip_address": "10.0.126.196"
+      }
+    },
+    "qc2cea7181d0a2671bb3f1eeca6e9686214593318bbda14fbab0c313bec49021f": {
+      "action": "DiscoverNetworkServices",
+      "observed_target_fields": {
+        "ip_address": "10.0.173.158"
+      }
+    },
+    "q197d3860d6f037753522300e1d659704604976bf068433ff1af451291dbca545": {
+      "action": "ExploitRemoteService",
+      "exploit_class": "BlueKeep",
+      "observed_target_fields": {
+        "ip_address": "10.0.171.61"
+      }
+    },
+    "q352ec6c1334a094186fa36452368ac282d05c6e6e9e5f26a99bf688c1a45ebfe": {
+      "action": "DiscoverRemoteSystems",
+      "observed_target_fields": {
+        "subnet": "10.0.106.64/28"
+      }
+    },
+    "qeaf9712dd31422358fb20d54d022354d56623834ba8eccae81597e18333aa0db": {
+      "action": "Restore",
+      "observed_target_fields": {
+        "hostname": "Op_Server0"
+      }
+    },
+    "q042f1b1cd3a33d708c5255f9a947fdfc859608120de131f33f63704ac5407d4a": {
+      "action": "DiscoverNetworkServices",
+      "observed_target_fields": {
+        "ip_address": "10.0.106.65"
+      }
+    },
+    "q56e7af4f42f4c31c0e81437edd91634e4718d535c5818f1993a78099d8d43d95": {
+      "action": "DiscoverNetworkServices",
+      "observed_target_fields": {
+        "ip_address": "10.0.106.74"
+      }
+    },
+    "qb769f790fe3b1bf51c87a6dd72ba6d7a38b7d77f482f7b5a6ee6d3a091c0bf13": {
+      "action": "DiscoverNetworkServices",
+      "observed_target_fields": {
+        "ip_address": "10.0.106.69"
+      }
+    },
+    "q8969eb283f64bc8cc8887257ce9f5bde8d269fe9f23e0446099c5a07ae0df12d": {
+      "action": "DiscoverNetworkServices",
+      "observed_target_fields": {
+        "ip_address": "10.0.106.77"
+      }
+    },
+    "q0e9056ce85daabeb3bd87e0f0ced4434d5e1f384782baba256b02ab7fb75e77c": {
+      "action": "DiscoverNetworkServices",
+      "observed_target_fields": {
+        "ip_address": "10.0.106.76"
+      }
+    },
+    "qa569fd0125afc59206ea9bd703e3ae2ee26124fcb7e407ca1df9292a330c33c2": {
+      "action": "PrivilegeEscalate",
+      "observed_target_fields": {
+        "hostname": "User0"
+      }
+    },
+    "qe0a27a336860f575061b67c9db30fb71fd3df2448318ecbda7d38e2e51b8f52b": {
+      "action": "ExploitRemoteService",
+      "exploit_class": "HarakaRCE",
+      "observed_target_fields": {
+        "ip_address": "10.0.106.76"
+      }
+    },
+    "q6ee29a598b9e44c86b1b530bc6697328fbdcf453419359c0ab089b7d8a911050": {
+      "action": "PrivilegeEscalate",
+      "observed_target_fields": {
+        "hostname": "User4"
+      }
+    },
+    "q5b38bf44623aaa690696335216564be06f53d3888e27d6c135719c38c8120de6": {
+      "action": "DiscoverNetworkServices",
+      "observed_target_fields": {
+        "ip_address": "10.0.223.126"
+      }
+    },
+    "q38f536692d921031af507b91255d7aef7823a10253faeb5b42ccb8be715c61c9": {
+      "action": "Restore",
+      "observed_target_fields": {
+        "hostname": "User4"
+      }
+    },
+    "q339f3976c8710c239ba64b5718d66469f365697a478054173fc5699eef8958a5": {
+      "action": "ExploitRemoteService",
+      "exploit_class": "SSHBruteForce",
+      "observed_target_fields": {
+        "ip_address": "10.0.223.126"
+      }
+    },
+    "q82362bfd6c3273e77ed0d8463a2b271d05e1da333d77bd4f9a111a237fa411a6": {
+      "action": "ExploitRemoteService",
+      "exploit_class": "BlueKeep",
+      "observed_target_fields": {
+        "ip_address": "10.0.106.65"
+      }
+    },
+    "q207b07b7d3ee274f5095343f8776b722656af4698d80af490a229a8f4d65d2ea": {
+      "action": "ExploitRemoteService",
+      "exploit_class": "EternalBlue",
+      "observed_target_fields": {
+        "ip_address": "10.0.106.74"
+      }
+    },
+    "qf60bd606c0b216a934a5ba644a8017112d8b1aa2809d8153a41de3a88eee11d0": {
+      "action": "ExploitRemoteService",
+      "exploit_class": "HarakaRCE",
+      "observed_target_fields": {
+        "ip_address": "10.0.106.65"
+      }
+    },
+    "q9cce1951df8b70f46c7dbc8445c8d65179e29cb02aec0a2dff030d36ec777548": {
+      "action": "ExploitRemoteService",
+      "exploit_class": "FTPDirectoryTraversal",
+      "observed_target_fields": {
+        "ip_address": "10.0.106.69"
+      }
+    },
+    "q423b86948369da7e1db32ab821aabf694d408ba7d76143a479bbb6b3860c9d3d": {
+      "action": "ExploitRemoteService",
+      "exploit_class": "FTPDirectoryTraversal",
+      "observed_target_fields": {
+        "ip_address": "10.0.106.77"
+      }
+    },
+    "qde806d0f2928a0eaacfdf8b957adc28434c31c5babf61964111479be1d0852b8": {
+      "action": "PrivilegeEscalate",
+      "observed_target_fields": {
+        "hostname": "User1"
+      }
+    },
+    "q89832620cdb60037a1faf1ffe9daa4391fe53f8368655f885e23bd343252246b": {
+      "action": "DiscoverNetworkServices",
+      "observed_target_fields": {
+        "ip_address": "10.0.223.120"
+      }
+    },
+    "q73b83a327ce038ab6979926c7847d8cd912d34ee022695cbccfd638c6a6711c0": {
+      "action": "ExploitRemoteService",
+      "exploit_class": "SSHBruteForce",
+      "observed_target_fields": {
+        "ip_address": "10.0.223.120"
+      }
+    },
+    "q7469df8681f96338ccfc73537727932e03bde72efb7c49cbf9a0f5cb6a5a6a7a": {
+      "action": "ExploitRemoteService",
+      "exploit_class": "HTTPSRFI",
+      "observed_target_fields": {
+        "ip_address": "10.0.223.120"
+      }
+    },
+    "q9733eac9950a7f4b3bc82275ccf382471fcdc352853cc0df0dcce4a8f438308a": {
+      "action": "Restore",
+      "observed_target_fields": {
+        "hostname": "User0"
+      }
+    },
+    "qb4335dd0d0f88719b2a7a2b04f865016590eaf1591db37421bec9fb9bc926378": {
+      "action": "DiscoverRemoteSystems",
+      "observed_target_fields": {
+        "subnet": "10.0.223.112/28"
+      }
+    },
+    "q00a08744acdf5bfb6a8513fc8906db02f6abeac9177980ff744b62b7bbb53b2b": {
+      "action": "DiscoverNetworkServices",
+      "observed_target_fields": {
+        "ip_address": "10.0.223.115"
+      }
+    },
+    "qd41e03c5012c7f72e3e931a6d4eb1cca61526713c61464526d6fe42474a1b6e0": {
+      "action": "DiscoverNetworkServices",
+      "observed_target_fields": {
+        "ip_address": "10.0.223.122"
+      }
+    },
+    "q1e4647fda09b53b2fdec4b1b13dce7e09a1a38bb845747f00a101edb3433dfa0": {
+      "action": "ExploitRemoteService",
+      "exploit_class": "BlueKeep",
+      "observed_target_fields": {
+        "ip_address": "10.0.106.74"
+      }
+    },
+    "qd62beb7b8042702da1111e1d89810239d8ed379aad67645998b5933a750f8e95": {
+      "action": "ExploitRemoteService",
+      "exploit_class": "HTTPSRFI",
+      "observed_target_fields": {
+        "ip_address": "10.0.223.115"
+      }
+    },
+    "q4db240d8c3cde0a256ce7ad2de22ea50ffd23e17bae246197dad603b08a101ef": {
+      "action": "ExploitRemoteService",
+      "exploit_class": "SSHBruteForce",
+      "observed_target_fields": {
+        "ip_address": "10.0.223.122"
+      }
+    },
+    "q0d61bfd695248d3b3d24f47deb89c910757b37f780cd9957752220ce525e49bc": {
+      "action": "Restore",
+      "observed_target_fields": {
+        "hostname": "Defender"
+      }
+    },
+    "q7c37f95b5a3727055103035cae7245473d440b67906ce813a269737b33a3e0c8": {
+      "action": "ExploitRemoteService",
+      "exploit_class": "HTTPRFI",
+      "observed_target_fields": {
+        "ip_address": "10.0.223.120"
+      }
+    },
+    "qba6931d2a8d46b8099420a1b9cf9ae49d9452f3d3d51847d870b8df5a322834c": {
+      "action": "ExploitRemoteService",
+      "exploit_class": "BlueKeep",
+      "observed_target_fields": {
+        "ip_address": "10.0.223.115"
+      }
+    },
+    "q51b97144331ca0088016f966d62032c0a24c1aebe58389799905e025bf542d86": {
+      "action": "DecoyApache",
+      "observed_target_fields": {
+        "hostname": "Op_Server0"
+      }
+    },
+    "qf1e779d8bb497cc49f774d14e337129a3b38b5e8d802bf9a5132e6548cb16184": {
+      "action": "DiscoverRemoteSystems",
+      "observed_target_fields": {
+        "subnet": "10.0.225.96/28"
+      }
+    },
+    "q7405e86627af3a8b34a51bbd38e9d411ff53318037570f0c24612e8a9f266542": {
+      "action": "DiscoverNetworkServices",
+      "observed_target_fields": {
+        "ip_address": "10.0.225.106"
+      }
+    },
+    "qfb0138145e6069750250d120893bd827f3bb238e99924cb2aec7ffaff44b6ccd": {
+      "action": "ExploitRemoteService",
+      "exploit_class": "HTTPRFI",
+      "observed_target_fields": {
+        "ip_address": "10.0.225.106"
+      }
+    },
+    "q3f55a7b7412868947e471cdcc0123e2926d278ba03ae9399b9156fb49c93ecc4": {
+      "action": "ExploitRemoteService",
+      "exploit_class": "HarakaRCE",
+      "observed_target_fields": {
+        "ip_address": "10.0.225.106"
+      }
+    },
+    "q9a9fade02dda52e2459c0644fbe8be52603ec4eeca0fdbdb49c7872813a24495": {
+      "action": "DiscoverNetworkServices",
+      "observed_target_fields": {
+        "ip_address": "10.0.16.247"
+      }
+    },
+    "q8d4e48fe4fb2217d3e7c42c212a015d6b94c31c9e5fa360a84660a544d1a12b6": {
+      "action": "ExploitRemoteService",
+      "exploit_class": "SSHBruteForce",
+      "observed_target_fields": {
+        "ip_address": "10.0.16.247"
+      }
+    },
+    "q45008e03caf835e6474a842234fc93e2c4158de60d99144cf5824ad8bfb0f4a9": {
+      "action": "DiscoverRemoteSystems",
+      "observed_target_fields": {
+        "subnet": "10.0.68.128/28"
+      }
+    },
+    "q59f5c38e329d8d621366db25665e2918e4c0d55dd9ae85339c548b1ff88edb8e": {
+      "action": "DiscoverNetworkServices",
+      "observed_target_fields": {
+        "ip_address": "10.0.68.133"
+      }
+    },
+    "q0686dbe9302895221e8a3b7266bf8029ac71d9244cd277e7bb3ff97004c69638": {
+      "action": "ExploitRemoteService",
+      "exploit_class": "HarakaRCE",
+      "observed_target_fields": {
+        "ip_address": "10.0.68.133"
+      }
+    },
+    "q15caf7a5729e598a456ecaa760d8f4f053f6288f9cecbcb487524698ed14b52d": {
+      "action": "ExploitRemoteService",
+      "exploit_class": "SQLInjection",
+      "observed_target_fields": {
+        "ip_address": "10.0.68.133"
+      }
+    },
+    "qa0c1b47eeafca0fddd705f40ecc6610ff3217dd07a505a888454ef7ccd8bedb0": {
+      "action": "DiscoverNetworkServices",
+      "observed_target_fields": {
+        "ip_address": "10.0.146.136"
+      }
+    },
+    "q025b9e4d1767d4dbcc06a80fc251841a348936e01bf62e3180cfc48b9608e583": {
+      "action": "ExploitRemoteService",
+      "exploit_class": "SSHBruteForce",
+      "observed_target_fields": {
+        "ip_address": "10.0.146.136"
+      }
+    },
+    "q5b4042fa70e9780de0197f4fe2f1e15c74554c420a992178716c5c0d81c92cbe": {
+      "action": "NoOp",
+      "observed_target_fields": {
+        "hostname": "Host_0",
+        "ip_address": "10.0.100.10"
+      }
+    },
+    "q119a541957d808c00b517f1aa950a8db6b22b1ae3d368b93c7b7434b4b52d168": {
+      "action": "DiscoverNetworkServices",
+      "observed_target_fields": {
+        "hostname": "Host_0",
+        "ip_address": "10.0.100.10"
+      }
+    },
+    "q3945f11f234847e0c723440d293fab15c078654e61f5340b8b99aba1aac10fc7": {
+      "action": "Remove",
+      "observed_target_fields": {
+        "hostname": "Host_0",
+        "ip_address": "10.0.100.10"
+      }
+    },
+    "qeab9e905e292cc057b7f0e2b2cf6f5b41a2d318372dbf266981ba98c4cc888cf": {
+      "action": "PrivilegeEscalate",
+      "observed_target_fields": {
+        "hostname": "Host_0",
+        "ip_address": "10.0.100.10"
+      }
+    },
+    "q5197183ba72ebf9c0a74921bc046bcbc5e4ee168e555ca3110195dbfb210797f": {
+      "action": "DiscoverRemoteSystems",
+      "observed_target_fields": {
+        "hostname": "Host_0",
+        "ip_address": "10.0.100.10"
+      }
+    },
+    "q9f7fcb12500de3c9b57515f76a477ac796d7a4c07c2df2c15eb3d03453939bf3": {
+      "action": "Impact",
+      "observed_target_fields": {
+        "hostname": "Host_0",
+        "ip_address": "10.0.100.10"
+      }
+    },
+    "qbba488d14757379536c9e6da3aadaf7ff4d042fe7163a9100cec6bf2b9cf7b6d": {
+      "action": "ExploitRemoteService",
+      "observed_target_fields": {
+        "hostname": "Host_0",
+        "ip_address": "10.0.100.10"
+      }
+    }
+  }
+}

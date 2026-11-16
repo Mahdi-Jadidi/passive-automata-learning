@@ -1,0 +1,426 @@
+{
+  "status": "prepared_observations_only",
+  "command": "py -3.14 results/2026-11-05/real_trace_checkpoint_v25/implementation/prepare_recorded_v1.py",
+  "python": "3.14.6 (tags/v3.14.6:c63aec6, Jun 10 2026, 10:26:10) [MSC v.1944 64 bit (AMD64)]",
+  "platform": "Windows-11-10.0.26300-SP0",
+  "yaml_version": "6.0.3",
+  "archive": "C:\\Users\\Mahdi\\Documents\\ChatGPT\\passive automata learning\\.cache\\lancer\\cas-artifact-cav2026_20261103T211638Z.zip",
+  "original_artifact_executed": false,
+  "solver_runs": 0,
+  "errors": [],
+  "sources": [
+    {
+      "scenario": "cage2_raw",
+      "pool_files": 5000,
+      "selection": "first six full archive paths sorted lexicographically; not numeric",
+      "provenance": "recorded simulator-generated cybersecurity benchmark, not production telemetry",
+      "files": [
+        {
+          "file_id": 1,
+          "archive_member": "artifact/data/cage2/cage2_raw_traces/raw_1.yaml",
+          "sha256": "65bd39d037016314dffb8051f5e61453e8b2b9b33a2d7c418608248cbcef5e7b",
+          "bytes": 961539,
+          "zip_crc32": "27f16698",
+          "format": "safe YAML",
+          "episodes": [
+            {
+              "episode_index": 0,
+              "trace_id": 1,
+              "steps": 100,
+              "events": 200
+            }
+          ],
+          "outcomes": {
+            "known_failure": 25,
+            "known_success": 173,
+            "final_action_no_next_observation": 2
+          }
+        },
+        {
+          "file_id": 2,
+          "archive_member": "artifact/data/cage2/cage2_raw_traces/raw_10.yaml",
+          "sha256": "2c78674e4a15362a7adf1801fa7043021bcaeb9b4af8eb0c26b2b6fb75b5fd0d",
+          "bytes": 986692,
+          "zip_crc32": "54cfd2db",
+          "format": "safe YAML",
+          "episodes": [
+            {
+              "episode_index": 0,
+              "trace_id": 2,
+              "steps": 100,
+              "events": 200
+            }
+          ],
+          "outcomes": {
+            "known_failure": 18,
+            "known_success": 180,
+            "final_action_no_next_observation": 2
+          }
+        },
+        {
+          "file_id": 3,
+          "archive_member": "artifact/data/cage2/cage2_raw_traces/raw_100.yaml",
+          "sha256": "b538e947a38ccc126c010859d36b61e77b23911cf604aec3f228afbfa3c5165b",
+          "bytes": 954159,
+          "zip_crc32": "8c74b547",
+          "format": "safe YAML",
+          "episodes": [
+            {
+              "episode_index": 0,
+              "trace_id": 3,
+              "steps": 100,
+              "events": 200
+            }
+          ],
+          "outcomes": {
+            "known_failure": 32,
+            "known_success": 166,
+            "final_action_no_next_observation": 2
+          }
+        },
+        {
+          "file_id": 4,
+          "archive_member": "artifact/data/cage2/cage2_raw_traces/raw_1000.yaml",
+          "sha256": "a797696da3c13bb92d4054d6d245c530c170a887fd83747baf166ebb7ffa795f",
+          "bytes": 1036398,
+          "zip_crc32": "e7289b2d",
+          "format": "safe YAML",
+          "episodes": [
+            {
+              "episode_index": 0,
+              "trace_id": 4,
+              "steps": 100,
+              "events": 200
+            }
+          ],
+          "outcomes": {
+            "known_failure": 43,
+            "known_success": 155,
+            "final_action_no_next_observation": 2
+          }
+        },
+        {
+          "file_id": 5,
+          "archive_member": "artifact/data/cage2/cage2_raw_traces/raw_1001.yaml",
+          "sha256": "a83d7519e631378652db60d77fc993c98e7a63c3a0b7f7f7596de161724c86f5",
+          "bytes": 1045052,
+          "zip_crc32": "2d638992",
+          "format": "safe YAML",
+          "episodes": [
+            {
+              "episode_index": 0,
+              "trace_id": 5,
+              "steps": 100,
+              "events": 200
+            }
+          ],
+          "outcomes": {
+            "known_success": 151,
+            "known_failure": 47,
+            "final_action_no_next_observation": 2
+          }
+        },
+        {
+          "file_id": 6,
+          "archive_member": "artifact/data/cage2/cage2_raw_traces/raw_1002.yaml",
+          "sha256": "872452c66189f792562390bcb16c24e8d6aaf421b80f4028bee51a75b941d20a",
+          "bytes": 1038503,
+          "zip_crc32": "92df65e2",
+          "format": "safe YAML",
+          "episodes": [
+            {
+              "episode_index": 0,
+              "trace_id": 6,
+              "steps": 100,
+              "events": 200
+            }
+          ],
+          "outcomes": {
+            "known_success": 151,
+            "known_failure": 47,
+            "final_action_no_next_observation": 2
+          }
+        }
+      ]
+    },
+    {
+      "scenario": "baby_random15",
+      "pool_files": 5000,
+      "selection": "first six full archive paths sorted lexicographically; not numeric",
+      "provenance": "recorded simulator-generated cybersecurity benchmark, not production telemetry",
+      "files": [
+        {
+          "file_id": 7,
+          "archive_member": "artifact/data/one_host_network_validity_only/trial_1/random_15steps/training_traces/output_1.txt",
+          "sha256": "92658b2b15c0ed5d4e07f08df5d0fdce7f62af65c472b97c12091b8c03ec634d",
+          "bytes": 4210,
+          "zip_crc32": "bd0dcff8",
+          "format": "bounded Python literal",
+          "episodes": [
+            {
+              "episode_index": 0,
+              "trace_id": 7,
+              "steps": 15,
+              "events": 30
+            }
+          ],
+          "outcomes": {
+            "published_success": 22,
+            "published_failure": 8
+          }
+        },
+        {
+          "file_id": 8,
+          "archive_member": "artifact/data/one_host_network_validity_only/trial_1/random_15steps/training_traces/output_10.txt",
+          "sha256": "c3ad25be05aad6779a4724d95f03ae3e9c0cead84ada566607046e66c52e152e",
+          "bytes": 4237,
+          "zip_crc32": "2eda7204",
+          "format": "bounded Python literal",
+          "episodes": [
+            {
+              "episode_index": 0,
+              "trace_id": 8,
+              "steps": 15,
+              "events": 30
+            }
+          ],
+          "outcomes": {
+            "published_success": 22,
+            "published_failure": 8
+          }
+        },
+        {
+          "file_id": 9,
+          "archive_member": "artifact/data/one_host_network_validity_only/trial_1/random_15steps/training_traces/output_100.txt",
+          "sha256": "e53bba13d6ccb9828951a356168dd84d00d35344155adb4569af8603f662b998",
+          "bytes": 4203,
+          "zip_crc32": "8aadeb66",
+          "format": "bounded Python literal",
+          "episodes": [
+            {
+              "episode_index": 0,
+              "trace_id": 9,
+              "steps": 15,
+              "events": 30
+            }
+          ],
+          "outcomes": {
+            "published_success": 20,
+            "published_failure": 10
+          }
+        },
+        {
+          "file_id": 10,
+          "archive_member": "artifact/data/one_host_network_validity_only/trial_1/random_15steps/training_traces/output_1000.txt",
+          "sha256": "36777ed8988983faf2aad53cd33f078a7866f869633b28440b1da25710146f7b",
+          "bytes": 4194,
+          "zip_crc32": "d644ccc1",
+          "format": "bounded Python literal",
+          "episodes": [
+            {
+              "episode_index": 0,
+              "trace_id": 10,
+              "steps": 15,
+              "events": 30
+            }
+          ],
+          "outcomes": {
+            "published_success": 22,
+            "published_failure": 8
+          }
+        },
+        {
+          "file_id": 11,
+          "archive_member": "artifact/data/one_host_network_validity_only/trial_1/random_15steps/training_traces/output_1001.txt",
+          "sha256": "b906913b37246734a3f3d1db8df515abefadd8a41a70c75cbd392e0199c25406",
+          "bytes": 4193,
+          "zip_crc32": "ad530a58",
+          "format": "bounded Python literal",
+          "episodes": [
+            {
+              "episode_index": 0,
+              "trace_id": 11,
+              "steps": 15,
+              "events": 30
+            }
+          ],
+          "outcomes": {
+            "published_success": 21,
+            "published_failure": 9
+          }
+        },
+        {
+          "file_id": 12,
+          "archive_member": "artifact/data/one_host_network_validity_only/trial_1/random_15steps/training_traces/output_1002.txt",
+          "sha256": "35f6b467176047f484c737ad8099bd3ff0829e2c9b394f07da4a65cfae68490c",
+          "bytes": 4229,
+          "zip_crc32": "a2790590",
+          "format": "bounded Python literal",
+          "episodes": [
+            {
+              "episode_index": 0,
+              "trace_id": 12,
+              "steps": 15,
+              "events": 30
+            }
+          ],
+          "outcomes": {
+            "published_success": 24,
+            "published_failure": 6
+          }
+        }
+      ]
+    },
+    {
+      "scenario": "baby_heuristic15",
+      "pool_files": 5000,
+      "selection": "first six full archive paths sorted lexicographically; not numeric",
+      "provenance": "recorded simulator-generated cybersecurity benchmark, not production telemetry",
+      "files": [
+        {
+          "file_id": 13,
+          "archive_member": "artifact/data/one_host_network_validity_only/trial_1/heuristic_15steps/training_traces/output_1.txt",
+          "sha256": "c2daaf1f1b8a157e85d52e4f948372a2f778fde89ff46b834443f4906c52f269",
+          "bytes": 4246,
+          "zip_crc32": "2218737d",
+          "format": "bounded Python literal",
+          "episodes": [
+            {
+              "episode_index": 0,
+              "trace_id": 13,
+              "steps": 15,
+              "events": 30
+            }
+          ],
+          "outcomes": {
+            "published_success": 25,
+            "published_failure": 5
+          }
+        },
+        {
+          "file_id": 14,
+          "archive_member": "artifact/data/one_host_network_validity_only/trial_1/heuristic_15steps/training_traces/output_10.txt",
+          "sha256": "f48944ac6a1d0afb39192ec7d4b014111cc7ce78ec08dabd9c2e2651c8758fad",
+          "bytes": 4234,
+          "zip_crc32": "386e6aa5",
+          "format": "bounded Python literal",
+          "episodes": [
+            {
+              "episode_index": 0,
+              "trace_id": 14,
+              "steps": 15,
+              "events": 30
+            }
+          ],
+          "outcomes": {
+            "published_success": 23,
+            "published_failure": 7
+          }
+        },
+        {
+          "file_id": 15,
+          "archive_member": "artifact/data/one_host_network_validity_only/trial_1/heuristic_15steps/training_traces/output_100.txt",
+          "sha256": "8c81ed6f665fb9de29a42474537dee4558fc4d8bfa40863b3e0c7ef1a50ffa59",
+          "bytes": 4242,
+          "zip_crc32": "ad5fae49",
+          "format": "bounded Python literal",
+          "episodes": [
+            {
+              "episode_index": 0,
+              "trace_id": 15,
+              "steps": 15,
+              "events": 30
+            }
+          ],
+          "outcomes": {
+            "published_success": 25,
+            "published_failure": 5
+          }
+        },
+        {
+          "file_id": 16,
+          "archive_member": "artifact/data/one_host_network_validity_only/trial_1/heuristic_15steps/training_traces/output_1000.txt",
+          "sha256": "9f58d1f257d33f04ee0f6b5c74877d776ace76ca2dbc024bcce3ddc5b0377a88",
+          "bytes": 4239,
+          "zip_crc32": "9549da66",
+          "format": "bounded Python literal",
+          "episodes": [
+            {
+              "episode_index": 0,
+              "trace_id": 16,
+              "steps": 15,
+              "events": 30
+            }
+          ],
+          "outcomes": {
+            "published_success": 27,
+            "published_failure": 3
+          }
+        },
+        {
+          "file_id": 17,
+          "archive_member": "artifact/data/one_host_network_validity_only/trial_1/heuristic_15steps/training_traces/output_1001.txt",
+          "sha256": "cc6eaab1b1fd4a187da0a0b3a5e093c8d9a6a298d136941608d5431e1b419776",
+          "bytes": 4266,
+          "zip_crc32": "4b51198a",
+          "format": "bounded Python literal",
+          "episodes": [
+            {
+              "episode_index": 0,
+              "trace_id": 17,
+              "steps": 15,
+              "events": 30
+            }
+          ],
+          "outcomes": {
+            "published_success": 23,
+            "published_failure": 7
+          }
+        },
+        {
+          "file_id": 18,
+          "archive_member": "artifact/data/one_host_network_validity_only/trial_1/heuristic_15steps/training_traces/output_1002.txt",
+          "sha256": "0fe0369398612f93edab7884ae1c1173f7f038a9b9781564d5590d123e4e517a",
+          "bytes": 4226,
+          "zip_crc32": "49ac54d5",
+          "format": "bounded Python literal",
+          "episodes": [
+            {
+              "episode_index": 0,
+              "trace_id": 18,
+              "steps": 15,
+              "events": 30
+            }
+          ],
+          "outcomes": {
+            "published_success": 27,
+            "published_failure": 3
+          }
+        }
+      ]
+    }
+  ],
+  "archive_sha256": "06039a2cb4c8a5e2230aa7681f2b7e09914ce7ce44a7721b272a437ce2daef76",
+  "archive_bytes": 244813827,
+  "zip_members": 117401,
+  "out_of_scope_zip_entries": 102401,
+  "vocabulary": 19,
+  "traces": 18,
+  "events": 1560,
+  "excluded_events": 0,
+  "unknown_events_retained": true,
+  "and_input_created": false,
+  "outside_pool_policy": "all other ZIP entries unselected by declared scope; archive directory represented by authenticated C016 inventory",
+  "archive_unchanged_size_mtime": true,
+  "output_hashes": {
+    "aliasing_diagnostics.json": "308ddc8f405c5f39fb732662f142762c8cc475d13118793b7817c63f72e44744",
+    "excluded_source_files.json": "e3933cbad94f2da89bfa85f6431a1b23764e489a9a7a4a1560e783651f6da945",
+    "faithful_records_and_metadata.json": "107a60337f2060ab64e5899c01de4094e2a1b34edcddf0cb64530a12dfd7078d",
+    "observations.json": "afda67cff5544994b95c162908b7f0439c27a3c65300a4b463084a95c3e737fd",
+    "observations_target_qualified.json": "80c4dbba688a74ea4aa109c49357e8b9ccd1d7cf9012efbd3836571a3c657259",
+    "target_qualified_dictionary_metadata.json": "63d88a518d94e876ef06ac65dbbf20cb1f54c01aaf6eb5ee99bee77309ea5661",
+    "token_dictionary.json": "dae1b1f53691c0b9b55615cb107c192c5f340d0b55ea4f38aff49a17b514e818"
+  },
+  "script_sha256": "7f27ab6c145bd40f3b4fc1f700759d3ff6ad2d441ac2d0f8ca968617cbd4926a",
+  "wall_seconds": 61.74078019999433
+}

@@ -1,0 +1,7 @@
+# Supplement and prelaunch review disclosure
+
+The manager's harness-review message arrived after official timing had already started under the preceding explicit launch authorization. No timing attempts were discarded, restarted or selectively repeated. The source hash, protocol and six inputs were frozen before launch. The raw `distributions.json` is not an acceptance report: its historical summary includes program_error process durations. `VALIDATED_SUMMARY_V1.json` supersedes that interpretation, preserves every raw duration, censors unresolved/hard timeout, and computes medians only for five independently replayed completed results.
+
+V1 correctness has 689 calls, 196 distinct input hashes, and 668 distinct job IDs: twenty randomized m2 K2 calls and one obstruction m2 K2 call repeat because `(None,1,2,m)` duplicates K2 at m2. Both repeated calls were executed and preserved; neither is extra unique evidence. Existing V1 manifests and captures remain intact. V2 supplemental jobs have unique call IDs and expand malformed K, absent-symbol and long Unicode controls. Supplemental correctness runs after timing to avoid introducing concurrent provider load. Completeness checking RGS references includes r2..10; correctness full-family cases m<=6.
+
+Correction V2: exact manifest count is 21 repeated call IDs, 668 distinct IDs, 689 executed calls. Earlier interim disclosure omitted obstruction_m2_K2. V1 retained.

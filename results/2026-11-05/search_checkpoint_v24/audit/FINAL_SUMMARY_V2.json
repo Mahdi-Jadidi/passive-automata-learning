@@ -1,0 +1,981 @@
+{
+  "integrated": {
+    "correctness_calls": 680,
+    "errors": 0,
+    "CLI_smoke_errors": 0,
+    "CLI_cases": [
+      {
+        "case": "obstruction_noK",
+        "status": "certified_unique",
+        "search_nodes": 127
+      },
+      {
+        "case": "D_K4",
+        "status": "certified_unique",
+        "search_nodes": 207
+      },
+      {
+        "case": "expired",
+        "status": "unresolved",
+        "search_nodes": 0
+      },
+      {
+        "case": "midsearch",
+        "status": "unresolved",
+        "search_nodes": 131
+      }
+    ],
+    "official_timing_measured": false
+  },
+  "memory_measured": false,
+  "state": "A_B_and_integrated_audited_no_public_promotion_performed",
+  "A": {
+    "semantic_certificate_pass": true,
+    "material_benefit": true,
+    "unique_stress_candidate_reduction": true,
+    "known_k_guardrails_pass": true,
+    "automatic_promotion_criteria_pass": true,
+    "comparisons": [
+      {
+        "cell_id": "obstruction_m8_noK",
+        "candidate_over_baseline_median": 0.4520429438866886,
+        "material_benefit": true,
+        "guardrail_block": false,
+        "candidate_count_reduced": true
+      },
+      {
+        "cell_id": "obstruction_m10_noK",
+        "candidate_over_baseline_median": 0.09680328822480026,
+        "material_benefit": true,
+        "guardrail_block": false,
+        "candidate_count_reduced": true
+      },
+      {
+        "cell_id": "obstruction_m12_noK",
+        "candidate_over_baseline_median": null,
+        "material_benefit": true,
+        "guardrail_block": false,
+        "candidate_count_reduced": true
+      },
+      {
+        "cell_id": "ambiguous_noK",
+        "candidate_over_baseline_median": 1.1478330267763588,
+        "material_benefit": false,
+        "guardrail_block": false,
+        "candidate_count_reduced": false
+      },
+      {
+        "cell_id": "D_K4",
+        "candidate_over_baseline_median": 1.090909105958682,
+        "material_benefit": false,
+        "guardrail_block": false,
+        "candidate_count_reduced": false
+      },
+      {
+        "cell_id": "A_K4",
+        "candidate_over_baseline_median": 1.1319169285412456,
+        "material_benefit": false,
+        "guardrail_block": false,
+        "candidate_count_reduced": false
+      }
+    ],
+    "summaries": [
+      {
+        "cell_id": "obstruction_m8_noK",
+        "provider": "C020_C2",
+        "completed": 5,
+        "statuses": [
+          "certified_unique",
+          "certified_unique",
+          "certified_unique",
+          "certified_unique",
+          "certified_unique"
+        ],
+        "raw_seconds": [
+          0.5038017999904696,
+          0.6645507999928668,
+          0.7163804000010714,
+          0.7011178000248037,
+          0.4265222999965772
+        ],
+        "median_completed_seconds": 0.6645507999928668,
+        "complete_candidates": [
+          4141,
+          4141,
+          4141,
+          4141,
+          4141
+        ],
+        "search_nodes": [
+          5296,
+          5296,
+          5296,
+          5296,
+          5296
+        ]
+      },
+      {
+        "cell_id": "obstruction_m8_noK",
+        "provider": "C024_A",
+        "completed": 5,
+        "statuses": [
+          "certified_unique",
+          "certified_unique",
+          "certified_unique",
+          "certified_unique",
+          "certified_unique"
+        ],
+        "raw_seconds": [
+          0.4480256999959238,
+          0.3004054999910295,
+          0.2940586000040639,
+          0.3223205999820493,
+          0.2780268999922555
+        ],
+        "median_completed_seconds": 0.3004054999910295,
+        "complete_candidates": [
+          128,
+          128,
+          128,
+          128,
+          128
+        ],
+        "search_nodes": [
+          127,
+          127,
+          127,
+          127,
+          127
+        ]
+      },
+      {
+        "cell_id": "obstruction_m10_noK",
+        "provider": "C020_C2",
+        "completed": 5,
+        "statuses": [
+          "certified_unique",
+          "certified_unique",
+          "certified_unique",
+          "certified_unique",
+          "certified_unique"
+        ],
+        "raw_seconds": [
+          4.5142037000041455,
+          4.709033499995712,
+          4.785285799996927,
+          5.329045099992072,
+          4.782939800003078
+        ],
+        "median_completed_seconds": 4.782939800003078,
+        "complete_candidates": [
+          115976,
+          115976,
+          115976,
+          115976,
+          115976
+        ],
+        "search_nodes": [
+          142418,
+          142418,
+          142418,
+          142418,
+          142418
+        ]
+      },
+      {
+        "cell_id": "obstruction_m10_noK",
+        "provider": "C024_A",
+        "completed": 5,
+        "statuses": [
+          "certified_unique",
+          "certified_unique",
+          "certified_unique",
+          "certified_unique",
+          "certified_unique"
+        ],
+        "raw_seconds": [
+          0.6128100999922026,
+          0.35796229998231865,
+          0.48649229999864474,
+          0.46300430002156645,
+          0.4124362999864388
+        ],
+        "median_completed_seconds": 0.46300430002156645,
+        "complete_candidates": [
+          512,
+          512,
+          512,
+          512,
+          512
+        ],
+        "search_nodes": [
+          511,
+          511,
+          511,
+          511,
+          511
+        ]
+      },
+      {
+        "cell_id": "obstruction_m12_noK",
+        "provider": "C020_C2",
+        "completed": 0,
+        "statuses": [
+          "unresolved",
+          "unresolved",
+          "unresolved",
+          "unresolved",
+          "unresolved"
+        ],
+        "raw_seconds": [
+          20.339795700012473,
+          20.538316299993312,
+          20.477052000002004,
+          20.590102699992713,
+          20.419926000002306
+        ],
+        "median_completed_seconds": null,
+        "complete_candidates": [
+          465663,
+          497957,
+          515082,
+          372439,
+          454196
+        ],
+        "search_nodes": [
+          568757,
+          607339,
+          627766,
+          455520,
+          554911
+        ]
+      },
+      {
+        "cell_id": "obstruction_m12_noK",
+        "provider": "C024_A",
+        "completed": 5,
+        "statuses": [
+          "certified_unique",
+          "certified_unique",
+          "certified_unique",
+          "certified_unique",
+          "certified_unique"
+        ],
+        "raw_seconds": [
+          0.5890960000106134,
+          0.7648732000088785,
+          0.7241650999931153,
+          0.8189775999926496,
+          0.8570048999972641
+        ],
+        "median_completed_seconds": 0.7648732000088785,
+        "complete_candidates": [
+          2048,
+          2048,
+          2048,
+          2048,
+          2048
+        ],
+        "search_nodes": [
+          2047,
+          2047,
+          2047,
+          2047,
+          2047
+        ]
+      },
+      {
+        "cell_id": "ambiguous_noK",
+        "provider": "C020_C2",
+        "completed": 5,
+        "statuses": [
+          "ambiguous",
+          "ambiguous",
+          "ambiguous",
+          "ambiguous",
+          "ambiguous"
+        ],
+        "raw_seconds": [
+          0.5756746999977622,
+          0.2695547000039369,
+          0.35267960000783205,
+          0.3142585999739822,
+          0.293729600001825
+        ],
+        "median_completed_seconds": 0.3142585999739822,
+        "complete_candidates": [
+          3,
+          3,
+          3,
+          3,
+          3
+        ],
+        "search_nodes": [
+          8,
+          8,
+          8,
+          8,
+          8
+        ]
+      },
+      {
+        "cell_id": "ambiguous_noK",
+        "provider": "C024_A",
+        "completed": 5,
+        "statuses": [
+          "ambiguous",
+          "ambiguous",
+          "ambiguous",
+          "ambiguous",
+          "ambiguous"
+        ],
+        "raw_seconds": [
+          0.3607163999986369,
+          0.3569139000028372,
+          0.571453400014434,
+          0.6249327000114135,
+          0.3019468999991659
+        ],
+        "median_completed_seconds": 0.3607163999986369,
+        "complete_candidates": [
+          3,
+          3,
+          3,
+          3,
+          3
+        ],
+        "search_nodes": [
+          2,
+          2,
+          2,
+          2,
+          2
+        ]
+      },
+      {
+        "cell_id": "D_K4",
+        "provider": "C020_C2",
+        "completed": 5,
+        "statuses": [
+          "certified_unique",
+          "certified_unique",
+          "certified_unique",
+          "certified_unique",
+          "certified_unique"
+        ],
+        "raw_seconds": [
+          0.668120899994392,
+          0.3644923999963794,
+          0.6030133000167552,
+          0.6824932999734301,
+          0.480286400008481
+        ],
+        "median_completed_seconds": 0.6030133000167552,
+        "complete_candidates": [
+          1702,
+          1702,
+          1702,
+          1702,
+          1702
+        ],
+        "search_nodes": [
+          4005,
+          4005,
+          4005,
+          4005,
+          4005
+        ]
+      },
+      {
+        "cell_id": "D_K4",
+        "provider": "C024_A",
+        "completed": 5,
+        "statuses": [
+          "certified_unique",
+          "certified_unique",
+          "certified_unique",
+          "certified_unique",
+          "certified_unique"
+        ],
+        "raw_seconds": [
+          0.4061322000052314,
+          0.6845743999874685,
+          0.6578327000024728,
+          0.5066688999941107,
+          0.7327006999985315
+        ],
+        "median_completed_seconds": 0.6578327000024728,
+        "complete_candidates": [
+          1702,
+          1702,
+          1702,
+          1702,
+          1702
+        ],
+        "search_nodes": [
+          4005,
+          4005,
+          4005,
+          4005,
+          4005
+        ]
+      },
+      {
+        "cell_id": "A_K4",
+        "provider": "C020_C2",
+        "completed": 5,
+        "statuses": [
+          "certified_unique",
+          "certified_unique",
+          "certified_unique",
+          "certified_unique",
+          "certified_unique"
+        ],
+        "raw_seconds": [
+          1.1403002000006381,
+          1.2167275000247173,
+          1.0881311999983154,
+          1.5605366000090726,
+          1.1063742999976967
+        ],
+        "median_completed_seconds": 1.1403002000006381,
+        "complete_candidates": [
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "search_nodes": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "cell_id": "A_K4",
+        "provider": "C024_A",
+        "completed": 5,
+        "statuses": [
+          "certified_unique",
+          "certified_unique",
+          "certified_unique",
+          "certified_unique",
+          "certified_unique"
+        ],
+        "raw_seconds": [
+          1.4373371000110637,
+          1.2907250999996904,
+          1.2091399000200909,
+          1.5265336000011303,
+          1.1616356000013184
+        ],
+        "median_completed_seconds": 1.2907250999996904,
+        "complete_candidates": [
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "search_nodes": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      }
+    ]
+  },
+  "B": {
+    "semantic_certificate_pass": true,
+    "material_benefit": true,
+    "known_k_guardrails_pass": true,
+    "automatic_promotion_criteria_pass": true,
+    "comparisons": [
+      {
+        "cell_id": "D_K4",
+        "candidate_over_baseline_median": 0.8957430071182094,
+        "material_benefit": false,
+        "guardrail_block": false,
+        "candidate_count_reduced": true
+      },
+      {
+        "cell_id": "obstruction_m8_K4",
+        "candidate_over_baseline_median": 0.4266211967319164,
+        "material_benefit": true,
+        "guardrail_block": false,
+        "candidate_count_reduced": true
+      },
+      {
+        "cell_id": "obstruction_m12_K4",
+        "candidate_over_baseline_median": null,
+        "material_benefit": true,
+        "guardrail_block": false,
+        "candidate_count_reduced": true
+      },
+      {
+        "cell_id": "unsafe_K2",
+        "candidate_over_baseline_median": 0.8951108192390598,
+        "material_benefit": false,
+        "guardrail_block": false,
+        "candidate_count_reduced": false
+      },
+      {
+        "cell_id": "ambiguous_K3",
+        "candidate_over_baseline_median": 0.6705831576961221,
+        "material_benefit": true,
+        "guardrail_block": false,
+        "candidate_count_reduced": false
+      },
+      {
+        "cell_id": "A_K4",
+        "candidate_over_baseline_median": 0.976926708347593,
+        "material_benefit": false,
+        "guardrail_block": false,
+        "candidate_count_reduced": false
+      }
+    ],
+    "summaries": [
+      {
+        "cell_id": "D_K4",
+        "provider": "C020_C2",
+        "completed": 5,
+        "statuses": [
+          "certified_unique",
+          "certified_unique",
+          "certified_unique",
+          "certified_unique",
+          "certified_unique"
+        ],
+        "raw_seconds": [
+          0.45381799997994676,
+          0.7233130999957211,
+          0.37223069998435676,
+          0.345428600005107,
+          0.781563999975333
+        ],
+        "median_completed_seconds": 0.45381799997994676,
+        "complete_candidates": [
+          1702,
+          1702,
+          1702,
+          1702,
+          1702
+        ],
+        "search_nodes": [
+          4005,
+          4005,
+          4005,
+          4005,
+          4005
+        ]
+      },
+      {
+        "cell_id": "D_K4",
+        "provider": "C024_B",
+        "completed": 5,
+        "statuses": [
+          "certified_unique",
+          "certified_unique",
+          "certified_unique",
+          "certified_unique",
+          "certified_unique"
+        ],
+        "raw_seconds": [
+          0.6282267000060529,
+          0.3084034000057727,
+          0.406504299986409,
+          0.6579208000039216,
+          0.36288659999263473
+        ],
+        "median_completed_seconds": 0.406504299986409,
+        "complete_candidates": [
+          11,
+          11,
+          11,
+          11,
+          11
+        ],
+        "search_nodes": [
+          207,
+          207,
+          207,
+          207,
+          207
+        ]
+      },
+      {
+        "cell_id": "obstruction_m8_K4",
+        "provider": "C020_C2",
+        "completed": 5,
+        "statuses": [
+          "incompatible",
+          "incompatible",
+          "incompatible",
+          "incompatible",
+          "incompatible"
+        ],
+        "raw_seconds": [
+          0.6857331000210252,
+          0.433746800001245,
+          0.843985999992583,
+          0.6766667999909259,
+          0.6463508000015281
+        ],
+        "median_completed_seconds": 0.6766667999909259,
+        "complete_candidates": [
+          1702,
+          1702,
+          1702,
+          1702,
+          1702
+        ],
+        "search_nodes": [
+          4005,
+          4005,
+          4005,
+          4005,
+          4005
+        ]
+      },
+      {
+        "cell_id": "obstruction_m8_K4",
+        "provider": "C024_B",
+        "completed": 5,
+        "statuses": [
+          "incompatible",
+          "incompatible",
+          "incompatible",
+          "incompatible",
+          "incompatible"
+        ],
+        "raw_seconds": [
+          0.2529006999975536,
+          0.3800329000223428,
+          0.4533613000239711,
+          0.28868040000088513,
+          0.28344910001032986
+        ],
+        "median_completed_seconds": 0.28868040000088513,
+        "complete_candidates": [
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "search_nodes": [
+          12,
+          12,
+          12,
+          12,
+          12
+        ]
+      },
+      {
+        "cell_id": "obstruction_m12_K4",
+        "provider": "C020_C2",
+        "completed": 2,
+        "statuses": [
+          "unresolved",
+          "incompatible",
+          "incompatible",
+          "unresolved",
+          "unresolved"
+        ],
+        "raw_seconds": [
+          20.309287100011716,
+          19.12066290000803,
+          18.454750899982173,
+          20.448071899998467,
+          20.370709900016664
+        ],
+        "median_completed_seconds": null,
+        "complete_candidates": [
+          607266,
+          611502,
+          611502,
+          506458,
+          533495
+        ],
+        "search_nodes": [
+          1113735,
+          1120799,
+          1120799,
+          942232,
+          990789
+        ]
+      },
+      {
+        "cell_id": "obstruction_m12_K4",
+        "provider": "C024_B",
+        "completed": 5,
+        "statuses": [
+          "incompatible",
+          "incompatible",
+          "incompatible",
+          "incompatible",
+          "incompatible"
+        ],
+        "raw_seconds": [
+          0.6461939000000712,
+          0.3848901999881491,
+          0.5271058000216726,
+          0.44194140000035986,
+          0.4011146000120789
+        ],
+        "median_completed_seconds": 0.44194140000035986,
+        "complete_candidates": [
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "search_nodes": [
+          20,
+          20,
+          20,
+          20,
+          20
+        ]
+      },
+      {
+        "cell_id": "unsafe_K2",
+        "provider": "C020_C2",
+        "completed": 5,
+        "statuses": [
+          "certified_unique",
+          "certified_unique",
+          "certified_unique",
+          "certified_unique",
+          "certified_unique"
+        ],
+        "raw_seconds": [
+          0.45953089999966323,
+          0.9296353999816347,
+          0.5578725999803282,
+          1.440462700003991,
+          0.47471199999563396
+        ],
+        "median_completed_seconds": 0.5578725999803282,
+        "complete_candidates": [
+          4,
+          4,
+          4,
+          4,
+          4
+        ],
+        "search_nodes": [
+          9,
+          9,
+          9,
+          9,
+          9
+        ]
+      },
+      {
+        "cell_id": "unsafe_K2",
+        "provider": "C024_B",
+        "completed": 5,
+        "statuses": [
+          "certified_unique",
+          "certified_unique",
+          "certified_unique",
+          "certified_unique",
+          "certified_unique"
+        ],
+        "raw_seconds": [
+          0.4105888999765739,
+          0.4897355000139214,
+          0.9026207000133581,
+          0.4993577999994159,
+          0.8268110000062734
+        ],
+        "median_completed_seconds": 0.4993577999994159,
+        "complete_candidates": [
+          4,
+          4,
+          4,
+          4,
+          4
+        ],
+        "search_nodes": [
+          9,
+          9,
+          9,
+          9,
+          9
+        ]
+      },
+      {
+        "cell_id": "ambiguous_K3",
+        "provider": "C020_C2",
+        "completed": 5,
+        "statuses": [
+          "ambiguous",
+          "ambiguous",
+          "ambiguous",
+          "ambiguous",
+          "ambiguous"
+        ],
+        "raw_seconds": [
+          0.8847857999789994,
+          0.48743879998801276,
+          0.8679453000077046,
+          0.44046179999713786,
+          0.8971561999933328
+        ],
+        "median_completed_seconds": 0.8679453000077046,
+        "complete_candidates": [
+          3,
+          3,
+          3,
+          3,
+          3
+        ],
+        "search_nodes": [
+          15,
+          15,
+          15,
+          15,
+          15
+        ]
+      },
+      {
+        "cell_id": "ambiguous_K3",
+        "provider": "C024_B",
+        "completed": 5,
+        "statuses": [
+          "ambiguous",
+          "ambiguous",
+          "ambiguous",
+          "ambiguous",
+          "ambiguous"
+        ],
+        "raw_seconds": [
+          0.5820294999866746,
+          0.9894680000143126,
+          0.41345960000762716,
+          0.8506873000005726,
+          0.4443045000080019
+        ],
+        "median_completed_seconds": 0.5820294999866746,
+        "complete_candidates": [
+          3,
+          3,
+          3,
+          3,
+          3
+        ],
+        "search_nodes": [
+          15,
+          15,
+          15,
+          15,
+          15
+        ]
+      },
+      {
+        "cell_id": "A_K4",
+        "provider": "C020_C2",
+        "completed": 5,
+        "statuses": [
+          "certified_unique",
+          "certified_unique",
+          "certified_unique",
+          "certified_unique",
+          "certified_unique"
+        ],
+        "raw_seconds": [
+          1.82733410000219,
+          1.96553230000427,
+          1.8354218000022229,
+          2.346577700023772,
+          2.290948000008939
+        ],
+        "median_completed_seconds": 1.96553230000427,
+        "complete_candidates": [
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "search_nodes": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "cell_id": "A_K4",
+        "provider": "C024_B",
+        "completed": 5,
+        "statuses": [
+          "certified_unique",
+          "certified_unique",
+          "certified_unique",
+          "certified_unique",
+          "certified_unique"
+        ],
+        "raw_seconds": [
+          2.370425900007831,
+          2.137581399991177,
+          1.7826910000003409,
+          1.8570909000118263,
+          1.9201809999940451
+        ],
+        "median_completed_seconds": 1.9201809999940451,
+        "complete_candidates": [
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "search_nodes": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      }
+    ]
+  },
+  "correctness": {
+    "A_errors": 0,
+    "A_calls_per_provider": 689,
+    "A_distinct_job_ids": 668,
+    "A_unique_inputs": 196,
+    "supplement_errors": 0,
+    "supplement_calls_per_provider": 10,
+    "B_errors": 0,
+    "B_calls_per_provider": 680,
+    "B_unique_inputs": 202,
+    "capture_integrity": {
+      "attempts_checked": 41,
+      "errors": []
+    }
+  },
+  "disclosures": [
+    "21 repeated A job IDs retained; V2 addendum corrects earlier count",
+    "Manager harness-review arrived after A launch; no discarded/restarted timing",
+    "Raw distributions.json includes unresolved durations; validated summary exclusively controls acceptance",
+    "Supplement preparation KeyError preserved as C024-SUPP-PREP-001; fixed in new script before any supplemental provider execution",
+    "Integrated: 680 independently replayed calls and four CLI checks pass; integrated timing unmeasured",
+    "No memory measurement performed; no historical cross-round ratios; no implementation or public changes"
+  ],
+  "official_attempts": 120,
+  "commands": {
+    "A_replay": "py -B -X utf8 results/2026-11-05/search_checkpoint_v24/audit/validate_timing_v1.py results/2026-11-05/search_checkpoint_v24/audit/runs/C024-TIMING-01",
+    "B_replay": "py -B -X utf8 results/2026-11-05/search_checkpoint_v24/audit/validate_timing_b_v2.py results/2026-11-05/search_checkpoint_v24/audit/runs/C024-B-TIMING-01"
+  }
+}

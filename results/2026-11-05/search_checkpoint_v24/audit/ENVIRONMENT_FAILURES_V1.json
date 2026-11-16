@@ -1,0 +1,14 @@
+[
+  {
+    "failure_id": "C024-ENV-001",
+    "command": "python -B -X utf8 -",
+    "result": "Windows Store python alias returned Python was not found",
+    "resolution": "Used py launcher; resolved actual interpreter is recorded in all captures; no candidate invocation occurred"
+  },
+  {
+    "failure_id": "C024-READ-001",
+    "command": "rg historical/audit/*.py",
+    "result": "PowerShell glob was passed as literal path; rg rejected filename syntax",
+    "resolution": "Used explicit files and directory searches; no mutation or solver execution"
+  }
+]
