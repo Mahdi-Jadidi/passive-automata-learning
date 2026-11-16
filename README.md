@@ -1,17 +1,21 @@
 # Passive Automata Learning — research archive
 
-آخرین تحویل (۲۰۲۶/۱۱/۰۵): [پاورپوینت سادهٔ انگلیسی و فارسی](results/2026-11-04/presentation_english_text_v23/README_FA.md). [دور C022: انتقال شاهد، اثبات و زمان‌گیری مختلط](results/2026-11-04/partition_transfer_v22/RESEARCH_REPORT_FA.md)؛ نسخهٔ عمومی C020 C2 حفظ شد.
+**Current checkpoint — 16 November 2026:** [Current results and next-agent handoff](HANDOFF_NEXT_AGENT_2026-11-16.md), [copyable continuation prompt](NEXT_AGENT_PROMPT.md), and [execution plan](docs/CONTINUATION_PLAN_V46.md). Latest implemented algorithm: [V45 interactive search with the unchanged manuscript teacher](results/2026-11-16/interactive_teacher_v45/README.md). The new higher-budget validation and full V46 paper are pending. Entries below are historical snapshots, not the current task scope. GitHub delivery branch: `codex/teacher-handoff-v46`.
+
+آخرین تحویل (۲۰۲۶/۱۱/۰۶): [C025: خروجی رویداد و ارزیابی تریس‌های ثبت‌شده](results/2026-11-05/real_trace_checkpoint_v25/RESEARCH_REPORT_FA.md) و [متن جلسه با استاد و دمو](results/2026-11-05/real_trace_checkpoint_v25/ADVISOR_BRIEF_FA.md). مدلِ آخرین خروجی و حل‌گر آزمایشی دقیق اضافه شد؛ ۴۲ حالت خارجی با مرجع مستقل تطبیق داشتند: ۳۲ مبهم، ۱۰ ناسازگار، هیچ‌کدام یکتا. نمونهٔ عملیاتی BGL و نمونه‌های شبیه‌ساز CAGE2/Baby جدا گزارش شده‌اند؛ استنتاج به الفبای حداکثر هشت‌نوعی محدود است.
+
+`partition_events.py` ورودی آزمایشی C025 برای خروجی هر رویداد است. `partition.py` نسخهٔ عمومی C024 برای پذیرش AND کل کلمه باقی مانده است. [نتیجهٔ کارایی و ممیزی C024](results/2026-11-05/search_checkpoint_v24/RESEARCH_REPORT_FA.md) برای همان مدل معتبر است؛ کارایی این دو مدل مقایسه نشده است.
 
 آرشیو خصوصیِ پژوهش یادگیری غیرفعال اتوماتا، کشف افراز الفبا، شناسایی‌پذیری، اثبات‌ها و مثال‌های نقض.
 
 اجرای فعلی از ریشه: `python partition.py INPUT.json --seconds 5`؛ فقط اگر تعداد دستگاه‌ها معتبر و معلوم است، `--known-k 2` اضافه کنید.
 
-- **[بستهٔ جلسه با استاد: ارائه، PDF، اثبات و پرسش‌وپاسخ](results/2026-11-04/advisor_package_v21/README_FA.md)** — ۱۹ اسلاید، متن صحبت و دموی اجرایی.
+- **[بستهٔ پیشین جلسه با استاد، C021](results/2026-11-04/advisor_package_v21/README_FA.md)** — ۱۹ اسلاید، متن صحبت و دموی اجراییِ مدل قبلی؛ نتایج تازه در C025 هستند.
 - **[مقیاس‌پذیری با دستگاه‌های پرحالت، C020](results/2026-11-04/scaling_v20/RESEARCH_REPORT_FA.md)** — نسخهٔ عمومی جدید، تا ۲۰ دستگاهِ ۱۰۲۴حالته، بهبودهای اندازه‌گیری‌شده و پسرفت کنترل کوچک.
 - [آموزش نسخهٔ دارای قید تعداد](docs/ALGORITHM_TUTORIAL_FA.md) — مثال کامل، معیار تصویر، شمارش DP و روابط مالکیت.
 - [پیش‌شرط‌های یکتایی با تعداد معلوم و ردِ آستانهٔ صرفِ تعداد تریس](results/2026-11-04/preflight_certificates_v19/README_FA.md)
 - **[بهینه‌سازی دقیق و آزمون تریس‌های تولیدی، C018](results/2026-11-04/synthetic_gate_v18/RESEARCH_REPORT_FA.md)** — صحت مستقل، زمان‌گیری هم‌قرارداد و موارد ناتمام.
-- **[هدف نهاییِ موقتاً متوقف: افراز تریس‌های LANCER](results/2026-11-04/lancer_case_study_v16/GOAL_FA.md)** — مقاله، دادهٔ اصلی و مسیر کاهش تدریجی فرض‌ها.
+- **[سابقهٔ هدف LANCER و توقف پیشین](results/2026-11-04/lancer_case_study_v16/GOAL_FA.md)** — ارزیابی محدودِ داده و مدل به درخواست کاربر در C025 از سر گرفته شد؛ بازیابی کاملِ میزبان‌ها محقق نشده است.
 - **[دروازهٔ اعلام قطعی: بررسی کفایت داده پیش از تحویل افراز](results/2026-11-04/partition_gate_v15/RESEARCH_REPORT_FA.md)** — یکتا، مبهم، ناسازگار و ناتمام با گواه مستقل.
 - **[بازیابی گواهی‌شده با تعداد معلوم و بهینه‌سازی دقیق تریس بلند](results/2026-11-03/partition_recovery_v14/RESEARCH_REPORT_FA.md)** — شرایط بازیابی، سه نمونهٔ موفق و ضدنمونه‌ها.
 - **[مولد دستگاه و تریس تصادفی، تعداد دستگاه ۱ تا ۲۰ و طول تا یک میلیون](results/2026-11-03/partition_random_dfa_v13/README_FA.md)** — کد، اثبات‌ها و ارزیابی حل‌گر دقیق C010.
