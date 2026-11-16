@@ -1,0 +1,421 @@
+{
+  "version": "V45",
+  "python": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]",
+  "platform": "Windows-11-10.0.26300-SP0",
+  "benchmark_trials": 60,
+  "benchmark": [
+    {
+      "case": "empty_all_8",
+      "v43": {
+        "statuses": {
+          "OPTIMAL": 3
+        },
+        "median_pipeline_seconds": 0.00024850000045262277
+      },
+      "v45": {
+        "statuses": {
+          "OPTIMAL": 3
+        },
+        "median_pipeline_seconds": 0.0013116000009176787
+      }
+    },
+    {
+      "case": "all_compatible_10",
+      "v43": {
+        "statuses": {
+          "OPTIMAL": 3
+        },
+        "median_pipeline_seconds": 0.0003423000016482547
+      },
+      "v45": {
+        "statuses": {
+          "OPTIMAL": 3
+        },
+        "median_pipeline_seconds": 0.0008865999989211559
+      }
+    },
+    {
+      "case": "oneblock_8",
+      "v43": {
+        "statuses": {
+          "OPTIMAL": 3
+        },
+        "median_pipeline_seconds": 0.0012821999989682809
+      },
+      "v45": {
+        "statuses": {
+          "INCOMPLETE": 3
+        },
+        "median_pipeline_seconds": null
+      }
+    },
+    {
+      "case": "ties_8",
+      "v43": {
+        "statuses": {
+          "OPTIMAL": 3
+        },
+        "median_pipeline_seconds": 0.0008161000005202368
+      },
+      "v45": {
+        "statuses": {
+          "INCOMPLETE": 3
+        },
+        "median_pipeline_seconds": null
+      }
+    },
+    {
+      "case": "reverse_9",
+      "v43": {
+        "statuses": {
+          "OPTIMAL": 3
+        },
+        "median_pipeline_seconds": 0.0008406000015384052
+      },
+      "v45": {
+        "statuses": {
+          "INCOMPLETE": 3
+        },
+        "median_pipeline_seconds": null
+      }
+    },
+    {
+      "case": "reverse_10",
+      "v43": {
+        "statuses": {
+          "OPTIMAL": 3
+        },
+        "median_pipeline_seconds": 0.000990000000456348
+      },
+      "v45": {
+        "statuses": {
+          "INCOMPLETE": 3
+        },
+        "median_pipeline_seconds": null
+      }
+    },
+    {
+      "case": "overlap_8",
+      "v43": {
+        "statuses": {
+          "OPTIMAL": 3
+        },
+        "median_pipeline_seconds": 0.0647506000022986
+      },
+      "v45": {
+        "statuses": {
+          "INCOMPLETE": 3
+        },
+        "median_pipeline_seconds": null
+      }
+    },
+    {
+      "case": "repeated_projections_9",
+      "v43": {
+        "statuses": {
+          "OPTIMAL": 3
+        },
+        "median_pipeline_seconds": 0.00048720000268076546
+      },
+      "v45": {
+        "statuses": {
+          "OPTIMAL": 3
+        },
+        "median_pipeline_seconds": 0.026823700001841644
+      }
+    },
+    {
+      "case": "long_words_4",
+      "v43": {
+        "statuses": {
+          "OPTIMAL": 3
+        },
+        "median_pipeline_seconds": 0.0032100999997055624
+      },
+      "v45": {
+        "statuses": {
+          "INCOMPLETE": 3
+        },
+        "median_pipeline_seconds": null
+      }
+    },
+    {
+      "case": "many_words_3",
+      "v43": {
+        "statuses": {
+          "OPTIMAL": 3
+        },
+        "median_pipeline_seconds": 0.0053222999995341524
+      },
+      "v45": {
+        "statuses": {
+          "INCOMPLETE": 3
+        },
+        "median_pipeline_seconds": null
+      }
+    }
+  ],
+  "corpus_cases": 2261,
+  "corpus_statuses": {
+    "OPTIMAL": 1050,
+    "INCOMPLETE": 1209,
+    "INFEASIBLE": 2
+  },
+  "corpus_seconds_per_case": 0.03,
+  "corpus_incomplete_is_pass": false,
+  "test_scripts_passed": 4,
+  "projection_summary": [
+    {
+      "alphabet_size": 4,
+      "workload": "distinct",
+      "naive_cached": 0.0305822000009357,
+      "projection_store": 0.08306720000109635
+    },
+    {
+      "alphabet_size": 4,
+      "workload": "repeated",
+      "naive_cached": 0.04855439999664668,
+      "projection_store": 0.08041379999849596
+    },
+    {
+      "alphabet_size": 8,
+      "workload": "distinct",
+      "naive_cached": 0.08149370000319323,
+      "projection_store": 0.220630900003016
+    },
+    {
+      "alphabet_size": 8,
+      "workload": "repeated",
+      "naive_cached": 0.04368650000105845,
+      "projection_store": 0.07845319999978528
+    }
+  ],
+  "memory_single_trial_bytes": [
+    {
+      "method": "v43",
+      "status": "OPTIMAL",
+      "checked": {
+        "status": "ACCEPT"
+      },
+      "peak_working_set_bytes": 20594688,
+      "limit_seconds": 1,
+      "case": "empty_all_8",
+      "repetitions": 1
+    },
+    {
+      "method": "v45",
+      "status": "OPTIMAL",
+      "checked": {
+        "status": "ACCEPT"
+      },
+      "peak_working_set_bytes": 20496384,
+      "limit_seconds": 1,
+      "case": "empty_all_8",
+      "repetitions": 1
+    },
+    {
+      "method": "v43",
+      "status": "OPTIMAL",
+      "checked": {
+        "status": "ACCEPT"
+      },
+      "peak_working_set_bytes": 20611072,
+      "limit_seconds": 1,
+      "case": "all_compatible_10",
+      "repetitions": 1
+    },
+    {
+      "method": "v45",
+      "status": "OPTIMAL",
+      "checked": {
+        "status": "ACCEPT"
+      },
+      "peak_working_set_bytes": 20475904,
+      "limit_seconds": 1,
+      "case": "all_compatible_10",
+      "repetitions": 1
+    },
+    {
+      "method": "v43",
+      "status": "OPTIMAL",
+      "checked": {
+        "status": "ACCEPT"
+      },
+      "peak_working_set_bytes": 20434944,
+      "limit_seconds": 1,
+      "case": "oneblock_8",
+      "repetitions": 1
+    },
+    {
+      "method": "v45",
+      "status": "INCOMPLETE",
+      "checked": null,
+      "peak_working_set_bytes": 20488192,
+      "limit_seconds": 1,
+      "case": "oneblock_8",
+      "repetitions": 1
+    },
+    {
+      "method": "v43",
+      "status": "OPTIMAL",
+      "checked": {
+        "status": "ACCEPT"
+      },
+      "peak_working_set_bytes": 20533248,
+      "limit_seconds": 1,
+      "case": "ties_8",
+      "repetitions": 1
+    },
+    {
+      "method": "v45",
+      "status": "INCOMPLETE",
+      "checked": null,
+      "peak_working_set_bytes": 20901888,
+      "limit_seconds": 1,
+      "case": "ties_8",
+      "repetitions": 1
+    },
+    {
+      "method": "v43",
+      "status": "OPTIMAL",
+      "checked": {
+        "status": "ACCEPT"
+      },
+      "peak_working_set_bytes": 20414464,
+      "limit_seconds": 1,
+      "case": "reverse_9",
+      "repetitions": 1
+    },
+    {
+      "method": "v45",
+      "status": "INCOMPLETE",
+      "checked": null,
+      "peak_working_set_bytes": 21016576,
+      "limit_seconds": 1,
+      "case": "reverse_9",
+      "repetitions": 1
+    },
+    {
+      "method": "v43",
+      "status": "OPTIMAL",
+      "checked": {
+        "status": "ACCEPT"
+      },
+      "peak_working_set_bytes": 20480000,
+      "limit_seconds": 1,
+      "case": "reverse_10",
+      "repetitions": 1
+    },
+    {
+      "method": "v45",
+      "status": "INCOMPLETE",
+      "checked": null,
+      "peak_working_set_bytes": 21049344,
+      "limit_seconds": 1,
+      "case": "reverse_10",
+      "repetitions": 1
+    },
+    {
+      "method": "v43",
+      "status": "OPTIMAL",
+      "checked": {
+        "status": "ACCEPT"
+      },
+      "peak_working_set_bytes": 21090304,
+      "limit_seconds": 1,
+      "case": "overlap_8",
+      "repetitions": 1
+    },
+    {
+      "method": "v45",
+      "status": "INCOMPLETE",
+      "checked": null,
+      "peak_working_set_bytes": 20709376,
+      "limit_seconds": 1,
+      "case": "overlap_8",
+      "repetitions": 1
+    },
+    {
+      "method": "v43",
+      "status": "OPTIMAL",
+      "checked": {
+        "status": "ACCEPT"
+      },
+      "peak_working_set_bytes": 20537344,
+      "limit_seconds": 1,
+      "case": "repeated_projections_9",
+      "repetitions": 1
+    },
+    {
+      "method": "v45",
+      "status": "OPTIMAL",
+      "checked": {
+        "status": "ACCEPT"
+      },
+      "peak_working_set_bytes": 20836352,
+      "limit_seconds": 1,
+      "case": "repeated_projections_9",
+      "repetitions": 1
+    },
+    {
+      "method": "v43",
+      "status": "OPTIMAL",
+      "checked": {
+        "status": "ACCEPT"
+      },
+      "peak_working_set_bytes": 20598784,
+      "limit_seconds": 1,
+      "case": "long_words_4",
+      "repetitions": 1
+    },
+    {
+      "method": "v45",
+      "status": "INCOMPLETE",
+      "checked": null,
+      "peak_working_set_bytes": 21594112,
+      "limit_seconds": 1,
+      "case": "long_words_4",
+      "repetitions": 1
+    },
+    {
+      "method": "v43",
+      "status": "OPTIMAL",
+      "checked": {
+        "status": "ACCEPT"
+      },
+      "peak_working_set_bytes": 20701184,
+      "limit_seconds": 1,
+      "case": "many_words_3",
+      "repetitions": 1
+    },
+    {
+      "method": "v45",
+      "status": "INCOMPLETE",
+      "checked": null,
+      "peak_working_set_bytes": 20799488,
+      "limit_seconds": 1,
+      "case": "many_words_3",
+      "repetitions": 1
+    }
+  ],
+  "examples": {
+    "interaction_example.json": {
+      "cuts": 1,
+      "max_devices": 2,
+      "seconds": 5.010646999999153
+    },
+    "two_cut_example.json": {
+      "cuts": 2,
+      "max_devices": 3,
+      "seconds": 10.173805300000822
+    }
+  },
+  "teacher_modified": false,
+  "and_model_field_trials": 0,
+  "notes": [
+    "First benchmark batch overlapped corpus audit; preserved as benchmark_contended.jsonl and excluded from timing table.",
+    "Clean benchmark ran without concurrent audit or agent benchmarks; OS background load uncontrolled.",
+    "Projection microbenchmark is a separate bounded workload, not an end-to-end speedup.",
+    "Consumer normalizes duplicate literals after review; no teacher logic was changed."
+  ]
+}

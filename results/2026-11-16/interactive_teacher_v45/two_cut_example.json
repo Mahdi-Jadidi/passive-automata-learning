@@ -1,0 +1,186 @@
+{
+  "input": {
+    "alphabet": [
+      "a",
+      "b",
+      "c",
+      "d"
+    ],
+    "positive": [
+      [
+        "d",
+        "c",
+        "b",
+        "a"
+      ]
+    ],
+    "negative": [
+      [
+        "a",
+        "b",
+        "c",
+        "d"
+      ],
+      [
+        "a",
+        "b",
+        "d",
+        "c"
+      ]
+    ]
+  },
+  "generator": "model-dependent diagnostic, NOT unbiased benchmark",
+  "profile": {
+    "result": {
+      "status": "OPTIMAL",
+      "blocks": [
+        [
+          "a",
+          "d"
+        ],
+        [
+          "b"
+        ],
+        [
+          "c"
+        ]
+      ],
+      "max_devices": 3,
+      "certificate": {
+        "type": "teacher_cut_drup",
+        "cuts": [
+          {
+            "negative_index": 0,
+            "regions": [
+              1,
+              2,
+              4,
+              8
+            ],
+            "positive_indices": [
+              0,
+              0,
+              0,
+              0
+            ]
+          },
+          {
+            "negative_index": 1,
+            "regions": [
+              1,
+              2,
+              12
+            ],
+            "positive_indices": [
+              0,
+              0,
+              0
+            ]
+          }
+        ],
+        "proof": []
+      }
+    },
+    "metrics": {
+      "teacher_calls": 3,
+      "cuts": 2,
+      "sat_queries": 3,
+      "phase": "consumer_self_check",
+      "teacher_seconds": 10.163280199998553,
+      "atoms": 4,
+      "total_seconds": 10.173805300000822,
+      "projections": {
+        "dag_nodes": 29,
+        "cache_hits": 52,
+        "cache_misses": 15,
+        "transformed_nodes": 118,
+        "materialized_words": 29
+      },
+      "main_teacher": {
+        "dfa_representations": 1054474,
+        "cache_hits": 2,
+        "branches": 1,
+        "semijoin_checks": 5,
+        "local_rows": [
+          2,
+          1,
+          1
+        ],
+        "q_rows": [
+          1,
+          1
+        ],
+        "vertices": 5,
+        "edges": 2,
+        "cycle_bits": 0,
+        "bounds": [
+          4,
+          3,
+          3
+        ],
+        "completed_checks": 3
+      }
+    },
+    "trace": [
+      {
+        "partition_masks": [
+          1,
+          2,
+          4,
+          8
+        ],
+        "teacher_status": "REJECT",
+        "seconds": 0.005619600000500213,
+        "cut": {
+          "negative_index": 0,
+          "regions": [
+            1,
+            2,
+            4,
+            8
+          ],
+          "positive_indices": [
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      },
+      {
+        "partition_masks": [
+          1,
+          2,
+          12
+        ],
+        "teacher_status": "REJECT",
+        "seconds": 5.582537199999933,
+        "cut": {
+          "negative_index": 1,
+          "regions": [
+            1,
+            2,
+            12
+          ],
+          "positive_indices": [
+            0,
+            0,
+            0
+          ]
+        }
+      },
+      {
+        "partition_masks": [
+          9,
+          2,
+          4
+        ],
+        "teacher_status": "ACCEPT",
+        "seconds": 4.57512339999812
+      }
+    ]
+  },
+  "checked": {
+    "status": "ACCEPT"
+  }
+}
