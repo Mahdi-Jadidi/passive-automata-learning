@@ -1,0 +1,9 @@
+# C024 integrated exact search: composition of A and B
+
+METHOD is C024-integrated-exact-search. This is exactly the A unknown-K fallback and B known-K envelope DFS composed on baseline C020; no third algorithm or tuning is introduced. The CLI is baseline-identical. Frozen A/B hashes are checked by both composition and verification scripts and recorded in READINESS_v1.json.
+
+Branch argument: before either fallback, baseline validation, contradictions, known_k==1, unary, graph/forced atoms, compatible atomic partitions and known_k==r rejection remain identical. If the fallback is reached with known_k=None, A always returns either ambiguity or exhausted unique oneblock (or unwinds to unresolved), so B's DFS is unreachable. With known_k non-None, A's guard is false and execution enters exactly B's DFS. Thus each input follows its separately reviewed candidate branch. Shared exact reject cache, projection and witness implementations are unchanged and each solve owns fresh local state. Finite deadline timing need not match separate runs, but interruption retains unresolved without speculative partitions.
+
+A correctness/proof routes and B envelope safety/proof metadata are unchanged; see their METHOD_v1.md files. No additional combined-state interactions occur. Syntax and nine targeted controls compare complete normalized outputs to A for unknown K and B for known K, ignoring only METHOD and solver_seconds. Controls include both search branches, D_K4, unsafe-pruning and quantifier examples, validation, contradiction and unary fast route. Expired deadlines are checked on both branches.
+
+This is integration readiness only. Independent integrated audit remains required; no full benchmark or public promotion is claimed. Known resource limits and replay-metadata limitations of A/B remain applicable.

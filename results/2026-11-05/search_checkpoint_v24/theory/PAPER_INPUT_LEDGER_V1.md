@@ -1,0 +1,9 @@
+| R8 | results/2026-11-05/search_checkpoint_v24/audit/PROTOCOL_V1.md | 77fcc472278892672198e677e61adaac3cfdcffab5faa8af705ab884f8f09f9d |
+| R9 | results/2026-11-05/search_checkpoint_v24/audit/PROTOCOL_B_V1.md | d085215a4f0550680f643f61a0b390f3fefdabaa24103301e02d0faf582537a7 |
+| R10 | results/2026-11-05/search_checkpoint_v24/audit/runs/C024-TIMING-01/VALIDATED_SUMMARY_V1.json | 84be3d8faf921900a738f8d65c34c2dd1bec5e980ced35da336868aaf3485f7d |
+| R11 | results/2026-11-05/search_checkpoint_v24/audit/runs/C024-B-TIMING-01/VALIDATED_SUMMARY_V1.json | 8522d25ada5dea14f4e752ddb1e32b480fddae307982e09a76d85c9d1f6cbb6f |
+| R12 | results/2026-11-05/search_checkpoint_v24/audit/FINAL_SUMMARY_V2.json | 3a2528674fcc4b627e2c9999b002f9da4a2c58763059738ad376164ca75bd3f7 |
+| R13 | results/2026-11-05/search_checkpoint_v24/audit/RESULTS_V1.md | 95c2ed9ff0e0e722e5a4fac285171976bedbb90bfdba7ee688b554ebfd0a4845 |
+| R14 | results/2026-11-05/search_checkpoint_v24/audit/CORRECTNESS_CAPTURE_INTEGRITY_V2.json | 90f0f2b9bebb5be7540e0b1a915b3f5e876eb6ed2c93d757002b7a12574e5b5f |
+| R15 | results/2026-11-05/search_checkpoint_v24/audit/runs/C024-INTEGRATED-CORRECTNESS-01/correctness_report.json | 9b31f2a181813dfc97f0410268389e520695224cc4481081ae3e88dfff598be9 |
+| R16 | results/2026-11-05/search_checkpoint_v24/audit/runs/C024-B-CORRECTNESS-01/correctness_report.json | 375b5b424c4e1aebe82008854b7199f21efe7183372db33019cbd59abaa26103 |

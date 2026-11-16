@@ -1,0 +1,18 @@
+{
+  "checkpoint": "C026",
+  "date": "2026-11-06",
+  "authorization": "User explicitly approved managed execution of the C026 plan with gpt-6.1-sol low effort workers.",
+  "objective": "Unknown ownership/count/devices; declare all-K ambiguity and recommend maximum-block compatible partition",
+  "input": "exactly alphabet,positive,negative; no trusted K, DFA, host or truth input",
+  "contract": "CONTRACT_V1.md",
+  "workers": [
+    {"agent":"c026_plan_theory", "model":"gpt-6.1-sol", "effort":"low", "owns":"theory/"},
+    {"agent":"c026_implementation", "model":"gpt-6.1-sol", "effort":"low", "owns":"implementation/"},
+    {"agent":"c026_plan_data", "model":"gpt-6.1-sol", "effort":"low", "owns":"audit/"}
+  ],
+  "manager_owns": ["public dispatch", "frozen contract", "coordination", "demo", "final reports and evidence ledger"],
+  "scope": "Two theory packages and one implementation candidate; source-review/hash gate before provider audit; six timingcells,three reps, common max/tie query",
+  "token_policy": "Narrow file-based tasks; existing agents reused; short reports, no worker trees; actual per-agent token/cost telemetry unavailable",
+  "preservation": "No archive edits, deletion, commit, push or PR. Preserve failed attempts and version fixes.",
+  "status": "in_progress"
+}

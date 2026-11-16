@@ -1,0 +1,78 @@
+--- C020/gate_v1.py
++++ C024-integrated/gate_v1.py
+@@ -4,7 +4,7 @@
+ import math
+ import time
+ 
+-METHOD = 'C020-parikh-native-projection-gate-c2-v1'
++METHOD = 'C024-integrated-exact-search'
+ # <=64KiB of UTF-32 character payload per temporary chunk; headers/Counter
+ # entries are additional. ASCII synthetic inputs use <=16KiB per chunk.
+ COUNT_CHUNK_CHARS = 16 * 1024
+@@ -358,7 +358,35 @@
+         if known_k == r:
+             return emit('incompatible', 'only_forced_atom_partition_rejected', **graph_proof)
+ 
++        if known_k is None:
++            # C006 PROOFS_v1.md T3: any nontrivial compatible coarsening
++            # merges to a compatible bipartition. Atom zero stays in side0.
++            full_mask = (1 << r) - 1
++            split_count = 0
++            for tail in range((1 << (r - 1)) - 1):
++                poll()
++                side0 = 1 | (tail << 1)
++                side1 = full_mask ^ side0
++                split_count += 1
++                metrics['search_nodes'] += 1
++                candidate = witness([side0, side1])
++                if candidate is not None:
++                    metrics['reject_cache_hits'] = reject.cache_info().hits
++                    return ambiguous('two_block_search_witness', [oneblock(), candidate],
++                                     search_exhausted=False, bipartitions_tested=split_count,
++                                     proof_basis='C006-T3-coarsening-to-bipartitions', **graph_proof)
++            metrics['reject_cache_hits'] = reject.cache_info().hits
++            return unique('exhausted_forced_atom_bipartitions', oneblock(),
++                          search_exhausted=True, bipartitions_tested=split_count,
++                          proof_basis='C006-T3-coarsening-to-bipartitions', **graph_proof)
++
+         solutions = []
++        if known_k is not None:
++            metrics['envelope_checks'] = 0
++            metrics['envelope_prunes'] = 0
++        envelope_proof = ({'envelope_rule': 'growing_blocks_union_remaining_plus_remaining_if_new_block_allowed',
++                           'proof_basis': 'C020-exact-reject-monotonic-envelope'}
++                          if known_k is not None else {})
+         def dfs(pos, masks):
+             poll()
+             metrics['search_nodes'] += 1
+@@ -372,6 +400,19 @@
+                 if candidate is not None:
+                     solutions.append(candidate)
+                 return
++            if known_k is not None:
++                metrics['envelope_checks'] += 1
++                unassigned = ((1 << r) - 1) ^ ((1 << pos) - 1)
++                envelope = 0
++                for mask in masks:
++                    poll()
++                    envelope |= reject(mask | unassigned)
++                if len(masks) < known_k:
++                    poll()
++                    envelope |= reject(unassigned)
++                if envelope != all_rejected:
++                    metrics['envelope_prunes'] += 1
++                    return
+             bit = 1 << pos
+             for i in range(len(masks)):
+                 poll()
+@@ -388,8 +429,8 @@
+         if len(solutions) == 2:
+             return ambiguous('two_exact_search_witnesses', solutions, **graph_proof)
+         if len(solutions) == 1:
+-            return unique('exhausted_all_forced_atom_coarsenings', solutions[0], search_exhausted=True, **graph_proof)
+-        return emit('incompatible', 'exhausted_all_forced_atom_coarsenings', search_exhausted=True, **graph_proof)
++            return unique('exhausted_all_forced_atom_coarsenings', solutions[0], search_exhausted=True, **envelope_proof, **graph_proof)
++        return emit('incompatible', 'exhausted_all_forced_atom_coarsenings', search_exhausted=True, **envelope_proof, **graph_proof)
+     except BadInput as exc:
+         return {**base, 'status': 'invalid_input', 'error': str(exc),
+                 'findings': {'data_insufficient': None, 'computation_incomplete': False}}

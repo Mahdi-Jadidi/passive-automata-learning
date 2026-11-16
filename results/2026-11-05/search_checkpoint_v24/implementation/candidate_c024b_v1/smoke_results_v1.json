@@ -1,0 +1,400 @@
+{
+  "passed": true,
+  "python": "3.14.6 (tags/v3.14.6:c63aec6, Jun 10 2026, 10:26:10) [MSC v.1944 64 bit (AMD64)]",
+  "cases": [
+    {
+      "name": "D_K4",
+      "status": "certified_unique",
+      "certificate": {
+        "route": "exhausted_all_forced_atom_coarsenings",
+        "witness": {
+          "blocks": [
+            [
+              "a",
+              "h"
+            ],
+            [
+              "b",
+              "e"
+            ],
+            [
+              "c",
+              "g"
+            ],
+            [
+              "d",
+              "f"
+            ]
+          ],
+          "negative_rejections": [
+            {
+              "negative_index": 0,
+              "rejected_by_block": 3
+            },
+            {
+              "negative_index": 1,
+              "rejected_by_block": 2
+            },
+            {
+              "negative_index": 2,
+              "rejected_by_block": 1
+            },
+            {
+              "negative_index": 3,
+              "rejected_by_block": 0
+            }
+          ],
+          "local_language_rule": "positive_projections_from_input"
+        },
+        "search_exhausted": true,
+        "envelope_rule": "growing_blocks_union_remaining_plus_remaining_if_new_block_allowed",
+        "proof_basis": "C020-exact-reject-monotonic-envelope",
+        "forced_atoms": [
+          [
+            "a"
+          ],
+          [
+            "b"
+          ],
+          [
+            "c"
+          ],
+          [
+            "d"
+          ],
+          [
+            "e"
+          ],
+          [
+            "f"
+          ],
+          [
+            "g"
+          ],
+          [
+            "h"
+          ]
+        ],
+        "swap_forest": []
+      },
+      "metrics": {
+        "characters_counted": 2048,
+        "projection_characters": 161792,
+        "swap_pairs": 4,
+        "search_nodes": 207,
+        "complete_candidates": 11,
+        "block_masks_computed": 79,
+        "reject_cache_limit": 4096,
+        "count_chunks": 8,
+        "counter_characters_processed": 2048,
+        "invalid_validation_characters": 0,
+        "word_signatures": 9,
+        "graph_pair_universe": 20,
+        "graph_pairs_filtered": 16,
+        "projection_chunks": 632,
+        "deletion_tables_built": 79,
+        "envelope_checks": 160,
+        "envelope_prunes": 100,
+        "reject_cache_hits": 555,
+        "solver_seconds": 0.004874800011748448
+      }
+    },
+    {
+      "name": "obstruction_K4",
+      "status": "incompatible",
+      "certificate": {
+        "route": "exhausted_all_forced_atom_coarsenings",
+        "search_exhausted": true,
+        "envelope_rule": "growing_blocks_union_remaining_plus_remaining_if_new_block_allowed",
+        "proof_basis": "C020-exact-reject-monotonic-envelope",
+        "forced_atoms": [
+          [
+            "a"
+          ],
+          [
+            "b"
+          ],
+          [
+            "c"
+          ],
+          [
+            "d"
+          ],
+          [
+            "e"
+          ],
+          [
+            "f"
+          ],
+          [
+            "g"
+          ],
+          [
+            "h"
+          ]
+        ],
+        "swap_forest": []
+      },
+      "metrics": {
+        "characters_counted": 64,
+        "projection_characters": 1280,
+        "swap_pairs": 0,
+        "search_nodes": 12,
+        "complete_candidates": 1,
+        "block_masks_computed": 20,
+        "reject_cache_limit": 4096,
+        "count_chunks": 9,
+        "counter_characters_processed": 64,
+        "invalid_validation_characters": 0,
+        "word_signatures": 9,
+        "graph_pair_universe": 8,
+        "graph_pairs_filtered": 8,
+        "projection_chunks": 180,
+        "deletion_tables_built": 20,
+        "envelope_checks": 11,
+        "envelope_prunes": 5,
+        "reject_cache_hits": 14,
+        "solver_seconds": 0.0007004000071901828
+      }
+    },
+    {
+      "name": "unsafe_current_coverage",
+      "status": "certified_unique",
+      "certificate": {
+        "route": "exhausted_all_forced_atom_coarsenings",
+        "witness": {
+          "blocks": [
+            [
+              "a",
+              "c"
+            ],
+            [
+              "b"
+            ]
+          ],
+          "negative_rejections": [
+            {
+              "negative_index": 0,
+              "rejected_by_block": 0
+            }
+          ],
+          "local_language_rule": "positive_projections_from_input"
+        },
+        "search_exhausted": true,
+        "envelope_rule": "growing_blocks_union_remaining_plus_remaining_if_new_block_allowed",
+        "proof_basis": "C020-exact-reject-monotonic-envelope",
+        "forced_atoms": [
+          [
+            "a"
+          ],
+          [
+            "b"
+          ],
+          [
+            "c"
+          ]
+        ],
+        "swap_forest": []
+      },
+      "metrics": {
+        "characters_counted": 12,
+        "projection_characters": 84,
+        "swap_pairs": 1,
+        "search_nodes": 9,
+        "complete_candidates": 4,
+        "block_masks_computed": 7,
+        "reject_cache_limit": 4096,
+        "count_chunks": 2,
+        "counter_characters_processed": 12,
+        "invalid_validation_characters": 0,
+        "word_signatures": 2,
+        "graph_pair_universe": 1,
+        "graph_pairs_filtered": 0,
+        "projection_chunks": 14,
+        "deletion_tables_built": 7,
+        "envelope_checks": 4,
+        "envelope_prunes": 0,
+        "reject_cache_hits": 9,
+        "solver_seconds": 0.0001939999929163605
+      }
+    },
+    {
+      "name": "quantifier",
+      "status": "incompatible",
+      "certificate": {
+        "route": "only_forced_atom_partition_rejected",
+        "forced_atoms": [
+          [
+            "a"
+          ],
+          [
+            "b"
+          ]
+        ],
+        "swap_forest": []
+      },
+      "metrics": {
+        "characters_counted": 4,
+        "projection_characters": 8,
+        "swap_pairs": 0,
+        "search_nodes": 0,
+        "complete_candidates": 1,
+        "block_masks_computed": 2,
+        "reject_cache_limit": 4096,
+        "count_chunks": 3,
+        "counter_characters_processed": 4,
+        "invalid_validation_characters": 0,
+        "word_signatures": 3,
+        "graph_pair_universe": 2,
+        "graph_pairs_filtered": 2,
+        "projection_chunks": 6,
+        "deletion_tables_built": 2,
+        "solver_seconds": 7.609999738633633e-05
+      }
+    },
+    {
+      "name": "quantifier_saved_epsilon",
+      "status": "incompatible",
+      "certificate": {
+        "route": "only_forced_atom_partition_rejected",
+        "forced_atoms": [
+          [
+            "a"
+          ],
+          [
+            "b"
+          ]
+        ],
+        "swap_forest": []
+      },
+      "metrics": {
+        "characters_counted": 2,
+        "projection_characters": 4,
+        "swap_pairs": 0,
+        "search_nodes": 0,
+        "complete_candidates": 1,
+        "block_masks_computed": 2,
+        "reject_cache_limit": 4096,
+        "count_chunks": 2,
+        "counter_characters_processed": 2,
+        "invalid_validation_characters": 0,
+        "word_signatures": 3,
+        "graph_pair_universe": 2,
+        "graph_pairs_filtered": 2,
+        "projection_chunks": 4,
+        "deletion_tables_built": 2,
+        "solver_seconds": 6.469999789260328e-05
+      }
+    },
+    {
+      "name": "no_k_unchanged",
+      "status": "certified_unique",
+      "certificate": {
+        "route": "exhausted_all_forced_atom_coarsenings",
+        "witness": {
+          "blocks": [
+            [
+              "a",
+              "b",
+              "c",
+              "d",
+              "e",
+              "f",
+              "g",
+              "h"
+            ]
+          ],
+          "negative_rejections": [
+            {
+              "negative_index": 0,
+              "rejected_by_block": 0
+            }
+          ],
+          "local_language_rule": "positive_projections_from_input"
+        },
+        "search_exhausted": true,
+        "forced_atoms": [
+          [
+            "a"
+          ],
+          [
+            "b"
+          ],
+          [
+            "c"
+          ],
+          [
+            "d"
+          ],
+          [
+            "e"
+          ],
+          [
+            "f"
+          ],
+          [
+            "g"
+          ],
+          [
+            "h"
+          ]
+        ],
+        "swap_forest": []
+      },
+      "metrics": {
+        "characters_counted": 64,
+        "projection_characters": 16320,
+        "swap_pairs": 0,
+        "search_nodes": 5296,
+        "complete_candidates": 4141,
+        "block_masks_computed": 255,
+        "reject_cache_limit": 4096,
+        "count_chunks": 9,
+        "counter_characters_processed": 64,
+        "invalid_validation_characters": 0,
+        "word_signatures": 9,
+        "graph_pair_universe": 8,
+        "graph_pairs_filtered": 8,
+        "projection_chunks": 2295,
+        "deletion_tables_built": 255,
+        "reject_cache_hits": 16760
+      }
+    }
+  ],
+  "expired_deadline": {
+    "schema_version": 1,
+    "method": "C024-B-known-k-envelope-gate-v1",
+    "known_k": 4,
+    "assumptions": [
+      "finite noiseless full-word labels",
+      "known disjoint symbol ownership",
+      "independent regular factors without a state bound",
+      "externally trusted exact known_k"
+    ],
+    "physical_truth_read": false,
+    "metrics": {
+      "characters_counted": 0,
+      "projection_characters": 0,
+      "swap_pairs": 0,
+      "search_nodes": 0,
+      "complete_candidates": 0,
+      "block_masks_computed": 0,
+      "reject_cache_limit": 4096,
+      "count_chunks": 0,
+      "counter_characters_processed": 0,
+      "invalid_validation_characters": 0,
+      "word_signatures": 0,
+      "graph_pair_universe": 0,
+      "graph_pairs_filtered": 0,
+      "projection_chunks": 0,
+      "deletion_tables_built": 0,
+      "solver_seconds": 2.7000001864507794e-05
+    },
+    "status": "unresolved",
+    "reason": "Halt",
+    "findings": {
+      "data_insufficient": null,
+      "computation_incomplete": true
+    }
+  }
+}
