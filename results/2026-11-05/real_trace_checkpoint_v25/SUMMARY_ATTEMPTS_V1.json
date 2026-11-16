@@ -1,0 +1,9 @@
+{
+  "v1": {
+    "script": "summarize_results_v1.py",
+    "exit_code": 1,
+    "error": "KeyError: 'result' while aggregating a broad ACTUAL_* glob that also matched a compact summary",
+    "effect": "No inference or audit outputs changed; no summary produced",
+    "resolution": "V2 reads exactly the seven arm files declared in ACTUAL_FREEZE_V3.json"
+  }
+}

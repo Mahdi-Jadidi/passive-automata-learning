@@ -1,0 +1,968 @@
+{
+  "scope": "Manager aggregation of the seven frozen audit arms; no new inference",
+  "status_counts": {
+    "incompatible": 10,
+    "ambiguous": 32
+  },
+  "cells": 42,
+  "arms": [
+    {
+      "arm": "cage2_raw_qualified",
+      "primary": true,
+      "coverage": {
+        "training": {
+          "total_events": 800,
+          "selected_events": 334,
+          "omitted_events": 466,
+          "labelled": 792,
+          "omitted_labelled": 465,
+          "types": 102
+        },
+        "heldout": {
+          "total_events": 400,
+          "selected_events": 147,
+          "omitted_events": 253,
+          "labelled": 396,
+          "omitted_labelled": 251,
+          "types": 24
+        }
+      },
+      "selected": [
+        "qb9d2e38013f79207cbabe5fb6cc2562f50c23aaacf1dd877747260f3dbb563c5",
+        "qf4c69bba8b5cd261883e4db7306737551bb7e33ed15e00c39c67d2256f5ada0f",
+        "qeaf9712dd31422358fb20d54d022354d56623834ba8eccae81597e18333aa0db",
+        "qc2e52c4550d067649477d1ec120b61b7154f849f58a78cde5b0fe068d70860c9",
+        "q194492674ba8c5ae48130b79839ca429fc9194abc61fc1a2652516724c1acca6",
+        "q1d2d94cbf1600f317da93a589cd53b3f1fbd4e144254a7b20af17d84f84047eb",
+        "q0a64cbd3ab21a85f9b80b78cb5aac1dc6fe08a1ec3cda27e9e46f55b2a78da23",
+        "q8f15cf9605712f56de46f812db3f2a8741294f7f76a7d3a9e7a0125afcc45326"
+      ],
+      "results": [
+        {
+          "depth": 0,
+          "status": "incompatible",
+          "family_count": 0,
+          "heldout": [],
+          "block_checks": 224
+        },
+        {
+          "depth": 1,
+          "status": "incompatible",
+          "family_count": 0,
+          "heldout": [],
+          "block_checks": 224
+        },
+        {
+          "depth": 2,
+          "status": "incompatible",
+          "family_count": 0,
+          "heldout": [],
+          "block_checks": 224
+        },
+        {
+          "depth": 4,
+          "status": "ambiguous",
+          "family_count": 9,
+          "heldout": [
+            {
+              "labelled": 145,
+              "known_context": 3,
+              "opposite_conflicts": 0,
+              "abstention": 142
+            },
+            {
+              "labelled": 145,
+              "known_context": 10,
+              "opposite_conflicts": 0,
+              "abstention": 135
+            }
+          ],
+          "block_checks": 42
+        },
+        {
+          "depth": 8,
+          "status": "ambiguous",
+          "family_count": 244,
+          "heldout": [
+            {
+              "labelled": 145,
+              "known_context": 3,
+              "opposite_conflicts": 0,
+              "abstention": 142
+            },
+            {
+              "labelled": 145,
+              "known_context": 19,
+              "opposite_conflicts": 0,
+              "abstention": 126
+            }
+          ],
+          "block_checks": 3
+        },
+        {
+          "depth": "full",
+          "status": "ambiguous",
+          "family_count": 372,
+          "heldout": [
+            {
+              "labelled": 145,
+              "known_context": 3,
+              "opposite_conflicts": 0,
+              "abstention": 142
+            },
+            {
+              "labelled": 145,
+              "known_context": 19,
+              "opposite_conflicts": 0,
+              "abstention": 126
+            }
+          ],
+          "block_checks": 3
+        }
+      ],
+      "source": "audit\\ACTUAL_cage2_raw_qualified_V1.json",
+      "source_sha256": "1871ba28e8c6e099467d5bb07198c007ecc50613b51a722d7086e7fcb975e36e"
+    },
+    {
+      "arm": "cage2_raw_actiononly",
+      "primary": false,
+      "coverage": {
+        "training": {
+          "total_events": 800,
+          "selected_events": 744,
+          "omitted_events": 56,
+          "labelled": 792,
+          "omitted_labelled": 56,
+          "types": 14
+        },
+        "heldout": {
+          "total_events": 400,
+          "selected_events": 385,
+          "omitted_events": 15,
+          "labelled": 396,
+          "omitted_labelled": 15,
+          "types": 10
+        }
+      },
+      "selected": [
+        "e92984e48c129058520c9d239374bf91625a5d383a6ab525b17a3d4c0deceb8b1",
+        "ea5d0db4b2e4930201c98a8aea3b1d54885453374d308f3fca19e47d24e709c5b",
+        "e98a18c086511f3e965601f0965831915517388c3e3eed938092357cc81510204",
+        "e82638afef629226ce27d8f1dbdfa63787c4d753f043df0d77ef9bae1b46c4d5d",
+        "e09355b8b95f7922caab713b5b2b588ad279748e97bb5e885dd236171f68173b5",
+        "e3946a5cf009685f9c8b5323cde42bdb6afa1362685cab5c6e4359a824b976052",
+        "ef42ecb30177be2a0e96bd1d693e5d45a36fe1ccda6ec8db9e6babe3607985d06",
+        "e1c626a49e3d0a24b1df6830444265b096f47e063921fcd68f3a3b1eaf1c2ffaa"
+      ],
+      "results": [
+        {
+          "depth": 0,
+          "status": "incompatible",
+          "family_count": 0,
+          "heldout": [],
+          "block_checks": 224
+        },
+        {
+          "depth": 1,
+          "status": "incompatible",
+          "family_count": 0,
+          "heldout": [],
+          "block_checks": 224
+        },
+        {
+          "depth": 2,
+          "status": "incompatible",
+          "family_count": 0,
+          "heldout": [],
+          "block_checks": 224
+        },
+        {
+          "depth": 4,
+          "status": "incompatible",
+          "family_count": 0,
+          "heldout": [],
+          "block_checks": 224
+        },
+        {
+          "depth": 8,
+          "status": "incompatible",
+          "family_count": 0,
+          "heldout": [],
+          "block_checks": 236
+        },
+        {
+          "depth": "full",
+          "status": "ambiguous",
+          "family_count": 738,
+          "heldout": [
+            {
+              "labelled": 381,
+              "known_context": 6,
+              "opposite_conflicts": 0,
+              "abstention": 375
+            },
+            {
+              "labelled": 381,
+              "known_context": 6,
+              "opposite_conflicts": 0,
+              "abstention": 375
+            }
+          ],
+          "block_checks": 3
+        }
+      ],
+      "source": "audit\\ACTUAL_cage2_raw_actiononly_V1.json",
+      "source_sha256": "107e88347f4ebda73d8de6e4bf0307e5d18285b65d895d06aecb21e89f10c286"
+    },
+    {
+      "arm": "baby_random15_qualified",
+      "primary": true,
+      "coverage": {
+        "training": {
+          "total_events": 120,
+          "selected_events": 120,
+          "omitted_events": 0,
+          "labelled": 120,
+          "omitted_labelled": 0,
+          "types": 7
+        },
+        "heldout": {
+          "total_events": 60,
+          "selected_events": 60,
+          "omitted_events": 0,
+          "labelled": 60,
+          "omitted_labelled": 0,
+          "types": 7
+        }
+      },
+      "selected": [
+        "q3945f11f234847e0c723440d293fab15c078654e61f5340b8b99aba1aac10fc7",
+        "q5b4042fa70e9780de0197f4fe2f1e15c74554c420a992178716c5c0d81c92cbe",
+        "q5197183ba72ebf9c0a74921bc046bcbc5e4ee168e555ca3110195dbfb210797f",
+        "q9f7fcb12500de3c9b57515f76a477ac796d7a4c07c2df2c15eb3d03453939bf3",
+        "qeab9e905e292cc057b7f0e2b2cf6f5b41a2d318372dbf266981ba98c4cc888cf",
+        "q119a541957d808c00b517f1aa950a8db6b22b1ae3d368b93c7b7434b4b52d168",
+        "qbba488d14757379536c9e6da3aadaf7ff4d042fe7163a9100cec6bf2b9cf7b6d"
+      ],
+      "results": [
+        {
+          "depth": 0,
+          "status": "ambiguous",
+          "family_count": 877,
+          "heldout": [
+            {
+              "labelled": 60,
+              "known_context": 60,
+              "opposite_conflicts": 0,
+              "abstention": 0
+            },
+            {
+              "labelled": 60,
+              "known_context": 60,
+              "opposite_conflicts": 0,
+              "abstention": 0
+            }
+          ],
+          "block_checks": 3
+        },
+        {
+          "depth": 1,
+          "status": "ambiguous",
+          "family_count": 877,
+          "heldout": [
+            {
+              "labelled": 60,
+              "known_context": 59,
+              "opposite_conflicts": 0,
+              "abstention": 1
+            },
+            {
+              "labelled": 60,
+              "known_context": 56,
+              "opposite_conflicts": 0,
+              "abstention": 4
+            }
+          ],
+          "block_checks": 3
+        },
+        {
+          "depth": 2,
+          "status": "ambiguous",
+          "family_count": 877,
+          "heldout": [
+            {
+              "labelled": 60,
+              "known_context": 43,
+              "opposite_conflicts": 0,
+              "abstention": 17
+            },
+            {
+              "labelled": 60,
+              "known_context": 35,
+              "opposite_conflicts": 0,
+              "abstention": 25
+            }
+          ],
+          "block_checks": 3
+        },
+        {
+          "depth": 4,
+          "status": "ambiguous",
+          "family_count": 877,
+          "heldout": [
+            {
+              "labelled": 60,
+              "known_context": 7,
+              "opposite_conflicts": 0,
+              "abstention": 53
+            },
+            {
+              "labelled": 60,
+              "known_context": 16,
+              "opposite_conflicts": 0,
+              "abstention": 44
+            }
+          ],
+          "block_checks": 3
+        },
+        {
+          "depth": 8,
+          "status": "ambiguous",
+          "family_count": 877,
+          "heldout": [
+            {
+              "labelled": 60,
+              "known_context": 1,
+              "opposite_conflicts": 0,
+              "abstention": 59
+            },
+            {
+              "labelled": 60,
+              "known_context": 14,
+              "opposite_conflicts": 0,
+              "abstention": 46
+            }
+          ],
+          "block_checks": 3
+        },
+        {
+          "depth": "full",
+          "status": "ambiguous",
+          "family_count": 877,
+          "heldout": [
+            {
+              "labelled": 60,
+              "known_context": 1,
+              "opposite_conflicts": 0,
+              "abstention": 59
+            },
+            {
+              "labelled": 60,
+              "known_context": 14,
+              "opposite_conflicts": 0,
+              "abstention": 46
+            }
+          ],
+          "block_checks": 3
+        }
+      ],
+      "source": "audit\\ACTUAL_baby_random15_qualified_V1.json",
+      "source_sha256": "dac1d476af78698ec3d0adda786fe03d6b590140dbbd209920ab4d79321c93e9"
+    },
+    {
+      "arm": "baby_random15_actiononly",
+      "primary": false,
+      "coverage": {
+        "training": {
+          "total_events": 120,
+          "selected_events": 120,
+          "omitted_events": 0,
+          "labelled": 120,
+          "omitted_labelled": 0,
+          "types": 7
+        },
+        "heldout": {
+          "total_events": 60,
+          "selected_events": 60,
+          "omitted_events": 0,
+          "labelled": 60,
+          "omitted_labelled": 0,
+          "types": 7
+        }
+      },
+      "selected": [
+        "e1c626a49e3d0a24b1df6830444265b096f47e063921fcd68f3a3b1eaf1c2ffaa",
+        "ea6a88e398c97b680163665cbb0dbc524da3fbf236e0a273f1131c5e26e582508",
+        "e86c3ebb646c49b929894482d38007facb6651f3becb894cec273319a222b7179",
+        "e77b6b379ffcf679c8c0c311d5d9bc8c3b68a91c46ca666572beff844cedf19c2",
+        "e98a18c086511f3e965601f0965831915517388c3e3eed938092357cc81510204",
+        "e09355b8b95f7922caab713b5b2b588ad279748e97bb5e885dd236171f68173b5",
+        "e95a8691098b1c48f1e8b27943e9885bff22f7474c625d091f17b6a181da363ad"
+      ],
+      "results": [
+        {
+          "depth": 0,
+          "status": "ambiguous",
+          "family_count": 877,
+          "heldout": [
+            {
+              "labelled": 60,
+              "known_context": 60,
+              "opposite_conflicts": 0,
+              "abstention": 0
+            },
+            {
+              "labelled": 60,
+              "known_context": 60,
+              "opposite_conflicts": 0,
+              "abstention": 0
+            }
+          ],
+          "block_checks": 3
+        },
+        {
+          "depth": 1,
+          "status": "ambiguous",
+          "family_count": 877,
+          "heldout": [
+            {
+              "labelled": 60,
+              "known_context": 59,
+              "opposite_conflicts": 0,
+              "abstention": 1
+            },
+            {
+              "labelled": 60,
+              "known_context": 56,
+              "opposite_conflicts": 0,
+              "abstention": 4
+            }
+          ],
+          "block_checks": 3
+        },
+        {
+          "depth": 2,
+          "status": "ambiguous",
+          "family_count": 877,
+          "heldout": [
+            {
+              "labelled": 60,
+              "known_context": 43,
+              "opposite_conflicts": 0,
+              "abstention": 17
+            },
+            {
+              "labelled": 60,
+              "known_context": 35,
+              "opposite_conflicts": 0,
+              "abstention": 25
+            }
+          ],
+          "block_checks": 3
+        },
+        {
+          "depth": 4,
+          "status": "ambiguous",
+          "family_count": 877,
+          "heldout": [
+            {
+              "labelled": 60,
+              "known_context": 7,
+              "opposite_conflicts": 0,
+              "abstention": 53
+            },
+            {
+              "labelled": 60,
+              "known_context": 16,
+              "opposite_conflicts": 0,
+              "abstention": 44
+            }
+          ],
+          "block_checks": 3
+        },
+        {
+          "depth": 8,
+          "status": "ambiguous",
+          "family_count": 877,
+          "heldout": [
+            {
+              "labelled": 60,
+              "known_context": 1,
+              "opposite_conflicts": 0,
+              "abstention": 59
+            },
+            {
+              "labelled": 60,
+              "known_context": 14,
+              "opposite_conflicts": 0,
+              "abstention": 46
+            }
+          ],
+          "block_checks": 3
+        },
+        {
+          "depth": "full",
+          "status": "ambiguous",
+          "family_count": 877,
+          "heldout": [
+            {
+              "labelled": 60,
+              "known_context": 1,
+              "opposite_conflicts": 0,
+              "abstention": 59
+            },
+            {
+              "labelled": 60,
+              "known_context": 14,
+              "opposite_conflicts": 0,
+              "abstention": 46
+            }
+          ],
+          "block_checks": 3
+        }
+      ],
+      "source": "audit\\ACTUAL_baby_random15_actiononly_V1.json",
+      "source_sha256": "bc47cfdd41059a415d5996bc1d1fb85ed9016396bdd65ae1686b46b7ab4b9110"
+    },
+    {
+      "arm": "baby_heuristic15_qualified",
+      "primary": true,
+      "coverage": {
+        "training": {
+          "total_events": 120,
+          "selected_events": 120,
+          "omitted_events": 0,
+          "labelled": 120,
+          "omitted_labelled": 0,
+          "types": 7
+        },
+        "heldout": {
+          "total_events": 60,
+          "selected_events": 60,
+          "omitted_events": 0,
+          "labelled": 60,
+          "omitted_labelled": 0,
+          "types": 7
+        }
+      },
+      "selected": [
+        "q5b4042fa70e9780de0197f4fe2f1e15c74554c420a992178716c5c0d81c92cbe",
+        "q3945f11f234847e0c723440d293fab15c078654e61f5340b8b99aba1aac10fc7",
+        "q119a541957d808c00b517f1aa950a8db6b22b1ae3d368b93c7b7434b4b52d168",
+        "qbba488d14757379536c9e6da3aadaf7ff4d042fe7163a9100cec6bf2b9cf7b6d",
+        "qeab9e905e292cc057b7f0e2b2cf6f5b41a2d318372dbf266981ba98c4cc888cf",
+        "q5197183ba72ebf9c0a74921bc046bcbc5e4ee168e555ca3110195dbfb210797f",
+        "q9f7fcb12500de3c9b57515f76a477ac796d7a4c07c2df2c15eb3d03453939bf3"
+      ],
+      "results": [
+        {
+          "depth": 0,
+          "status": "incompatible",
+          "family_count": 0,
+          "heldout": [],
+          "block_checks": 126
+        },
+        {
+          "depth": 1,
+          "status": "ambiguous",
+          "family_count": 35,
+          "heldout": [
+            {
+              "labelled": 60,
+              "known_context": 60,
+              "opposite_conflicts": 4,
+              "abstention": 0
+            },
+            {
+              "labelled": 60,
+              "known_context": 59,
+              "opposite_conflicts": 4,
+              "abstention": 1
+            }
+          ],
+          "block_checks": 3
+        },
+        {
+          "depth": 2,
+          "status": "ambiguous",
+          "family_count": 35,
+          "heldout": [
+            {
+              "labelled": 60,
+              "known_context": 52,
+              "opposite_conflicts": 0,
+              "abstention": 8
+            },
+            {
+              "labelled": 60,
+              "known_context": 51,
+              "opposite_conflicts": 0,
+              "abstention": 9
+            }
+          ],
+          "block_checks": 3
+        },
+        {
+          "depth": 4,
+          "status": "ambiguous",
+          "family_count": 44,
+          "heldout": [
+            {
+              "labelled": 60,
+              "known_context": 27,
+              "opposite_conflicts": 0,
+              "abstention": 33
+            },
+            {
+              "labelled": 60,
+              "known_context": 25,
+              "opposite_conflicts": 0,
+              "abstention": 35
+            }
+          ],
+          "block_checks": 3
+        },
+        {
+          "depth": 8,
+          "status": "ambiguous",
+          "family_count": 58,
+          "heldout": [
+            {
+              "labelled": 60,
+              "known_context": 7,
+              "opposite_conflicts": 0,
+              "abstention": 53
+            },
+            {
+              "labelled": 60,
+              "known_context": 20,
+              "opposite_conflicts": 0,
+              "abstention": 40
+            }
+          ],
+          "block_checks": 3
+        },
+        {
+          "depth": "full",
+          "status": "ambiguous",
+          "family_count": 58,
+          "heldout": [
+            {
+              "labelled": 60,
+              "known_context": 7,
+              "opposite_conflicts": 0,
+              "abstention": 53
+            },
+            {
+              "labelled": 60,
+              "known_context": 19,
+              "opposite_conflicts": 0,
+              "abstention": 41
+            }
+          ],
+          "block_checks": 3
+        }
+      ],
+      "source": "audit\\ACTUAL_baby_heuristic15_qualified_V1.json",
+      "source_sha256": "8b7844b40b2cf655d4720cf137ab061751fbe4875a5e320b657bde34b8b574f4"
+    },
+    {
+      "arm": "baby_heuristic15_actiononly",
+      "primary": false,
+      "coverage": {
+        "training": {
+          "total_events": 120,
+          "selected_events": 120,
+          "omitted_events": 0,
+          "labelled": 120,
+          "omitted_labelled": 0,
+          "types": 7
+        },
+        "heldout": {
+          "total_events": 60,
+          "selected_events": 60,
+          "omitted_events": 0,
+          "labelled": 60,
+          "omitted_labelled": 0,
+          "types": 7
+        }
+      },
+      "selected": [
+        "ea6a88e398c97b680163665cbb0dbc524da3fbf236e0a273f1131c5e26e582508",
+        "e1c626a49e3d0a24b1df6830444265b096f47e063921fcd68f3a3b1eaf1c2ffaa",
+        "e09355b8b95f7922caab713b5b2b588ad279748e97bb5e885dd236171f68173b5",
+        "e95a8691098b1c48f1e8b27943e9885bff22f7474c625d091f17b6a181da363ad",
+        "e98a18c086511f3e965601f0965831915517388c3e3eed938092357cc81510204",
+        "e86c3ebb646c49b929894482d38007facb6651f3becb894cec273319a222b7179",
+        "e77b6b379ffcf679c8c0c311d5d9bc8c3b68a91c46ca666572beff844cedf19c2"
+      ],
+      "results": [
+        {
+          "depth": 0,
+          "status": "incompatible",
+          "family_count": 0,
+          "heldout": [],
+          "block_checks": 124
+        },
+        {
+          "depth": 1,
+          "status": "ambiguous",
+          "family_count": 35,
+          "heldout": [
+            {
+              "labelled": 60,
+              "known_context": 60,
+              "opposite_conflicts": 4,
+              "abstention": 0
+            },
+            {
+              "labelled": 60,
+              "known_context": 59,
+              "opposite_conflicts": 4,
+              "abstention": 1
+            }
+          ],
+          "block_checks": 3
+        },
+        {
+          "depth": 2,
+          "status": "ambiguous",
+          "family_count": 35,
+          "heldout": [
+            {
+              "labelled": 60,
+              "known_context": 52,
+              "opposite_conflicts": 0,
+              "abstention": 8
+            },
+            {
+              "labelled": 60,
+              "known_context": 51,
+              "opposite_conflicts": 0,
+              "abstention": 9
+            }
+          ],
+          "block_checks": 3
+        },
+        {
+          "depth": 4,
+          "status": "ambiguous",
+          "family_count": 44,
+          "heldout": [
+            {
+              "labelled": 60,
+              "known_context": 27,
+              "opposite_conflicts": 0,
+              "abstention": 33
+            },
+            {
+              "labelled": 60,
+              "known_context": 25,
+              "opposite_conflicts": 0,
+              "abstention": 35
+            }
+          ],
+          "block_checks": 3
+        },
+        {
+          "depth": 8,
+          "status": "ambiguous",
+          "family_count": 58,
+          "heldout": [
+            {
+              "labelled": 60,
+              "known_context": 7,
+              "opposite_conflicts": 0,
+              "abstention": 53
+            },
+            {
+              "labelled": 60,
+              "known_context": 20,
+              "opposite_conflicts": 0,
+              "abstention": 40
+            }
+          ],
+          "block_checks": 3
+        },
+        {
+          "depth": "full",
+          "status": "ambiguous",
+          "family_count": 58,
+          "heldout": [
+            {
+              "labelled": 60,
+              "known_context": 7,
+              "opposite_conflicts": 0,
+              "abstention": 53
+            },
+            {
+              "labelled": 60,
+              "known_context": 19,
+              "opposite_conflicts": 0,
+              "abstention": 41
+            }
+          ],
+          "block_checks": 3
+        }
+      ],
+      "source": "audit\\ACTUAL_baby_heuristic15_actiononly_V1.json",
+      "source_sha256": "34d6d422e5bbac6358e0b9710589b043dc7ef692adae5099805392ea6e9ae850"
+    },
+    {
+      "arm": "BGL",
+      "primary": true,
+      "coverage": {
+        "training": {
+          "total_events": 1400,
+          "selected_events": 1128,
+          "omitted_events": 272,
+          "labelled": 1400,
+          "omitted_labelled": 272,
+          "types": 86
+        },
+        "heldout": {
+          "total_events": 600,
+          "selected_events": 255,
+          "omitted_events": 345,
+          "labelled": 600,
+          "omitted_labelled": 345,
+          "types": 57
+        }
+      },
+      "selected": [
+        "E67",
+        "E3",
+        "E4",
+        "E55",
+        "E70",
+        "E18",
+        "E77",
+        "E52"
+      ],
+      "results": [
+        {
+          "depth": 0,
+          "status": "ambiguous",
+          "family_count": 4140,
+          "heldout": [
+            {
+              "labelled": 255,
+              "known_context": 255,
+              "opposite_conflicts": 0,
+              "abstention": 0
+            },
+            {
+              "labelled": 255,
+              "known_context": 255,
+              "opposite_conflicts": 0,
+              "abstention": 0
+            }
+          ],
+          "block_checks": 3
+        },
+        {
+          "depth": 1,
+          "status": "ambiguous",
+          "family_count": 4140,
+          "heldout": [
+            {
+              "labelled": 255,
+              "known_context": 221,
+              "opposite_conflicts": 0,
+              "abstention": 34
+            },
+            {
+              "labelled": 255,
+              "known_context": 223,
+              "opposite_conflicts": 0,
+              "abstention": 32
+            }
+          ],
+          "block_checks": 3
+        },
+        {
+          "depth": 2,
+          "status": "ambiguous",
+          "family_count": 4140,
+          "heldout": [
+            {
+              "labelled": 255,
+              "known_context": 192,
+              "opposite_conflicts": 0,
+              "abstention": 63
+            },
+            {
+              "labelled": 255,
+              "known_context": 192,
+              "opposite_conflicts": 0,
+              "abstention": 63
+            }
+          ],
+          "block_checks": 3
+        },
+        {
+          "depth": 4,
+          "status": "ambiguous",
+          "family_count": 4140,
+          "heldout": [
+            {
+              "labelled": 255,
+              "known_context": 151,
+              "opposite_conflicts": 0,
+              "abstention": 104
+            },
+            {
+              "labelled": 255,
+              "known_context": 151,
+              "opposite_conflicts": 0,
+              "abstention": 104
+            }
+          ],
+          "block_checks": 3
+        },
+        {
+          "depth": 8,
+          "status": "ambiguous",
+          "family_count": 4140,
+          "heldout": [
+            {
+              "labelled": 255,
+              "known_context": 58,
+              "opposite_conflicts": 0,
+              "abstention": 197
+            },
+            {
+              "labelled": 255,
+              "known_context": 59,
+              "opposite_conflicts": 0,
+              "abstention": 196
+            }
+          ],
+          "block_checks": 3
+        },
+        {
+          "depth": "full",
+          "status": "ambiguous",
+          "family_count": 4140,
+          "heldout": [
+            {
+              "labelled": 255,
+              "known_context": 0,
+              "opposite_conflicts": 0,
+              "abstention": 255
+            },
+            {
+              "labelled": 255,
+              "known_context": 0,
+              "opposite_conflicts": 0,
+              "abstention": 255
+            }
+          ],
+          "block_checks": 3
+        }
+      ],
+      "source": "audit\\ACTUAL_BGL_V1.json",
+      "source_sha256": "67812ca94a1cab55e6838035de8bc0c42ca6d2e2ea6e7133101cb7f50f6fa133"
+    }
+  ]
+}
