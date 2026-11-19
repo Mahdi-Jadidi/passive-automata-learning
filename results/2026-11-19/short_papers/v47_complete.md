@@ -1,0 +1,113 @@
+# Certified Maximum Alphabet Partitioning with a Polynomial Compatibility Test
+
+@ V47 · Standalone research manuscript
+
+## Abstract
+
+We seek a maximum-block alphabet partition whose projected regular languages classify a finite labeled sample under conjunctive acceptance. For a fixed partition, compatibility is decidable in polynomial time by membership in the finite projected positive languages. This decision agrees with the exhaustive local-automata teacher on the sufficient trie-bound calls made by the optimizer. A cut-based SAT master returns one optimal partition with a checked upper bound. General optimization remains NP-hard even with one negative trace of length zero and positives of length two. All 2,261 corpus cases completed at a 0.25 s per-case limit and matched the reference. In a matched ten-case comparison at 2 s, the projection teacher completed ten cases and the exhaustive version completed three.
+
+**Keywords:** projection languages, exact optimization, alphabet partitioning, NP-completeness.
+
+## 1. Problem and Contribution
+
+Let Σ be an ordered declared alphabet, D=(S⁺,S⁻) finite labeled words over it, and π_B the erasing projection onto B⊆Σ. For an alphabet partition P, compatibility requires regular languages K_B such that every positive passes all projected factors and every negative fails at least one. The objective is one compatible P maximizing k=|P|, with a checkable optimality certificate. Unused declared symbols remain in Σ and local state counts are unrestricted. Contradictory labels make the sample infeasible. For empty Σ the empty conjunction accepts ε, so compatibility is equivalent to an empty negative set.
+
+State-based DFA identification [4] and conjunctive automata decomposition [5] address different search spaces. Here the optimization variables are alphabet blocks. We identify the exact condition for a fixed partition and use it to replace the exhaustive teacher on its decision interface. We retain the necessary-cut and proof-producing outer optimization, related to logic-based Benders decomposition [2]. We also separate fixed-partition tractability from the complexity of choosing an optimum over arbitrary Σ.
+
+**Lemma 1 (projection criterion).** Define H_B=π_B(S⁺). A partition is compatible exactly when each y_i∈S⁻ has some block B with π_B(y_i)∉H_B. *Proof.* Each locally accepting factor must contain H_B. So a negative whose projection is in H_B on every block cannot be rejected. Conversely, taking K_B=H_B accepts every positive simultaneously. Each negative is rejected on its witnessing block, and the finite H_B are regular languages. ∎
+
+<!-- page -->
+
+## 2. Polynomial Fixed-Partition Decision
+
+### 2.1 Criterion and implementation
+
+The input to the teacher is an already validated partition and materialized projected words. Negative columns are aligned to the original indices. It keeps a set of indices that have matched a positive projection on every processed block.
+
+```
+U ← all negative indices
+for B in P while U is nonempty:
+    H ← set of projected positives on B
+    U ← indices i in U whose negative projection on B belongs to H
+return ACCEPT if U is empty, otherwise REJECT
+```
+
+**Theorem 1 (teacher correctness).** After each iteration, U contains exactly the negative indices accepted by all canonical factors processed so far. Initially every index satisfies the empty conjunction. Each iteration intersects the prior U with the indices whose projection belongs to the new H_B. Induction gives the invariant and justifies early acceptance once U is empty. At exhaustion, any remaining index violates Lemma 1. An interruption propagates to the caller and does not produce a rejection. ∎
+
+### 2.2 Equivalence to the bounded decision
+
+The earlier teacher [1] enumerates realizable bounded local DFA behavior rows. On calls from the optimizer, its bound is one for empty H_B, and otherwise the number of positive prefixes including ε plus a rejecting sink. The complete prefix trie accepts precisely H_B. Therefore acceptance by the projection criterion supplies witnesses within every bound of the earlier teacher. In the other direction, any compatible tuple of bounded DFAs consists of regular factors, so its acceptance implies the projection criterion. This proves equality of completed verdicts for the specified calls.
+
+The replacement provides a fixed-partition decision for unrestricted-state sample compatibility. The original teacher's broader behavior-table queries, arbitrary partial assignments, and independent state ceilings require their respective interfaces. The outer solver uses only the completed decision. It continues to check the verdict against the union of cached block rejection masks before learning a cut.
+
+### 2.3 Complexity
+
+For k blocks, p positives, r negatives and L total event occurrences, there are at most k(p+r) projected rows. Because the blocks partition Σ, their total symbol length is L. With ordinary hash-table costs on interned event IDs, the decision uses O(k(p+r)+L) time on materialized images and O(p+r) auxiliary references. Even worst-case hash collisions contribute at most polynomially many comparisons of explicitly stored words. Images can be constructed in polynomial time by direct projection. The existing cache in the outer solver is shared across queries and may grow with the number of explored masks.
+
+For a unary positive of length ℓ and negative ε, the earlier teacher's sufficient bound is ℓ+2 and the top enumeration level alone contains 2^{ℓ+2}(ℓ+2)^{ℓ+2} named DFAs. The projection test decides this same call without constructing any DFA table.
+
+<!-- page -->
+
+## 3. Exact Search and Optimality Certificates
+
+Let r_i(B) denote the absence of π_B(y_i) from H_B. This predicate is upward monotone in B. A match on a larger alphabet projects to a match on every subset. Thus if Σ∖{a} fails to reject y_i, every block rejecting y_i contains a. All such mandatory symbols for the same negative must belong to the same block. Taking the transitive closure gives disjoint atoms that every compatible partition respects. Expansion from atom blocks preserves the number of blocks and the original projection semantics.
+
+**A cut from a completed rejection.** Choose a negative y_i rejected by none of the current blocks. Enlarge each block to an atom region U that still fails to reject y_i, recording an original positive whose projection equals that of y_i. Greedy single-atom additions suffice for an inclusion-maximal region. Once an addition causes rejection, monotonicity makes that addition impossible after any further enlargement. Require the next partition to contain some block C with C ⊄ U for every recorded region U. The current partition violates the cut, as each of its blocks is covered. Any compatible partition has a block rejecting y_i, and that block cannot lie in any witnessed region by monotonicity. This proves validity for all compatible partitions.
+
+**Boolean master.** One variable e_ab per unordered atom pair represents co-membership. The three transitivity implications per triple characterize equivalence relations with implicit symmetry and reflexivity. Atom a represents its class exactly when no earlier atom is equivalent to a. If r_j is the representative bit of atom j, the recurrence t(j,d) = t(j−1,d) ∨ (r_j ∧ t(j−1,d−1)) counts at least d class representatives. Its base is true for d=0 and false for d>0 at j=0. For anchor a, its class escapes region U if a lies outside U or some b outside U has e_ab=true. A conjunction over regions and a disjunction over anchors express the cut. All gate encodings enforce equivalence, so models decode to precisely the permitted partitions.
+
+**Algorithm 1.** Handle contradictory labels and the empty alphabet directly. Check the singleton and contracted-atom partitions for immediate upper-bound attainment. Otherwise solve the master for a candidate of maximum block count. Ask the teacher, append a witnessed cut after a complete rejection, and repeat. On acceptance at k blocks, certify that the rebuilt master at threshold k+1 is unsatisfiable. On interruption, return INCOMPLETE without a claimed partition or optimum.
+
+**Theorem 2.** With exact completed calls and sufficient resources, Algorithm 1 returns a global optimum on every compatible input. *Proof.* The master initially contains all compatible partitions and each cut retains them. Thus its current maximum is a valid upper bound. An accepted maximizing candidate attains it. A rejection removes at least the current candidate, and the one-block partition is compatible on nonempty Σ with disjoint labels. Finite strict shrinkage therefore guarantees termination. The inherited upper bound remains valid after every cut, and exact SAT threshold queries find the maximum of each relaxation. ∎
+
+**Certificate replay.** The consumer checks the partition and every negative against the original words. It checks an attained symbol or atom bound, or validates each region witness and reconstructs the threshold CNF. A reverse unit propagation addition follows from the current formula because its negation propagates to conflict. Induction over additions and a final conflict prove unsatisfiability [3]. A better compatible partition would satisfy every checked cut and the threshold, so it is ruled out. The deterministic encoder and normalization remain part of the trusted code.
+
+<!-- page -->
+
+## 4. Experiments
+
+The comparison held the outer SAT policy, cut construction and certificate consumer fixed. We used the archived Windows x64 CPython 3.12.14 and Glucose3 environment. Matched timings used sequential fresh processes with the same solve and check limits per pair. Times exclude startup and standalone certificate replay. Complete results were compared with the archived or independently enumerated reference and verified by the certificate consumer. The cases are synthetic.
+
+| Evaluation | Outcome |
+|---|---|
+| Corpus, 0.25 s per input | 2,259 optima and 2 infeasible. All 2,261 passed. The previous exhaustive-teacher audit completed 1,247. |
+| Matched ten-case suite, 2 s per solver and checker | Projection teacher 10/10 completed. Exhaustive teacher 3/10. Projection solve times were 0.195–45.262 ms. |
+| Ordinary interaction, two matched repetitions | Median solve time 4.137 s exhaustive and 7.528 ms projection. All four results certified. |
+| 158 prior outer-audit inputs | 121 checked optima and 37 checked infeasibility results. All matched reference. |
+| 103 graph-derived inputs | All matched brute-force minimum vertex covers and passed certificate replay. |
+
+**Teacher audit.** We compared 4,374 fixed-partition calls with direct pairwise projection tests on the two partitions of a two-symbol alphabet. The calls cover every disjoint labeling of the seven words of length at most two. All verdicts matched. A separate injected interruption propagated without a verdict. Independent trace replay confirmed the six observed master maxima and their six learned cuts on the outer-audit inputs.
+
+**Profile and remaining costs.** On overlap_8, the projection decision used 0.152 ms of a 45.262 ms solve and 0.429 ms covered all teacher calls including projection retrieval. At 2 s on graph-derived complete graphs, the cases with 10, 12 and 16 vertices were incomplete during internal certificate checking. The case with 20 vertices was incomplete in master search. Each has known optimum two by Section 5. Consequently the timings identify removal of the former bottleneck without establishing a universal speed ranking or polynomial end-to-end performance.
+
+**Scope.** An INCOMPLETE run supplies no optimum. Zero valid field trials use whole-trace AND labels. The evaluation concerns exact sample classification and verification on the stated workloads.
+
+<!-- page -->
+
+## 5. Complexity of Selecting the Partition
+
+**Theorem 3.** Deciding whether there is a compatible partition with at least K blocks is NP-complete, even with S⁻={ε} and all positives of length two.
+
+*Proof.* A partition is a polynomial-size witness. Its block count and compatibility can be checked in polynomial time by Theorem 1. For hardness, take a simple graph G=(V,E) with at least one edge and a Vertex Cover bound t [6]. Declare Σ=V in any fixed order. For each edge {u,v}, include the length-two positive uv in declared order. Set S⁻={ε}. These labels are disjoint.
+
+The projection of uv onto B is ε exactly when neither endpoint is in B. Hence the block rejects ε exactly when it meets every edge. By Lemma 1 a partition is compatible exactly when it contains a vertex-cover block. With n vertices and minimum cover size τ, a compatible partition has at most n−τ+1 blocks. A minimum cover as one block and all remaining vertices as singletons attains that count. Setting K=n−t+1 completes the polynomial reduction. ∎
+
+A polynomial worst-case total bound for exact optimization with arbitrary Σ would imply P=NP. For a fixed bound on |Σ|, the possible partitions, learned covers and master formula sizes are bounded independently of sample length. Projection, witness construction and replay then give polynomial total time in the encoded sample size. The constant depends on the alphabet bound.
+
+## 6. Conclusion
+
+The projection criterion supplies an exact polynomial teacher for the specified fixed-partition decision. It removes DFA enumeration while preserving certified maximum-block optimization. The reduction isolates the remaining theoretical barrier in selecting the partition, and the stress cases show that search and certificate replay can dominate in practice. Source, execution settings, proofs and raw outcomes are available in the archived artifact. @link(V47 artifact archive|https://github.com/Mahdi-Jadidi/passive-automata-learning/blob/799d1aa3154044534321d5f3855dd512c7238e63/CHECKPOINT_V47.md)
+
+## References
+
+[1] *Passive Compositional Automata Learning*. Supplied manuscript, §5.1–5.3. @link(Archived manuscript|https://github.com/Mahdi-Jadidi/passive-automata-learning/blob/v46/results/2026-11-16/interactive_teacher_v45/sources/main.pdf)
+
+[2] J. N. Hooker and G. Ottosson. Logic-based Benders decomposition. *Mathematical Programming* 96, 33–60, 2003. @link(DOI|https://doi.org/10.1007/s10107-003-0375-9)
+
+[3] SAT Competition 2013. *Certified UNSAT*. DRUP specification. @link(Specification|https://satisfiability.org/competition/2013/certunsat.shtml)
+
+[4] M. J. H. Heule and S. Verwer. Exact DFA identification using SAT solvers. *ICGI*, 66–79, 2010. @link(DOI|https://doi.org/10.1007/978-3-642-15488-1_7)
+
+[5] N. Lauffer, B. Yalcinkaya, M. Vazquez-Chanlatte, A. Shah, and S. A. Seshia. Learning deterministic finite automata decompositions from examples and demonstrations. 2022. @link(arXiv:2205.13013|https://arxiv.org/abs/2205.13013)
+
+[6] R. M. Karp. Reducibility among combinatorial problems. *Complexity of Computer Computations*, 85–103, 1972. @link(DOI|https://doi.org/10.1007/978-1-4684-2001-2_9)
