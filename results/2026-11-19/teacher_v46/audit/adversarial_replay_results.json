@@ -1,0 +1,105 @@
+{
+  "checks": [
+    {
+      "case": "original",
+      "expected": "ACCEPT",
+      "actual": "ACCEPT"
+    },
+    {
+      "case": "negative_index_minus_one",
+      "expected": "REJECT",
+      "actual": "REJECT"
+    },
+    {
+      "case": "positive_index_minus_one",
+      "expected": "REJECT",
+      "actual": "REJECT"
+    },
+    {
+      "case": "negative_index_boolean",
+      "expected": "REJECT",
+      "actual": "REJECT"
+    },
+    {
+      "case": "region_zero",
+      "expected": "REJECT",
+      "actual": "REJECT"
+    },
+    {
+      "case": "region_all",
+      "expected": "REJECT",
+      "actual": "REJECT"
+    },
+    {
+      "case": "duplicate_region",
+      "expected": "REJECT",
+      "actual": "REJECT"
+    },
+    {
+      "case": "invalid_witness",
+      "expected": "REJECT",
+      "actual": "REJECT"
+    },
+    {
+      "case": "empty_proof",
+      "expected": "REJECT",
+      "actual": "REJECT"
+    },
+    {
+      "case": "out_of_range_proof",
+      "expected": "REJECT",
+      "actual": "REJECT"
+    },
+    {
+      "case": "malformed_proof",
+      "expected": "REJECT",
+      "actual": "REJECT"
+    },
+    {
+      "case": "missing_terminator",
+      "expected": "REJECT",
+      "actual": "REJECT"
+    },
+    {
+      "case": "suboptimal_feasible_claim",
+      "expected": "REJECT",
+      "actual": "REJECT"
+    },
+    {
+      "case": "negative_order_rebound",
+      "expected": "REJECT",
+      "actual": "REJECT"
+    },
+    {
+      "case": "zero_budget",
+      "expected": "INCOMPLETE",
+      "actual": "INCOMPLETE"
+    },
+    {
+      "case": "duplicate_units",
+      "expected": true,
+      "actual": true
+    },
+    {
+      "case": "tautology_not_unit",
+      "expected": false,
+      "actual": false
+    },
+    {
+      "case": "satisfiable_false_empty",
+      "expected": false,
+      "actual": false
+    },
+    {
+      "case": "tautological_addition",
+      "expected": false,
+      "actual": false
+    },
+    {
+      "case": "ignored_deletion",
+      "expected": true,
+      "actual": true
+    }
+  ],
+  "proof_lines": 14
+}

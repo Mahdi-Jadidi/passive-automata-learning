@@ -1,0 +1,1212 @@
+{
+  "kernel_replay": [
+    {
+      "script": "teacher_tests.py",
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "......\n----------------------------------------------------------------------\nRan 6 tests in 0.281s\n\nOK\n",
+      "wall_seconds": 1.5283337000000756
+    },
+    {
+      "script": "projection_tests.py",
+      "returncode": 0,
+      "stdout": "projection stats {'dag_nodes': 14997, 'cache_hits': 5, 'cache_misses': 4, 'transformed_nodes': 29997, 'materialized_words': 8}\nprojection stats {'dag_nodes': 14997, 'cache_hits': 5, 'cache_misses': 4, 'transformed_nodes': 22498, 'materialized_words': 8}\nprojection stats {'dag_nodes': 14997, 'cache_hits': 5, 'cache_misses': 4, 'transformed_nodes': 29997, 'materialized_words': 8}\nprojection stats {'dag_nodes': 8, 'cache_hits': 9, 'cache_misses': 8, 'transformed_nodes': 42, 'materialized_words': 25}\nprojection stats {'dag_nodes': 8, 'cache_hits': 9, 'cache_misses': 8, 'transformed_nodes': 28, 'materialized_words': 25}\nprojection stats {'dag_nodes': 8, 'cache_hits': 9, 'cache_misses': 8, 'transformed_nodes': 42, 'materialized_words': 25}\nprojection stats {'dag_nodes': 0, 'cache_hits': 2, 'cache_misses': 1, 'transformed_nodes': 0, 'materialized_words': 1}\nprojection stats {'dag_nodes': 0, 'cache_hits': 2, 'cache_misses': 1, 'transformed_nodes': 0, 'materialized_words': 1}\nprojection stats {'dag_nodes': 0, 'cache_hits': 2, 'cache_misses': 1, 'transformed_nodes': 0, 'materialized_words': 1}\nprojection stats {'dag_nodes': 2, 'cache_hits': 5, 'cache_misses': 4, 'transformed_nodes': 6, 'materialized_words': 7}\nprojection stats {'dag_nodes': 2, 'cache_hits': 5, 'cache_misses': 4, 'transformed_nodes': 5, 'materialized_words': 7}\nprojection stats {'dag_nodes': 2, 'cache_hits': 5, 'cache_misses': 4, 'transformed_nodes': 6, 'materialized_words': 7}\nprojection stats {'dag_nodes': 1, 'cache_hits': 5, 'cache_misses': 4, 'transformed_nodes': 3, 'materialized_words': 6}\nprojection stats {'dag_nodes': 1, 'cache_hits': 5, 'cache_misses': 4, 'transformed_nodes': 3, 'materialized_words': 6}\nprojection stats {'dag_nodes': 1, 'cache_hits': 5, 'cache_misses': 4, 'transformed_nodes': 3, 'materialized_words': 6}\n",
+      "stderr": "...\n----------------------------------------------------------------------\nRan 3 tests in 1.043s\n\nOK\n",
+      "wall_seconds": 1.8419419999991078
+    },
+    {
+      "script": "master_tests.py",
+      "returncode": 0,
+      "stdout": "q=0: 1 pair assignments, 1 covers passed\nq=1: 1 pair assignments, 1 covers passed\nq=2: 2 pair assignments, 4 covers passed\nq=3: 8 pair assignments, 64 covers passed\nq=4: 64 pair assignments, 16384 covers passed\nAll master tests passed.\n",
+      "stderr": "",
+      "wall_seconds": 26.738238900004944
+    },
+    {
+      "script": "cut_certificate_tests.py",
+      "returncode": 0,
+      "stdout": "167 monotone functions, 758 cuts, 5218 soundness checks passed\nDirectly generated DRUP accepted (14 lines); tampering and edge cases passed\n",
+      "stderr": "",
+      "wall_seconds": 2.102014899995993
+    }
+  ],
+  "opaque_oracle_cases": [
+    {
+      "input": {
+        "alphabet": [
+          "opaque log \u03b1",
+          "b",
+          "unused \ud83e\udde9"
+        ],
+        "positive": [],
+        "negative": []
+      },
+      "expected_k": 3,
+      "result": {
+        "status": "OPTIMAL",
+        "blocks": [
+          [
+            "opaque log \u03b1"
+          ],
+          [
+            "b"
+          ],
+          [
+            "unused \ud83e\udde9"
+          ]
+        ],
+        "max_devices": 3,
+        "certificate": {
+          "type": "symbol_bound"
+        }
+      },
+      "checked": {
+        "status": "ACCEPT"
+      },
+      "solve_limit_seconds": 60,
+      "consumer_limit_seconds": 2,
+      "ok": true
+    },
+    {
+      "input": {
+        "alphabet": [
+          "opaque log \u03b1",
+          "b",
+          "unused \ud83e\udde9"
+        ],
+        "positive": [
+          [
+            "b"
+          ]
+        ],
+        "negative": []
+      },
+      "expected_k": 3,
+      "result": {
+        "status": "OPTIMAL",
+        "blocks": [
+          [
+            "opaque log \u03b1"
+          ],
+          [
+            "b"
+          ],
+          [
+            "unused \ud83e\udde9"
+          ]
+        ],
+        "max_devices": 3,
+        "certificate": {
+          "type": "symbol_bound"
+        }
+      },
+      "checked": {
+        "status": "ACCEPT"
+      },
+      "solve_limit_seconds": 60,
+      "consumer_limit_seconds": 2,
+      "ok": true
+    },
+    {
+      "input": {
+        "alphabet": [
+          "opaque log \u03b1",
+          "b",
+          "unused \ud83e\udde9"
+        ],
+        "positive": [],
+        "negative": [
+          [
+            "b"
+          ]
+        ]
+      },
+      "expected_k": 3,
+      "result": {
+        "status": "OPTIMAL",
+        "blocks": [
+          [
+            "opaque log \u03b1"
+          ],
+          [
+            "b"
+          ],
+          [
+            "unused \ud83e\udde9"
+          ]
+        ],
+        "max_devices": 3,
+        "certificate": {
+          "type": "symbol_bound"
+        }
+      },
+      "checked": {
+        "status": "ACCEPT"
+      },
+      "solve_limit_seconds": 60,
+      "consumer_limit_seconds": 2,
+      "ok": true
+    },
+    {
+      "input": {
+        "alphabet": [
+          "opaque log \u03b1",
+          "b",
+          "unused \ud83e\udde9"
+        ],
+        "positive": [
+          [
+            "opaque log \u03b1"
+          ]
+        ],
+        "negative": []
+      },
+      "expected_k": 3,
+      "result": {
+        "status": "OPTIMAL",
+        "blocks": [
+          [
+            "opaque log \u03b1"
+          ],
+          [
+            "b"
+          ],
+          [
+            "unused \ud83e\udde9"
+          ]
+        ],
+        "max_devices": 3,
+        "certificate": {
+          "type": "symbol_bound"
+        }
+      },
+      "checked": {
+        "status": "ACCEPT"
+      },
+      "solve_limit_seconds": 60,
+      "consumer_limit_seconds": 2,
+      "ok": true
+    },
+    {
+      "input": {
+        "alphabet": [
+          "opaque log \u03b1",
+          "b",
+          "unused \ud83e\udde9"
+        ],
+        "positive": [
+          [
+            "opaque log \u03b1"
+          ],
+          [
+            "b"
+          ]
+        ],
+        "negative": []
+      },
+      "expected_k": 3,
+      "result": {
+        "status": "OPTIMAL",
+        "blocks": [
+          [
+            "opaque log \u03b1"
+          ],
+          [
+            "b"
+          ],
+          [
+            "unused \ud83e\udde9"
+          ]
+        ],
+        "max_devices": 3,
+        "certificate": {
+          "type": "symbol_bound"
+        }
+      },
+      "checked": {
+        "status": "ACCEPT"
+      },
+      "solve_limit_seconds": 60,
+      "consumer_limit_seconds": 2,
+      "ok": true
+    },
+    {
+      "input": {
+        "alphabet": [
+          "opaque log \u03b1",
+          "b",
+          "unused \ud83e\udde9"
+        ],
+        "positive": [
+          [
+            "opaque log \u03b1"
+          ]
+        ],
+        "negative": [
+          [
+            "b"
+          ]
+        ]
+      },
+      "expected_k": 3,
+      "result": {
+        "status": "OPTIMAL",
+        "blocks": [
+          [
+            "opaque log \u03b1"
+          ],
+          [
+            "b"
+          ],
+          [
+            "unused \ud83e\udde9"
+          ]
+        ],
+        "max_devices": 3,
+        "certificate": {
+          "type": "symbol_bound"
+        }
+      },
+      "checked": {
+        "status": "ACCEPT"
+      },
+      "solve_limit_seconds": 60,
+      "consumer_limit_seconds": 2,
+      "ok": true
+    },
+    {
+      "input": {
+        "alphabet": [
+          "opaque log \u03b1",
+          "b",
+          "unused \ud83e\udde9"
+        ],
+        "positive": [],
+        "negative": [
+          [
+            "opaque log \u03b1"
+          ]
+        ]
+      },
+      "expected_k": 3,
+      "result": {
+        "status": "OPTIMAL",
+        "blocks": [
+          [
+            "opaque log \u03b1"
+          ],
+          [
+            "b"
+          ],
+          [
+            "unused \ud83e\udde9"
+          ]
+        ],
+        "max_devices": 3,
+        "certificate": {
+          "type": "symbol_bound"
+        }
+      },
+      "checked": {
+        "status": "ACCEPT"
+      },
+      "solve_limit_seconds": 60,
+      "consumer_limit_seconds": 2,
+      "ok": true
+    },
+    {
+      "input": {
+        "alphabet": [
+          "opaque log \u03b1",
+          "b",
+          "unused \ud83e\udde9"
+        ],
+        "positive": [
+          [
+            "b"
+          ]
+        ],
+        "negative": [
+          [
+            "opaque log \u03b1"
+          ]
+        ]
+      },
+      "expected_k": 3,
+      "result": {
+        "status": "OPTIMAL",
+        "blocks": [
+          [
+            "opaque log \u03b1"
+          ],
+          [
+            "b"
+          ],
+          [
+            "unused \ud83e\udde9"
+          ]
+        ],
+        "max_devices": 3,
+        "certificate": {
+          "type": "symbol_bound"
+        }
+      },
+      "checked": {
+        "status": "ACCEPT"
+      },
+      "solve_limit_seconds": 60,
+      "consumer_limit_seconds": 2,
+      "ok": true
+    },
+    {
+      "input": {
+        "alphabet": [
+          "opaque log \u03b1",
+          "b",
+          "unused \ud83e\udde9"
+        ],
+        "positive": [],
+        "negative": [
+          [
+            "opaque log \u03b1"
+          ],
+          [
+            "b"
+          ]
+        ]
+      },
+      "expected_k": 3,
+      "result": {
+        "status": "OPTIMAL",
+        "blocks": [
+          [
+            "opaque log \u03b1"
+          ],
+          [
+            "b"
+          ],
+          [
+            "unused \ud83e\udde9"
+          ]
+        ],
+        "max_devices": 3,
+        "certificate": {
+          "type": "symbol_bound"
+        }
+      },
+      "checked": {
+        "status": "ACCEPT"
+      },
+      "solve_limit_seconds": 60,
+      "consumer_limit_seconds": 2,
+      "ok": true
+    },
+    {
+      "input": {
+        "alphabet": [
+          "opaque log \u03b1",
+          "b",
+          "unused \ud83e\udde9"
+        ],
+        "positive": [
+          []
+        ],
+        "negative": []
+      },
+      "expected_k": 3,
+      "result": {
+        "status": "OPTIMAL",
+        "blocks": [
+          [
+            "opaque log \u03b1"
+          ],
+          [
+            "b"
+          ],
+          [
+            "unused \ud83e\udde9"
+          ]
+        ],
+        "max_devices": 3,
+        "certificate": {
+          "type": "symbol_bound"
+        }
+      },
+      "checked": {
+        "status": "ACCEPT"
+      },
+      "solve_limit_seconds": 60,
+      "consumer_limit_seconds": 2,
+      "ok": true
+    },
+    {
+      "input": {
+        "alphabet": [
+          "opaque log \u03b1",
+          "b",
+          "unused \ud83e\udde9"
+        ],
+        "positive": [
+          [],
+          [
+            "b"
+          ]
+        ],
+        "negative": []
+      },
+      "expected_k": 3,
+      "result": {
+        "status": "OPTIMAL",
+        "blocks": [
+          [
+            "opaque log \u03b1"
+          ],
+          [
+            "b"
+          ],
+          [
+            "unused \ud83e\udde9"
+          ]
+        ],
+        "max_devices": 3,
+        "certificate": {
+          "type": "symbol_bound"
+        }
+      },
+      "checked": {
+        "status": "ACCEPT"
+      },
+      "solve_limit_seconds": 60,
+      "consumer_limit_seconds": 2,
+      "ok": true
+    },
+    {
+      "input": {
+        "alphabet": [
+          "opaque log \u03b1",
+          "b",
+          "unused \ud83e\udde9"
+        ],
+        "positive": [
+          []
+        ],
+        "negative": [
+          [
+            "b"
+          ]
+        ]
+      },
+      "expected_k": 3,
+      "result": {
+        "status": "OPTIMAL",
+        "blocks": [
+          [
+            "opaque log \u03b1"
+          ],
+          [
+            "b"
+          ],
+          [
+            "unused \ud83e\udde9"
+          ]
+        ],
+        "max_devices": 3,
+        "certificate": {
+          "type": "symbol_bound"
+        }
+      },
+      "checked": {
+        "status": "ACCEPT"
+      },
+      "solve_limit_seconds": 60,
+      "consumer_limit_seconds": 2,
+      "ok": true
+    },
+    {
+      "input": {
+        "alphabet": [
+          "opaque log \u03b1",
+          "b",
+          "unused \ud83e\udde9"
+        ],
+        "positive": [
+          [],
+          [
+            "opaque log \u03b1"
+          ]
+        ],
+        "negative": []
+      },
+      "expected_k": 3,
+      "result": {
+        "status": "OPTIMAL",
+        "blocks": [
+          [
+            "opaque log \u03b1"
+          ],
+          [
+            "b"
+          ],
+          [
+            "unused \ud83e\udde9"
+          ]
+        ],
+        "max_devices": 3,
+        "certificate": {
+          "type": "symbol_bound"
+        }
+      },
+      "checked": {
+        "status": "ACCEPT"
+      },
+      "solve_limit_seconds": 60,
+      "consumer_limit_seconds": 2,
+      "ok": true
+    },
+    {
+      "input": {
+        "alphabet": [
+          "opaque log \u03b1",
+          "b",
+          "unused \ud83e\udde9"
+        ],
+        "positive": [
+          [],
+          [
+            "opaque log \u03b1"
+          ],
+          [
+            "b"
+          ]
+        ],
+        "negative": []
+      },
+      "expected_k": 3,
+      "result": {
+        "status": "OPTIMAL",
+        "blocks": [
+          [
+            "opaque log \u03b1"
+          ],
+          [
+            "b"
+          ],
+          [
+            "unused \ud83e\udde9"
+          ]
+        ],
+        "max_devices": 3,
+        "certificate": {
+          "type": "symbol_bound"
+        }
+      },
+      "checked": {
+        "status": "ACCEPT"
+      },
+      "solve_limit_seconds": 60,
+      "consumer_limit_seconds": 2,
+      "ok": true
+    },
+    {
+      "input": {
+        "alphabet": [
+          "opaque log \u03b1",
+          "b",
+          "unused \ud83e\udde9"
+        ],
+        "positive": [
+          [],
+          [
+            "opaque log \u03b1"
+          ]
+        ],
+        "negative": [
+          [
+            "b"
+          ]
+        ]
+      },
+      "expected_k": 3,
+      "result": {
+        "status": "OPTIMAL",
+        "blocks": [
+          [
+            "opaque log \u03b1"
+          ],
+          [
+            "b"
+          ],
+          [
+            "unused \ud83e\udde9"
+          ]
+        ],
+        "max_devices": 3,
+        "certificate": {
+          "type": "symbol_bound"
+        }
+      },
+      "checked": {
+        "status": "ACCEPT"
+      },
+      "solve_limit_seconds": 60,
+      "consumer_limit_seconds": 2,
+      "ok": true
+    },
+    {
+      "input": {
+        "alphabet": [
+          "opaque log \u03b1",
+          "b",
+          "unused \ud83e\udde9"
+        ],
+        "positive": [
+          []
+        ],
+        "negative": [
+          [
+            "opaque log \u03b1"
+          ]
+        ]
+      },
+      "expected_k": 3,
+      "result": {
+        "status": "OPTIMAL",
+        "blocks": [
+          [
+            "opaque log \u03b1"
+          ],
+          [
+            "b"
+          ],
+          [
+            "unused \ud83e\udde9"
+          ]
+        ],
+        "max_devices": 3,
+        "certificate": {
+          "type": "symbol_bound"
+        }
+      },
+      "checked": {
+        "status": "ACCEPT"
+      },
+      "solve_limit_seconds": 60,
+      "consumer_limit_seconds": 2,
+      "ok": true
+    },
+    {
+      "input": {
+        "alphabet": [
+          "opaque log \u03b1",
+          "b",
+          "unused \ud83e\udde9"
+        ],
+        "positive": [
+          [],
+          [
+            "b"
+          ]
+        ],
+        "negative": [
+          [
+            "opaque log \u03b1"
+          ]
+        ]
+      },
+      "expected_k": 3,
+      "result": {
+        "status": "OPTIMAL",
+        "blocks": [
+          [
+            "opaque log \u03b1"
+          ],
+          [
+            "b"
+          ],
+          [
+            "unused \ud83e\udde9"
+          ]
+        ],
+        "max_devices": 3,
+        "certificate": {
+          "type": "symbol_bound"
+        }
+      },
+      "checked": {
+        "status": "ACCEPT"
+      },
+      "solve_limit_seconds": 60,
+      "consumer_limit_seconds": 2,
+      "ok": true
+    },
+    {
+      "input": {
+        "alphabet": [
+          "opaque log \u03b1",
+          "b",
+          "unused \ud83e\udde9"
+        ],
+        "positive": [
+          []
+        ],
+        "negative": [
+          [
+            "opaque log \u03b1"
+          ],
+          [
+            "b"
+          ]
+        ]
+      },
+      "expected_k": 3,
+      "result": {
+        "status": "OPTIMAL",
+        "blocks": [
+          [
+            "opaque log \u03b1"
+          ],
+          [
+            "b"
+          ],
+          [
+            "unused \ud83e\udde9"
+          ]
+        ],
+        "max_devices": 3,
+        "certificate": {
+          "type": "symbol_bound"
+        }
+      },
+      "checked": {
+        "status": "ACCEPT"
+      },
+      "solve_limit_seconds": 60,
+      "consumer_limit_seconds": 2,
+      "ok": true
+    },
+    {
+      "input": {
+        "alphabet": [
+          "opaque log \u03b1",
+          "b",
+          "unused \ud83e\udde9"
+        ],
+        "positive": [],
+        "negative": [
+          []
+        ]
+      },
+      "expected_k": 3,
+      "result": {
+        "status": "OPTIMAL",
+        "blocks": [
+          [
+            "opaque log \u03b1"
+          ],
+          [
+            "b"
+          ],
+          [
+            "unused \ud83e\udde9"
+          ]
+        ],
+        "max_devices": 3,
+        "certificate": {
+          "type": "symbol_bound"
+        }
+      },
+      "checked": {
+        "status": "ACCEPT"
+      },
+      "solve_limit_seconds": 60,
+      "consumer_limit_seconds": 2,
+      "ok": true
+    },
+    {
+      "input": {
+        "alphabet": [
+          "opaque log \u03b1",
+          "b",
+          "unused \ud83e\udde9"
+        ],
+        "positive": [
+          [
+            "b"
+          ]
+        ],
+        "negative": [
+          []
+        ]
+      },
+      "expected_k": 3,
+      "result": {
+        "status": "OPTIMAL",
+        "blocks": [
+          [
+            "opaque log \u03b1"
+          ],
+          [
+            "b"
+          ],
+          [
+            "unused \ud83e\udde9"
+          ]
+        ],
+        "max_devices": 3,
+        "certificate": {
+          "type": "symbol_bound"
+        }
+      },
+      "checked": {
+        "status": "ACCEPT"
+      },
+      "solve_limit_seconds": 60,
+      "consumer_limit_seconds": 2,
+      "ok": true
+    },
+    {
+      "input": {
+        "alphabet": [
+          "opaque log \u03b1",
+          "b",
+          "unused \ud83e\udde9"
+        ],
+        "positive": [],
+        "negative": [
+          [],
+          [
+            "b"
+          ]
+        ]
+      },
+      "expected_k": 3,
+      "result": {
+        "status": "OPTIMAL",
+        "blocks": [
+          [
+            "opaque log \u03b1"
+          ],
+          [
+            "b"
+          ],
+          [
+            "unused \ud83e\udde9"
+          ]
+        ],
+        "max_devices": 3,
+        "certificate": {
+          "type": "symbol_bound"
+        }
+      },
+      "checked": {
+        "status": "ACCEPT"
+      },
+      "solve_limit_seconds": 60,
+      "consumer_limit_seconds": 2,
+      "ok": true
+    },
+    {
+      "input": {
+        "alphabet": [
+          "opaque log \u03b1",
+          "b",
+          "unused \ud83e\udde9"
+        ],
+        "positive": [
+          [
+            "opaque log \u03b1"
+          ]
+        ],
+        "negative": [
+          []
+        ]
+      },
+      "expected_k": 3,
+      "result": {
+        "status": "OPTIMAL",
+        "blocks": [
+          [
+            "opaque log \u03b1"
+          ],
+          [
+            "b"
+          ],
+          [
+            "unused \ud83e\udde9"
+          ]
+        ],
+        "max_devices": 3,
+        "certificate": {
+          "type": "symbol_bound"
+        }
+      },
+      "checked": {
+        "status": "ACCEPT"
+      },
+      "solve_limit_seconds": 60,
+      "consumer_limit_seconds": 2,
+      "ok": true
+    },
+    {
+      "input": {
+        "alphabet": [
+          "opaque log \u03b1",
+          "b",
+          "unused \ud83e\udde9"
+        ],
+        "positive": [
+          [
+            "opaque log \u03b1"
+          ],
+          [
+            "b"
+          ]
+        ],
+        "negative": [
+          []
+        ]
+      },
+      "expected_k": 2,
+      "result": {
+        "status": "OPTIMAL",
+        "blocks": [
+          [
+            "opaque log \u03b1",
+            "b"
+          ],
+          [
+            "unused \ud83e\udde9"
+          ]
+        ],
+        "max_devices": 2,
+        "certificate": {
+          "type": "atom_bound"
+        }
+      },
+      "checked": {
+        "status": "ACCEPT"
+      },
+      "solve_limit_seconds": 60,
+      "consumer_limit_seconds": 2,
+      "ok": true
+    },
+    {
+      "input": {
+        "alphabet": [
+          "opaque log \u03b1",
+          "b",
+          "unused \ud83e\udde9"
+        ],
+        "positive": [
+          [
+            "opaque log \u03b1"
+          ]
+        ],
+        "negative": [
+          [],
+          [
+            "b"
+          ]
+        ]
+      },
+      "expected_k": 3,
+      "result": {
+        "status": "OPTIMAL",
+        "blocks": [
+          [
+            "opaque log \u03b1"
+          ],
+          [
+            "b"
+          ],
+          [
+            "unused \ud83e\udde9"
+          ]
+        ],
+        "max_devices": 3,
+        "certificate": {
+          "type": "symbol_bound"
+        }
+      },
+      "checked": {
+        "status": "ACCEPT"
+      },
+      "solve_limit_seconds": 60,
+      "consumer_limit_seconds": 2,
+      "ok": true
+    },
+    {
+      "input": {
+        "alphabet": [
+          "opaque log \u03b1",
+          "b",
+          "unused \ud83e\udde9"
+        ],
+        "positive": [],
+        "negative": [
+          [],
+          [
+            "opaque log \u03b1"
+          ]
+        ]
+      },
+      "expected_k": 3,
+      "result": {
+        "status": "OPTIMAL",
+        "blocks": [
+          [
+            "opaque log \u03b1"
+          ],
+          [
+            "b"
+          ],
+          [
+            "unused \ud83e\udde9"
+          ]
+        ],
+        "max_devices": 3,
+        "certificate": {
+          "type": "symbol_bound"
+        }
+      },
+      "checked": {
+        "status": "ACCEPT"
+      },
+      "solve_limit_seconds": 60,
+      "consumer_limit_seconds": 2,
+      "ok": true
+    },
+    {
+      "input": {
+        "alphabet": [
+          "opaque log \u03b1",
+          "b",
+          "unused \ud83e\udde9"
+        ],
+        "positive": [
+          [
+            "b"
+          ]
+        ],
+        "negative": [
+          [],
+          [
+            "opaque log \u03b1"
+          ]
+        ]
+      },
+      "expected_k": 3,
+      "result": {
+        "status": "OPTIMAL",
+        "blocks": [
+          [
+            "opaque log \u03b1"
+          ],
+          [
+            "b"
+          ],
+          [
+            "unused \ud83e\udde9"
+          ]
+        ],
+        "max_devices": 3,
+        "certificate": {
+          "type": "symbol_bound"
+        }
+      },
+      "checked": {
+        "status": "ACCEPT"
+      },
+      "solve_limit_seconds": 60,
+      "consumer_limit_seconds": 2,
+      "ok": true
+    },
+    {
+      "input": {
+        "alphabet": [
+          "opaque log \u03b1",
+          "b",
+          "unused \ud83e\udde9"
+        ],
+        "positive": [],
+        "negative": [
+          [],
+          [
+            "opaque log \u03b1"
+          ],
+          [
+            "b"
+          ]
+        ]
+      },
+      "expected_k": 3,
+      "result": {
+        "status": "OPTIMAL",
+        "blocks": [
+          [
+            "opaque log \u03b1"
+          ],
+          [
+            "b"
+          ],
+          [
+            "unused \ud83e\udde9"
+          ]
+        ],
+        "max_devices": 3,
+        "certificate": {
+          "type": "symbol_bound"
+        }
+      },
+      "checked": {
+        "status": "ACCEPT"
+      },
+      "solve_limit_seconds": 60,
+      "consumer_limit_seconds": 2,
+      "ok": true
+    }
+  ],
+  "teacher_timeout": {
+    "profile": {
+      "result": {
+        "status": "INCOMPLETE",
+        "blocks": null,
+        "max_devices": null,
+        "certificate": null
+      },
+      "metrics": {
+        "teacher_calls": 1,
+        "cuts": 0,
+        "sat_queries": 0,
+        "phase": "main_teacher",
+        "teacher_seconds": 0.00019420000171521679,
+        "interrupted_phase": "main_teacher",
+        "total_seconds": 0.0003550000037648715,
+        "projections": {
+          "dag_nodes": 4,
+          "cache_hits": 0,
+          "cache_misses": 3,
+          "transformed_nodes": 8,
+          "materialized_words": 4
+        },
+        "main_teacher": {
+          "dfa_representations": 3,
+          "cache_hits": 0,
+          "branches": 0,
+          "semijoin_checks": 0,
+          "local_rows": [],
+          "q_rows": [],
+          "vertices": 0,
+          "edges": 0,
+          "cycle_bits": 0,
+          "bounds": [
+            3
+          ],
+          "completed_checks": 0
+        }
+      },
+      "trace": []
+    },
+    "cache_size": 0,
+    "passed": true
+  }
+}

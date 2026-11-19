@@ -1,0 +1,167 @@
+{
+  "corpus": {
+    "OPTIMAL": 1245,
+    "INCOMPLETE": 1014,
+    "INFEASIBLE": 2
+  },
+  "incomplete_phases": {
+    "main_teacher": 1014
+  },
+  "benchmark_trials": 52,
+  "benchmark_first_completed": {
+    "v43": 10,
+    "v45": 6
+  },
+  "fixtures": [
+    {
+      "case": "ordinary",
+      "oracle_k": 2,
+      "cut_checks": [
+        {
+          "negative_index": 0,
+          "proposed_masks": [
+            1,
+            2,
+            4
+          ],
+          "expanded_regions": [
+            1,
+            2,
+            4
+          ],
+          "checked_witnesses": 3,
+          "maximal": true
+        }
+      ],
+      "completed_teacher_checks": 2
+    },
+    {
+      "case": "two_cut",
+      "oracle_k": 3,
+      "cut_checks": [
+        {
+          "negative_index": 0,
+          "proposed_masks": [
+            1,
+            2,
+            4,
+            8
+          ],
+          "expanded_regions": [
+            1,
+            2,
+            4,
+            8
+          ],
+          "checked_witnesses": 4,
+          "maximal": true
+        },
+        {
+          "negative_index": 1,
+          "proposed_masks": [
+            1,
+            2,
+            12
+          ],
+          "expanded_regions": [
+            1,
+            2,
+            12
+          ],
+          "checked_witnesses": 3,
+          "maximal": true
+        }
+      ],
+      "completed_teacher_checks": 3
+    },
+    {
+      "case": "ab_ba",
+      "oracle_k": 1,
+      "cut_checks": [],
+      "completed_teacher_checks": 2
+    }
+  ],
+  "censored_diagnostics": [
+    {
+      "case": "oneblock_8",
+      "limit": 60.0,
+      "status": "INCOMPLETE",
+      "final_bound": 10,
+      "active_block_size": 8,
+      "named_in_call": 349336,
+      "rows_done": 0,
+      "enumeration_scale": 102400000000259854738462491725612800203277858644224240385788931164209780665235969450,
+      "cuts": 0
+    },
+    {
+      "case": "overlap_8",
+      "limit": 60.0,
+      "status": "INCOMPLETE",
+      "final_bound": 4,
+      "active_block_size": 2,
+      "named_in_call": 824132,
+      "rows_done": 1,
+      "enumeration_scale": 1054474,
+      "cuts": 3
+    },
+    {
+      "case": "long_words_4",
+      "limit": 60.0,
+      "status": "INCOMPLETE",
+      "final_bound": 52,
+      "active_block_size": 1,
+      "named_in_call": 236108,
+      "rows_done": 0,
+      "enumeration_scale": 771414327824771071278290682217072903878741359332890374899901962835548213742701189076462924032345597406474,
+      "cuts": 0
+    },
+    {
+      "case": "many_words_3",
+      "limit": 60.0,
+      "status": "INCOMPLETE",
+      "final_bound": 8,
+      "active_block_size": 1,
+      "named_in_call": 248314,
+      "rows_done": 0,
+      "enumeration_scale": 4403471114,
+      "cuts": 0
+    },
+    {
+      "case": "oneblock_8",
+      "limit": 300.0,
+      "status": "INCOMPLETE",
+      "final_bound": 10,
+      "active_block_size": 8,
+      "named_in_call": 4401840,
+      "rows_done": 0,
+      "enumeration_scale": 102400000000259854738462491725612800203277858644224240385788931164209780665235969450,
+      "cuts": 0
+    }
+  ],
+  "projection": [
+    [
+      4,
+      "distinct",
+      0.13024900000164052,
+      0.28737379999802215
+    ],
+    [
+      4,
+      "repeated",
+      0.2946790999994846,
+      0.556568400003016
+    ],
+    [
+      8,
+      "distinct",
+      0.2850895999945351,
+      0.726275799999712
+    ],
+    [
+      8,
+      "repeated",
+      0.16244210000149906,
+      0.19015370000124676
+    ]
+  ]
+}

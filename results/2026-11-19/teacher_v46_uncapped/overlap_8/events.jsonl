@@ -1,0 +1,83 @@
+{"event": "start", "elapsed_seconds": 1.8576479000039399, "case": "overlap_8", "solver_limit_seconds": null, "consumer_limit_seconds": null, "input": {"alphabet": ["s0", "s1", "s2", "s3", "s4", "s5", "s6", "s7"], "positive": [[], ["s0", "s1", "s2", "s3", "s4", "s5", "s6", "s7"]], "negative": [["s0"], ["s1"], ["s2"], ["s3"]]}, "expected_k": 6, "python": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]", "platform": "Windows-11-10.0.26300-SP0", "source_sha256": "013e2b60dc1d5740d766a9b0f77c458c4fbb92f203ee67977f3fe7104b48215b", "teacher_sha256": "9d370bbf473875ce636c54215165d7502b50877005f2ddc2635d7f88924d18e5"}
+{"event": "teacher_start", "elapsed_seconds": 1.8751594000059413, "call": 1, "blocks": [["s0"], ["s1"], ["s2"], ["s3"], ["s4"], ["s5"], ["s6"], ["s7"]]}
+{"event": "local_start", "elapsed_seconds": 1.8756089999951655, "call": 1, "block": ["s0"], "bound": 3, "named_dfas_if_uncached": 234, "cached": false}
+{"event": "local_end", "elapsed_seconds": 1.8789777000056347, "call": 1, "block": ["s0"], "bound": 3, "cached": false, "seconds": 0.0033564999903319404, "named_dfas": 234}
+{"event": "local_start", "elapsed_seconds": 1.8793812999938382, "call": 1, "block": ["s1"], "bound": 3, "named_dfas_if_uncached": 234, "cached": false}
+{"event": "local_end", "elapsed_seconds": 1.8837939999939408, "call": 1, "block": ["s1"], "bound": 3, "cached": false, "seconds": 0.004403799990541302, "named_dfas": 234}
+{"event": "local_start", "elapsed_seconds": 1.8842254000046523, "call": 1, "block": ["s2"], "bound": 3, "named_dfas_if_uncached": 234, "cached": false}
+{"event": "local_end", "elapsed_seconds": 1.8869677000038791, "call": 1, "block": ["s2"], "bound": 3, "cached": false, "seconds": 0.0026906999992206693, "named_dfas": 234}
+{"event": "local_start", "elapsed_seconds": 1.8875631999981124, "call": 1, "block": ["s3"], "bound": 3, "named_dfas_if_uncached": 234, "cached": false}
+{"event": "local_end", "elapsed_seconds": 1.8911021999956574, "call": 1, "block": ["s3"], "bound": 3, "cached": false, "seconds": 0.0035134999925503507, "named_dfas": 234}
+{"event": "local_start", "elapsed_seconds": 1.8919397999998182, "call": 1, "block": ["s4"], "bound": 3, "named_dfas_if_uncached": 234, "cached": false}
+{"event": "local_end", "elapsed_seconds": 1.8947415000002366, "call": 1, "block": ["s4"], "bound": 3, "cached": false, "seconds": 0.0027928999916184694, "named_dfas": 234}
+{"event": "local_start", "elapsed_seconds": 1.895111599995289, "call": 1, "block": ["s5"], "bound": 3, "named_dfas_if_uncached": 234, "cached": false}
+{"event": "local_end", "elapsed_seconds": 1.8984810999972979, "call": 1, "block": ["s5"], "bound": 3, "cached": false, "seconds": 0.0033608999947318807, "named_dfas": 234}
+{"event": "local_start", "elapsed_seconds": 1.898845200004871, "call": 1, "block": ["s6"], "bound": 3, "named_dfas_if_uncached": 234, "cached": false}
+{"event": "local_end", "elapsed_seconds": 1.902985799999442, "call": 1, "block": ["s6"], "bound": 3, "cached": false, "seconds": 0.004130499990424141, "named_dfas": 234}
+{"event": "local_start", "elapsed_seconds": 1.903379199997289, "call": 1, "block": ["s7"], "bound": 3, "named_dfas_if_uncached": 234, "cached": false}
+{"event": "local_end", "elapsed_seconds": 1.9080286999960663, "call": 1, "block": ["s7"], "bound": 3, "cached": false, "seconds": 0.004548199998680502, "named_dfas": 234}
+{"event": "teacher_end", "elapsed_seconds": 1.909563099994557, "call": 1, "status": "REJECT", "seconds": 0.0343977000011364, "metrics": {"dfa_representations": 1872, "cache_hits": 0, "branches": 1, "semijoin_checks": 0, "local_rows": [1, 1, 1, 1, 1, 1, 1, 1], "q_rows": [0, 0, 0, 0], "vertices": 12, "edges": 0, "cycle_bits": 0, "bounds": [3, 3, 3, 3, 3, 3, 3, 3], "completed_checks": 1}}
+{"event": "teacher_start", "elapsed_seconds": 1.9239869000011822, "call": 2, "blocks": [["s0", "s6"], ["s1"], ["s2"], ["s3"], ["s4"], ["s5"], ["s7"]]}
+{"event": "local_start", "elapsed_seconds": 1.9243648999981815, "call": 2, "block": ["s0", "s6"], "bound": 4, "named_dfas_if_uncached": 1054474, "cached": false}
+{"event": "progress", "elapsed_seconds": 16.894296500002383, "call": 2, "block": ["s0", "s6"], "bound": 4, "named_dfas": 997498, "named_dfas_if_uncached": 1054474, "local_seconds": 14.96992339999997}
+{"event": "local_end", "elapsed_seconds": 17.6668503999972, "call": 2, "block": ["s0", "s6"], "bound": 4, "cached": false, "seconds": 15.742474599988782, "named_dfas": 1054474}
+{"event": "local_start", "elapsed_seconds": 17.66722590000427, "call": 2, "block": ["s1"], "bound": 3, "named_dfas_if_uncached": 234, "cached": true}
+{"event": "local_end", "elapsed_seconds": 17.667411600006744, "call": 2, "block": ["s1"], "bound": 3, "cached": true, "seconds": 0.00018190000264439732, "named_dfas": 0}
+{"event": "local_start", "elapsed_seconds": 17.667614999998477, "call": 2, "block": ["s2"], "bound": 3, "named_dfas_if_uncached": 234, "cached": true}
+{"event": "local_end", "elapsed_seconds": 17.667753500005347, "call": 2, "block": ["s2"], "bound": 3, "cached": true, "seconds": 0.00013600000238511711, "named_dfas": 0}
+{"event": "local_start", "elapsed_seconds": 17.667911199998343, "call": 2, "block": ["s3"], "bound": 3, "named_dfas_if_uncached": 234, "cached": true}
+{"event": "local_end", "elapsed_seconds": 17.66803479999362, "call": 2, "block": ["s3"], "bound": 3, "cached": true, "seconds": 0.00012070000229869038, "named_dfas": 0}
+{"event": "local_start", "elapsed_seconds": 17.66822730000422, "call": 2, "block": ["s4"], "bound": 3, "named_dfas_if_uncached": 234, "cached": true}
+{"event": "local_end", "elapsed_seconds": 17.668349300001864, "call": 2, "block": ["s4"], "bound": 3, "cached": true, "seconds": 0.00011889998859260231, "named_dfas": 0}
+{"event": "local_start", "elapsed_seconds": 17.668501399995876, "call": 2, "block": ["s5"], "bound": 3, "named_dfas_if_uncached": 234, "cached": true}
+{"event": "local_end", "elapsed_seconds": 17.668649700004607, "call": 2, "block": ["s5"], "bound": 3, "cached": true, "seconds": 0.00014430000737775117, "named_dfas": 0}
+{"event": "local_start", "elapsed_seconds": 17.668824299995322, "call": 2, "block": ["s7"], "bound": 3, "named_dfas_if_uncached": 234, "cached": true}
+{"event": "local_end", "elapsed_seconds": 17.668974100000923, "call": 2, "block": ["s7"], "bound": 3, "cached": true, "seconds": 0.00014620000729337335, "named_dfas": 0}
+{"event": "teacher_end", "elapsed_seconds": 17.670658899995033, "call": 2, "status": "REJECT", "seconds": 15.746662000005017, "metrics": {"dfa_representations": 1054474, "cache_hits": 6, "branches": 1, "semijoin_checks": 0, "local_rows": [2, 1, 1, 1, 1, 1, 1], "q_rows": [1, 0, 0, 0], "vertices": 11, "edges": 1, "cycle_bits": 0, "bounds": [4, 3, 3, 3, 3, 3, 3], "completed_checks": 2}}
+{"event": "teacher_start", "elapsed_seconds": 17.675347199998214, "call": 3, "blocks": [["s0", "s1"], ["s2"], ["s3"], ["s4"], ["s5"], ["s6"], ["s7"]]}
+{"event": "local_start", "elapsed_seconds": 17.675700000007055, "call": 3, "block": ["s0", "s1"], "bound": 4, "named_dfas_if_uncached": 1054474, "cached": false}
+{"event": "local_end", "elapsed_seconds": 31.667564599993057, "call": 3, "block": ["s0", "s1"], "bound": 4, "cached": false, "seconds": 13.991843199997675, "named_dfas": 1054474}
+{"event": "local_start", "elapsed_seconds": 31.668931199994404, "call": 3, "block": ["s2"], "bound": 3, "named_dfas_if_uncached": 234, "cached": true}
+{"event": "local_end", "elapsed_seconds": 31.669355399993947, "call": 3, "block": ["s2"], "bound": 3, "cached": true, "seconds": 0.0004219999973429367, "named_dfas": 0}
+{"event": "local_start", "elapsed_seconds": 31.669581800000742, "call": 3, "block": ["s3"], "bound": 3, "named_dfas_if_uncached": 234, "cached": true}
+{"event": "local_end", "elapsed_seconds": 31.66974690000643, "call": 3, "block": ["s3"], "bound": 3, "cached": true, "seconds": 0.00016229999891947955, "named_dfas": 0}
+{"event": "local_start", "elapsed_seconds": 31.669928000002983, "call": 3, "block": ["s4"], "bound": 3, "named_dfas_if_uncached": 234, "cached": true}
+{"event": "local_end", "elapsed_seconds": 31.670076299997163, "call": 3, "block": ["s4"], "bound": 3, "cached": true, "seconds": 0.00014630000805482268, "named_dfas": 0}
+{"event": "local_start", "elapsed_seconds": 31.670269700000063, "call": 3, "block": ["s5"], "bound": 3, "named_dfas_if_uncached": 234, "cached": true}
+{"event": "local_end", "elapsed_seconds": 31.67055189999519, "call": 3, "block": ["s5"], "bound": 3, "cached": true, "seconds": 0.0002747000107774511, "named_dfas": 0}
+{"event": "local_start", "elapsed_seconds": 31.671155599993654, "call": 3, "block": ["s6"], "bound": 3, "named_dfas_if_uncached": 234, "cached": true}
+{"event": "local_end", "elapsed_seconds": 31.671346300005098, "call": 3, "block": ["s6"], "bound": 3, "cached": true, "seconds": 0.0001880999916465953, "named_dfas": 0}
+{"event": "local_start", "elapsed_seconds": 31.67154130000563, "call": 3, "block": ["s7"], "bound": 3, "named_dfas_if_uncached": 234, "cached": true}
+{"event": "local_end", "elapsed_seconds": 31.671705400003702, "call": 3, "block": ["s7"], "bound": 3, "cached": true, "seconds": 0.00016070000128820539, "named_dfas": 0}
+{"event": "teacher_end", "elapsed_seconds": 31.673613599996315, "call": 3, "status": "REJECT", "seconds": 13.99825870001223, "metrics": {"dfa_representations": 1054474, "cache_hits": 6, "branches": 1, "semijoin_checks": 0, "local_rows": [4, 1, 1, 1, 1, 1, 1], "q_rows": [1, 1, 0, 0], "vertices": 11, "edges": 2, "cycle_bits": 0, "bounds": [4, 3, 3, 3, 3, 3, 3], "completed_checks": 3}}
+{"event": "teacher_start", "elapsed_seconds": 31.680219500005478, "call": 4, "blocks": [["s0", "s1"], ["s2", "s6"], ["s3"], ["s4"], ["s5"], ["s7"]]}
+{"event": "local_start", "elapsed_seconds": 31.68056449999858, "call": 4, "block": ["s0", "s1"], "bound": 4, "named_dfas_if_uncached": 1054474, "cached": true}
+{"event": "local_end", "elapsed_seconds": 31.68073700000241, "call": 4, "block": ["s0", "s1"], "bound": 4, "cached": true, "seconds": 0.0001694000093266368, "named_dfas": 0}
+{"event": "local_start", "elapsed_seconds": 31.680965000006836, "call": 4, "block": ["s2", "s6"], "bound": 4, "named_dfas_if_uncached": 1054474, "cached": false}
+{"event": "progress", "elapsed_seconds": 31.949903300002916, "call": 4, "block": ["s2", "s6"], "bound": 4, "named_dfas": 18422, "named_dfas_if_uncached": 1054474, "local_seconds": 0.2689327999978559}
+{"event": "local_end", "elapsed_seconds": 46.65561909999815, "call": 4, "block": ["s2", "s6"], "bound": 4, "cached": false, "seconds": 14.974641499997233, "named_dfas": 1054474}
+{"event": "local_start", "elapsed_seconds": 46.65601409999363, "call": 4, "block": ["s3"], "bound": 3, "named_dfas_if_uncached": 234, "cached": true}
+{"event": "local_end", "elapsed_seconds": 46.6562328, "call": 4, "block": ["s3"], "bound": 3, "cached": true, "seconds": 0.00021469999046530575, "named_dfas": 0}
+{"event": "local_start", "elapsed_seconds": 46.656432799994946, "call": 4, "block": ["s4"], "bound": 3, "named_dfas_if_uncached": 234, "cached": true}
+{"event": "local_end", "elapsed_seconds": 46.65658599999733, "call": 4, "block": ["s4"], "bound": 3, "cached": true, "seconds": 0.0001505999971413985, "named_dfas": 0}
+{"event": "local_start", "elapsed_seconds": 46.65676600000006, "call": 4, "block": ["s5"], "bound": 3, "named_dfas_if_uncached": 234, "cached": true}
+{"event": "local_end", "elapsed_seconds": 46.6569068999961, "call": 4, "block": ["s5"], "bound": 3, "cached": true, "seconds": 0.0001362000039080158, "named_dfas": 0}
+{"event": "local_start", "elapsed_seconds": 46.657081900004414, "call": 4, "block": ["s7"], "bound": 3, "named_dfas_if_uncached": 234, "cached": true}
+{"event": "local_end", "elapsed_seconds": 46.65722269999969, "call": 4, "block": ["s7"], "bound": 3, "cached": true, "seconds": 0.00013830000534653664, "named_dfas": 0}
+{"event": "teacher_end", "elapsed_seconds": 46.657917400007136, "call": 4, "status": "REJECT", "seconds": 14.977692699991167, "metrics": {"dfa_representations": 1054474, "cache_hits": 5, "branches": 1, "semijoin_checks": 0, "local_rows": [4, 2, 1, 1, 1, 1], "q_rows": [1, 1, 1, 0], "vertices": 10, "edges": 3, "cycle_bits": 0, "bounds": [4, 4, 3, 3, 3, 3], "completed_checks": 4}}
+{"event": "teacher_start", "elapsed_seconds": 46.66279190000205, "call": 5, "blocks": [["s0", "s1"], ["s2", "s3"], ["s4"], ["s5"], ["s6"], ["s7"]]}
+{"event": "local_start", "elapsed_seconds": 46.66313610000361, "call": 5, "block": ["s0", "s1"], "bound": 4, "named_dfas_if_uncached": 1054474, "cached": true}
+{"event": "local_end", "elapsed_seconds": 46.66331319999881, "call": 5, "block": ["s0", "s1"], "bound": 4, "cached": true, "seconds": 0.00017179999849759042, "named_dfas": 0}
+{"event": "local_start", "elapsed_seconds": 46.6635052000056, "call": 5, "block": ["s2", "s3"], "bound": 4, "named_dfas_if_uncached": 1054474, "cached": false}
+{"event": "progress", "elapsed_seconds": 47.00617639999837, "call": 5, "block": ["s2", "s3"], "bound": 4, "named_dfas": 18699, "named_dfas_if_uncached": 1054474, "local_seconds": 0.3426626000000397}
+{"event": "local_end", "elapsed_seconds": 60.730816700001014, "call": 5, "block": ["s2", "s3"], "bound": 4, "cached": false, "seconds": 14.067296799999895, "named_dfas": 1054474}
+{"event": "local_start", "elapsed_seconds": 60.731243799993536, "call": 5, "block": ["s4"], "bound": 3, "named_dfas_if_uncached": 234, "cached": true}
+{"event": "local_end", "elapsed_seconds": 60.731472100000246, "call": 5, "block": ["s4"], "bound": 3, "cached": true, "seconds": 0.0002246999938506633, "named_dfas": 0}
+{"event": "local_start", "elapsed_seconds": 60.731980399999884, "call": 5, "block": ["s5"], "bound": 3, "named_dfas_if_uncached": 234, "cached": true}
+{"event": "local_end", "elapsed_seconds": 60.73240999999689, "call": 5, "block": ["s5"], "bound": 3, "cached": true, "seconds": 0.0002347999979974702, "named_dfas": 0}
+{"event": "local_start", "elapsed_seconds": 60.73305280000204, "call": 5, "block": ["s6"], "bound": 3, "named_dfas_if_uncached": 234, "cached": true}
+{"event": "local_end", "elapsed_seconds": 60.73327729999437, "call": 5, "block": ["s6"], "bound": 3, "cached": true, "seconds": 0.00022760000138077885, "named_dfas": 0}
+{"event": "local_start", "elapsed_seconds": 60.73362579999957, "call": 5, "block": ["s7"], "bound": 3, "named_dfas_if_uncached": 234, "cached": true}
+{"event": "local_end", "elapsed_seconds": 60.73378939999384, "call": 5, "block": ["s7"], "bound": 3, "cached": true, "seconds": 0.00016070000128820539, "named_dfas": 0}
+{"event": "teacher_end", "elapsed_seconds": 60.73469149999437, "call": 5, "status": "ACCEPT", "seconds": 14.071893900007126, "metrics": {"dfa_representations": 1054474, "cache_hits": 5, "branches": 1, "semijoin_checks": 16, "local_rows": [4, 4, 1, 1, 1, 1], "q_rows": [1, 1, 1, 1], "vertices": 10, "edges": 4, "cycle_bits": 0, "bounds": [4, 4, 3, 3, 3, 3], "completed_checks": 5}}
+{"event": "finish", "elapsed_seconds": 61.246802800000296, "status": "OPTIMAL", "checked": {"status": "ACCEPT"}, "verified_reference_match": true, "totals": {"teacher_seconds": 58.828905000016675, "projection_and_teacher_seconds": 58.832138000027044, "local_seconds": 58.80908399994951, "named_dfas": 4219768, "cache_hits": 22, "calls": 5}, "solve_seconds": 61.030145299999276}

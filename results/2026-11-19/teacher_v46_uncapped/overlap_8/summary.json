@@ -1,0 +1,79 @@
+{
+  "oracle_k": 6,
+  "partition": [
+    [
+      "s0",
+      "s1"
+    ],
+    [
+      "s2",
+      "s3"
+    ],
+    [
+      "s4"
+    ],
+    [
+      "s5"
+    ],
+    [
+      "s6"
+    ],
+    [
+      "s7"
+    ]
+  ],
+  "certificate": "teacher_cut_drup",
+  "proof_lines": 44,
+  "cuts": 4,
+  "sat_queries": 6,
+  "solve_seconds": 59.156126699992456,
+  "local_table_share": 0.9941334445068901,
+  "local_table_seconds": 58.80908399994951,
+  "teacher_seconds": 58.828905000016675,
+  "non_teacher_seconds": 0.3272216999757802,
+  "named_dfas": 4219768,
+  "local_tables": [
+    {
+      "call": 2,
+      "block": [
+        "s0",
+        "s6"
+      ],
+      "bound": 4,
+      "seconds": 15.742474599988782,
+      "named_dfas": 1054474
+    },
+    {
+      "call": 3,
+      "block": [
+        "s0",
+        "s1"
+      ],
+      "bound": 4,
+      "seconds": 13.991843199997675,
+      "named_dfas": 1054474
+    },
+    {
+      "call": 4,
+      "block": [
+        "s2",
+        "s6"
+      ],
+      "bound": 4,
+      "seconds": 14.974641499997233,
+      "named_dfas": 1054474
+    },
+    {
+      "call": 5,
+      "block": [
+        "s2",
+        "s3"
+      ],
+      "bound": 4,
+      "seconds": 14.067296799999895,
+      "named_dfas": 1054474
+    }
+  ],
+  "events_sha256": "d6b785c6411fbc561bab93d726e1d4f06e447b3dab67901f773dcb55a88ad689",
+  "result_sha256": "c6eb8f49eb0517e58876f2cceed8c189c21aa74658677016f8f8a8bde153cd2c"
+}
