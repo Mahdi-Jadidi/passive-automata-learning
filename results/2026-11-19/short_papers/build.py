@@ -1,4 +1,5 @@
 """Build both five-page manuscripts and archive rendered page checks."""
+import argparse
 import hashlib
 import json
 from pathlib import Path
@@ -7,7 +8,9 @@ from xml.sax.saxutils import escape
 
 import pdfplumber
 import pypdfium2
+from PIL import ImageChops
 from reportlab.lib import colors
+from reportlab.lib.enums import TA_CENTER, TA_JUSTIFY, TA_LEFT
 from reportlab.lib.pagesizes import A4
 from reportlab.lib.styles import ParagraphStyle
 from reportlab.pdfbase import pdfmetrics
@@ -36,11 +39,13 @@ def fonts():
                                   boldItalic='BoldItalic')
 
 
-def inline(raw):
+def inline(raw, monochrome):
     s = escape(raw)
     s = re.sub(r'\*\*(.+?)\*\*',r'<b>\1</b>',s)
     s = re.sub(r'(?<!\S)\*([^*]+?)\*',r'<i>\1</i>',s)
-    s = re.sub(r'@link\(([^|]+)\|([^()]+)\)',r'<link href="\2" color="#244658">\1</link>',s)
+    link_color = '#000000' if monochrome else '#244658'
+    s = re.sub(r'@link\(([^|]+)\|([^()]+)\)',
+               lambda m: f'<link href="{m[2]}" color="{link_color}">{m[1]}</link>',s)
     s = re.sub(r'\^\{([^{}]+)\}',r'<super>\1</super>',s)
     s = re.sub(r'\^(\d+|[a-zA-Z])',r'<super>\1</super>',s)
     s = re.sub(r'([A-Za-zπ])_\(([a-zA-Z,]+)\)',r'\1<sub>\2</sub>',s)
@@ -58,58 +63,81 @@ def inline(raw):
     return ''.join(pieces)
 
 
-def table(block, body):
+def table(block, body, monochrome):
     cells = [r.strip('|').split('|') for r in block.splitlines()]
     del cells[1]
-    cell = ParagraphStyle('Cell',parent=body,fontSize=10.1,leading=13,spaceAfter=0)
-    data = [[Paragraph(inline(x.strip()),cell) for x in row] for row in cells]
+    cell = ParagraphStyle('Cell',parent=body,fontSize=10.1,leading=13,spaceAfter=0,
+                          alignment=TA_LEFT)
+    header = ParagraphStyle('Table header',parent=cell,fontName='Bold') if monochrome else cell
+    data = [[Paragraph(inline(x.strip(),monochrome),cell if i else header) for x in row]
+            for i,row in enumerate(cells)]
     result = Table(data,colWidths=[178,WIDTH-178],repeatRows=1,hAlign='LEFT')
-    result.setStyle(TableStyle([
-        ('BACKGROUND',(0,0),(-1,0),colors.HexColor('#e7edf0')),
-        ('LINEBELOW',(0,0),(-1,0),0.65,RULE),
-        ('LINEBELOW',(0,-1),(-1,-1),0.65,RULE),
+    rules = [
         ('VALIGN',(0,0),(-1,-1),'TOP'),
-        ('ROWBACKGROUNDS',(0,1),(-1,-1),[colors.white,colors.HexColor('#f6f8f9')]),
         ('LEFTPADDING',(0,0),(-1,-1),8), ('RIGHTPADDING',(0,0),(-1,-1),8),
         ('TOPPADDING',(0,0),(-1,-1),5), ('BOTTOMPADDING',(0,0),(-1,-1),5),
-    ]))
+    ]
+    if monochrome:
+        rules.extend([
+            ('LINEABOVE',(0,0),(-1,0),0.85,colors.black),
+            ('LINEBELOW',(0,0),(-1,0),0.5,colors.black),
+            ('LINEBELOW',(0,-1),(-1,-1),0.85,colors.black),
+        ])
+    else:
+        rules.extend([
+            ('BACKGROUND',(0,0),(-1,0),colors.HexColor('#e7edf0')),
+            ('LINEBELOW',(0,0),(-1,0),0.65,RULE),
+            ('LINEBELOW',(0,-1),(-1,-1),0.65,RULE),
+            ('ROWBACKGROUNDS',(0,1),(-1,-1),[colors.white,colors.HexColor('#f6f8f9')]),
+        ])
+    result.setStyle(TableStyle(rules))
     return result
 
 
-def build(version):
+def build(version, monochrome):
     text = (HERE/(version+'.md')).read_text(encoding='utf-8')
     text = text.replace('{{OUTER}}',(HERE/'outer.md').read_text(encoding='utf-8').strip())
     pages = text.strip().split('<!-- page -->')
     assert len(pages)==5 and '{{' not in text
-    target = ROOT/'output/pdf'/OUTPUT[version]
+    filename = OUTPUT[version].replace('_Short.pdf','_Monochrome.pdf') if monochrome else OUTPUT[version]
+    target = ROOT/'output/pdf'/filename
     title = text.splitlines()[0][2:]
-    (HERE/(version+'_complete.md')).write_text(text,encoding='utf-8')
-    body = ParagraphStyle('Body',fontName='Roman',fontSize=11,leading=14.5,textColor=INK,
+    if not monochrome:
+        (HERE/(version+'_complete.md')).write_text(text,encoding='utf-8')
+    text_color = colors.black if monochrome else INK
+    heading_color = colors.black if monochrome else ACCENT
+    body = ParagraphStyle('Body',fontName='Roman',fontSize=11,leading=14.5,textColor=text_color,
+                          alignment=TA_JUSTIFY if monochrome else TA_LEFT,
                           spaceAfter=8,allowWidows=0,allowOrphans=0)
     h2 = ParagraphStyle('Section',parent=body,fontName='Bold',fontSize=15,leading=19,
-                        spaceBefore=6,spaceAfter=7,textColor=ACCENT,keepWithNext=True)
+                        spaceBefore=6,spaceAfter=7,textColor=heading_color,
+                        alignment=TA_LEFT,keepWithNext=True)
     h3 = ParagraphStyle('Subsection',parent=h2,fontSize=11.4,leading=15,spaceBefore=4)
-    title_style = ParagraphStyle('Title',parent=body,fontName='Bold',fontSize=24,
-                                 leading=27.5,spaceAfter=9,textColor=ACCENT)
+    title_style = ParagraphStyle('Title',parent=body,fontName='Bold',fontSize=22 if monochrome else 24,
+                                 leading=26 if monochrome else 27.5,
+                                 spaceAfter=17 if monochrome else 9,textColor=heading_color,
+                                 alignment=TA_CENTER if monochrome else TA_LEFT)
     meta = ParagraphStyle('Meta',parent=body,fontName='Italic',fontSize=10,spaceAfter=13)
     code = ParagraphStyle('Code',parent=body,fontName='Mono',fontSize=8.8,leading=12,
-                          spaceBefore=2,leftIndent=13,textColor=ACCENT)
-    citation = ParagraphStyle('Reference',parent=body,fontSize=9.8,leading=12.7,spaceAfter=5)
+                          spaceBefore=2,leftIndent=13,textColor=heading_color)
+    citation = ParagraphStyle('Reference',parent=body,fontSize=9.8,leading=12.7,spaceAfter=5,
+                              alignment=TA_LEFT)
     story = []
     for number, page in enumerate(pages):
         if number:
             story.append(PageBreak())
         for block in re.split(r'\n[ \t]*\n',page.strip()):
             if block.startswith('# '):
-                story.append(Paragraph(inline(block[2:]),title_style))
+                story.append(Paragraph(inline(block[2:],monochrome),title_style))
             elif block.startswith('@ '):
-                story.append(Paragraph(inline(block[2:]),meta))
+                if not monochrome:
+                    story.append(Paragraph(inline(block[2:],monochrome),meta))
             elif block.startswith('## '):
-                story.append(Paragraph(inline(block[3:]),h2))
+                story.append(Paragraph(inline(block[3:],monochrome),h2))
             elif block.startswith('### '):
-                story.append(Paragraph(inline(block[4:]),h3))
+                story.append(Paragraph(inline(block[4:],monochrome),h3))
             elif block.startswith('|'):
-                story.extend([table(block,body),Spacer(1,9)])
+                story.extend([table(block,body,monochrome),Spacer(1,9)])
             elif block.startswith('```'):
                 lines = block.splitlines()[1:-1]
                 assert all(pdfmetrics.stringWidth(line,'Mono',code.fontSize)<WIDTH-code.leftIndent
@@ -117,15 +145,18 @@ def build(version):
                 story.append(Preformatted('\n'.join(lines),code))
             else:
                 style = citation if re.match(r'^\[\d+\]',block) else body
-                story.append(Paragraph(inline(' '.join(block.split())),style))
+                story.append(Paragraph(inline(' '.join(block.split()),monochrome),style))
 
     def footer(canvas, doc):
-        canvas.setStrokeColor(RULE)
-        canvas.line(54,42,A4[0]-54,42)
         canvas.setFont('Roman',9)
-        canvas.setFillColor(ACCENT)
-        canvas.drawString(54,29,'Certified maximum alphabet partitioning  /  '+version.upper())
-        canvas.drawRightString(A4[0]-54,29,str(doc.page))
+        canvas.setFillColor(heading_color)
+        if monochrome:
+            canvas.drawCentredString(A4[0]/2,29,str(doc.page))
+        else:
+            canvas.setStrokeColor(RULE)
+            canvas.line(54,42,A4[0]-54,42)
+            canvas.drawString(54,29,'Certified maximum alphabet partitioning  /  '+version.upper())
+            canvas.drawRightString(A4[0]-54,29,str(doc.page))
 
     doc = SimpleDocTemplate(str(target),pagesize=A4,leftMargin=54,rightMargin=54,
                             topMargin=49,bottomMargin=54,title=title,invariant=1)
@@ -133,8 +164,8 @@ def build(version):
     return target
 
 
-def verify_layout(pdf, version):
-    directory = HERE/'rendered'/version
+def verify_layout(pdf, version, monochrome):
+    directory = (HERE/'rendered'/'monochrome'/version if monochrome else HERE/'rendered'/version)
     directory.mkdir(parents=True,exist_ok=True)
     info = []
     raster = pypdfium2.PdfDocument(pdf)
@@ -147,6 +178,11 @@ def verify_layout(pdf, version):
             assert min(w['x0'] for w in words)>45 and max(w['x1'] for w in words)<page.width-45
             assert max(w['bottom'] for w in words)<page.height-19
             image = raster[i-1].render(scale=1.6).to_pil()
+            if monochrome:
+                red, green, blue = image.convert('RGB').split()
+                assert ImageChops.difference(red,green).getbbox() is None
+                assert ImageChops.difference(red,blue).getbbox() is None
+                image = image.convert('L')
             path = directory/f'page-{i}.png'
             image.save(path)
             info.append(dict(page=i,first_line=text.splitlines()[0],words=len(words),
@@ -156,9 +192,14 @@ def verify_layout(pdf, version):
 
 
 def main():
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--monochrome',action='store_true',help='Build the black-and-white academic edition.')
+    args = parser.parse_args()
     fonts()
-    records = {version:verify_layout(build(version),version) for version in OUTPUT}
-    (HERE/'layout.json').write_text(json.dumps(records,indent=2)+'\n',encoding='utf-8')
+    records = {version:verify_layout(build(version,args.monochrome),version,args.monochrome)
+               for version in OUTPUT}
+    layout = 'layout_monochrome.json' if args.monochrome else 'layout.json'
+    (HERE/layout).write_text(json.dumps(records,indent=2)+'\n',encoding='utf-8')
     print(json.dumps({k:len(v['pages']) for k,v in records.items()}),flush=True)
 
 
