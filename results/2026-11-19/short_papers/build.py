@@ -94,16 +94,21 @@ def table(block, body, monochrome):
     return result
 
 
-def build(version, monochrome):
-    text = (HERE/(version+'.md')).read_text(encoding='utf-8')
-    text = text.replace('{{OUTER}}',(HERE/'outer.md').read_text(encoding='utf-8').strip())
+def build(version, monochrome, proof_edition):
+    stem = version+'_proof' if proof_edition else version
+    outer = 'outer_proof.md' if proof_edition else 'outer.md'
+    text = (HERE/(stem+'.md')).read_text(encoding='utf-8')
+    text = text.replace('{{OUTER}}',(HERE/outer).read_text(encoding='utf-8').strip())
     pages = text.strip().split('<!-- page -->')
-    assert len(pages)==5 and '{{' not in text
-    filename = OUTPUT[version].replace('_Short.pdf','_Monochrome.pdf') if monochrome else OUTPUT[version]
+    assert len(pages)==(6 if proof_edition else 5) and '{{' not in text
+    if proof_edition:
+        filename = f'An_Algorithm_for_Partitioning_Traces_{version.upper()}.pdf'
+    else:
+        filename = OUTPUT[version].replace('_Short.pdf','_Monochrome.pdf') if monochrome else OUTPUT[version]
     target = ROOT/'output/pdf'/filename
     title = text.splitlines()[0][2:]
-    if not monochrome:
-        (HERE/(version+'_complete.md')).write_text(text,encoding='utf-8')
+    if proof_edition or not monochrome:
+        (HERE/(stem+'_complete.md')).write_text(text,encoding='utf-8')
     text_color = colors.black if monochrome else INK
     heading_color = colors.black if monochrome else ACCENT
     body = ParagraphStyle('Body',fontName='Roman',fontSize=11,leading=14.5,textColor=text_color,
@@ -115,9 +120,10 @@ def build(version, monochrome):
     h3 = ParagraphStyle('Subsection',parent=h2,fontSize=11.4,leading=15,spaceBefore=4)
     title_style = ParagraphStyle('Title',parent=body,fontName='Bold',fontSize=22 if monochrome else 24,
                                  leading=26 if monochrome else 27.5,
-                                 spaceAfter=17 if monochrome else 9,textColor=heading_color,
+                                 spaceAfter=6 if proof_edition else (17 if monochrome else 9),textColor=heading_color,
                                  alignment=TA_CENTER if monochrome else TA_LEFT)
-    meta = ParagraphStyle('Meta',parent=body,fontName='Italic',fontSize=10,spaceAfter=13)
+    meta = ParagraphStyle('Meta',parent=body,fontName='Italic',fontSize=10,spaceAfter=13,
+                          alignment=TA_CENTER if proof_edition else TA_LEFT)
     code = ParagraphStyle('Code',parent=body,fontName='Mono',fontSize=8.8,leading=12,
                           spaceBefore=2,leftIndent=13,textColor=heading_color)
     citation = ParagraphStyle('Reference',parent=body,fontSize=9.8,leading=12.7,spaceAfter=5,
@@ -130,7 +136,7 @@ def build(version, monochrome):
             if block.startswith('# '):
                 story.append(Paragraph(inline(block[2:],monochrome),title_style))
             elif block.startswith('@ '):
-                if not monochrome:
+                if proof_edition or not monochrome:
                     story.append(Paragraph(inline(block[2:],monochrome),meta))
             elif block.startswith('## '):
                 story.append(Paragraph(inline(block[3:],monochrome),h2))
@@ -164,13 +170,18 @@ def build(version, monochrome):
     return target
 
 
-def verify_layout(pdf, version, monochrome):
-    directory = (HERE/'rendered'/'monochrome'/version if monochrome else HERE/'rendered'/version)
+def verify_layout(pdf, version, monochrome, proof_edition):
+    directory = HERE/'rendered'
+    if proof_edition:
+        directory /= 'proof_edition'
+    elif monochrome:
+        directory /= 'monochrome'
+    directory /= version
     directory.mkdir(parents=True,exist_ok=True)
     info = []
     raster = pypdfium2.PdfDocument(pdf)
     with pdfplumber.open(pdf) as document:
-        assert len(document.pages)==5, (version,len(document.pages))
+        assert len(document.pages)==(6 if proof_edition else 5), (version,len(document.pages))
         for i,page in enumerate(document.pages,1):
             text = page.extract_text()
             words = page.extract_words()
@@ -194,11 +205,16 @@ def verify_layout(pdf, version, monochrome):
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('--monochrome',action='store_true',help='Build the black-and-white academic edition.')
+    parser.add_argument('--proof-edition',action='store_true',
+                        help='Build the six-page black-and-white editions with step-by-step proofs.')
     args = parser.parse_args()
+    monochrome = args.monochrome or args.proof_edition
     fonts()
-    records = {version:verify_layout(build(version,args.monochrome),version,args.monochrome)
+    records = {version:verify_layout(build(version,monochrome,args.proof_edition),version,
+                                   monochrome,args.proof_edition)
                for version in OUTPUT}
-    layout = 'layout_monochrome.json' if args.monochrome else 'layout.json'
+    layout = ('layout_proof_edition.json' if args.proof_edition else
+              'layout_monochrome.json' if monochrome else 'layout.json')
     (HERE/layout).write_text(json.dumps(records,indent=2)+'\n',encoding='utf-8')
     print(json.dumps({k:len(v['pages']) for k,v in records.items()}),flush=True)
 

@@ -1,4 +1,12 @@
-# Standalone five-page papers
+# Standalone V46 and V47 papers
+
+## Six-page proof editions
+
+**An Algorithm for Partitioning Traces** is available as [V46 PDF](../../../output/pdf/An_Algorithm_for_Partitioning_Traces_V46.pdf) and [V47 PDF](../../../output/pdf/An_Algorithm_for_Partitioning_Traces_V47.pdf), with the [V46](v46_proof_complete.md) and [V47](v47_proof_complete.md) editable manuscripts. The shared steps prove contraction, the cut, the encoding, exact search, certificate replay and refutation existence. The teacher proof is specific to each edition. V47 additionally proves NP-completeness of the general threshold problem.
+
+Use `build.py --proof-edition` for the monochrome build. All six pages of each final edition were visually checked, including the teacher proof, Boolean clauses, algorithm and refutation steps, evidence table and references. The [layout record](layout_proof_edition.json) contains the verified page and PDF hashes.
+
+## Earlier five-page editions
 
 - [V46 PDF](../../../output/pdf/V46_Certified_Alphabet_Partitioning_Exhaustive_Teacher_Short.pdf) and [editable English source](v46_complete.md). The exhaustive fixed-partition teacher remains in the loop.
 - [V47 PDF](../../../output/pdf/V47_Certified_Alphabet_Partitioning_Polynomial_Teacher_Short.pdf) and [editable English source](v47_complete.md). The projection decision replaces the exhaustive fixed-partition call.
