@@ -1,0 +1,231 @@
+\section{Trace Analysis and Certified Partition Selection}
+\label{sec:guided-selection}
+
+Let \(D=(S^+,S^-)\) be a finite labeled sample over the declared alphabet
+\(\Sigma\). We seek one compatible alphabet partition \(P\) maximizing
+\(|P|\), or equivalently minimizing \(c(P)=|\Sigma|-|P|\).
+For a block \(B\), the erasing projection \(\pi_B\) preserves the order
+of retained events. Without state bounds, \(P\) is compatible if and
+only if each \(y_i\in S^-\) has a rejecting block \(B\in P\), meaning
+\(\pi_B(y_i)\notin\pi_B(S^+)\). Necessity follows from acceptance of all
+positive images. The finite local languages \(\pi_B(S^+)\) realize
+sufficiency. This condition remains necessary under state bounds.
+A word with both labels certifies infeasibility. On the empty alphabet,
+a negative \(\epsilon\) also certifies infeasibility because the empty
+conjunction accepts it.
+
+\subsection{Analysis by deletion of mandatory components}
+
+The starting partition consists of singletons. An analysis step
+takes a current partition \(P_0\) known to refine every compatible
+partition. For one negative \(y_i\), collect components
+\[
+  \mathcal A_i =
+  \{ A\in P_0 : \pi_{\Sigma\setminus A}(y_i)
+                       \in \pi_{\Sigma\setminus A}(S^+)\}.
+\]
+If there are at least two such components, replace them by their
+union and restart the scan. Stop after a scan without a merge.
+The singleton case is the mandatory-atom test already used in the
+project's V43 optimizer. The test includes opposite-label adjacent
+swaps because deletion of either swapped symbol makes the two traces
+identical.
+
+\begin{lemma}[Sound contraction]
+Every partition obtained by the deletion steps refines all compatible
+partitions in either the bounded or unbounded model.
+\end{lemma}
+\begin{proof}
+Fix a compatible partition \(Q\) coarsening the current \(P_0\).
+For each \(A\in\mathcal A_i\), its positive witness on the complement
+shows that any block disjoint from \(A\) sees equal positive and
+negative projections. A rejecting block for \(y_i\) must therefore
+intersect \(A\). Since \(Q\) coarsens \(P_0\), that block contains \(A\).
+A single rejecting block must contain every member of \(\mathcal A_i\).
+The result follows by induction from singletons. Each successful step
+reduces the number of components, giving termination.
+\end{proof}
+
+\paragraph{Procedure 1 (Analyze traces).}
+Index the input and report any direct infeasibility witness. For the
+unbounded model with every partition admissible, set aside unused
+symbols, retaining one symbol if the declared alphabet is nonempty
+and only empty words occur. Initialize singleton components. Apply
+the deletion scan to a fixed point. Record each contraction as a
+negative index and a list of deleted current components with their
+positive witness indices. Return the components and a cached match
+query on arbitrary proposed subsets of the active alphabet.
+
+For instance, take positives \(a,b,ac\) and negatives
+\(\epsilon,bc\). The first negative forces \(a,b\) into one
+component. Against the second negative, deleting \(\{a,b\}\) gives
+the same image as \(ac\), while deleting \(c\) gives the same image
+as \(b\). The next step forces \(\{a,b,c\}\). Each joint deletion
+in this example depends on the preceding certified components.
+
+\begin{lemma}[Unused symbols and the single-negative case]
+With unrestricted state counts and all partitions admissible,
+each unused symbol set aside in Procedure 1 contributes one block
+to the optimum. For one negative and \(q\) active mandatory
+components, if a minimum rejecting union uses \(d\) components,
+the optimum on the active alphabet is \(q-d+1\).
+\end{lemma}
+\begin{proof}
+Intersect the blocks of any compatible partition with the active
+alphabet, and discard empty intersections. If a block consisting
+only of unused symbols rejected a negative, then there are no
+positives, since every word projects to \(\epsilon\) there. In that
+case any active block rejects that negative, and Procedure 1 retains
+an active symbol whenever the original alphabet is nonempty.
+Thus the restriction is compatible and removes at most one block
+per deleted symbol. Conversely, append the deleted singleton blocks
+to an active compatible partition. It gains one block per symbol.
+For the second claim, every solution contains a rejecting block
+using at least \(d\) components. A minimum rejecting union as one
+block with all remaining components separate attains the bound.
+\end{proof}
+
+The algorithm enumerates component subsets by size for the
+single-negative shortcut, stopping at its first rejecting union.
+The certificate names that union. Independent verification checks
+its rejection and checks every smaller nonempty candidate subset.
+This shortcut retains exponential worst-case cost in \(q\).
+
+\subsection{Partition selection by projection failure}
+
+A failed partition \(P\) has a negative \(y_i\) matched by some
+positive on each current block. To construct a witnessed coarsening
+\(R\), start from \(P\) and repeatedly merge two blocks whose union
+still has a positive match for the same \(y_i\). The standard guided
+policy stops after the first successful temporary merge. The
+experimental maximal policy continues until there is no further
+pair merge. The baseline uses \(R=P\). An actual child merges two
+blocks of \(P\) belonging to distinct blocks of \(R\).
+Match queries are obtained from the original ordered words. Current
+block tables alone cannot determine union matches. For instance,
+with positive \(abc\), the alternatives \(bac\) and \(acb\) have
+identical singleton rejection tables. Their successful single merges
+are \(\{a,b\}\) and \(\{b,c\}\), respectively.
+
+\begin{lemma}[Coverage under witnessed expansion]
+If \(Q\) is compatible and coarsens the failing \(P\), at least one
+generated child of \(P\) refines \(Q\).
+\end{lemma}
+\begin{proof}
+Every refinement of \(R\) fails on \(y_i\). A block contained in a
+block of \(R\) inherits that block's positive match by composition
+of projections. Thus \(Q\) has a block intersecting two blocks of
+\(R\). Because both \(R\) and \(Q\) coarsen \(P\), this block of
+\(Q\) contains two whole blocks of \(P\) from different blocks of
+\(R\). Merging these yields the required child.
+\end{proof}
+
+\paragraph{Procedure 2 (Select partition).}
+Start at the certified root. In each frontier, test admissible
+partitions and return the first one that succeeds. For a projected
+failure in an exhausted frontier, produce the witnessed children.
+For a nonmember of the admissible family or a definitive failure
+from the fixed-partition bounded test, produce all pairwise merges.
+Deduplicate each next frontier. Stop with infeasibility if it is
+empty. Propagate an interrupted search or bounded test as incomplete.
+
+The default uses the first failing negative in input order. The
+experimental alternative considers up to three distinct failing
+words in lexicographic order over the declared alphabet. It chooses
+the witnessed coarsening allowing the fewest children, breaking
+ties by that same word order. For \(k=|P|\) and \(t_C\) constituent
+blocks of \(P\) in \(C\in R\), the child count before deduplication is
+\[
+   \binom{k}{2}-\sum_{C\in R}\binom{t_C}{2}.
+\]
+This counts generated children. The implementation still scans pairs
+of blocks. Constructing one maximal witnessed coarsening can use
+\(O(k^3)\) cached match queries. Constructing up to three alternatives
+charges all those queries to the search.
+
+\begin{theorem}[Feasibility, coverage, and optimality]
+On completion, the algorithm returns a compatible admissible
+partition of maximum cardinality, or certifies infeasibility.
+The bounded version assumes a sound, complete and terminating
+external test for each fixed partition.
+\end{theorem}
+\begin{proof}
+The direct and specialized cases follow from the preceding lemmas
+and the projection criterion. In the general search, every compatible
+admissible \(Q\) coarsens the root. If a strict refinement of \(Q\)
+in a frontier fails, the coverage lemma supplies a child refining
+\(Q\). For a nonmember or bounded failure, all pair merges include
+one within a block of \(Q\). Deduplication preserves reachability.
+Each expansion drops one block, so the frontier at \(Q\)'s
+cardinality reaches \(Q\) unless the search already succeeded.
+Acceptance is an exact compatibility decision in the specified
+regime. A solution with higher cardinality would have been reached
+at an earlier level. Each level is finite and there are finitely
+many levels, giving termination and completeness of exhaustion.
+\end{proof}
+
+\subsection{Reference for the residual search and certificate replay}
+
+In the unbounded model with all partitions admissible, compatibility
+is preserved by coarsening. A rejecting projection remains rejecting
+on a larger block. For any two components separated by a compatible
+partition, group the block containing the first component against the
+others. This gives a compatible bipartition still separating the two
+components. Conversely, each compatible bipartition is one compatible
+partition. Hence the intersection of the same-block relations of all
+compatible bipartitions gives precisely the mandatory equivalence
+relation. With no compatible bipartition this intersection gives the
+one-block relation. We use the project V7 result as an experimental
+reference over at most ten components.
+
+The intersection itself can fail compatibility. For positives
+\(a,bc,bd\) and negatives \(\epsilon,ac\), the compatible partitions
+are \(abc|d\), \(acd|b\), and \(abcd\). Their intersection is
+\(ac|b|d\), which fails. Thus even complete discovery of mandatory
+pairs can leave a residual optimization problem.
+
+Replay validates contractions in order and derives its own root
+from the input. If the proof uses the experimental root, the verifier
+independently recomputes the bipartition intersection. It validates
+every completed level, deriving each next frontier from the rejection
+records. It checks the answer's membership and projection criterion
+or the exhaustion of the frontiers. For bounded records, replay
+requires the external test to confirm both the recorded failures and
+the final acceptance. The verification result is conditional on that
+test. A failed projection and its witnesses remain valid in both
+models.
+
+\subsection{Evaluation and limits}
+
+We checked 2,529 small inputs with exhaustive partition enumeration.
+All 20,232 results and certificate replays matched the reference.
+Targeted checks include a missing dependency in a contraction proof,
+a false claim of a minimum separating union, restricted families,
+and replay of a completed level containing bounded failures.
+
+We retained the original eight synthetic timing inputs for measuring
+the trace analysis. For residual search, we froze ten inputs with
+two or more negatives and an incompatible exact mandatory partition.
+The residual root was independently cross-checked using exhaustive
+enumeration of all partitions. Every timed residual strategy used
+the same certified mandatory root. The shared half-second budget
+covered analysis, search, JSON conversion, and independent replay.
+Four repetitions used rotating orders. Input families and raw
+records accompany the implementation.
+On the historical twelve-symbol grouped input, all twelve runs with
+fixed-point analysis completed with one partition test per run.
+All four runs of the baseline without analysis exhausted the budget.
+On the residual input with six components labeled emph{residual 6 1},
+all pairs, first failure and best of three tested 58, 35 and 14
+partitions, respectively. On emph{residual 6 2}, best of three tested
+fewer partitions than first failure, with a higher median time.
+\input{evaluation-table}
+
+The number of forced components, generated children or tested
+partitions depends on the input. Certificate replay may itself
+exhaust the budget. Exact bipartition enumeration takes exponentially
+many cuts in the number of components, and level search may still
+visit a large fraction of the partition lattice. The results describe
+these inputs and the stated budget. They give no general lower bound
+on the running time of another exact algorithm.
+

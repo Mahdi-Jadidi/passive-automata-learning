@@ -1,0 +1,23 @@
+\begin{table}[tb]
+\caption{Completed runs and median total time in milliseconds in parentheses.
+Each run had a total budget of 0.5 seconds.}
+\label{tab:guided-evidence}
+\centering
+\small
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{lrrrr}
+\hline
+& \multicolumn{2}{c}{Preprocessing off} & \multicolumn{2}{c}{Preprocessing on} \\
+Sample & All pairs & Guided & All pairs & Guided \\
+\hline
+Manual example & 4/4 (0.30) & 4/4 (0.28) & 4/4 (0.27) & 4/4 (0.32) \\
+Singleton optimum (12) & 4/4 (0.22) & 4/4 (0.20) & 4/4 (0.21) & 4/4 (0.20) \\
+Greedy example (4) & 4/4 (0.31) & 4/4 (0.35) & 4/4 (0.20) & 4/4 (0.19) \\
+One group (6) & 4/4 (31.17) & 4/4 (11.40) & 4/4 (34.30) & 4/4 (12.17) \\
+Two groups (6) & 4/4 (29.54) & 4/4 (8.69) & 4/4 (39.00) & 4/4 (8.79) \\
+Two groups (8) & 0/4 & 4/4 (111.85) & 0/4 & 4/4 (94.41) \\
+Three groups (9) & 0/4 & 4/4 (151.84) & 0/4 & 4/4 (136.64) \\
+Three groups (12) & 0/4 & 0/4 & 0/4 & 0/4 \\
+\hline
+\end{tabular}
+\end{table}

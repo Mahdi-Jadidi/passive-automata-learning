@@ -1,0 +1,55 @@
+{
+  "status": "OPTIMAL",
+  "blocks": [
+    [
+      "a",
+      "b"
+    ],
+    [
+      "c"
+    ]
+  ],
+  "max_devices": 2,
+  "certificate": {
+    "kind": "projection_tree",
+    "bounded": false,
+    "swaps": [],
+    "rejections": [
+      {
+        "partition": [
+          [
+            0
+          ],
+          [
+            1
+          ],
+          [
+            2
+          ]
+        ],
+        "reason": "projection",
+        "region": [
+          [
+            0,
+            2
+          ],
+          [
+            1
+          ]
+        ],
+        "negative": 0,
+        "positive": [
+          0,
+          1
+        ]
+      }
+    ]
+  },
+  "stats": {
+    "generated": 3,
+    "tested": 3,
+    "child_edges": 2,
+    "region_seconds": 4.8499998229090124e-05,
+    "analysis_seconds": 0.00014140000348561443
+  }
+}

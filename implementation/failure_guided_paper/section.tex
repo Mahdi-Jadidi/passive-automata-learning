@@ -1,0 +1,231 @@
+\section{Trace Analysis and Partition Selection}
+\label{sec:guided-selection}
+
+Let \(D=(S^+,S^-)\) be a finite labeled sample over a declared alphabet
+\(\Sigma\). We seek one partition \(P\) of \(\Sigma\) with maximum
+cardinality among the compatible members of a decidable family
+\(\mathfrak P\). Equivalently, we minimize
+\(c(P)=|\Sigma|-|P|\).
+For a block \(B\), the projection \(\pi_B\) erases letters outside \(B\)
+and preserves the order of the remaining letters.
+In the absence of state bounds, a fixed partition is compatible exactly
+when for every \(y_i\in S^-\) some block \(B\in P\) satisfies
+\(\pi_B(y_i)\notin\pi_B(S^+)\). Necessity follows because every component
+must accept its positive images. Sufficiency follows by taking the finite
+local languages \(\pi_B(S^+)\). We use this criterion for candidate
+testing and the refinement property of projection equality for
+candidate generation. With state bounds, the criterion remains necessary.
+
+\subsection{Trace analysis and the feedback interface}
+
+We retain the declared symbol order, the original trace order and a
+stable index for each trace. In particular, unused symbols remain in the
+alphabet and repeated occurrences of a labeled trace retain their
+indices. A word occurring with both labels certifies infeasibility.
+For \(\Sigma=\varnothing\), the empty conjunction accepts its sole
+possible trace \(\epsilon\), so any negative trace certifies
+infeasibility. In the absence of these two cases, analysis constructs
+a starting partition and provides access to positive witnesses.
+
+For each negative \(y=uabv\) with \(a\ne b\), analysis checks whether
+the adjacent swap \(ubav\) is in \(S^+\). Each observed opposite-label
+swap can supply an edge \(\{a,b\}\) with the two trace indices and the
+swap position as evidence. To form \(P_0\), we keep the connected
+components of the witness graph, including isolated symbols. The
+implementation retains only edges that join two previously distinct
+components. With preprocessing disabled, \(P_0\) is the singleton
+partition.
+
+\begin{lemma}[Mandatory components]
+Every compatible partition, with or without state bounds, coarsens \(P_0\).
+\end{lemma}
+\begin{proof}
+If \(a\) and \(b\) belonged to different blocks, projection onto any
+block would erase at least one of them. Then \(uabv\) and \(ubav\)
+would have identical projections on every block. Every product of
+local languages would assign them the same label, in contradiction to
+the input. Thus \(a,b\) share a block. The same-block relation is
+transitive, so every component lies within one block.
+\end{proof}
+
+\paragraph{Procedure 1 (Analyze traces).}
+\begin{enumerate}
+\item Index the labeled traces over \(\Sigma\). Report a conflicting-label
+  witness or an empty-alphabet negative when applicable.
+\item Scan negative traces for adjacent swaps in the positive index.
+  Join the two symbols' components for each witnessed edge and record
+  the edge's evidence whenever a join occurs.
+\item Return \(P_0\), the swap evidence, and access to positive matches
+  on requested sets of symbols.
+\end{enumerate}
+
+For any proposed block \(B\) and negative index \(i\), a match query
+returns a positive index \(j\) satisfying
+\(\pi_B(x_j)=\pi_B(y_i)\), or reports that no such positive exists.
+The implementation computes these queries from the ordered input words
+and caches a row of negative-index matches per block. A projection failure
+returns one negative index that has a match on every block of the current
+partition. Selection can also query matches on unions of current blocks.
+
+The last capability matters because projection feedback on current
+blocks can lose cross-block order. With positive \(abc\) and the singleton
+partition, compare the one-negative samples with \(bac\) and \(acb\),
+respectively. In both samples every singleton's negative image equals its
+positive image. The feedback tables contain the same fixed zero column
+on every block, with the same positive witness. Yet the only compatible
+single merge is \(\{a,b\}\) in the first sample and \(\{b,c\}\) in the
+second. The example compares the singleton feedback directly, before
+using any swap analysis.
+
+\subsection{Candidate generation from a failed partition}
+
+Suppose \(P\) fails the projection test on \(y_i\). Starting at \(P\),
+merge two temporary blocks whenever the union still has a positive
+match for that same \(y_i\). Stop after the first successful merge,
+or continue until no pair can be merged with this property.
+The resulting partition \(R\) coarsens \(P\), and every block of \(R\)
+has its own positive witness for \(y_i\). The zero-step choice \(R=P\)
+is also valid. These merges form the rejection evidence. Actual
+children of \(P\) are produced by a single merge of two blocks of
+\(P\) lying in distinct blocks of \(R\).
+
+\begin{lemma}[Validity of rejection evidence]
+Every refinement of \(R\) fails the projection test on \(y_i\).
+\end{lemma}
+\begin{proof}
+For every block \(A\) of a refinement, choose the block \(C\in R\)
+containing \(A\) and its recorded witness \(x_j\).
+Since \(\pi_A\circ\pi_C=\pi_A\), equality of the images on \(C\)
+implies equality on \(A\). Thus \(y_i\) has a positive match on every
+block of the refinement.
+\end{proof}
+
+\begin{lemma}[Coverage by the generated children]
+If \(Q\) is compatible and coarsens a projection-failing \(P\), then
+one of the generated children of \(P\) refines \(Q\).
+\end{lemma}
+\begin{proof}
+The preceding lemma implies that \(Q\) cannot refine \(R\).
+A block of \(Q\) therefore intersects at least two blocks of \(R\).
+Since both \(Q\) and \(R\) coarsen \(P\), that block of \(Q\) contains
+two whole blocks of \(P\) lying in distinct blocks of \(R\). Merging
+them gives a generated child still refining \(Q\).
+\end{proof}
+
+\paragraph{Procedure 2 (Select a partition).}
+\begin{enumerate}
+\item Initialize the frontier to \(\{P_0\}\).
+\item For each partition in the current frontier, check membership in
+  \(\mathfrak P\). Mark nonmembers for expansion by all pairwise merges
+  and skip their feasibility tests.
+\item For each member, run the projection test. Mark a projection failure
+  with its negative index for witnessed expansion. If the test passes
+  and there is no bound, return the partition. If bounds apply, use the
+  bounded test on this partition. Return on its success and mark a
+  definitive failure for expansion by all pairwise merges. Propagate
+  an incomplete test as an incomplete search.
+\item If the level has no success, expand its marked partitions using
+  their prescribed rules. Deduplicate the next frontier. Repeat from
+  step 2 if it is nonempty. Otherwise report infeasibility.
+\end{enumerate}
+
+The bounded test is an external decision procedure for the fixed
+partition and its supplied bounds. A definitive bounded failure licenses
+skipping that candidate. All pairwise merges are retained in this case.
+Similarly, an inadmissible intermediate partition can lead to an
+admissible candidate and provides no reason to restrict its children.
+
+\begin{theorem}[Correctness and optimality]
+For a finite alphabet and a decidable admissible family, the completed
+unbounded procedure returns a compatible member of maximum cardinality,
+or certifies that no compatible member exists. With a terminating,
+sound and complete bounded test, the same statement holds for
+compatibility under the supplied bounds.
+\end{theorem}
+\begin{proof}
+Each level has finite size. One merge decreases the number of blocks
+by one, so there are finitely many levels. For a compatible admissible
+target \(Q\), the mandatory-components lemma ensures that \(P_0\)
+refines \(Q\). If a strict refinement of \(Q\) in a frontier fails
+the projection test, the coverage lemma supplies a child refining
+\(Q\). If it is outside the family or fails the bounded test, merging
+two of its blocks within one block of \(Q\) again supplies such a child.
+Deduplication preserves that child as a member of the frontier.
+Consequently, unless selection has already succeeded, \(Q\) is reached
+at its own level. A returned partition is a member and passes the exact
+test for the chosen regime. A compatible member with more blocks would
+have been reached and accepted at an earlier level. Exhaustion with no
+response would contradict reachability of any compatible member.
+The initial direct infeasibility cases follow from identical words
+requiring different labels, or from the empty conjunction.
+\end{proof}
+
+\subsection{Independent replay and search cost}
+
+The unbounded certificate consists of the swap witnesses and records
+for the completed levels. A projection record includes \(R\), the
+negative index and one positive witness per block. A nonmember record
+names the skipped partition. Replay checks the swaps from the input,
+recomputes \(P_0\), validates records on the entire reconstructed frontier
+and derives the next frontier independently of the search implementation.
+It tests the final answer's membership and positive-image criterion.
+For infeasibility by exhaustion, it requires a complete record of every
+reached frontier and an empty next frontier. These checks establish the
+hypotheses of the coverage proof directly. Under bounds, replay also
+requires the external test to confirm each bounded rejection and the
+answer's acceptance, so the guarantee is conditional on that test.
+
+At a projection-failing partition with \(k\) blocks, let \(t_C\) count
+the blocks of \(P\) contained in \(C\in R\). The number of generated
+children before deduplication is
+\[
+  \binom{k}{2}-\sum_{C\in R}\binom{t_C}{2}.
+\]
+Each omitted pair is counted once within its containing block of \(R\).
+This is a reduction in generated children. The implementation still
+scans all pairs at each expanded partition. The greedy construction of
+\(R\) makes \(O(k^3)\) match lookups in the worst case, since each stage
+may scan quadratically many pairs before a merge and there are at most
+\(k-1\) merges.
+
+Let \(n=|\Sigma|\), let \(W\) be the number of words and let \(L\) be
+their total length. On hash tables with expected constant-time operations
+after hashing keys, the initial positive index costs \(O(W+L)\).
+The simple swap routine can copy and hash a word at every candidate
+position, giving \(O(\sum_{y\in S^-}|y|^2)\) time for that work.
+Its representative walks cost \(O(n(L+n))\) as a conservative upper
+bound, including the final component pass. A missing cached projection
+row costs \(O(n+W+L)\) expected time and stores one match per negative.
+Total cost further includes frontier sorting and deduplication,
+candidate tests, per-pair work, certificate output and independent
+replay. There can be exponentially many blocks and partitions to
+consider. The child-count identity alone gives neither an end-to-end
+speed guarantee nor a lower bound on other exact algorithms.
+
+\subsection{Evaluation}
+
+We use exhaustive partition enumeration as a correctness reference on
+small inputs. All 20,232 results and certificate replays agreed with
+the reference across 2,529 inputs and eight configurations. The test
+set includes exhaustive labelings over alphabets of at most two
+symbols, seeded samples over three to six symbols, and targeted cases.
+Scripted bounded replies exercise the selector's interface.
+The timing comparison holds the projection test and the
+replay budget constant. It varies two choices independently, namely
+mandatory-component preprocessing and witnessed expansion with greedy
+pair merges to exhaustion. Table~\ref{tab:guided-evidence} reports the
+number of completed, independently verified runs out of four and
+their median search-to-verification time in milliseconds. The inputs
+are synthetic. Differences in completion or median time apply to
+the tested inputs and budget.
+
+\input{evaluation-table}
+
+
+In the six-symbol two-group case with preprocessing off, guided
+expansion reduced the number of tested partitions from 174 to 42.
+In the four-symbol case, preprocessing alone reduced that count from
+two to one, while guided expansion alone had a slightly higher median
+time. Both guided variants completed the eight- and nine-symbol
+grouped cases within the budget. All four variants remained incomplete
+on the twelve-symbol three-group case.

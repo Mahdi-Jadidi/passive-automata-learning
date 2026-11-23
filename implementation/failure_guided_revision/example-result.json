@@ -1,0 +1,52 @@
+{
+  "status": "OPTIMAL",
+  "blocks": [
+    [
+      "a",
+      "b"
+    ],
+    [
+      "c"
+    ]
+  ],
+  "max_devices": 2,
+  "certificate": {
+    "kind": "one_negative",
+    "bounded": false,
+    "contractions": [
+      {
+        "negative": 0,
+        "deleted": [
+          {
+            "block": [
+              0
+            ],
+            "positive": 1
+          },
+          {
+            "block": [
+              1
+            ],
+            "positive": 0
+          }
+        ]
+      }
+    ],
+    "unused": [],
+    "exact_root": false,
+    "rejections": [],
+    "separating": [
+      0,
+      1
+    ]
+  },
+  "stats": {
+    "generated": 0,
+    "tested": 0,
+    "child_edges": 0,
+    "region_seconds": 0.0,
+    "analysis_seconds": 0.0001233000002685003,
+    "subsets_tested": 1,
+    "root_blocks": 2
+  }
+}
