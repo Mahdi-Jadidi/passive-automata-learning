@@ -1,0 +1,90 @@
+{
+  "input": {
+    "alphabet": [
+      "a",
+      "b",
+      "c",
+      "d",
+      "e",
+      "f"
+    ],
+    "positive": [
+      [
+        "a",
+        "b"
+      ],
+      [
+        "c",
+        "d"
+      ],
+      [
+        "e",
+        "f"
+      ]
+    ],
+    "negative": [
+      []
+    ]
+  },
+  "removed": {
+    "kind": "branch",
+    "blocks": [
+      3,
+      4,
+      8,
+      16,
+      32
+    ],
+    "region": {
+      "i": 0,
+      "blocks": [
+        3,
+        4,
+        8,
+        16,
+        32
+      ],
+      "facts": [
+        {
+          "i": 0,
+          "j": 1,
+          "region": 3,
+          "source": 1,
+          "rule": "S01"
+        },
+        {
+          "i": 0,
+          "j": 0,
+          "region": 4,
+          "source": 0,
+          "rule": "S01"
+        },
+        {
+          "i": 0,
+          "j": 0,
+          "region": 8,
+          "source": 0,
+          "rule": "S01"
+        },
+        {
+          "i": 0,
+          "j": 0,
+          "region": 16,
+          "source": 0,
+          "rule": "S01"
+        },
+        {
+          "i": 0,
+          "j": 0,
+          "region": 32,
+          "source": 0,
+          "rule": "S01"
+        }
+      ]
+    }
+  },
+  "verdict": {
+    "status": "INVALID",
+    "reason": "missing reachable partition"
+  }
+}

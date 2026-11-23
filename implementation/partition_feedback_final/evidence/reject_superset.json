@@ -1,0 +1,1390 @@
+{
+  "input": {
+    "alphabet": [
+      "a",
+      "b",
+      "c",
+      "d",
+      "e"
+    ],
+    "positive": [
+      [],
+      [
+        "c"
+      ],
+      [
+        "e",
+        "d",
+        "b"
+      ],
+      [
+        "e",
+        "d",
+        "c"
+      ]
+    ],
+    "negative": [
+      [
+        "a",
+        "e",
+        "e",
+        "b"
+      ],
+      [
+        "d",
+        "e"
+      ]
+    ]
+  },
+  "status": "OPTIMAL",
+  "max_devices": 4,
+  "blocks": [
+    [
+      "a"
+    ],
+    [
+      "b"
+    ],
+    [
+      "c"
+    ],
+    [
+      "d",
+      "e"
+    ]
+  ],
+  "certificate": {
+    "digest": "7baaebe53e0ebf977b84118a987903836e9f32428db5ea1b1b473b80817f75ba",
+    "kind": "partition-v1",
+    "unused": [],
+    "contractions": [],
+    "root": [
+      1,
+      2,
+      4,
+      8,
+      16
+    ],
+    "records": [
+      {
+        "kind": "branch",
+        "blocks": [
+          1,
+          2,
+          4,
+          8,
+          16
+        ],
+        "region": {
+          "i": 1,
+          "blocks": [
+            1,
+            6,
+            8,
+            16
+          ],
+          "facts": [
+            {
+              "i": 1,
+              "j": 0,
+              "region": 1,
+              "source": 0,
+              "rule": "S01"
+            },
+            {
+              "i": 1,
+              "j": 0,
+              "region": 6,
+              "source": 1,
+              "rule": "S01"
+            },
+            {
+              "i": 1,
+              "j": 2,
+              "region": 8,
+              "source": 0,
+              "rule": "S01"
+            },
+            {
+              "i": 1,
+              "j": 2,
+              "region": 16,
+              "source": 0,
+              "rule": "S01"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "transcript": {
+    "queries": [
+      {
+        "id": 0,
+        "purpose": "regular",
+        "status": "NO",
+        "blocks": [
+          1,
+          2,
+          4,
+          8,
+          16
+        ],
+        "tables": [
+          {
+            "block": 1,
+            "zeros": [
+              [
+                1,
+                0
+              ]
+            ],
+            "free": [
+              [
+                0
+              ]
+            ]
+          },
+          {
+            "block": 2,
+            "zeros": [
+              [
+                0,
+                2
+              ],
+              [
+                1,
+                0
+              ]
+            ],
+            "free": []
+          },
+          {
+            "block": 4,
+            "zeros": [
+              [
+                0,
+                0
+              ],
+              [
+                1,
+                0
+              ]
+            ],
+            "free": []
+          },
+          {
+            "block": 8,
+            "zeros": [
+              [
+                0,
+                0
+              ],
+              [
+                1,
+                2
+              ]
+            ],
+            "free": []
+          },
+          {
+            "block": 16,
+            "zeros": [
+              [
+                1,
+                2
+              ]
+            ],
+            "free": [
+              [
+                0
+              ]
+            ]
+          }
+        ],
+        "failed": 1
+      },
+      {
+        "id": 1,
+        "purpose": "diagnostic",
+        "status": "ACCEPT",
+        "blocks": [
+          1,
+          6,
+          24
+        ],
+        "tables": [
+          {
+            "block": 1,
+            "zeros": [
+              [
+                1,
+                0
+              ]
+            ],
+            "free": [
+              [
+                0
+              ]
+            ]
+          },
+          {
+            "block": 6,
+            "zeros": [
+              [
+                0,
+                2
+              ],
+              [
+                1,
+                0
+              ]
+            ],
+            "free": []
+          },
+          {
+            "block": 24,
+            "zeros": [],
+            "free": [
+              [
+                0
+              ],
+              [
+                1
+              ]
+            ]
+          }
+        ],
+        "failed": null
+      },
+      {
+        "id": 2,
+        "purpose": "regular",
+        "status": "NO",
+        "blocks": [
+          3,
+          4,
+          8,
+          16
+        ],
+        "tables": [
+          {
+            "block": 3,
+            "zeros": [
+              [
+                1,
+                0
+              ]
+            ],
+            "free": [
+              [
+                0
+              ]
+            ]
+          },
+          {
+            "block": 4,
+            "zeros": [
+              [
+                0,
+                0
+              ],
+              [
+                1,
+                0
+              ]
+            ],
+            "free": []
+          },
+          {
+            "block": 8,
+            "zeros": [
+              [
+                0,
+                0
+              ],
+              [
+                1,
+                2
+              ]
+            ],
+            "free": []
+          },
+          {
+            "block": 16,
+            "zeros": [
+              [
+                1,
+                2
+              ]
+            ],
+            "free": [
+              [
+                0
+              ]
+            ]
+          }
+        ],
+        "failed": 1
+      },
+      {
+        "id": 3,
+        "purpose": "regular",
+        "status": "NO",
+        "blocks": [
+          5,
+          2,
+          8,
+          16
+        ],
+        "tables": [
+          {
+            "block": 5,
+            "zeros": [
+              [
+                1,
+                0
+              ]
+            ],
+            "free": [
+              [
+                0
+              ]
+            ]
+          },
+          {
+            "block": 2,
+            "zeros": [
+              [
+                0,
+                2
+              ],
+              [
+                1,
+                0
+              ]
+            ],
+            "free": []
+          },
+          {
+            "block": 8,
+            "zeros": [
+              [
+                0,
+                0
+              ],
+              [
+                1,
+                2
+              ]
+            ],
+            "free": []
+          },
+          {
+            "block": 16,
+            "zeros": [
+              [
+                1,
+                2
+              ]
+            ],
+            "free": [
+              [
+                0
+              ]
+            ]
+          }
+        ],
+        "failed": 1
+      },
+      {
+        "id": 4,
+        "purpose": "regular",
+        "status": "NO",
+        "blocks": [
+          9,
+          2,
+          4,
+          16
+        ],
+        "tables": [
+          {
+            "block": 9,
+            "zeros": [
+              [
+                1,
+                2
+              ]
+            ],
+            "free": [
+              [
+                0
+              ]
+            ]
+          },
+          {
+            "block": 2,
+            "zeros": [
+              [
+                0,
+                2
+              ],
+              [
+                1,
+                0
+              ]
+            ],
+            "free": []
+          },
+          {
+            "block": 4,
+            "zeros": [
+              [
+                0,
+                0
+              ],
+              [
+                1,
+                0
+              ]
+            ],
+            "free": []
+          },
+          {
+            "block": 16,
+            "zeros": [
+              [
+                1,
+                2
+              ]
+            ],
+            "free": [
+              [
+                0
+              ]
+            ]
+          }
+        ],
+        "failed": 1
+      },
+      {
+        "id": 5,
+        "purpose": "regular",
+        "status": "NO",
+        "blocks": [
+          17,
+          2,
+          4,
+          8
+        ],
+        "tables": [
+          {
+            "block": 17,
+            "zeros": [
+              [
+                1,
+                2
+              ]
+            ],
+            "free": [
+              [
+                0
+              ]
+            ]
+          },
+          {
+            "block": 2,
+            "zeros": [
+              [
+                0,
+                2
+              ],
+              [
+                1,
+                0
+              ]
+            ],
+            "free": []
+          },
+          {
+            "block": 4,
+            "zeros": [
+              [
+                0,
+                0
+              ],
+              [
+                1,
+                0
+              ]
+            ],
+            "free": []
+          },
+          {
+            "block": 8,
+            "zeros": [
+              [
+                0,
+                0
+              ],
+              [
+                1,
+                2
+              ]
+            ],
+            "free": []
+          }
+        ],
+        "failed": 1
+      },
+      {
+        "id": 6,
+        "purpose": "regular",
+        "status": "NO",
+        "blocks": [
+          1,
+          10,
+          4,
+          16
+        ],
+        "tables": [
+          {
+            "block": 1,
+            "zeros": [
+              [
+                1,
+                0
+              ]
+            ],
+            "free": [
+              [
+                0
+              ]
+            ]
+          },
+          {
+            "block": 10,
+            "zeros": [
+              [
+                1,
+                3
+              ]
+            ],
+            "free": [
+              [
+                0
+              ]
+            ]
+          },
+          {
+            "block": 4,
+            "zeros": [
+              [
+                0,
+                0
+              ],
+              [
+                1,
+                0
+              ]
+            ],
+            "free": []
+          },
+          {
+            "block": 16,
+            "zeros": [
+              [
+                1,
+                2
+              ]
+            ],
+            "free": [
+              [
+                0
+              ]
+            ]
+          }
+        ],
+        "failed": 1
+      },
+      {
+        "id": 7,
+        "purpose": "regular",
+        "status": "NO",
+        "blocks": [
+          1,
+          18,
+          4,
+          8
+        ],
+        "tables": [
+          {
+            "block": 1,
+            "zeros": [
+              [
+                1,
+                0
+              ]
+            ],
+            "free": [
+              [
+                0
+              ]
+            ]
+          },
+          {
+            "block": 18,
+            "zeros": [
+              [
+                1,
+                3
+              ]
+            ],
+            "free": [
+              [
+                0
+              ]
+            ]
+          },
+          {
+            "block": 4,
+            "zeros": [
+              [
+                0,
+                0
+              ],
+              [
+                1,
+                0
+              ]
+            ],
+            "free": []
+          },
+          {
+            "block": 8,
+            "zeros": [
+              [
+                0,
+                0
+              ],
+              [
+                1,
+                2
+              ]
+            ],
+            "free": []
+          }
+        ],
+        "failed": 1
+      },
+      {
+        "id": 8,
+        "purpose": "regular",
+        "status": "NO",
+        "blocks": [
+          1,
+          2,
+          12,
+          16
+        ],
+        "tables": [
+          {
+            "block": 1,
+            "zeros": [
+              [
+                1,
+                0
+              ]
+            ],
+            "free": [
+              [
+                0
+              ]
+            ]
+          },
+          {
+            "block": 2,
+            "zeros": [
+              [
+                0,
+                2
+              ],
+              [
+                1,
+                0
+              ]
+            ],
+            "free": []
+          },
+          {
+            "block": 12,
+            "zeros": [
+              [
+                0,
+                0
+              ],
+              [
+                1,
+                2
+              ]
+            ],
+            "free": []
+          },
+          {
+            "block": 16,
+            "zeros": [
+              [
+                1,
+                2
+              ]
+            ],
+            "free": [
+              [
+                0
+              ]
+            ]
+          }
+        ],
+        "failed": 1
+      },
+      {
+        "id": 9,
+        "purpose": "regular",
+        "status": "NO",
+        "blocks": [
+          1,
+          2,
+          20,
+          8
+        ],
+        "tables": [
+          {
+            "block": 1,
+            "zeros": [
+              [
+                1,
+                0
+              ]
+            ],
+            "free": [
+              [
+                0
+              ]
+            ]
+          },
+          {
+            "block": 2,
+            "zeros": [
+              [
+                0,
+                2
+              ],
+              [
+                1,
+                0
+              ]
+            ],
+            "free": []
+          },
+          {
+            "block": 20,
+            "zeros": [
+              [
+                1,
+                2
+              ]
+            ],
+            "free": [
+              [
+                0
+              ]
+            ]
+          },
+          {
+            "block": 8,
+            "zeros": [
+              [
+                0,
+                0
+              ],
+              [
+                1,
+                2
+              ]
+            ],
+            "free": []
+          }
+        ],
+        "failed": 1
+      }
+    ],
+    "events": [
+      {
+        "rule": "A05"
+      },
+      {
+        "rule": "A10",
+        "initial_answer": [
+          31
+        ]
+      },
+      {
+        "rule": "S01",
+        "query": 0,
+        "negative": 1
+      },
+      {
+        "rule": "S03",
+        "query": 0
+      },
+      {
+        "rule": "S06",
+        "query": 1,
+        "parent": [
+          1,
+          2,
+          4,
+          8,
+          16
+        ],
+        "negative": 1,
+        "estimated_children": 2
+      },
+      {
+        "rule": "S05",
+        "blocks": [
+          1,
+          2,
+          4,
+          8,
+          16
+        ],
+        "region": {
+          "i": 1,
+          "blocks": [
+            1,
+            6,
+            8,
+            16
+          ],
+          "facts": [
+            {
+              "i": 1,
+              "j": 0,
+              "region": 1,
+              "source": 0,
+              "rule": "S01"
+            },
+            {
+              "i": 1,
+              "j": 0,
+              "region": 6,
+              "source": 1,
+              "rule": "S01"
+            },
+            {
+              "i": 1,
+              "j": 2,
+              "region": 8,
+              "source": 0,
+              "rule": "S01"
+            },
+            {
+              "i": 1,
+              "j": 2,
+              "region": 16,
+              "source": 0,
+              "rule": "S01"
+            }
+          ]
+        },
+        "hidden_edges": 1
+      },
+      {
+        "rule": "S01",
+        "query": 2,
+        "negative": 1
+      },
+      {
+        "rule": "S03",
+        "query": 2
+      },
+      {
+        "rule": "S05",
+        "blocks": [
+          3,
+          4,
+          8,
+          16
+        ],
+        "region": {
+          "i": 1,
+          "blocks": [
+            3,
+            4,
+            8,
+            16
+          ],
+          "facts": [
+            {
+              "i": 1,
+              "j": 0,
+              "region": 3,
+              "source": 2,
+              "rule": "S01"
+            },
+            {
+              "i": 1,
+              "j": 0,
+              "region": 6,
+              "source": 1,
+              "rule": "S01"
+            },
+            {
+              "i": 1,
+              "j": 2,
+              "region": 8,
+              "source": 0,
+              "rule": "S01"
+            },
+            {
+              "i": 1,
+              "j": 2,
+              "region": 16,
+              "source": 0,
+              "rule": "S01"
+            }
+          ]
+        },
+        "hidden_edges": 0
+      },
+      {
+        "rule": "S01",
+        "query": 3,
+        "negative": 1
+      },
+      {
+        "rule": "S03",
+        "query": 3
+      },
+      {
+        "rule": "S05",
+        "blocks": [
+          5,
+          2,
+          8,
+          16
+        ],
+        "region": {
+          "i": 1,
+          "blocks": [
+            5,
+            2,
+            8,
+            16
+          ],
+          "facts": [
+            {
+              "i": 1,
+              "j": 0,
+              "region": 5,
+              "source": 3,
+              "rule": "S01"
+            },
+            {
+              "i": 1,
+              "j": 0,
+              "region": 6,
+              "source": 1,
+              "rule": "S01"
+            },
+            {
+              "i": 1,
+              "j": 2,
+              "region": 8,
+              "source": 0,
+              "rule": "S01"
+            },
+            {
+              "i": 1,
+              "j": 2,
+              "region": 16,
+              "source": 0,
+              "rule": "S01"
+            }
+          ]
+        },
+        "hidden_edges": 0
+      },
+      {
+        "rule": "S01",
+        "query": 4,
+        "negative": 1
+      },
+      {
+        "rule": "S03",
+        "query": 4
+      },
+      {
+        "rule": "S05",
+        "blocks": [
+          9,
+          2,
+          4,
+          16
+        ],
+        "region": {
+          "i": 1,
+          "blocks": [
+            9,
+            6,
+            16
+          ],
+          "facts": [
+            {
+              "i": 1,
+              "j": 2,
+              "region": 9,
+              "source": 4,
+              "rule": "S01"
+            },
+            {
+              "i": 1,
+              "j": 0,
+              "region": 6,
+              "source": 1,
+              "rule": "S01"
+            },
+            {
+              "i": 1,
+              "j": 2,
+              "region": 16,
+              "source": 0,
+              "rule": "S01"
+            }
+          ]
+        },
+        "hidden_edges": 1
+      },
+      {
+        "rule": "S01",
+        "query": 5,
+        "negative": 1
+      },
+      {
+        "rule": "S03",
+        "query": 5
+      },
+      {
+        "rule": "S05",
+        "blocks": [
+          17,
+          2,
+          4,
+          8
+        ],
+        "region": {
+          "i": 1,
+          "blocks": [
+            17,
+            6,
+            8
+          ],
+          "facts": [
+            {
+              "i": 1,
+              "j": 2,
+              "region": 17,
+              "source": 5,
+              "rule": "S01"
+            },
+            {
+              "i": 1,
+              "j": 0,
+              "region": 6,
+              "source": 1,
+              "rule": "S01"
+            },
+            {
+              "i": 1,
+              "j": 2,
+              "region": 9,
+              "source": 4,
+              "rule": "S01"
+            }
+          ]
+        },
+        "hidden_edges": 1
+      },
+      {
+        "rule": "S01",
+        "query": 6,
+        "negative": 1
+      },
+      {
+        "rule": "S03",
+        "query": 6
+      },
+      {
+        "rule": "S05",
+        "blocks": [
+          1,
+          10,
+          4,
+          16
+        ],
+        "region": {
+          "i": 1,
+          "blocks": [
+            5,
+            10,
+            16
+          ],
+          "facts": [
+            {
+              "i": 1,
+              "j": 0,
+              "region": 5,
+              "source": 3,
+              "rule": "S01"
+            },
+            {
+              "i": 1,
+              "j": 3,
+              "region": 10,
+              "source": 6,
+              "rule": "S01"
+            },
+            {
+              "i": 1,
+              "j": 2,
+              "region": 17,
+              "source": 5,
+              "rule": "S01"
+            }
+          ]
+        },
+        "hidden_edges": 1
+      },
+      {
+        "rule": "S01",
+        "query": 7,
+        "negative": 1
+      },
+      {
+        "rule": "S03",
+        "query": 7
+      },
+      {
+        "rule": "S05",
+        "blocks": [
+          1,
+          18,
+          4,
+          8
+        ],
+        "region": {
+          "i": 1,
+          "blocks": [
+            5,
+            18,
+            8
+          ],
+          "facts": [
+            {
+              "i": 1,
+              "j": 0,
+              "region": 5,
+              "source": 3,
+              "rule": "S01"
+            },
+            {
+              "i": 1,
+              "j": 3,
+              "region": 18,
+              "source": 7,
+              "rule": "S01"
+            },
+            {
+              "i": 1,
+              "j": 2,
+              "region": 9,
+              "source": 4,
+              "rule": "S01"
+            }
+          ]
+        },
+        "hidden_edges": 1
+      },
+      {
+        "rule": "S01",
+        "query": 8,
+        "negative": 1
+      },
+      {
+        "rule": "S03",
+        "query": 8
+      },
+      {
+        "rule": "S05",
+        "blocks": [
+          1,
+          2,
+          12,
+          16
+        ],
+        "region": {
+          "i": 1,
+          "blocks": [
+            3,
+            12,
+            16
+          ],
+          "facts": [
+            {
+              "i": 1,
+              "j": 0,
+              "region": 3,
+              "source": 2,
+              "rule": "S01"
+            },
+            {
+              "i": 1,
+              "j": 2,
+              "region": 12,
+              "source": 8,
+              "rule": "S01"
+            },
+            {
+              "i": 1,
+              "j": 2,
+              "region": 17,
+              "source": 5,
+              "rule": "S01"
+            }
+          ]
+        },
+        "hidden_edges": 1
+      },
+      {
+        "rule": "S01",
+        "query": 9,
+        "negative": 1
+      },
+      {
+        "rule": "S03",
+        "query": 9
+      },
+      {
+        "rule": "S05",
+        "blocks": [
+          1,
+          2,
+          20,
+          8
+        ],
+        "region": {
+          "i": 1,
+          "blocks": [
+            3,
+            20,
+            8
+          ],
+          "facts": [
+            {
+              "i": 1,
+              "j": 0,
+              "region": 3,
+              "source": 2,
+              "rule": "S01"
+            },
+            {
+              "i": 1,
+              "j": 2,
+              "region": 20,
+              "source": 9,
+              "rule": "S01"
+            },
+            {
+              "i": 1,
+              "j": 2,
+              "region": 9,
+              "source": 4,
+              "rule": "S01"
+            }
+          ]
+        },
+        "hidden_edges": 1
+      },
+      {
+        "rule": "S04",
+        "blocks": [
+          1,
+          2,
+          4,
+          24
+        ]
+      }
+    ],
+    "incumbent": "S04",
+    "unqueried_waived": [
+      [
+        1,
+        6,
+        8,
+        16
+      ],
+      [
+        3,
+        12,
+        16
+      ],
+      [
+        3,
+        20,
+        8
+      ],
+      [
+        5,
+        10,
+        16
+      ],
+      [
+        5,
+        18,
+        8
+      ],
+      [
+        9,
+        6,
+        16
+      ],
+      [
+        17,
+        6,
+        8
+      ]
+    ],
+    "analysis_truncated": false
+  },
+  "stats": {
+    "analysis_seconds": 0.0001160000001618755,
+    "selection": {
+      "visited": 10,
+      "regular_calls": 9,
+      "oracle_seconds": 0.00036049999744136585,
+      "diagnostic_calls": 1,
+      "ranking_seconds": 0.0015328999988923897,
+      "child_edges": 51,
+      "peak_frontier": 22,
+      "generated": 32,
+      "inferred_no": 0,
+      "unqueried_waived": 7,
+      "unqueried_certified": 7
+    },
+    "row_requests": 40,
+    "new_rows": 15,
+    "projection_images": 90,
+    "producer_seconds": 0.0042709999997896375
+  }
+}

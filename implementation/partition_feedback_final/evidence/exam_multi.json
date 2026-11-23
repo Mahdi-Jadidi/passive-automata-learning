@@ -1,0 +1,93 @@
+{
+  "input": {
+    "alphabet": [
+      "a",
+      "b",
+      "c"
+    ],
+    "positive": [
+      [
+        "a",
+        "b"
+      ]
+    ],
+    "negative": [
+      [
+        "a",
+        "a"
+      ],
+      [
+        "b",
+        "a"
+      ],
+      [
+        "c",
+        "c",
+        "c"
+      ],
+      [
+        "b",
+        "a"
+      ]
+    ]
+  },
+  "result": {
+    "status": "OPTIMAL",
+    "max_devices": 2,
+    "certificate": {
+      "kind": "pair",
+      "digest": "b9e0a7dfe28c8ceaed5b82501860ccc917cb393008f25c5dbedb9f40fe614684"
+    },
+    "blocks": [
+      [
+        "a",
+        "b"
+      ],
+      [
+        "c"
+      ]
+    ],
+    "transcript": {
+      "queries": [],
+      "events": [
+        {
+          "rule": "A12",
+          "coverage": [
+            [
+              0,
+              1
+            ],
+            [
+              2,
+              1
+            ]
+          ],
+          "unresolved": [
+            1,
+            3
+          ]
+        },
+        {
+          "rule": "A13",
+          "blocks": [
+            3,
+            4
+          ],
+          "certificate_kind": "pair"
+        }
+      ]
+    },
+    "stats": {
+      "selection": {
+        "regular_calls": 0,
+        "diagnostic_calls": 0
+      },
+      "unresolved_ids": 2,
+      "unresolved_words": 1,
+      "singleton_seconds": 0.00016070000037871068,
+      "pair_seconds": 5.79999996261904e-05,
+      "producer_seconds": 0.000345999999808555
+    }
+  },
+  "verdict": "VERIFIED"
+}

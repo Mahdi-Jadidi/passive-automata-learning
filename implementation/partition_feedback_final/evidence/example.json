@@ -1,0 +1,294 @@
+{
+  "status": "OPTIMAL",
+  "max_devices": 3,
+  "blocks": [
+    [
+      "a",
+      "c"
+    ],
+    [
+      "b"
+    ],
+    [
+      "d"
+    ]
+  ],
+  "certificate": {
+    "digest": "92841c532477ff0989f143c4d7151aa276ae0a806fd84e40ee6524b2892f596c",
+    "kind": "partition-v1",
+    "unused": [],
+    "contractions": [],
+    "root": [
+      1,
+      2,
+      4,
+      8
+    ],
+    "records": [
+      {
+        "kind": "branch",
+        "blocks": [
+          1,
+          2,
+          4,
+          8
+        ],
+        "region": {
+          "i": 0,
+          "blocks": [
+            3,
+            12
+          ],
+          "facts": [
+            {
+              "i": 0,
+              "j": 1,
+              "region": 3,
+              "source": 1,
+              "rule": "S01"
+            },
+            {
+              "i": 0,
+              "j": 0,
+              "region": 12,
+              "source": 1,
+              "rule": "S01"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "transcript": {
+    "queries": [
+      {
+        "id": 0,
+        "purpose": "regular",
+        "status": "NO",
+        "blocks": [
+          1,
+          2,
+          4,
+          8
+        ],
+        "tables": [
+          {
+            "block": 1,
+            "zeros": [
+              [
+                0,
+                1
+              ]
+            ],
+            "free": []
+          },
+          {
+            "block": 2,
+            "zeros": [
+              [
+                0,
+                1
+              ]
+            ],
+            "free": []
+          },
+          {
+            "block": 4,
+            "zeros": [
+              [
+                0,
+                0
+              ]
+            ],
+            "free": []
+          },
+          {
+            "block": 8,
+            "zeros": [
+              [
+                0,
+                0
+              ]
+            ],
+            "free": []
+          }
+        ],
+        "failed": 0
+      },
+      {
+        "id": 1,
+        "purpose": "diagnostic",
+        "status": "NO",
+        "blocks": [
+          3,
+          12
+        ],
+        "tables": [
+          {
+            "block": 3,
+            "zeros": [
+              [
+                0,
+                1
+              ]
+            ],
+            "free": []
+          },
+          {
+            "block": 12,
+            "zeros": [
+              [
+                0,
+                0
+              ]
+            ],
+            "free": []
+          }
+        ],
+        "failed": 0
+      },
+      {
+        "id": 2,
+        "purpose": "regular",
+        "status": "ACCEPT",
+        "blocks": [
+          5,
+          2,
+          8
+        ],
+        "tables": [
+          {
+            "block": 5,
+            "zeros": [],
+            "free": [
+              [
+                0
+              ]
+            ]
+          },
+          {
+            "block": 2,
+            "zeros": [
+              [
+                0,
+                1
+              ]
+            ],
+            "free": []
+          },
+          {
+            "block": 8,
+            "zeros": [
+              [
+                0,
+                0
+              ]
+            ],
+            "free": []
+          }
+        ],
+        "failed": null
+      }
+    ],
+    "events": [
+      {
+        "rule": "A05"
+      },
+      {
+        "rule": "A10",
+        "initial_answer": [
+          15
+        ]
+      },
+      {
+        "rule": "S01",
+        "query": 0,
+        "negative": 0
+      },
+      {
+        "rule": "S01",
+        "query": 1,
+        "negative": 0
+      },
+      {
+        "rule": "S06",
+        "query": 1,
+        "parent": [
+          1,
+          2,
+          4,
+          8
+        ],
+        "negative": 0,
+        "estimated_children": 2
+      },
+      {
+        "rule": "S05",
+        "blocks": [
+          1,
+          2,
+          4,
+          8
+        ],
+        "region": {
+          "i": 0,
+          "blocks": [
+            3,
+            12
+          ],
+          "facts": [
+            {
+              "i": 0,
+              "j": 1,
+              "region": 3,
+              "source": 1,
+              "rule": "S01"
+            },
+            {
+              "i": 0,
+              "j": 0,
+              "region": 12,
+              "source": 1,
+              "rule": "S01"
+            }
+          ]
+        },
+        "hidden_edges": 2
+      }
+    ],
+    "incumbent": 2,
+    "unqueried_waived": [
+      [
+        1,
+        2,
+        12
+      ],
+      [
+        3,
+        4,
+        8
+      ]
+    ],
+    "analysis_truncated": false
+  },
+  "stats": {
+    "analysis_seconds": 4.11000000895001e-05,
+    "selection": {
+      "visited": 2,
+      "regular_calls": 2,
+      "oracle_seconds": 0.00011420000009820797,
+      "diagnostic_calls": 1,
+      "ranking_seconds": 0.00036919999911333434,
+      "child_edges": 4,
+      "peak_frontier": 4,
+      "generated": 5,
+      "inferred_no": 0,
+      "unqueried_waived": 2,
+      "unqueried_certified": 2
+    },
+    "row_requests": 0,
+    "new_rows": 0,
+    "projection_images": 0,
+    "producer_seconds": 0.0009794999996302067
+  }
+}

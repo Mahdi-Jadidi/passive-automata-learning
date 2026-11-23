@@ -1,0 +1,70 @@
+{
+  "input": {
+    "alphabet": [
+      "a",
+      "b",
+      "c"
+    ],
+    "positive": [
+      [
+        "a"
+      ],
+      [
+        "b"
+      ],
+      [
+        "c"
+      ]
+    ],
+    "negative": [
+      []
+    ]
+  },
+  "result": {
+    "status": "OPTIMAL",
+    "max_devices": 1,
+    "certificate": {
+      "kind": "rank",
+      "digest": "6e5aca4aeedcd8621e961c66200667e7d7e9d82650a1046de938f782050c5f91"
+    },
+    "blocks": [
+      [
+        "a",
+        "b",
+        "c"
+      ]
+    ],
+    "transcript": {
+      "queries": [],
+      "events": [
+        {
+          "rule": "A12",
+          "coverage": [],
+          "unresolved": [
+            0
+          ]
+        },
+        {
+          "rule": "A14",
+          "blocks": [
+            7
+          ],
+          "certificate_kind": "rank"
+        }
+      ]
+    },
+    "stats": {
+      "selection": {
+        "regular_calls": 0,
+        "diagnostic_calls": 0
+      },
+      "unresolved_ids": 1,
+      "unresolved_words": 1,
+      "singleton_seconds": 0.00014079999982641311,
+      "pair_seconds": 0.00010479999946255703,
+      "rank_seconds": 0.00014459999965765746,
+      "producer_seconds": 0.0005387999999584281
+    }
+  },
+  "verdict": "VERIFIED"
+}

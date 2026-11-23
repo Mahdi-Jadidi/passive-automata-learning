@@ -1,0 +1,260 @@
+{
+  "status": "OPTIMAL",
+  "max_devices": 2,
+  "blocks": [
+    [
+      "a",
+      "b"
+    ],
+    [
+      "c"
+    ]
+  ],
+  "certificate": {
+    "digest": "ed0fe299ddfdcce93536cc3b2eee8cc9d91e398b9a9e19f5721d64a83c492bfe",
+    "kind": "partition-v1",
+    "unused": [],
+    "contractions": [],
+    "root": [
+      1,
+      2,
+      4
+    ],
+    "records": [
+      {
+        "kind": "branch",
+        "blocks": [
+          1,
+          2,
+          4
+        ],
+        "region": {
+          "i": 0,
+          "blocks": [
+            1,
+            2,
+            4
+          ],
+          "facts": [
+            {
+              "i": 0,
+              "j": 0,
+              "region": 1,
+              "source": 0,
+              "rule": "S01"
+            },
+            {
+              "i": 0,
+              "j": 0,
+              "region": 2,
+              "source": 0,
+              "rule": "S01"
+            },
+            {
+              "i": 0,
+              "j": 0,
+              "region": 4,
+              "source": 0,
+              "rule": "S01"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "transcript": {
+    "queries": [
+      {
+        "id": 0,
+        "purpose": "regular",
+        "status": "NO",
+        "blocks": [
+          1,
+          2,
+          4
+        ],
+        "tables": [
+          {
+            "block": 1,
+            "zeros": [
+              [
+                0,
+                0
+              ]
+            ],
+            "free": [
+              [
+                1,
+                2
+              ]
+            ]
+          },
+          {
+            "block": 2,
+            "zeros": [
+              [
+                0,
+                0
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ]
+            ],
+            "free": []
+          },
+          {
+            "block": 4,
+            "zeros": [
+              [
+                0,
+                0
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ]
+            ],
+            "free": []
+          }
+        ],
+        "failed": 0
+      },
+      {
+        "id": 1,
+        "purpose": "regular",
+        "status": "ACCEPT",
+        "blocks": [
+          3,
+          4
+        ],
+        "tables": [
+          {
+            "block": 3,
+            "zeros": [],
+            "free": [
+              [
+                0
+              ],
+              [
+                1
+              ],
+              [
+                2
+              ]
+            ]
+          },
+          {
+            "block": 4,
+            "zeros": [
+              [
+                0,
+                0
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ]
+            ],
+            "free": []
+          }
+        ],
+        "failed": null
+      }
+    ],
+    "events": [
+      {
+        "rule": "A10",
+        "initial_answer": [
+          7
+        ]
+      },
+      {
+        "rule": "S01",
+        "query": 0,
+        "negative": 0
+      },
+      {
+        "rule": "S03",
+        "query": 0
+      },
+      {
+        "rule": "S10",
+        "query": 0
+      },
+      {
+        "rule": "S05",
+        "blocks": [
+          1,
+          2,
+          4
+        ],
+        "region": {
+          "i": 0,
+          "blocks": [
+            1,
+            2,
+            4
+          ],
+          "facts": [
+            {
+              "i": 0,
+              "j": 0,
+              "region": 1,
+              "source": 0,
+              "rule": "S01"
+            },
+            {
+              "i": 0,
+              "j": 0,
+              "region": 2,
+              "source": 0,
+              "rule": "S01"
+            },
+            {
+              "i": 0,
+              "j": 0,
+              "region": 4,
+              "source": 0,
+              "rule": "S01"
+            }
+          ]
+        },
+        "hidden_edges": 0
+      }
+    ],
+    "incumbent": 1,
+    "unqueried_waived": [],
+    "analysis_truncated": false
+  },
+  "stats": {
+    "analysis_seconds": 4.360000002634479e-05,
+    "selection": {
+      "visited": 2,
+      "regular_calls": 2,
+      "oracle_seconds": 7.759999971312936e-05,
+      "child_edges": 3,
+      "peak_frontier": 3,
+      "generated": 4,
+      "inferred_no": 0,
+      "unqueried_waived": 0,
+      "unqueried_certified": 0
+    },
+    "row_requests": 5,
+    "new_rows": 4,
+    "projection_images": 16,
+    "producer_seconds": 0.0004278999995221966
+  }
+}

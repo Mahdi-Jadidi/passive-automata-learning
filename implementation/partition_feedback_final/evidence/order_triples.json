@@ -1,0 +1,506 @@
+{
+  "status": "OPTIMAL",
+  "max_devices": 6,
+  "blocks": [
+    [
+      "s07",
+      "s08"
+    ],
+    [
+      "s05",
+      "s03"
+    ],
+    [
+      "s01",
+      "s02"
+    ],
+    [
+      "s04"
+    ],
+    [
+      "s00"
+    ],
+    [
+      "s06"
+    ]
+  ],
+  "certificate": {
+    "digest": "0710b1213c6768b75acb6c94f5b78f57a485b7cb8262ff6359726d1eb26af758",
+    "kind": "partition-v1",
+    "unused": [],
+    "contractions": [],
+    "root": [
+      1,
+      2,
+      4,
+      8,
+      16,
+      32,
+      64,
+      128,
+      256
+    ],
+    "records": [
+      {
+        "kind": "overlap",
+        "blocks": [
+          1,
+          2,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "facts": [
+          {
+            "i": 0,
+            "facts": [
+              {
+                "i": 0,
+                "j": 0,
+                "region": 475,
+                "source": "raw",
+                "rule": "A09"
+              },
+              {
+                "i": 0,
+                "j": 0,
+                "region": 443,
+                "source": "raw",
+                "rule": "A09"
+              },
+              {
+                "i": 0,
+                "j": 0,
+                "region": 415,
+                "source": "raw",
+                "rule": "A09"
+              }
+            ]
+          },
+          {
+            "i": 1,
+            "facts": [
+              {
+                "i": 1,
+                "j": 0,
+                "region": 382,
+                "source": "raw",
+                "rule": "A09"
+              },
+              {
+                "i": 1,
+                "j": 0,
+                "region": 254,
+                "source": "raw",
+                "rule": "A09"
+              },
+              {
+                "i": 1,
+                "j": 0,
+                "region": 127,
+                "source": "raw",
+                "rule": "A09"
+              }
+            ]
+          },
+          {
+            "i": 2,
+            "facts": [
+              {
+                "i": 2,
+                "j": 0,
+                "region": 501,
+                "source": "raw",
+                "rule": "A09"
+              },
+              {
+                "i": 2,
+                "j": 0,
+                "region": 493,
+                "source": "raw",
+                "rule": "A09"
+              },
+              {
+                "i": 2,
+                "j": 0,
+                "region": 487,
+                "source": "raw",
+                "rule": "A09"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "transcript": {
+    "queries": [
+      {
+        "id": 0,
+        "purpose": "incumbent",
+        "status": "ACCEPT",
+        "blocks": [
+          129,
+          10,
+          36,
+          16,
+          64,
+          256
+        ],
+        "tables": [
+          {
+            "block": 129,
+            "zeros": [
+              [
+                0,
+                0
+              ],
+              [
+                2,
+                0
+              ]
+            ],
+            "free": [
+              [
+                1
+              ]
+            ]
+          },
+          {
+            "block": 10,
+            "zeros": [
+              [
+                0,
+                0
+              ],
+              [
+                1,
+                0
+              ]
+            ],
+            "free": [
+              [
+                2
+              ]
+            ]
+          },
+          {
+            "block": 36,
+            "zeros": [
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ]
+            ],
+            "free": [
+              [
+                0
+              ]
+            ]
+          },
+          {
+            "block": 16,
+            "zeros": [
+              [
+                0,
+                0
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ]
+            ],
+            "free": []
+          },
+          {
+            "block": 64,
+            "zeros": [
+              [
+                0,
+                0
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ]
+            ],
+            "free": []
+          },
+          {
+            "block": 256,
+            "zeros": [
+              [
+                0,
+                0
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ]
+            ],
+            "free": []
+          }
+        ],
+        "failed": null
+      }
+    ],
+    "events": [
+      {
+        "i": 0,
+        "j": 0,
+        "region": 415,
+        "source": "raw",
+        "rule": "A09"
+      },
+      {
+        "i": 0,
+        "j": 0,
+        "region": 475,
+        "source": "raw",
+        "rule": "A09"
+      },
+      {
+        "i": 0,
+        "j": 0,
+        "region": 443,
+        "source": "raw",
+        "rule": "A09"
+      },
+      {
+        "i": 1,
+        "j": 0,
+        "region": 127,
+        "source": "raw",
+        "rule": "A09"
+      },
+      {
+        "i": 1,
+        "j": 0,
+        "region": 382,
+        "source": "raw",
+        "rule": "A09"
+      },
+      {
+        "i": 1,
+        "j": 0,
+        "region": 254,
+        "source": "raw",
+        "rule": "A09"
+      },
+      {
+        "i": 2,
+        "j": 0,
+        "region": 487,
+        "source": "raw",
+        "rule": "A09"
+      },
+      {
+        "i": 2,
+        "j": 0,
+        "region": 501,
+        "source": "raw",
+        "rule": "A09"
+      },
+      {
+        "i": 2,
+        "j": 0,
+        "region": 493,
+        "source": "raw",
+        "rule": "A09"
+      },
+      {
+        "rule": "A10",
+        "initial_answer": [
+          511
+        ]
+      },
+      {
+        "rule": "S02",
+        "blocks": [
+          1,
+          2,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "region": {
+          "i": 0,
+          "blocks": [
+            415,
+            32,
+            64
+          ],
+          "facts": [
+            {
+              "i": 0,
+              "j": 0,
+              "region": 415,
+              "source": "raw",
+              "rule": "A09"
+            },
+            {
+              "i": 0,
+              "j": 0,
+              "region": 443,
+              "source": "raw",
+              "rule": "A09"
+            },
+            {
+              "i": 0,
+              "j": 0,
+              "region": 475,
+              "source": "raw",
+              "rule": "A09"
+            }
+          ]
+        }
+      },
+      {
+        "rule": "S07",
+        "query": 0
+      },
+      {
+        "rule": "S09",
+        "blocks": [
+          1,
+          2,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256
+        ],
+        "lower": 3,
+        "overlap": true,
+        "facts": [
+          {
+            "i": 0,
+            "facts": [
+              {
+                "i": 0,
+                "j": 0,
+                "region": 475,
+                "source": "raw",
+                "rule": "A09"
+              },
+              {
+                "i": 0,
+                "j": 0,
+                "region": 443,
+                "source": "raw",
+                "rule": "A09"
+              },
+              {
+                "i": 0,
+                "j": 0,
+                "region": 415,
+                "source": "raw",
+                "rule": "A09"
+              }
+            ]
+          },
+          {
+            "i": 1,
+            "facts": [
+              {
+                "i": 1,
+                "j": 0,
+                "region": 382,
+                "source": "raw",
+                "rule": "A09"
+              },
+              {
+                "i": 1,
+                "j": 0,
+                "region": 254,
+                "source": "raw",
+                "rule": "A09"
+              },
+              {
+                "i": 1,
+                "j": 0,
+                "region": 127,
+                "source": "raw",
+                "rule": "A09"
+              }
+            ]
+          },
+          {
+            "i": 2,
+            "facts": [
+              {
+                "i": 2,
+                "j": 0,
+                "region": 501,
+                "source": "raw",
+                "rule": "A09"
+              },
+              {
+                "i": 2,
+                "j": 0,
+                "region": 493,
+                "source": "raw",
+                "rule": "A09"
+              },
+              {
+                "i": 2,
+                "j": 0,
+                "region": 487,
+                "source": "raw",
+                "rule": "A09"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "incumbent": 0,
+    "unqueried_waived": [],
+    "analysis_truncated": false
+  },
+  "stats": {
+    "analysis_seconds": 0.0012098999995941995,
+    "selection": {
+      "visited": 1,
+      "diagnostic_calls": 0,
+      "witness_seconds": 0.00025579999874025816,
+      "regular_calls": 1,
+      "oracle_seconds": 0.00016429999959655106,
+      "peak_frontier": 1,
+      "generated": 1,
+      "inferred_no": 1,
+      "unqueried_waived": 0,
+      "unqueried_certified": 1
+    },
+    "row_requests": 6,
+    "new_rows": 6,
+    "projection_images": 24,
+    "producer_seconds": 0.002255899999909161
+  }
+}

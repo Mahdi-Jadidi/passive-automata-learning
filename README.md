@@ -1,6 +1,19 @@
 # Passive Automata Learning — research archive
 
-**Current checkpoint — 19 November 2026:** [V46 validation, claim ledger and reproduction](results/2026-11-19/teacher_v46/README.md) and the [standalone English paper](output/pdf/Certified_Maximum_Alphabet_Partitioning_Interactive_Teacher_V46_EN.pdf). The executable method remains [V45 interactive search with the unchanged manuscript teacher](results/2026-11-16/interactive_teacher_v45/README.md). The [16 November handoff](HANDOFF_NEXT_AGENT_2026-11-16.md) and its [execution plan](docs/CONTINUATION_PLAN_V46.md) document the input checkpoint for this work. Delivery branch `codex/teacher-handoff-v46`.
+## Latest delivery · 23 November 2026
+
+The exact hybrid algorithm returns one compatible alphabet partition with a maximum number of blocks and an independently replayable certificate.
+
+- [Mentor guide and reproduction commands](implementation/partition_feedback_final/MENTOR_AGENT_FA.md)
+- [English decision rules, proofs and evidence](output/pdf/Partition_Decision_Rules_Final_EN.pdf)
+- [HDFS-1024 certificate](implementation/partition_feedback_final/evidence/hdfs_1024.json) and [eight-vertex path certificate](implementation/partition_feedback_final/evidence/cover_path_8.json)
+
+```text
+python -B implementation/partition_feedback_final/staged.py implementation/partition_feedback_final/example.json --transcript
+python -B implementation/partition_feedback_final/verify.py implementation/partition_feedback_final/evidence/hdfs_1024.json
+```
+
+**Earlier checkpoint — 19 November 2026:** [V46 validation, claim ledger and reproduction](results/2026-11-19/teacher_v46/README.md) and the [standalone English paper](output/pdf/Certified_Maximum_Alphabet_Partitioning_Interactive_Teacher_V46_EN.pdf). The executable method remains [V45 interactive search with the unchanged manuscript teacher](results/2026-11-16/interactive_teacher_v45/README.md). The [16 November handoff](HANDOFF_NEXT_AGENT_2026-11-16.md) and its [execution plan](docs/CONTINUATION_PLAN_V46.md) document the input checkpoint for this work. Delivery branch `codex/teacher-handoff-v46`.
 
 آخرین تحویل (۲۰۲۶/۱۱/۰۶): [C025: خروجی رویداد و ارزیابی تریس‌های ثبت‌شده](results/2026-11-05/real_trace_checkpoint_v25/RESEARCH_REPORT_FA.md) و [متن جلسه با استاد و دمو](results/2026-11-05/real_trace_checkpoint_v25/ADVISOR_BRIEF_FA.md). مدلِ آخرین خروجی و حل‌گر آزمایشی دقیق اضافه شد؛ ۴۲ حالت خارجی با مرجع مستقل تطبیق داشتند: ۳۲ مبهم، ۱۰ ناسازگار، هیچ‌کدام یکتا. نمونهٔ عملیاتی BGL و نمونه‌های شبیه‌ساز CAGE2/Baby جدا گزارش شده‌اند؛ استنتاج به الفبای حداکثر هشت‌نوعی محدود است.
 
@@ -33,7 +46,7 @@
 
 ## چه چیزی در آرشیو است؟
 
-تمام فایل‌های فضای کاری پروژه، شامل `results/`، `output/`، فایل‌های ساخت و نسخه‌های میانی در `.build/`، و فایل‌های بایگانی‌شدهٔ قبلی نگهداری می‌شوند. مسیرهای آزمایشیِ ناموفق، خروجی خام، کدهای نسخه‌دار، گزارش‌ها و اسلایدها حذف نشده‌اند. سند موجود در پوشهٔ دیگر پروژه با ثبت منشأ در `archive/external_sources/` آمده است. همهٔ شاخه‌های محلی Git نیز به مخزن ارسال می‌شوند. پوشهٔ داخلی `.git/` به‌صورت فایل بارگذاری نمی‌شود؛ تاریخچه از طریق خود Git منتقل می‌شود.
+آرشیو پروژه شامل `results/`، `output/`، فایل‌های ساخت و نسخه‌های میانی در `.build/`، و فایل‌های بایگانی‌شدهٔ قبلی است. وابستگی‌های نصب‌شدهٔ `node_modules/` و کش محلی `.cache/` در فضای کاری نگهداری می‌شوند. مسیرهای آزمایشیِ ناموفق، خروجی خام، کدهای نسخه‌دار، گزارش‌ها و اسلایدها حذف نشده‌اند. سند موجود در پوشهٔ دیگر پروژه با ثبت منشأ در `archive/external_sources/` آمده است. همهٔ شاخه‌های محلی Git نیز به مخزن ارسال می‌شوند. پوشهٔ داخلی `.git/` به‌صورت فایل بارگذاری نمی‌شود؛ تاریخچه از طریق خود Git منتقل می‌شود.
 
 ## دامنهٔ ادعای الگوریتم
 
