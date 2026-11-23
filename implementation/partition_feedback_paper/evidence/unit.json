@@ -1,0 +1,129 @@
+{
+  "status": "OPTIMAL",
+  "max_devices": 1,
+  "blocks": [
+    [
+      "a",
+      "b"
+    ]
+  ],
+  "certificate": {
+    "digest": "1c11cdfe1c2046c4f843a3610d8b81766957d4976693f02491284963eda077de",
+    "kind": "partition-v1",
+    "unused": [],
+    "contractions": [],
+    "root": [
+      1,
+      2
+    ],
+    "records": [
+      {
+        "kind": "unit",
+        "blocks": [
+          1,
+          2
+        ],
+        "region": {
+          "i": 0,
+          "blocks": [
+            1,
+            2
+          ],
+          "facts": [
+            {
+              "i": 0,
+              "j": 0,
+              "region": 1,
+              "source": 0,
+              "rule": "S01"
+            },
+            {
+              "i": 0,
+              "j": 0,
+              "region": 2,
+              "source": 0,
+              "rule": "S01"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "transcript": {
+    "queries": [
+      {
+        "id": 0,
+        "purpose": "regular",
+        "status": "NO",
+        "blocks": [
+          1,
+          2
+        ],
+        "tables": [
+          {
+            "block": 1,
+            "zeros": [
+              [
+                0,
+                0
+              ]
+            ],
+            "free": []
+          },
+          {
+            "block": 2,
+            "zeros": [
+              [
+                0,
+                0
+              ]
+            ],
+            "free": []
+          }
+        ],
+        "failed": 0
+      }
+    ],
+    "events": [
+      {
+        "rule": "A10",
+        "initial_answer": [
+          3
+        ]
+      },
+      {
+        "rule": "S01",
+        "query": 0,
+        "negative": 0
+      },
+      {
+        "rule": "S08",
+        "blocks": [
+          1,
+          2
+        ],
+        "lower": 1
+      }
+    ],
+    "incumbent": "A10",
+    "unqueried_waived": [],
+    "analysis_truncated": false
+  },
+  "stats": {
+    "analysis_seconds": 3.779999997277628e-05,
+    "selection": {
+      "visited": 1,
+      "regular_calls": 1,
+      "oracle_seconds": 2.7999999929306796e-05,
+      "peak_frontier": 1,
+      "generated": 1,
+      "inferred_no": 0,
+      "unqueried_waived": 0,
+      "unqueried_certified": 0
+    },
+    "row_requests": 2,
+    "new_rows": 2,
+    "projection_images": 4,
+    "producer_seconds": 0.0002650000001267472
+  }
+}

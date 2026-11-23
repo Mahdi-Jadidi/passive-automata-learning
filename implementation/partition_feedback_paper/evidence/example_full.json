@@ -1,0 +1,221 @@
+{
+  "status": "OPTIMAL",
+  "max_devices": 3,
+  "blocks": [
+    [
+      "a",
+      "c"
+    ],
+    [
+      "b"
+    ],
+    [
+      "d"
+    ]
+  ],
+  "certificate": {
+    "digest": "92841c532477ff0989f143c4d7151aa276ae0a806fd84e40ee6524b2892f596c",
+    "kind": "partition-v1",
+    "unused": [],
+    "contractions": [],
+    "root": [
+      1,
+      2,
+      4,
+      8
+    ],
+    "records": [
+      {
+        "kind": "overlap",
+        "blocks": [
+          1,
+          2,
+          4,
+          8
+        ],
+        "facts": [
+          {
+            "i": 0,
+            "facts": [
+              {
+                "i": 0,
+                "j": 0,
+                "region": 12,
+                "source": "raw",
+                "rule": "A08"
+              },
+              {
+                "i": 0,
+                "j": 1,
+                "region": 3,
+                "source": "raw",
+                "rule": "A08"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "transcript": {
+    "queries": [
+      {
+        "id": 0,
+        "purpose": "incumbent",
+        "status": "ACCEPT",
+        "blocks": [
+          5,
+          2,
+          8
+        ],
+        "tables": [
+          {
+            "block": 5,
+            "zeros": [],
+            "free": [
+              [
+                0
+              ]
+            ]
+          },
+          {
+            "block": 2,
+            "zeros": [
+              [
+                0,
+                1
+              ]
+            ],
+            "free": []
+          },
+          {
+            "block": 8,
+            "zeros": [
+              [
+                0,
+                0
+              ]
+            ],
+            "free": []
+          }
+        ],
+        "failed": null
+      }
+    ],
+    "events": [
+      {
+        "rule": "A05"
+      },
+      {
+        "i": 0,
+        "j": 0,
+        "region": 12,
+        "source": "raw",
+        "rule": "A08"
+      },
+      {
+        "i": 0,
+        "j": 1,
+        "region": 3,
+        "source": "raw",
+        "rule": "A08"
+      },
+      {
+        "rule": "A10",
+        "initial_answer": [
+          15
+        ]
+      },
+      {
+        "rule": "S02",
+        "blocks": [
+          1,
+          2,
+          4,
+          8
+        ],
+        "region": {
+          "i": 0,
+          "blocks": [
+            3,
+            12
+          ],
+          "facts": [
+            {
+              "i": 0,
+              "j": 1,
+              "region": 3,
+              "source": "raw",
+              "rule": "A08"
+            },
+            {
+              "i": 0,
+              "j": 0,
+              "region": 12,
+              "source": "raw",
+              "rule": "A08"
+            }
+          ]
+        }
+      },
+      {
+        "rule": "S07",
+        "query": 0
+      },
+      {
+        "rule": "S09",
+        "blocks": [
+          1,
+          2,
+          4,
+          8
+        ],
+        "lower": 1,
+        "overlap": true,
+        "facts": [
+          {
+            "i": 0,
+            "facts": [
+              {
+                "i": 0,
+                "j": 0,
+                "region": 12,
+                "source": "raw",
+                "rule": "A08"
+              },
+              {
+                "i": 0,
+                "j": 1,
+                "region": 3,
+                "source": "raw",
+                "rule": "A08"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "incumbent": 0,
+    "unqueried_waived": [],
+    "analysis_truncated": false
+  },
+  "stats": {
+    "analysis_seconds": 0.0002443000003040652,
+    "selection": {
+      "visited": 1,
+      "diagnostic_calls": 0,
+      "witness_seconds": 0.0001025999995363236,
+      "regular_calls": 1,
+      "oracle_seconds": 6.440000015572878e-05,
+      "peak_frontier": 1,
+      "generated": 1,
+      "inferred_no": 1,
+      "unqueried_waived": 0,
+      "unqueried_certified": 1
+    },
+    "row_requests": 3,
+    "new_rows": 3,
+    "projection_images": 9,
+    "producer_seconds": 0.0008339000000887609
+  }
+}

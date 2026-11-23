@@ -1,0 +1,527 @@
+{
+  "code": {
+    "staged.py": "248c7d352b38ee92f88779178f79916064de827c4fa8e7532a771dce97dd9b57",
+    "search.py": "4498367d4ded0b4692324fce5e60cd83f6184a5a9258410680598f37d2fa4001",
+    "model.py": "a442f52a1ba678d91a17d8943f9fd7d015284d1c46002f9d63fc0b302f7fb45e",
+    "verify.py": "9a1e6017de92682a0f00407b8b1d030e01abfa7f443e09000f227d9b5c60b02f",
+    "sample.py": "81df21c195b9e4f0e2a1a74c51232aec19ecca982772f8381e89d4f58ef5a18d",
+    "benchmark_staged.py": "042e3095a678ebe04ec046106c4f4d853dada903842723cf59de39a0179e2f65"
+  },
+  "trials": [
+    {
+      "case": "hdfs_16",
+      "repeat": 0,
+      "variant": "core",
+      "budget": 5,
+      "verdict": "VERIFIED",
+      "seconds": 0.0321008000000802,
+      "stats": {
+        "analysis_seconds": 0.01796920000015234,
+        "selection": {
+          "visited": 1,
+          "regular_calls": 1,
+          "oracle_seconds": 0.00635969999984809,
+          "peak_frontier": 1,
+          "generated": 1,
+          "inferred_no": 0,
+          "unqueried_waived": 0,
+          "unqueried_certified": 0
+        },
+        "row_requests": 29,
+        "new_rows": 29,
+        "projection_images": 928,
+        "producer_seconds": 0.0266938000004302
+      }
+    },
+    {
+      "case": "hdfs_16",
+      "repeat": 0,
+      "variant": "staged",
+      "budget": 5,
+      "verdict": "VERIFIED",
+      "seconds": 0.006868499999654887,
+      "stats": {
+        "analysis_seconds": 0.0005445999995572492,
+        "producer_seconds": 0.000663699999677192,
+        "staged_singletons": true,
+        "selection": {
+          "regular_calls": 0,
+          "diagnostic_calls": 0
+        }
+      }
+    },
+    {
+      "case": "hdfs_64",
+      "repeat": 0,
+      "variant": "core",
+      "budget": 5,
+      "verdict": "VERIFIED",
+      "seconds": 0.5259784999998374,
+      "stats": {
+        "analysis_seconds": 0.46500990000004094,
+        "selection": {
+          "visited": 1,
+          "regular_calls": 1,
+          "oracle_seconds": 0.02805369999987306,
+          "peak_frontier": 1,
+          "generated": 1,
+          "inferred_no": 0,
+          "unqueried_waived": 0,
+          "unqueried_certified": 0
+        },
+        "row_requests": 29,
+        "new_rows": 29,
+        "projection_images": 3712,
+        "producer_seconds": 0.5024034999996729
+      }
+    },
+    {
+      "case": "hdfs_64",
+      "repeat": 0,
+      "variant": "staged",
+      "budget": 5,
+      "verdict": "VERIFIED",
+      "seconds": 0.026595799999995506,
+      "stats": {
+        "analysis_seconds": 0.0021708000003854977,
+        "producer_seconds": 0.0025686999997560633,
+        "staged_singletons": true,
+        "selection": {
+          "regular_calls": 0,
+          "diagnostic_calls": 0
+        }
+      }
+    },
+    {
+      "case": "hdfs_128",
+      "repeat": 0,
+      "variant": "core",
+      "budget": 5,
+      "verdict": "VERIFIED",
+      "seconds": 1.574228100000255,
+      "stats": {
+        "analysis_seconds": 1.44620279999981,
+        "selection": {
+          "visited": 1,
+          "diagnostic_calls": 0,
+          "witness_seconds": 0.003401500000109081,
+          "regular_calls": 1,
+          "oracle_seconds": 0.057866399999511486,
+          "peak_frontier": 1,
+          "generated": 1,
+          "inferred_no": 1,
+          "unqueried_waived": 0,
+          "unqueried_certified": 1
+        },
+        "row_requests": 28,
+        "new_rows": 28,
+        "projection_images": 7168,
+        "producer_seconds": 1.5291237999999794
+      }
+    },
+    {
+      "case": "hdfs_128",
+      "repeat": 0,
+      "variant": "staged",
+      "budget": 5,
+      "verdict": "VERIFIED",
+      "seconds": 2.3690796999999293,
+      "stats": {
+        "analysis_seconds": 2.141051999999945,
+        "selection": {
+          "visited": 1,
+          "diagnostic_calls": 0,
+          "witness_seconds": 0.006243200000426441,
+          "regular_calls": 1,
+          "oracle_seconds": 0.11314049999964482,
+          "peak_frontier": 1,
+          "generated": 1,
+          "inferred_no": 1,
+          "unqueried_waived": 0,
+          "unqueried_certified": 1
+        },
+        "row_requests": 28,
+        "new_rows": 28,
+        "projection_images": 7168,
+        "producer_seconds": 2.297810400000344,
+        "singleton_stage_seconds": 0.003676300000734045
+      }
+    },
+    {
+      "case": "hdfs_holdout_512",
+      "repeat": 0,
+      "variant": "core",
+      "budget": 5,
+      "verdict": "INCOMPLETE",
+      "seconds": 5.003725900000063,
+      "stats": {
+        "producer_seconds": 5.0034308000003875
+      }
+    },
+    {
+      "case": "hdfs_holdout_512",
+      "repeat": 0,
+      "variant": "staged",
+      "budget": 5,
+      "verdict": "VERIFIED",
+      "seconds": 0.8215528999999151,
+      "stats": {
+        "analysis_seconds": 0.07186280000041734,
+        "producer_seconds": 0.08280910000030417,
+        "staged_singletons": true,
+        "selection": {
+          "regular_calls": 0,
+          "diagnostic_calls": 0
+        }
+      }
+    },
+    {
+      "case": "hdfs_16",
+      "repeat": 1,
+      "variant": "staged",
+      "budget": 5,
+      "verdict": "VERIFIED",
+      "seconds": 0.021179399999709858,
+      "stats": {
+        "analysis_seconds": 0.002731399999902351,
+        "producer_seconds": 0.0032008999996833154,
+        "staged_singletons": true,
+        "selection": {
+          "regular_calls": 0,
+          "diagnostic_calls": 0
+        }
+      }
+    },
+    {
+      "case": "hdfs_16",
+      "repeat": 1,
+      "variant": "core",
+      "budget": 5,
+      "verdict": "VERIFIED",
+      "seconds": 0.11952989999917918,
+      "stats": {
+        "analysis_seconds": 0.06483279999974911,
+        "selection": {
+          "visited": 1,
+          "regular_calls": 1,
+          "oracle_seconds": 0.020183199999337376,
+          "peak_frontier": 1,
+          "generated": 1,
+          "inferred_no": 0,
+          "unqueried_waived": 0,
+          "unqueried_certified": 0
+        },
+        "row_requests": 29,
+        "new_rows": 29,
+        "projection_images": 928,
+        "producer_seconds": 0.09628269999939221
+      }
+    },
+    {
+      "case": "hdfs_64",
+      "repeat": 1,
+      "variant": "staged",
+      "budget": 5,
+      "verdict": "VERIFIED",
+      "seconds": 0.10611629999948491,
+      "stats": {
+        "analysis_seconds": 0.007623499999681371,
+        "producer_seconds": 0.009317000000010012,
+        "staged_singletons": true,
+        "selection": {
+          "regular_calls": 0,
+          "diagnostic_calls": 0
+        }
+      }
+    },
+    {
+      "case": "hdfs_64",
+      "repeat": 1,
+      "variant": "core",
+      "budget": 5,
+      "verdict": "VERIFIED",
+      "seconds": 2.1443946999997934,
+      "stats": {
+        "analysis_seconds": 1.9989614999994956,
+        "selection": {
+          "visited": 1,
+          "regular_calls": 1,
+          "oracle_seconds": 0.05225719999998546,
+          "peak_frontier": 1,
+          "generated": 1,
+          "inferred_no": 0,
+          "unqueried_waived": 0,
+          "unqueried_certified": 0
+        },
+        "row_requests": 29,
+        "new_rows": 29,
+        "projection_images": 3712,
+        "producer_seconds": 2.074593299999833
+      }
+    },
+    {
+      "case": "hdfs_128",
+      "repeat": 1,
+      "variant": "staged",
+      "budget": 5,
+      "verdict": "VERIFIED",
+      "seconds": 1.9996429000002536,
+      "stats": {
+        "analysis_seconds": 1.8435786000000007,
+        "selection": {
+          "visited": 1,
+          "diagnostic_calls": 0,
+          "witness_seconds": 0.00623370000084833,
+          "regular_calls": 1,
+          "oracle_seconds": 0.06634440000016184,
+          "peak_frontier": 1,
+          "generated": 1,
+          "inferred_no": 1,
+          "unqueried_waived": 0,
+          "unqueried_certified": 1
+        },
+        "row_requests": 28,
+        "new_rows": 28,
+        "projection_images": 7168,
+        "producer_seconds": 1.95702429999983,
+        "singleton_stage_seconds": 0.011092300000200339
+      }
+    },
+    {
+      "case": "hdfs_128",
+      "repeat": 1,
+      "variant": "core",
+      "budget": 5,
+      "verdict": "VERIFIED",
+      "seconds": 1.4815415000002758,
+      "stats": {
+        "analysis_seconds": 1.314258499999596,
+        "selection": {
+          "visited": 1,
+          "diagnostic_calls": 0,
+          "witness_seconds": 0.003626300000178162,
+          "regular_calls": 1,
+          "oracle_seconds": 0.06220209999992221,
+          "peak_frontier": 1,
+          "generated": 1,
+          "inferred_no": 1,
+          "unqueried_waived": 0,
+          "unqueried_certified": 1
+        },
+        "row_requests": 28,
+        "new_rows": 28,
+        "projection_images": 7168,
+        "producer_seconds": 1.406079299999874
+      }
+    },
+    {
+      "case": "hdfs_holdout_512",
+      "repeat": 1,
+      "variant": "staged",
+      "budget": 5,
+      "verdict": "VERIFIED",
+      "seconds": 0.3311916000002384,
+      "stats": {
+        "analysis_seconds": 0.025479999999333813,
+        "producer_seconds": 0.028440999999475025,
+        "staged_singletons": true,
+        "selection": {
+          "regular_calls": 0,
+          "diagnostic_calls": 0
+        }
+      }
+    },
+    {
+      "case": "hdfs_holdout_512",
+      "repeat": 1,
+      "variant": "core",
+      "budget": 5,
+      "verdict": "INCOMPLETE",
+      "seconds": 5.003045000000384,
+      "stats": {
+        "producer_seconds": 5.002939400000287
+      }
+    },
+    {
+      "case": "hdfs_16",
+      "repeat": 2,
+      "variant": "core",
+      "budget": 5,
+      "verdict": "VERIFIED",
+      "seconds": 0.0323156000004019,
+      "stats": {
+        "analysis_seconds": 0.018700600000556733,
+        "selection": {
+          "visited": 1,
+          "regular_calls": 1,
+          "oracle_seconds": 0.005790299999716808,
+          "peak_frontier": 1,
+          "generated": 1,
+          "inferred_no": 0,
+          "unqueried_waived": 0,
+          "unqueried_certified": 0
+        },
+        "row_requests": 29,
+        "new_rows": 29,
+        "projection_images": 928,
+        "producer_seconds": 0.026759400000628375
+      }
+    },
+    {
+      "case": "hdfs_16",
+      "repeat": 2,
+      "variant": "staged",
+      "budget": 5,
+      "verdict": "VERIFIED",
+      "seconds": 0.006565599999703409,
+      "stats": {
+        "analysis_seconds": 0.000830800000585441,
+        "producer_seconds": 0.0010166000001845532,
+        "staged_singletons": true,
+        "selection": {
+          "regular_calls": 0,
+          "diagnostic_calls": 0
+        }
+      }
+    },
+    {
+      "case": "hdfs_64",
+      "repeat": 2,
+      "variant": "core",
+      "budget": 5,
+      "verdict": "VERIFIED",
+      "seconds": 0.6994974999997794,
+      "stats": {
+        "analysis_seconds": 0.6448675999999978,
+        "selection": {
+          "visited": 1,
+          "regular_calls": 1,
+          "oracle_seconds": 0.02508399999987887,
+          "peak_frontier": 1,
+          "generated": 1,
+          "inferred_no": 0,
+          "unqueried_waived": 0,
+          "unqueried_certified": 0
+        },
+        "row_requests": 29,
+        "new_rows": 29,
+        "projection_images": 3712,
+        "producer_seconds": 0.677858600000036
+      }
+    },
+    {
+      "case": "hdfs_64",
+      "repeat": 2,
+      "variant": "staged",
+      "budget": 5,
+      "verdict": "VERIFIED",
+      "seconds": 0.02360049999970215,
+      "stats": {
+        "analysis_seconds": 0.002027300000008836,
+        "producer_seconds": 0.002395700000306533,
+        "staged_singletons": true,
+        "selection": {
+          "regular_calls": 0,
+          "diagnostic_calls": 0
+        }
+      }
+    },
+    {
+      "case": "hdfs_128",
+      "repeat": 2,
+      "variant": "core",
+      "budget": 5,
+      "verdict": "VERIFIED",
+      "seconds": 1.5638097999999445,
+      "stats": {
+        "analysis_seconds": 1.440176099999917,
+        "selection": {
+          "visited": 1,
+          "diagnostic_calls": 0,
+          "witness_seconds": 0.0032596000000921777,
+          "regular_calls": 1,
+          "oracle_seconds": 0.05191800000011426,
+          "peak_frontier": 1,
+          "generated": 1,
+          "inferred_no": 1,
+          "unqueried_waived": 0,
+          "unqueried_certified": 1
+        },
+        "row_requests": 28,
+        "new_rows": 28,
+        "projection_images": 7168,
+        "producer_seconds": 1.5165135000006558
+      }
+    },
+    {
+      "case": "hdfs_128",
+      "repeat": 2,
+      "variant": "staged",
+      "budget": 5,
+      "verdict": "VERIFIED",
+      "seconds": 1.4274012000005314,
+      "stats": {
+        "analysis_seconds": 1.2965462000001935,
+        "selection": {
+          "visited": 1,
+          "diagnostic_calls": 0,
+          "witness_seconds": 0.003530000000864675,
+          "regular_calls": 1,
+          "oracle_seconds": 0.05504709999968327,
+          "peak_frontier": 1,
+          "generated": 1,
+          "inferred_no": 1,
+          "unqueried_waived": 0,
+          "unqueried_certified": 1
+        },
+        "row_requests": 28,
+        "new_rows": 28,
+        "projection_images": 7168,
+        "producer_seconds": 1.380056599999989,
+        "singleton_stage_seconds": 0.00366070000018226
+      }
+    },
+    {
+      "case": "hdfs_holdout_512",
+      "repeat": 2,
+      "variant": "core",
+      "budget": 5,
+      "verdict": "VERIFIED",
+      "seconds": 4.6269500999997035,
+      "stats": {
+        "analysis_seconds": 4.207373000000189,
+        "selection": {
+          "visited": 1,
+          "regular_calls": 1,
+          "oracle_seconds": 0.19846049999978277,
+          "peak_frontier": 1,
+          "generated": 1,
+          "inferred_no": 0,
+          "unqueried_waived": 0,
+          "unqueried_certified": 0
+        },
+        "row_requests": 29,
+        "new_rows": 29,
+        "projection_images": 29696,
+        "producer_seconds": 4.471845400000348
+      }
+    },
+    {
+      "case": "hdfs_holdout_512",
+      "repeat": 2,
+      "variant": "staged",
+      "budget": 5,
+      "verdict": "VERIFIED",
+      "seconds": 0.17307630000050267,
+      "stats": {
+        "analysis_seconds": 0.018272199999955774,
+        "producer_seconds": 0.02070259999982227,
+        "staged_singletons": true,
+        "selection": {
+          "regular_calls": 0,
+          "diagnostic_calls": 0
+        }
+      }
+    }
+  ]
+}

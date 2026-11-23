@@ -1,0 +1,125 @@
+{
+  "status": "OPTIMAL",
+  "max_devices": 2,
+  "blocks": [
+    [
+      "a",
+      "b"
+    ],
+    [
+      "z"
+    ]
+  ],
+  "certificate": {
+    "digest": "c61f3de64460fce0369e4cfb7e6e90bb346d6e89050a6fc27125da167f8c74f0",
+    "kind": "partition-v1",
+    "unused": [
+      4
+    ],
+    "contractions": [
+      {
+        "rule": "A07",
+        "i": 0,
+        "items": [
+          {
+            "block": 1,
+            "fact": {
+              "i": 0,
+              "j": 0,
+              "region": 2,
+              "source": "raw",
+              "rule": "A09"
+            }
+          },
+          {
+            "block": 2,
+            "fact": {
+              "i": 0,
+              "j": 0,
+              "region": 1,
+              "source": "raw",
+              "rule": "A09"
+            }
+          }
+        ]
+      }
+    ],
+    "root": [
+      3
+    ],
+    "records": []
+  },
+  "transcript": {
+    "queries": [],
+    "events": [
+      {
+        "rule": "A03",
+        "blocks": [
+          4
+        ]
+      },
+      {
+        "rule": "A07",
+        "i": 0,
+        "items": [
+          {
+            "block": 1,
+            "fact": {
+              "i": 0,
+              "j": 0,
+              "region": 2,
+              "source": "raw",
+              "rule": "A09"
+            }
+          },
+          {
+            "block": 2,
+            "fact": {
+              "i": 0,
+              "j": 0,
+              "region": 1,
+              "source": "raw",
+              "rule": "A09"
+            }
+          }
+        ]
+      },
+      {
+        "i": 0,
+        "j": 0,
+        "region": 1,
+        "source": "raw",
+        "rule": "A09"
+      },
+      {
+        "i": 0,
+        "j": 0,
+        "region": 2,
+        "source": "raw",
+        "rule": "A09"
+      },
+      {
+        "rule": "A10",
+        "initial_answer": [
+          3
+        ]
+      }
+    ],
+    "incumbent": "A10",
+    "unqueried_waived": [],
+    "analysis_truncated": false
+  },
+  "stats": {
+    "analysis_seconds": 0.00020410000024639885,
+    "selection": {
+      "generated": 1,
+      "inferred_no": 0,
+      "unqueried_waived": 0,
+      "unqueried_certified": 0
+    },
+    "row_requests": 0,
+    "new_rows": 0,
+    "projection_images": 0,
+    "producer_seconds": 0.0002876000003197987
+  }
+}

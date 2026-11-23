@@ -1,0 +1,85 @@
+{
+  "status": "OPTIMAL",
+  "max_devices": 3,
+  "blocks": [
+    [
+      "a"
+    ],
+    [
+      "b"
+    ],
+    [
+      "c"
+    ]
+  ],
+  "certificate": {
+    "digest": "9b94822a64bed8e514731fd991e9027bde949ffc44422df83b83b901065035f2",
+    "kind": "partition-v1",
+    "unused": [
+      2,
+      4
+    ],
+    "contractions": [],
+    "root": [
+      1
+    ],
+    "records": []
+  },
+  "transcript": {
+    "queries": [],
+    "events": [
+      {
+        "rule": "A03",
+        "blocks": [
+          2,
+          4
+        ]
+      },
+      {
+        "rule": "A04",
+        "positive_ids": [
+          0
+        ]
+      },
+      {
+        "rule": "A05"
+      },
+      {
+        "i": 0,
+        "j": 0,
+        "region": 0,
+        "source": "raw",
+        "rule": "A08"
+      },
+      {
+        "i": 1,
+        "j": 0,
+        "region": 0,
+        "source": "raw",
+        "rule": "A08"
+      },
+      {
+        "rule": "A10",
+        "initial_answer": [
+          1
+        ]
+      }
+    ],
+    "incumbent": "A10",
+    "unqueried_waived": [],
+    "analysis_truncated": false
+  },
+  "stats": {
+    "analysis_seconds": 0.00010740000016085105,
+    "selection": {
+      "generated": 1,
+      "inferred_no": 0,
+      "unqueried_waived": 0,
+      "unqueried_certified": 0
+    },
+    "row_requests": 0,
+    "new_rows": 0,
+    "projection_images": 0,
+    "producer_seconds": 0.00018490000002202578
+  }
+}

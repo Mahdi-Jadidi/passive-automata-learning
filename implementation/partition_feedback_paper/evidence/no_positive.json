@@ -1,0 +1,63 @@
+{
+  "status": "OPTIMAL",
+  "max_devices": 2,
+  "blocks": [
+    [
+      "a"
+    ],
+    [
+      "b"
+    ]
+  ],
+  "certificate": {
+    "digest": "9c27d326cc2f9cbe7ba60aeedcc33038dc181c41f263894cafb998694b9948be",
+    "kind": "partition-v1",
+    "unused": [
+      2
+    ],
+    "contractions": [],
+    "root": [
+      1
+    ],
+    "records": []
+  },
+  "transcript": {
+    "queries": [],
+    "events": [
+      {
+        "rule": "A03",
+        "blocks": [
+          2
+        ]
+      },
+      {
+        "rule": "A05"
+      },
+      {
+        "rule": "A06"
+      },
+      {
+        "rule": "A10",
+        "initial_answer": [
+          1
+        ]
+      }
+    ],
+    "incumbent": "A10",
+    "unqueried_waived": [],
+    "analysis_truncated": false
+  },
+  "stats": {
+    "analysis_seconds": 3.639999977167463e-05,
+    "selection": {
+      "generated": 1,
+      "inferred_no": 0,
+      "unqueried_waived": 0,
+      "unqueried_certified": 0
+    },
+    "row_requests": 0,
+    "new_rows": 0,
+    "projection_images": 0,
+    "producer_seconds": 9.760000011738157e-05
+  }
+}

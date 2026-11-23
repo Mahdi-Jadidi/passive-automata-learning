@@ -1,0 +1,141 @@
+{
+  "input": {
+    "alphabet": [
+      "a",
+      "b",
+      "c",
+      "d"
+    ],
+    "positive": [
+      [
+        "a",
+        "b"
+      ],
+      [
+        "c",
+        "d"
+      ]
+    ],
+    "negative": [
+      []
+    ]
+  },
+  "queries": [
+    {
+      "id": 0,
+      "status": "NO",
+      "blocks": [
+        3,
+        4,
+        8
+      ],
+      "tables": [
+        {
+          "block": 3,
+          "zeros": [
+            [
+              0,
+              1
+            ]
+          ],
+          "free": []
+        },
+        {
+          "block": 4,
+          "zeros": [
+            [
+              0,
+              0
+            ]
+          ],
+          "free": []
+        },
+        {
+          "block": 8,
+          "zeros": [
+            [
+              0,
+              0
+            ]
+          ],
+          "free": []
+        }
+      ],
+      "failed": 0
+    },
+    {
+      "id": 1,
+      "status": "NO",
+      "blocks": [
+        1,
+        2,
+        12
+      ],
+      "tables": [
+        {
+          "block": 1,
+          "zeros": [
+            [
+              0,
+              1
+            ]
+          ],
+          "free": []
+        },
+        {
+          "block": 2,
+          "zeros": [
+            [
+              0,
+              1
+            ]
+          ],
+          "free": []
+        },
+        {
+          "block": 12,
+          "zeros": [
+            [
+              0,
+              0
+            ]
+          ],
+          "free": []
+        }
+      ],
+      "failed": 0
+    }
+  ],
+  "events": [
+    {
+      "rule": "S02",
+      "blocks": [
+        3,
+        12
+      ],
+      "region": {
+        "i": 0,
+        "blocks": [
+          3,
+          12
+        ],
+        "facts": [
+          {
+            "i": 0,
+            "j": 1,
+            "region": 3,
+            "source": 0,
+            "rule": "S01"
+          },
+          {
+            "i": 0,
+            "j": 0,
+            "region": 12,
+            "source": 1,
+            "rule": "S01"
+          }
+        ]
+      }
+    }
+  ]
+}
