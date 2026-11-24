@@ -72,3 +72,7 @@ Reproduce using checkpoint 6 commands above with latest interface/proof pinned w
 - roundtrip-v2.json.gz: decompressed 34313 bytes, SHA256 14f0dc4cb606ca7f1b20a5cd575a937dd6471da594d983d86254e210573e5ab8; gzip Git blob eedb6c2fb7ad29346f91230dfc7db1df46eff716.
 - adversarial-v2.json.gz: decompressed 32962 bytes, SHA256 1b78c4aefe974db58409cb186528af75b1981752ba0a3778634fe3bcb406e97c; gzip Git blob 1f1444631ba3e1b12f95ae8ba4e362f93d5b8246.
 All ten updated source, log and gzip blob hashes verified against local executed bytes. Gate disposition: core-owned local actual-source checks pass; final P2.1 remains OPEN for independent /2 outer replay and interface delegation/co-review, clean network checkout/CI, and real transport authority before operational acceptance. No external call, P3 or merge. In-memory replay cost and unverified EXHAUSTED producer flags remain limitations; proof verifier must independently establish exhaustion before pruning.
+
+## Checkpoint 8 — Review 03 fail-closed gate regression
+
+See selector_v2/integration/REVIEW03.md and review03-gate.json. 26/26 normal, 14/14 optimized, exact pinned source identities and two byte-identical /2 artifacts. Actual runtime 15.80s, peak RSS 217804 KiB. Gate exits 2 INCOMPLETE: interface delegation and independent outer journal/2 verification not yet both published. New boundary tests reject false exhaustion and prevent partial/resource-censored or core diagnostic replay from certifying closure. No new schema, no P3, no external acceptance, no merge.
