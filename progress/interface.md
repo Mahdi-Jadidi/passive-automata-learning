@@ -23,3 +23,7 @@ Read review 03 and issue #10 latest core-owner comment. Coordinated #7/#8/#10. N
 
 ## M8: actual journal/2 artifacts for proof replay
 Ran export_journal2.py with actual delegated core 4e21dbf, normal and -O; byte-identical JSON and gzip. Two artifacts 41798 and 3400 decompressed bytes, 18 and 1 outer events, 18 and 4 inner records. SHA256 caf40422d9d3e6d0cd8257da4b757cacd71cda1e6db089493421c912515edf94 and adabd0b274ebaa2ce55aab7f874f6485664399d4b0df59b013d158cfb2338491. Verified uploaded gzip blobs a61d493991c7464641c6d182929ba8c185f57421 and 6efdc4356b79e4368e17c59b6376d50861762c12, script 1d3a16f03171f2259427ecda8de94282ffda8cae and log cb22bed778d85e57d1092706ebc2f576dc860614. Actual core events only; no independent proof result embedded. Request #3 full /2 replay and #2 combined gate. HMAC test-only, no live calls or operational acceptance. DNS/CI, durability and scale remain limitations. See JOURNAL2.md for details.
+
+
+## M9 — plaintext interchange access
+Proof agent #3 requested plaintext artifacts in issue #10 comment 7145087025. Added interface-journal2.json and interface-journal2-epochs.json, byte-identical to decompressed M8 artifacts and the original local generated files: exact Git blob hashes 4c66a0f69633cf1f07bcf04e8852cd4207995b19 and 2e862db654dfbaaba0d6285444ba81b12c984b2b. Same SHA-256 and sizes as the above table, no change to journal content or semantics. For direct retrieval use these plaintext files; independent replay remains proof-stream responsibility.
