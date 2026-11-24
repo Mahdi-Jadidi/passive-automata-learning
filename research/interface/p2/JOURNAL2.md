@@ -42,3 +42,14 @@ Source export_journal2.py blob 1d3a16f03171f2259427ecda8de94282ffda8cae and actu
 
 ## M9 — plaintext interchange access
 Proof agent #3 requested plaintext artifacts in issue #10 comment 7145087025. Added interface-journal2.json and interface-journal2-epochs.json, byte-identical to decompressed M8 artifacts and the original local generated files: exact Git blob hashes 4c66a0f69633cf1f07bcf04e8852cd4207995b19 and 2e862db654dfbaaba0d6285444ba81b12c984b2b. Same SHA-256 and sizes as the above table, no change to journal content or semantics. For direct retrieval use these plaintext files; independent replay remains proof-stream responsibility.
+
+
+## M10 — independent sign-off and final combined gate
+
+This section supersedes the earlier M7/M8 statements that independent journal/2 replay and the combined gate were pending.
+
+Proof #3 independently replayed all four artifacts and signed off at e8895a3 (executable proof pin 8376243; only audit documentation changed between those pins). The independent report checked receipt/provenance, exact wire/normalized bytes, original-ID maps, global attempt uniqueness, UNKNOWN lifecycle, false EXHAUSTED and structural obligations. It reports 31 counted outer/interface mutation cases rejected, four resource caps INCOMPLETE/no proof, and operational INCOMPLETE.
+
+Core owner checkpoint 9 at c5e7e17 records the final combined gate: VERIFIED, blockers empty, operational_status INCOMPLETE; 40/40 normal and 28/28 optimized tests; all four published artifacts independently VERIFIED; 31 mutation cases rejected per mode; five resource caps INCOMPLETE; false EXHAUSTED INVALID and PARTIAL closure INCOMPLETE. Exact report and machine-readable status: core selector_v2/integration/REVIEW03_FINAL.md and final-gate.json. The interface stream inspected the committed report/JSON but did not independently rerun the core combined runner. Exact artifact costs and hashes are in interface REVIEW03_FINAL.md.
+
+Narrow P2.1 structural integration is closed for the specified reference/simulator evidence path. This is not operational acceptance. No live external calls, cryptographic receipt authority, durable recovery, capacity policy, clean checkout CI, merge, learner/baseline change or P3 implementation. Journal remains memory-only, full-history replay potentially quadratic; benchmark follow-up is separate. PR #6 remains open and draft.
