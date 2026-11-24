@@ -73,3 +73,24 @@ Full details: benchmarks/v2/ISSUE10.md, results/issue10-python-rerun.md, results
 | 25a7ab0 | Review02 reproduction and limitations |
 
 See benchmarks/v2/REVIEW02.md and results/review02-*. Commit checkpoints are new measurements; previous review01 results retained unchanged.
+
+## Integration review 03 / issue #10 — executed follow-up
+
+- Exact reviewed journal/2 suite: normal 21/21, optimized 9/9; 20 counted outer mutations rejected and 18 parity records. Latest delegated interface 8/8 in both modes, independent proof 17/17 in both modes; four actual regenerated core/interface artifact digests match published hashes, full independent outer replay 4/4 in each mode. Operational status INCOMPLETE. No gate-closure claim by benchmark stream.
+- Resource coordination with proof #3: prototype filter tested 14040 exhaustive and 900 random collision comparisons; actual raw journal/2 pipeline trials at 512 and 1536 MiB preserved. Final official proof e8895a344821f7cd463823774e6bc591e064264c, same exported journals, 30s/1536 MiB: huge_choice_active verified floor 1 only (1.794086109s, 245428 KiB RSS), huge_long_active verified optimum 10000 (2.391398516s, 261336 KiB RSS). Both 512 MiB replay attempts INCOMPLETE (MemoryError, no proof). Literal choice control remains memory-censored at 1536 MiB. Results single-run and replay-only; no end-to-end speedup claim.
+- Seven original P3 fixtures recovered and hash-verified, repeated extraction byte-identical. Inputs and evaluation artifacts separated, manifest/index committed; historical reference cost is not a newly verified search answer. No P3 search started.
+- No external learner or baseline changes, no merge; zero external attempts; DNS prevented clean worktree CI. Formal combined gate owner decision remains separate.
+
+| Commit | Checkpoint |
+|---|---|
+| c72eba9 | Exact reviewed journal/2 core rerun |
+| c8e6f75 / 8518edc | Experimental bounded join and tests |
+| d7a997d | Actual raw journal phase runner |
+| 9d960ca | Exact P3 fixture preparation |
+| 990f23a / 6780274 | Raw pipeline and replay-only controls |
+| f0edd91 | Final independent verifier benchmark wrapper |
+| 568b2e8 / 0947dc4 | Input manifest and isolated reference index |
+| cfa3120 / 34277e4 | Official final scale and artifact measurements |
+| 91d22f5 | Review03 full reproduction and limitations |
+
+See benchmarks/v2/REVIEW03.md and results/review03-*. Previous results retained unchanged.
