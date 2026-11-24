@@ -49,7 +49,7 @@ def verify_observation(X,Y,origin,p,requests):
     return key,receipt,status
 
 
-def replay_ledger(raw, scope, records):
+def replay_ledger(raw, scope, records, *, deletion_budget=None):
     """Pure batch replay; errors expose no verified prefix or mutable state.
     OPEN/PARTIAL are not exhaustion. An observation cannot establish external ACCEPT.
     """
@@ -89,7 +89,7 @@ def replay_ledger(raw, scope, records):
             if receipt is not None: receipts.add(receipt)
             if status=='PROJECTION_NO': zeros.append(key) # literal structural NO only
     if closure:
-        result=replay_closure(raw,scope,dict(state=terminal,owner=owner,records=closure),allow_prefix=True)
+        result=replay_closure(raw,scope,dict(state=terminal,owner=owner,records=closure),allow_prefix=True,deletion_budget=deletion_budget)
         owner=result['mandatory_owner']; floor=result['mandatory_floor']
     else: owner=tuple(owner); floor=0
     # Absence of a response and UNKNOWN both remain unresolved attempt records.
