@@ -28,3 +28,11 @@ Keep structural and external acceptance distinct, preserve UNKNOWN, and report b
 
 ## Status (2026-11-24)
 Four research reports and the master handoff archived. Four parallel workstreams prepared; agent execution not initiated by GitHub. Raw benchmark archives and live external protocol still need availability confirmation.
+
+
+## Status (2026-11-25 — next-session handoff)
+- [Next-session handoff 04](NEXT_SESSION_HANDOFF_04.md) is the current continuity source for replacement chats.
+- Narrow P2.1 structural journal/2 gate passed at core checkpoint c5e7e17 against proof pin 8376243 and interface pin 0eb1050. Operational status remains INCOMPLETE.
+- Proof branch subsequently hardened bounded deletion replay: latest branch cf5a007, source blobs e1fc61b / 6de549b. Core combined runner still pins the older proof blobs; repin and rerun normal/-O before starting P3 implementation.
+- Benchmark #4 must execute the latest hardened checker on the actual huge_choice_active and huge_long_active inputs; prior 1536 MiB large-case results used the previous proof pin.
+- All four PRs #6–#9 remain open/Draft; do not merge. External learner and baseline remain immutable.
