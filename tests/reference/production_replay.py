@@ -128,7 +128,7 @@ def check_cursor(cursor, X, Y, facts):
     require(not facts or (stage == 'negative' and all(i <= at for i, _, _ in facts)), 'cursor before emitted facts')
 
 
-def replay_closure(raw, scope, closure, structural_records=(), *, allow_prefix=False):
+def replay_closure(raw, scope, closure, structural_records=(), *, allow_prefix=False, deletion_budget=None):
     """Verify exact serialized closure and optional structural records.
     Scope must be supplied independently. PARTIAL remains partial; no frontier,
     external receipt, bounded feasibility or operational optimality is certified.
@@ -168,7 +168,11 @@ def replay_closure(raw, scope, closure, structural_records=(), *, allow_prefix=F
         state = r['state']
         if state == 'EXHAUSTED':
             require(r['cursor'] is None, 'exhausted with cursor')
-            require(keys == set(expected_deletions(X,Y,p)), 'missing or extra exhausted deletion facts')
+            if deletion_budget is None:
+                require(keys == set(expected_deletions(X,Y,p)), 'missing or extra exhausted deletion facts')
+            else:
+                from bounded_deletion import check_exhaustion
+                check_exhaustion(X,Y,p,keys,deletion_budget)
         elif state == 'PARTIAL':
             check_cursor(r['cursor'], X, Y, facts)
         else:
