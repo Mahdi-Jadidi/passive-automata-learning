@@ -68,3 +68,45 @@ Actual final test run: 17/17 normal 0.736s; 17/17 -O 0.708s. 4374 corpus-owner c
 0f7140f bounded deletion; 315ab38 and b6448d4 optional budget wiring; ba3c5eb tests; b550ca8 independent journal/2; 8f20b39 actual core regeneration+mutations; d1aeede delegated actual gateway; 5f16a50 bounded default/cause classification, bd9677f final deadline check; 8724980 published artifact verifier; 8376243 actual interface mutation suite. Exact final local source blobs matched remote: bounded_deletion.py 64eda7d13b3153175f09b70e41be66e1615846b2; production_replay.py 4666c3f1aca6189331a83ff2f00de0e376e2a710; ledger_replay.py 0b615b6c17258e621d73147baa262d791985d8d0; test_bounded_deletion.py 2f59257d0ff3396417c2cedf9845f61e2fd20928; journal_v2_replay.py 6c49013e809b5ac4d2b2a37850e6e6cece513072; audit_journal_v2.py 7fc40c4f99ee13bbbb8b219c77bdd9e0927df512; audit_interface_j2.py 32dec464d89470022c81ee9926ee94b9a8263acf; replay_published_j2.py d32d3bed22dc06a0d51ff7965c7f621950b16455.
 
 Independent narrow proof requirement passes for these actual frozen artifacts; do not treat metadata-only producer exhaustion as proof, use independently replayed verified closed result. Combined runner against latest interface/proof head and core owner gate decision remain #2 responsibility; benchmark scale runs separate parallel work, not arbitrary added structural gate. Real transport, authenticated receipt provenance outside journal, durable crash recovery, approved bounded policy, resource caps for other proof phases, clean network CI and P3 coverage remain separate. Work confined to existing proof branch and draft PR #8. No merge or external learner modification.
+
+
+## Follow-up — core combined gate and bounded-index hardening (2026-11-25)
+
+### Combined P2.1 decision
+
+After the independent proof sign-off, core owner published checkpoint `c5e7e170add6f92e129099bf7444f5fd7a29eb3a` and updated PR #7. I independently inspected `REVIEW03_FINAL.md`, `final-gate.json`, `run_final_gate.py` and `test_final_gate.py`, and confirmed the runner pins the intended core/interface/proof source identities. The report records actual final-run exit 0: 40/40 normal, 28/28 optimized, all four exact artifacts VERIFIED at structural costs 2/2/1/2, 31 independent outer mutations INVALID, five caps INCOMPLETE/no result, actual PARTIAL closure INCOMPLETE, false EXHAUSTED INVALID, operational status INCOMPLETE, elapsed 23.04 s, peak RSS 219272 KiB. The four artifact hashes and closure states in final-gate.json match this proof stream's earlier independent result. This closes the specified structural P2.1 gate at that exact executable proof pin. It does not confer operational acceptance, real external authentication, durability, or scale acceptance.
+
+### Bounded deletion implementation hardening
+
+A code review of the proof checker found two avoidable memory-accounting weaknesses in the earlier implementation: auxiliary `seen` and `full_words` sets duplicated trace keys outside the index-entry budget, and exact candidate comparisons materialized two temporary remainder tuples. The proof branch now removes both sets and all remainder tuple allocations:
+
+- Positive deduplication uses the full-word fingerprint bucket followed by exact streaming equality; duplicates are not stored twice.
+- `entries` counts every persistent full-word and per-group index reference for unique positive traces.
+- Exact collision resolution uses `zip_longest` over ordered retained-symbol generators, with periodic deadline checks. Fingerprints remain filters only.
+- Powers use a bounded `array('Q')`; per-trace signature state is bounded by the configured maximum word length. This is an enumeration-memory improvement, not a hard RSS guarantee for the whole replay pipeline.
+
+Exact updated source blobs: `bounded_deletion.py` e1fc61b6f03484d4428642ca157e2dac43f0572d; `test_bounded_deletion.py` 6de549b9b4d208be99a419c88fd903a1ce1a6dcc. These exact files were materialized into a local isolated Python test directory; `git hash-object` reproduced both Git blob IDs before execution. The actual committed test module ran 6/6 normal (0.422 s) and 6/6 optimized (0.362 s), Python runtime version to be recorded by the executing shell. Results: 4,374 exhaustive corpus/owner cases, 13,122 checks at 0/2/64-bit fingerprints, 500 seeded randomized collision/conflict cases, 1,000 repeated positive traces deduplicated under a two-entry cap, all four budget types, missing/extra facts and cross-label duplicates rejected. The 20,000-symbol diverse synthetic case used 20,001 index entries, two exact checks and 200,010 work units. This does not substitute for a recovered planted benchmark.
+
+This follow-up changes the independent proof implementation and test source pins after the prior combined gate. Core's `run_final_gate.py` currently pins the earlier proof blobs (bounded_deletion.py 64eda7d... and test_bounded_deletion.py 2f59257...). Core owner #2 must update those two expected hashes and rerun the combined gate before this hardened proof revision is treated as part of the final combined executable pin. The prior combined gate remains valid for its recorded earlier pin.
+
+### Actual large-input benchmark status and coordination
+
+Inspected benchmark commit `678027476d912a5a753b03c67dc6204466f82c6b` and `results/review03-replay-only.csv`:
+
+| Case | CSV mode | Cap | Result |
+|---|---|---:|---|
+| huge_choice_active | filter | 512 MiB / 30 s | MEMORY_ERROR |
+| huge_choice_active | literal | 1536 MiB / 30 s | MEMORY_ERROR |
+| huge_long_active | filter | 512 MiB / 30 s | MEMORY_ERROR |
+| huge_long_active | literal | 1536 MiB / 30 s | VERIFIED_RAW_ONLY, floor/optimum 10,000, replay 2.216 s |
+
+Separately, benchmark agent #4's PR #8 comment 7145073442 reported a benchmark-only signature-filter raw replay at 1536 MiB / 30 s: huge_choice_active complete replay 2.161 s, RSS 241340 KiB, mandatory floor 1 only; huge_long_active 2.639 s, RSS 245168 KiB, structural optimum 10,000. These results use the benchmark agent's prototype and the old v1 proof kernel; they are not execution of this exact proof-branch bounded_deletion module or full outer /2 verifier. The CSV's filter rows are at 512 MiB, so the apparent mode/cap discrepancy must be reconciled with exact source and run identity.
+
+Requested agent #4 to run this exact proof module through `journal_v2_replay.verify_journal` / `replay_journal` on both recovered cases at matched 30 s / 1536 MiB caps, normal/-O, separating raw closure from full outer /2 replay, and recording input hashes, source blob IDs, telemetry, RSS and time. Coordination comments 7145339368 (#10) and 7145340155 (#9). Until those runs exist, no large recovered-case success is claimed. A resource cap or MemoryError must remain INCOMPLETE, never a verified lower bound or optimum.
+
+### Current disposition
+
+- Narrow P2.1 structural gate: PASS at core checkpoint c5e7e17 and proof executable pin 8376243 / sign-off e8895a3.
+- Hardened bounded deletion checker: local exact-blob tests PASS; combined gate re-pin/rerun pending.
+- Actual recovered huge-choice/huge-long replay using this exact hardened verifier: pending benchmark agent.
+- Operational status: INCOMPLETE. No P3 implementation, merge, learner edit, baseline edit, external call, or operational acceptance.
