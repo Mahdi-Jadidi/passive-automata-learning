@@ -76,3 +76,7 @@ All ten updated source, log and gzip blob hashes verified against local executed
 ## Checkpoint 8 — Review 03 fail-closed gate regression
 
 See selector_v2/integration/REVIEW03.md and review03-gate.json. 26/26 normal, 14/14 optimized, exact pinned source identities and two byte-identical /2 artifacts. Actual runtime 15.80s, peak RSS 217804 KiB. Gate exits 2 INCOMPLETE: interface delegation and independent outer journal/2 verification not yet both published. New boundary tests reject false exhaustion and prevent partial/resource-censored or core diagnostic replay from certifying closure. No new schema, no P3, no external acceptance, no merge.
+
+## Checkpoint 9 — Review 03 narrow P2.1 gate VERIFIED
+
+Actual latest executable interface/proof pins 0eb1050 and 8376243; independent sign-off e8895a3 (docs only since tested pin). 40/40 normal and 28/28 optimized tests, four exact journal/2 artifacts regenerated and independently replayed, 31 independent mutations INVALID, five resource caps INCOMPLETE, actual PARTIAL and false EXHAUSTED fail closed. Elapsed 23.04s, peak RSS 219272 KiB. See selector_v2/integration/REVIEW03_FINAL.md and final-gate.json. Narrow structural gate closed; operational INCOMPLETE. No P3 implemented, no schema change, no learner change, no merge. DNS blocks clean checkout CI; byte-verified evidence used.
