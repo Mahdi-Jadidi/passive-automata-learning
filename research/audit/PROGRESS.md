@@ -89,3 +89,7 @@ See [P2_REPLAY.md](P2_REPLAY.md) for the production-schema and typed-ledger repl
 ## P2.1 actual artifact roundtrip — issue #10
 
 See [P21_ROUNDTRIP.md](P21_ROUNDTRIP.md) for byte-verified actual core/interface source execution, 2,187 producer corpus roundtrips, five adapter-to-core roundtrips, false exhaustion, global attempt/receipt reuse and origin divergence reproductions. Shared journal and operational authority remain blocked; no merge.
+
+## P2.1 SharedGateway re-audit — issue #10
+
+See [P21_SHARED_REPLAY.md](P21_SHARED_REPLAY.md). Interface b27850a actual exporter reproduced both published artifacts byte-for-byte; independent full bundle replay passed (structural costs 1 and 2), 16 mutations rejected. Prior separate-ledger reuse/origin/receipt divergences closed in tested in-memory gateway; false exhaustion remains producer-accepted and independently rejected. Sidecars unauthenticated; P2.1 gate open, operational INCOMPLETE, no merge.
