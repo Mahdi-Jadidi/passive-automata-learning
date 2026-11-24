@@ -1,0 +1,45 @@
+Python 3.13.5
+Proof branch: 26d3f8b004cc3fd311b04acc83a0dad5fb20167c
+Exact Git blob identities checked with git hash-object before execution:
+  bounded_deletion.py       e1fc61b6f03484d4428642ca157e2dac43f0572d
+  test_bounded_deletion.py  6de549b9b4d208be99a419c88fd903a1ce1a6dcc
+
+Command:
+  python -m unittest -v test_bounded_deletion
+Output:
+test_duplicate_positive_index_is_deduplicated_and_bounded ... ok
+test_exhaustive_all_owners_and_forced_collisions ... ok
+test_long_diverse_trace ... ok
+test_missing_extra_and_duplicate_conflict_rejected ... ok
+test_random_duplicate_positives_and_negative_conflicts ... ok
+test_work_entry_length_and_deadline_caps ... ok
+
+Ran 6 tests in 0.422s
+OK
+exhaustive_corpus_owner_cases= 4374 filter_checks= 13122
+long_diverse_symbols= 20000 index_entries= 20001 exact_checks= 2 work= 200010
+random_collision_cases=500
+
+Command:
+  python -O -m unittest -v test_bounded_deletion
+Output:
+test_duplicate_positive_index_is_deduplicated_and_bounded ... ok
+test_exhaustive_all_owners_and_forced_collisions ... ok
+test_long_diverse_trace ... ok
+test_missing_extra_and_duplicate_conflict_rejected ... ok
+test_random_duplicate_positives_and_negative_conflicts ... ok
+test_work_entry_length_and_deadline_caps ... ok
+
+Ran 6 tests in 0.362s
+OK
+exhaustive_corpus_owner_cases= 4374 filter_checks= 13122
+long_diverse_symbols= 20000 index_entries= 20001 exact_checks= 2 work= 200010
+random_collision_cases=500
+
+Scope and limitations:
+- These are local exact-blob unit tests for the new bounded deletion module, not the full combined P2.1 gate.
+- The 20,000-symbol case is synthetic, not huge_choice_active or huge_long_active.
+- The recovered-input full outer /2 results published by benchmark agent #4 used the previous official proof pin e8895a3 / bounded_deletion blob 64eda7d.
+- The updated source blob e1fc61b still needs the benchmark rerun and core combined runner repin.
+- Replay caps are cooperative work/index/word/deadline limits, not hard process RSS bounds.
+- No operational acceptance.
