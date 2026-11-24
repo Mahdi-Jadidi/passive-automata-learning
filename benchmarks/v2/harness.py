@@ -102,12 +102,43 @@ def replay_reference(d, result):
     return {'status': 'VERIFIED' if ok else 'INVALID'}
 
 
-def pinned_source(repo):
+LEGACY_BLOBS = {
+    'sample.py': '8a31d44903256ff5faff6e6724124e854efda474',
+    'model.py': 'ea78e9300efd121ae79441cc46c7062dfee5af9f',
+    'hybrid.py': '2b02597633f3fda707144029385f6aef09d8cede',
+    'staged.py': '51f044a907f7d0d9e4cc3d70b4cca89ac5c5b7a0',
+    'search.py': 'c61b84623ded7325fc7ff154db131d09115120e7',
+    'verify.py': 'dd376cae9ba57d75a69d9a1b48c9e2337ce8a40b',
+}
+
+
+def pinned_source(repo, snapshot=False):
+    if snapshot:
+        if {p.name for p in repo.iterdir()} != set(LEGACY_BLOBS):
+            raise ValueError('snapshot must contain exactly six pinned source files')
+        for name, expected in LEGACY_BLOBS.items():
+            data = (repo / name).read_bytes()
+            actual = hashlib.sha1(b'blob ' + str(len(data)).encode() + b'\0' + data).hexdigest()
+            if actual != expected:
+                raise ValueError('wrong legacy blob: ' + name)
+        return repo
+
     def git(*args):
         return subprocess.check_output(['git', '-C', str(repo), *args], text=True).strip()
     if git('rev-parse', 'HEAD') != PIN or git('status', '--porcelain', '--untracked-files=all', '--', MODULE):
         raise ValueError('legacy requires clean checkout at pinned commit')
     return repo / MODULE
+
+
+def observe_oracle(old, events):
+    def observed(self, partition, purpose):
+        with events.open('a') as f:
+            f.write(json.dumps({'attempt': list(partition)}) + '\n')
+        response = old(self, partition, purpose)
+        with events.open('a') as f:
+            f.write(json.dumps({'response_bytes': len(encode(response)), 'status': response['status']}) + '\n')
+        return response
+    return observed
 
 
 def worker(args):
@@ -119,20 +150,12 @@ def worker(args):
             raise ValueError('reference cap: 9 symbols')
         result = reference(d) if args.stage == 'solve' else replay_reference(d, json.loads(args.proof.read_bytes()))
     else:
-        sys.path.insert(0, str(pinned_source(args.repo)))
+        sys.path.insert(0, str(pinned_source(args.repo, args.verified_snapshot)))
         if args.stage == 'solve':
             import model
             import staged
-            old = model.ProjectionOracle.__call__
-            def observed(self, partition, purpose):
-                with args.events.open('a') as f:
-                    f.write(json.dumps({'attempt': list(partition)}) + '\n')
-                response = old(self, partition, purpose)
-                with args.events.open('a') as f:
-                    f.write(json.dumps({'response_bytes': len(encode(response)), 'status': response['status']}) + '\n')
-                return response
-            model.ProjectionOracle.__call__ = observed
-            result = staged.solve(d, seconds=args.seconds, transcript=True)
+            model.ProjectionOracle.__call__ = observe_oracle(model.ProjectionOracle.__call__, args.events)
+            result = staged.solve(d, seconds=args.seconds, transcript=True, mode=args.legacy_mode)
         else:
             from verify import verify
             result = verify(d, json.loads(args.proof.read_bytes()), seconds=args.seconds)
@@ -143,7 +166,7 @@ def worker(args):
 def run(args):
     d, checksum = read_input(args.input)
     if args.engine == 'legacy':
-        pinned_source(args.repo)
+        pinned_source(args.repo, args.verified_snapshot)
     args.output.mkdir(parents=True, exist_ok=False)
     snapshot = args.output / 'input.json'
     raw = args.input.read_bytes()
@@ -155,8 +178,10 @@ def run(args):
     events.touch()
     def stage(name):
         cmd = [sys.executable, '-B', str(Path(__file__).resolve()), str(snapshot), str(args.output),
-               '--engine', args.engine, '--repo', str(args.repo.resolve()), '--seconds', str(args.seconds),
+               '--engine', args.engine, '--legacy-mode', args.legacy_mode, '--repo', str(args.repo.resolve()), '--seconds', str(args.seconds),
                '--memory', str(args.memory), '--stage', name, '--proof', str(proof), '--events', str(events)]
+        if args.verified_snapshot:
+            cmd.append('--verified-snapshot')
         start = time.perf_counter()
         try:
             p = subprocess.run(cmd, capture_output=True, timeout=args.seconds + 1, check=False,
@@ -183,9 +208,17 @@ def run(args):
             log_valid = False
     attempts = [tuple(sorted(e['attempt'])) for e in observed if 'attempt' in e]
     responses = [e for e in observed if 'response_bytes' in e]
+    transcript = result.get('transcript', {}).get('queries', [])
+    transcript_match = None
+    if result.get('status') in ('OPTIMAL', 'INFEASIBLE') and args.engine == 'legacy':
+        transcript_match = (attempts == [tuple(sorted(q['blocks'])) for q in transcript]
+                            and responses == [{'response_bytes': len(encode({k:v for k,v in q.items() if k not in ('id','purpose')})), 'status': q['status']} for q in transcript])
     verified = verdict.get('result', {}).get('status') == 'VERIFIED'
     cost = len(d['alphabet'])-result['max_devices'] if verified and result.get('status') == 'OPTIMAL' else None
     summary = {'schema': 1, 'engine': args.engine, 'legacy_pin': PIN if args.engine == 'legacy' else None,
+               'legacy_mode': args.legacy_mode if args.engine == 'legacy' else None,
+               'local_transcript_match': transcript_match,
+               'legacy_source_mode': ('verified_blobs' if args.verified_snapshot else 'worktree') if args.engine == 'legacy' else None,
                'input_sha256': checksum, 'alphabet': len(d['alphabet']), 'positives': len(d['positive']), 'negatives': len(d['negative']),
                'host': platform.platform(), 'python': sys.version, 'hash_seed': 0, 'memory_limit_as_mib': args.memory,
                'seconds_per_stage': args.seconds, 'hard_wall_seconds_per_stage': args.seconds+1,
@@ -206,6 +239,8 @@ if __name__ == '__main__':
     p.add_argument('output', type=Path)
     p.add_argument('--engine', choices=('reference', 'legacy'), default='reference')
     p.add_argument('--repo', type=Path, default=Path('.'))
+    p.add_argument('--legacy-mode', choices=('hybrid','targeted'), default='hybrid')
+    p.add_argument('--verified-snapshot', action='store_true', help='--repo is an exact six-file source snapshot, not a Git checkout')
     p.add_argument('--seconds', type=float, default=5)
     p.add_argument('--memory', type=int, default=512)
     p.add_argument('--stage', choices=('solve', 'verify'))
