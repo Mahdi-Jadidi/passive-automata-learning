@@ -167,6 +167,30 @@ def discover_deletions(sample, owner_snapshot, budget=None, *, hash_bits=64):
         return result(False)
 
 
+def replay_deletion_facts(sample, result):
+    """Validate emitted equalities at the frozen snapshot, not exhaustiveness.
+
+    A component witness is an equality, not evidence that its group is already
+    mandatory. Only a separately proved mandatory snapshot licenses contraction.
+    """
+    if result.sample_digest != sample.sample_digest:
+        raise ValueError('wrong sample')
+    result.owner_snapshot.validate_sample(sample)
+    owner = result.owner_snapshot.owner
+    if result.label_conflict is not None:
+        i, j = result.label_conflict
+        if (any(type(v) is not int for v in (i, j)) or not 0 <= i < len(sample.negative)
+                or not 0 <= j < len(sample.positive) or sample.negative[i] != sample.positive[j]
+                or result.exhausted):
+            raise ValueError('invalid label conflict')
+    for fact in result.facts:
+        i, g, j = fact.negative, fact.group, fact.positive
+        if (any(type(v) is not int for v in (i, g, j)) or not 0 <= i < len(sample.negative)
+                or not 0 <= j < len(sample.positive) or not 0 <= g < len(owner)
+                or owner[g] != g or not _equal(sample.positive[j], sample.negative[i], owner, g)):
+            raise ValueError('invalid deletion fact')
+
+
 @dataclass(frozen=True)
 class ForcedEdge:
     negative: int
@@ -181,13 +205,10 @@ def singleton_forest(sample, result):
     root = PartitionRef.singletons(len(sample.alphabet))
     if result.sample_digest != sample.sample_digest or result.owner_snapshot != root:
         raise ValueError('wrong sample or non-singleton snapshot')
+    replay_deletion_facts(sample, result)
     dsu, first, edges = SymbolDSU(len(root.owner)), {}, []
     for fact in result.facts:
         i, g, j = fact.negative, fact.group, fact.positive
-        if (any(type(v) is not int for v in (i, g, j)) or not 0 <= i < len(sample.negative)
-                or not 0 <= j < len(sample.positive) or not 0 <= g < len(root.owner)
-                or not _equal(sample.positive[j], sample.negative[i], root.owner, g)):
-            raise ValueError('invalid deletion fact')
         a = first.setdefault(i, fact)
         if dsu.union(a.group, g):
             edges.append(ForcedEdge(i, a.group, a.positive, g, j))

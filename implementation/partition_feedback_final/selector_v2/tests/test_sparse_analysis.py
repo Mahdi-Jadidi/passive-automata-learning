@@ -4,7 +4,8 @@ import tracemalloc
 import unittest
 from dataclasses import replace
 from selector_v2.core import Budget, PartitionRef, Sample, SymbolDSU
-from selector_v2.sparse_analysis import discover_deletions, raw_check, singleton_check, singleton_forest
+from selector_v2.sparse_analysis import (discover_deletions, raw_check, singleton_check,
+                                         singleton_forest, replay_deletion_facts)
 
 
 def literal(word, block):
@@ -106,22 +107,50 @@ class SparseTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             singleton_forest(s, bad)
 
+    def test_component_replay_and_scope(self):
+        s = Sample(('a', 'b', 'c'), ((2,), (0, 1)), ((0, 1, 2),))
+        p = PartitionRef((0, 0, 2))
+        r = discover_deletions(s, p)
+        self.assertEqual({(f.negative, f.group) for f in r.facts}, {(0, 0), (0, 2)})
+        replay_deletion_facts(s, r)
+        with self.assertRaises(ValueError):
+            replay_deletion_facts(s, replace(r, facts=(replace(r.facts[0], group=1),)))
+        with self.assertRaises(ValueError):
+            replay_deletion_facts(s, replace(r, sample_digest='wrong'))
+        with self.assertRaises(ValueError):
+            singleton_forest(s, r)
+        conflict = Sample(('a',), ((0,),), ((0,),))
+        c = discover_deletions(conflict, PartitionRef.singletons(1))
+        replay_deletion_facts(conflict, c)
+        with self.assertRaises(ValueError):
+            replay_deletion_facts(conflict, replace(c, label_conflict=(0, 1)))
+
     def test_100k_sparse(self):
-        tracemalloc.start()
-        try:
-            n = 100000
-            s = Sample(tuple(map(str, range(n))), tuple((2*i, 2*i+1) for i in range(1000)),
-                       tuple((2*i+1, 2*i) for i in range(1000)))
-            p = PartitionRef.singletons(n)
-            r = discover_deletions(s, p)
-            root, edges = singleton_forest(s, r)
-            self.assertEqual(len(edges), 1000)
-            self.assertTrue(raw_check(s, root).compatible)
-            _, peak = tracemalloc.get_traced_memory()
-            self.assertLess(peak, 80 * 1024**2)
-            print('100k peak traced bytes:', peak)
-        finally:
-            tracemalloc.stop()
+        for context in ((), (99997, 99998, 99997, 99999)):
+            tracemalloc.start()
+            try:
+                n = 100000
+                s = Sample(tuple(map(str, range(n))),
+                           tuple(context + (2*i, 2*i+1) + context for i in range(10000)),
+                           tuple(context + (2*i+1, 2*i) + context for i in range(10000)))
+                p = PartitionRef.singletons(n)
+                r = discover_deletions(s, p)
+                root, edges = singleton_forest(s, r)
+                self.assertEqual(len(edges), 10000)
+                self.assertEqual(root.cost, 10000)
+                self.assertTrue(raw_check(s, root).compatible)
+                # Test-only literal edge verification, independent of hash/index code.
+                for e in edges:
+                    y = s.negative[e.negative]
+                    for g, j in ((e.a, e.positive_a), (e.b, e.positive_b)):
+                        self.assertEqual(tuple(a for a in y if a != g),
+                                         tuple(a for a in s.positive[j] if a != g))
+                _, peak = tracemalloc.get_traced_memory()
+                self.assertLess(peak, 128 * 1024**2)
+                print('100k/20k context length', len(context), 'peak traced bytes:', peak)
+            finally:
+                tracemalloc.stop()
+            del s, p, r, root, edges
 
 
 if __name__ == '__main__':

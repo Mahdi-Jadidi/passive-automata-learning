@@ -28,3 +28,13 @@ tests/test_sparse_analysis.py 903d107155de92547c5903576cebf9c55a430b1a
 ## Limits and next gate
 
 Expected linear input indexing and sparse projection checking; join complexity includes inspected collision buckets, literal replay and output size. No alphabet-wide masks or broad pair scan. Python tuples/lists rather than packed arrays; digest currently serializes entire sample. Budget is cooperative, per word/candidate; not a hard resource cap. Interrupted facts are sound, cursor diagnostic only; restart pass with fresh budget, not persistent resume. Raw check is unbudgeted. Quotient deletion joins supported but only singleton forest replay implemented; automatic component closure deferred. Production independent verifier, full 100k/20k archived cases, wire protocol and receipts not available here. Next: review shared schema with issue #3/#5, add independent proof replay, then address resumable indexing and larger benchmark harness. No deployment, structural general-optimum, or external acceptance claim.
+
+## Checkpoint 2 — component fact replay and scale extension
+
+Previous checkpoint: 5e6bec593263beca282d7aa0201f4a8f42e4fb7c; draft PR #7.
+
+Added replay_deletion_facts(sample,result) to validate the sample digest, frozen owner snapshot, canonical group IDs, original trace IDs, literal deletion equalities, and exact duplicate-label conflict witness. It does not assert exhaustiveness or mandatory status of arbitrary component groups. Singleton forest now calls this helper. Added corruption/scope tests and two synthetic 100k-symbol / 20k-trace fixtures (length 2 and length 10 with repeated shared context). Each discovered 10000 singleton forced unions, 90000 blocks, raw compatibility, and test-only literal replay of all 20000 deletion witnesses. These are synthetic inputs, not the archived nine benchmark cases or a live service.
+
+Same unittest command as checkpoint 1: 7 tests OK, 9.918 s; process elapsed 10.92 s, max RSS 216512 KiB (includes tracemalloc). Traced peaks 29333203 and 42753347 bytes respectively. No legacy modifications. Tested blob hashes: sparse_analysis.py f773cc1c6b1a852193ba2afb75aa2fce4941a5c2; tests/test_sparse_analysis.py 965abe7e10fecf35b441fefa844aebf75e549646. Core unchanged.
+
+Remaining limitations unchanged: restart-only budget cursor; no persistent continuation, no component-contraction closure driver, no independent production proof kernel (issue #3), no archived benchmark replay, no external acceptance, schema review pending.
