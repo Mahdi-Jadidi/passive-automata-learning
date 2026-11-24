@@ -85,3 +85,7 @@ No counterexample found to the stated core theorems under their hypotheses. Seve
 ## P2 follow-up — issue #10
 
 See [P2_REPLAY.md](P2_REPLAY.md) for the production-schema and typed-ledger replay implementation, 14 executed Python tests, 126 counted corrupt-record cases, 2,187-corpus exhaustive validation, synthetic scale results and remaining integration gates. Draft PR #8 remains unmerged.
+
+## P2.1 actual artifact roundtrip — issue #10
+
+See [P21_ROUNDTRIP.md](P21_ROUNDTRIP.md) for byte-verified actual core/interface source execution, 2,187 producer corpus roundtrips, five adapter-to-core roundtrips, false exhaustion, global attempt/receipt reuse and origin divergence reproductions. Shared journal and operational authority remain blocked; no merge.
