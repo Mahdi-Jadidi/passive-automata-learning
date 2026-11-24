@@ -3,6 +3,7 @@ import argparse
 from hashlib import sha1, sha256
 from pathlib import Path
 import os
+import json
 import sys
 import unittest
 
@@ -36,6 +37,7 @@ def main():
     parser.add_argument('--interface-dir',required=True,type=Path)
     parser.add_argument('--proof-dir',required=True,type=Path)
     parser.add_argument('--artifact',required=True,type=Path)
+    parser.add_argument('--adversarial-artifact',type=Path)
     parser.add_argument('--full',action='store_true')
     args=parser.parse_args()
     module=Path(__file__).resolve().parents[1]
@@ -43,18 +45,30 @@ def main():
     print('Pinned predecessors:', CORE_HEAD, INTERFACE_HEAD, PROOF_HEAD,flush=True)
     verify_files(module,CORE); verify_files(interface,INTERFACE); verify_files(proof,PROOF)
     sys.path[:0]=[str(module.parent),str(interface),str(proof)]
+    other=args.adversarial_artifact or args.artifact.with_name(args.artifact.stem+'-adversarial.json')
+    if args.artifact.resolve()==other.resolve():
+        raise SystemExit('artifact paths must be different')
     os.environ['P2_ARTIFACT']=str(args.artifact.resolve())
+    os.environ['P2_ADVERSARIAL_ARTIFACT']=str(other.resolve())
     # Remove stale output so a failed run cannot be mistaken for a new artifact.
     args.artifact.unlink(missing_ok=True)
+    other.unlink(missing_ok=True)
     loader=unittest.TestLoader(); suite=unittest.TestSuite()
     if args.full:
         suite.addTests(loader.discover(str(module/'tests')))
     suite.addTests(loader.loadTestsFromName('selector_v2.integration.test_roundtrip'))
+    suite.addTests(loader.loadTestsFromName('selector_v2.integration.test_journal_audit'))
     result=unittest.TextTestRunner(verbosity=2).run(suite)
-    if not result.wasSuccessful() or not args.artifact.is_file():
+    if not result.wasSuccessful() or not args.artifact.is_file() or not other.is_file():
         return 1
-    b=args.artifact.read_bytes()
-    print('artifact bytes',len(b),'sha256',sha256(b).hexdigest(),flush=True)
+    from selector_v2.integration.audit_journal import replay_journal, encoded
+    for path in (args.artifact,other):
+        b=path.read_bytes(); obj=json.loads(b)
+        out=replay_journal(obj['raw'],obj['scope'],encoded(obj['journal']))
+        expected=obj.get('records',obj.get('result',{}).get('records'))
+        if encoded(out['records'])!=encoded(expected):
+            raise SystemExit('artifact projection mismatch')
+        print('artifact',path.name,'bytes',len(b),'sha256',sha256(b).hexdigest(),flush=True)
     return 0
 
 

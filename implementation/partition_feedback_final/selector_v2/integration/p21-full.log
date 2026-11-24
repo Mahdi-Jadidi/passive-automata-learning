@@ -1,0 +1,47 @@
+Pinned predecessors: 539af04bb0b097de5704c28f2b82f23cea5ef783 c6487af8f234cf183ed6febce1e1263de0a57e15 db8fb33a5726c779e385544219e39db662a6cb5b
+blob OK component_closure.py 97844bc266556cc04cd54a75c0d57dc00d6709ea
+blob OK core.py 997304c3adce9d3148d454b079639575f419ba0e
+blob OK evidence_store.py 42e38c8ee590267b292ebc0d678e9d4f3a56849b
+blob OK schema.py 65a7522a8442a184c14f7a0fa74fc307ce60229f
+blob OK sparse_analysis.py f773cc1c6b1a852193ba2afb75aa2fce4941a5c2
+blob OK tests/test_evidence_store.py 56ffa92c8bb75606a0ffc70e20e57cda8f905bbe
+blob OK tests/test_schema_closure.py ad959bcd10615d951f4207a7b0e0cf8098c753db
+blob OK tests/test_sparse_analysis.py 965abe7e10fecf35b441fefa844aebf75e549646
+blob OK adapter.py c38e441c7327a44adad8a0fe1125d45c93e8ef69
+blob OK strict_ledger.py a66975de137e3ec556b8c7aacd108cf975c46344
+blob OK independent_replay.py aa09243fa7ccc941c37609e959aefb419075df32
+blob OK production_replay.py f0bfa1785b49aab010f2af69e0e14c0af46d577c
+blob OK ledger_replay.py c2ae28e42a71aab91f329cf728ab7a95538cbf4e
+test_epochs_atomic_and_replay (test_evidence_store.LedgerTests.test_epochs_atomic_and_replay) ... ok
+test_observations_and_binding (test_evidence_store.LedgerTests.test_observations_and_binding) ... ok
+test_exhaustive_small (test_schema_closure.SchemaClosureTests.test_exhaustive_small) ... ok
+test_golden (test_schema_closure.SchemaClosureTests.test_golden) ... ok
+test_multi_epoch (test_schema_closure.SchemaClosureTests.test_multi_epoch) ... ok
+test_100k_sparse (test_sparse_analysis.SparseTests.test_100k_sparse) ... ok
+test_budget_and_mutation (test_sparse_analysis.SparseTests.test_budget_and_mutation) ... ok
+test_component_replay_and_scope (test_sparse_analysis.SparseTests.test_component_replay_and_scope) ... ok
+test_degenerate_and_duplicates (test_sparse_analysis.SparseTests.test_degenerate_and_duplicates) ... ok
+test_exhaustive_ordered_pairs_and_collisions (test_sparse_analysis.SparseTests.test_exhaustive_ordered_pairs_and_collisions) ... ok
+test_ids_and_validation (test_sparse_analysis.SparseTests.test_ids_and_validation) ... ok
+test_random_corpora_and_root_soundness (test_sparse_analysis.SparseTests.test_random_corpora_and_root_soundness) ... ok
+test_actual_producer_adapter_proof (selector_v2.integration.test_roundtrip.RoundtripTests.test_actual_producer_adapter_proof) ... ok
+test_concurrent_attempt_uniqueness_and_mutation (selector_v2.integration.test_roundtrip.RoundtripTests.test_concurrent_attempt_uniqueness_and_mutation) ... ok
+test_partial_conflict_and_false_exhaustion (selector_v2.integration.test_roundtrip.RoundtripTests.test_partial_conflict_and_false_exhaustion) ... ok
+test_transaction_rejections_and_retry (selector_v2.integration.test_roundtrip.RoundtripTests.test_transaction_rejections_and_retry) ... ok
+test_corruptions (selector_v2.integration.test_journal_audit.JournalAuditTests.test_corruptions) ... ok
+test_full_outer_roundtrip (selector_v2.integration.test_journal_audit.JournalAuditTests.test_full_outer_roundtrip) ... ok
+test_raw_atomic_rollback (selector_v2.integration.test_journal_audit.JournalAuditTests.test_raw_atomic_rollback) ... ok
+test_untrusted_and_reentrant_authentication (selector_v2.integration.test_journal_audit.JournalAuditTests.test_untrusted_and_reentrant_authentication) ... ok
+
+----------------------------------------------------------------------
+Ran 20 tests in 10.213s
+
+OK
+100k/20k context length 0 peak traced bytes: 29226123
+100k/20k context length 4 peak traced bytes: 42752483
+actual roundtrip: 3 epochs, 12 records, 9 events, structural optimum 2
+outer provenance corruptions rejected: 20
+outer replay: 12 events, 13 records, 3 quarantines
+artifact roundtrip.json bytes 34499 sha256 c1e1d9d78ea361c5eee97ced53fbb98427f3089e7d6e96d6330381b1103e2046
+artifact adversarial.json bytes 32909 sha256 4bfd68ac86074679f21599a6591b990a0e15fc90266b810107d5c36898eec21a
+elapsed=11.11 maxrss_kib=217864
