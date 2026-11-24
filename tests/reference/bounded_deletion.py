@@ -91,4 +91,5 @@ def check_exhaustion(X,Y,p,claimed,budget,*,hash_bits=64):
             if g!=-1 and g not in groups and g not in found and equal(X[j],y,g):
                 require((i,g) in claimed,'missing exhausted deletion fact');found.add(g)
         found_count+=len(found)
+    budget.debit(0)
     require(found_count==len(claimed),'extra exhausted deletion fact')
