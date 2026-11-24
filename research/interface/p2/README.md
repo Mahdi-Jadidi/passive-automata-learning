@@ -1,3 +1,7 @@
+
+## Review 03 current entry point
+**Use gateway.open_gateway, not the historical ledgers described below.** The returned instance is the authoritative core RegisteredLedger at 4e21dbf (selector-v2-journal/2). See JOURNAL2.md for the current interface and actual integration tests. The prior SharedGateway/RegisteredLedger classes and v1 sidecar exports are historical reference regressions only; do not dual-write or use them in a production-shaped path.
+
 # P2 normalized interface — review checkpoint (issue #10)
 
 This is the Python selector-side implementation candidate. The original JS mock is preserved as historical P1 evidence; do not use it for P2. No external learner, simulator, or baseline changes.
