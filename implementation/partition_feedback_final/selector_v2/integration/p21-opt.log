@@ -1,4 +1,4 @@
-Pinned predecessors: 539af04bb0b097de5704c28f2b82f23cea5ef783 c6487af8f234cf183ed6febce1e1263de0a57e15 db8fb33a5726c779e385544219e39db662a6cb5b
+Pinned predecessors: 539af04bb0b097de5704c28f2b82f23cea5ef783 b27850a667a55927fd3ad127dccce3956d8ead22 ed20d9b12ea9730e07e7d2d1e0581744a266eb02
 blob OK component_closure.py 97844bc266556cc04cd54a75c0d57dc00d6709ea
 blob OK core.py 997304c3adce9d3148d454b079639575f419ba0e
 blob OK evidence_store.py 42e38c8ee590267b292ebc0d678e9d4f3a56849b
@@ -9,6 +9,7 @@ blob OK tests/test_schema_closure.py ad959bcd10615d951f4207a7b0e0cf8098c753db
 blob OK tests/test_sparse_analysis.py 965abe7e10fecf35b441fefa844aebf75e549646
 blob OK adapter.py c38e441c7327a44adad8a0fe1125d45c93e8ef69
 blob OK strict_ledger.py a66975de137e3ec556b8c7aacd108cf975c46344
+blob OK shared_gateway.py 33ef122814c409cc7c0d201b0cb4c3127b078862
 blob OK independent_replay.py aa09243fa7ccc941c37609e959aefb419075df32
 blob OK production_replay.py f0bfa1785b49aab010f2af69e0e14c0af46d577c
 blob OK ledger_replay.py c2ae28e42a71aab91f329cf728ab7a95538cbf4e
@@ -20,14 +21,16 @@ test_corruptions (selector_v2.integration.test_journal_audit.JournalAuditTests.t
 test_full_outer_roundtrip (selector_v2.integration.test_journal_audit.JournalAuditTests.test_full_outer_roundtrip) ... ok
 test_raw_atomic_rollback (selector_v2.integration.test_journal_audit.JournalAuditTests.test_raw_atomic_rollback) ... ok
 test_untrusted_and_reentrant_authentication (selector_v2.integration.test_journal_audit.JournalAuditTests.test_untrusted_and_reentrant_authentication) ... ok
+test_latest_gateway_projection_and_auth_binding (selector_v2.integration.test_gateway_parity.GatewayParityTests.test_latest_gateway_projection_and_auth_binding) ... ok
 
 ----------------------------------------------------------------------
-Ran 8 tests in 0.098s
+Ran 9 tests in 0.129s
 
 OK
 actual roundtrip: 3 epochs, 12 records, 9 events, structural optimum 2
 outer provenance corruptions rejected: 20
 outer replay: 12 events, 13 records, 3 quarantines
-artifact roundtrip-opt.json bytes 34499 sha256 c1e1d9d78ea361c5eee97ced53fbb98427f3089e7d6e96d6330381b1103e2046
-artifact adversarial-opt.json bytes 32909 sha256 4bfd68ac86074679f21599a6591b990a0e15fc90266b810107d5c36898eec21a
-elapsed=1.41 maxrss_kib=98580
+latest gateway parity: 18 byte-identical v1 records; exact-byte and registration auth binding PASS
+artifact roundtrip-opt.json bytes 34313 sha256 14f0dc4cb606ca7f1b20a5cd575a937dd6471da594d983d86254e210573e5ab8
+artifact adversarial-opt.json bytes 32962 sha256 1b78c4aefe974db58409cb186528af75b1981752ba0a3778634fe3bcb406e97c
+elapsed=1.23 maxrss_kib=98828

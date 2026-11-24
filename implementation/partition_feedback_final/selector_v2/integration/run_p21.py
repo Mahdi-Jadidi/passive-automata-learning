@@ -8,8 +8,8 @@ import sys
 import unittest
 
 CORE_HEAD = '539af04bb0b097de5704c28f2b82f23cea5ef783'
-INTERFACE_HEAD = 'c6487af8f234cf183ed6febce1e1263de0a57e15'
-PROOF_HEAD = 'db8fb33a5726c779e385544219e39db662a6cb5b'
+INTERFACE_HEAD = 'b27850a667a55927fd3ad127dccce3956d8ead22'
+PROOF_HEAD = 'ed20d9b12ea9730e07e7d2d1e0581744a266eb02'
 CORE = dict(zip(('component_closure.py','core.py','evidence_store.py','schema.py','sparse_analysis.py',
                  'tests/test_evidence_store.py','tests/test_schema_closure.py','tests/test_sparse_analysis.py'),
                 ('97844bc266556cc04cd54a75c0d57dc00d6709ea','997304c3adce9d3148d454b079639575f419ba0e',
@@ -17,7 +17,8 @@ CORE = dict(zip(('component_closure.py','core.py','evidence_store.py','schema.py
                  'f773cc1c6b1a852193ba2afb75aa2fce4941a5c2','56ffa92c8bb75606a0ffc70e20e57cda8f905bbe',
                  'ad959bcd10615d951f4207a7b0e0cf8098c753db','965abe7e10fecf35b441fefa844aebf75e549646')))
 INTERFACE = {'adapter.py':'c38e441c7327a44adad8a0fe1125d45c93e8ef69',
-             'strict_ledger.py':'a66975de137e3ec556b8c7aacd108cf975c46344'}
+             'strict_ledger.py':'a66975de137e3ec556b8c7aacd108cf975c46344',
+             'shared_gateway.py':'33ef122814c409cc7c0d201b0cb4c3127b078862'}
 PROOF = {'independent_replay.py':'aa09243fa7ccc941c37609e959aefb419075df32',
          'production_replay.py':'f0bfa1785b49aab010f2af69e0e14c0af46d577c',
          'ledger_replay.py':'c2ae28e42a71aab91f329cf728ab7a95538cbf4e'}
@@ -58,6 +59,7 @@ def main():
         suite.addTests(loader.discover(str(module/'tests')))
     suite.addTests(loader.loadTestsFromName('selector_v2.integration.test_roundtrip'))
     suite.addTests(loader.loadTestsFromName('selector_v2.integration.test_journal_audit'))
+    suite.addTests(loader.loadTestsFromName('selector_v2.integration.test_gateway_parity'))
     result=unittest.TextTestRunner(verbosity=2).run(suite)
     if not result.wasSuccessful() or not args.artifact.is_file() or not other.is_file():
         return 1

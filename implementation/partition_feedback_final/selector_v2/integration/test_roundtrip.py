@@ -59,7 +59,7 @@ def replay(raw, journal):
 
 class RoundtripTests(unittest.TestCase):
     def make(self, raw=RAW):
-        return RegisteredLedger(raw,adapter=adapter,parse=parse,authenticate=lambda q,p: True)
+        return RegisteredLedger(raw,adapter=adapter,parse=parse,authenticate=lambda q,p,r: True)
 
     def test_actual_producer_adapter_proof(self):
         s = Sample.from_input(RAW); ledger = self.make()
@@ -91,7 +91,7 @@ class RoundtripTests(unittest.TestCase):
         event = next(e for e in events if e['event']=='OBSERVE')
         self.assertEqual(bytes.fromhex(event['wire_hex']),wire)
         self.assertEqual(identity(json.loads(bytes.fromhex(event['normalized_hex']))),event['normalized_sha256'])
-        self.assertEqual(event['records'][0]['payload']['response_digest'],event['normalized_sha256'])
+        self.assertEqual(event['records'][0]['payload']['response_digest'],event['wire_sha256'])
         events[0]['records'].clear(); self.assertTrue(ledger.records)
         artifact = os.environ.get('P2_ARTIFACT')
         if artifact:

@@ -11,7 +11,7 @@ from production_replay import verify_request
 from ledger_replay import replay_ledger
 
 
-JOURNAL_VERSION = 'selector-v2-journal/1'
+JOURNAL_VERSION = 'selector-v2-journal/2'
 
 
 def encoded(value):
@@ -162,7 +162,7 @@ def _replay(raw, scope, journal_bytes):
                 wire=unhex(e['wire_hex'],e['wire_sha256'])
             if kind=='QUARANTINE':
                 quarantine+=1; require(type(e['reason']) is str,'invalid quarantine reason')
-                expected=[observation_record(sd,entry,'UNKNOWN',sha(wire or b''),None,None)] if matched else []
+                expected=[observation_record(sd,entry,'UNKNOWN',sha(wire) if wire is not None else digest({'local_event':'NO_RESPONSE'}),None,None)] if matched else []
                 require(encoded(batch)==encoded(expected),'quarantine projection mismatch')
                 if matched: status[aid]='UNKNOWN'
             else:
@@ -173,11 +173,12 @@ def _replay(raw, scope, journal_bytes):
                 q=entry['request']; feedback=normalize_feedback(payload,q,entry['capacities'],X,Y)
                 expected=dict(version=VERSION,request=q,origin=entry['origin'],status=e['status'],operational=False,scope='NONE',payload=payload)
                 require(encoded(obs)==encoded(expected),'normalized wrapper or wire mismatch')
-                receipt=digest(payload['receipt']); require(e['receipt_ref']==receipt and receipt not in receipts,'receipt reference mismatch/reuse')
-                rd=receipt if entry['origin']=='EXTERNAL' else None
-                expected=[observation_record(sd,entry,e['status'],sha(normal),rd,feedback)]
+                receipt=sha(payload['receipt'].encode('utf-8')) if entry['origin']=='EXTERNAL' else None
+                require(e['receipt_ref']==receipt and (receipt is None or receipt not in receipts),'receipt reference mismatch/reuse')
+                expected=[observation_record(sd,entry,e['status'],sha(wire),receipt,feedback)]
                 require(encoded(batch)==encoded(expected),'normalized projection mismatch')
-                receipts.add(receipt); status[aid]=e['status']
+                if receipt is not None: receipts.add(receipt)
+                status[aid]=e['status']
         else:
             raise InvalidProof('unknown journal event')
         records.extend(batch)

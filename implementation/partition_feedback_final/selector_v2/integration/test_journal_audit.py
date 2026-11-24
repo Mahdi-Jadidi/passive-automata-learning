@@ -18,7 +18,7 @@ from selector_v2.integration.test_roundtrip import RAW, response, tables, trie_d
 
 def fixture():
     s=Sample.from_input(RAW)
-    ledger=RegisteredLedger(RAW,adapter=adapter,parse=parse,authenticate=lambda q,p: True)
+    ledger=RegisteredLedger(RAW,adapter=adapter,parse=parse,authenticate=lambda q,p,r: True)
     closure=component_closure(s)
     ledger.append_raw(closure['records']+[structural_record(s,PartitionRef(tuple(closure['owner'])))])
     owner=[0,1,2,3]; maps=dict(positive_map=[['p'+str(i),i] for i in range(4)],negative_map=[['n'+str(i),i] for i in range(5)])
@@ -30,8 +30,8 @@ def fixture():
     ledger.ingest('r','b',canonical(p))
     q=ledger.register(owner,'bounded','c',capacities=[1,1,1,1])
     ledger.ingest('bounded','c',canonical(response(q,'BOUNDED_NO','r2',exact=True)))
-    q=ledger.register([0,0,0,0],'accept','d')
-    ledger.ingest('accept','d',canonical(response(q,'ACCEPT','r3',dfas=[trie_dfa(RAW)])))
+    q=ledger.register([0,0,0,0],'accept','d',origin='EXTERNAL')
+    ledger.ingest('accept','d',canonical(response(q,'ACCEPT','r3',origin='EXTERNAL',dfas=[trie_dfa(RAW)])))
     ledger.register(owner,'pending','e')
     ledger.ingest('wrong','e',None)
     return s,ledger
@@ -45,9 +45,9 @@ def rewrite_observation(e, transform, *, wire=False):
     normal=json.loads(bytes.fromhex(e['normalized_hex']))
     transform(normal)
     b=encoded(normal); e['normalized_hex']=b.hex(); e['normalized_sha256']=sha(b)
-    e['records'][0]['payload']['response_digest']=sha(b)
     if wire:
         b=encoded(normal['payload']); e['wire_hex']=b.hex(); e['wire_sha256']=sha(b)
+        e['records'][0]['payload']['response_digest']=sha(b)
 
 
 class JournalAuditTests(unittest.TestCase):
@@ -70,7 +70,7 @@ class JournalAuditTests(unittest.TestCase):
         def duplicate_attempt(j):
             e=event(j,'REGISTER','e'); e['registered']['request']['attempt_id']='a'; e['records'][0]['payload']['attempt_id']='a'
         def receipt_reuse(j):
-            e=event(j,'OBSERVE','c'); rewrite_observation(e,lambda o:o['payload'].update(receipt='r1'),wire=True); e['receipt_ref']=digest('r1')
+            e=event(j,'OBSERVE','d'); rewrite_observation(e,lambda o:o['payload'].update(receipt='r1'),wire=True); e['receipt_ref']=sha(b'r1'); e['records'][0]['payload']['receipt_digest']=sha(b'r1')
         def corrupt_dfa(j):
             e=event(j,'OBSERVE','d'); rewrite_observation(e,lambda o:o['payload']['dfas'][0]['transitions'].pop(),wire=True)
         def change_map(j):
@@ -106,7 +106,7 @@ class JournalAuditTests(unittest.TestCase):
 
     def test_untrusted_and_reentrant_authentication(self):
         s=Sample.from_input(RAW)
-        for callback in (None,lambda q,p:False):
+        for callback in (None,lambda q,p,r:False):
             ledger=RegisteredLedger(RAW,adapter=adapter,parse=parse,authenticate=callback)
             q=ledger.register([0,0,0,0],'r','a',origin='EXTERNAL')
             wire=canonical(response(q,'ACCEPT','r1',origin='EXTERNAL',dfas=[trie_dfa(RAW)]))
@@ -115,7 +115,7 @@ class JournalAuditTests(unittest.TestCase):
             self.assertEqual(result['attempt_status'],{'a':'UNKNOWN'})
             self.assertEqual(result['pending_candidates'],('r',))
             self.assertEqual(result['proof']['operational_status'],'INCOMPLETE')
-        def reenter(q,p):
+        def reenter(q,p,r):
             ledger.register([0,0,0,0],'nested','nested')
             return True
         ledger=RegisteredLedger(RAW,adapter=adapter,parse=parse,authenticate=reenter)

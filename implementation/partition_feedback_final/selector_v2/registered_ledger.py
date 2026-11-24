@@ -7,14 +7,15 @@ from .core import Sample
 from .schema import VERSION, canonical, identity, raw_record, require
 from .evidence_store import EvidenceLedger
 
-JOURNAL_VERSION = 'selector-v2-journal/1'
+JOURNAL_VERSION = 'selector-v2-journal/2'
+NO_RESPONSE_DIGEST = sha256(canonical({'local_event':'NO_RESPONSE'})).hexdigest()
 
 
 def _sha(data):
     return sha256(data).hexdigest()
 
 
-def _convert(sample, entry, observation):
+def _convert(sample, entry, observation, wire_digest):
     p = observation['payload']
     status = observation['status']
     feedback = None
@@ -23,11 +24,10 @@ def _convert(sample, entry, observation):
             dict(group=t['block'], named_zeros=[z for z in t['zeros'] if z['positive'] is not None],
                  anonymous_zeros=[z['negative'] for z in t['zeros'] if z['positive'] is None],
                  free_groups=t['free']) for t in p['tables']])
-    encoded = canonical(observation)
-    receipt = identity(p['receipt']) if entry['origin'] == 'EXTERNAL' else None
+    receipt = _sha(p['receipt'].encode('utf-8')) if entry['origin'] == 'EXTERNAL' else None
     return dict(version=VERSION, origin=entry['origin'], sample_digest=sample.sample_digest,
                 kind='OBSERVATION', payload=dict(request_digest=identity(entry['request']),
-                status=status, response_digest=_sha(encoded), receipt_digest=receipt, feedback=feedback))
+                status=status, response_digest=wire_digest, receipt_digest=receipt, feedback=feedback))
 
 
 class RegisteredLedger:
@@ -89,7 +89,9 @@ class RegisteredLedger:
                 q = e['registered']['request']; aid = q['attempt_id']
                 entries[aid] = e['registered']; statuses[aid] = 'PENDING'
             elif e['event'] == 'OBSERVE':
-                statuses[e['attempt_id']] = e['status']; receipts.add(e['receipt_ref'])
+                statuses[e['attempt_id']] = e['status']
+                if e['receipt_ref'] is not None:
+                    receipts.add(e['receipt_ref'])
             elif e['event'] == 'QUARANTINE' and e['records']:
                 statuses[e['attempt_id']] = 'UNKNOWN'
         return entries, statuses, receipts
@@ -172,11 +174,15 @@ class RegisteredLedger:
                 require(statuses[attempt_id] == 'PENDING', 'closed attempt')
                 payload = self._parse(raw)
                 require(type(payload) is dict and payload.get('origin') == entry['origin'], 'origin mismatch')
+                def authenticate(qbytes, pbytes):
+                    # The pinned adapter checks the parsed payload; the owner hook
+                    # must additionally bind exact bytes and registered provenance.
+                    return self._authenticate is not None and self._authenticate(qbytes,raw,canonical(entry)) is True
                 obs = self._adapter.validate(json.loads(self._raw),entry['request'],payload,
-                                             entry['capacities'],self._authenticate)
-                receipt_ref = identity(payload['receipt'])
-                require(receipt_ref not in receipts, 'receipt reuse')
-                record = _convert(self._sample,entry,obs)
+                                             entry['capacities'],authenticate)
+                receipt_ref = _sha(payload['receipt'].encode('utf-8')) if entry['origin']=='EXTERNAL' else None
+                require(receipt_ref is None or receipt_ref not in receipts, 'receipt reuse')
+                record = _convert(self._sample,entry,obs,wire['wire_sha256'])
                 encoded = canonical(obs)
                 self._commit(dict(event='OBSERVE', request_id=request_id, attempt_id=attempt_id,
                                   status=obs['status'], receipt_ref=receipt_ref, normalized_hex=encoded.hex(),
@@ -186,7 +192,7 @@ class RegisteredLedger:
                 records = []
                 if entry is not None and statuses[attempt_id] == 'PENDING':
                     p = dict(request_digest=identity(entry['request']),status='UNKNOWN',
-                             response_digest=wire['wire_sha256'] or _sha(b''),receipt_digest=None,feedback=None)
+                             response_digest=wire['wire_sha256'] or NO_RESPONSE_DIGEST,receipt_digest=None,feedback=None)
                     records.append(dict(version=VERSION,origin=entry['origin'],sample_digest=self._sample.sample_digest,
                                         kind='OBSERVATION',payload=p))
                 self._commit(dict(event='QUARANTINE',request_id=request_id if type(request_id) is str else None,
