@@ -93,3 +93,7 @@ See [P21_ROUNDTRIP.md](P21_ROUNDTRIP.md) for byte-verified actual core/interface
 ## P2.1 SharedGateway re-audit — issue #10
 
 See [P21_SHARED_REPLAY.md](P21_SHARED_REPLAY.md). Interface b27850a actual exporter reproduced both published artifacts byte-for-byte; independent full bundle replay passed (structural costs 1 and 2), 16 mutations rejected. Prior separate-ledger reuse/origin/receipt divergences closed in tested in-memory gateway; false exhaustion remains producer-accepted and independently rejected. Sidecars unauthenticated; P2.1 gate open, operational INCOMPLETE, no merge.
+
+## Review 03 — authoritative journal/2 independent sign-off
+
+See [REVIEW03_JOURNAL2.md](REVIEW03_JOURNAL2.md). Four actual published artifacts reproduced at exact compressed Git blob and decompressed SHA-256 identities, independently verified normally/-O; 31 counted outer mutations rejected, four resource-censored cases INCOMPLETE, 17/17 proof tests both modes, 8/8 actual delegated-interface tests both modes. Bounded exact deletion checker default for /2; benchmark #4 coordinated. Narrow proof item passes; combined gate owner must rerun. Operational INCOMPLETE; no merge.
