@@ -110,3 +110,21 @@ Requested agent #4 to run this exact proof module through `journal_v2_replay.ver
 - Hardened bounded deletion checker: local exact-blob tests PASS; combined gate re-pin/rerun pending.
 - Actual recovered huge-choice/huge-long replay using this exact hardened verifier: pending benchmark agent.
 - Operational status: INCOMPLETE. No P3 implementation, merge, learner edit, baseline edit, external call, or operational acceptance.
+
+
+### Benchmark agent's official full outer /2 replay (pin e8895a3)
+
+Benchmark branch subsequently published commit 52d21e672b0ae6420cf677ff09c01bb2a3fd6b05 and benchmarks/v2/REVIEW03.md. Its review03/replay_only.py is a benchmark-only prototype and its review03/final_replay.py independently invokes the official journal_v2_replay.verify_journal with an address-space limit and checks exact source Git blob IDs. The official replay pins proof sign-off e8895a3 and the earlier bounded_deletion blob 64eda7d13b3153175f09b70e41be66e1615846b2, not the later hardening blob e1fc61b6.
+
+Exact official full outer /2 measurements from results/review03-final-replay.csv (30 s deadline; work 200,000,000; index references 2,000,000; word length 2,000,000):
+
+| Case | Address-space cap | Status | Elapsed | RSS | Work | Index refs | Exact checks | Floor | Optimum |
+|---|---:|---|---:|---:|---:|---:|---:|---:|---:|
+| huge_choice_active | 512 MiB | INCOMPLETE (MemoryError) | 0.965 s | 203,228 KiB | 0 | 0 | 0 | — | — |
+| huge_choice_active | 1536 MiB | VERIFIED | 1.794 s | 245,428 KiB | 2,006,999 | 111,999 | 20,999 | 1 | — |
+| huge_long_active | 512 MiB | INCOMPLETE (MemoryError) | 0.812 s | 200,620 KiB | 0 | 0 | 0 | — | — |
+| huge_long_active | 1536 MiB | VERIFIED | 2.391 s | 261,336 KiB | 2,400,024 | 110,000 | 30,000 | 10,000 | 10,000 |
+
+These are full outer /2 verifier results on the original raw journal/2 exports, not just raw closure. The 512 MiB failures occur before deletion work and expose no result. huge_choice_active verifies a mandatory floor of 1 only; do not label it optimal. huge_long_active independently verifies structural optimum 10,000. Operational status remains INCOMPLETE. The same report records the distinct raw-only filter experiment and literal controls; their phase timing boundaries differ and are not interchangeable.
+
+This resolves the earlier CSV discrepancy: review03-replay-only.csv contains the literal control and 512 MiB prototype-filter rows, while the official bounded full-replay measurements are in review03-final-replay.csv. The official full replay used old checker pin e8895a3. Benchmark #4 was asked to rerun both cases with the new hardening blob e1fc61b6 and updated test blob 6de549b9, with normal/-O and separate raw/full phase telemetry; until then, the improved checker itself has only synthetic tests, not recovered-input execution.
