@@ -47,3 +47,29 @@ Review limitation: local source simulator runtime instrumentation is not tested 
 | b4ca57f | Reproducible commands, archive digests, comparison limitations |
 
 Full details: benchmarks/v2/ISSUE10.md, results/issue10-python-rerun.md, results/issue10-sparse.csv, results/issue10-paired.csv. Next gates: remaining 28 planted instances, repeated 5/30 s controlled comparisons, enhanced variant run, clean checkout CI, shared P2 schema integration and live external transport. Not a full end-to-end optimizer claim.
+
+
+## Integration review 02 / issue #10 — executed follow-up
+
+- All 33 original planted inputs, including previous 28 unrun inputs: 99 measured 5s/512 MiB runs, legacy 11 verified optima, enhanced 15, P1 29 plus four verified bounds. All finite optima agree with archived references read post-run only. Two producer-optimal but replay-censored results excluded from certification.
+- 12 serial repeat runs on two tiny cases, nine selected 30s runs (small_count, large_reverse_dense, original scale-1000), explicit failure and query telemetry. Small_count now verifies in both baselines, scale-1000 enhanced/P1 verifies, legacy times out. Full 30s matrix and broad repeats not completed.
+- Independently reran exact reviewed P2 core/proof/interface suites 12+14+13=39 passing methods; source blob identities verified. 13 actual raw P2 producer-ledger-independent replay runs, including 2 high-cap retries. Nine 5s roundtrips pass; huge_long_active closure memory-censored at 512 MiB but verifies cost 10000 at 1536 MiB/30s. Huge_choice_active independent proof remains MemoryError even at 1536 MiB; no verified bound from that P2 run.
+- No operational ACCEPT, zero external attempts, no external learner or baseline source changes. No merge. Clean worktree CI still DNS-blocked, unified adapter transaction gate open. Exact source snapshots and archive hashes recorded in REVIEW02.md.
+
+| Commit | Checkpoint |
+|---|---|
+| 751b5db | Exact P2 core tests |
+| 7bd0673 | Enhanced archive runner |
+| d65c9ec | Cohort/repeat runner |
+| 442fe01 | Post-run result exporter |
+| 71253b1 | All 99 original planted measurements |
+| d790d1d | Actual P2 phase harness |
+| 0a3fd4f | 11 P2 phase records |
+| f64ec65 | 2 higher-cap P2 trials |
+| 7106ac4 | Independent proof/interface suites |
+| 41a9eaa | 12 serial repeats |
+| 10a89b3 | 9 selected long-budget runs |
+| 7f2897c | Input-hash/reference index |
+| 25a7ab0 | Review02 reproduction and limitations |
+
+See benchmarks/v2/REVIEW02.md and results/review02-*. Commit checkpoints are new measurements; previous review01 results retained unchanged.
