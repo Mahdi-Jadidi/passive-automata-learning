@@ -156,7 +156,7 @@ def main(core_dir,interface_dir,out):
         else:p['request']['attempt_id']='rebound'
         wb=canonical(p);z['wire_hex']=wb.hex();z['wire_sha256']=sha(wb);reject(lambda:replay_bundle(raw,canonical(z),reg));corrupted+=1
     z=json.loads(b2);p=z['observation']['payload'];p['dfas'][0]['transitions'].pop();wb=canonical(p);z.update(wire_hex=wb.hex(),wire_sha256=sha(wb));reject(lambda:replay_bundle(raw,canonical(z),registrations['r-accept','a-accept']));corrupted+=1
-    # Actual adapter rejects incorrect origin, duplicate delivery, bad table, untrusted external.
+    # Actual adapter rejects incorrect origin, duplicate delivery, bad table and duplicate keys.
     for kind in ('origin','table','duplicate-key'):
         qx,rx=register([0,1,2],'r-'+kind,'a-'+kind);before=adapter.records
         px=payload(qx,'PROJECTION_NO',origin='EXTERNAL' if kind=='origin' else 'SIMULATOR',failed=0,tables=tables())
@@ -164,6 +164,16 @@ def main(core_dir,interface_dir,out):
         wirex=b'{"status":"NO","status":"ACCEPT"}' if kind=='duplicate-key' else canonical(px)
         check(adapter.ingest(qx['request_id'],qx['attempt_id'],wirex).status=='UNKNOWN' and adapter.records==before and adapter.attempt_status(qx['request_id'],qx['attempt_id'])=='UNKNOWN','adapter atomic rejection')
     before=adapter.records;check(adapter.ingest('r-no','a-no',canonical(wire)).status=='UNKNOWN' and adapter.records==before,'replayed attempt appended')
+    # No trusted transport exists: an EXTERNAL response without a mock authenticator
+    # must close UNKNOWN; an empty receipt must fail even in a simulator.
+    untrusted=RegisteredLedger(raw)
+    uq=untrusted.register([0,1,2],'r-untrusted','a-untrusted',origin='EXTERNAL')
+    uraw=canonical(payload(uq,'PROJECTION_NO','EXTERNAL','unverified',failed=0,tables=tables()))
+    check(untrusted.ingest('r-untrusted','a-untrusted',uraw).status=='UNKNOWN' and not untrusted.records and untrusted.attempt_status('r-untrusted','a-untrusted')=='UNKNOWN','untrusted external accepted')
+    mq=untrusted.register([0,1,2],'r-malformed-receipt','a-malformed-receipt')
+    mraw=canonical(payload(mq,'PROJECTION_NO',receipt='',failed=0,tables=tables()))
+    check(untrusted.ingest('r-malformed-receipt','a-malformed-receipt',mraw).status=='UNKNOWN' and not untrusted.records and untrusted.attempt_status('r-malformed-receipt','a-malformed-receipt')=='UNKNOWN','empty receipt accepted')
+    print('untrusted_external_receipt=REJECTED malformed_receipt=REJECTED')
     # Reproduce real cross-stream gaps, with actual adapter artifacts.
     qx,rx=register([0,1,2],'r-reused-global','a-no');px=payload(qx,'PROJECTION_NO',failed=0,tables=tables());res=adapter.ingest(qx['request_id'],qx['attempt_id'],canonical(px));check(res.status=='PROJECTION_NO','global reuse gap changed')
     tx=replay_bundle(raw,res.record,registrations['r-reused-global','a-no']);before=ledger.records
