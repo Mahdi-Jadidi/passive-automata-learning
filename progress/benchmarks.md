@@ -26,3 +26,24 @@ Remote Git blob hashes matched locally executed harness.py (2fe8790651e357ebb124
 4. Controlled repeats and ablations after integration and proof gate. External service and bounded mode remain owner-confirmed contract dependencies.
 
 Review limitation: local source simulator runtime instrumentation is not tested end-to-end in this runtime. Reference smoke verifies the harness subprocess/replay and logical isolation only; it is not a security sandbox. No claim of production-scale benchmark completion. Timeout smoke depends on host speed and one-second startup allowance; censored worker RSS is null. No changes to baseline source, external black box, main, or other streams.
+
+
+## Issue #10 / integration review 01 — validated follow-up
+
+- Reviewed P1 core ref 822a45084dcad4f21f09c445802d12c1312e331a; baseline pin 7c90eb59561bd25ec4fdca5ac08b0e5d60d17fd6. Exact source files verified by Git blob SHA. Clean worktree still blocked by DNS; recovered exact source snapshots used instead. Seven exact core tests PASS, 11.612 s (13.05 s full wall), peak 216560 KiB with tracemalloc. Four exact benchmark tests PASS 0.056 s; updated harness 4 PASS 0.058 s. Third smoke suite 8 VERIFIED, one censored TIMEOUT.
+- Library recovery: full original planted ZIP, enhanced ZIP and handoff ZIP recovered, checksummed. 41 archive records / 33 unique byte-identical inputs; extraction repeated with identical manifest SHA-256 49d09e6632ea0af6e6db6e392459a52fb2dfc6f8d3f647d2be92c0d81b1a6381. Split upload aliases denied raw materialization; original full archive available. Legacy six required module bytes match the pin; sample.py and search.py require only line-ending normalization to attain exact Git blobs. Three bundled legacy inputs recovered with matching Git blobs and reference labels separated; scale raw fixture byte-identical.
+- Same-host 5s/512 MiB AS paired tests on nine recovered raw inputs: legacy four verified optima, three INCOMPLETE, two Python MemoryError at dense singleton mask construction; P1 five independent structural optimum replays, four lower-bound-only (HDFS/holdout/path8/tiny_choice). Both 100k original planted cases have verified cost 10000/90000 blocks; not substituted synthetic cases. Also two separate synthetic 100k core test constructions independently verified. Legacy targeted tiny_choice one query, 237 JSON bytes, exact transcript reconciliation. Actual simulator interruption test 3 attempted calls, 2 replies (128+93 bytes), last attempt only. Four selected sparse replay mutations rejected. No external calls; operational INCOMPLETE.
+- New code is only in benchmarks/v2; no production schema or proof-agent changes. No merge.
+
+| Commit | Checkpoint |
+|---|---|
+| cf008c5 | Exact reviewed Python tests and third smoke execution |
+| edc550d | Pinned sparse-core worker, scoped independent replay |
+| cf37670 | Six measured sparse results including synthetic and incomplete |
+| 05952d4 | Exact legacy snapshot gate and simulator telemetry reconciliation |
+| 4c92f49 | Recover original archives and input/reference checksum inventory |
+| 7406ad1 | Nine actual paired cases + targeted instrumentation |
+| 085ba76 | Actual simulator and replay mutation checks |
+| b4ca57f | Reproducible commands, archive digests, comparison limitations |
+
+Full details: benchmarks/v2/ISSUE10.md, results/issue10-python-rerun.md, results/issue10-sparse.csv, results/issue10-paired.csv. Next gates: remaining 28 planted instances, repeated 5/30 s controlled comparisons, enhanced variant run, clean checkout CI, shared P2 schema integration and live external transport. Not a full end-to-end optimizer claim.
