@@ -43,3 +43,12 @@ Scope and limitations:
 - The updated source blob e1fc61b still needs the benchmark rerun and core combined runner repin.
 - Replay caps are cooperative work/index/word/deadline limits, not hard process RSS bounds.
 - No operational acceptance.
+
+Additional process-level measurement (Python 3.13.5, same exact source/test blobs):
+  /usr/bin/time -f 'normal_maxrss_kib=%M elapsed_s=%e' python -m unittest -q test_bounded_deletion
+  unittest: 6 tests, 0.371 s, OK
+  normal_maxrss_kib=109708 elapsed_s=1.27
+  /usr/bin/time -f 'optimized_maxrss_kib=%M elapsed_s=%e' python -O -m unittest -q test_bounded_deletion
+  unittest: 6 tests, 0.401 s, OK
+  optimized_maxrss_kib=109580 elapsed_s=1.27
+These process RSS values include interpreter startup and the exhaustive/randomized test harness, not an isolated 20k-word kernel allocation.
