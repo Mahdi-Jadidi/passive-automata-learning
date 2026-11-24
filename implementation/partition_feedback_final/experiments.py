@@ -47,10 +47,13 @@ def check(data):
     expected = {"hdfs_1024": 27, "cover_path_8": 12, "rank_order": 1, "rank_triple": 1, "exam_multi": 2}
     for name, count in expected.items():
         D = data[name]
-        result = solve(D, transcript=True)
+        result = solve(D, transcript=True, rank_limit=None if name == "rank_triple" else 0)
         assert result["max_devices"] == count and verify(D, result)["status"] == "VERIFIED"
         save(name, {"input": D, "result": result, "verdict": "VERIFIED"})
-    assert solve(data["rank_triple"])["certificate"]["kind"] == "rank"
+    assert solve(data["rank_triple"])["certificate"]["kind"] == "triple"
+    rank_case = sample("abcd", ["a", "b", "c", "d"], [""])
+    result = solve(rank_case, rank_limit=None)
+    assert result["certificate"]["kind"] == "rank" and verify(rank_case, result)["status"] == "VERIFIED"
     assert solve(data["rank_triple"], rank_limit=0)["max_devices"] == 1
     hard = solve(data["hdfs_1024"])
     hard["certificate"]["failures"].pop()

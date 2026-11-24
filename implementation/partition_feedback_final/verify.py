@@ -152,9 +152,7 @@ class Replay:
         symbols = sorted(elements(self.full))
         positives = list(dict.fromkeys(self.pos))
         negatives = list(dict.fromkeys(self.neg[i] for i in unresolved))
-        require(len(positives) * len(negatives) <= 4096, "rank comparison limit exceeded")
         families, labels = [], []
-        size = 1
         for i, y in enumerate(negatives):
             seen = set()
             for x in positives:
@@ -170,8 +168,6 @@ class Replay:
                 if atoms in seen:
                     continue
                 seen.add(atoms)
-                size *= len(atoms)
-                require(size <= 4096, "rank choice limit exceeded")
                 families.append(atoms)
                 labels.append(i)
         best = 0
@@ -208,7 +204,7 @@ class Replay:
             if kind == "pair":
                 require(cost == 1, "incorrect pair cost")
             else:
-                require(kind == "two-pairs" and cost == 2, "incorrect two-pair cost")
+                require(kind in ("two-pairs", "triple") and cost == 2, "incorrect two-pair cost")
                 pending = {sum(1 << a for a in pair) for pair in combinations(elements(self.full), 2)}
                 for block, i, j in proof["failures"]:
                     self.tick()

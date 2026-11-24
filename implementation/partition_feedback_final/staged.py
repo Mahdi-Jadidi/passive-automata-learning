@@ -4,16 +4,16 @@ import json
 from pathlib import Path
 from time import perf_counter
 
-from hybrid import RANK_LIMIT, discrepancy_families, pair_scan, rank_answer, singleton_analysis
+from hybrid import discrepancy_families, pair_scan, rank_answer, singleton_analysis
 from sample import DeadlineExpired, deadline, read_sample
 from search import fingerprint, solve as solve_feedback
 
 
-def solve(D, *, seconds=None, transcript=False, mode="hybrid", rank_limit=RANK_LIMIT, **options):
+def solve(D, *, seconds=None, transcript=False, mode="hybrid", rank_limit=0, **options):
     if mode not in ("hybrid", "targeted"):
         raise ValueError("unknown analysis mode")
-    if type(rank_limit) is not int or not 0 <= rank_limit <= RANK_LIMIT:
-        raise ValueError(f"rank_limit must be between 0 and {RANK_LIMIT}")
+    if rank_limit is not None and (type(rank_limit) is not int or rank_limit < 0):
+        raise ValueError("rank_limit must be a nonnegative integer or None")
     start = perf_counter()
     tick = deadline(seconds)
     stats = {"selection": {"regular_calls": 0, "diagnostic_calls": 0}}
@@ -36,12 +36,13 @@ def solve(D, *, seconds=None, transcript=False, mode="hybrid", rank_limit=RANK_L
             answer, kind = root, "singleton"
         elif mode == "hybrid" and options.get("oracle") is None and root and set(positives).isdisjoint(negatives):
             began = perf_counter()
-            scanned = pair_scan(root, positives, negatives, unresolved, tick)
+            scanned = pair_scan(root, positives, negatives, unresolved, tick,
+                                include_triples=rank_limit == 0)
             stats["pair_seconds"] = perf_counter() - began
             if scanned is not None:
                 answer, kind, failures = scanned
                 seed = answer
-            if kind is None and rank_limit:
+            if kind is None and rank_limit != 0:
                 began = perf_counter()
                 rows = discrepancy_families(positives, negatives, unresolved, tick, rank_limit)
                 if rows is not None:
@@ -49,11 +50,11 @@ def solve(D, *, seconds=None, transcript=False, mode="hybrid", rank_limit=RANK_L
                 stats["rank_seconds"] = perf_counter() - began
         if kind:
             proof = {"kind": kind, "digest": fingerprint(D)}
-            if kind == "two-pairs":
+            if kind in ("two-pairs", "triple"):
                 proof["failures"] = failures
             result = {"status": "OPTIMAL", "max_devices": len(answer), "certificate": proof,
                       "blocks": [[a for i, a in enumerate(sigma) if (1 << i) & b] for b in answer]}
-            rule = {"singleton": "A11", "pair": "A13", "two-pairs": "A13", "rank": "A14"}[kind]
+            rule = {"singleton": "A11", "pair": "A13", "two-pairs": "A13", "triple": "A13", "rank": "A14"}[kind]
             events.append({"rule": rule, "blocks": answer, "certificate_kind": kind})
             if transcript:
                 result["transcript"] = {"queries": [], "events": events}
@@ -80,11 +81,13 @@ def main():
     parser.add_argument("--query-limit", type=int)
     parser.add_argument("--diagnostics", type=int, default=0)
     parser.add_argument("--mode", choices=("hybrid", "targeted"), default="hybrid")
+    parser.add_argument("--rank", action="store_true", help="use uncapped exact witness rank after low-cost checks")
     parser.add_argument("--transcript", action="store_true")
     args = parser.parse_args()
     data = json.loads(args.sample.read_text(encoding="utf-8-sig"))
     print(json.dumps(solve(data, seconds=args.seconds, diagnostic_limit=args.diagnostics,
-                           query_limit=args.query_limit, transcript=args.transcript, mode=args.mode)))
+                           query_limit=args.query_limit, transcript=args.transcript, mode=args.mode,
+                           rank_limit=None if args.rank else 0)))
 
 
 if __name__ == "__main__":

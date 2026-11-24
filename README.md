@@ -4,7 +4,7 @@
 
 The exact hybrid algorithm returns one compatible alphabet partition with a maximum number of blocks and an independently replayable certificate.
 
-- [Mentor guide and reproduction commands](implementation/partition_feedback_final/MENTOR_AGENT_FA.md)
+- [Current research status, results, and reproduction](implementation/partition_feedback_final/README.md)
 - [English decision rules, proofs and evidence](output/pdf/Partition_Decision_Rules_Final_EN.pdf)
 - [HDFS-1024 certificate](implementation/partition_feedback_final/evidence/hdfs_1024.json) and [eight-vertex path certificate](implementation/partition_feedback_final/evidence/cover_path_8.json)
 

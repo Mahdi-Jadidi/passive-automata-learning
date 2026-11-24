@@ -105,7 +105,7 @@ def deletion_candidates(x, y, counts_x, counts_y, tick, order_sensitive):
         yield base | sum(1 << a for a in nonisolated if a not in independent)
 
 
-def analyze(D, tick, *, enabled, order_sensitive, work_limit=12000, encoded=None, covered=None):
+def analyze(D, tick, *, enabled, order_sensitive, work_limit=None, encoded=None, covered=None):
     Sigma, positives, negatives = read_sample(D, tick) if encoded is None else encoded
     covered = {} if covered is None else covered
     full = (1 << len(Sigma)) - 1
@@ -149,7 +149,7 @@ def analyze(D, tick, *, enabled, order_sensitive, work_limit=12000, encoded=None
                 break
             for x, j in positive_ids.items():
                 tick()
-                if comparisons >= work_limit:
+                if work_limit is not None and comparisons >= work_limit:
                     truncated = True
                     break
                 comparisons += 1

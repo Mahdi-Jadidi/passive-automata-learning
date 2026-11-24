@@ -5,10 +5,6 @@ from itertools import combinations
 from model import merge, ordered
 
 
-RANK_LIMIT = 4096
-PAIR_SCAN_LIMIT = 10_000_000
-
-
 def singleton_analysis(sigma, positives, negatives, tick):
     values = [set() for _ in sigma]
     for word in dict.fromkeys(positives):
@@ -27,18 +23,13 @@ def singleton_analysis(sigma, positives, negatives, tick):
     return coverage
 
 
-def pair_scan(root, positives, negatives, unresolved, tick):
+def pair_scan(root, positives, negatives, unresolved, tick, *, include_triples=True):
     positive_ids = {}
     for j, word in enumerate(positives):
         positive_ids.setdefault(word, j)
     negative_ids = {}
     for i in unresolved:
         negative_ids.setdefault(negatives[i], i)
-    if len(root) * (len(root) - 1) // 2 * sum(
-        len(word) + 1 for word in (*positive_ids, *negative_ids)
-    ) > PAIR_SCAN_LIMIT:
-        return None
-
     hits, failures = {}, []
     for left, right in combinations(root, 2):
         tick()
@@ -71,6 +62,23 @@ def pair_scan(root, positives, negatives, unresolved, tick):
             answer = ordered([left, right, *(b for b in root if not b & (left | right))])
             return answer, "two-pairs", failures
 
+    triples = combinations(root, 3) if include_triples else ()
+    for atoms in triples:
+        tick()
+        block = atoms[0] | atoms[1] | atoms[2]
+        symbols = {atom.bit_length() - 1 for atom in atoms}
+        images = set()
+        for word in positive_ids:
+            tick()
+            images.add(tuple(a for a in word if a in symbols))
+        for word in negative_ids:
+            tick()
+            if tuple(a for a in word if a in symbols) in images:
+                break
+        else:
+            answer = ordered([block, *(a for a in root if not a & block)])
+            return answer, "triple", failures
+
     # Produce an optional compatible incumbent for the general search.
     remaining = target.copy()
     used, chosen = 0, []
@@ -91,7 +99,7 @@ def discrepancy_families(positives, negatives, unresolved, tick, limit):
     xs = list(dict.fromkeys(positives))
     ys = {negatives[i]: None for i in unresolved}
     # Debit at least one unit per comparison even if alternatives are forced.
-    if len(xs) * len(ys) > limit:
+    if limit is not None and len(xs) * len(ys) > limit:
         return None
     rows = {}
     size = 1
@@ -111,9 +119,10 @@ def discrepancy_families(positives, negatives, unresolved, tick, limit):
             assert alternatives
             key = tuple(sorted(alternatives))
             if key not in families:
-                size *= len(key)
-                if size > limit:
-                    return None
+                if limit is not None:
+                    size *= len(key)
+                    if size > limit:
+                        return None
                 families[key] = None
         row = tuple(families)
         if row:
