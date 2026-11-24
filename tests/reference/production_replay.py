@@ -128,7 +128,7 @@ def check_cursor(cursor, X, Y, facts):
     require(not facts or (stage == 'negative' and all(i <= at for i, _, _ in facts)), 'cursor before emitted facts')
 
 
-def replay_closure(raw, scope, closure, structural_records=()):
+def replay_closure(raw, scope, closure, structural_records=(), *, allow_prefix=False):
     """Verify exact serialized closure and optional structural records.
     Scope must be supplied independently. PARTIAL remains partial; no frontier,
     external receipt, bounded feasibility or operational optimality is certified.
@@ -187,6 +187,8 @@ def replay_closure(raw, scope, closure, structural_records=()):
         if state == 'PARTIAL': terminal = 'PARTIAL'
         elif not r['edges']: terminal = 'FIXPOINT'
         epoch += 1
+    if terminal is None and allow_prefix:
+        terminal = 'OPEN'
     require(terminal is not None and closure['state'] == terminal, 'missing or false terminal state')
     final = forest.owner()
     require(final == claimed_owner, 'wrong final owner')
