@@ -41,6 +41,7 @@ def replay_journal(raw,scope,journal_bytes,*,expected_records=None,deletion_budg
     The optional expected projection must match, never supplies missing evidence.
     Returned proof is structural only. All registered candidates remain pending.
     """
+    if deletion_budget is None:deletion_budget=DeletionBudget()
     _,_,_,sd=sample_data(raw);scope_v1(scope,sd)
     j=strict_bytes(journal_bytes);fields(j,'version sample_digest events')
     require(j['version']==JOURNAL_VERSION and j['sample_digest']==sd,'journal binding')
@@ -105,7 +106,10 @@ def verify_journal(raw,scope,journal_bytes,*,expected_records=None,deletion_budg
         if deletion_budget is None:deletion_budget=DeletionBudget()
         result=replay_journal(raw,scope,journal_bytes,expected_records=expected_records,deletion_budget=deletion_budget)
         return dict(status='VERIFIED',result=result,operational_status='INCOMPLETE')
-    except (ReplayIncomplete,MemoryError,RecursionError) as exc:
+    except (ReplayIncomplete,MemoryError,RecursionError,TimeoutError,InterruptedError) as exc:
         return dict(status='INCOMPLETE',reason=str(exc) or type(exc).__name__,operational_status='INCOMPLETE')
     except (ValueError,TypeError,KeyError,IndexError,OverflowError,AttributeError) as exc:
+        cause=exc.__cause__ or exc.__context__
+        if isinstance(cause,(ReplayIncomplete,MemoryError,RecursionError,TimeoutError,InterruptedError)):
+            return dict(status='INCOMPLETE',reason=type(cause).__name__,operational_status='INCOMPLETE')
         return dict(status='INVALID',reason=str(exc),operational_status='INCOMPLETE')
