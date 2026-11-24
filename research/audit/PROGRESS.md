@@ -81,3 +81,7 @@ Next: after core schema freeze, bind these references to producer artifacts, the
 ## D. Disposition
 
 No counterexample found to the stated core theorems under their hypotheses. Several strong but tempting generalizations were refuted above. Do not promote the reference checkpoint to a production verifier: actual serialized schema, authenticated evaluator evidence, production proof logging and replay, and scalable exhaustive verification remain open. The finite sweeps complement the mathematical proofs; they do not establish asymptotic performance, publication novelty or external ACCEPT.
+
+## P2 follow-up — issue #10
+
+See [P2_REPLAY.md](P2_REPLAY.md) for the production-schema and typed-ledger replay implementation, 14 executed Python tests, 126 counted corrupt-record cases, 2,187-corpus exhaustive validation, synthetic scale results and remaining integration gates. Draft PR #8 remains unmerged.
