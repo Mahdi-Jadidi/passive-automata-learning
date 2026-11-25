@@ -123,13 +123,10 @@ def bench(args, config, root, raw, journal, scope, producer, verifier, python_mo
                 return
         record.update(status="INCOMPLETE", reason="verifier emitted no consistent verdict")
 
-    def produce(name, entries=None, resume=None):
+    def produce(name, resume=None, **overrides):
         proof = root / name / "certificate.json"
         metrics = proof.with_name("metrics.json")
-        overrides = dict(values, certificate=proof, metrics=metrics)
-        if entries is not None:
-            overrides["producer_entries"] = entries
-        argv = flags(config, "producer", overrides)
+        argv = flags(config, "producer", dict(values, certificate=proof, metrics=metrics) | overrides)
         if resume:
             argv += ["--resume", str(resume)]
         workdir, record = phase(name, cli(python_mode, producer.parent, "selector_v2.edr_search", argv))
@@ -149,6 +146,13 @@ def bench(args, config, root, raw, journal, scope, producer, verifier, python_mo
                               unresolved_suffixes=sum(node["kind"] == "SPLIT" and
                                                        node["cursor"] < node["alternative_count"]
                                                        for node in cert["nodes"]))
+                if getattr(args, "experiment", False):
+                    record["proof_format"] = cert["format"]
+                    record["split_rules"] = {}
+                    for node in cert["nodes"]:
+                        if node["kind"] == "SPLIT":
+                            rule = node["rule"]
+                            record["split_rules"][rule] = record["split_rules"].get(rule, 0) + 1
                 return proof
         stdout = read_result(workdir / f"{name}.stdout")
         stderr = read_result(workdir / f"{name}.stderr")
@@ -166,13 +170,27 @@ def bench(args, config, root, raw, journal, scope, producer, verifier, python_mo
         direct.append(phases[f"producer-{i}"])
         verify(f"verifier-{i}", proof)
 
-    checkpoint = produce("checkpoint", entries=1)
+    checkpoint = produce("checkpoint", producer_entries=1)
     checkpoint_status = phases["checkpoint"]["status"]
     if checkpoint_status == "PARTIAL":
         verify("checkpoint-verifier", checkpoint)
         resumed = produce("resumed", resume=checkpoint)
         verify("resumed-verifier", resumed)
         resume_status = compare_certificates(direct[0], phases["resumed"])
+        if getattr(args, "audit", False):
+            prefix = phases["checkpoint"]["native"]
+            equal_work = limits["producer_work"] - prefix["work"]
+            equal_frontier = limits["frontier_bytes"] - prefix["frontier_bytes"]
+            equal_entries = limits["producer_entries"] - prefix["entries"]
+            for name, caps in (
+                ("cumulative-frontier", dict(frontier_bytes=equal_frontier,
+                                             producer_entries=equal_entries)),
+                ("cumulative-work", dict(frontier_bytes=equal_frontier,
+                                         producer_entries=equal_entries, producer_work=equal_work)),
+            ):
+                adjusted = produce(name, resume=checkpoint, **caps)
+                verify(name + "-verifier", adjusted)
+                phases[name]["fresh_comparison"] = compare_certificates(direct[0], phases[name])
     else:
         resume_status = "NOT NEEDED" if checkpoint_status == "EXHAUSTED" else "CENSORED"
 
@@ -207,14 +225,21 @@ def main():
     parser.add_argument("--case", required=True, choices=load_manifest(MANIFEST))
     parser.add_argument("--memory-mib", required=True, type=int, choices=(512, 1536))
     parser.add_argument("--output", required=True, type=Path)
+    parser.add_argument("--config", type=Path, default=CONFIG)
     args = parser.parse_args()
-    config = json.loads(CONFIG.read_bytes())
+    run_case(args)
+
+
+def run_case(args):
+    config = json.loads(args.config.read_bytes())
     limits = config["limits"]
     root = args.output.resolve()
     root.mkdir(parents=True)
     raw, journal, scope = (root / name for name in ("raw.json", "journal.json", "trusted.json"))
-    data = (INPUTS / f"{args.case}.json").read_bytes()
-    row = load_manifest(MANIFEST)[args.case]
+    fixture = getattr(args, "fixture", None)
+    data = (fixture or INPUTS / f"{args.case}.json").read_bytes()
+    row = (load_manifest(MANIFEST)[args.case] if fixture is None else
+           {"alphabet": len(json.loads(data)["alphabet"]), "input_sha256": hashlib.sha256(data).hexdigest()})
     if hashlib.sha256(data).hexdigest() != row["input_sha256"]:
         raise ValueError("raw fixture differs from manifest")
     validate_raw_input(data)
@@ -224,10 +249,12 @@ def main():
     stage_sources(args.producer_root.resolve(), config["sources"]["producer"], producer)
     stage_sources(args.verifier_root.resolve(), config["sources"]["verifier"], verifier)
     summary = dict(case=args.case, address_space_mib=args.memory_mib, limits=limits,
-                   sources=config["sources"], config=artifact(CONFIG), manifest=artifact(MANIFEST),
+                   sources=config["sources"], config=artifact(args.config),
+                   manifest=artifact(MANIFEST) if fixture is None else None,
                    fixture=row, raw=artifact(raw), host=platform.platform(), python=sys.version,
                    hash_seed=0, operational_status="INCOMPLETE", runs=[])
-    argv = [sys.executable, "-B", "-P", "-c", MAKE_JOURNAL, str(verifier), str(raw), str(journal)]
+    journal_code = getattr(args, "journal_code", MAKE_JOURNAL)
+    argv = [sys.executable, "-B", "-P", "-c", journal_code, str(verifier), str(raw), str(journal)]
     extra_env = {"PYTHONPATH": "", "PYTHONHOME": ""}
     summary["journal_phase"] = run_stage(argv, root, "journal", limits["wall_seconds"],
                                          args.memory_mib, "normal", extra_env=extra_env)
@@ -242,8 +269,14 @@ def main():
     summary["scope"] = artifact(scope)
     if summary.get("scope_phase", {}).get("returncode") == 0 and summary["scope"]:
         trusted = json.loads(scope.read_bytes())
-        if trusted["root_owner"] != list(range(row["alphabet"])):
-            raise ValueError("empty journal did not replay to identity root")
+        contracted = trusted["root_owner"] != list(range(row["alphabet"]))
+        if contracted != (fixture is not None):
+            raise ValueError("journal replay returned unexpected root kind")
+        if fixture is not None:
+            summary["root_owner"] = trusted["root_owner"]
+            summary["journal_events"] = len(json.loads(journal.read_bytes())["events"])
+            if not summary["journal_events"]:
+                raise ValueError("nonempty journal experiment has no events")
         summary["base_lower_bound"] = row["alphabet"] - len(set(trusted["root_owner"]))
         for mode in ("one", "all"):
             pair = []
@@ -265,6 +298,7 @@ def main():
               run["determinism"], run["checkpoint_resume"], run["normal_optimized_parity"], flush=True)
     if not summary["runs"]:
         print(args.case, summary["status"], summary["reason"], flush=True)
+    return summary
 
 
 if __name__ == "__main__":
