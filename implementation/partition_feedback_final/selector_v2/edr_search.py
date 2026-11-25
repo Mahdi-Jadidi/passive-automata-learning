@@ -162,9 +162,9 @@ def solve(raw, scope, mode="one", *, caps=None, checkpoint=None):
     """
     if mode not in ("one","all"):
         raise ValueError("mode")
+    budget = SearchBudget(caps)
     sample, root = validate_scope(raw,scope)
     sd = digest(scope)
-    budget = SearchBudget(caps)
     if checkpoint is None:
         table = {"root":open_node("root",None,dict(kind="ROOT"))}
         best = None
@@ -202,7 +202,7 @@ def solve(raw, scope, mode="one", *, caps=None, checkpoint=None):
         if best is None or cost < best["cost"]:
             best = dict(owner=list(owner),cost=cost)
             winners = {owner}
-        elif cost == best["cost"]:
+        elif cost == best["cost"] and mode=="all":
             winners.add(owner)
 
     def finish():
@@ -340,6 +340,12 @@ def solve(raw, scope, mode="one", *, caps=None, checkpoint=None):
             raise ValueError("orphan checkpoint nodes")
     except SearchCapExceeded as exc:
         stop = REASONS[exc.cap]
+    # A cap at the final stack unwind must not create a false PARTIAL.
+    # Every unresolved region is explicitly OPEN or represented by a suffix.
+    unresolved = any(q["kind"]=="OPEN" or (q["kind"]=="SPLIT" and
+                     q["cursor"]<q["alternative_count"]) for q in table.values())
+    if not unresolved:
+        stop = None
     if stop:
         for q in table.values():
             if q["kind"]=="OPEN":
