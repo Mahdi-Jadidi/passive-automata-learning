@@ -1,0 +1,86 @@
+{
+  "schema": "p3-native-benchmark/2",
+  "sources": {
+    "producer": {
+      "commit": "9a361f6fa59414cc0ac262154d87c37f5aed0403",
+      "directory": "implementation/partition_feedback_final/selector_v2",
+      "blobs": {
+        "edr_search.py": "73da7bea551df73a8676b0adf0401cd7f2d307b5",
+        "edr_bb.py": "657c4e0e4059b32cd9e6477e61c7a3673290f36d",
+        "core.py": "997304c3adce9d3148d454b079639575f419ba0e",
+        "edr_m3.py": "6dd0bdbc2d9436c2eeb15cc0812cf8a6fcf18655",
+        "edr_cross.py": "c82e137d277644e6d880fb4295b674d897ef70d1"
+      }
+    },
+    "verifier": {
+      "commit": "f24d34c6e812b23c3dbe8953a6f592653b44958e",
+      "directory": "tests/reference",
+      "blobs": {
+        "p3_frontier_verifier.py": "2f66ef48353ce3c240e359b797b72bea352b2fc9",
+        "independent_replay.py": "aa09243fa7ccc941c37609e959aefb419075df32",
+        "journal_v2_replay.py": "6c49013e809b5ac4d2b2a37850e6e6cece513072",
+        "bounded_deletion.py": "e1fc61b6f03484d4428642ca157e2dac43f0572d",
+        "production_replay.py": "4666c3f1aca6189331a83ff2f00de0e376e2a710",
+        "ledger_replay.py": "0b615b6c17258e621d73147baa262d791985d8d0",
+        "interface_artifact_replay.py": "51f928ee2311ab8995f88f0e9f195ac7c659e469"
+      }
+    }
+  },
+  "limits": {
+    "wall_seconds": 30,
+    "cooperative_seconds": 25,
+    "producer_work": 10000000,
+    "producer_entries": 2000000,
+    "frontier_bytes": 67108864,
+    "verifier_work": 200000000,
+    "verifier_nodes": 2000001,
+    "verifier_entries": 2000001,
+    "proof_bytes": 134217728,
+    "verifier_exact_checks": 20000000,
+    "verifier_depth": 10000,
+    "raw_bytes": 67108864,
+    "journal_bytes": 67108864
+  },
+  "producer": [
+    "--raw",
+    "{input}",
+    "--scope",
+    "{scope}",
+    "--mode",
+    "{mode}",
+    "--out",
+    "{certificate}",
+    "--metrics",
+    "{metrics}",
+    "--seconds",
+    "{cooperative_seconds}",
+    "--work",
+    "{producer_work}",
+    "--entries",
+    "{producer_entries}",
+    "--frontier-bytes",
+    "{frontier_bytes}",
+    "--split-rule",
+    "CROSS_SUPPORT_LEX_V1"
+  ],
+  "verifier": [
+    "--raw",
+    "{input}",
+    "--journal",
+    "{journal}",
+    "--scope",
+    "{scope}",
+    "--proof",
+    "{certificate}"
+  ],
+  "scope": [
+    "--make-trusted-scope",
+    "--raw",
+    "{input}",
+    "--journal",
+    "{journal}",
+    "--out",
+    "{scope}"
+  ],
+  "producer_module": "selector_v2.edr_m3"
+}

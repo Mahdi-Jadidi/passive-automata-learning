@@ -2,6 +2,7 @@
 import argparse
 import json
 from pathlib import Path
+from types import SimpleNamespace
 
 from p3_harness import load_manifest
 from p3_native import CONFIG, MANIFEST, run_case
@@ -84,23 +85,31 @@ def main():
         args.fixture.write_bytes(json.dumps(JOURNAL_RAW, separators=(",", ":")).encode())
         args.journal_code = JOURNAL_CODE
         args.audit = False
-    args.output, args.config = output / "m2", CONFIG
-    baseline = run_case(args)
-    candidate = None
+    arms = [("m2", CONFIG, args.producer_root, args.verifier_root)]
     if args.m3_config:
-        args.output, args.config = output / "m3", args.m3_config
-        args.producer_root, args.verifier_root = args.m3_producer_root, args.m3_verifier_root
-        candidate = run_case(args)
+        arms.append(("m3", args.m3_config, args.m3_producer_root, args.m3_verifier_root))
+        # Alternate which arm runs first across fixtures and profiles.
+        position = (*load_manifest(MANIFEST), JOURNAL_CASE).index(args.case)
+        if (position + (args.memory_mib == 512)) % 2:
+            arms.reverse()
+    results = {}
+    for arm, config, producer, verifier in arms:
+        options = dict(vars(args), output=output / arm, config=config, arm_order=[a[0] for a in arms],
+                       producer_root=producer, verifier_root=verifier)
+        results[arm] = run_case(SimpleNamespace(**options))
+    if "m3" in results:
+        baseline, candidate = results["m2"], results["m3"]
         for name in ("raw", "journal", "scope"):
             if baseline[name] != candidate[name]:
                 raise ValueError(f"paired {name} differs")
-        for run in candidate["runs"]:
-            proof = run["phases"]["producer-1"]
-            if proof.get("certificate") and proof["proof_format"] != "p3-region-frontier/v2":
-                raise ValueError("M3 did not produce the opt-in wire format")
-    for result in (baseline, candidate):
-        if result is None:
-            continue
+        for first, second in zip(baseline["runs"], candidate["runs"], strict=True):
+            for phase in second["phases"].values():
+                if phase.get("certificate") and phase["proof_format"] != "p3-region-frontier/v2":
+                    raise ValueError("M3 did not produce the opt-in wire format")
+            left, right = first["certified_result"], second["certified_result"]
+            if left and right and any(left[k] != right[k] for k in ("optimum", "optima")):
+                raise ValueError("paired verified optima disagree")
+    for result in results.values():
         if len(result["runs"]) != 4 or any(
             phase["status"] == "INVALID" for run in result["runs"] for phase in run["phases"].values()
         ):

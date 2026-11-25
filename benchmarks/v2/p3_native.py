@@ -129,7 +129,8 @@ def bench(args, config, root, raw, journal, scope, producer, verifier, python_mo
         argv = flags(config, "producer", dict(values, certificate=proof, metrics=metrics) | overrides)
         if resume:
             argv += ["--resume", str(resume)]
-        workdir, record = phase(name, cli(python_mode, producer.parent, "selector_v2.edr_search", argv))
+        module = config.get("producer_module", "selector_v2.edr_search")
+        workdir, record = phase(name, cli(python_mode, producer.parent, module, argv))
         record.update(certificate=artifact(proof), metrics_file=artifact(metrics))
         native = read_result(metrics)
         if record["returncode"] == 0 and native and record["certificate"]:
@@ -202,9 +203,17 @@ def bench(args, config, root, raw, journal, scope, producer, verifier, python_mo
     elif verdicts == ["EXHAUSTED", "EXHAUSTED", "VERIFIED", "VERIFIED"] and determinism == "MATCH":
         status = "VERIFIED"
     certified = phases["verifier-1"]["native"]["result"] if status == "VERIFIED" else None
-    return dict(mode=mode, python_mode=python_mode, status=status, phases=phases,
-                certified_result=certified, determinism=determinism,
-                checkpoint_resume=resume_status)
+    run = dict(mode=mode, python_mode=python_mode, status=status, phases=phases,
+               certified_result=certified, determinism=determinism, checkpoint_resume=resume_status)
+    if getattr(args, "experiment", False):
+        resumed = phases.get("resumed-verifier", {})
+        if certified and resumed.get("status") == "VERIFIED":
+            run["completed_resume"] = resume_status
+        elif checkpoint_status == "EXHAUSTED":
+            run["completed_resume"] = "NOT NEEDED"
+        else:
+            run["completed_resume"] = "NOT ESTABLISHED"
+    return run
 
 
 def compare_certificates(first, second, *, compare_metrics=False):
@@ -253,6 +262,8 @@ def run_case(args):
                    manifest=artifact(MANIFEST) if fixture is None else None,
                    fixture=row, raw=artifact(raw), host=platform.platform(), python=sys.version,
                    hash_seed=0, operational_status="INCOMPLETE", runs=[])
+    if hasattr(args, "arm_order"):
+        summary["arm_order"] = args.arm_order
     journal_code = getattr(args, "journal_code", MAKE_JOURNAL)
     argv = [sys.executable, "-B", "-P", "-c", journal_code, str(verifier), str(raw), str(journal)]
     extra_env = {"PYTHONPATH": "", "PYTHONHOME": ""}
