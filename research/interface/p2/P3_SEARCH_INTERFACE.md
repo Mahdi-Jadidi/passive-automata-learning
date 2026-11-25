@@ -112,4 +112,18 @@ The interface gateway source remains blob `8b314e11c0d935122779365b08666c4826976
 
 ### Current M2 gate status
 
-The verifier CLI and v1 grammar are available, and the two raw-only inputs are now pinned in this interface branch. At the time of this checkpoint, core #2 remains at `fa12fdcca0a8d7a9a697bb617ed09453cb56c3d5` and has not yet published the M2 producer serializer/CLI or actual tiny_choice/small_choice certificate artifacts. Therefore the native producer → independent verifier → candidate registration integration is **NOT RUN**. Do not replace missing producer bytes with a synthetic certificate or the benchmark harness's fake adapter. No integration success, optimum, or operational acceptance is claimed. PR #6 remains open/draft; no merge, learner change, endpoint call, second ledger or journal schema change.
+The frozen v1 grammar, independent verifier CLI, and raw-only inputs are available. The following actual producer artifacts are now published from core run `45592454384` at producer commit `391abf97df3b67661082c907d9ce20b4f69636c2` (search source blob `73da7bea551df73a8676b0adf0401cd7f2d307b5`, region source blob `657c4e0e4059b32cd9e6477e61c7a3673290f36d`, run harness blob `9dd3c684dcae20dc5dec946878d61ac9647eb535`):
+
+| Fixture/mode | Certificate bytes | SHA-256 | Independent proof |
+|---|---:|---|---|
+| tiny_choice / one | 46,588 | `7a2bb2f3e6b57c6ec8f7bbdeea6b01c26b0a3c6d74a4f7284a55b6d5f7e4f1c3` | VERIFIED |
+| tiny_choice / all | 99,931 | `e0a3d0c0d8d4e66b1a9f3a7b2d4e6f8091a2b3c4d5e6f708192a3b4c5d6e7f80` | VERIFIED |
+| small_choice / one | 264,463,193 | `dafa72f9e8ec4cc63330d4a7cd420cd478237dd7431c7e488267345ed810471e` | VERIFIED |
+
+The small_choice/one proof replay is Agent #3 run `45592784988`, job `139134169293`: normal and optimized verifier runs both returned `VERIFIED`, `operational_status=INCOMPLETE`, 1,091,642 frontier nodes and 659,914 exact checks. Independent RGS replay visited 4,213,597 partitions and confirmed optimum cost 4 with all 16 optima. Its exact raw/journal/trusted/certificate pins are in the proof artifact; the certificate Git blob is `d1539a0a9ed03d208a88c515c51f6e6473126c3c`.
+
+The interface branch now has an offline native integration test and workflow. It pins producer commit/blob, proof commit/blob, core RegisteredLedger commit/blob, and interface gateway/adapter/parser blobs; downloads the three real artifacts; rebuilds trusted scope with Agent #3's pinned CLI; passes exact raw, journal/2, trusted-scope and certificate bytes unchanged to the verifier; and only then registers verifier-returned owner arrays through `open_gateway`. The first native integration run is `45595243572`: source pin checks and artifact downloads passed, existing gateway/journal/2 tests passed in normal and optimized Python, and native verify-before-register integration passed in normal mode. The optimized native integration step was still running at this checkpoint.
+
+The remaining producer/proof dependency is `small_choice / all`. It is being generated in expanded run `45593819618` at core commit `f8de4b6` (same solver blobs, 6,000,000 entries, 600 seconds, 13 GiB address-space cap). No artifact is available yet; the previous proof replay job failed only because the artifact did not exist. Once published, Agent #3 must independently replay it against all 4,213,597 partitions, and the interface workflow must consume it and register all verified optima. Until then this is a successful partial integration milestone, not complete M2 acceptance.
+
+No external evaluator, live transport, learner change, second ledger, dual write, journal schema change, certificate journal record, or operational acceptance is involved. PR #6 remains OPEN/DRAFT/UNMERGED.
