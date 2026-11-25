@@ -57,7 +57,8 @@ def replay(case, mode, paths, *, proof_cap=64*1024**2, seconds=30):
 
     normal = read(paths["normal"], proof_cap)
     pins["normal"] = fingerprint(normal)
-    for variant in ("optimized", "resumed"):
+    variants = ("optimized", "resumed") if "resumed" in paths else ("optimized",)
+    for variant in variants:
         # An explicitly provided alias may reference the same retained payload.
         with paths[variant].open("rb") as stream:
             view = memoryview(normal)
@@ -105,7 +106,8 @@ def replay(case, mode, paths, *, proof_cap=64*1024**2, seconds=30):
              "literal RGS census mismatch")
     return dict(status="VERIFIED", operational_status="INCOMPLETE", case=case, mode=mode,
                 byte_pins=pins, limits=budgets, complete=complete, controls=controls,
-                root_owner=scope["root_owner"], census=census)
+                root_owner=scope["root_owner"], census=census,
+                completed_resume_status="VERIFIED" if "resumed" in pins else "NOT RUN")
 
 
 def main():
@@ -115,14 +117,19 @@ def main():
     parser.add_argument("--mode", choices=("one", "all"), required=True)
     parser.add_argument("--proof-cap", type=int, default=64*1024**2)
     parser.add_argument("--seconds", type=float, default=30)
-    keys = ("raw", "journal", "scope", "normal", "optimized", "checkpoint", "resumed")
+    keys = ("raw", "journal", "scope", "normal", "optimized", "checkpoint")
     for key in keys:
         parser.add_argument("--" + key, required=True, type=Path)
+    resume = parser.add_mutually_exclusive_group(required=True)
+    resume.add_argument("--resumed", type=Path)
+    resume.add_argument("--resume-unavailable", action="store_true")
     args = parser.parse_args()
     try:
         need(args.proof_cap >= 0, "negative proof byte cap")
-        out = replay(args.case, args.mode, {key: getattr(args, key) for key in keys},
-                     proof_cap=args.proof_cap, seconds=args.seconds)
+        paths = {key: getattr(args, key) for key in keys}
+        if args.resumed is not None:
+            paths["resumed"] = args.resumed
+        out = replay(args.case, args.mode, paths, proof_cap=args.proof_cap, seconds=args.seconds)
     except (Incomplete, MemoryError, TimeoutError, OSError) as exc:
         out = dict(status="INCOMPLETE", operational_status="INCOMPLETE", reason=str(exc))
     except (ValueError, TypeError, OverflowError) as exc:

@@ -68,6 +68,7 @@ jobs:
           if test "$CASE" = journal_root; then case_name=nonempty_journal; fi
           normal="incoming/normal/$CASE"
           optimized="incoming/optimized/$CASE"
+          require_resumed=$(jq -r '.require_resumed == true' evidence/source-pin.json)
           for name in raw.json journal.json trusted.json "$MODE.partial.json"; do
             cmp "$normal/$name" "$optimized/$name"
           done
@@ -76,7 +77,10 @@ jobs:
             if test "$variant" = optimized; then flags+=(-O); fi
             base="incoming/$variant/$CASE"
             resumed="$base/$MODE.resumed.json"
-            if ! test -f "$resumed"; then
+            resume_args=(--resumed "$resumed")
+            if ! test -f "$resumed" && test "$require_resumed" = false; then
+              resume_args=(--resume-unavailable)
+            elif ! test -f "$resumed"; then
               # Producer may retain only one copy if it publishes the exact
               # resumed size and hash in its immutable artifact manifest.
               digest=$(sha256sum "$base/$MODE.cert.json" | cut -d ' ' -f 1)
@@ -85,14 +89,14 @@ jobs:
                 --arg digest "$digest" --argjson bytes "$bytes" \
                 '.cases[$case].files[$name] == {bytes:$bytes,sha256:$digest}' \
                 "incoming/$variant/manifest.json"
-              resumed="$base/$MODE.cert.json"
+              resume_args=(--resumed "$base/$MODE.cert.json")
             fi
             /usr/bin/time -f 'wall=%e RSS_KiB=%M' -o "evidence/$variant.time" \
               python "${flags[@]}" tests/reference/p3_m3_artifact_replay.py \
                 --case "$case_name" --mode "$MODE" --seconds 60 \
                 --raw "$base/raw.json" --journal "$base/journal.json" --scope "$base/trusted.json" \
                 --normal "$normal/$MODE.cert.json" --optimized "$optimized/$MODE.cert.json" \
-                --checkpoint "$base/$MODE.partial.json" --resumed "$resumed" \
+                --checkpoint "$base/$MODE.partial.json" "${resume_args[@]}" \
                 | tee "evidence/$variant.json"
           done
           cmp evidence/normal.json evidence/optimized.json
