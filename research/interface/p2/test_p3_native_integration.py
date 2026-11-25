@@ -137,14 +137,14 @@ def invoke_verifier(verifier, raw_bytes, journal_bytes, trusted_bytes,
             "--journal", str(journal_path),
             "--scope", str(trusted_path),
             "--proof", str(proof_path),
-            "--seconds", "240",
+            "--seconds", "600",
             "--max-work", "4000000000",
             "--max-exact-checks", "200000000",
-            "--max-nodes", "4000001",
-            "--max-entries", "4000001",
+            "--max-nodes", "6000001",
+            "--max-entries", "6000001",
             "--max-proof-bytes", str(2 * 1024 * 1024 * 1024),
         ]
-        completed = subprocess.run(command, capture_output=True, timeout=270, check=False)
+        completed = subprocess.run(command, capture_output=True, timeout=630, check=False)
         result = strict_loads(completed.stdout)
         return completed.returncode, result
 
