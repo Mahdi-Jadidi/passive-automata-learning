@@ -66,3 +66,7 @@ D. Interface offline integration passes.
 E. Native benchmark harness records exact runs and limitations.
 
 Do not merge PRs until A-C pass and lead review approves. No learner/baseline modification, live calls, bounded optimization, CDAQ, P4-P7 or operational acceptance.
+
+
+## Final contract correction
+The current authoritative `research/P3_SERIALIZATION_V1.md` is commit `3411794ec013e5f7929d3e23960e80632a3e40c5`. It requires lazy `pair_at(j)` for all-pairs alternatives, `t=k*(k-1)//2`, prefix-only cursor logs, symbolic suffix and residual, flat node table, no per-node E/D copies, iterative proof replay. This supersedes any earlier description of full alternatives hashes/lists or per-node owner/D arrays. The verifier and producer must not materialize O(k²) alternatives.
