@@ -57,6 +57,9 @@ def main() -> int:
               "phase": "RAW_CLOSURE_ONLY", "ledger_ingestion": "NOT RUN",
               "independent_journal_replay": "NOT RUN", "bounded_deletion_verifier_imported": False}
     try:
+        cap = a.memory_mib * 1024 * 1024
+        resource.setrlimit(resource.RLIMIT_AS, (cap, cap))
+        result["resource_limit_applied_before_input"] = True
         input_bytes = a.input.read_bytes()
         result["input_sha256"] = sha256(input_bytes)
         result["input_bytes"] = len(input_bytes)
@@ -73,8 +76,6 @@ def main() -> int:
             if actual != expected:
                 raise ValueError(f"source blob mismatch for {name}: {actual}")
         result["core_source_blobs"] = actual_blobs
-        cap = a.memory_mib * 1024 * 1024
-        resource.setrlimit(resource.RLIMIT_AS, (cap, cap))
         sys.path.insert(0, str(a.repo_root / "implementation/partition_feedback_final"))
         from selector_v2.core import Budget, PartitionRef, Sample
         from selector_v2 import component_closure, sparse_analysis, schema
@@ -96,13 +97,16 @@ def main() -> int:
         budget = Budget(seconds=a.seconds)
         started = time.perf_counter()
         closure = component_closure.component_closure(sample, budget)
-        elapsed = time.perf_counter() - started
+        closure_elapsed = time.perf_counter() - started
         records = list(closure["records"])
         structural = None
+        raw_check_elapsed = 0.0
         if closure["state"] != "LABEL_CONFLICT":
+            raw_check_started = time.perf_counter()
             structural = component_closure.structural_record(
                 sample, PartitionRef(tuple(closure["owner"]))
             )
+            raw_check_elapsed = time.perf_counter() - raw_check_started
             records.append(structural)
         epoch_records = [r for r in closure["records"] if r["kind"] == "COMPONENT_EPOCH"]
         facts = sum(len(r["payload"]["facts"]) for r in epoch_records)
@@ -116,7 +120,8 @@ def main() -> int:
             "deletion_exact_checks": exact_checks,
             "quotient_blocks": len(set(closure["owner"])),
             "producer_raw_check": None if structural is None else structural["payload"]["compatible"],
-            "elapsed_seconds": elapsed,
+            "closure_elapsed_seconds": closure_elapsed,
+            "raw_check_elapsed_seconds": raw_check_elapsed,
             "python_optimize": sys.flags.optimize,
             "address_space_cap_mib": a.memory_mib,
             "peak_rss_kib": int(resource.getrusage(resource.RUSAGE_SELF).ru_maxrss),
@@ -127,6 +132,7 @@ def main() -> int:
         result["scope_sha256"] = sha256((a.output / "scope.json").read_bytes())
         result["raw_records_sha256"] = sha256(record_bytes)
         result["raw_records_bytes"] = len(record_bytes)
+        result["elapsed_seconds"] = time.perf_counter() - process_started
         if closure["state"] == "FIXPOINT":
             result["status"] = "RAW_CLOSURE_COMPLETE"
         elif closure["state"] == "LABEL_CONFLICT":
