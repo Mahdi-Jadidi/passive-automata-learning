@@ -2,6 +2,7 @@
 import copy
 import itertools
 import json
+from pathlib import Path
 import unittest
 
 from adapter import canonical
@@ -251,6 +252,34 @@ class SearchBoundary(unittest.TestCase):
             q = register(g, MERGED, origin='EXTERNAL')
             p = accept(q); p['origin'] = 'EXTERNAL'
             self.assert_observation(g, q, expected, canonical(p))
+
+
+    def test_late_response_cannot_cross_sample_scope(self):
+        # Reuse the same global attempt token in two independent ledgers but
+        # bind it to different request IDs and different original samples.
+        source = open_gateway(RAW)
+        source_q = register(source, MERGED, rid='source-scope', aid='shared-attempt')
+        small_path = Path(__file__).parent / 'fixtures' / 'p3' / 'small_choice.raw.json'
+        small_raw = json.loads(small_path.read_bytes())
+        target = open_gateway(small_raw)
+        target_q = register(target, list(range(len(small_raw['alphabet']))),
+                            rid='target-scope', aid='shared-attempt')
+        self.assertNotEqual(source_q['scope']['sample_digest'],
+                            target_q['scope']['sample_digest'])
+        self.assertNotEqual(source_q['request_id'], source_q['attempt_id'])
+        self.assertNotEqual(target_q['request_id'], target_q['attempt_id'])
+
+        # A late source-scope response collides on attempt_id but not on the
+        # registered request/scope pair. It must be quarantined without
+        # changing the unrelated target attempt or its pending candidate.
+        late = canonical(projection_no(source_q))
+        self.assertEqual(target.ingest(source_q['request_id'],
+                                       source_q['attempt_id'], late), 'UNKNOWN')
+        self.assertEqual(target.attempt_status(target_q['request_id'],
+                                               target_q['attempt_id']), 'PENDING')
+        self.assertEqual(target.pending_candidates, ('target-scope',))
+        self.assertEqual(events(target)[-1]['event'], 'QUARANTINE')
+        self.assertEqual(events(target)[-1]['records'], [])
 
 
 if __name__ == '__main__':
