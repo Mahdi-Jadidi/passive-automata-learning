@@ -382,7 +382,8 @@ def path_state(node, table, root, b, *, singleton_check=False, cross_families=No
         singleton_check and len(separated) == len(reps)*(len(reps)-1)//2)
     return p, reps, empty, singleton
 
-def verify_frontier(raw, exact_journal2_bytes, trusted_scope, proof, *, budgets=None, **limits):
+def verify_frontier(raw, exact_journal2_bytes, trusted_scope, proof, *,
+                    budgets=None, expected_format=None, expected_mode=None, **limits):
     """Strict result envelope. Keyword limits retained for older callers."""
     b = None
     def result(status, reason, payload=None):
@@ -401,12 +402,14 @@ def verify_frontier(raw, exact_journal2_bytes, trusted_scope, proof, *, budgets=
         cert = parse(proof, b.max_proof_bytes, b)
         fields(cert, "format scope_digest mode declared_status root_owner incumbent optima nodes")
         need(cert["format"] in ("p3-region-frontier/v1", "p3-region-frontier/v2"), "format")
+        need(expected_format is None or cert["format"] == expected_format, "unexpected format")
         v2 = cert["format"] == "p3-region-frontier/v2"
         need(cert["scope_digest"] == scope_digest(trusted), "scope digest")
         n = len(root)
         need(owner(cert["root_owner"], n, b) == root, "root owner mismatch")
         mode, declared = cert["mode"], cert["declared_status"]
         need(mode in ("one", "all") and declared in ("EXHAUSTED", "PARTIAL"), "mode/status")
+        need(expected_mode is None or mode == expected_mode, "unexpected mode")
         inc, U = None, None
         if cert["incumbent"] is not None:
             q = cert["incumbent"]

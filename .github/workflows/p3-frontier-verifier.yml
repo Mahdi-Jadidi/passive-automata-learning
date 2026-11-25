@@ -8,6 +8,7 @@ on:
       - "tests/reference/p3_frontier_verifier.py"
       - "tests/reference/test_p3_frontier_verifier.py"
       - "tests/reference/test_p3_frontier_v2.py"
+      - "tests/reference/p3_m3_artifact_replay.py"
       - "tests/reference/rgs_oracle.py"
       - "tests/reference/journal_v2_replay.py"
       - "tests/reference/independent_replay.py"
@@ -22,6 +23,7 @@ on:
       - "tests/reference/p3_frontier_verifier.py"
       - "tests/reference/test_p3_frontier_verifier.py"
       - "tests/reference/test_p3_frontier_v2.py"
+      - "tests/reference/p3_m3_artifact_replay.py"
       - "tests/reference/rgs_oracle.py"
       - "tests/reference/journal_v2_replay.py"
       - "tests/reference/independent_replay.py"
@@ -52,7 +54,7 @@ jobs:
         run: |
           python --version
           git rev-parse HEAD
-          git hash-object tests/reference/p3_frontier_verifier.py tests/reference/test_p3_frontier_verifier.py tests/reference/test_p3_frontier_v2.py tests/reference/rgs_oracle.py tests/reference/bounded_deletion.py tests/reference/journal_v2_replay.py
+          git hash-object tests/reference/p3_frontier_verifier.py tests/reference/test_p3_frontier_verifier.py tests/reference/test_p3_frontier_v2.py tests/reference/p3_m3_artifact_replay.py tests/reference/rgs_oracle.py tests/reference/p3_rgs12_oracle.py tests/reference/bounded_deletion.py tests/reference/journal_v2_replay.py
           test ! -e implementation/partition_feedback_final/selector_v2
       - name: Verify normal Python mode
         env:

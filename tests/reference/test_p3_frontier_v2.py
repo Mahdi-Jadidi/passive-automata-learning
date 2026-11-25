@@ -1,14 +1,17 @@
 """Literal RGS region tests and wire mutations. No producer dependency."""
 from copy import deepcopy
 from itertools import combinations, product
+from pathlib import Path
 from random import Random
+from tempfile import TemporaryDirectory
 import unittest
 
 from independent_replay import sample_data
 from p3_frontier_verifier import (
-    ALL_PAIRS, CROSS_SUPPORT, Budget, CrossFamily, canonical, path_state,
+    ALL_PAIRS, CROSS_SUPPORT, Budget, CrossFamily, Invalid, canonical, path_state,
     build_trusted_scope, scope_digest, verify_frontier,
 )
+from p3_m3_artifact_replay import replay
 from rgs_oracle import compatible, rgs
 from test_p3_frontier_verifier import fixture, minimum_owner
 from test_production_replay import build as journal_records
@@ -284,6 +287,29 @@ class V2Tests(unittest.TestCase):
         journal, self.journal = self.journal, self.journal + b"\n"
         self.check_proof(c, "INVALID")
         self.journal = journal
+
+        checkpoint = deepcopy(c)
+        root = checkpoint["nodes"][0]
+        split(root, CROSS_SUPPORT, [(0, 2)], root["witness"], cursor=0)
+        checkpoint.update(declared_status="PARTIAL", optima=[],
+                          nodes=[root, checkpoint["nodes"][-1]])
+        with TemporaryDirectory() as d:
+            data = dict(raw=canonical(self.raw), journal=self.journal, scope=canonical(self.scope),
+                        normal=canonical(c), optimized=canonical(c), resumed=canonical(c),
+                        checkpoint=canonical(checkpoint))
+            paths = {key: Path(d) / (key + ".json") for key in data}
+            for key, path in paths.items():
+                path.write_bytes(data[key])
+            report = replay("nonempty_journal", "all", paths)
+            self.assertEqual(report["census"]["visited"], 15)
+            self.assertEqual(report["census"]["result"]["optimum"], 2)
+            self.assertEqual(report["root_owner"], [0, 0, 2, 3])
+            paths["resumed"].write_bytes(data["resumed"] + b" ")
+            with self.assertRaisesRegex(Invalid, "resumed proof bytes differ"):
+                replay("nonempty_journal", "all", paths)
+            paths["resumed"].write_bytes(data["resumed"])
+            with self.assertRaisesRegex(Invalid, "unexpected mode"):
+                replay("nonempty_journal", "one", paths)
 
     def test_large_symbolic_cross_residual_and_caps(self):
         k = 10_000
