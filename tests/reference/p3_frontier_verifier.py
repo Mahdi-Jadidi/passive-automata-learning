@@ -1,8 +1,9 @@
-"""Independent flat P3 frontier verifier, frozen v1 (ff61b1c).
+"""Independent flat P3 verifier for frozen v1 and Review 07 v2.
 No producer imports. Path replay uses literal owner relabeling and prefix
 constraints from previously checked parent records; no full alternatives list.
 """
 import argparse
+from bisect import bisect_right
 import hashlib
 import json
 import math
@@ -185,6 +186,106 @@ def pair_at(reps, j):
     start = lo*(2*k-lo-1)//2
     return [reps[lo], reps[lo+1+j-start]]
 
+ALL_PAIRS = "ALL_PAIRS_LEX_V1"
+CROSS_SUPPORT = "CROSS_SUPPORT_LEX_V1"
+
+
+class CrossFamily:
+    """Frozen original-ID endpoints, indexed by nonempty lexicographic rows."""
+
+    def __init__(self, s, t, b):
+        self.supports = s, t
+        self.count = len(s) * len(t)
+        self.starts = []
+        self.rows = []
+        offset = 0
+        for side, opposite in ((s, t), (t, s)):
+            b.debit(len(side))
+            for a in side:
+                b.debit(1 + len(opposite).bit_length())
+                first = bisect_right(opposite, a)
+                if first < len(opposite):
+                    self.rows.append((a, opposite, first))
+        b.debit(len(self.rows) * (1 + len(self.rows).bit_length()))
+        self.rows.sort(key=lambda row: row[0])
+        for _, opposite, first in self.rows:
+            b.debit()
+            self.starts.append(offset)
+            offset += len(opposite) - first
+
+    def pair(self, j, b):
+        need(0 <= j < self.count, "cross pair index")
+        b.debit(1 + len(self.starts).bit_length())
+        row = bisect_right(self.starts, j) - 1
+        a, opposite, first = self.rows[row]
+        return a, opposite[first + j - self.starts[row]]
+
+    def conflicts(self, p, stop, b):
+        """Test a frozen prefix without enumerating the Cartesian product."""
+        if stop == 0:
+            return False
+        limit = None if stop == self.count else self.pair(stop, b)
+        s, t = self.supports
+        left, right = {}, {}
+        for a in s:
+            b.debit()
+            left.setdefault(p[a], a)
+        for a in t:
+            b.debit()
+            right.setdefault(p[a], a)
+        for group, a in left.items():
+            b.debit()
+            c = right.get(group)
+            if c is not None and (limit is None or (min(a, c), max(a, c)) < limit):
+                return True
+        return False
+
+
+def trace_id(s, prefix, words):
+    need(type(s) is str and 2 <= len(s) <= 1 + len(str(len(words))) and
+         s[0] == prefix and s[1:].isascii() and s[1:].isdigit(), "trace ID")
+    i = int(s[1:])
+    need(s == prefix + str(i) and i < len(words), "trace ID range")
+    return words[i]
+
+
+def cross_family(w, p, X, Y, b):
+    fields(w, "negative_id positive_s_id positive_t_id support_s support_t")
+    y = trace_id(w["negative_id"], "N", Y)
+    supports = []
+    for name in ("support_s", "support_t"):
+        side = w[name]
+        need(type(side) is list and bool(side), "empty/malformed support")
+        b.entries(len(side))
+        previous = -1
+        for a in side:
+            b.debit()
+            need(type(a) is int and previous < a < len(p) and p[a] == a,
+                 "support must contain ascending current class minima")
+            previous = a
+        supports.append(tuple(side))
+    s, t = supports
+    need(s[0] < t[0], "noncanonical support orientation")
+    b.debit(len(s) + len(t))
+    deleted_s, deleted_t = set(s), set(t)
+    need(deleted_s.isdisjoint(deleted_t), "overlapping supports")
+
+    def projection(word, deleted):
+        kept = []
+        for a in word:
+            b.debit()
+            if p[a] not in deleted:
+                kept.append(a)
+        return kept
+
+    for name, deleted in (("positive_s_id", deleted_s), ("positive_t_id", deleted_t)):
+        x = trace_id(w[name], "P", X)
+        b.check_exact()
+        px, py = projection(x, deleted), projection(y, deleted)
+        b.debit(1 + min(len(px), len(py)))
+        need(px == py, "false ordered deletion witness")
+    return CrossFamily(s, t, b)
+
 def representatives(p, b):
     b.debit(len(p))
     return [i for i, x in enumerate(p) if i == x]
@@ -226,7 +327,7 @@ def coarsens(p, root, b):
 def exact_int(v, expected):
     return type(v) is int and v == expected
 
-def path_state(node, table, root, b, *, singleton_check=False):
+def path_state(node, table, root, b, *, singleton_check=False, cross_families=None):
     # Reconstruct one path at a time, not one owner array per certificate node.
     chain = []
     at = node
@@ -242,7 +343,7 @@ def path_state(node, table, root, b, *, singleton_check=False):
         b.debit()
         edge = step["edge"]
         if edge["kind"] == "RESIDUAL":
-            residual = True
+            residual = not cross_families or step["parent_id"] not in cross_families
             continue
         a, c = edge["pair"]
         ra, rc = p[a], p[c]
@@ -254,12 +355,19 @@ def path_state(node, table, root, b, *, singleton_check=False):
     empty = False
     separated = set()
     # All earlier false alternatives are exactly the parent's checked prefix.
-    # The residual's complete all-false family is represented by a flag,
-    # never materialized. It cannot create a contradiction by itself.
+    # A cross family retains original IDs through descendant merges. Only
+    # singleton proofs need literal current-class pair coverage.
     for step in chain:
         edge = step["edge"]
+        family = cross_families.get(step["parent_id"]) if cross_families else None
         if edge["kind"] != "CHILD":
+            if family is not None:
+                empty |= family.conflicts(p, family.count, b)
             continue
+        if family is not None:
+            empty |= family.conflicts(p, edge["index"], b)
+            if not singleton_check or empty or residual:
+                continue
         log = table[step["parent_id"]]["cursor_log"]
         for j in range(edge["index"]):
             b.debit()
@@ -292,7 +400,8 @@ def verify_frontier(raw, exact_journal2_bytes, trusted_scope, proof, *, budgets=
         need(canonical(supplied) == canonical(trusted), "trusted scope mismatch")
         cert = parse(proof, b.max_proof_bytes, b)
         fields(cert, "format scope_digest mode declared_status root_owner incumbent optima nodes")
-        need(cert["format"] == "p3-region-frontier/v1", "format")
+        need(cert["format"] in ("p3-region-frontier/v1", "p3-region-frontier/v2"), "format")
+        v2 = cert["format"] == "p3-region-frontier/v2"
         need(cert["scope_digest"] == scope_digest(trusted), "scope digest")
         n = len(root)
         need(owner(cert["root_owner"], n, b) == root, "root owner mismatch")
@@ -329,6 +438,7 @@ def verify_frontier(raw, exact_journal2_bytes, trusted_scope, proof, *, budgets=
             table[ident] = q
         need("root" in table, "missing root")
         found = set()
+        cross_families = {}
         best_found = None
         unresolved = False
         for q in nodes:
@@ -341,7 +451,10 @@ def verify_frontier(raw, exact_journal2_bytes, trusted_scope, proof, *, budgets=
             elif kind == "LEAF":
                 fields(q, base+" closure")
             elif kind == "SPLIT":
-                fields(q, base+" rule alternative_count cursor children cursor_log residual_id suffix")
+                split_fields = base+" rule alternative_count cursor children cursor_log residual_id suffix"
+                if v2 and q.get("rule") == CROSS_SUPPORT:
+                    split_fields += " witness"
+                fields(q, split_fields)
             else:
                 raise Invalid("node kind")
             edge = q["edge"]
@@ -367,7 +480,8 @@ def verify_frontier(raw, exact_journal2_bytes, trusted_scope, proof, *, budgets=
                          parent["residual_id"] == ident and kind != "SPLIT", "residual path")
             closure = q.get("closure")
             exact_no = type(closure) is dict and closure.get("reason") == "EXACT_NO"
-            p, reps, empty, singleton = path_state(q, table, root, b, singleton_check=exact_no)
+            p, reps, empty, singleton = path_state(
+                q, table, root, b, singleton_check=exact_no, cross_families=cross_families)
             cost = n-len(reps)
             b.nodes += 1
             if kind == "OPEN":
@@ -376,9 +490,15 @@ def verify_frontier(raw, exact_journal2_bytes, trusted_scope, proof, *, budgets=
                 unresolved = True
                 continue
             if kind == "SPLIT":
-                need(not empty and not singleton and q["rule"] == "ALL_PAIRS_LEX_V1",
-                     "invalid split/rule")
-                t = len(reps)*(len(reps)-1)//2
+                need(not empty and not singleton, "split of empty/singleton region")
+                family = None
+                if v2 and q["rule"] == CROSS_SUPPORT:
+                    family = cross_family(q["witness"], p, X, Y, b)
+                    cross_families[ident] = family
+                    t = family.count
+                else:
+                    need(q["rule"] == ALL_PAIRS, "invalid split rule")
+                    t = len(reps)*(len(reps)-1)//2
                 need(t > 0 and exact_int(q["alternative_count"], t), "alternative count")
                 c = q["cursor"]
                 need(type(c) is int and 0 <= c <= t, "cursor range")
@@ -386,26 +506,26 @@ def verify_frontier(raw, exact_journal2_bytes, trusted_scope, proof, *, budgets=
                 need(type(children) is list and type(log) is list and len(children)==len(log)==c,
                      "missing/extra emitted child or cursor record")
                 need(q["residual_id"] == ident+"/r" and q["residual_id"] in table, "missing residual")
+                if family is not None:
+                    residual_node = table[q["residual_id"]]
+                    need(residual_node.get("kind") == "LEAF" and
+                         residual_node.get("closure") == {"reason": "CONFLICT_RESIDUAL"},
+                         "cross split must commit its conflict residual")
                 need(canonical(q["suffix"]) == canonical(dict(rule="FIRST_TRUE_SUFFIX_V1",start=c,stop=t)),
                      "missing/forged suffix")
                 for j in range(c):
                     b.debit()
                     child = ident+"/c"+str(j)
                     need(children[j] == child and child in table, "missing/duplicate child")
+                    pair = list(family.pair(j, b)) if family is not None else pair_at(reps, j)
                     need(canonical(log[j]) == canonical({"from":j,"to":j+1,"child_id":child,
-                                                        "pair":pair_at(reps,j)}), "cursor log")
+                                                        "pair":pair}), "cursor log")
                 unresolved |= c < t
                 continue
             need(type(closure) is dict and type(closure.get("reason")) is str, "closure")
             reason = closure["reason"]
             if reason == "RAW_LABEL_CONFLICT":
                 fields(closure, "reason positive_id negative_id")
-                def trace_id(s, prefix, words):
-                    need(type(s) is str and s.startswith(prefix) and s[1:].isdigit(),
-                         "trace ID")
-                    i = int(s[1:])
-                    need(s == prefix+str(i) and 0 <= i < len(words), "trace ID range")
-                    return words[i]
                 x, y = trace_id(closure["positive_id"], "P", X), trace_id(closure["negative_id"], "N", Y)
                 b.debit(min(len(x),len(y))+1)
                 need(x == y, "forged raw conflict")
@@ -415,6 +535,9 @@ def verify_frontier(raw, exact_journal2_bytes, trusted_scope, proof, *, budgets=
                 unresolved = True
             elif reason == "EMPTY":
                 need(empty, "false EMPTY")
+            elif reason == "CONFLICT_RESIDUAL":
+                need(edge["kind"] == "RESIDUAL" and q["parent_id"] in cross_families,
+                     "conflict residual must belong to direct cross parent")
             else:
                 need(not empty, "nonempty closure on empty region")
                 if reason == "COST":

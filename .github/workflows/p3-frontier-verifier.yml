@@ -7,6 +7,7 @@ on:
     paths:
       - "tests/reference/p3_frontier_verifier.py"
       - "tests/reference/test_p3_frontier_verifier.py"
+      - "tests/reference/test_p3_frontier_v2.py"
       - "tests/reference/rgs_oracle.py"
       - "tests/reference/journal_v2_replay.py"
       - "tests/reference/independent_replay.py"
@@ -20,6 +21,7 @@ on:
     paths:
       - "tests/reference/p3_frontier_verifier.py"
       - "tests/reference/test_p3_frontier_verifier.py"
+      - "tests/reference/test_p3_frontier_v2.py"
       - "tests/reference/rgs_oracle.py"
       - "tests/reference/journal_v2_replay.py"
       - "tests/reference/independent_replay.py"
@@ -40,6 +42,9 @@ jobs:
     timeout-minutes: 5
     steps:
       - uses: actions/checkout@v4
+        with:
+          sparse-checkout: tests/reference
+          persist-credentials: false
       - uses: actions/setup-python@v5
         with:
           python-version: "3.13.5"
@@ -47,16 +52,17 @@ jobs:
         run: |
           python --version
           git rev-parse HEAD
-          git hash-object tests/reference/p3_frontier_verifier.py tests/reference/test_p3_frontier_verifier.py tests/reference/rgs_oracle.py tests/reference/bounded_deletion.py tests/reference/journal_v2_replay.py
+          git hash-object tests/reference/p3_frontier_verifier.py tests/reference/test_p3_frontier_verifier.py tests/reference/test_p3_frontier_v2.py tests/reference/rgs_oracle.py tests/reference/bounded_deletion.py tests/reference/journal_v2_replay.py
+          test ! -e implementation/partition_feedback_final/selector_v2
       - name: Verify normal Python mode
         env:
           PYTHONPATH: tests/reference
         run: |
           ulimit -v 1572864
-          /usr/bin/time -f 'wall=%e RSS_KiB=%M' python -B -m unittest discover -s tests/reference -p "test_p3_frontier_verifier.py" -v
+          /usr/bin/time -f 'wall=%e RSS_KiB=%M' python -B -m unittest discover -s tests/reference -p "test_p3_frontier*.py" -v
       - name: Verify optimized Python mode
         env:
           PYTHONPATH: tests/reference
         run: |
           ulimit -v 1572864
-          /usr/bin/time -f 'wall=%e RSS_KiB=%M' python -B -O -m unittest discover -s tests/reference -p "test_p3_frontier_verifier.py" -v
+          /usr/bin/time -f 'wall=%e RSS_KiB=%M' python -B -O -m unittest discover -s tests/reference -p "test_p3_frontier*.py" -v
