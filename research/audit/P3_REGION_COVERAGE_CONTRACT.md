@@ -63,3 +63,43 @@ Read issue #10 latest handoff comment 7145645271, exact handoff at 380ea0303dc33
 ### Recheck after the core repin
 
 During this session the core branch published runner blob 82b84b544894bd344436511a3778a26995bb6523. I compared its full text to the former c5e7e17 runner after exactly three substitutions (proof HEAD and the two hardened file blobs); it matches byte-for-byte. Fetched all eight PROOF source paths at cf5a007 and confirmed 8/8 Git blob IDs match the updated runner. Pin review PASS, executable combined gate still pending: at recheck final-gate.json remained 83a07011adaa3b686f1709dc724460f9468f8022 (old proof HEAD). Benchmark REVIEW03 still old pin. Lead comment 7155003079 holds production P3 until repinned combined gate and independent review pass. Preparation remains independent and not a search certificate.
+
+
+## P3 serialized scope v1 addendum — proof/producer coordination
+
+This addendum narrows the earlier preparation grammar to the selector-v2/1 M1 scope and the independent journal/2 replay boundary. It does not freeze producer serialization: an actual producer frontier artifact must still be supplied and replayed before integration acceptance.
+
+The verifier call binds four separate inputs: raw original sample, exact journal/2 bytes, trusted scope and serialized frontier proof. The raw sample remains the original ordered three-key object (alphabet, positive, negative). The selector scope is exactly the existing selector-v2/1 unrestricted all-partitions object:
+
+    {
+      "version": "selector-v2/1",
+      "sample_digest": "<recomputed from raw sample>",
+      "regime": "UNRESTRICTED",
+      "family": "ALL_PARTITIONS",
+      "capacity_digest": null
+    }
+
+The outer trusted scope is exactly:
+
+    {
+      "format": "p3-trusted-scope/v1",
+      "selector_scope": { ... exact selector-v2/1 object above ... },
+      "journal2_digest": "<SHA-256 of exact raw journal/2 bytes>",
+      "alphabet": ["original symbols in original order"],
+      "positive": [{"id": "P0", "tokens": [original integer token IDs]}],
+      "negative": [{"id": "N0", "tokens": [original integer token IDs]}],
+      "root_equalities": [[i, j], ...],
+      "root_owner": [minimum-original-index representative per symbol]
+    }
+
+The selector-v2/1 raw sample stores ordered trace arrays without explicit trace IDs. Therefore P0, P1, ... and N0, N1, ... are stable original positional IDs, not generated search IDs. Token IDs are indices in the original alphabet. If a future input schema carries explicit trace IDs, it must be versioned and preserve them verbatim.
+
+journal2_digest is SHA-256 over the exact immutable journal/2 byte stream. The verifier does not parse and reserialize those bytes to compute this digest. It independently calls the proof-side journal_v2_replay.verify_journal(raw, selector_scope, journal_bytes); INVALID or INCOMPLETE replay cannot authorize a frontier result. The proof root owner must equal the replayed proof.mandatory_owner. root_equalities is a redundant, complete sorted pair closure of that owner and is independently checked. This makes E0 a replay-derived equivalence relation rather than a producer-supplied DSU snapshot.
+
+The full trusted-scope digest is SHA-256 of selector_v2.schema.canonical(trusted_scope). The selector scope sample digest is recomputed from the raw sample. The exact schema canonical byte encoding is also used for the lazy alternatives suffix digest. The producer must emit the proof header scope_digest matching this envelope and root_owner matching the independently replayed E0.
+
+Trace IDs, integer token IDs, ordered alphabet, selector scope and exact journal byte digest are all bound by the scope digest. No producer counters, cached owner, ranking or pruning metadata can substitute for replay.
+
+Current proof-side implementation accepts only ALL_PAIRS_LEX_V1 and FIRST_TRUE_SUFFIX_V1, plus EMPTY, RAW_LABEL_CONFLICT, EXACT_NO, EXACT_FEASIBLE, COST and UNKNOWN closures. No advanced pruning rule is enabled. The base equality-class lower bound is strict for all-optima mode and non-strict for one-optimum mode as defined above.
+
+The inspected core M1 commit implements in-memory region search but did not yet expose a serialized frontier certificate. Thus the proof verifier can validate its own synthetic/adversarial fixtures and the pinned independent journal/2 input boundary, but actual producer-output replay remains blocked until Agent #2 supplies one real raw sample, exact journal/2 bytes, trusted scope and serialized frontier. Do not mark producer integration accepted before that replay.

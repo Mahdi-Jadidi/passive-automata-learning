@@ -1,0 +1,55 @@
+name: P3 independent frontier verifier
+
+on:
+  push:
+    branches:
+      - research/v2-proof-audit
+    paths:
+      - "tests/reference/p3_frontier_verifier.py"
+      - "tests/reference/test_p3_frontier_verifier.py"
+      - "tests/reference/rgs_oracle.py"
+      - "tests/reference/journal_v2_replay.py"
+      - "tests/reference/independent_replay.py"
+      - "tests/reference/production_replay.py"
+      - "tests/reference/ledger_replay.py"
+      - "tests/reference/interface_artifact_replay.py"
+      - "tests/reference/bounded_deletion.py"
+      - "implementation/partition_feedback_final/selector_v2/schema.py"
+      - "research/audit/P3_REGION_COVERAGE_CONTRACT.md"
+      - ".github/workflows/p3-frontier-verifier.yml"
+  pull_request:
+    paths:
+      - "tests/reference/p3_frontier_verifier.py"
+      - "tests/reference/test_p3_frontier_verifier.py"
+      - "tests/reference/rgs_oracle.py"
+      - "tests/reference/journal_v2_replay.py"
+      - "tests/reference/independent_replay.py"
+      - "tests/reference/production_replay.py"
+      - "tests/reference/ledger_replay.py"
+      - "tests/reference/interface_artifact_replay.py"
+      - "tests/reference/bounded_deletion.py"
+      - "implementation/partition_feedback_final/selector_v2/schema.py"
+      - "research/audit/P3_REGION_COVERAGE_CONTRACT.md"
+      - ".github/workflows/p3-frontier-verifier.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  independent-p3-frontier:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+      - name: Verify normal Python mode
+        env:
+          PYTHONPATH: tests/reference:implementation/partition_feedback_final
+        run: python -m unittest discover -s tests/reference -p "test_p3_frontier_verifier.py" -v
+      - name: Verify optimized Python mode
+        env:
+          PYTHONPATH: tests/reference:implementation/partition_feedback_final
+        run: python -O -m unittest discover -s tests/reference -p "test_p3_frontier_verifier.py" -v
