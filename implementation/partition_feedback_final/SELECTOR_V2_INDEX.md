@@ -61,7 +61,7 @@ Four research reports and the master handoff archived. Four parallel workstreams
 
 
 ### P3 v1 contract final refinement
-- Latest authoritative contract commit: 3411794ec013e5f7929d3e23960e80632a3e40c5.
+- Latest authoritative contract commit: ff61b1c56138c89fc0ad9a615f0b2a587b03393a.
 - All-pairs alternatives are lazy/symbolic (t=k*(k-1)//2, direct pair_at(j), emitted-prefix cursor log, suffix [cursor,t), symbolic residual). No O(k²) alternative list/hash.
 - Flat certificate has no per-node owner/D copies; verifier reconstructs state iteratively from root and path. No recursive JSON tree or O(n*nodes) repeated arrays.
 - This supersedes previous P3_SERIALIZATION_V1 drafts. Producer and verifier must follow the latest commit.
