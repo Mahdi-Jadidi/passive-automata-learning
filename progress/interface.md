@@ -177,3 +177,40 @@ The original M17 claim of all-four optimized coverage was incorrect. These
 interface runs did not execute the RGS oracle. Independent proof-only replay
 [45627330072](https://github.com/Mahdi-Jadidi/passive-automata-learning/actions/runs/45627330072)
 remains valid. Review 07 classified Gate D as partial on this evidence.
+
+## M18 — M2 native verify-before-register in both Python modes
+
+Two fresh Actions runs passed at `3060be31fe0e38059587b7737e317ebd75b23386`. Each ran normal and `-O` Python 3.13.5 in separate jobs with independent downloads, proof subprocesses and per-case ledgers. Direct job logs show 18 gateway/journal regressions and two native tests passing in each job. Each job verified all four exact certificates and registered **22 candidates**.
+
+| Trigger | Python mode | Job log | Log artifact | Native wall time | Peak RSS (KiB) |
+| --- | --- | --- | --- | ---: | ---: |
+| Push | Normal | [139278752312](https://github.com/Mahdi-Jadidi/passive-automata-learning/actions/runs/45635226507/job/139278752312) | [15033037097](https://github.com/Mahdi-Jadidi/passive-automata-learning/actions/runs/45635226507/artifacts/15033037097) | 6:24.05 | 10,341,024 |
+| Push | `-O` | [139278752784](https://github.com/Mahdi-Jadidi/passive-automata-learning/actions/runs/45635226507/job/139278752784) | [15030974967](https://github.com/Mahdi-Jadidi/passive-automata-learning/actions/runs/45635226507/artifacts/15030974967) | 5:08.00 | 10,342,868 |
+| Dispatch | Normal | [139278940045](https://github.com/Mahdi-Jadidi/passive-automata-learning/actions/runs/45635276132/job/139278940045) | [15034375180](https://github.com/Mahdi-Jadidi/passive-automata-learning/actions/runs/45635276132/artifacts/15034375180) | 6:18.88 | 10,341,200 |
+| Dispatch | `-O` | [139278940366](https://github.com/Mahdi-Jadidi/passive-automata-learning/actions/runs/45635276132/job/139278940366) | [15032668670](https://github.com/Mahdi-Jadidi/passive-automata-learning/actions/runs/45635276132/artifacts/15032668670) | 5:32.85 | 10,342,740 |
+
+Every job logged the following per-case results before its `P3_MODE_PASS` marker. All four proof replays returned `VERIFIED`. RGS exhausted the original alphabet, matched the optimum cost, checked membership for one-mode winners and matched the complete all-mode winner sets before registration.
+
+| Case | Search | Proof nodes | Work units | Exact checks | RGS partitions | Optimum cost | RGS optima | Registrations per job |
+| --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| tiny_choice | one | 221 | 60,140 | 215 | 203 | 2 | 4 | 1 |
+| tiny_choice | all | 461 | 131,556 | 677 | 203 | 2 | 4 | 4 |
+| small_choice | one | 1,091,642 | 457,570,571 | 659,914 | 4,213,597 | 4 | 16 | 1 |
+| small_choice | all | 5,496,670 | 2,494,969,001 | 4,460,579 | 4,213,597 | 4 | 16 | 16 |
+
+Each job checked the original raw, journal and trusted-scope bytes against the published manifests and rebuilt the trusted scope independently. Its exact source checks covered the gateway, adapter and strict parser at the tested interface revision, plus these pins.
+
+- Producer `391abf97df3b67661082c907d9ce20b4f69636c2`, search blob `73da7bea551df73a8676b0adf0401cd7f2d307b5`, region blob `657c4e0e4059b32cd9e6477e61c7a3673290f36d`. Producer artifacts from run `45592454384` were `15011318454` (tiny one), `15012345186` (tiny all) and `15011812225` (small one).
+- Expanded small/all run `45593819618`, artifact `15013931205`, workflow commit `f8de4b6b14b3840d699d3c47ccc06a71eb5e04ae` and blob `1bde518e6e2036a74295f7287e54fc926f404687`. All four exact certificate SHA-256/Git blob pairs are checked by the native test and the manifests are archived with the logs.
+- Independent proof commit `d89bab4c005d17c8b27d4c1e6dd291135aca649a`, verifier blob `540a7cf9e7b048684d3ea03def744175ae629b65`, RGS blob `da28e66ca4ff74388be79bf9549c8e02f0c60410`.
+- Authoritative ledger commit `4e21dbf0d06c030681e774cb15f1a5cf0c802f0d`, `RegisteredLedger` blob `092507fc156e604be242e3100117fedc27b96d04`.
+
+Validation caps per job were 13,631,488 KiB address space, 600 seconds per proof (630-second subprocess timeout), 4 billion work units, 200 million exact checks, 6,000,001 nodes and entries, and 2 GiB proof bytes. The independent RGS cap was 120 seconds (135-second subprocess timeout), 4,213,597 partitions, 150 million work units and 100,000 entries. These are expanded validation limits.
+
+For each case, `open_gateway` returned the sole authoritative `RegisteredLedger`. Its original journal/2 bytes matched the proof input. Each candidate wrote an ordinary `REGISTER` event with `REQUEST` records and distinct request and attempt identifiers. The offline `UNKNOWN` probe reused an existing request, kept every candidate pending and appended only the ordinary quarantine event with an `UNKNOWN` observation and null feedback. The test checked both exports for absence of proof data. Malformed and unapproved v2 proofs returned `INVALID` with zero gateway calls and zero registrations in both jobs of both runs. Separate local Python 3.13.5 probes in both modes confirmed `INCOMPLETE` for the actual tiny partial checkpoint and a PARTIAL proof with an UNKNOWN root leaf, and `INVALID` for false exhaustion of that leaf. All three probes made zero gateway calls. No live calls occurred. Operational status remains `INCOMPLETE`.
+
+The all-four M2 verify-before-register item in Review 07, assignment #3, is complete at these pins. The input journals for these four certificates were empty. Native verification rooted in a genuine nonempty journal is still pending.
+
+### M3 interface preparation
+
+The M2 job remains pinned to the v1-only verifier and tests rejection of the v2 format at the admission boundary. After independent M3 proof approval, pin the approved producer, verifier, RGS oracle, ledger and published certificate bytes in an opt-in replay. Use the same per-case registration gate and run both Python modes on the four approved inputs and a genuine nonempty-journal artifact. For that additional case, bind the exact pre-registration journal from the authoritative ledger, have the independent verifier derive its root owner from replay, and check the ordinary journal delta on the same ledger after verification. Require matching completed-resume evidence before admission. PR #6 remains draft and unmerged.
