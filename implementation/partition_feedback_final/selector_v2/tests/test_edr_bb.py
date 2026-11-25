@@ -211,6 +211,22 @@ class SearchBudgetTests(unittest.TestCase):
         print("cap accounting before rejection:", budget.work, budget.entries, budget.memory_bytes,
               "seconds cap:", timed.caps.seconds)
 
+    def test_live_frontier_memory_is_released_but_entry_cap_is_cumulative(self):
+        budget = SearchBudget(SearchCaps(work=3, entries=3, memory_bytes=10))
+        first = budget.admit_frontier_entry(4)
+        second = budget.admit_frontier_entry(6)
+        self.assertEqual((budget.entries, budget.frontier_entries, budget.memory_bytes), (2, 2, 10))
+        budget.release_frontier_entry(first)
+        self.assertEqual((budget.entries, budget.frontier_entries, budget.memory_bytes), (2, 1, 6))
+        third = budget.admit_frontier_entry(4)
+        self.assertEqual((budget.entries, budget.frontier_entries, budget.memory_bytes), (3, 2, 10))
+        self.assertEqual(budget.peak_memory_bytes, 10)
+        budget.release_frontier_entry(second)
+        budget.release_frontier_entry(third)
+        self.assertEqual((budget.entries, budget.frontier_entries, budget.memory_bytes), (3, 0, 0))
+        with self.assertRaises(ValueError):
+            budget.release_frontier_entry(first)
+
 
 if __name__ == "__main__":
     unittest.main()

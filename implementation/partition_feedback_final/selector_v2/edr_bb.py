@@ -253,7 +253,7 @@ class SearchCapExceeded(RuntimeError):
 
 @dataclass(frozen=True)
 class SearchCaps:
-    """Cooperative caps; memory_bytes accounts retained frontier payload bytes."""
+    """Cooperative caps; memory_bytes bounds live frontier payload bytes."""
     seconds: float | None = None
     work: int | None = None
     entries: int | None = None
@@ -269,8 +269,14 @@ class SearchCaps:
                 raise ValueError("invalid " + name + " cap")
 
 
+@dataclass(frozen=True)
+class FrontierEntryTicket:
+    serial: int
+    encoded_bytes: int
+
+
 class SearchBudget:
-    """Deterministic work/entry/frontier-byte accounting plus cooperative deadline."""
+    """Work/total-entry caps, live frontier-byte accounting and cooperative deadline."""
     def __init__(self, caps=None):
         self.caps = caps if caps is not None else SearchCaps()
         if not isinstance(self.caps, SearchCaps):
@@ -278,7 +284,11 @@ class SearchBudget:
         self.started = monotonic()
         self.work = 0
         self.entries = 0
+        self.frontier_entries = 0
         self.memory_bytes = 0
+        self.peak_memory_bytes = 0
+        self._next_ticket = 0
+        self._active_entries = {}
 
     @property
     def elapsed_seconds(self):
@@ -308,14 +318,30 @@ class SearchBudget:
         if self.caps.work is not None and self.work + 1 > self.caps.work:
             raise SearchCapExceeded("work")
         # Admission is atomic: a rejected entry changes no counters.
+        ticket = FrontierEntryTicket(self._next_ticket, encoded_bytes)
+        self._next_ticket += 1
+        self._active_entries[ticket.serial] = encoded_bytes
         self.entries += 1
+        self.frontier_entries += 1
         self.memory_bytes += encoded_bytes
+        self.peak_memory_bytes = max(self.peak_memory_bytes, self.memory_bytes)
         self.work += 1
+        return ticket
+
+    def release_frontier_entry(self, ticket):
+        if (type(ticket) is not FrontierEntryTicket
+                or self._active_entries.get(ticket.serial) != ticket.encoded_bytes):
+            raise ValueError("unknown or already released frontier entry")
+        del self._active_entries[ticket.serial]
+        self.frontier_entries -= 1
+        self.memory_bytes -= ticket.encoded_bytes
 
     def counters(self):
         return {
             "work": self.work,
             "entries": self.entries,
+            "frontier_entries": self.frontier_entries,
             "frontier_bytes": self.memory_bytes,
+            "peak_frontier_bytes": self.peak_memory_bytes,
             "elapsed_seconds": self.elapsed_seconds,
         }

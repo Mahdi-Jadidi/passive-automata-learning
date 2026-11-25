@@ -15,7 +15,7 @@ The implementation follows the P3 authorization in issue #11 and the semantics i
 - first_true_split: preserves alternative order; child j adds equality e_j and all earlier disequalities; returns one child per alternative and an explicit all-false residual. Empty children/residuals are retained, not silently omitted.
 - Generic fallback: every unordered pair of distinct current E-classes in stable original-ID order.
 - Base lower bound: LB = n - number_of_E_classes; one-optimum cutoff is LB >= U; all-optima cutoff is LB > U.
-- SearchCaps / SearchBudget: cooperative seconds and work limits, entry cap, and deterministic retained-frontier-payload byte cap. Frontier byte accounting is not a claim of total process-RSS enforcement; rejected entry admission is atomic.
+- SearchCaps / SearchBudget: cooperative seconds and work limits, cumulative generated-entry cap, and a live retained-frontier-payload byte cap. Frontier admission returns a ticket; release returns its accounted bytes. Frontier byte accounting is not a claim of total process-RSS enforcement; rejected entry admission is atomic.
 
 A non-singleton root owner must be supplied by a caller that reconstructed it from independently verified journal/2 evidence. RegionState.root(n) creates only the no-contraction identity root. This milestone does not itself read or re-interpret journal/2.
 
@@ -28,27 +28,27 @@ Python 3.13.5, Linux. From the implementation/partition_feedback_final module ro
     python -m compileall -q selector_v2
     python -O -m compileall -q selector_v2
 
-Both test modes passed 8/8. Exact run records are committed in selector_v2/integration/p3-m1/normal.log, optimized.log, normal.time, and optimized.time.
+Both test modes passed 9/9. Exact run records are committed in selector_v2/integration/p3-m1/normal.log, optimized.log, normal.time, and optimized.time.
 
 | Metric | Normal | Optimized (-O) |
 |---|---:|---:|
-| unittest tests | 8/8 | 8/8 |
-| unittest internal elapsed | 0.157 s | 0.160 s |
-| process elapsed | 0.86 s | 0.88 s |
-| process max RSS | 97,808 KiB | 97,676 KiB |
+| unittest tests | 9/9 | 9/9 |
+| unittest internal elapsed | 0.166 s | 0.180 s |
+| process elapsed | 0.95 s | 1.03 s |
+| process max RSS | 97,808 KiB | 97,804 KiB |
 
 Literal first-true coverage test: 21,195 membership checks across all 15 RGS partitions on four symbols, 157 ordered alternative lists (length 0–3), three parent E states, and three D contexts. It generated/checked 3,834 child records and 1,413 explicit residual records. For every parent member, exactly one first-true child contains it if any alternative is true; otherwise the residual contains it. No parent member is lost and no two children/residual overlap.
 
-Additional checks cover deterministic DSU tie-breaking, no path compression, nested rollback, original-ID owner arrays with unused positions retained, D endpoint provenance through E changes, explicit empty regions, all-pairs fallback coverage of strict coarsenings, base-LB soundness on all four-symbol partitions, one/all-optima cutoff boundary, and cap behavior. The cap fixture records 3 work units, 2 entries, and 10 retained frontier bytes before the next operation is rejected; zero-second, work, entry and memory caps are separately exercised. Rejected admissions leave counters unchanged.
+Additional checks cover deterministic DSU tie-breaking, no path compression, nested rollback, original-ID owner arrays with unused positions retained, D endpoint provenance through E changes, explicit empty regions, all-pairs fallback coverage of strict coarsenings, base-LB soundness on all four-symbol partitions, one/all-optima cutoff boundary, and cap behavior. The cap fixture records 3 work units, 2 cumulative entries, and 10 live frontier bytes before the next operation is rejected; zero-second, work, entry and memory caps are separately exercised. Rejected admissions leave counters unchanged. A separate ticket test releases a 4-byte entry, admits another 4-byte entry under the same 10-byte live cap, verifies cumulative entries do not decrease, and rejects double release.
 
 Source/test Git blob IDs are recorded below; log hashes are exact Git blob hashes:
 
-- selector_v2/edr_bb.py: 9f978f655682297ac6862a12a1b04c7f7943d870
-- selector_v2/tests/test_edr_bb.py: d1a3e11b1a2b2c533e2bee667ba79c938f40809a
-- selector_v2/integration/p3-m1/normal.log: c44e58e0996fbcc7396fad76d1720973265962ea
-- selector_v2/integration/p3-m1/optimized.log: 567fa5ffa2eadfddd7f9a5cd85f695309a205921
-- selector_v2/integration/p3-m1/normal.time: 1ba2b0dac371b0b29c50908f7564d2b764e6d16e
-- selector_v2/integration/p3-m1/optimized.time: 41405c002fd63276e151d2ed3a2808f966409f0b
+- selector_v2/edr_bb.py: a98fd2bb22574e6f80d5ac5267ee1d12a8ee54b7
+- selector_v2/tests/test_edr_bb.py: 77c2403c5ebba93ca3742a1a66ad73e479b9d137
+- selector_v2/integration/p3-m1/normal.log: 4753ba15d4c48f3c2f4833d94c10cea2affd0a35
+- selector_v2/integration/p3-m1/optimized.log: c7c4537bb0cf1f99af4c77eb279307eedc62da38
+- selector_v2/integration/p3-m1/normal.time: e4ce4a4dfcd3102ad7f4bfc73311ad4fd9ff243e
+- selector_v2/integration/p3-m1/optimized.time: 8b240334ef97f70f59eddc43bfac79faeaf77ec0
 
 ## Explicitly not implemented / limitations
 
