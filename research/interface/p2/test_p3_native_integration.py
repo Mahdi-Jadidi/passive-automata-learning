@@ -149,8 +149,28 @@ def invoke_verifier(verifier, raw_bytes, journal_bytes, trusted_bytes,
         return completed.returncode, result
 
 
+def invoke_rgs_oracle(oracle, raw_bytes, optimized):
+    """Exhaustively enumerate original-alphabet RGS partitions independently."""
+    with tempfile.TemporaryDirectory(prefix="p3-rgs-oracle-") as directory:
+        raw_path = Path(directory) / "raw.json"
+        raw_path.write_bytes(raw_bytes)
+        prefix = [sys.executable]
+        if optimized:
+            prefix.append("-O")
+        prefix.append("-B")
+        command = prefix + [
+            str(oracle), "--raw", str(raw_path),
+            "--seconds", "30",
+            "--max-partitions", "4213597",
+            "--max-work", "150000000",
+            "--max-entries", "100000",
+        ]
+        completed = subprocess.run(command, capture_output=True, timeout=45, check=False)
+        return completed.returncode, strict_loads(completed.stdout)
+
+
 def verify_then_register(verifier, raw_bytes, journal_bytes, trusted_bytes,
-                         proof_path, mode, optimized):
+                         proof_path, mode, optimized, oracle_path=None):
     """Fail closed: the only path to open_gateway/register follows VERIFIED."""
     return_code, result = invoke_verifier(
         verifier, raw_bytes, journal_bytes, trusted_bytes, proof_path, optimized
@@ -162,6 +182,16 @@ def verify_then_register(verifier, raw_bytes, journal_bytes, trusted_bytes,
         raise AssertionError("structural verification must not imply operational acceptance")
 
     raw = strict_loads(raw_bytes)
+    if oracle_path is not None:
+        oracle_rc, oracle_result = invoke_rgs_oracle(oracle_path, raw_bytes, optimized)
+        expected_partitions = 203 if len(raw["alphabet"]) == 6 else 4213597
+        if (oracle_rc != 0 or oracle_result.get("status") != "VERIFIED" or
+                oracle_result.get("visited") != expected_partitions):
+            raise AssertionError("independent RGS oracle did not exhaust the original alphabet: "
+                                 + repr(oracle_result))
+        if (oracle_result["result"]["optimum"] != result["result"]["optimum"] or
+                oracle_result["result"]["optima"] != result["result"]["optima"]):
+            raise AssertionError("frontier verifier and exhaustive RGS oracle disagree")
     trusted = strict_loads(trusted_bytes)
     selector_scope = trusted["selector_scope"]
     sample_digest = selector_scope["sample_digest"]
