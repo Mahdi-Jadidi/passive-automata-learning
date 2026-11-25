@@ -10,6 +10,7 @@ from pathlib import Path
 import subprocess
 import sys
 import tempfile
+import time
 import unittest
 
 from gateway import open_gateway
@@ -144,8 +145,24 @@ def invoke_verifier(verifier, raw_bytes, journal_bytes, trusted_bytes,
             "--max-entries", "6000001",
             "--max-proof-bytes", str(2 * 1024 * 1024 * 1024),
         ]
+        started = time.monotonic()
         completed = subprocess.run(command, capture_output=True, timeout=630, check=False)
+        elapsed = time.monotonic() - started
         result = strict_loads(completed.stdout)
+        proof_result = result.get("result") or {}
+        optima = proof_result.get("optima")
+        optima_count = len(optima) if optima is not None else int(proof_result.get("owner") is not None)
+        print("P3_FRONTIER_VERIFIER " + json.dumps({
+            "optimized": optimized,
+            "return_code": completed.returncode,
+            "status": result.get("status"),
+            "nodes_checked": result.get("nodes_checked"),
+            "work_units": result.get("work_units"),
+            "exact_checks": result.get("exact_checks"),
+            "optimum": proof_result.get("optimum"),
+            "optima_count": optima_count,
+            "elapsed_seconds": round(elapsed, 3),
+        }, sort_keys=True, separators=(",", ":")))
         return completed.returncode, result
 
 
@@ -165,8 +182,22 @@ def invoke_rgs_oracle(oracle, raw_bytes, optimized):
             "--max-work", "150000000",
             "--max-entries", "100000",
         ]
+        started = time.monotonic()
         completed = subprocess.run(command, capture_output=True, timeout=45, check=False)
-        return completed.returncode, strict_loads(completed.stdout)
+        elapsed = time.monotonic() - started
+        result = strict_loads(completed.stdout)
+        oracle_result = result.get("result") or {}
+        print("P3_RGS_ORACLE " + json.dumps({
+            "optimized": optimized,
+            "return_code": completed.returncode,
+            "status": result.get("status"),
+            "visited": result.get("visited"),
+            "work_units": result.get("work_units"),
+            "optimum": oracle_result.get("optimum"),
+            "optima_count": len(oracle_result.get("optima") or []),
+            "elapsed_seconds": round(elapsed, 3),
+        }, sort_keys=True, separators=(",", ":")))
+        return completed.returncode, result
 
 
 def verify_then_register(verifier, raw_bytes, journal_bytes, trusted_bytes,
@@ -246,6 +277,14 @@ def verify_then_register(verifier, raw_bytes, journal_bytes, trusted_bytes,
         raise AssertionError("request IDs and global attempt IDs share a namespace")
     if set(ledger.pending_candidates) != set(request_ids):
         raise AssertionError("candidate registration did not remain pending")
+    print("P3_CANDIDATES_REGISTERED " + json.dumps({
+        "mode": mode,
+        "sample_digest": sample_digest,
+        "candidate_count": len(owners),
+        "request_count": len(request_ids),
+        "attempt_count": len(attempt_ids),
+        "pending_count": len(ledger.pending_candidates),
+    }, sort_keys=True, separators=(",", ":")))
 
     journal_after = ledger.export()
     decoded = strict_loads(journal_after)
