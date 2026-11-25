@@ -194,7 +194,9 @@ def compare_certificates(first, second, *, compare_metrics=False):
         return "CENSORED"
     equal = first["certificate"] == second["certificate"] and first["status"] == second["status"]
     if compare_metrics:
-        equal = equal and first.get("native") == second.get("native")
+        counters = [{key: value for key, value in run.get("native", {}).items()
+                     if key != "elapsed_seconds"} for run in (first, second)]
+        equal = equal and counters[0] == counters[1]
     return "MATCH" if equal else "DIFFERENT"
 
 
