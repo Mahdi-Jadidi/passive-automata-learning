@@ -1,0 +1,30 @@
+{
+  "format": "p3-interface-input-fixtures/v1",
+  "source": {
+    "library_archive": "/Passive learning research/p3-exact-search-inputs-recovered.zip",
+    "archive_sha256": "a280e093aa298af359f0e30408b633eefb0283e02471dba52f3d78f1e4059220",
+    "input_manifest_git_blob": "68d2414bd7e1f9294a850268369a55559d440b06",
+    "input_manifest_sha256": "b69986b320ea9f328e0c107696e6ff4d9f2c71efc0624a6859c98295f16389ba"
+  },
+  "fixtures": {
+    "tiny_choice": {
+      "path": "tiny_choice.raw.json",
+      "bytes": 228,
+      "sha256": "1c064aa4c7ce111ec8c403e8b6a05b64de5acdec2ef564861f06c2e2e2e42f23",
+      "git_blob": "ef3f41b4c5e27da6ffd4882804399abf454d51a7",
+      "alphabet_size": 6,
+      "positive_count": 2,
+      "negative_count": 2
+    },
+    "small_choice": {
+      "path": "small_choice.raw.json",
+      "bytes": 416,
+      "sha256": "10b0c3534ddf42369db003bca6b323c9fdaa33cd36aa15031360c3428949931b",
+      "git_blob": "b361642873a73bae454d388cbfb2284559dbd69b",
+      "alphabet_size": 12,
+      "positive_count": 4,
+      "negative_count": 4
+    }
+  },
+  "note": "Exact raw-only bytes copied from the recovered input archive and checked against the seven-fixture manifest. No evaluation index, planted optimum, or reference label is included."
+}
