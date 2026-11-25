@@ -36,3 +36,13 @@ Four research reports and the master handoff archived. Four parallel workstreams
 - Proof branch subsequently hardened bounded deletion replay: latest branch cf5a007, source blobs e1fc61b / 6de549b. Core combined runner still pins the older proof blobs; repin and rerun normal/-O before starting P3 implementation.
 - Benchmark #4 must execute the latest hardened checker on the actual huge_choice_active and huge_long_active inputs; prior 1536 MiB large-case results used the previous proof pin.
 - All four PRs #6–#9 remain open/Draft; do not merge. External learner and baseline remain immutable.
+
+
+## Status (2026-11-25 — P2.1 post-hardening closure / P3 authorization)
+- [Integration review 05](research/INTEGRATION_REVIEW_05.md) and [Next-session handoff 05](NEXT_SESSION_HANDOFF_05.md) supersede the earlier pending-gate status in handoff 04.
+- P2.1 narrow structural journal/2 gate is VERIFIED at proof pin cf5a007 with hardened checker/test blobs e1fc61b / 6de549b. GitHub Actions run 45562082178: 43/43 normal, 31/31 optimized, four actual artifacts VERIFIED/FIXPOINT, 31 mutations rejected, five caps INCOMPLETE, false EXHAUSTED INVALID and PARTIAL INCOMPLETE. Operational status remains INCOMPLETE.
+- Independent lead review of actual proof imports, source hashes, exact artifact replay and logs passed for the reference/simulator structural path.
+- P3 EDR-BB unrestricted structural exact search is AUTHORIZED, B=0, under [issue #11](https://github.com/Mahdi-Jadidi/passive-automata-learning/issues/11). Scope and agent assignments are frozen in issue #11 and Review05.
+- P3 preparation CI: interface contract 17/17 normal and optimized (run 45563718490); independent RGS oracle normal/-O (run 45563857327).
+- All four agent PRs #6–#9 remain open/draft/unmerged. Benchmark hardened huge_choice_active/huge_long_active raw and full journal replay remain NOT RUN because original raw bytes could not be materialized; this is not a failure or inferred memory censoring. See benchmarks/v2/REVIEW04_HARDENED_UNIT.md.
+- External learner/baseline unchanged; no live calls, merge, bounded optimization, CDAQ or operational acceptance.
