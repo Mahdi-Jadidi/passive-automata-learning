@@ -152,3 +152,15 @@ Artifact:
 This resolves the producer exhaustion and resume-equivalence blocker. It does NOT yet establish independent proof: core run used its older verifier pin `e1d022496f98bf50fd57d5ef3a7a0bc8194c817c`. Agent #3 has been asked to replay the exact 1.4GB certificate with current verifier commit `d89bab4c005d17c8b27d4c1e6dd291135aca649a` / blob `540a7cf9e7b048684d3ea03def744175ae629b65`, and to compare all 4,213,597 RGS partitions. No small_choice/all candidate may be registered before that independent result.
 
 The native integration test now streams certificate hashing and passes the artifact file path directly to the verifier, avoiding a 1.4GB parent-process byte buffer. It pins all four exact certificate SHA-256/Git blob identities. All-four interface workflow run `45597292393` is in progress, downloading tiny one/all, small one and expanded small all; its proof subprocess is capped at 2 GiB proof bytes / 5 GiB address space pending Agent #3's memory result. M2 remains INCOMPLETE until Agent #3's proof/RGS result and this all-four interface run both pass.
+
+
+## M16 — Four-artifact interface replay and exhaustive oracle gate
+
+The first all-four interface attempt `45597292393` used the earlier 4M/240s/5GiB limits and is superseded. The current run is `45597784081`, using the streaming certificate-hash/file-path test, 6,000,001 node/entry caps, 600-second verifier budget, 2 GiB proof-byte cap and 13 GiB address-space limit. It pins:
+- producer source commit `391abf97df3b67661082c907d9ce20b4f69636c2`;
+- expanded small/all workflow commit `f8de4b6b14b3840d699d3c47ccc06a71eb5e04ae` and workflow blob `1bde518e6e2036a74295f7287e54fc926f404687`;
+- verifier commit `d89bab4c005d17c8b27d4c1e6dd291135aca649a` / blob `540a7cf9e7b048684d3ea03def744175ae629b65`;
+- RGS oracle blob `da28e66ca4ff74388be79bf9549c8e02f0c60410`;
+- core ledger commit/blob `4e21dbf0d06c030681e774cb15f1a5cf0c802f0d` / `092507fc156e604be242e3100117fedc27b96d04`.
+
+All four actual producer artifacts downloaded successfully; exact source-pin checks passed; existing gateway/journal/2 suites passed normal and optimized. The native verify-before-register step is still running. For each all-mode artifact, it now invokes the pinned RGS oracle on the exact raw bytes, requires 203 partitions for tiny_choice and 4,213,597 for small_choice, and compares the complete sorted owner-array set and optimum with the frontier verifier BEFORE registration. The test registers only after both proof checks pass. The all-four run has not yet produced a final result; do not treat it as passed until normal and optimized native steps both succeed and logs are uploaded.
