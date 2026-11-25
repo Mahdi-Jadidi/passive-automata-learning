@@ -11,6 +11,7 @@ from pathlib import Path
 from independent_replay import sample_data
 from p3_frontier_verifier import build_trusted_scope, canonical, pair_at, scope_digest, verify_frontier
 from rgs_oracle import oracle, rgs, self_test, compatible
+from test_production_replay import build as reference_closure
 
 def fixture(raw):
     _, _, _, digest = sample_data(raw)
@@ -23,7 +24,8 @@ def minimum_owner(p):
 def certificate(raw, scope, mode="all"):
     # Test-only construction using literal membership of every RGS partition.
     n,X,Y,_ = sample_data(raw)
-    partitions = [minimum_owner(p) for p in rgs(n)]
+    partitions = [minimum_owner(p) for p in rgs(n)
+                  if all(p[i]==p[g] for i,g in enumerate(scope["root_owner"]))]
     result = oracle(raw)["result"]
     best = result["optimum"]
     optima = sorted(minimum_owner(p) for p in result["optima"])
@@ -160,6 +162,47 @@ class FrontierTests(unittest.TestCase):
         self.assertEqual(out["status"],"INCOMPLETE",out)
         self.assertEqual(out["nodes_checked"],2)
         print("symbolic alternatives:",t,"work:",out["work_units"])
+    def test_nonidentity_journal(self):
+        raw=dict(alphabet=["a","b","c"],positive=[["a"],["b"]],negative=[["a","b"]])
+        c0=reference_closure(raw)
+        sd=sample_data(raw)[3]
+        journal=dict(version="selector-v2-journal/2",sample_digest=sd,
+                     events=[dict(event="RAW",records=c0["records"])])
+        j=canonical(journal)
+        s=build_trusted_scope(raw,j)
+        self.assertEqual(s["root_owner"],[0,0,2])
+        c=certificate(raw,s)
+        out=verify_frontier(raw,j,s,c)
+        self.assertEqual(out["status"],"VERIFIED",out)
+        self.assertEqual(out["result"]["optimum"],1)
+        corrupt=copy.deepcopy(journal)
+        corrupt["events"][0]["records"][0]["payload"]["result_owner"]=[0,1,2]
+        self.assertEqual(verify_frontier(raw,canonical(corrupt),s,c)["status"],"INVALID")
+        self.assertEqual(verify_frontier(raw,j,dict(s,root_owner=[0,1,2]),c)["status"],"INVALID")
+    def test_all_ties_and_lazy_prefix(self):
+        raw=dict(alphabet=["a","b","c"],positive=[["b","c"],["a"]],negative=[["a","b","c"]])
+        j,s=fixture(raw)
+        c=certificate(raw,s)
+        self.assertEqual(c["optima"],[[0,0,2],[0,1,0]])
+        self.assertEqual(verify_frontier(raw,j,s,c)["status"],"VERIFIED")
+        bad=copy.deepcopy(c)
+        bad["nodes"][1]["closure"]=dict(reason="COST")
+        self.assertEqual(verify_frontier(raw,j,s,bad)["status"],"INVALID")
+        # Preserve the first emitted child and explicit residual; later
+        # first-true children remain the symbolic suffix.
+        part=copy.deepcopy(c)
+        root=part["nodes"][0]
+        root.update(cursor=1,children=["root/c0"],cursor_log=root["cursor_log"][:1],
+                    suffix=dict(rule="FIRST_TRUE_SUFFIX_V1",start=1,stop=3))
+        part["nodes"]=[q for q in part["nodes"] if q["id"] in ("root","root/r") or
+                       q["id"]=="root/c0" or q["id"].startswith("root/c0/")]
+        part.update(declared_status="PARTIAL",optima=[])
+        self.assertEqual(verify_frontier(raw,j,s,part)["status"],"INCOMPLETE")
+        for change in (lambda q:q["nodes"][0]["suffix"].update(start=2),
+                       lambda q:q["nodes"][0].pop("suffix"),
+                       lambda q:q["nodes"][0]["cursor_log"][0].update(to=2)):
+            bad=copy.deepcopy(part); change(bad)
+            self.assertEqual(verify_frontier(raw,j,s,bad)["status"],"INVALID")
     def test_scope_and_cli(self):
         for s in (dict(self.s,root_owner=[0,0,2]),dict(self.s,positive=[dict(id="P0",tokens=[False])])):
             self.assertEqual(verify_frontier(self.raw,self.j,s,self.c)["status"],"INVALID")

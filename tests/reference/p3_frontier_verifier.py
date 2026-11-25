@@ -121,6 +121,8 @@ def _scope(raw, journal, b):
             return tracer if frame.f_globals.get("__name__") in modules else None
         if event == "line":
             b.debit()
+            if b.work + db.used > b.max_work or db.exact_checks > b.max_exact:
+                raise Incomplete("combined journal work/exact cap")
         return tracer
     db = DeletionBudget(work=max(0, b.max_work-b.work), entries=b.max_entries,
                         word_length=b.max_raw_bytes,
@@ -299,6 +301,7 @@ def verify_frontier(raw, exact_journal2_bytes, trusted_scope, proof, *, budgets=
             need(exact_int(q["cost"], U), "incumbent cost")
             need(compatible(inc, X, Y, b), "false incumbent")
         need(type(cert["optima"]) is list, "optima list")
+        b.entries(len(cert["optima"]))
         winners = [owner(q, n, b) for q in cert["optima"]]
         need(winners == sorted(set(winners)), "optima order/duplicates")
         need(not winners or (mode == "all" and declared == "EXHAUSTED"), "forbidden optima")
@@ -313,6 +316,7 @@ def verify_frontier(raw, exact_journal2_bytes, trusted_scope, proof, *, budgets=
             b.debit()
             need(type(q) is dict and type(q.get("id")) is str, "node id")
             ident = q["id"]
+            b.debit(len(ident))
             need(previous < ident, "node order/duplicate")
             previous = ident
             table[ident] = q
@@ -465,7 +469,7 @@ def main(argv=None):
             return 0
         out = verify_frontier(raw,journal,read(a.scope,a.max_raw_bytes),
                               read(a.proof,a.max_proof_bytes),budgets=limits)
-    except (Incomplete,MemoryError,RecursionError,TimeoutError) as e:
+    except (Incomplete,MemoryError,RecursionError,TimeoutError,FileNotFoundError) as e:
         out = dict(status="INCOMPLETE",reason=str(e),operational_status="INCOMPLETE",
                    nodes_checked=0,work_units=0,exact_checks=0)
     except (ValueError,TypeError,OSError) as e:

@@ -36,18 +36,27 @@ permissions:
 
 jobs:
   independent-p3-frontier:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     timeout-minutes: 5
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with:
           python-version: "3.13.5"
+      - name: Exact source pins and runtime
+        run: |
+          python --version
+          git rev-parse HEAD
+          git hash-object tests/reference/p3_frontier_verifier.py tests/reference/test_p3_frontier_verifier.py tests/reference/rgs_oracle.py tests/reference/bounded_deletion.py tests/reference/journal_v2_replay.py
       - name: Verify normal Python mode
         env:
           PYTHONPATH: tests/reference
-        run: python -m unittest discover -s tests/reference -p "test_p3_frontier_verifier.py" -v
+        run: |
+          ulimit -v 1572864
+          /usr/bin/time -f 'wall=%e RSS_KiB=%M' python -B -m unittest discover -s tests/reference -p "test_p3_frontier_verifier.py" -v
       - name: Verify optimized Python mode
         env:
           PYTHONPATH: tests/reference
-        run: python -O -m unittest discover -s tests/reference -p "test_p3_frontier_verifier.py" -v
+        run: |
+          ulimit -v 1572864
+          /usr/bin/time -f 'wall=%e RSS_KiB=%M' python -B -O -m unittest discover -s tests/reference -p "test_p3_frontier_verifier.py" -v
