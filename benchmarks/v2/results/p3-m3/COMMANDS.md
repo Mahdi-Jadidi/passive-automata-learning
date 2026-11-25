@@ -29,7 +29,7 @@ python -B benchmarks/v2/p3_m3_export.py benchmarks/v2/results/p3-m3 \
 
 ## Controlled M2/M3 pairs
 
-Build `benchmarks/v2/p3/m3-native.json` from the frozen `p3/native.json` after #2 and #3 publish their immutable source pins. Set both exact commit and blob maps and append the published producer opt-in flag(s). Check out the pinned M3 producer and verifier under `m3-producer` and `m3-verifier`, with only their source directories. The paired workflow uses the committed config to select the complete matrix and stages only the original fixture bytes and source files.
+Use the [committed M3 config](../../p3/m3-native.json) with producer `9a361f6fa59414cc0ac262154d87c37f5aed0403` and verifier `f24d34c6e812b23c3dbe8953a6f592653b44958e`. Check out those pins under `m3-producer` and `m3-verifier`, with only their source directories. The M3 producer module is `selector_v2.edr_m3` with `--split-rule CROSS_SUPPORT_LEX_V1`. The paired workflow uses the committed config to select the complete matrix and stages only the original fixture bytes and source files.
 
 ```bash
 for fixture in tiny_choice small_choice medium_choice huge_choice_active hdfs_1024 \

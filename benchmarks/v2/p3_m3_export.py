@@ -63,21 +63,29 @@ def historical(output):
 def phase_rows(summary, arm):
     phases = {(r["mode"], r["python_mode"], name): p
               for r in summary["runs"] for name, p in r["phases"].items()}
+    runs = {(r["mode"], r["python_mode"]): r for r in summary["runs"]}
     for row in flatten(summary):
-        phase = phases.get((row["mode"], row["python_mode"], row["phase"]), {})
+        variant = row["mode"], row["python_mode"]
+        phase = phases.get((*variant, row["phase"]), {})
         native = phase.get("native", {})
         rules = phase.get("split_rules", {})
-        prefix = phases.get((row["mode"], row["python_mode"], "checkpoint"), {}).get("native", {})
+        prefix = phases.get((*variant, "checkpoint"), {}).get("native", {})
         resumed = row["phase"] in ("resumed", "cumulative-frontier", "cumulative-work")
         cumulative = {key: prefix[key] + native[key] for key in ("work", "entries", "frontier_bytes")
                       if resumed and key in prefix and key in native}
+        if resumed and arm == "m3":
+            # v2's live-byte counter already includes the restored payload.
+            cumulative["frontier_bytes"] = native.get("frontier_bytes")
         yield dict(arm=arm, **row, fresh_comparison=phase.get("fresh_comparison"),
+                   completed_resume=runs.get(variant, {}).get("completed_resume"),
                    checkpoint_prefix_preserved=phase.get("checkpoint_prefix_preserved"),
                    cumulative_work=cumulative.get("work"), retained_entries=cumulative.get("entries"),
                    retained_frontier_bytes=cumulative.get("frontier_bytes"),
                    proof_format=phase.get("proof_format"),
                    cross_splits=rules.get("CROSS_SUPPORT_LEX_V1", 0) if "split_rules" in phase else None,
                    all_pairs_splits=rules.get("ALL_PAIRS_LEX_V1", 0) if "split_rules" in phase else None,
+                   witness_work=native.get("witness_work"), witness_probes=native.get("witness_probes"),
+                   witness_local_caps=native.get("witness_local_caps"),
                    discovery_metrics=json.dumps({k: v for k, v in native.items()
                                                   if "discover" in k or "witness" in k}, sort_keys=True))
 
