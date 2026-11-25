@@ -119,3 +119,18 @@ Workflow run `45595243572` completed SUCCESS:
 ### Remaining gate
 
 Only `small_choice / all` is outstanding. Core expanded run `45593819618`, producer commit `f8de4b6b14b3840d699d3c47ccc06a71eb5e04ae`, is still executing with 6,000,000 entry cap, 600 seconds and 13 GiB address-space cap. No artifact or independent proof exists yet. Once available, require Agent #3 exact-byte replay and RGS agreement over 4,213,597 partitions, then add the fourth artifact to the interface workflow and rerun normal/-O. Until then M2 is a successful partial integration, not complete acceptance. Operational status remains INCOMPLETE. PR #6 remains OPEN/DRAFT/UNMERGED.
+
+
+## M14 — Small/all exclusion and expanded-resource gate
+
+Agent #4's audit of the earlier `small_choice / all` artifact from core run `45592454384` found it is NOT a usable P3 certificate:
+- producer result PARTIAL / ENTRY_CAP; generated 4,000,000 entries, expanded 150,745, closed 3,849,256, exact checks 192,520, work 114,128,965, frontier bytes 857,999,077;
+- partial certificate 1,020,213,083 bytes, SHA-256 `bde267836723cf0de3d66e2f19424f165701c6633dd68d83c71b2db260a55c89`;
+- the earlier proof verifier pin `e1d022496f98bf50fd57d5ef3a7a0bc8194c817c` returned INCOMPLETE / MemoryError before visiting a frontier node (nodes=0, exact checks=0, work=1,372, peak RSS 5,195,692 KiB);
+- the one-entry checkpoint/resume output differs: 1,020,213,333 bytes, SHA-256 `dfa0dc54d984dcee07ab1aca8ac905c960e6ae8199933ff695c930531cd6b748`; `checkpoint_resume_equal=false`.
+
+This artifact is excluded from the interface native workflow and MUST NOT be registered. It is not an INVALID proof; the verifier did not replay the frontier, and the producer did not exhaust the search.
+
+Expanded replacement run `45593819618` is still executing. Workflow commit is `f8de4b6b14b3840d699d3c47ccc06a71eb5e04ae`; it checks out the unchanged producer source commit `391abf97df3b67661082c907d9ce20b4f69636c2` (solver blob `73da7bea551df73a8676b0adf0401cd7f2d307b5`) and requests 6,000,000 entries, 600 seconds and 13,312 MiB RLIMIT_AS. The expanded workflow itself is blob `1bde518e6e2036a74295f7287e54fc926f404687`. No artifact is available at this checkpoint. If it completes, require EXHAUSTED normal/-O certificates, exact normal/-O and checkpoint/resume byte equality, then Agent #3 latest verifier (commit `d89bab4c005d17c8b27d4c1e6dd291135aca649a`, blob `540a7cf9e7b048684d3ea03def744175ae629b65`) plus exact RGS12 oracle replay before adding small/all to the interface integration workflow.
+
+Updated #2 and #3 coordination comments `7159907331` and `7159908220`. The three-case native interface integration remains fully green; small/all remains an explicit blocker. M2 overall and operational status are INCOMPLETE.
