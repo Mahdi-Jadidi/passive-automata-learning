@@ -73,3 +73,49 @@ git hash-object research/interface/p2/fixtures/p3/{tiny_choice,small_choice}.raw
 Updated `research/interface/p2/P3_SEARCH_INTERFACE.md` with the frozen v1 verifier handshake, exact CLI, pinned fixture hashes, required verify-before-register order, and the explicit NOT RUN blocker. Documentation commit: `2dbef769f7cda2a950063cb29ec38b80cbb80fad`; new document blob `b56ff9951e6f2d55bc53f4835f3c04e2b18b82e3`.
 
 This milestone validates raw input bytes and integration coordination only. No producer certificate was available, so no proof replay or candidate registration was run. Existing interface tests have not yet been rerun on these commits; push CI is the next check. No gateway/adapter/core source, journal schema, learner, external endpoint, or transaction authority was changed.
+
+
+## M13 — Native P3 certificate → independent verifier → authoritative ledger integration
+
+### Exact source pins
+
+- Interface branch current checkpoint: `cbaa5952ab2d7a1b4b20948fc62f4f97aec806eb`.
+- Producer artifact run: `45592454384`, producer commit `391abf97df3b67661082c907d9ce20b4f69636c2`; `selector_v2/edr_search.py` blob `73da7bea551df73a8676b0adf0401cd7f2d307b5`, `edr_bb.py` blob `657c4e0e4059b32cd9e6477e61c7a3673290f36d`, `run_case.py` blob `9dd3c684dcae20dc5dec946878d61ac9647eb535`.
+- Independent verifier commit `d89bab4c005d17c8b27d4c1e6dd291135aca649a`; verifier blob `540a7cf9e7b048684d3ea03def744175ae629b65`; RGS12 oracle blob `da28e66ca4ff74388be79bf9549c8e02f0c60410`.
+- Authoritative core ledger commit `4e21dbf0d06c030681e774cb15f1a5cf0c802f0d`; `registered_ledger.py` blob `092507fc156e604be242e3100117fedc27b96d04`.
+- Interface gateway/adapter/strict parser blobs: `8b314e11c0d935122779365b08666c482697621f`, `c38e441c7327a44adad8a0fe1125d45c93e8ef69`, `a66975de137e3ec556b8c7aacd108cf975c46344`.
+
+### Actual producer byte pins
+
+The interface workflow downloaded these three actual producer artifacts from core run `45592454384`; the Agent #3 proof replay logs independently reproduced every file hash and Git blob ID.
+
+| Fixture/mode | Raw (bytes; SHA-256; Git blob) | Journal/2 (bytes; SHA-256; Git blob) | Trusted scope (bytes; SHA-256; Git blob) | Certificate (bytes; SHA-256; Git blob) |
+|---|---|---|---|---|
+| tiny_choice / one | 228; `1c064aa4c7ce111ec8c403e8b6a05b64de5acdec2ef564861f06c2e2e2e42f23`; `ef3f41b4c5e27da6ffd4882804399abf454d51a7` | 130; `290c8490b2a4ab5b4c6f49012c7580152ecc6eb7c4bad036bcf71b91925c48f5`; `3a50ce7567b563fa87dc54395451af58b19d75fa` | 560; `9a43619ffabac9c44e65e69ccc0fc7e5c30033e021625582aa6e31668bdcd172`; `adf7723aa76cdf9bed09e9d42c65511c8c1e8ae8` | 46,588; `91996d9bc6a3d7e88b5c89fc44158bc1cd89cf778256ec67839e1d38555e7ec8`; `bce55d7db1ddbcf6140b2a841f74bb51dad8f2f0` |
+| tiny_choice / all | same raw | same journal | same trusted scope | 99,931; `1be8394e233fe2c5a337766d73a1385145ab82b95d75273d5d548f60b2b781c0`; `eafd651d28fc1f06f60bdbc4c0a4095a04dc390b` |
+| small_choice / one | 416; `10b0c3534ddf42369db003bca6b323c9fdaa33cd36aa15031360c3428949931b`; `b361642873a73bae454d388cbfb2284559dbd69b` | 130; `3d4ae1a0cff38cbc7b1bf7a2269c29a256abe205b7efc8f7ed3a31eb17334019`; `191247f1112e15ccc571656026e6591b42a13d3b` | 754; `89ade477b7f9029acdf8c44b4fe5d1f724038cd795c28b289cd2154e387c841b`; `616e0b864a0119a333bcb8d3248bec0d871bc6f4` | 264,463,193; `dafa72f9e8ec4cc63330d4a7cd420cd478237dd7431c7e488267345ed810471e`; `d1539a0a9ed03d208a88c515c51f6e6473126c3c` |
+
+Normal and optimized producer certificates are byte-identical for all three artifacts. For small_choice/one, producer checkpoint/resume output is also byte-identical. Trusted scopes were independently built from exact raw and journal/2 bytes; the interface test rebuilt them again with the pinned Agent #3 CLI and required byte equality.
+
+### Independent proof evidence
+
+Agent #3 published-artifact replay run `45592784988`:
+- tiny_choice/one job `139134218981`: `VERIFIED`, optimum 2, owner `[0,0,2,3,3,5]`, 221 frontier nodes, 215 exact checks, 60,140 verifier work units; independent RGS visited 203 partitions and found 4 optima.
+- tiny_choice/all job `139134171067`: `VERIFIED`, optimum 2, 461 frontier nodes, 677 exact checks, 131,556 work units; independent RGS visited 203 partitions and matched all 4 owner arrays.
+- small_choice/one job `139134169293`: `VERIFIED`, optimum 4, owner `[0,0,2,3,3,5,6,6,8,9,9,11]`, 1,091,642 frontier nodes, 659,914 exact checks, 457,570,571 verifier work units; independent RGS visited 4,213,597 partitions and matched all 16 optima.
+- Every replay passed in normal and optimized Python and retained `operational_status=INCOMPLETE`.
+
+### Interface integration evidence
+
+New test `research/interface/p2/test_p3_native_integration.py` and workflow `.github/workflows/p3-native-integration.yml` are committed. The test passes exact raw, journal/2, trusted-scope and certificate bytes through Agent #3's CLI; verifies independently rebuilt scope bytes; requires `VERIFIED`; only then opens the gateway and registers the returned owner array(s). It checks exact core ledger type/export, original-alphabet owner arrays, `(sample_digest, tuple(owner))` identity, exact selector-v2/1 scope, distinct request/global attempt IDs, pending candidates, and absence of certificate/proof material in journal/2. A corrupted certificate returns `INVALID` and does not open/register a ledger. The native fixture also confirms `UNKNOWN` remains pending. The existing suite verifies BOUNDED_NO cannot prune unrestricted candidates; a new regression verifies late responses cannot cross sample scopes even when attempt tokens collide.
+
+Workflow run `45595243572` completed SUCCESS:
+- Exact source pin checks: PASS.
+- Actual artifact downloads: 3/3.
+- Existing gateway/journal/2 tests: 18/18 normal and 18/18 optimized.
+- Native verify-before-register tests: 2/2 normal (82.056 s, max RSS 2,028,348 KiB) and 2/2 optimized (83.818 s, max RSS 2,031,096 KiB).
+- Uploaded reproducible logs/summary artifact: `15012841664`, `p3-native-interface-45595243572`.
+
+### Remaining gate
+
+Only `small_choice / all` is outstanding. Core expanded run `45593819618`, producer commit `f8de4b6b14b3840d699d3c47ccc06a71eb5e04ae`, is still executing with 6,000,000 entry cap, 600 seconds and 13 GiB address-space cap. No artifact or independent proof exists yet. Once available, require Agent #3 exact-byte replay and RGS agreement over 4,213,597 partitions, then add the fourth artifact to the interface workflow and rerun normal/-O. Until then M2 is a successful partial integration, not complete acceptance. Operational status remains INCOMPLETE. PR #6 remains OPEN/DRAFT/UNMERGED.
