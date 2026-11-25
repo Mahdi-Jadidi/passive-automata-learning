@@ -46,3 +46,15 @@ Four research reports and the master handoff archived. Four parallel workstreams
 - P3 preparation CI: interface contract 17/17 normal and optimized (run 45563718490); independent RGS oracle normal/-O (run 45563857327).
 - All four agent PRs #6–#9 remain open/draft/unmerged. Benchmark hardened huge_choice_active/huge_long_active raw and full journal replay remain NOT RUN because original raw bytes could not be materialized; this is not a failure or inferred memory censoring. See benchmarks/v2/REVIEW04_HARDENED_UNIT.md.
 - External learner/baseline unchanged; no live calls, merge, bounded optimization, CDAQ or operational acceptance.
+
+
+## Status (2026-11-25 — P3 M1 audited, M2 in progress)
+- [Next-session handoff 06](NEXT_SESSION_HANDOFF_06.md) and [Integration Review 06](research/INTEGRATION_REVIEW_06.md) supersede earlier P3 readiness-only status.
+- P3 M1 core region algebra: PASS (CI 45572670465, 9/9 normal and -O; 21,195 literal first-true membership checks). This is not a complete search.
+- RGS oracle: PASS (CI 45563857327). Interface boundary readiness: PASS (CI 45565081120, 17/17 normal and -O).
+- Independent frontier verifier commit 4c45437 is BLOCKED: CI 45571609270 failed because of selector_v2.schema import. Its O(n²) root_equalities and recursive tree must be replaced by linear root_owner binding and flat iterative node table.
+- Core branch still has no DFS/search loop or serialized frontier; no producer certificate exists. Benchmark harness 9/9 uses fake adapters; no native P3 result.
+- Seven raw-only fixtures recovered. P2 huge raw closure only: huge_long 512MiB producer MemoryError; original journal/2 bytes unavailable, so hardened ledger/full replay remains NOT RUN.
+- [P3 serialization v1](research/P3_SERIALIZATION_V1.md) is frozen at integration commit 1cf4fb9fc935729b9ba021b3e26f791192b76578. It requires flat node table, independent canonicalizer, no quadratic root_equalities, FEASIBLE_MIN region closure, ALL_PAIRS_LEX_V1, explicit suffix/residual and inside-loop resource caps.
+- M2 acceptance sequence: verifier CI -> core tiny/small complete certificates -> independent replay of actual bytes -> offline interface integration -> native benchmarks. All PRs #6–#9 remain OPEN/DRAFT/UNMERGED; branches diverged from integration base and must not be merged until rebase/reconciliation.
+- P2.1 remains VERIFIED, operational status INCOMPLETE. No external calls, learner/baseline changes, bounded optimization, CDAQ, P4-P7 or operational acceptance.
