@@ -21,6 +21,8 @@ jobs:
     env:
       CORE_RUN: "45592454384"
       CORE_PIN: "391abf97df3b67661082c907d9ce20b4f69636c2"
+      SMALL_ALL_RUN: "45593819618"
+      SMALL_ALL_WORKFLOW_PIN: "f8de4b6b14b3840d699d3c47ccc06a71eb5e04ae"
       PROOF_PIN: "d89bab4c005d17c8b27d4c1e6dd291135aca649a"
       CORE_LEDGER_PIN: "4e21dbf0d06c030681e774cb15f1a5cf0c802f0d"
     steps:
@@ -40,6 +42,15 @@ jobs:
           sparse-checkout: |
             implementation/partition_feedback_final/selector_v2
             implementation/partition_feedback_final/research/p3-m2
+          persist-credentials: false
+
+      - name: Checkout expanded small-all workflow pin
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          repository: Mahdi-Jadidi/passive-automata-learning
+          ref: ${{ env.SMALL_ALL_WORKFLOW_PIN }}
+          path: pinned-small-all-workflow
+          sparse-checkout: .github/workflows/p3-core-m2-small-all.yml
           persist-credentials: false
 
       - name: Checkout independent proof verifier
@@ -80,6 +91,9 @@ jobs:
           test "$(git -C pinned-producer hash-object implementation/partition_feedback_final/selector_v2/edr_bb.py)" = 657c4e0e4059b32cd9e6477e61c7a3673290f36d
           test "$(git -C pinned-producer hash-object implementation/partition_feedback_final/research/p3-m2/run_case.py)" = 9dd3c684dcae20dc5dec946878d61ac9647eb535
 
+          test "$(git -C pinned-small-all-workflow rev-parse HEAD)" = "$SMALL_ALL_WORKFLOW_PIN"
+          test "$(git -C pinned-small-all-workflow hash-object .github/workflows/p3-core-m2-small-all.yml)" = 1bde518e6e2036a74295f7287e54fc926f404687
+
           test "$(git -C pinned-proof rev-parse HEAD)" = "$PROOF_PIN"
           test "$(git -C pinned-proof hash-object tests/reference/p3_frontier_verifier.py)" = 540a7cf9e7b048684d3ea03def744175ae629b65
           test "$(git -C pinned-proof hash-object tests/reference/p3_rgs12_oracle.py)" = da28e66ca4ff74388be79bf9549c8e02f0c60410
@@ -114,6 +128,14 @@ jobs:
           name: p3-m2-small_choice-one
           path: incoming/p3-m2-small_choice-one
 
+      - name: Download actual small_choice all certificate artifact
+        uses: actions/download-artifact@v4
+        with:
+          github-token: ${{ github.token }}
+          run-id: ${{ env.SMALL_ALL_RUN }}
+          name: p3-m2-small_choice-all-expanded
+          path: incoming/p3-m2-small_choice-all
+
       - name: Run existing gateway and journal/2 regressions in normal mode
         working-directory: research/interface/p2
         env:
@@ -132,7 +154,7 @@ jobs:
           PYTHONPATH: ${{ github.workspace }}/pinned-core/implementation/partition_feedback_final
           P3_EVIDENCE_ROOT: ${{ github.workspace }}/incoming
           P3_PROOF_ROOT: ${{ github.workspace }}/pinned-proof
-          P3_CASE_MODES: tiny_choice:one,tiny_choice:all,small_choice:one
+          P3_CASE_MODES: tiny_choice:one,tiny_choice:all,small_choice:one,small_choice:all
         shell: bash
         run: |
           set -euo pipefail
