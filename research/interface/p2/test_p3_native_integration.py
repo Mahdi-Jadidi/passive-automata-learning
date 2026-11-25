@@ -20,6 +20,24 @@ RAW_SHA256 = {
     "tiny_choice": "1c064aa4c7ce111ec8c403e8b6a05b64de5acdec2ef564861f06c2e2e2e42f23",
     "small_choice": "10b0c3534ddf42369db003bca6b323c9fdaa33cd36aa15031360c3428949931b",
 }
+CERT_PINS = {
+    ("tiny_choice", "one"): (
+        "91996d9bc6a3d7e88b5c89fc44158bc1cd89cf778256ec67839e1d38555e7ec8",
+        "bce55d7db1ddbcf6140b2a841f74bb51dad8f2f0",
+    ),
+    ("tiny_choice", "all"): (
+        "1be8394e233fe2c5a337766d73a1385145ab82b95d75273d5d548f60b2b781c0",
+        "eafd651d28fc1f06f60bdbc4c0a4095a04dc390b",
+    ),
+    ("small_choice", "one"): (
+        "dafa72f9e8ec4cc63330d4a7cd420cd478237dd7431c7e488267345ed810471e",
+        "d1539a0a9ed03d208a88c515c51f6e6473126c3c",
+    ),
+    ("small_choice", "all"): (
+        "9fb5f5bbc1c64e90bc955f73d2325a1d159224e91258e8a8758a34595102e2a7",
+        "e2f00717be846336b1f3287a8dd58070272434fd",
+    ),
+}
 FORBIDDEN_JOURNAL_KEYS = {
     "certificate", "certificate_digest", "proof", "proof_digest", "frontier",
 }
@@ -272,6 +290,10 @@ class NativeP3Integration(unittest.TestCase):
                     journal_pin = pins_file(root / "journal.json")
                     trusted_pin = pins_file(root / "trusted.json")
                     certificate_pin = pins_file(certificate_path)
+                    self.assertEqual(
+                        (certificate_pin["sha256"], certificate_pin["git_blob_calculated"]),
+                        CERT_PINS[(case, mode)],
+                    )
                     self.assertEqual(raw_pin, summary["raw"])
                     self.assertEqual(journal_pin, summary["journal"])
                     self.assertEqual(trusted_pin, summary["trusted_scope"])
