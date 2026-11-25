@@ -147,7 +147,7 @@ Result JSON exact fields: `status`, `operational_status`, `result`, `reason`, `n
 
 ## 8. Independent verifier requirements
 
-Agent #3 owns `tests/reference/p3_frontier_verifier.py` and `tests/reference/test_p3_frontier_verifier.py`, with callable `verify_frontier(raw, exact_journal2_bytes, trusted_scope, proof, *, budgets)` and CLI:
+Agent #3 owns `tests/reference/p3_frontier_verifier.py` and `tests/reference/test_p3_frontier_verifier.py`, with callable `build_trusted_scope(raw, exact_journal2_bytes)` and `verify_frontier(raw, exact_journal2_bytes, trusted_scope, proof, *, budgets)`. The builder independently replays journal/2 and creates the exact trusted-scope object; it must fail closed on INVALID/INCOMPLETE replay and must never accept producer-supplied root_owner. Provide a CLI to build this file for benchmark/interface use, e.g. `--make-trusted-scope --raw RAW.json --journal JOURNAL.json --out TRUSTED.json`. The verifier CLI is:
 `python -B tests/reference/p3_frontier_verifier.py --raw RAW.json --journal JOURNAL.json --scope TRUSTED.json --proof CERT.json`.
 
 Allowed proof dependencies: existing independently authored P2 modules `independent_replay.py`, `journal_v2_replay.py`, `production_replay.py`, `ledger_replay.py`, `interface_artifact_replay.py`, `bounded_deletion.py`. Absolutely no import from `selector_v2`, producer search, producer DSU, producer pruning, cache, ranking or producer state. Canonicalization must be independently implemented. Strict CLI parsing must preserve duplicate-key detection (do not call plain json.loads before the verifier parser). Use iterative traversal of the flat node table. No assert for proof/security validation; normal and -O behavior must match.
