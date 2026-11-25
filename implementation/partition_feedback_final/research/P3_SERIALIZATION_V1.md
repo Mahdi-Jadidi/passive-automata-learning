@@ -98,7 +98,7 @@ A SPLIT node has exactly:
 - `alternative_count`: exact k(k-1)/2
 - `cursor`: integer in [0, alternative_count]
 - `children`: IDs q/c0..q/c(cursor-1), exactly
-- `cursor_log`: exactly cursor records `{"from":j,"to":j+1,"child_id":"q/cj","pair":[L[j]]}`
+- `cursor_log`: exactly cursor records `{"from":j,"to":j+1,"child_id":"q/cj","pair":[a,b]}` where `[a,b]=pair_at(j)
 - `residual_id`: exactly q/r
 - `suffix`: `{"rule":"FIRST_TRUE_SUFFIX_V1","start":cursor,"stop":alternative_count}`
 
