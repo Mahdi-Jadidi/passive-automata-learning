@@ -37,16 +37,21 @@ def sha(data):
 def scope_digest(obj):
     return sha(canonical(obj))
 
-def parse(obj, cap):
+def parse(obj, cap, budget=None):
     if type(obj) is dict:
-        if len(canonical(obj)) > cap:
+        size = len(canonical(obj))
+        if size > cap:
             raise Incomplete("object byte cap")
+        if budget is not None:
+            budget.debit(size)
         return obj
     if type(obj) is str:
         obj = obj.encode("utf-8")
     need(type(obj) is bytes, "expected JSON bytes or object")
     if len(obj) > cap:
         raise Incomplete("JSON byte cap")
+    if budget is not None:
+        budget.debit(len(obj))
     def pairs(items):
         out = {}
         for k, v in items:
@@ -62,6 +67,8 @@ def parse(obj, cap):
     out = json.loads(obj.decode("utf-8"), object_pairs_hook=pairs,
                      parse_constant=reject, parse_float=finite)
     need(type(out) is dict, "JSON top-level object")
+    if budget is not None:
+        budget.debit(0)
     return out
 
 class Budget:
@@ -281,9 +288,9 @@ def verify_frontier(raw, exact_journal2_bytes, trusted_scope, proof, *, budgets=
     try:
         b = Budget(**dict(budgets or {}, **limits))
         trusted, root, X, Y = _scope(raw, exact_journal2_bytes, b)
-        supplied = parse(trusted_scope, b.max_raw_bytes)
+        supplied = parse(trusted_scope, b.max_raw_bytes, b)
         need(canonical(supplied) == canonical(trusted), "trusted scope mismatch")
-        cert = parse(proof, b.max_proof_bytes)
+        cert = parse(proof, b.max_proof_bytes, b)
         fields(cert, "format scope_digest mode declared_status root_owner incumbent optima nodes")
         need(cert["format"] == "p3-region-frontier/v1", "format")
         need(cert["scope_digest"] == scope_digest(trusted), "scope digest")
@@ -431,8 +438,10 @@ def verify_frontier(raw, exact_journal2_bytes, trusted_scope, proof, *, budgets=
         need(best_found is None or (U is not None and best_found >= U), "missing/worse incumbent")
         if mode == "all":
             need((inc is None or inc in found) and winners == sorted(found), "all-optima mismatch")
-        return result("VERIFIED", None, dict(optimum=U, owner=None if inc is None else list(inc),
-                                            optima=[list(p) for p in winners]))
+        payload = dict(optimum=U, owner=None if inc is None else list(inc),
+                       optima=[list(p) for p in winners])
+        b.debit(0)
+        return result("VERIFIED", None, payload)
     except (Incomplete, MemoryError, RecursionError, TimeoutError) as e:
         return result("INCOMPLETE", str(e) or type(e).__name__)
     except (ValueError, TypeError, KeyError, IndexError, OverflowError, AttributeError) as e:

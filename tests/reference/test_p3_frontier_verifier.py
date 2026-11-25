@@ -21,7 +21,7 @@ def fixture(raw):
 def minimum_owner(p):
     return tuple(p.index(x) for x in p)
 
-def certificate(raw, scope, mode="all"):
+def certificate(raw, scope, mode="all", *, prune=False):
     # Test-only construction using literal membership of every RGS partition.
     n,X,Y,_ = sample_data(raw)
     partitions = [minimum_owner(p) for p in rgs(n)
@@ -35,6 +35,9 @@ def certificate(raw, scope, mode="all"):
         nodes.append(node)
         if not members:
             reason = "EMPTY"
+        elif prune and best is not None and (len(p)-len(set(p)) > best or
+                                              mode == "one" and len(p)-len(set(p)) >= best):
+            reason = "COST"
         elif compatible(p,X,Y):
             reason = "FEASIBLE_MIN"
         elif len(members)==1:
@@ -102,6 +105,29 @@ class FrontierTests(unittest.TestCase):
                                      [list(q) for q in sorted(minimum_owner(p) for p in ref["optima"])])
                     cases+=1
         print("literal fixture cases:",cases)
+    def test_frontier_rgs_through_eight(self):
+        visited = 0
+        for n in (6,7,8):
+            raw = dict(alphabet=[str(i) for i in range(n)],
+                       positive=[["1","2"],["0"]],negative=[["0","1","2"]])
+            j,s = fixture(raw)
+            ref = oracle(raw)["result"]
+            visited += ref["visited"]
+            winners = [list(q) for q in sorted(minimum_owner(p) for p in ref["optima"])]
+            self.assertEqual(winners, [[0,0]+list(range(2,n)),
+                                       [0,1,0]+list(range(3,n))])
+            for mode in ("one","all"):
+                c = certificate(raw,s,mode,prune=True)
+                self.assertEqual(c["nodes"][0]["kind"],"SPLIT")
+                out = verify_frontier(canonical(raw),j,canonical(s),canonical(c))
+                self.assertEqual(out["status"],"VERIFIED",out)
+                self.assertEqual(out["result"]["optimum"],ref["optimum"])
+                self.assertIn(out["result"]["owner"],winners)
+                self.assertEqual(out["result"]["optima"],winners if mode=="all" else [])
+                print("n",n,"mode",mode,"RGS",ref["visited"],
+                      "nodes",out["nodes_checked"],"work",out["work_units"],
+                      "exact",out["exact_checks"])
+        self.assertEqual(visited,5220)
     def test_mutations(self):
         mutations=[
             lambda c:c.update(root_owner=[0,0,2]),
@@ -142,6 +168,13 @@ class FrontierTests(unittest.TestCase):
             out=self.verify(**budget)
             self.assertEqual(out["status"],"INCOMPLETE",out)
             self.assertNotIn("result",out)
+    def test_proof_parse_work_cap(self):
+        baseline = self.verify()
+        self.assertEqual(baseline["status"],"VERIFIED")
+        padded = b" " * (baseline["work_units"] + 1) + canonical(self.c)
+        out = self.verify(padded,max_work=baseline["work_units"])
+        self.assertEqual(out["status"],"INCOMPLETE")
+        self.assertNotIn("result",out)
     def test_one_cutoff(self):
         c=certificate(self.raw,self.s,"one")
         q=c["nodes"][1]
@@ -207,6 +240,9 @@ class FrontierTests(unittest.TestCase):
         for s in (dict(self.s,root_owner=[0,0,2]),dict(self.s,positive=[dict(id="P0",tokens=[False])])):
             self.assertEqual(verify_frontier(self.raw,self.j,s,self.c)["status"],"INVALID")
         self.assertEqual(verify_frontier(self.raw,self.j+b"\n",self.s,self.c)["status"],"INVALID")
+        self.assertEqual(verify_frontier(b'{"alphabet":[],"alphabet":[],"positive":[],"negative":[]}',self.j,self.s,self.c)["status"],"INVALID")
+        duplicate_scope = canonical(self.s)[:-1] + b',"format":"p3-trusted-scope/v1"}'
+        self.assertEqual(verify_frontier(self.raw,self.j,duplicate_scope,self.c)["status"],"INVALID")
         bad=b'{"format":"x","format":"p3-region-frontier/v1"}'
         self.assertEqual(self.verify(bad)["status"],"INVALID")
         with tempfile.TemporaryDirectory() as d:
