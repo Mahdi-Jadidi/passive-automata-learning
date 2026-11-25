@@ -114,11 +114,11 @@ The interface gateway source remains blob `8b314e11c0d935122779365b08666c4826976
 
 The frozen v1 grammar, independent verifier CLI, and raw-only inputs are available. The following actual producer artifacts are now published from core run `45592454384` at producer commit `391abf97df3b67661082c907d9ce20b4f69636c2` (search source blob `73da7bea551df73a8676b0adf0401cd7f2d307b5`, region source blob `657c4e0e4059b32cd9e6477e61c7a3673290f36d`, run harness blob `9dd3c684dcae20dc5dec946878d61ac9647eb535`):
 
-| Fixture/mode | Certificate bytes | SHA-256 | Independent proof |
+| Fixture/mode | Certificate bytes | SHA-256 | Git blob | Independent proof |
 |---|---:|---|---|
-| tiny_choice / one | 46,588 | `7a2bb2f3e6b57c6ec8f7bbdeea6b01c26b0a3c6d74a4f7284a55b6d5f7e4f1c3` | VERIFIED |
-| tiny_choice / all | 99,931 | `e0a3d0c0d8d4e66b1a9f3a7b2d4e6f8091a2b3c4d5e6f708192a3b4c5d6e7f80` | VERIFIED |
-| small_choice / one | 264,463,193 | `dafa72f9e8ec4cc63330d4a7cd420cd478237dd7431c7e488267345ed810471e` | VERIFIED |
+| tiny_choice / one | 46,588 | `91996d9bc6a3d7e88b5c89fc44158bc1cd89cf778256ec67839e1d38555e7ec8` | `bce55d7db1ddbcf6140b2a841f74bb51dad8f2f0` | VERIFIED |
+| tiny_choice / all | 99,931 | `1be8394e233fe2c5a337766d73a1385145ab82b95d75273d5d548f60b2b781c0` | `eafd651d28fc1f06f60bdbc4c0a4095a04dc390b` | VERIFIED |
+| small_choice / one | 264,463,193 | `dafa72f9e8ec4cc63330d4a7cd420cd478237dd7431c7e488267345ed810471e` | `d1539a0a9ed03d208a88c515c51f6e6473126c3c` | VERIFIED |
 
 The small_choice/one proof replay is Agent #3 run `45592784988`, job `139134169293`: normal and optimized verifier runs both returned `VERIFIED`, `operational_status=INCOMPLETE`, 1,091,642 frontier nodes and 659,914 exact checks. Independent RGS replay visited 4,213,597 partitions and confirmed optimum cost 4 with all 16 optima. Its exact raw/journal/trusted/certificate pins are in the proof artifact; the certificate Git blob is `d1539a0a9ed03d208a88c515c51f6e6473126c3c`.
 
