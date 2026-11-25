@@ -1,0 +1,64 @@
+name: P2.1 hardened proof gate
+on:
+  push:
+    branches: [research/v2-implementation-core]
+    paths: [.github/workflows/p21-hardened-proof-gate.yml]
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  gate:
+    if: github.ref == 'refs/heads/research/v2-implementation-core'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          ref: ${{ github.sha }}
+          sparse-checkout: implementation/partition_feedback_final
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          ref: 0eb1050ad103bad2f93d3b9feb732bf94184f2a2
+          path: pinned-interface
+          sparse-checkout: research/interface/p2
+          persist-credentials: false
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          ref: cf5a007571853b6cdf6259fa2a9a95f5c1e351f8
+          path: pinned-proof
+          sparse-checkout: tests/reference
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13.5'
+      - name: Execute exact normal and optimized combined gate
+        shell: bash
+        run: |
+          set -eu
+          root="$GITHUB_WORKSPACE/implementation/partition_feedback_final"
+          out="$root/selector_v2/integration/repin-cf5a007"
+          test ! -e "$out"
+          cd "$root"
+          set +e
+          /usr/bin/time -f 'elapsed=%e maxrss_kib=%M' -o "$RUNNER_TEMP/gate-time.txt" env PYTHONPATH=. python -m selector_v2.integration.run_final_gate --interface-dir "$GITHUB_WORKSPACE/pinned-interface/research/interface/p2" --proof-dir "$GITHUB_WORKSPACE/pinned-proof/tests/reference" --core-artifacts selector_v2/integration --output-dir "$out" > "$RUNNER_TEMP/gate-stdout.log" 2>&1
+          rc=$?
+          set -e
+          mkdir -p "$out"
+          cp "$RUNNER_TEMP/gate-time.txt" "$out/time.txt"
+          cp "$RUNNER_TEMP/gate-stdout.log" "$out/stdout.log"
+          printf '%s\n' "$rc" > "$out/exit-code.txt"
+          {
+            python --version
+            git rev-parse HEAD
+            git -C "$GITHUB_WORKSPACE/pinned-interface" rev-parse HEAD
+            git -C "$GITHUB_WORKSPACE/pinned-proof" rev-parse HEAD
+            git hash-object selector_v2/integration/run_final_gate.py
+          } > "$out/execution-pins.txt"
+          cat "$out/stdout.log"
+          cd "$GITHUB_WORKSPACE"
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -f implementation/partition_feedback_final/selector_v2/integration/repin-cf5a007
+          git commit -m "P2.1: record actual hardened-proof combined gate exit $rc"
+          git push origin HEAD:refs/heads/research/v2-implementation-core
+          exit "$rc"
