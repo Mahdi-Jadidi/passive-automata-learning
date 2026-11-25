@@ -1,11 +1,11 @@
-# P3 search/interface boundary contract (draft for integration review)
+# P3 search/interface boundary contract
 
 Date: 2026-11-25. Scope: selector-side preparation and regression tests only.
-Authority: NEXT_SESSION_HANDOFF_04.md at integration head 44ac8cd29dc51ad19da7c28095d4ecb87d06121b and REVIEW03_FINAL.md at interface parent ae04a28304507fa16830fcb470f52103d9a588c4.
+Authority: NEXT_SESSION_HANDOFF_05.md at 80445eb0c3977389342eeb92aa7e530f817cbff8, INTEGRATION_REVIEW_05.md at 53da42edb57cdfd970a475d2d71f750ebd0fcbbc, and P3 authorization in issue #11.
 
 ## Gate and non-goals
 
-The recorded P2.1 structural gate passed on its previous pins. The post-hardening combined regression still requires confirmation by the core and independent proof owners. This document and tests do not start P3 search implementation, authorize pruning, certify coverage, or establish bounded/operational optimization. P3 initially means unrestricted structural/reference search only (B=0). No learner or baseline changes, endpoint calls, real transport, new journal version, competing state or dual-write.
+The post-hardening P2.1 narrow structural journal/2 gate is VERIFIED at the exact hardened proof pin cf5a007571853b6cdf6259fa2a9a95f5c1e351f8. The gate's operational status remains INCOMPLETE. P3 EDR-BB is authorized only for unrestricted structural exact search (B=0), as recorded in issue #11. This document and tests do not certify P3 search coverage, authorize any unreviewed pruning, or establish bounded/operational optimization. No learner or baseline changes, endpoint calls, real transport, new journal version, competing state or dual-write.
 
 Use the existing gateway.open_gateway(raw, authenticate=...) which returns the actual core RegisteredLedger; use register, ingest, original_id, attempt_status, records and export. The P3 search process owns only its search frontier, not a second ledger of observations. The authoritative journal remains selector-v2-journal/2 with inner selector-v2/1. Historical SharedGateway, adapter.Ledger and strict_ledger.RegisteredLedger are not production paths. No new production API is proposed by this milestone.
 
@@ -40,17 +40,29 @@ The adapter's normalized observation always has operational=false and scope=NONE
 
 test_p3_contract.py uses only open_gateway and actual core types. Nine unittest methods cover all 27 length-three owner vectors (five legal, 22 illegal), additional malformed owners, empty alphabet request policy, structural/scoped/request identity, duplicate and empty original traces and unused symbols, ID-map order and immutability, sample/scope/request corruption, four distinct verdict paths, table and DFA corruption, UNKNOWN/late/retry/global-attempt isolation, and test-only external authentication. Existing delegation tests must remain intact. The small literal owner list tests interface encoding only; it is not the proof agent's independent exhaustive RGS or region coverage oracle.
 
+## Producer/proof handshake and smallest integration milestone
+
+The interface boundary is ready for offline integration, but the producer and certificate serialization contracts are not yet frozen. The current core assignment (#2) authorizes the structural producer and requires coordination with proof #3; the proof-side P3_REGION_COVERAGE_CONTRACT.md at blob 8a5cbeaf6cd3018ea6c077d71d6ab90376841934 explicitly remains a draft, not a wire schema. Do not infer candidate-envelope fields, certificate fields, or entry-point names from these preparation documents.
+
+The smallest next integration milestone, once #2 and #3 publish matching serialized contracts, is test-only and has no external calls:
+
+1. Consume one producer-emitted complete candidate using the producer's agreed serializer; validate that its complete original-alphabet owner array is canonical and retains unused symbols.
+2. Register that exact owner array through open_gateway on the pinned core and assert the returned object is the authoritative RegisteredLedger.
+3. Assert the journal/2 REGISTER record binds the exact owner array, sample digest, full scope, request ID, attempt ID and immutable registration provenance.
+4. Feed only locally constructed/mock responses through the existing ingest path; assert ACCEPT and PROJECTION_NO remain candidate observations, BOUNDED_NO cannot affect unrestricted search, and UNKNOWN remains pending with safe retry and late-response isolation.
+5. Pass the producer's serialized region/frontier certificate to the independently implemented proof verifier using its agreed contract; assert that candidate observations are not silently promoted into region closures or an optimum claim.
+
+Do not add a production ledger, transaction authority, candidate/certificate journal schema, endpoint, transport, or learner modification. The search frontier and its certificate remain search/proof artifacts; the existing journal/2 remains the sole observation ledger. If #2/#3 contracts are not agreed, stop at the already passing boundary suite rather than inventing a compatibility layer.
+
 ## Reproduction and status
 
-Core authority pin: 4e21dbf0d06c030681e774cb15f1a5cf0c802f0d. Relevant blobs: registered_ledger.py 092507fc156e604be242e3100117fedc27b96d04, core.py 997304c3adce9d3148d454b079639575f419ba0e, schema.py 65a7522a8442a184c14f7a0fa74fc307ce60229f, evidence_store.py 42e38c8ee590267b292ebc0d678e9d4f3a56849b, sparse_analysis.py f773cc1c6b1a852193ba2afb75aa2fce4941a5c2. Interface production blobs unchanged: gateway.py 8b314e11c0d935122779365b08666c482697621f; adapter.py c38e441c7327a44adad8a0fe1125d45c93e8ef69; strict_ledger.py a66975de137e3ec556b8c7aacd108cf975c46344.
+Authoritative core pin: 4e21dbf0d06c030681e774cb15f1a5cf0c802f0d. Relevant core blobs: registered_ledger.py 092507fc156e604be242e3100117fedc27b96d04, core.py 997304c3adce9d3148d454b079639575f419ba0e, schema.py 65a7522a8442a184c14f7a0fa74fc307ce60229f, evidence_store.py 42e38c8ee590267b292ebc0d678e9d4f3a56849b, sparse_analysis.py f773cc1c6b1a852193ba2afb75aa2fce4941a5c2. Interface production blobs at branch head a1516fc0572d8f520422e517adeb2d1db6482f29: gateway.py 8b314e11c0d935122779365b08666c482697621f; adapter.py c38e441c7327a44adad8a0fe1125d45c93e8ef69; strict_ledger.py a66975de137e3ec556b8c7aacd108cf975c46344; test_gateway_v2.py 502b7c40f7776fc3bab087303e457fae149587c3; test_p3_contract.py 063cc799ec32a637881e55cbee73b7dba09cd3c5; this contract's pre-update blob was 6104ca0f958124b01ca181fc4d8d0d3f4a7d791f.
 
-From the interface branch checkout:
-```sh
-git worktree add --detach /tmp/core-p3-interface 4e21dbf0d06c030681e774cb15f1a5cf0c802f0d
-cd research/interface/p2
-export PYTHONPATH=/tmp/core-p3-interface/implementation/partition_feedback_final
-python -m unittest -v test_p3_contract test_gateway_v2
-python -O -m unittest -v test_p3_contract test_gateway_v2
-```
+Pinned interface CI workflow: .github/workflows/p3-interface-contract.yml blob dc03532eb9635f84ce3c9c283d0fcb87ec0b6640, introduced at interface commit a1516fc0572d8f520422e517adeb2d1db6482f29. Actual GitHub Actions run 45563718490 succeeded on Ubuntu 24.04 / CPython 3.13.5 with the exact interface branch head and core pin above. The job ran:
+~~~
+python -B -m unittest -v test_p3_contract test_gateway_v2
+python -B -O -m unittest -v test_p3_contract test_gateway_v2
+~~~
+Actual logs: 17/17 normal in 0.064s and 17/17 optimized in 0.060s; all checkout, setup and test steps succeeded. The 17 tests are nine P3 contract methods plus eight existing gateway delegation methods. The workflow uses the real pinned core RegisteredLedger; responses are local fixtures and no external endpoint is called.
 
-Initial validation: local test source compiled with python -m py_compile and python -O -m py_compile (both exit 0); Git blob 063cc799ec32a637881e55cbee73b7dba09cd3c5. Direct git ls-remote failed with 'Could not resolve host: github.com'. GitHub connector reads/writes are available. Full actual gateway execution not yet established at this commit; no runtime pass, timings/RSS, independent certification, CI, or operational acceptance is claimed. Any subsequent runtime validation must explicitly record exact source bytes and actual results.
+Limitations: this CI validates the selector boundary and delegation contract, not the not-yet-frozen producer serializer, proof-certificate grammar, independent P3 frontier replay, live evaluator, transport/authentication, durable recovery, bounded optimization, or operational acceptance. P2.1 structural status is VERIFIED for the exact hardened gate; operational status remains INCOMPLETE. No external call, learner edit, merge, deployment or operational acceptance is claimed.
