@@ -21,7 +21,7 @@ Date: 2026-11-25. Read this file and INTEGRATION_REVIEW_06.md first. GitHub is a
 
 All PRs are OPEN/DRAFT/UNMERGED. They are diverged from current integration base: core 19 ahead/13 behind, proof 57 ahead/11 behind, benchmark 49 ahead/13 behind, interface 15 ahead/13 behind. Do not merge or force-push; reconcile histories after M2 source stabilizes.
 
-Integration branch research/selector-v2 HEAD: 8462a6a725e1ee4a7a1a7436a00a54b7d8911ee3.
+Integration branch: research/selector-v2 (read its live HEAD; this handoff and index are maintained there).
 Authoritative contract: research/P3_SERIALIZATION_V1.md at 1cf4fb9fc935729b9ba021b3e26f791192b76578.
 Lead audit: research/INTEGRATION_REVIEW_06.md at 8462a6a725e1ee4a7a1a7436a00a54b7d8911ee3.
 
