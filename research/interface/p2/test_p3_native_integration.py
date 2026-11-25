@@ -230,8 +230,17 @@ class NativeP3Integration(unittest.TestCase):
 
     def test_actual_certificates_verify_before_core_registration(self):
         optimized = sys.flags.optimize > 0
+        requested = set(os.environ.get(
+            "P3_CASE_MODES",
+            "tiny_choice:one,tiny_choice:all,small_choice:one,small_choice:all",
+        ).split(","))
+        allowed = {"tiny_choice:one", "tiny_choice:all", "small_choice:one", "small_choice:all"}
+        if "tiny_choice:one" not in requested or not requested <= allowed:
+            raise RuntimeError("P3_CASE_MODES must include tiny_choice:one and contain only known case/modes")
         for case in ("tiny_choice", "small_choice"):
             for mode in ("one", "all"):
+                if case + ":" + mode not in requested:
+                    continue
                 with self.subTest(case=case, mode=mode, optimized=optimized):
                     root = self.artifact(case, mode)
                     summary = strict_loads((root / "summary.json").read_bytes())
