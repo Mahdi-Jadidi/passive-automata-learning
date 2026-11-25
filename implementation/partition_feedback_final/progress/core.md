@@ -80,3 +80,10 @@ See selector_v2/integration/REVIEW03.md and review03-gate.json. 26/26 normal, 14
 ## Checkpoint 9 — Review 03 narrow P2.1 gate VERIFIED
 
 Actual latest executable interface/proof pins 0eb1050 and 8376243; independent sign-off e8895a3 (docs only since tested pin). 40/40 normal and 28/28 optimized tests, four exact journal/2 artifacts regenerated and independently replayed, 31 independent mutations INVALID, five resource caps INCOMPLETE, actual PARTIAL and false EXHAUSTED fail closed. Elapsed 23.04s, peak RSS 219272 KiB. See selector_v2/integration/REVIEW03_FINAL.md and final-gate.json. Narrow structural gate closed; operational INCOMPLETE. No P3 implemented, no schema change, no learner change, no merge. DNS blocks clean checkout CI; byte-verified evidence used.
+
+
+## P3 checkpoint 10 — M1 rollback region algebra (2026-11-25)
+
+Added selector_v2/edr_bb.py and selector_v2/tests/test_edr_bb.py as the first independently testable P3 producer milestone. Implements deterministic rollback DSU without path compression, canonical original-ID region owner plus branch-local original-ID D, full first-true children and explicit residual, generic all-current-class-pairs fallback, base LB and one/all-optima cutoff, and cooperative time/work/entry/frontier-byte caps. Empty children/residuals are retained explicitly. No serializer/frontier-resume code was added: Agent #3's region/frontier contract is still DRAFT; requested exact schema coordination in issue #3 comment 7155418880.
+
+Normal and optimized test commands, logs, timing/RSS, exact Git blob hashes and limitations are recorded in selector_v2/integration/P3_M1_REGION_ENGINE.md. Both modes: 8/8 tests. Literal first-true coverage: 21,195 memberships, 3,834 child records, 1,413 residual records. Normal process elapsed 0.86s / max RSS 97,808 KiB; optimized 0.88s / 97,676 KiB. memory_bytes is accounted frontier payload only, not process RSS. Search status NOT RUN; operational INCOMPLETE. No learner, baseline, external endpoint or journal/2 changes.
