@@ -1,0 +1,239 @@
+name: P3 M2 final proof-only acceptance replay
+on:
+  push:
+    branches: [research/v2-proof-audit]
+    paths: ['.github/workflows/p3-m2-final-proof-replay.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+  actions: read
+jobs:
+  replay:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    strategy:
+      fail-fast: false
+      matrix:
+        case: [tiny_choice, small_choice]
+        mode: [one, all]
+    env:
+      CASE: ${{ matrix.case }}
+      MODE: ${{ matrix.mode }}
+      CORE_RUN: '45592454384'
+      CORE_PIN: '391abf97df3b67661082c907d9ce20b4f69636c2'
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: d89bab4c005d17c8b27d4c1e6dd291135aca649a
+          sparse-checkout: tests/reference
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13.5'
+      - name: Verify source metadata and download pinned ZIP (no producer checkout)
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          run=$CORE_RUN
+          head=$CORE_PIN
+          case "$CASE/$MODE" in
+            tiny_choice/one) id=15011318454; zip=6172c5f5b5107292ce48a9b0326b3797fa97b25f88034d8e105a561acd2bda92 ;;
+            tiny_choice/all) id=15012345186; zip=a70e1874acd43f44b77bea97356eb91ed59e8557c4c116422ab5e9ee05ae3d2f ;;
+            small_choice/one) id=15011812225; zip=4f3642287acd18b12e183a4f8e2cf023ecfe2e1cc22c01a19627243025dd3387 ;;
+            small_choice/all)
+              run=45593819618; head=f8de4b6b14b3840d699d3c47ccc06a71eb5e04ae
+              id=15013931205; zip=ebbdf7655c7dd6b8935783c12f3d1f2165c00c88f1afc15a366654f45af9dd11 ;;
+            *) exit 1 ;;
+          esac
+          api="repos/$GITHUB_REPOSITORY"
+          mkdir -p evidence incoming
+          gh api "$api/actions/runs/$run" > evidence/producer-run.json
+          jq -e --arg head "$head" '.head_sha == $head and .status == "completed"' evidence/producer-run.json
+          gh api "$api/actions/artifacts/$id" > evidence/producer-artifact.json
+          jq -e --argjson run "$run" --arg digest "sha256:$zip" \
+            '.workflow_run.id == $run and .digest == $digest and .expired == false' evidence/producer-artifact.json
+          base=implementation/partition_feedback_final/selector_v2
+          for spec in edr_search.py:73da7bea551df73a8676b0adf0401cd7f2d307b5 edr_bb.py:657c4e0e4059b32cd9e6477e61c7a3673290f36d; do
+            file=${spec%:*}; blob=${spec#*:}
+            actual=$(gh api "$api/contents/$base/$file?ref=$CORE_PIN" --jq .sha)
+            test "$actual" = "$blob"
+            printf '%s %s %s\n' "$CORE_PIN" "$actual" "$file" | tee -a evidence/producer-source.txt
+          done
+          gh api "$api/actions/artifacts/$id/zip" > artifact.zip
+          printf '%s  artifact.zip\n' "$zip" | sha256sum --check | tee evidence/archive-check.txt
+          test "$(stat -c %s artifact.zip)" = "$(jq -r .size_in_bytes evidence/producer-artifact.json)"
+          unzip -q artifact.zip -d incoming
+          echo "PRODUCER_RUN=$run" >> "$GITHUB_ENV"
+      - name: Independently verify hashes, scope, certificates and RGS result
+        shell: bash
+        run: |
+          set -euo pipefail
+          ulimit -v 13631488
+          free -m
+          df -h .
+          test "$(git rev-parse HEAD)" = d89bab4c005d17c8b27d4c1e6dd291135aca649a
+          test ! -e implementation/partition_feedback_final/selector_v2
+          unset PYTHONHOME
+          export PYTHONNOUSERSITE=1 PYTHONSAFEPATH=1
+          mkdir -p evidence
+          ref="$GITHUB_WORKSPACE/tests/reference"
+          input="$GITHUB_WORKSPACE/incoming"
+          out="$GITHUB_WORKSPACE/evidence"
+          export PYTHONPATH="$ref"
+          python --version
+          git rev-parse HEAD
+          test "$(git hash-object "$ref/p3_frontier_verifier.py")" = 540a7cf9e7b048684d3ea03def744175ae629b65
+          test "$(git hash-object "$ref/p3_rgs12_oracle.py")" = da28e66ca4ff74388be79bf9549c8e02f0c60410
+          python -B - "$input" "$out" "$CASE" "$MODE" "$PRODUCER_RUN" "$CORE_PIN" <<'PY'
+          import hashlib,json,sys
+          from pathlib import Path
+          root,out=map(Path,sys.argv[1:3])
+          case,mode,run,pin=sys.argv[3:]
+          def pairs(items):
+              d={}
+              for k,v in items:
+                  if k in d: raise ValueError("duplicate manifest key")
+                  d[k]=v
+              return d
+          def check(ok,msg):
+              if not ok: raise RuntimeError(msg)
+          def hashes(path):
+              size=path.stat().st_size
+              check(size<=2*1024**3,"artifact file byte cap")
+              s=hashlib.sha256()
+              g=hashlib.sha1(("blob "+str(size)+"\0").encode())
+              with path.open("rb") as f:
+                  for block in iter(lambda:f.read(1024*1024),b""):
+                      s.update(block);g.update(block)
+              return dict(bytes=size,sha256=s.hexdigest(),git_blob_calculated=g.hexdigest())
+          manifest=root/"summary.json"
+          check(manifest.stat().st_size<=1024*1024,"manifest byte cap")
+          data=json.loads(manifest.read_bytes(),object_pairs_hook=pairs)
+          check(data["case"]==case and data["mode"]==mode,"artifact scope mismatch")
+          raw_expected={
+              "tiny_choice":("ef3f41b4c5e27da6ffd4882804399abf454d51a7","1c064aa4c7ce111ec8c403e8b6a05b64de5acdec2ef564861f06c2e2e2e42f23"),
+              "small_choice":("b361642873a73bae454d388cbfb2284559dbd69b","10b0c3534ddf42369db003bca6b323c9fdaa33cd36aa15031360c3428949931b")}
+          verified={}
+          for name,key in (("raw.json","raw"),("journal.json","journal"),("trusted.json","trusted_scope")):
+              verified[name]=hashes(root/name)
+              check(verified[name]==data[key],"manifest bytes mismatch: "+name)
+          check((verified["raw.json"]["git_blob_calculated"],verified["raw.json"]["sha256"])==raw_expected[case],"original raw pin mismatch")
+          normal=data["phases"]["normal"]
+          optimized=data["phases"]["optimized"]
+          check(normal["exit"]==0 and optimized["exit"]==0,"producer invocation not successful")
+          verified["normal.json"]=hashes(root/"normal.json")
+          check(verified["normal.json"]==normal["certificate"],"normal cert pin mismatch")
+          if (root/"optimized.json").exists():
+              verified["optimized.json"]=hashes(root/"optimized.json")
+          else:
+              check(data["normal_optimized_equal"] is True,"optimized certificate absent without dedup pin")
+              verified["optimized.json"]=verified["normal.json"]
+          check(verified["optimized.json"]==optimized["certificate"],"optimized cert pin mismatch")
+          check(verified["normal.json"]==verified["optimized.json"],"normal/optimized producer bytes differ")
+          cert_expected={
+              ("tiny_choice","one"):(46588,"91996d9bc6a3d7e88b5c89fc44158bc1cd89cf778256ec67839e1d38555e7ec8","bce55d7db1ddbcf6140b2a841f74bb51dad8f2f0"),
+              ("tiny_choice","all"):(99931,"1be8394e233fe2c5a337766d73a1385145ab82b95d75273d5d548f60b2b781c0","eafd651d28fc1f06f60bdbc4c0a4095a04dc390b"),
+              ("small_choice","one"):(264463193,"dafa72f9e8ec4cc63330d4a7cd420cd478237dd7431c7e488267345ed810471e","d1539a0a9ed03d208a88c515c51f6e6473126c3c"),
+              ("small_choice","all"):(1399367871,"9fb5f5bbc1c64e90bc955f73d2325a1d159224e91258e8a8758a34595102e2a7","e2f00717be846336b1f3287a8dd58070272434fd"),
+          }
+          c=verified["normal.json"]
+          check((c["bytes"],c["sha256"],c["git_blob_calculated"])==cert_expected[case,mode],"exact certificate pin mismatch")
+          partial=data["phases"]["partial"]
+          resumed=data["phases"]["resumed"]
+          check(partial["exit"]==0 and resumed["exit"]==0,"checkpoint producer phase failed")
+          check(data["checkpoint_resume_equal"] is True and resumed["certificate"]==c,"resume pin mismatch")
+          verified["partial.json"]=hashes(root/"partial.json")
+          check(verified["partial.json"]==partial["certificate"],"partial checkpoint bytes mismatch")
+          if (root/"resumed.json").exists():
+              check(hashes(root/"resumed.json")==c,"retained resumed bytes mismatch")
+          (out/"producer-summary.json").write_bytes(manifest.read_bytes())
+          provenance=dict(core_run=int(run),core_commit=pin,case=case,mode=mode,artifact_pins=verified)
+          text=json.dumps(provenance,sort_keys=True,separators=(",",":"))
+          (out/"source-pins.json").write_text(text+"\n")
+          print(text)
+          PY
+          python -B "$ref/p3_frontier_verifier.py" --make-trusted-scope --raw "$input/raw.json" \
+            --journal "$input/journal.json" --out "$out/independent-trusted.json" --seconds 30
+          cmp "$input/trusted.json" "$out/independent-trusted.json"
+          failed=0
+          for variant in normal optimized; do
+            flags=(-B)
+            if test "$variant" = optimized; then flags+=(-O); fi
+            cert="$input/$variant.json"
+            if ! test -f "$cert"; then cert="$input/normal.json"; fi
+            set +e
+            /usr/bin/time -f 'wall=%e RSS_KiB=%M' timeout -k 2s 660s \
+              python "${flags[@]}" "$ref/p3_frontier_verifier.py" \
+              --raw "$input/raw.json" --journal "$input/journal.json" --scope "$input/trusted.json" \
+              --proof "$cert" --seconds 600 --max-work 4000000000 --max-exact-checks 200000000 \
+              --max-nodes 6000001 --max-entries 6000001 --max-proof-bytes 2147483648 \
+              >"$out/$variant.verifier.json" 2>"$out/$variant.verifier.log"
+            vrc=$?
+            for scenario in partial false-exhausted proof-byte-cap; do
+              control="$input/partial.json"
+              extra=()
+              if test "$scenario" = false-exhausted; then
+                control="$out/false-exhausted.json"
+                sed 's/"declared_status":"PARTIAL"/"declared_status":"EXHAUSTED"/' "$input/partial.json" > "$control"
+              elif test "$scenario" = proof-byte-cap; then
+                control="$cert"
+                extra=(--max-proof-bytes 1)
+              fi
+              /usr/bin/time -f 'wall=%e RSS_KiB=%M' python "${flags[@]}" "$ref/p3_frontier_verifier.py" \
+                --raw "$input/raw.json" --journal "$input/journal.json" --scope "$input/trusted.json" \
+                --proof "$control" "${extra[@]}" > "$out/$variant.$scenario.json" 2> "$out/$variant.$scenario.log"
+              crc=$?
+              if test "$scenario" = false-exhausted; then expected=1; status=INVALID; else expected=2; status=INCOMPLETE; fi
+              printf '%s %s rc=%s\n' "$variant" "$scenario" "$crc"
+              cat "$out/$variant.$scenario.json"
+              if test "$crc" != "$expected" || ! jq -e --arg s "$status" \
+                '.status == $s and .operational_status == "INCOMPLETE" and .result == null' "$out/$variant.$scenario.json"; then
+                failed=1
+              fi
+            done
+            /usr/bin/time -f 'wall=%e RSS_KiB=%M' timeout -k 2s 120s \
+              python "${flags[@]}" "$ref/p3_rgs12_oracle.py" --raw "$input/raw.json" \
+              >"$out/$variant.rgs.json" 2>"$out/$variant.rgs.log"
+            rrc=$?
+            set -e
+            printf '%s verifier_rc=%s oracle_rc=%s\n' "$variant" "$vrc" "$rrc" | tee "$out/$variant.exit.txt"
+            cat "$out/$variant.verifier.json" "$out/$variant.verifier.log" "$out/$variant.rgs.log"
+            if test "$vrc" != 0 || test "$rrc" != 0; then failed=1; continue; fi
+            python -B - "$out/$variant.verifier.json" "$out/$variant.rgs.json" "$MODE" <<'PY'
+          import json,sys
+          from pathlib import Path
+          v,r=[json.loads(Path(p).read_bytes()) for p in sys.argv[1:3]]
+          mode=sys.argv[3]
+          if v.get("status")!="VERIFIED" or r.get("status")!="VERIFIED":
+              raise SystemExit("uncertified result")
+          if v["operational_status"]!="INCOMPLETE" or r["operational_status"]!="INCOMPLETE":
+              raise SystemExit("invalid operational status")
+          result,truth=v["result"],r["result"]
+          if result["optimum"]!=truth["optimum"]:
+              raise SystemExit("RGS optimum mismatch")
+          if truth["optima"] and result["owner"] not in truth["optima"]:
+              raise SystemExit("RGS incumbent mismatch")
+          if not truth["optima"] and result["owner"] is not None:
+              raise SystemExit("false feasible incumbent")
+          if result["optima"]!=(truth["optima"] if mode=="all" else []):
+              raise SystemExit("RGS optimum-set mismatch")
+          visited,cost,count=(203,2,4) if len(result["owner"])==6 else (4213597,4,16)
+          if (r["visited"],truth["optimum"],len(truth["optima"]))!=(visited,cost,count):
+              raise SystemExit("RGS census mismatch")
+          print("Independent exact-byte RGS match:",r["visited"],truth["optimum"],len(truth["optima"]))
+          PY
+          done
+          cmp "$out/normal.verifier.json" "$out/optimized.verifier.json"
+          cmp "$out/normal.rgs.json" "$out/optimized.rgs.json"
+          if test "$failed" != 0; then
+            echo 'Published artifact replay did not certify both modes; no acceptance'
+            exit 1
+          fi
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: p3-m2-final-${{ matrix.case }}-${{ matrix.mode }}
+          path: evidence/
+          if-no-files-found: ignore
