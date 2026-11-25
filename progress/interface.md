@@ -134,3 +134,21 @@ This artifact is excluded from the interface native workflow and MUST NOT be reg
 Expanded replacement run `45593819618` is still executing. Workflow commit is `f8de4b6b14b3840d699d3c47ccc06a71eb5e04ae`; it checks out the unchanged producer source commit `391abf97df3b67661082c907d9ce20b4f69636c2` (solver blob `73da7bea551df73a8676b0adf0401cd7f2d307b5`) and requests 6,000,000 entries, 600 seconds and 13,312 MiB RLIMIT_AS. The expanded workflow itself is blob `1bde518e6e2036a74295f7287e54fc926f404687`. No artifact is available at this checkpoint. If it completes, require EXHAUSTED normal/-O certificates, exact normal/-O and checkpoint/resume byte equality, then Agent #3 latest verifier (commit `d89bab4c005d17c8b27d4c1e6dd291135aca649a`, blob `540a7cf9e7b048684d3ea03def744175ae629b65`) plus exact RGS12 oracle replay before adding small/all to the interface integration workflow.
 
 Updated #2 and #3 coordination comments `7159907331` and `7159908220`. The three-case native interface integration remains fully green; small/all remains an explicit blocker. M2 overall and operational status are INCOMPLETE.
+
+
+## M15 — Expanded small_choice/all producer artifact published
+
+Core expanded run `45593819618` completed SUCCESS. Its workflow commit is `f8de4b6b14b3840d699d3c47ccc06a71eb5e04ae`; the workflow explicitly checked out the unchanged producer source commit `391abf97df3b67661082c907d9ce20b4f69636c2` (solver blob `73da7bea551df73a8676b0adf0401cd7f2d307b5`, region blob `657c4e0e4059b32cd9e6477e61c7a3673290f36d`). The expanded workflow blob is `1bde518e6e2036a74295f7287e54fc926f404687`.
+
+Artifact:
+- Name `p3-m2-small_choice-all-expanded`, artifact ID `15013931205`.
+- ZIP size 85,624,447 bytes; ZIP SHA-256 `ebbdf7655c7dd6b8935783c12f3d1f2165c00c88f1afc15a366654f45af9dd11`.
+- Certificate size 1,399,367,871 bytes; SHA-256 `9fb5f5bbc1c64e90bc955f73d2325a1d159224e91258e8a8758a34595102e2a7`; Git blob `e2f00717be846336b1f3287a8dd58070272434fd`.
+- Raw/journal/trusted-scope bytes are the same exact small_choice inputs already pinned in M13: raw 416 bytes, journal/2 130 bytes, trusted scope 754 bytes.
+- Producer normal 188.458 s, optimized 179.590 s; certificate bytes match.
+- Core's older pinned verifier normal 251.009 s and optimized 251.348 s; both exit 0.
+- One-entry partial checkpoint is 588 bytes and correctly verifies INCOMPLETE/exit 2; resuming it yields the exact same 1,399,367,871-byte EXHAUSTED certificate. `normal_optimized_equal=true`, `checkpoint_resume_equal=true`, `structural_gate=PASS`, `operational_status=INCOMPLETE`.
+
+This resolves the producer exhaustion and resume-equivalence blocker. It does NOT yet establish independent proof: core run used its older verifier pin `e1d022496f98bf50fd57d5ef3a7a0bc8194c817c`. Agent #3 has been asked to replay the exact 1.4GB certificate with current verifier commit `d89bab4c005d17c8b27d4c1e6dd291135aca649a` / blob `540a7cf9e7b048684d3ea03def744175ae629b65`, and to compare all 4,213,597 RGS partitions. No small_choice/all candidate may be registered before that independent result.
+
+The native integration test now streams certificate hashing and passes the artifact file path directly to the verifier, avoiding a 1.4GB parent-process byte buffer. It pins all four exact certificate SHA-256/Git blob identities. All-four interface workflow run `45597292393` is in progress, downloading tiny one/all, small one and expanded small all; its proof subprocess is capped at 2 GiB proof bytes / 5 GiB address space pending Agent #3's memory result. M2 remains INCOMPLETE until Agent #3's proof/RGS result and this all-four interface run both pass.
