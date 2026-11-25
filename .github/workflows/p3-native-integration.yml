@@ -158,7 +158,7 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          ulimit -v 5242880
+          ulimit -v 13631488
           mkdir -p integration-logs
           /usr/bin/time -v python -B -m unittest -v test_p3_native_integration \
             2>&1 | tee integration-logs/native-normal.log
@@ -173,7 +173,7 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          ulimit -v 5242880
+          ulimit -v 13631488
           mkdir -p integration-logs
           /usr/bin/time -v python -B -O -m unittest -v test_p3_native_integration \
             2>&1 | tee integration-logs/native-optimized.log
