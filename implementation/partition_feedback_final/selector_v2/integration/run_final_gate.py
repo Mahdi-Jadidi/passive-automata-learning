@@ -12,7 +12,7 @@ from selector_v2.integration.run_review03 import CORE_REVIEW, ARTIFACTS, verify_
 
 HEADS = dict(core='796a83a5f8f69c4dc7c0db619e1cdb130ddc0b33',
              interface='0eb1050ad103bad2f93d3b9feb732bf94184f2a2',
-             proof='83762437ba05e1def9dde5edff8c7d44878f4269')
+             proof='cf5a007571853b6cdf6259fa2a9a95f5c1e351f8')
 CORE = dict(CORE_REVIEW, **{
     'integration/replay_boundary.py':'ec49016283321866c9a498c2aca269cc934e6f04',
     'integration/test_replay_boundary.py':'4164a1e6060aea1d776df52cfd47b2a6da7ed633',
@@ -31,8 +31,8 @@ PROOF = {
     'independent_replay.py':'aa09243fa7ccc941c37609e959aefb419075df32',
     'production_replay.py':'4666c3f1aca6189331a83ff2f00de0e376e2a710',
     'ledger_replay.py':'0b615b6c17258e621d73147baa262d791985d8d0',
-    'bounded_deletion.py':'64eda7d13b3153175f09b70e41be66e1615846b2',
-    'test_bounded_deletion.py':'2f59257d0ff3396417c2cedf9845f61e2fd20928',
+    'bounded_deletion.py':'e1fc61b6f03484d4428642ca157e2dac43f0572d',
+    'test_bounded_deletion.py':'6de549b9b4d208be99a419c88fd903a1ce1a6dcc',
     'interface_artifact_replay.py':'51f928ee2311ab8995f88f0e9f195ac7c659e469',
     'journal_v2_replay.py':'6c49013e809b5ac4d2b2a37850e6e6cece513072',
     'replay_published_j2.py':'d32d3bed22dc06a0d51ff7965c7f621950b16455',
