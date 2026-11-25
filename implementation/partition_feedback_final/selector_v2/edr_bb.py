@@ -273,6 +273,7 @@ class SearchCaps:
 class FrontierEntryTicket:
     serial: int
     encoded_bytes: int
+    budget_token: object
 
 
 class SearchBudget:
@@ -288,6 +289,7 @@ class SearchBudget:
         self.memory_bytes = 0
         self.peak_memory_bytes = 0
         self._next_ticket = 0
+        self._budget_token = object()
         self._active_entries = {}
 
     @property
@@ -318,7 +320,7 @@ class SearchBudget:
         if self.caps.work is not None and self.work + 1 > self.caps.work:
             raise SearchCapExceeded("work")
         # Admission is atomic: a rejected entry changes no counters.
-        ticket = FrontierEntryTicket(self._next_ticket, encoded_bytes)
+        ticket = FrontierEntryTicket(self._next_ticket, encoded_bytes, self._budget_token)
         self._next_ticket += 1
         self._active_entries[ticket.serial] = encoded_bytes
         self.entries += 1
@@ -330,6 +332,7 @@ class SearchBudget:
 
     def release_frontier_entry(self, ticket):
         if (type(ticket) is not FrontierEntryTicket
+                or ticket.budget_token is not self._budget_token
                 or self._active_entries.get(ticket.serial) != ticket.encoded_bytes):
             raise ValueError("unknown or already released frontier entry")
         del self._active_entries[ticket.serial]

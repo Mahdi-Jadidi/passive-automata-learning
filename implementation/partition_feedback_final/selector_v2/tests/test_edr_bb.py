@@ -216,6 +216,9 @@ class SearchBudgetTests(unittest.TestCase):
         first = budget.admit_frontier_entry(4)
         second = budget.admit_frontier_entry(6)
         self.assertEqual((budget.entries, budget.frontier_entries, budget.memory_bytes), (2, 2, 10))
+        other_budget = SearchBudget()
+        with self.assertRaises(ValueError):
+            other_budget.release_frontier_entry(first)
         budget.release_frontier_entry(first)
         self.assertEqual((budget.entries, budget.frontier_entries, budget.memory_bytes), (2, 1, 6))
         third = budget.admit_frontier_entry(4)

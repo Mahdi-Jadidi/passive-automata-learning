@@ -92,3 +92,8 @@ Normal and optimized test commands, logs, timing/RSS, exact Git blob hashes and 
 ## P3 checkpoint 11 — live frontier-byte accounting correction (2026-11-25)
 
 Corrected SearchBudget memory semantics before any frontier integration: admit_frontier_entry now returns a ticket, release_frontier_entry subtracts the live encoded payload bytes, the memory cap bounds current retained frontier bytes, and entries remain a cumulative generated-entry cap. Added release/double-release tests. Re-ran normal and -O: 9/9 each; normal 0.95s / 97,808 KiB max RSS; optimized 1.03s / 97,804 KiB. Exact source/test/log hashes and outputs are in P3_M1_REGION_ENGINE.md. No frontier engine or serializer is present yet; this accounting primitive is ready for the later frozen checkpoint format.
+
+
+## P3 checkpoint 12 — bind frontier tickets to their budget (2026-11-25)
+
+Hardened live-frontier accounting tickets against cross-budget release: each ticket carries an in-memory owner token and can be released only by the SearchBudget instance that issued it. Added foreign-budget rejection to the ticket test. Re-ran normal and -O: 9/9 each; normal 0.79s / 97,936 KiB max RSS; optimized 0.92s / 97,824 KiB. Exact source/test/log hashes are updated in P3_M1_REGION_ENGINE.md. No serialized frontier format or search loop yet.

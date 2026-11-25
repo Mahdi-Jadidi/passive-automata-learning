@@ -33,22 +33,22 @@ Both test modes passed 9/9. Exact run records are committed in selector_v2/integ
 | Metric | Normal | Optimized (-O) |
 |---|---:|---:|
 | unittest tests | 9/9 | 9/9 |
-| unittest internal elapsed | 0.166 s | 0.180 s |
-| process elapsed | 0.95 s | 1.03 s |
-| process max RSS | 97,808 KiB | 97,804 KiB |
+| unittest internal elapsed | 0.157 s | 0.151 s |
+| process elapsed | 0.79 s | 0.92 s |
+| process max RSS | 97,936 KiB | 97,824 KiB |
 
 Literal first-true coverage test: 21,195 membership checks across all 15 RGS partitions on four symbols, 157 ordered alternative lists (length 0–3), three parent E states, and three D contexts. It generated/checked 3,834 child records and 1,413 explicit residual records. For every parent member, exactly one first-true child contains it if any alternative is true; otherwise the residual contains it. No parent member is lost and no two children/residual overlap.
 
-Additional checks cover deterministic DSU tie-breaking, no path compression, nested rollback, original-ID owner arrays with unused positions retained, D endpoint provenance through E changes, explicit empty regions, all-pairs fallback coverage of strict coarsenings, base-LB soundness on all four-symbol partitions, one/all-optima cutoff boundary, and cap behavior. The cap fixture records 3 work units, 2 cumulative entries, and 10 live frontier bytes before the next operation is rejected; zero-second, work, entry and memory caps are separately exercised. Rejected admissions leave counters unchanged. A separate ticket test releases a 4-byte entry, admits another 4-byte entry under the same 10-byte live cap, verifies cumulative entries do not decrease, and rejects double release.
+Additional checks cover deterministic DSU tie-breaking, no path compression, nested rollback, original-ID owner arrays with unused positions retained, D endpoint provenance through E changes, explicit empty regions, all-pairs fallback coverage of strict coarsenings, base-LB soundness on all four-symbol partitions, one/all-optima cutoff boundary, and cap behavior. The cap fixture records 3 work units, 2 cumulative entries, and 10 live frontier bytes before the next operation is rejected; zero-second, work, entry and memory caps are separately exercised. Rejected admissions leave counters unchanged. A separate ticket test releases a 4-byte entry, admits another 4-byte entry under the same 10-byte live cap, verifies cumulative entries do not decrease, and rejects double release and release through a different budget instance.
 
 Source/test Git blob IDs are recorded below; log hashes are exact Git blob hashes:
 
-- selector_v2/edr_bb.py: a98fd2bb22574e6f80d5ac5267ee1d12a8ee54b7
-- selector_v2/tests/test_edr_bb.py: 77c2403c5ebba93ca3742a1a66ad73e479b9d137
-- selector_v2/integration/p3-m1/normal.log: 4753ba15d4c48f3c2f4833d94c10cea2affd0a35
-- selector_v2/integration/p3-m1/optimized.log: c7c4537bb0cf1f99af4c77eb279307eedc62da38
-- selector_v2/integration/p3-m1/normal.time: e4ce4a4dfcd3102ad7f4bfc73311ad4fd9ff243e
-- selector_v2/integration/p3-m1/optimized.time: 8b240334ef97f70f59eddc43bfac79faeaf77ec0
+- selector_v2/edr_bb.py: 657c4e0e4059b32cd9e6477e61c7a3673290f36d
+- selector_v2/tests/test_edr_bb.py: b45a34b223b6d294373bd45b4f59c0059b5a983e
+- selector_v2/integration/p3-m1/normal.log: 1d3926dd1dfafe520c0356ed0d6ca381166eb357
+- selector_v2/integration/p3-m1/optimized.log: 5dd01e5ce53c4e7a41118e952ac80a69b12ecbbd
+- selector_v2/integration/p3-m1/normal.time: 9e28fbed4eaae87b2e53f0f2c2423a8c41de5b14
+- selector_v2/integration/p3-m1/optimized.time: 86f1af357ad15c647e43eb711ad53b62bf5444e5
 
 ## Explicitly not implemented / limitations
 
