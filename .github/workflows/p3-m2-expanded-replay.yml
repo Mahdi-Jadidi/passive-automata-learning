@@ -1,0 +1,98 @@
+name: P3 M2 expanded small-all replay
+
+on:
+  push:
+    branches: [research/v2-benchmarks]
+    paths: [.github/workflows/p3-m2-expanded-replay.yml]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  actions: read
+
+jobs:
+  proof:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    strategy:
+      fail-fast: false
+      matrix:
+        python-mode: [normal, optimized]
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: d89bab4c005d17c8b27d4c1e6dd291135aca649a
+          persist-credentials: false
+          sparse-checkout: tests/reference
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13.5"
+      - uses: actions/download-artifact@v4
+        with:
+          github-token: ${{ github.token }}
+          run-id: 45593819618
+          name: p3-m2-small_choice-all-expanded
+          path: expanded
+      - name: Pin source and artifacts
+        working-directory: expanded
+        run: |
+          test "$(git rev-parse HEAD)" = d89bab4c005d17c8b27d4c1e6dd291135aca649a
+          test "$(git hash-object ../tests/reference/p3_frontier_verifier.py)" = 540a7cf9e7b048684d3ea03def744175ae629b65
+          test "$(git hash-object ../tests/reference/p3_rgs12_oracle.py)" = da28e66ca4ff74388be79bf9549c8e02f0c60410
+          sha256sum -c <<'HASHES'
+          10b0c3534ddf42369db003bca6b323c9fdaa33cd36aa15031360c3428949931b  raw.json
+          3d4ae1a0cff38cbc7b1bf7a2269c29a256abe205b7efc8f7ed3a31eb17334019  journal.json
+          89ade477b7f9029acdf8c44b4fe5d1f724038cd795c28b289cd2154e387c841b  trusted.json
+          9fb5f5bbc1c64e90bc955f73d2325a1d159224e91258e8a8758a34595102e2a7  normal.json
+          HASHES
+          test "$(stat -c %s normal.json)" = 1399367871
+          test "$(git hash-object normal.json)" = e2f00717be846336b1f3287a8dd58070272434fd
+      - name: Run independent proof and exhaustive oracle
+        env:
+          PY_MODE: ${{ matrix.python-mode }}
+          PYTHONHASHSEED: "0"
+        run: |
+          mkdir measurements
+          ulimit -v 13631488
+          args=(-B)
+          if [[ "$PY_MODE" == optimized ]]; then args+=(-O); fi
+          set -x
+          proof_rc=0
+          /usr/bin/time -v -o measurements/verifier.time timeout 630s \
+            python "${args[@]}" tests/reference/p3_frontier_verifier.py \
+            --raw expanded/raw.json --journal expanded/journal.json --scope expanded/trusted.json \
+            --proof expanded/normal.json --seconds 600 --max-nodes 6000001 --max-entries 6000001 \
+            --max-proof-bytes 2147483648 --max-work 4000000000 --max-exact-checks 200000000 \
+            >measurements/verifier.json 2>measurements/verifier.stderr || proof_rc=$?
+          oracle_rc=0
+          /usr/bin/time -v -o measurements/oracle.time timeout 45s \
+            python "${args[@]}" tests/reference/p3_rgs12_oracle.py --raw expanded/raw.json --seconds 30 \
+            --max-partitions 4213597 --max-work 150000000 --max-entries 100000 \
+            >measurements/oracle.json 2>measurements/oracle.stderr || oracle_rc=$?
+          printf '%s\n' "$proof_rc" >measurements/verifier.exit
+          printf '%s\n' "$oracle_rc" >measurements/oracle.exit
+          cp expanded/summary.json expanded/normal.metrics.json expanded/optimized.metrics.json expanded/resumed.metrics.json measurements/
+          cp expanded/normal.log expanded/optimized.log expanded/resumed.log measurements/
+          cat measurements/verifier.json measurements/oracle.json
+          python -B - <<'PY'
+          import json
+          from pathlib import Path
+          root = Path("measurements")
+          for phase in ("verifier", "oracle"):
+              if (root / (phase + ".exit")).read_text().strip() != "0":
+                  raise SystemExit(f"{phase} did not complete")
+          proof = json.loads((root / "verifier.json").read_bytes())
+          oracle = json.loads((root / "oracle.json").read_bytes())
+          if (proof["status"] != "VERIFIED" or oracle["status"] != "VERIFIED" or
+              oracle["visited"] != 4213597 or proof["result"]["optimum"] != 4 or
+              oracle["result"]["optimum"] != proof["result"]["optimum"] or
+              len(proof["result"]["optima"]) != 16 or
+              oracle["result"]["optima"] != proof["result"]["optima"]):
+              raise SystemExit("expanded certificate and exhaustive oracle did not agree")
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: p3-expanded-small-all-${{ matrix.python-mode }}
+          path: measurements
+          if-no-files-found: error
