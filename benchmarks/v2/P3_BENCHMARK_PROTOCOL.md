@@ -1,6 +1,16 @@
 # P3 benchmark adapter protocol (measurement-only)
 
-**Status:** draft benchmark adapter, not a production search schema, certificate format, or proof rule. It does not change the P2 journal/2 contract. Agent #2 owns the producer format; Agent #3 owns the independent verifier format. The adapter must map those native interfaces into the measurement envelope below only after both agents agree.
+## Native M2 execution
+
+`p3_native.py` uses the existing harness fixture validator and capped process worker with the native CLI config in `p3/native.json`. It checks both checkout commits and the Git blob of each staged Python source. The producer and verifier load separate staged source trees. The runner stages the exact raw bytes, constructs a canonical empty journal/2 via the independent sample digest, and calls the pinned verifier's trusted-scope builder. The scope builder replays the journal and derives the root owner; the harness checks for an identity root on these raw-only fixtures. The producer receives `{input}` and `{scope}`. The verifier receives `{input}`, `{journal}`, `{scope}`, and `{certificate}`. The producer receives `--resume` and the path to its own partial certificate only for the resume phase.
+
+Each case/profile runs one/all, normal/-O, two fresh trials and a one-entry checkpoint probe. Every usable certificate, including a partial certificate, is independently replayed. Each phase has a 30 s wall limit and its own 1536 or 512 MiB `RLIMIT_AS`. The config records the cooperative and logical caps inside those phase limits. The runner records native status/counters, exact artifact hashes, independent verdicts and per-phase process observations. Only a repeatable EXHAUSTED certificate accepted in both independent replays yields a certified result. A producer incumbent is a provisional upper bound; the identity root contributes a base lower bound of zero. Checkpoint equality compares certificate bytes and status, while fresh equality additionally compares native counters.
+
+The Actions job sparsely checks out raw fixtures, the manifest, and source files. Evaluation references are absent from the worktree and the staged inputs. The processes share the runner filesystem, so this is input and import isolation. No filesystem sandbox is applied. See the workflow for the reproduction command and uploaded evidence.
+
+## Legacy measurement adapter
+
+The sections below document the measurement-only fake-adapter infrastructure. Native measurements use the pinned CLI config above.
 
 ## Isolation boundary
 

@@ -207,12 +207,12 @@ def _worker(spec_path: Path) -> int:
 
 def run_stage(
     argv: list[str], run_dir: Path, stage: str, seconds: float, memory_mib: int,
-    python_mode: str,
+    python_mode: str, *, extra_env: dict[str, str] | None = None,
 ) -> dict[str, Any]:
     stdout_path = run_dir / f"{stage}.stdout"
     stderr_path = run_dir / f"{stage}.stderr"
     spec_path = run_dir / f"{stage}.worker.json"
-    env = {"PYTHONOPTIMIZE": "1" if python_mode == "optimized" else "0"}
+    env = {**(extra_env or {}), "PYTHONOPTIMIZE": "1" if python_mode == "optimized" else "0"}
     spec = {
         "argv": argv, "cwd": str(run_dir), "stdout_path": str(stdout_path),
         "stderr_path": str(stderr_path), "seconds": seconds, "memory_mib": memory_mib,

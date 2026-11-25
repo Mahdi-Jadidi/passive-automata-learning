@@ -1,0 +1,49 @@
+name: P3 M2 native benchmarks
+
+on:
+  push:
+    branches: [research/v2-benchmarks]
+    paths:
+      - .github/workflows/p3-m2-benchmarks.yml
+      - .github/workflows/p3-m2-benchmark-case.yml
+      - benchmarks/v2/p3_harness.py
+      - benchmarks/v2/p3_native.py
+      - benchmarks/v2/p3/native.json
+      - benchmarks/v2/p3/inputs/**
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  smoke:
+    strategy:
+      fail-fast: false
+      matrix:
+        case: [tiny_choice, small_choice]
+        memory: [1536, 512]
+    uses: ./.github/workflows/p3-m2-benchmark-case.yml
+    with:
+      case: ${{ matrix.case }}
+      memory: ${{ matrix.memory }}
+  scale:
+    needs: smoke
+    strategy:
+      fail-fast: false
+      matrix:
+        case: [medium_choice, hdfs_1024, hdfs_holdout_1024_uncapped, cover_path_8]
+        memory: [1536, 512]
+    uses: ./.github/workflows/p3-m2-benchmark-case.yml
+    with:
+      case: ${{ matrix.case }}
+      memory: ${{ matrix.memory }}
+  huge:
+    needs: scale
+    strategy:
+      fail-fast: false
+      matrix:
+        memory: [1536, 512]
+    uses: ./.github/workflows/p3-m2-benchmark-case.yml
+    with:
+      case: huge_choice_active
+      memory: ${{ matrix.memory }}
