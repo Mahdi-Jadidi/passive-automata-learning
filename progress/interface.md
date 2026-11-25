@@ -166,22 +166,14 @@ The first all-four interface attempt `45597292393` used the earlier 4M/240s/5GiB
 All four actual producer artifacts downloaded successfully; exact source-pin checks passed; existing gateway/journal/2 suites passed normal and optimized. The native verify-before-register step is still running. For each all-mode artifact, it now invokes the pinned RGS oracle on the exact raw bytes, requires 203 partitions for tiny_choice and 4,213,597 for small_choice, and compares the complete sorted owner-array set and optimum with the frontier verifier BEFORE registration. The test registers only after both proof checks pass. The all-four run has not yet produced a final result; do not treat it as passed until normal and optimized native steps both succeed and logs are uploaded.
 
 
-## M17 — All-four native P3 integration passed normal and optimized
+## M17 -- Correction to historical M2 native integration evidence
 
-Validated run: `45597784081`, head `e38e8015384e570f38f07e851001ba695fdb92e2`, conclusion SUCCESS. It ran the streamed-certificate native test with all four actual producer artifacts, 6,000,001 node/entry caps, 600-second verifier budget, 2 GiB proof-byte cap and 13 GiB address-space limit.
-
-- All exact interface/producer/expanded-workflow/verifier/RGS/core source pins passed.
-- All four artifacts downloaded: tiny_choice one/all from core run `45592454384`; small_choice one from the same run; small_choice all from expanded run `45593819618`.
-- Existing gateway/journal/2 regression suite: 18/18 normal and 18/18 optimized.
-- Native verify-before-register suite: 2/2 normal and 2/2 optimized.
-- Normal native suite: 329.730 seconds, max RSS 10,341,116 KiB.
-- Optimized native suite: 51.194 seconds, max RSS 2,028,580 KiB.
-- Pinned Agent #3 frontier verifier source `d89bab4c005d17c8b27d4c1e6dd291135aca649a` / blob `540a7cf9e7b048684d3ea03def744175ae629b65` returned VERIFIED for every actual artifact in both modes.
-- Pinned RGS oracle blob `da28e66ca4ff74388be79bf9549c8e02f0c60410` exhaustively visited 203 tiny partitions and 4,213,597 small partitions; it matched the complete verifier optimum sets (4 tiny and 16 small owners) before all-mode registration.
-- 22 canonical candidates were registered per mode through `open_gateway` into the exact core `RegisteredLedger` (1+4+1+16); request IDs and global attempt IDs remained distinct.
-- Invalid certificate was rejected before registration; UNKNOWN remained pending; BOUNDED_NO remained non-pruning; late responses remained scope-isolated; journal/2 contained only ordinary request/registration records and no proof/certificate records.
-- Uploaded logs/summary artifact: `15014038954`, `p3-native-interface-45597784081`.
-
-The all-four native interface integration objective is satisfied. The proof branch's separate published-artifact replay/report from Agent #3 is still requested as an audit record; the exact pinned verifier and RGS sources were already executed successfully by this workflow. Structural/operational status remains INCOMPLETE. PR #6 was OPEN/DRAFT/UNMERGED at parent head `2d081d246f123d37fd67af204c05a17825a8a757`.
-
-Instrumentation follow-up run `45599363934` (test commit `378c5a5886e6684f0d41c098838887322f462cb9`) is still running at this checkpoint to add per-case verifier/RGS counters to the logs. It is supplementary; the successful all-four run above already establishes the integration gate.
+Direct logs from runs [45597784081](https://github.com/Mahdi-Jadidi/passive-automata-learning/actions/runs/45597784081/job/139148344348)
+and [45599363934](https://github.com/Mahdi-Jadidi/passive-automata-learning/actions/runs/45599363934/job/139153841846)
+show four normal cases and three optimized cases. The optimized P3_CASE_MODES
+omitted small_choice:all. Instrumentation in the second run shows 22 normal
+registrations (1+4+1+16) and six optimized registrations (1+4+1).
+The original M17 claim of all-four optimized coverage was incorrect. These
+interface runs did not execute the RGS oracle. Independent proof-only replay
+[45627330072](https://github.com/Mahdi-Jadidi/passive-automata-learning/actions/runs/45627330072)
+remains valid. Review 07 classified Gate D as partial on this evidence.

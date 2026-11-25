@@ -17,7 +17,12 @@ permissions:
 jobs:
   native-integration:
     runs-on: ubuntu-24.04
+    name: native-integration (${{ matrix.python_mode }})
     timeout-minutes: 45
+    strategy:
+      fail-fast: false
+      matrix:
+        python_mode: [normal, optimized]
     env:
       CORE_RUN: "45592454384"
       CORE_PIN: "391abf97df3b67661082c907d9ce20b4f69636c2"
@@ -136,54 +141,43 @@ jobs:
           name: p3-m2-small_choice-all-expanded
           path: incoming/p3-m2-small_choice-all
 
-      - name: Run existing gateway and journal/2 regressions in normal mode
+      - name: Run gateway and journal/2 regressions
         working-directory: research/interface/p2
         env:
           PYTHONPATH: ${{ github.workspace }}/pinned-core/implementation/partition_feedback_final
-        run: python -B -m unittest -v test_p3_contract test_gateway_v2
+          PYTHON_MODE: ${{ matrix.python_mode }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          flags=(-B)
+          if [[ "$PYTHON_MODE" == optimized ]]; then flags+=(-O); fi
+          mkdir -p integration-logs
+          python "${flags[@]}" -m unittest -v test_p3_contract test_gateway_v2 2>&1 | tee integration-logs/regressions.log
 
-      - name: Run existing gateway and journal/2 regressions in optimized mode
-        working-directory: research/interface/p2
-        env:
-          PYTHONPATH: ${{ github.workspace }}/pinned-core/implementation/partition_feedback_final
-        run: python -B -O -m unittest -v test_p3_contract test_gateway_v2
-
-      - name: Verify actual certificates before candidate registration (normal)
+      - name: Verify and register all four actual M2 certificates
         working-directory: research/interface/p2
         env:
           PYTHONPATH: ${{ github.workspace }}/pinned-core/implementation/partition_feedback_final
           P3_EVIDENCE_ROOT: ${{ github.workspace }}/incoming
           P3_PROOF_ROOT: ${{ github.workspace }}/pinned-proof
-          P3_CASE_MODES: tiny_choice:one,tiny_choice:all,small_choice:one,small_choice:all
+          PYTHON_MODE: ${{ matrix.python_mode }}
         shell: bash
         run: |
           set -euo pipefail
+          flags=(-B -u)
+          if [[ "$PYTHON_MODE" == optimized ]]; then flags+=(-O); fi
           ulimit -v 13631488
-          mkdir -p integration-logs
-          /usr/bin/time -v python -B -m unittest -v test_p3_native_integration \
-            2>&1 | tee integration-logs/native-normal.log
-
-      - name: Verify actual certificates before candidate registration (optimized)
-        working-directory: research/interface/p2
-        env:
-          PYTHONPATH: ${{ github.workspace }}/pinned-core/implementation/partition_feedback_final
-          P3_EVIDENCE_ROOT: ${{ github.workspace }}/incoming
-          P3_PROOF_ROOT: ${{ github.workspace }}/pinned-proof
-          P3_CASE_MODES: tiny_choice:one,tiny_choice:all,small_choice:one
-        shell: bash
-        run: |
-          set -euo pipefail
-          ulimit -v 13631488
-          mkdir -p integration-logs
-          /usr/bin/time -v python -B -O -m unittest -v test_p3_native_integration \
-            2>&1 | tee integration-logs/native-optimized.log
+          {
+            printf 'interface=%s run=%s attempt=%s mode=%s address_space_kib=%s\n' "$GITHUB_SHA" "$GITHUB_RUN_ID" "$GITHUB_RUN_ATTEMPT" "$PYTHON_MODE" "$(ulimit -v)"
+            /usr/bin/time -v python "${flags[@]}" -m unittest -v test_p3_native_integration
+          } 2>&1 | tee integration-logs/native.log
 
       - name: Upload reproducible interface integration logs
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: p3-native-interface-${{ github.run_id }}
+          name: p3-native-interface-${{ github.run_id }}-${{ github.run_attempt }}-${{ matrix.python_mode }}
           path: |
             research/interface/p2/integration-logs/
             incoming/*/summary.json
-          if-no-files-found: ignore
+          if-no-files-found: error

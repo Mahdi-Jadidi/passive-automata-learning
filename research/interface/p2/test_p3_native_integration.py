@@ -12,6 +12,7 @@ import sys
 import tempfile
 import time
 import unittest
+from unittest.mock import patch
 
 from gateway import open_gateway
 from selector_v2.registered_ledger import RegisteredLedger
@@ -38,6 +39,12 @@ CERT_PINS = {
         "9fb5f5bbc1c64e90bc955f73d2325a1d159224e91258e8a8758a34595102e2a7",
         "e2f00717be846336b1f3287a8dd58070272434fd",
     ),
+}
+EXPECTED = {
+    ("tiny_choice", "one"): (2, 203, 4, 1),
+    ("tiny_choice", "all"): (2, 203, 4, 4),
+    ("small_choice", "one"): (4, 4213597, 16, 1),
+    ("small_choice", "all"): (4, 4213597, 16, 16),
 }
 FORBIDDEN_JOURNAL_KEYS = {
     "certificate", "certificate_digest", "proof", "proof_digest", "frontier",
@@ -177,13 +184,13 @@ def invoke_rgs_oracle(oracle, raw_bytes, optimized):
         prefix.append("-B")
         command = prefix + [
             str(oracle), "--raw", str(raw_path),
-            "--seconds", "30",
+            "--seconds", "120",
             "--max-partitions", "4213597",
             "--max-work", "150000000",
             "--max-entries", "100000",
         ]
         started = time.monotonic()
-        completed = subprocess.run(command, capture_output=True, timeout=45, check=False)
+        completed = subprocess.run(command, capture_output=True, timeout=135, check=False)
         elapsed = time.monotonic() - started
         result = strict_loads(completed.stdout)
         oracle_result = result.get("result") or {}
@@ -201,7 +208,7 @@ def invoke_rgs_oracle(oracle, raw_bytes, optimized):
 
 
 def verify_then_register(verifier, raw_bytes, journal_bytes, trusted_bytes,
-                         proof_path, mode, optimized, oracle_path=None):
+                         proof_path, case, mode, optimized, oracle_path):
     """Fail closed: the only path to open_gateway/register follows VERIFIED."""
     return_code, result = invoke_verifier(
         verifier, raw_bytes, journal_bytes, trusted_bytes, proof_path, optimized
@@ -213,28 +220,32 @@ def verify_then_register(verifier, raw_bytes, journal_bytes, trusted_bytes,
         raise AssertionError("structural verification must not imply operational acceptance")
 
     raw = strict_loads(raw_bytes)
-    if oracle_path is not None:
-        oracle_rc, oracle_result = invoke_rgs_oracle(oracle_path, raw_bytes, optimized)
-        expected_partitions = 203 if len(raw["alphabet"]) == 6 else 4213597
-        if (oracle_rc != 0 or oracle_result.get("status") != "VERIFIED" or
-                oracle_result.get("visited") != expected_partitions):
-            raise AssertionError("independent RGS oracle did not exhaust the original alphabet: "
-                                 + repr(oracle_result))
-        if (oracle_result["result"]["optimum"] != result["result"]["optimum"] or
-                oracle_result["result"]["optima"] != result["result"]["optima"]):
-            raise AssertionError("frontier verifier and exhaustive RGS oracle disagree")
+    optimum, partitions, optima_count, candidate_count = EXPECTED[case, mode]
+    oracle_rc, oracle_result = invoke_rgs_oracle(oracle_path, raw_bytes, optimized)
+    if (oracle_rc != 0 or oracle_result.get("status") != "VERIFIED" or
+            oracle_result.get("visited") != partitions):
+        raise AssertionError("independent RGS oracle did not exhaust the original alphabet: "
+                             + repr(oracle_result))
+    proof_result = result["result"]
+    oracle_winners = oracle_result["result"]["optima"]
+    if (oracle_result["result"]["optimum"] != optimum or
+            proof_result["optimum"] != optimum or len(oracle_winners) != optima_count):
+        raise AssertionError("frontier verifier and exhaustive RGS oracle disagree on the optimum")
+    if mode == "all" and proof_result["optima"] != oracle_winners:
+        raise AssertionError("frontier verifier and exhaustive RGS oracle disagree on all optima")
+    if proof_result.get("owner") not in oracle_winners:
+        raise AssertionError("verified owner is absent from the exhaustive RGS optima")
     trusted = strict_loads(trusted_bytes)
     selector_scope = trusted["selector_scope"]
     sample_digest = selector_scope["sample_digest"]
     if trusted["journal2_digest"] != hashlib.sha256(journal_bytes).hexdigest():
         raise AssertionError("trusted scope does not bind exact journal/2 bytes")
 
-    proof_result = result["result"]
     if mode == "one":
         owners = [proof_result.get("owner")]
     else:
         owners = proof_result.get("optima")
-    if not owners or any(not canonical_owner(owner, len(raw["alphabet"])) for owner in owners):
+    if len(owners) != candidate_count or any(not canonical_owner(owner, len(raw["alphabet"])) for owner in owners):
         raise AssertionError("verifier did not return canonical original-alphabet owner arrays")
     if len({tuple(owner) for owner in owners}) != len(owners):
         raise AssertionError("duplicate candidate owner")
@@ -277,15 +288,6 @@ def verify_then_register(verifier, raw_bytes, journal_bytes, trusted_bytes,
         raise AssertionError("request IDs and global attempt IDs share a namespace")
     if set(ledger.pending_candidates) != set(request_ids):
         raise AssertionError("candidate registration did not remain pending")
-    print("P3_CANDIDATES_REGISTERED " + json.dumps({
-        "mode": mode,
-        "sample_digest": sample_digest,
-        "candidate_count": len(owners),
-        "request_count": len(request_ids),
-        "attempt_count": len(attempt_ids),
-        "pending_count": len(ledger.pending_candidates),
-    }, sort_keys=True, separators=(",", ":")))
-
     journal_after = ledger.export()
     decoded = strict_loads(journal_after)
     if decoded["version"] != "selector-v2-journal/2":
@@ -299,11 +301,27 @@ def verify_then_register(verifier, raw_bytes, journal_bytes, trusted_bytes,
         raise AssertionError("journal contains non-registration or proof records")
     if contains_forbidden_key(decoded):
         raise AssertionError("certificate/frontier material leaked into journal/2")
-    proof_pin = pins_file(proof_path)
-    if proof_pin["bytes"] <= len(journal_after):
-        raise AssertionError("certificate is unexpectedly smaller than the journal export")
-    if proof_pin["sha256"].encode() in journal_after:
+    if CERT_PINS[case, mode][0].encode() in journal_after:
         raise AssertionError("certificate digest leaked into journal/2")
+
+    # Use an existing request and its ledger for the offline UNKNOWN probe.
+    request_id, attempt_id = request_ids[0], attempt_ids[0]
+    if (ledger.ingest(request_id, attempt_id, b"{}") != "UNKNOWN" or
+            ledger.attempt_status(request_id, attempt_id) != "UNKNOWN" or
+            set(ledger.pending_candidates) != set(request_ids)):
+        raise AssertionError("UNKNOWN changed the pending candidate set")
+    unknown_bytes = ledger.export()
+    after_unknown = strict_loads(unknown_bytes)
+    event = after_unknown["events"][-1]
+    records = event["records"]
+    if (after_unknown["version"] != decoded["version"] or
+            after_unknown["events"][:-1] != events or event["event"] != "QUARANTINE" or
+            len(records) != 1 or records[0]["kind"] != "OBSERVATION" or
+            records[0]["payload"]["status"] != "UNKNOWN" or
+            records[0]["payload"]["feedback"] is not None or
+            contains_forbidden_key(after_unknown) or
+            CERT_PINS[case, mode][0].encode() in unknown_bytes):
+        raise AssertionError("UNKNOWN must append only an ordinary journal/2 observation")
     return return_code, result, ledger, owners
 
 
@@ -320,7 +338,7 @@ class NativeP3Integration(unittest.TestCase):
         if not cls.verifier.is_file():
             raise RuntimeError("pinned independent verifier is missing: " + str(cls.verifier))
         cls.fixture_root = Path(__file__).parent / "fixtures" / "p3"
-        cls.fixture_manifest = strict_loads((cls.fixture_root / "manifest.json").read_bytes())
+        cls.oracle = cls.verifier.with_name("p3_rgs12_oracle.py")
 
     def artifact(self, case, mode):
         root = self.evidence_root / ("p3-m2-" + case + "-" + mode)
@@ -330,95 +348,99 @@ class NativeP3Integration(unittest.TestCase):
 
     def test_actual_certificates_verify_before_core_registration(self):
         optimized = sys.flags.optimize > 0
-        requested = set(os.environ.get(
-            "P3_CASE_MODES",
-            "tiny_choice:one,tiny_choice:all,small_choice:one,small_choice:all",
-        ).split(","))
-        allowed = {"tiny_choice:one", "tiny_choice:all", "small_choice:one", "small_choice:all"}
-        if "tiny_choice:one" not in requested or not requested <= allowed:
-            raise RuntimeError("P3_CASE_MODES must include tiny_choice:one and contain only known case/modes")
-        for case in ("tiny_choice", "small_choice"):
-            for mode in ("one", "all"):
-                if case + ":" + mode not in requested:
-                    continue
-                with self.subTest(case=case, mode=mode, optimized=optimized):
-                    root = self.artifact(case, mode)
-                    summary = strict_loads((root / "summary.json").read_bytes())
-                    self.assertEqual(summary["case"], case)
-                    self.assertEqual(summary["mode"], mode)
-                    self.assertEqual(summary["structural_gate"], "PASS")
-                    self.assertEqual(summary["operational_status"], "INCOMPLETE")
-                    self.assertIs(summary["normal_optimized_equal"], True)
-                    self.assertIs(summary["checkpoint_resume_equal"], True)
+        self.assertEqual(os.environ["PYTHON_MODE"], "optimized" if optimized else "normal")
+        counts = {}
+        for case, mode in EXPECTED:
+            with self.subTest(case=case, mode=mode, optimized=optimized):
+                print(f"P3_CASE_START case={case} mode={mode} optimized={optimized}", flush=True)
+                root = self.artifact(case, mode)
+                summary = strict_loads((root / "summary.json").read_bytes())
+                self.assertEqual(summary["case"], case)
+                self.assertEqual(summary["mode"], mode)
+                self.assertEqual(summary["structural_gate"], "PASS")
+                self.assertEqual(summary["operational_status"], "INCOMPLETE")
+                self.assertIs(summary["normal_optimized_equal"], True)
+                self.assertIs(summary["checkpoint_resume_equal"], True)
 
-                    raw_bytes = (root / "raw.json").read_bytes()
-                    journal_bytes = (root / "journal.json").read_bytes()
-                    trusted_bytes = (root / "trusted.json").read_bytes()
-                    certificate_path = root / "normal.json"
-                    raw_pin = pins_file(root / "raw.json")
-                    journal_pin = pins_file(root / "journal.json")
-                    trusted_pin = pins_file(root / "trusted.json")
-                    certificate_pin = pins_file(certificate_path)
-                    self.assertEqual(
-                        (certificate_pin["sha256"], certificate_pin["git_blob_calculated"]),
-                        CERT_PINS[(case, mode)],
-                    )
-                    self.assertEqual(raw_pin, summary["raw"])
-                    self.assertEqual(journal_pin, summary["journal"])
-                    self.assertEqual(trusted_pin, summary["trusted_scope"])
-                    self.assertEqual(certificate_pin, summary["phases"]["normal"]["certificate"])
-                    self.assertEqual(summary["phases"]["normal"]["exit"], 0)
-                    self.assertEqual(summary["phases"]["optimized"]["exit"], 0)
-                    self.assertEqual(
-                        summary["phases"]["normal"]["certificate"],
-                        summary["phases"]["optimized"]["certificate"],
-                    )
-                    self.assertEqual(raw_pin["sha256"], RAW_SHA256[case])
+                raw_bytes = (root / "raw.json").read_bytes()
+                journal_bytes = (root / "journal.json").read_bytes()
+                trusted_bytes = (root / "trusted.json").read_bytes()
+                certificate_path = root / "normal.json"
+                raw_pin = pins_file(root / "raw.json")
+                journal_pin = pins_file(root / "journal.json")
+                trusted_pin = pins_file(root / "trusted.json")
+                certificate_pin = pins_file(certificate_path)
+                self.assertEqual(
+                    (certificate_pin["sha256"], certificate_pin["git_blob_calculated"]),
+                    CERT_PINS[(case, mode)],
+                )
+                self.assertEqual(raw_pin, summary["raw"])
+                self.assertEqual(journal_pin, summary["journal"])
+                self.assertEqual(trusted_pin, summary["trusted_scope"])
+                self.assertEqual(certificate_pin, summary["phases"]["normal"]["certificate"])
+                self.assertEqual(summary["phases"]["normal"]["exit"], 0)
+                self.assertEqual(summary["phases"]["optimized"]["exit"], 0)
+                self.assertEqual(
+                    summary["phases"]["normal"]["certificate"],
+                    summary["phases"]["optimized"]["certificate"],
+                )
+                self.assertEqual(raw_pin["sha256"], RAW_SHA256[case])
 
-                    fixture_path = self.fixture_root / (case + ".raw.json")
-                    self.assertEqual(raw_bytes, fixture_path.read_bytes())
-                    if (root / "optimized.json").exists():
-                        self.assertEqual(pins_file(root / "optimized.json"), certificate_pin)
+                fixture_path = self.fixture_root / (case + ".raw.json")
+                self.assertEqual(raw_bytes, fixture_path.read_bytes())
+                if (root / "optimized.json").exists():
+                    self.assertEqual(pins_file(root / "optimized.json"), certificate_pin)
 
-                    rc, result, ledger, owners = verify_then_register(
-                        self.verifier, raw_bytes, journal_bytes, trusted_bytes,
-                        certificate_path, mode, optimized,
-                    )
-                    self.assertEqual(rc, 0, result)
-                    self.assertEqual(result["status"], "VERIFIED", result)
-                    self.assertEqual(result["operational_status"], "INCOMPLETE")
-                    self.assertIsNotNone(ledger)
-                    self.assertTrue(owners)
-                    self.assertEqual(len(ledger.pending_candidates), len(owners))
+                rc, result, ledger, owners = verify_then_register(
+                    self.verifier, raw_bytes, journal_bytes, trusted_bytes,
+                    certificate_path, case, mode, optimized, self.oracle,
+                )
+                self.assertEqual(rc, 0, result)
+                self.assertEqual(result["status"], "VERIFIED", result)
+                self.assertEqual(result["operational_status"], "INCOMPLETE")
+                self.assertIsNotNone(ledger)
+                self.assertTrue(owners)
+                self.assertEqual(len(ledger.pending_candidates), len(owners))
 
-                    # A verified real candidate can still receive UNKNOWN; it
-                    # remains pending and cannot become a structural closure.
-                    unknown_ledger = open_gateway(strict_loads(raw_bytes))
-                    owner = owners[0]
-                    request_id = "unknown-" + case + "-" + mode
-                    attempt_id = "unknown-attempt-" + case + "-" + mode
-                    q = unknown_ledger.register(owner, request_id, attempt_id)
-                    self.assertNotEqual(q["request_id"], q["attempt_id"])
-                    self.assertEqual(unknown_ledger.ingest(request_id, attempt_id, b"{}"), "UNKNOWN")
-                    self.assertEqual(unknown_ledger.attempt_status(request_id, attempt_id), "UNKNOWN")
-                    self.assertIn(request_id, unknown_ledger.pending_candidates)
+                optimum, partitions, optima_count, candidate_count = EXPECTED[case, mode]
+                self.assertEqual(len(owners), candidate_count)
+                counts[case, mode] = len(owners)
+                print("P3_CASE_PASS " + json.dumps({
+                    "case": case, "mode": mode, "optimized": optimized,
+                    "certificate_sha256": certificate_pin["sha256"],
+                    "verifier": result["status"], "optimum": optimum,
+                    "rgs_partitions": partitions, "rgs_optima": optima_count,
+                    "registrations": len(owners), "pending": len(ledger.pending_candidates),
+                    "unknown": "PENDING_CANDIDATE", "journal": "selector-v2-journal/2",
+                }, sort_keys=True), flush=True)
+
+        self.assertEqual(set(counts), set(EXPECTED))
+        self.assertEqual(sum(counts.values()), 22)
+        print(f"P3_MODE_PASS optimized={optimized} cases={len(counts)} registrations=22", flush=True)
 
     def test_invalid_certificate_never_opens_or_registers_candidate(self):
         root = self.artifact("tiny_choice", "one")
         raw_bytes = (root / "raw.json").read_bytes()
         journal_bytes = (root / "journal.json").read_bytes()
         trusted_bytes = (root / "trusted.json").read_bytes()
-        with tempfile.TemporaryDirectory(prefix="p3-invalid-proof-") as directory:
-            invalid_path = Path(directory) / "invalid.json"
-            invalid_path.write_bytes(b"not-json")
-            rc, result, ledger, owners = verify_then_register(
-                self.verifier, raw_bytes, journal_bytes, trusted_bytes,
-                invalid_path, "one", sys.flags.optimize > 0,
-            )
-        self.assertEqual(rc, 1, result)
-        self.assertEqual(result["status"], "INVALID", result)
-        self.assertIsNone(ledger)
-        self.assertEqual(owners, [])
+        v2 = strict_loads((root / "normal.json").read_bytes())
+        v2["format"] = "p3-region-frontier/v2"
+        for probe, payload in (("malformed", b"not-json"), ("unapproved-v2", json.dumps(v2).encode())):
+            with self.subTest(probe=probe), patch(
+                f"{__name__}.open_gateway", side_effect=AssertionError("unverified proof opened gateway")
+            ) as gateway, tempfile.TemporaryDirectory(prefix="p3-invalid-proof-") as directory:
+                invalid_path = Path(directory) / "invalid.json"
+                invalid_path.write_bytes(payload)
+                rc, result, ledger, owners = verify_then_register(
+                    self.verifier, raw_bytes, journal_bytes, trusted_bytes,
+                    invalid_path, "tiny_choice", "one", sys.flags.optimize > 0, self.oracle,
+                )
+                self.assertEqual(rc, 1, result)
+                self.assertEqual(result["status"], "INVALID", result)
+                self.assertIsNone(ledger)
+                self.assertEqual(owners, [])
+                gateway.assert_not_called()
+                print(f"P3_REJECTED probe={probe} status=INVALID gateway_calls=0 registrations=0", flush=True)
 
 
 if __name__ == "__main__":
