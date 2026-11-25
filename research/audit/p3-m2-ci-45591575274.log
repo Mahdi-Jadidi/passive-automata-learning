@@ -1,0 +1,53 @@
+# Selected verbatim GitHub Actions log lines, run 45591575274 job 139126846916
+2026-11-25T10:05:23.4073240Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +e1d022496f98bf50fd57d5ef3a7a0bc8194c817c:refs/remotes/origin/research/v2-proof-audit
+2026-11-25T10:05:44.4494753Z  * [new ref]           e1d022496f98bf50fd57d5ef3a7a0bc8194c817c -> origin/research/v2-proof-audit
+2026-11-25T10:05:59.7989598Z e1d022496f98bf50fd57d5ef3a7a0bc8194c817c
+2026-11-25T10:06:04.1297285Z Create Python 3.13.5 folder
+2026-11-25T10:06:09.1031995Z [36;1mgit hash-object tests/reference/p3_frontier_verifier.py tests/reference/test_p3_frontier_verifier.py tests/reference/rgs_oracle.py tests/reference/bounded_deletion.py tests/reference/journal_v2_replay.py[0m
+2026-11-25T10:06:09.1144490Z Python 3.13.5
+2026-11-25T10:06:09.1160686Z e1d022496f98bf50fd57d5ef3a7a0bc8194c817c
+2026-11-25T10:06:09.1184034Z a35281492e2677f0c57d8955227bc233d95492ea
+2026-11-25T10:06:09.1185167Z 9754dc3e0c21cabfbf8339b598650ddae40bcbdc
+2026-11-25T10:06:09.1186727Z 375c36bfb2602894ce783055d1edf31f265aafa0
+2026-11-25T10:06:09.1188040Z e1fc61b6f03484d4428642ca157e2dac43f0572d
+2026-11-25T10:06:09.1189415Z 6c49013e809b5ac4d2b2a37850e6e6cece513072
+2026-11-25T10:06:09.1232311Z [36;1m/usr/bin/time -f 'wall=%e RSS_KiB=%M' python -B -m unittest discover -s tests/reference -p "test_p3_frontier_verifier.py" -v[0m
+2026-11-25T10:06:09.2518787Z test_all_ties_and_lazy_prefix (test_p3_frontier_verifier.FrontierTests.test_all_ties_and_lazy_prefix) ... ok
+2026-11-25T10:06:09.2526396Z test_canonical (test_p3_frontier_verifier.FrontierTests.test_canonical) ... ok
+2026-11-25T10:06:09.4557479Z test_large_symbolic_partial (test_p3_frontier_verifier.FrontierTests.test_large_symbolic_partial) ... ok
+2026-11-25T10:06:09.4707552Z test_mutations (test_p3_frontier_verifier.FrontierTests.test_mutations) ... ok
+2026-11-25T10:06:09.4787863Z test_nonidentity_journal (test_p3_frontier_verifier.FrontierTests.test_nonidentity_journal) ... ok
+2026-11-25T10:06:09.4809336Z test_one_cutoff (test_p3_frontier_verifier.FrontierTests.test_one_cutoff) ... ok
+2026-11-25T10:06:09.8350760Z test_oracle (test_p3_frontier_verifier.FrontierTests.test_oracle) ... ok
+2026-11-25T10:06:09.8400300Z test_partial_and_caps (test_p3_frontier_verifier.FrontierTests.test_partial_and_caps) ... ok
+2026-11-25T10:06:09.9996692Z test_reference (test_p3_frontier_verifier.FrontierTests.test_reference) ... ok
+2026-11-25T10:06:10.1051026Z test_scope_and_cli (test_p3_frontier_verifier.FrontierTests.test_scope_and_cli) ... ok
+2026-11-25T10:06:10.1052556Z Ran 10 tests in 0.861s
+2026-11-25T10:06:10.1053015Z OK
+2026-11-25T10:06:10.1053420Z symbolic alternatives: 199990000 work: 349428
+2026-11-25T10:06:10.1053925Z certificate mutations: 17
+2026-11-25T10:06:10.1054303Z literal fixture cases: 179
+2026-11-25T10:06:10.1055063Z Bell counts 0..8; independent label enumeration 0..5; region membership checks: 7065
+2026-11-25T10:06:10.1056694Z Structural examples, duplicate/empty/unused symbols, malformed token and caps: PASS
+2026-11-25T10:06:10.1058019Z pair_at comparisons: 43680
+2026-11-25T10:06:10.1162166Z wall=0.98 RSS_KiB=26876
+2026-11-25T10:06:10.1199455Z [36;1m/usr/bin/time -f 'wall=%e RSS_KiB=%M' python -B -O -m unittest discover -s tests/reference -p "test_p3_frontier_verifier.py" -v[0m
+2026-11-25T10:06:10.4729468Z test_all_ties_and_lazy_prefix (test_p3_frontier_verifier.FrontierTests.test_all_ties_and_lazy_prefix) ... ok
+2026-11-25T10:06:10.4737012Z test_canonical (test_p3_frontier_verifier.FrontierTests.test_canonical) ... ok
+2026-11-25T10:06:10.6825199Z test_large_symbolic_partial (test_p3_frontier_verifier.FrontierTests.test_large_symbolic_partial) ... ok
+2026-11-25T10:06:10.6978811Z test_mutations (test_p3_frontier_verifier.FrontierTests.test_mutations) ... ok
+2026-11-25T10:06:10.7059798Z test_nonidentity_journal (test_p3_frontier_verifier.FrontierTests.test_nonidentity_journal) ... ok
+2026-11-25T10:06:10.7078537Z test_one_cutoff (test_p3_frontier_verifier.FrontierTests.test_one_cutoff) ... ok
+2026-11-25T10:06:11.0668438Z test_oracle (test_p3_frontier_verifier.FrontierTests.test_oracle) ... ok
+2026-11-25T10:06:11.0718586Z test_partial_and_caps (test_p3_frontier_verifier.FrontierTests.test_partial_and_caps) ... ok
+2026-11-25T10:06:11.2242141Z test_reference (test_p3_frontier_verifier.FrontierTests.test_reference) ... ok
+2026-11-25T10:06:11.4665730Z test_scope_and_cli (test_p3_frontier_verifier.FrontierTests.test_scope_and_cli) ... ok
+2026-11-25T10:06:11.4667459Z Ran 10 tests in 1.001s
+2026-11-25T10:06:11.4667688Z OK
+2026-11-25T10:06:11.4677141Z symbolic alternatives: 199990000 work: 349428
+2026-11-25T10:06:11.4677700Z certificate mutations: 17
+2026-11-25T10:06:11.4678122Z literal fixture cases: 179
+2026-11-25T10:06:11.4678779Z Bell counts 0..8; independent label enumeration 0..5; region membership checks: 7065
+2026-11-25T10:06:11.4679769Z Structural examples, duplicate/empty/unused symbols, malformed token and caps: PASS
+2026-11-25T10:06:11.4680520Z pair_at comparisons: 43680
+2026-11-25T10:06:11.4790926Z wall=1.35 RSS_KiB=28500
