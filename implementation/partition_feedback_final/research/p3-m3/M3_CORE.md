@@ -22,9 +22,18 @@ Resume with the same mode, rule and trusted scope plus `--resume all.partial.jso
 | tiny_choice | 2 | 4 | 203 | 10 / 10 |
 | small_choice | 4 | 16 | 4,213,597 | 46 / 46 |
 | journal_root | 2 | 2 | 203 | 4 / 4 |
-| mixed_path | 2 | 3 | 52 | 18 / 35 |
+| mixed_path | 1 | 3 | 52 | 18 / 35 |
 
 For reproduction, add the pinned proof checkout's `tests/reference` to `PYTHONPATH`, then run `python -B implementation/partition_feedback_final/research/p3-m3/run_core_gate.py --output normal` and repeat with `-O`. The Linux CI matrix enforces separate 512 and 1536 MiB address-space limits and measures maximum RSS. The committed local manifests used the 30-second producer limit without an OS memory cap.
+
+Both CI profiles passed for the producer and independent replay on all four fixtures and modes. Peak RSS covers the full gate process, including the RGS oracle, and is reported in KiB for normal / optimized Python. All 40 per-case files matched the committed evidence byte for byte in both profiles. [Actions run 45636477920](https://github.com/Mahdi-Jadidi/passive-automata-learning/actions/runs/45636477920)
+
+| Address-space cap | Peak RSS | Entire gate wall time | Artifact ID |
+| --- | ---: | ---: | ---: |
+| 512 MiB | 21,468 / 25,516 KiB | 7.03 / 7.36 s | 15033895739 |
+| 1536 MiB | 21,376 / 25,432 KiB | 4.08 / 4.08 s | 15032494625 |
+
+In a separate capped smoke test, `medium_choice` and `huge_choice_active` from benchmark commit `369c0bc3` reached TIME_CAP at the OPEN root in both search modes (Python 3.13.5 normal, five-second producer limit and one-entry allowance). Independent verification returned INCOMPLETE throughout. The paired seven-case performance evaluation belongs to the benchmark stream.
 
 ## Checkpoint accounting
 

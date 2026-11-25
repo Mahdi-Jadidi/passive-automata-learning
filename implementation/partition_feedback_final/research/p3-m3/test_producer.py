@@ -9,6 +9,7 @@ from selector_v2.edr_cross import ALL_PAIRS, CROSS_SUPPORT, CrossPairs, CrossPre
 from selector_v2.edr_m3 import canonical, load, solve
 from selector_v2.edr_search import solve as solve_v1
 from test_edr_search import fixture
+from p3_frontier_verifier import verify_frontier
 from rgs_oracle import oracle
 
 
@@ -20,6 +21,41 @@ def run(raw, scope, mode="all", **kwargs):
 
 
 class ProducerTests(unittest.TestCase):
+    def test_v2_raw_corner_cases(self):
+        fixtures = (
+            dict(alphabet=list("abcd"), positive=[list("bc"), ["a"], ["a"]],
+                 negative=[list("abc"), list("abc")]),
+            dict(alphabet=list("ab"), positive=[[]], negative=[[]]),
+            dict(alphabet=list("ab"), positive=[], negative=[[]]),
+            dict(alphabet=list("ab"), positive=[[]], negative=[]),
+            dict(alphabet=[], positive=[], negative=[]),
+            dict(alphabet=[], positive=[], negative=[[]]),
+            dict(alphabet=[], positive=[[]], negative=[[]]),
+        )
+        for raw in fixtures:
+            journal, scope = fixture(raw)
+            expected = oracle(raw)["result"]
+            for mode in ("one", "all"):
+                cert, _ = run(raw, scope, mode)
+                result = verify_frontier(raw, journal, scope, canonical(cert))
+                self.assertEqual(result["status"], "VERIFIED", result)
+                self.assertEqual(result["result"]["optimum"], expected["optimum"])
+                if mode == "all":
+                    self.assertEqual(cert["optima"],
+                                     sorted([p.index(label) for label in p]
+                                            for p in expected["optima"]))
+
+    def test_local_discovery_cap_falls_back(self):
+        raw = dict(alphabet=list("abc"), positive=[["a"] * 4100 + ["b"]],
+                   negative=[["b"] + ["a"] * 4100])
+        journal, scope = fixture(raw)
+        cert, stats = run(raw, scope, "one")
+        self.assertEqual(stats["witness_local_caps"], 1)
+        self.assertEqual(cert["nodes"][0]["rule"], ALL_PAIRS)
+        result = verify_frontier(raw, journal, scope, canonical(cert))
+        self.assertEqual(result["status"], "VERIFIED", result)
+        self.assertEqual(result["result"]["optimum"], 1)
+
     def test_lazy_family_and_prefixes(self):
         budget = SearchBudget()
         s, t = (0, 3, 6), (1, 2, 5, 7)
