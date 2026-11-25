@@ -1,0 +1,13 @@
+P3 benchmark harness unit tests (measurement adapter only; fake solver/verifier, no EDR-BB search)
+
+Normal:
+python -B -m unittest -v test_p3_harness
+Ran 9 tests in 8.947s
+OK
+
+Optimized:
+python -B -O -m unittest -v test_p3_harness
+Ran 9 tests in 9.143s
+OK
+
+Coverage: raw-only schema/order/epsilon; reject extra evaluation fields and duplicate JSON keys; reject invalid symbols; strict adapter counters; optional resume token; complete candidate independently verified; deterministic certificate replay; checkpoint/resume equality; missing original input => NOT RUN; manifest hash mismatch => INVALID; per-phase RSS and elapsed telemetry. Fake adapters only. No producer/proof contract integration or algorithm result.

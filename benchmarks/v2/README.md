@@ -58,6 +58,12 @@ See results/reference-smoke.csv: 8 completed reference cases (6 finite OPTIMAL, 
 
 Host: Linux-6.18.57-x86_64-with-glibc2.41, CPython 3.13.5 (GCC 14.2.0), PYTHONHASHSEED=0; 512 MiB RLIMIT_AS, 5 s per stage (6 s hard wall) except timeout (0.000001 s plus startup allowance). One run per fixture. The unusually high ~96,650 KiB RSS and ~0.8–1.1 s worker wall times reflect this runtime; do not extrapolate or claim scale performance. Reference compute times are sub-millisecond except path4, which enumerated 4,140 partitions. For all completed cases the verifier process returned VERIFIED; timeout verifier NOT_RUN, RSS unknown and artifact '{}' (2 bytes, not a proof). All external response bytes/attempts and local simulator response bytes/attempts are 0.
 
+## Review05 continuation (2026-11-25)
+
+See [REVIEW05_HARDENED_RECOVERY.md](REVIEW05_HARDENED_RECOVERY.md), [P3_BENCHMARK_PROTOCOL.md](P3_BENCHMARK_PROTOCOL.md), [p3/README.md](p3/README.md), and [review05/p2-raw-closure-results.json](review05/p2-raw-closure-results.json). The seven P3 input-only fixtures are recovered; evaluation references remain in a separate Library archive. The benchmark harness has 9/9 mock-adapter tests passing in normal and optimized modes. These tests validate the harness only, not EDR-BB.
+
+P2 raw closure has been measured with the pinned core source. Ledger ingestion and complete independent replay of the original journal/2 artifacts remain NOT RUN until the two original journal files are supplied. The 512 MiB huge_long_active MEMORY_ERROR applies only to the raw-closure phase, not the hardened verifier.
+
 ## Next gate
 
-Run the legacy adapter on a real clean pinned checkout, validate the query telemetry against the transcript (including incomplete calls), and publish fresh repeated HDFS and scale runs. Restore and hash the enhanced and planted archives, then compare like-for-like at 5/30 seconds and appropriate memory caps. Add a v2 worker only after shared schema integration; preserve reference labels and proofs outside selector input. Live external calls require the owner-confirmed interface and must be reported separately. Do not merge this checkpoint until review.
+Obtain the original review03-benchmark-evidence.zip bytes (or the two exact journal/2 JSON artifacts), then run the hardened bounded-deletion verifier and independent journal replay separately in normal/optimized modes. In parallel, wait for Agent #2 and Agent #3 to freeze the same P3 producer/frontier and independent verifier contracts; only then configure and run integrated P3 benchmarks. Preserve evaluation references outside solver input. Do not merge this checkpoint until review.

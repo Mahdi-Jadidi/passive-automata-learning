@@ -35,11 +35,23 @@ Baseline commit: `7c90eb59561bd25ec4fdca5ac08b0e5d60d17fd6`. All paths below rel
 
 Historical unrestricted structural costs: HDFS-1024 and holdout 2, cover-path-8 4, synthetic 986. The synthetic cost is a construction/reference result, not a completed pinned producer result. The enhanced scale archive has a different implementation (reverse contractions); do not mix its 0.109s/0.319s measurements with this pin.
 
-## Planted and enhanced archives — not recovered here
+## Planted and enhanced archives — recovered 2026-11-25
 
-The master handoff and R01/R03/R04 mention `partition-scale-improved.zip` (numbered variants), `partition-benchmark-lite.zip`, two full planted benchmark parts, `ALL_MEASUREMENTS.csv/json`, `PLANTED_REPORT_FA.md`, `planted_30s/summary.csv`, `planted_extra/summary.csv`, `planted_high_memory/summary.csv`, `representation_probe.json`, and `root_replay_results.json`. Raw archive bytes, complete file inventory and checksums unavailable in this runtime. The historical collection had 33 distinct samples / 41 runs: 19 OPTIMAL, 14 INCOMPLETE, 8 MEMORY_LIMIT; 17 VERIFIED. These counts are historical and not re-executed.
+The original root-Library archives were raw-materializable and are now hash-pinned:
 
-Named fixtures reported in R01 include huge_long_active, huge_reverse_unused, huge_sparse_small, huge_singleton_active, large_reverse_dense, large_reverse_pairs, small_count, extra_interleaved, extra_long_1024, extra_imbalanced_negative, extra_imbalanced_positive. This is a partial list, not the full suite manifest. Never recreate a missing original by guessing a generator or assign guessed checksums. Once archives are restored, hash each original archive, each raw input, and each reference independently; store source archive/member path and generator seed/version if provided.
+| Archive | SHA-256 | Use |
+|---|---|---|
+| partition-planted-benchmark.zip | 5d2dae2ca718cc65d48e5fbcb62480baeae0da35d37edb9184ba2b61d91e1dc4 | Original planted raw inputs, evaluation references, historical reports |
+| partition-scale-handoff-a3a4afba.zip | 79791dea6e84370ef852709edd6680bb8d371299f2a84bea58e0d4ad4efc6541 | Pinned HDFS/holdout/cover-path bundles |
+| partition-scale-improved.zip | 595f928ef085f8decc9533404eeb3a8b458ff4e82e527e80d889c20fa55946ca | Verified recovery input; not used to construct the seven P3 fixtures |
+
+The planted archive contains 33 distinct samples / 41 historical runs, plus PLANTED_REPORT_FA.md, ALL_MEASUREMENTS.csv/json, planted_30s/summary.csv, planted_extra/summary.csv, planted_high_memory/summary.csv, planted_results/summary.csv and root_replay_results.json. Their historical outcomes remain historical: they are not hardened-verifier measurements and were not transferred into the Review05 replay.
+
+The seven P3 raw-only fixtures are now recovered and SHA-256 checked against the committed input manifest. The input-only ZIP is stored at Library path /Passive learning research/p3-exact-search-inputs-recovered.zip (SHA-256 a280e093aa298af359f0e30408b633eefb0283e02471dba52f3d78f1e4059220). Evaluation references are stored separately at /Passive learning research/p3-evaluation-recovered.zip (SHA-256 8d3da1c67975edd2209fd69f7fa9c403d613c97bf55293bb57dd2c8012a30982). P2 huge_choice_active and huge_long_active raw inputs are also recovered at /Passive learning research/p2-huge-inputs-recovered.zip (SHA-256 7a51787974c056247f9413e5bb30bf58b556eb43940432e7a1146f579d652a18).
+
+The original review03-benchmark-evidence.zip journal/2 bytes are still not materializable. The exact journal hashes recorded in REVIEW03 are listed in REVIEW05_HARDENED_RECOVERY.md. Therefore the raw closure phase is measured separately, while ledger ingestion and hardened independent journal replay remain NOT RUN. Never substitute new records or historical outputs for those original journal bytes.
+
+Named fixtures reported in R01 include huge_long_active, huge_reverse_unused, huge_sparse_small, huge_singleton_active, large_reverse_dense, large_reverse_pairs, small_count, extra_interleaved, extra_long_1024, extra_imbalanced_negative, extra_imbalanced_positive. This is a partial list, not the full suite manifest. Never recreate a missing original by guessing a generator or assign guessed checksums. Store each original archive hash, raw input SHA-256, source member path and reference hash separately.
 
 ## Isolation policy
 
