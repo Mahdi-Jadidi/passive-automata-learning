@@ -140,3 +140,8 @@ Agent #4 maps native producer/verifier CLI into existing harness after exact sou
 - No PR merge until M2 Gate A-C pass and integration branch reconciliation is planned.
 - Branches are diverged from current integration base; preserve histories and reconcile only after M2 source stabilizes.
 - No external learner or baseline edits, no live calls, no bounded optimization/CDAQ/P4-P7, no operational acceptance.
+
+
+## 9. Final v1 contract refinement (supersedes earlier wording above)
+
+The authoritative contract is now updated at integration commit `3411794ec013e5f7929d3e23960e80632a3e40c5`. The all-pairs alternative family is lazy/symbolic: `t=k*(k-1)//2`, `pair_at(j)` derives each emitted pair, `cursor_log` records only emitted prefix, suffix is `[cursor,t)`, and residual is an explicit symbolic all-false marker. Certificates have a flat node table with no per-node owner or full D arrays; the verifier reconstructs state iteratively from root and path. This prevents O(k²) alternative materialization/hash and O(n*nodes) repeated state storage. Earlier nested/per-node-state drafts and the prior flat-but-materialized draft are superseded. The proof verifier and core producer must follow this latest contract exactly.
