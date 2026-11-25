@@ -1,0 +1,98 @@
+{
+  "branch_factor_excluding_residual": {
+    "3": 7,
+    "6": 145,
+    "10": 625,
+    "15": 11521,
+    "21": 42843,
+    "28": 123235,
+    "36": 19237,
+    "45": 1579,
+    "55": 64,
+    "66": 1
+  },
+  "bytes_outside_node_payloads": 5497381,
+  "certificate_bytes": 1399367871,
+  "closures": {
+    "COST": 762796,
+    "EMPTY": 4275365,
+    "EXACT_NO": 258906,
+    "FEASIBLE_MIN": 346
+  },
+  "cursor_records": 5297412,
+  "depth": {
+    "0": 1,
+    "1": 67,
+    "2": 3584,
+    "3": 72634,
+    "4": 711769,
+    "5": 3573815,
+    "6": 942546,
+    "7": 184336,
+    "8": 6875,
+    "9": 1015,
+    "10": 28
+  },
+  "diagnostic_wall_s": 401.5449155999813,
+  "distinct_checked_owners": {
+    "producer": 259252,
+    "verifier": 259252
+  },
+  "edges": {
+    "CHILD": 5297412,
+    "RESIDUAL": 199257,
+    "ROOT": 1
+  },
+  "exact_sources": {
+    "producer/EXACT_NO": 59649,
+    "producer/FEASIBLE_MIN": 346,
+    "producer/SPLIT": 199257,
+    "verifier/CHILD/EXACT_NO": 59649,
+    "verifier/CHILD/FEASIBLE_MIN": 346,
+    "verifier/RESIDUAL/EXACT_NO": 199257,
+    "verifier/incumbent": 1
+  },
+  "node_bytes": {
+    "children_array": 136816784,
+    "cursor_log_array": 367476040,
+    "leaf_COST": 120551418,
+    "leaf_EMPTY": 670324335,
+    "leaf_EXACT_NO": 36833368,
+    "leaf_FEASIBLE_MIN": 57830,
+    "node_payloads": 1393870490,
+    "split_payloads_including_arrays": 566103539
+  },
+  "node_kind": {
+    "LEAF": 5297413,
+    "SPLIT": 199257
+  },
+  "projections": {
+    "producer": {
+      "calls": 259252,
+      "negative_projections": 7026517,
+      "positive_projections": 8014340,
+      "set_lookups": 7026517,
+      "token_visits": 45122571
+    },
+    "verifier": {
+      "calls": 259253,
+      "negative_projections": 2214760,
+      "pair_comparisons": 4460579,
+      "positive_projections": 4460579,
+      "token_visits": 20026017
+    }
+  },
+  "sha256": "9fb5f5bbc1c64e90bc955f73d2325a1d159224e91258e8a8758a34595102e2a7",
+  "splits_by_base_cost": {
+    "0": 1,
+    "1": 64,
+    "2": 1579,
+    "3": 19237,
+    "4": 123235,
+    "5": 42843,
+    "6": 11521,
+    "7": 625,
+    "8": 145,
+    "9": 7
+  }
+}
