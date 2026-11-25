@@ -94,3 +94,10 @@ See benchmarks/v2/REVIEW02.md and results/review02-*. Commit checkpoints are new
 | 91d22f5 | Review03 full reproduction and limitations |
 
 See benchmarks/v2/REVIEW03.md and results/review03-*. Previous results retained unchanged.
+
+## P3 M2 native experimental evaluation
+
+- Benchmarked the seven original SHA-256-pinned fixtures against native producer `391abf97` and independent verifier `d89bab4c`. Scope was independently replayed from an empty canonical journal/2. The source and fixture integration was committed at `f55c114` and the determinism accounting correction at `b34cdba`.
+- Actions `45627999119` completed 14 jobs and 56 mode/interpreter combinations. Both memory profiles certified tiny at cost 2 and four optima. All other standard outcomes were `INCOMPLETE`. Small and cover's 512 MiB verifiers returned `MemoryError` before replaying nodes. Capped restart differences are recorded in the report.
+- Separate expanded replay `45628480530` verified the exact small/all proof in normal/-O and independently matched all 16 cost-4 optima after enumerating 4,213,597 partitions. Expanded evidence is committed at `375cc1b`.
+- See [report](../benchmarks/v2/results/p3-m2/REPORT.md), [commands](../benchmarks/v2/results/p3-m2/COMMANDS.md), [phase CSV](../benchmarks/v2/results/p3-m2/standard.csv), [standard JSON](../benchmarks/v2/results/p3-m2/standard.json), and [expanded JSON](../benchmarks/v2/results/p3-m2/expanded.json). Operational status is `INCOMPLETE`.
