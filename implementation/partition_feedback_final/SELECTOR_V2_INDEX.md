@@ -58,3 +58,10 @@ Four research reports and the master handoff archived. Four parallel workstreams
 - [P3 serialization v1](research/P3_SERIALIZATION_V1.md) is frozen at integration commit 1cf4fb9fc935729b9ba021b3e26f791192b76578. It requires flat node table, independent canonicalizer, no quadratic root_equalities, FEASIBLE_MIN region closure, ALL_PAIRS_LEX_V1, explicit suffix/residual and inside-loop resource caps.
 - M2 acceptance sequence: verifier CI -> core tiny/small complete certificates -> independent replay of actual bytes -> offline interface integration -> native benchmarks. All PRs #6–#9 remain OPEN/DRAFT/UNMERGED; branches diverged from integration base and must not be merged until rebase/reconciliation.
 - P2.1 remains VERIFIED, operational status INCOMPLETE. No external calls, learner/baseline changes, bounded optimization, CDAQ, P4-P7 or operational acceptance.
+
+
+### P3 v1 contract final refinement
+- Latest authoritative contract commit: 3411794ec013e5f7929d3e23960e80632a3e40c5.
+- All-pairs alternatives are lazy/symbolic (t=k*(k-1)//2, direct pair_at(j), emitted-prefix cursor log, suffix [cursor,t), symbolic residual). No O(k²) alternative list/hash.
+- Flat certificate has no per-node owner/D copies; verifier reconstructs state iteratively from root and path. No recursive JSON tree or O(n*nodes) repeated arrays.
+- This supersedes previous P3_SERIALIZATION_V1 drafts. Producer and verifier must follow the latest commit.
