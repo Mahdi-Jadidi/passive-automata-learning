@@ -49,3 +49,27 @@ Nine P3 boundary methods and eight existing gateway delegation methods passed in
 Smallest next integration is test-only and waits on #2/#3 to agree and publish the exact producer candidate serializer and serialized region/frontier certificate contract. The current proof contract blob 8a5cbeaf6cd3018ea6c077d71d6ab90376841934 explicitly says DRAFT/not a wire schema; core #2 has not yet published a serialized producer interface. Do not invent envelope or certificate fields. Once agreed: exercise producer serialization -> complete original-alphabet owner array -> open_gateway registration -> exact journal/2 binding; feed mock-only observations through ingest; pass the serialized certificate to the independent verifier and prove observations do not become frontier closures. No endpoint or external learner call. Existing P3 boundary suite already covers owner-array validity, unused symbols, candidate/scope/request identities, maps, all four verdicts, UNKNOWN/retry/late isolation and core delegation, but it does not test the producer serializer or independent certificate grammar.
 
 Updated research/interface/p2/P3_SEARCH_INTERFACE.md to record Review05 authority, actual CI evidence and this integration handshake. This checkpoint is documentation/coordination only; no production source, ledger, journal schema, learner, or transport changed. The documentation update was tested by push workflow run 45565081120 (job 139037792674) on Ubuntu 24.04 / CPython 3.13.5: python -B -m unittest -v test_p3_contract test_gateway_v2 passed 17/17 in 0.071s; python -B -O -m unittest -v test_p3_contract test_gateway_v2 passed 17/17 in 0.057s; all job steps succeeded. The tested documentation commit is d60d686e30e317ec162ed61ba4e6d5c9d188a980; subsequent dc1643d... changes only this progress log. Operational status remains INCOMPLETE.
+
+
+## M12 — M2 frozen-contract coordination and byte-pinned native inputs
+
+Read Handoff 06, Integration Review 06, the final serialization contract at `ff61b1c56138c89fc0ad9a615f0b2a587b03393a` (blob `9dd487605f0dfdc6735f7d53a42627039fb57db8`), the P3 interface contract/tests, and issues #11/#5 plus #2/#3/#4 comments. Confirmed PR #6 remains OPEN/DRAFT/UNMERGED and branch baseline was `98bc69dcc013d28a74e2035fd417dbe66ba74e00`.
+
+Proof #3 M2 verifier source blob `a35281492e2677f0c57d8955227bc233d95492ea` exposes `build_trusted_scope(raw, exact_journal2_bytes)`, `verify_frontier(raw, exact_journal2_bytes, trusted_scope, proof, *, budgets)`, and the frozen CLI in the v1 contract. Its reported CI run `45591575274` passed 10/10 normal and 10/10 optimized on Ubuntu 24.04 / Python 3.13.5. Source imports only independent P2 replay modules; no `selector_v2` or producer imports. Proof PR report head `72144bb8799c00c2629a853303f122f4e825c9a5`; follow-up documentation-triggered run `45591893784` was in progress at inspection.
+
+Core #2 PR head remains `fa12fdcca0a8d7a9a697bb617ed09453cb56c3d5` (M1 primitives). No native serializer/CLI or actual tiny_choice/small_choice certificates are published at this pin. Posted exact artifact/CLI/source-pin requests to issues #2 and #3 (comments `7159278885`, `7159279694`) and an M2 dependency checkpoint to PR #6 (comment `7159347795`). No speculative wire fields or synthetic certificate were introduced.
+
+Recovered the input-only Library ZIP `/Passive learning research/p3-exact-search-inputs-recovered.zip`, SHA-256 `a280e093aa298af359f0e30408b633eefb0283e02471dba52f3d78f1e4059220`, and verified the exact original tiny/small fixture member bytes against Agent #4's seven-fixture manifest. Added copies under `research/interface/p2/fixtures/p3/` with no newline or content normalization:
+- `tiny_choice.raw.json`: 228 bytes, SHA-256 `1c064aa4c7ce111ec8c403e8b6a05b64de5acdec2ef564861f06c2e2e2e42f23`, Git blob `ef3f41b4c5e27da6ffd4882804399abf454d51a7`, file commit `65ed53a2afdc4fe91cafa34e1f101addec0a910e`.
+- `small_choice.raw.json`: 416 bytes, SHA-256 `10b0c3534ddf42369db003bca6b323c9fdaa33cd36aa15031360c3428949931b`, Git blob `b361642873a73bae454d388cbfb2284559dbd69b`, file commit `b946850931b7050d373d41da9ecec1fa53e327a6`.
+- Fixture manifest: Git blob `206abf0f0e3346a3fb644961934ba1797ceef487`, file commit `6a6575bd93067c30e27d942cb2a3198ed37cae71`; source seven-fixture manifest blob `68d2414bd7e1f9294a850268369a55559d440b06`.
+
+Verification performed by extracting each member from the recovered ZIP, checking its byte length and SHA-256, computing the Git blob object SHA-1, then fetching each committed path from GitHub and confirming its returned blob SHA and byte count match exactly. Reproduction after checkout:
+```sh
+sha256sum research/interface/p2/fixtures/p3/{tiny_choice,small_choice}.raw.json
+git hash-object research/interface/p2/fixtures/p3/{tiny_choice,small_choice}.raw.json
+```
+
+Updated `research/interface/p2/P3_SEARCH_INTERFACE.md` with the frozen v1 verifier handshake, exact CLI, pinned fixture hashes, required verify-before-register order, and the explicit NOT RUN blocker. Documentation commit: `2dbef769f7cda2a950063cb29ec38b80cbb80fad`; new document blob `b56ff9951e6f2d55bc53f4835f3c04e2b18b82e3`.
+
+This milestone validates raw input bytes and integration coordination only. No producer certificate was available, so no proof replay or candidate registration was run. Existing interface tests have not yet been rerun on these commits; push CI is the next check. No gateway/adapter/core source, journal schema, learner, external endpoint, or transaction authority was changed.
