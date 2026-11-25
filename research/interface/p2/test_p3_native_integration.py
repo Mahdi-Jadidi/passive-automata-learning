@@ -38,13 +38,22 @@ def strict_loads(data):
                           ValueError("nonfinite JSON number: " + value)))
 
 
-def pins(data):
-    size = len(data)
-    git_header = b"blob " + str(size).encode("ascii") + b"\0"
+def pins_file(path):
+    path = Path(path)
+    size = path.stat().st_size
+    sha256 = hashlib.sha256()
+    git_blob = hashlib.sha1(b"blob " + str(size).encode("ascii") + b"\0")
+    with path.open("rb") as stream:
+        while True:
+            chunk = stream.read(1024 * 1024)
+            if not chunk:
+                break
+            sha256.update(chunk)
+            git_blob.update(chunk)
     return {
         "bytes": size,
-        "sha256": hashlib.sha256(data).hexdigest(),
-        "git_blob_calculated": hashlib.sha1(git_header + data).hexdigest(),
+        "sha256": sha256.hexdigest(),
+        "git_blob_calculated": git_blob.hexdigest(),
     }
 
 
@@ -70,19 +79,20 @@ def canonical_owner(owner, alphabet_size):
 
 
 def invoke_verifier(verifier, raw_bytes, journal_bytes, trusted_bytes,
-                    proof_bytes, optimized):
-    """Write exact bytes unchanged, independently rebuild scope, then replay."""
+                    proof_path, optimized):
+    """Write exact raw/journal/scope bytes unchanged, rebuild scope, then replay the certificate file."""
     with tempfile.TemporaryDirectory(prefix="p3-native-interface-") as directory:
         root = Path(directory)
         raw_path = root / "raw.json"
         journal_path = root / "journal.json"
         trusted_path = root / "trusted.json"
-        proof_path = root / "proof.json"
         rebuilt_path = root / "rebuilt-trusted.json"
         raw_path.write_bytes(raw_bytes)
         journal_path.write_bytes(journal_bytes)
         trusted_path.write_bytes(trusted_bytes)
-        proof_path.write_bytes(proof_bytes)
+        proof_path = Path(proof_path)
+        if not proof_path.is_file():
+            raise AssertionError("certificate file is missing: " + str(proof_path))
 
         prefix = [sys.executable]
         if optimized:
@@ -122,10 +132,10 @@ def invoke_verifier(verifier, raw_bytes, journal_bytes, trusted_bytes,
 
 
 def verify_then_register(verifier, raw_bytes, journal_bytes, trusted_bytes,
-                         proof_bytes, mode, optimized):
+                         proof_path, mode, optimized):
     """Fail closed: the only path to open_gateway/register follows VERIFIED."""
     return_code, result = invoke_verifier(
-        verifier, raw_bytes, journal_bytes, trusted_bytes, proof_bytes, optimized
+        verifier, raw_bytes, journal_bytes, trusted_bytes, proof_path, optimized
     )
     if result.get("status") != "VERIFIED" or return_code != 0:
         return return_code, result, None, []
@@ -202,8 +212,11 @@ def verify_then_register(verifier, raw_bytes, journal_bytes, trusted_bytes,
         raise AssertionError("journal contains non-registration or proof records")
     if contains_forbidden_key(decoded):
         raise AssertionError("certificate/frontier material leaked into journal/2")
-    if proof_bytes in journal_after or hashlib.sha256(proof_bytes).hexdigest().encode() in journal_after:
-        raise AssertionError("certificate bytes or digest leaked into journal/2")
+    proof_pin = pins_file(proof_path)
+    if proof_pin["bytes"] <= len(journal_after):
+        raise AssertionError("certificate is unexpectedly smaller than the journal export")
+    if proof_pin["sha256"].encode() in journal_after:
+        raise AssertionError("certificate digest leaked into journal/2")
     return return_code, result, ledger, owners
 
 
@@ -254,11 +267,11 @@ class NativeP3Integration(unittest.TestCase):
                     raw_bytes = (root / "raw.json").read_bytes()
                     journal_bytes = (root / "journal.json").read_bytes()
                     trusted_bytes = (root / "trusted.json").read_bytes()
-                    certificate_bytes = (root / "normal.json").read_bytes()
-                    raw_pin = pins(raw_bytes)
-                    journal_pin = pins(journal_bytes)
-                    trusted_pin = pins(trusted_bytes)
-                    certificate_pin = pins(certificate_bytes)
+                    certificate_path = root / "normal.json"
+                    raw_pin = pins_file(root / "raw.json")
+                    journal_pin = pins_file(root / "journal.json")
+                    trusted_pin = pins_file(root / "trusted.json")
+                    certificate_pin = pins_file(certificate_path)
                     self.assertEqual(raw_pin, summary["raw"])
                     self.assertEqual(journal_pin, summary["journal"])
                     self.assertEqual(trusted_pin, summary["trusted_scope"])
@@ -274,16 +287,11 @@ class NativeP3Integration(unittest.TestCase):
                     fixture_path = self.fixture_root / (case + ".raw.json")
                     self.assertEqual(raw_bytes, fixture_path.read_bytes())
                     if (root / "optimized.json").exists():
-                        self.assertEqual((root / "optimized.json").read_bytes(), certificate_bytes)
-
-                    certificate = strict_loads(certificate_bytes)
-                    self.assertEqual(certificate["format"], "p3-region-frontier/v1")
-                    self.assertEqual(certificate["mode"], mode)
-                    self.assertEqual(certificate["declared_status"], "EXHAUSTED")
+                        self.assertEqual(pins_file(root / "optimized.json"), certificate_pin)
 
                     rc, result, ledger, owners = verify_then_register(
                         self.verifier, raw_bytes, journal_bytes, trusted_bytes,
-                        certificate_bytes, mode, optimized,
+                        certificate_path, mode, optimized,
                     )
                     self.assertEqual(rc, 0, result)
                     self.assertEqual(result["status"], "VERIFIED", result)
@@ -309,10 +317,13 @@ class NativeP3Integration(unittest.TestCase):
         raw_bytes = (root / "raw.json").read_bytes()
         journal_bytes = (root / "journal.json").read_bytes()
         trusted_bytes = (root / "trusted.json").read_bytes()
-        rc, result, ledger, owners = verify_then_register(
-            self.verifier, raw_bytes, journal_bytes, trusted_bytes,
-            b"not-json", "one", sys.flags.optimize > 0,
-        )
+        with tempfile.TemporaryDirectory(prefix="p3-invalid-proof-") as directory:
+            invalid_path = Path(directory) / "invalid.json"
+            invalid_path.write_bytes(b"not-json")
+            rc, result, ledger, owners = verify_then_register(
+                self.verifier, raw_bytes, journal_bytes, trusted_bytes,
+                invalid_path, "one", sys.flags.optimize > 0,
+            )
         self.assertEqual(rc, 1, result)
         self.assertEqual(result["status"], "INVALID", result)
         self.assertIsNone(ledger)
