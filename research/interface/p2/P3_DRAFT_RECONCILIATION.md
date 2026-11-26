@@ -9,7 +9,18 @@ The four PRs target `research/selector-v2`. This review uses the integration bra
 | #8 proof | `cea576889c5d9bd2fb846f2f883403be85b2033b` | `4a2f3d6ce0b4b974430f02d79b1a98f2c8fc9e4b` | 26 / 75 | 61 |
 | #9 benchmark | `8484b8bff5b93e1be3a7924697161efc34e481d8` | `c0aae9fb222aef9dfea4c13cb44e5a37f0d86f8a` | 28 / 58 | 86 |
 
-All six pairwise intersections of changed file paths are empty at these snapshots. The additions for this M3 interface milestone also use #6-owned paths. The shared `.github/workflows/` directory has separate workflow files. Recompute the intersections at the actual review heads, including file/directory collisions and rename endpoints, before any future branch reconciliation.
+All six pairwise intersections of changed file paths are empty at these snapshots. The shared `.github/workflows/` directory has separate workflow files.
+
+A second check used the later open-draft heads, still against the same integration commit. All six pairwise intersections and all cross-draft file/directory collision checks remained empty.
+
+| Draft | Follow-up head | Changed paths | Additions since Review 08 relevant to reconciliation |
+| --- | --- | ---: | --- |
+| #6 | `61706a87c9c5b5194ae74bc8f2d9cdce837e017a` | 48 | Offline admission workflow, test and evidence under the existing interface paths. |
+| #7 | `140b4e51f89baf8c3e38e18d704d8c4d36c24f39` | 158 | Opt-in M4 producer and sparse evaluator, separate profile and workflow. |
+| #8 | `a563e1b54f5e3c57edcb7d74cde96259fc7d3fc1` | 67 | Sparse verification in the independent reader, native M4 replay and offline rank proposal. |
+| #9 | `604ced41f6e70b19ef79c478637167bc6198f9eb` | 97 | Separate Review 08 ablation and RAW pipeline harnesses and manifests. |
+
+The new #9 ablation pins #7 producer `140b4e5` and #8 verifier implementation `5a10e64`. Its separate RAW pipeline pins M3 producer `9a361f6`, verifier `316d443` and the #6 interface adapter at `122844ee`. Keep these dependencies explicit in future staging. The #6 M3 gate retains its accepted M3 pins, and #8's rank proposal remains offline.
 
 | Path or contract | Ownership and dependency |
 | --- | --- |

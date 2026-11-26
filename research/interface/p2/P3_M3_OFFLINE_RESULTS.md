@@ -9,6 +9,8 @@ Review 08 assignment #4 passed at tested interface commit `58185fe493b921a27ca5b
 
 The downloaded transcript SHA-256s were `69e9fb4f90d81be86d747c8670470faf0ea74575434dc91bcbb8e2b55dc523a7` (normal) and `8bac6794a586a240dc73ecf4516248641d628ee424674a71316d8c6d665056d5` (`-O`). Parsed per-case records from the two logs matched in full, including proof and checkpoint hashes and sizes, independent replay counters, complete RGS optima and registration counts.
 
+A second push at `61706a87c9c5b5194ae74bc8f2d9cdce837e017a` also logged 21 passing tests, eight native case/mode combinations and 29 registrations for each interpreter. [Confirmation run 45832271962](https://github.com/Mahdi-Jadidi/passive-automata-learning/actions/runs/45832271962)
+
 | Case | Mode | Verified nodes | Work units | Exact checks | RGS partitions | Optimum cost | RGS optima | Registrations per interpreter |
 | --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
 | tiny_choice | one | 10 | 4,768 | 22 | 203 | 2 | 4 | 1 |
