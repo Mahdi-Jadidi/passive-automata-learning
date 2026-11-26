@@ -33,7 +33,7 @@ def fingerprint(data):
                 git_blob_calculated=blob.hexdigest())
 
 
-def replay(case, mode, paths, *, proof_cap=64*1024**2, seconds=30):
+def replay(case, mode, paths, *, proof_cap=64*1024**2, seconds=30, sparse_exact=False):
     inputs = {key: read(paths[key], 64*1024**2) for key in ("raw", "journal", "scope")}
     pins = {key: fingerprint(data) for key, data in inputs.items()}
     expected = ORIGINAL_FIXTURES.get(case)
@@ -53,7 +53,7 @@ def replay(case, mode, paths, *, proof_cap=64*1024**2, seconds=30):
     def verify(data, **overrides):
         return verify_frontier(raw, journal, scope_bytes, data,
                                expected_format="p3-region-frontier/v2", expected_mode=mode,
-                               budgets=dict(budgets, **overrides))
+                               budgets=dict(budgets, **overrides), sparse_exact=sparse_exact)
 
     normal = read(paths["normal"], proof_cap)
     pins["normal"] = fingerprint(normal)
@@ -116,6 +116,7 @@ def main():
                         required=True)
     parser.add_argument("--mode", choices=("one", "all"), required=True)
     parser.add_argument("--proof-cap", type=int, default=64*1024**2)
+    parser.add_argument("--sparse-exact", action="store_true")
     parser.add_argument("--seconds", type=float, default=30)
     keys = ("raw", "journal", "scope", "normal", "optimized", "checkpoint")
     for key in keys:
@@ -129,7 +130,8 @@ def main():
         paths = {key: getattr(args, key) for key in keys}
         if args.resumed is not None:
             paths["resumed"] = args.resumed
-        out = replay(args.case, args.mode, paths, proof_cap=args.proof_cap, seconds=args.seconds)
+        out = replay(args.case, args.mode, paths, proof_cap=args.proof_cap, seconds=args.seconds,
+                     sparse_exact=args.sparse_exact)
     except (Incomplete, MemoryError, TimeoutError, OSError) as exc:
         out = dict(status="INCOMPLETE", operational_status="INCOMPLETE", reason=str(exc))
     except (ValueError, TypeError, OverflowError) as exc:

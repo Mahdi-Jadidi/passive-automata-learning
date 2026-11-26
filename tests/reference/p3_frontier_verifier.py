@@ -319,6 +319,96 @@ def compatible(p, X, Y, b):
             return False
     return True
 
+def sparse_compatible(p, X, Y, b):
+    """Index nonempty original-token projections for this owner only."""
+    b.debit()
+    if not Y:
+        return True
+    if not p:
+        return False
+    if not X:
+        return True
+
+    retained = 0
+
+    def group(word):
+        projections = {}
+        entries = retained
+        for token in word:
+            b.debit()
+            rep = p[token]
+            entries += 1 + (rep not in projections)
+            b.entries(entries)
+            projections.setdefault(rep, []).append(token)
+        return projections, entries - retained
+
+    def matched(key, bucket):
+        for candidate in bucket:
+            b.debit(1 + min(len(key), len(candidate)))
+            if key == candidate:
+                return True
+        return False
+
+    index = {}
+    present = {}
+    for word in X:
+        b.debit()
+        projections, temporary = group(word)
+        for rep, tokens in projections.items():
+            b.debit(1 + 2 * len(tokens))
+            b.entries(retained + temporary + 1 + len(tokens))
+            key = tuple(tokens)
+            if rep not in index:
+                b.entries(retained + temporary + 2 + len(tokens))
+                retained += 1
+                index[rep] = {}
+                present[rep] = 0
+            buckets = index[rep]
+            digest = hash(key)
+            bucket = buckets.get(digest, ())
+            if not matched(key, bucket):
+                retained += 1 + len(key) + (digest not in buckets)
+                b.entries(retained + temporary)
+                buckets.setdefault(digest, []).append(key)
+            present[rep] += 1
+            del key
+        projections.clear()
+        tokens = None
+
+    universal = set()
+    for rep, count in present.items():
+        b.debit()
+        if count == len(X):
+            b.entries(retained + len(universal) + 1)
+            universal.add(rep)
+    retained += len(universal)
+
+    for word in Y:
+        b.debit()
+        touched_universal = 0
+        projections, temporary = group(word)
+        for rep, tokens in projections.items():
+            b.check_exact()
+            b.debit(2 * len(tokens))
+            b.entries(retained + temporary + 1 + len(tokens))
+            key = tuple(tokens)
+            bucket = index.get(rep, {}).get(hash(key), ())
+            hit = matched(key, bucket)
+            del key
+            if not hit:
+                break
+            touched_universal += rep in universal
+        else:
+            # Empty projections are absent exactly in universal groups.
+            if touched_universal == len(universal):
+                return False
+            b.check_exact()
+        projections.clear()
+        tokens = None
+    b.debit(0)
+    return True
+
+
 def coarsens(p, root, b):
     for i, x in enumerate(root):
         b.debit()
@@ -383,7 +473,8 @@ def path_state(node, table, root, b, *, singleton_check=False, cross_families=No
     return p, reps, empty, singleton
 
 def verify_frontier(raw, exact_journal2_bytes, trusted_scope, proof, *,
-                    budgets=None, expected_format=None, expected_mode=None, **limits):
+                    budgets=None, expected_format=None, expected_mode=None,
+                    sparse_exact=False, **limits):
     """Strict result envelope. Keyword limits retained for older callers."""
     b = None
     def result(status, reason, payload=None):
@@ -396,6 +487,8 @@ def verify_frontier(raw, exact_journal2_bytes, trusted_scope, proof, *,
         return out
     try:
         b = Budget(**dict(budgets or {}, **limits))
+        need(type(sparse_exact) is bool, "invalid sparse_exact flag")
+        exact_compatible = sparse_compatible if sparse_exact else compatible
         trusted, root, X, Y = _scope(raw, exact_journal2_bytes, b)
         supplied = parse(trusted_scope, b.max_raw_bytes, b)
         need(canonical(supplied) == canonical(trusted), "trusted scope mismatch")
@@ -418,7 +511,7 @@ def verify_frontier(raw, exact_journal2_bytes, trusted_scope, proof, *,
             coarsens(inc, root, b)
             U = n-len(representatives(inc, b))
             need(exact_int(q["cost"], U), "incumbent cost")
-            need(compatible(inc, X, Y, b), "false incumbent")
+            need(exact_compatible(inc, X, Y, b), "false incumbent")
         need(type(cert["optima"]) is list, "optima list")
         b.entries(len(cert["optima"]))
         winners = [owner(q, n, b) for q in cert["optima"]]
@@ -547,9 +640,9 @@ def verify_frontier(raw, exact_journal2_bytes, trusted_scope, proof, *,
                     need(U is not None and (cost >= U if mode=="one" else cost > U),
                          "invalid cost cutoff")
                 elif reason == "EXACT_NO":
-                    need(singleton and not compatible(p,X,Y,b), "false EXACT_NO")
+                    need(singleton and not exact_compatible(p,X,Y,b), "false EXACT_NO")
                 elif reason == "FEASIBLE_MIN":
-                    need(compatible(p,X,Y,b), "false FEASIBLE_MIN")
+                    need(exact_compatible(p,X,Y,b), "false FEASIBLE_MIN")
                     if best_found is None or cost < best_found:
                         best_found = cost
                     if mode == "all" and U == cost:
@@ -583,6 +676,9 @@ def main(argv=None):
                           ("max-entries",2000000),("max-journal-bytes",64*1024*1024),
                           ("max-proof-bytes",64*1024*1024),("max-raw-bytes",64*1024*1024)):
         p.add_argument("--"+name, type=int, default=default)
+    p.add_argument("--sparse-exact", action="store_true")
+    p.add_argument("--expected-format", choices=("p3-region-frontier/v1", "p3-region-frontier/v2"))
+    p.add_argument("--expected-mode", choices=("one", "all"))
     p.add_argument("--seconds", type=float, default=30)
     a = p.parse_args(argv)
     limits = {k:v for k,v in vars(a).items() if k.startswith("max_") or k=="seconds"}
@@ -603,7 +699,9 @@ def main(argv=None):
             Path(a.out).write_bytes(canonical(scope))
             return 0
         out = verify_frontier(raw,journal,read(a.scope,a.max_raw_bytes),
-                              read(a.proof,a.max_proof_bytes),budgets=limits)
+                              read(a.proof,a.max_proof_bytes),budgets=limits,
+                              expected_format=a.expected_format, expected_mode=a.expected_mode,
+                              sparse_exact=a.sparse_exact)
     except (Incomplete,MemoryError,RecursionError,TimeoutError,FileNotFoundError) as e:
         out = dict(status="INCOMPLETE",reason=str(e),operational_status="INCOMPLETE",
                    nodes_checked=0,work_units=0,exact_checks=0)
