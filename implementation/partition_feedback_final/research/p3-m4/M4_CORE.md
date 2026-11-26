@@ -62,7 +62,7 @@ Repeat with 1536 MiB and `python -B -O`, and run the raw profile for
 `hdfs_holdout_1024_uncapped`, `medium_choice`, and `huge_choice_active`.
 The raw profile runs both search modes and the four evaluator combinations.
 Linux CI retains native proof, partial and resumed bytes, raw profile proofs,
-and phase metrics. [Core gate 45831657443](https://github.com/Mahdi-Jadidi/passive-automata-learning/actions/runs/45831657443)
+and phase metrics. [Per-fixture core gate 45834243836](https://github.com/Mahdi-Jadidi/passive-automata-learning/actions/runs/45834243836)
 
 The separately measured RAW pipeline uses the `RegisteredLedger` blob `092507fc156e604be242e3100117fedc27b96d04` and
 the adapter and strict parser from `122844ee5668f1c898f85b08133a562f31719718`
@@ -82,7 +82,7 @@ sparse search and independent replay. It feeds only the emitted journal
 to the independent scope stage. The resulting huge journal is newly generated
 evidence.
 
-## Accepted core evidence and remaining review
+## Core evidence and remaining review
 
 The four native cases cover tiny and small choice, a genuine merged journal
 root and a mixed-rule path. In each of normal Python and `-O`, all 32
@@ -93,6 +93,13 @@ artifacts, returned INCOMPLETE for each genuine partial, and matched the
 literal RGS optimum and optimum sets. The byte pins for the three artifact
 types are in [native-pins.json](evidence/native-pins.json).
 [Independent replay and RGS report](https://github.com/Mahdi-Jadidi/passive-automata-learning/blob/a563e1b54f5e3c57edcb7d74cde96259fc7d3fc1/research/audit/P3_M4A_INDEPENDENT_REPLAY.md)
+
+A local one-byte proof limit returned INCOMPLETE with no result for all 32
+complete artifact inputs in each independent verifier interpreter. A separate
+small/all test resumed after an incumbent had been retained at eight admitted
+entries. With sparse enabled and join alternately enabled and disabled, both
+producer interpreters matched the original complete bytes after resume.
+
 
 A separate Windows one-mode pipeline reached a RAW fixpoint on all four
 fixtures. Independent scope derivation succeeded on medium and both HDFS
@@ -130,8 +137,36 @@ A completed root check establishes the predicate only at that owner.
 
 Dense root checking was work-capped on medium and huge. Sparse reached
 discovery on medium, where the join found a witness but consumed more of
-the search budget. Across the HDFS runs, join spent about 6.4Ã¢â‚¬â€œ6.8 million
+the search budget. Across the HDFS runs, join spent about 6.4ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã¢â‚¬Å“6.8 million
 charged discovery units and yielded zero or one hit per run. These profiles
 admit no time-to-optimum conclusion. A forced-signature-collision control
 also confirmed that the join rejects unequal complements and still accepts
 genuine equalities. [Benchmark ablation report](https://github.com/Mahdi-Jadidi/passive-automata-learning/blob/4e89007654ef0ca4ceaed255199ab046577e9bb1/benchmarks/v2/results/review08/REPORT.md)
+
+
+## Core CI and retained raw diagnostics
+
+All ten jobs passed in the per-fixture gate at workflow commit
+`14646c58c9cfbff1df5ae79651db8414e80737b6`. The jobs checked the immutable
+evaluator blobs. Linux native regression and artifact tests passed in normal
+Python and `-O` under 512 MiB and 1536 MiB address-space limits. All 384
+complete, partial and resumed SHA-256 checks from the four Linux profiles
+matched the local manifest. CI replay verified each complete certificate,
+rejected false exhaustion and kept genuine partials unresolved.
+[Native 512 MiB job and log](https://github.com/Mahdi-Jadidi/passive-automata-learning/actions/runs/45834243836/job/139958755084)
+[Native 1536 MiB job and log](https://github.com/Mahdi-Jadidi/passive-automata-learning/actions/runs/45834243836/job/139958755071)
+
+The initial serial run finished the 512 MiB job. Its 1536 MiB job passed
+native regression and artifact tests before the 15-minute job deadline
+interrupted the serial diagnostics. The replacement matrix isolated fixtures
+without changing the per-search caps or the evaluator bytes.
+[Superseded serial run](https://github.com/Mahdi-Jadidi/passive-automata-learning/actions/runs/45831657443)
+
+The core diagnostic matrix has 128 rows across four original fixtures,
+four independent flag combinations, two search modes, two interpreters and
+two address-space limits. Each proof was independently replayed as INCOMPLETE.
+The records bind output bytes and record root compatibility, discovery,
+frontier work and replay counters. The workflow artifact names are
+`m4-core-<memory>-<suite>`. [CI job results, resource times and artifact hashes](evidence/core-ci.json)
+[Raw diagnostic phase metrics](evidence/core-raw-profiles.json)
+[Download CI artifacts](https://github.com/Mahdi-Jadidi/passive-automata-learning/actions/runs/45834243836#artifacts)
