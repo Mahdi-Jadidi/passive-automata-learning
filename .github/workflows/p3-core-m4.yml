@@ -1,0 +1,90 @@
+name: P3 core M4 exact evaluator gate
+on:
+  push:
+    branches: [research/v2-implementation-core]
+    paths:
+      - implementation/partition_feedback_final/selector_v2/edr_m4.py
+      - implementation/partition_feedback_final/selector_v2/edr_sparse.py
+      - implementation/partition_feedback_final/research/p3-m4/**
+      - .github/workflows/p3-core-m4.yml
+permissions:
+  contents: read
+jobs:
+  gate:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    strategy:
+      fail-fast: false
+      matrix:
+        memory_mib: [512, 1536]
+    env:
+      PYTHONPATH: implementation/partition_feedback_final:implementation/partition_feedback_final/selector_v2/tests:independent-proof/tests/reference
+      M3: implementation/partition_feedback_final/research/p3-m3
+      M4: implementation/partition_feedback_final/research/p3-m4
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          persist-credentials: false
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          ref: 316d4430538b8a9ef0c707b8c46727a830d42321
+          path: independent-proof
+          sparse-checkout: tests/reference
+          persist-credentials: false
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          ref: 8484b8bff5b93e1be3a7924697161efc34e481d8
+          path: frozen-fixtures
+          sparse-checkout: benchmarks/v2/p3/inputs
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13.5'
+          check-latest: false
+      - name: Verify source pins and run regression tests
+        run: |
+          set -eu
+          d=implementation/partition_feedback_final/selector_v2
+          test "$(git hash-object "$d/edr_m3.py")" = 6dd0bdbc2d9436c2eeb15cc0812cf8a6fcf18655
+          test "$(git hash-object "$d/edr_cross.py")" = c82e137d277644e6d880fb4295b674d897ef70d1
+          test "$(git hash-object "$d/edr_search.py")" = 73da7bea551df73a8676b0adf0401cd7f2d307b5
+          test "$(git hash-object "$d/edr_bb.py")" = 657c4e0e4059b32cd9e6477e61c7a3673290f36d
+          test "$(git -C independent-proof rev-parse HEAD)" = 316d4430538b8a9ef0c707b8c46727a830d42321
+          test "$(git -C independent-proof hash-object tests/reference/p3_frontier_verifier.py)" = 52e83aa9fdc952aacd7955e6d4ec1783e2fa4030
+          test "$(git -C independent-proof hash-object tests/reference/p3_rgs12_oracle.py)" = da28e66ca4ff74388be79bf9549c8e02f0c60410
+          test "$(git -C frozen-fixtures rev-parse HEAD)" = 8484b8bff5b93e1be3a7924697161efc34e481d8
+          for mode in normal optimized; do
+            flags=(-B)
+            if [ "$mode" = optimized ]; then flags+=(-O); fi
+            python "${flags[@]}" -m unittest discover -s "$d/tests" -v
+            python "${flags[@]}" -m unittest discover -s "$M3" -v
+            python "${flags[@]}" -m unittest discover -s "$M4" -v
+          done
+      - name: Generate and verify native artifacts under the address-space limit
+        run: |
+          set -eu
+          mkdir -p evidence
+          for mode in normal optimized; do
+            flags=(-B)
+            if [ "$mode" = optimized ]; then flags+=(-O); fi
+            /usr/bin/time -v -o "evidence/native-$mode.time" python "${flags[@]}" "$M4/run_native.py"               --memory-mib ${{ matrix.memory_mib }} --output "evidence/native-$mode"
+          done
+          for file in $(find evidence/native-normal -name complete.json -o -name resumed.json); do
+            cmp "$file" "evidence/native-optimized/${file#evidence/native-normal/}"
+          done
+      - name: Diagnose capped raw-input searches
+        run: |
+          set -eu
+          for mode in normal optimized; do
+            flags=(-B)
+            if [ "$mode" = optimized ]; then flags+=(-O); fi
+            for case in medium_choice huge_choice_active hdfs_1024 hdfs_holdout_1024_uncapped; do
+              /usr/bin/time -v -o "evidence/$case-$mode.time" python "${flags[@]}" "$M4/profile_raw.py"                 --memory-mib ${{ matrix.memory_mib }} --case "$case"                 --fixtures frozen-fixtures/benchmarks/v2/p3/inputs --output "evidence/profile-$mode"
+            done
+          done
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: m4-core-${{ matrix.memory_mib }}
+          path: evidence/
+          if-no-files-found: error
