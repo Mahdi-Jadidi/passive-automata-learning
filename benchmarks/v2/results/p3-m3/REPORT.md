@@ -42,6 +42,36 @@ A four-symbol sample supplies only raw positive and negative traces. The experim
 
 At 30 seconds and 1536 MiB, M2 verified all four one/all and normal/-O combinations at cost 2. All-mode returned two optima. The four resumed proofs matched the complete fresh proofs byte-for-byte and independently verified. Normal/-O parity held in both modes. The experiment is separate from the original seven-fixture matrix. [Actions job 139277981224](https://github.com/Mahdi-Jadidi/passive-automata-learning/actions/runs/45634969027/job/139277981224)
 
-## Paired standard and expanded evidence
+Both paired profiles also verified the journal experiment in all four variants per arm. M2 emitted five nodes per mode and M3 emitted four, including one cross split at the contracted root. M3 charged 110 discovery work units and ran 15 probes in each first trial. Both arms certified cost 2 and the same two all-mode optima, with completed resume bytes matching fresh in every variant. [Nonempty paired CSV](paired-nonempty.csv) · [Nonempty paired JSON](paired-nonempty.json)
 
-The paired workflow uses the exact seven original raw fixtures, empty journal/2, identical scope bytes and the frozen 30-second / 1536 MiB and 30-second / 512 MiB limits. It records two fresh trials and checkpoint/restart phases per mode and interpreter. M3 execution depends on the published producer and verifier pins and the producer's opt-in flags. Expanded M2 validation stays in the [frozen expanded report](../p3-m2/REPORT.md#expanded-budget-acceptance-evidence). Operational status remains `INCOMPLETE`.
+## Paired standard results
+
+The paired workflow used the exact seven original raw fixtures, empty journal/2, identical scope bytes and the frozen 30-second / 1536 MiB and 30-second / 512 MiB limits. Each arm ran two fresh trials plus the one-entry checkpoint and renewed resume under CPython 3.13.5, one/all and normal/-O. All 17 CI jobs succeeded, including matrix setup and the two separate journal profiles. Harness tests passed 9/9 in each interpreter. The producer and independent verifier source maps are in the [exact M3 config](../../p3/m3-native.json). [Actions 45636792736](https://github.com/Mahdi-Jadidi/passive-automata-learning/actions/runs/45636792736) · [Paired phase CSV](paired.csv) · [Paired JSON](paired.json)
+
+Across the 56 original fixture combinations per arm, M2 verified 8 and M3 verified 24. M3 verified tiny, small and cover in both modes at both memory caps. The other 32 M3 combinations stayed work-capped. The table gives first-trial counts and bytes as one/all, with the same values in normal/-O and at both address-space caps.
+
+| Fixture | M2 nodes | M3 nodes | M2 proof bytes | M3 proof bytes | M3 independently verified result |
+|---|---:|---:|---:|---:|---|
+| `tiny_choice` | 221 / 461 | 10 / 10 | 46,588 / 99,931 | 2,658 / 2,737 | Cost 2, four all-mode optima |
+| `small_choice` | 316,730 / 301,818 | 46 / 46 | 79,579,990 / 81,080,550 | 12,693 / 13,244 | Cost 4, sixteen all-mode optima |
+| `cover_path_8` | 311,557 / 290,607 | 641 / 3,271 | 78,339,509 / 79,594,130 | 169,343 / 871,133 | Cost 4, nine all-mode optima |
+| `hdfs_1024` | 29 / 29 | 29 / 29 | 8,485 / 8,485 | 8,485 / 8,485 | INCOMPLETE |
+| `hdfs_holdout_1024_uncapped` | 33 / 33 | 33 / 33 | 9,980 / 9,980 | 9,980 / 9,980 | INCOMPLETE |
+| `medium_choice` | 1 / 1 | 1 / 1 | 4,189 / 4,189 | 4,189 / 4,189 | INCOMPLETE |
+| `huge_choice_active` | 1 / 1 | 1 / 1 | 589,189 / 589,189 | 589,189 / 589,189 | INCOMPLETE |
+
+At 1536 MiB, the first normal M3 small/all producer phase finished in 0.115 s at 19,668 KiB, and independent replay verified in 0.065 s at 18,468 KiB. M2 small/all stopped at the frontier cap after 12.291 s at 386,052 KiB. Its verifier checked the emitted frontier in 14.547 s at 602,640 KiB and returned `INCOMPLETE`. M2 also replayed the emitted cover frontier under this memory profile.
+
+At 512 MiB, normal small/all reached `EXHAUSTED` in M3 in 0.065 s at 19,640 KiB, with verified replay in 0.065 s at 18,200 KiB. M2 stopped at its frontier cap after 11.097 s at 385,992 KiB. Its verifier returned `MemoryError` before checking nodes. Normal cover/all M3 completed in 0.617 s at 23,592 KiB, and replay took 0.216 s at 24,528 KiB. M2 stopped after 10.338 s at 374,468 KiB, and its replay returned `MemoryError`. These timings compare outcomes under fixed limits and give completion times only for the exhausted runs.
+
+Discovery admitted 3 cross splits in tiny and 15 in small per first trial. Small charged 14,609 discovery units and 1,886 probes per mode. Cover charged 192,457 / 774,256 units across 33,187 / 133,579 probes and admitted 128 / 396 cross splits. HDFS and holdout incurred 14 and 16 local discovery caps respectively with zero cross splits, reproducing the M2 fresh node counts. Medium and huge exhausted work at the OPEN root before discovery. These censored cases give no completion or large-alphabet scaling estimate.
+
+Fresh repeat and normal/-O parity held within both arms. All 24 completed M3 combinations matched the direct proof bytes after resume and independently verified. The 16 HDFS variants in each arm showed different partial bytes after renewed work. Medium and huge matched without advancing beyond the root. The exporter checks the retained resume bytes and checkpoint prefix independently of the replay verdict. In M3 the frontier metric already includes restored payload. The M2 metric requires adding the checkpoint charge. The revisions account for different admitted payload fields, so byte-limit comparisons measure each revision's defined admission proxy.
+
+The producer and verifier run as separate capped processes. Trial time includes startup, parsing and serialization, especially for sub-100 ms cases. RSS is a separate measurement from the address-space limit. Witness discovery has native work and probe counters without a separate elapsed-time measurement. Both arms use the flat serializer lineage. v2 carries split witnesses and a conflict-residual marker, so different node counts and proof bytes reflect different search coverage and wire fields. Tiny supplies an equal-completion comparison. The paired M2 small and cover runs are censored, so their node and proof sizes describe emitted prefixes.
+
+## Separate validation and scope
+
+The [frozen expanded M2 report](../p3-m2/REPORT.md#expanded-budget-acceptance-evidence) provides same-task complete small proofs under larger limits. Those timings stay out of the standard paired table. The independent M3 proof-only workflow passed all eight native replay jobs, including tiny, small, mixed-path and nonempty-root cases. It is a separate correctness run. [Actions 45637001978](https://github.com/Mahdi-Jadidi/passive-automata-learning/actions/runs/45637001978)
+
+The M2 report, original input bytes and manifest retain their exact baseline contents. The benchmark branch changes experiment code and evidence only. The pipeline made zero external learner calls. Operational status remains `INCOMPLETE`.

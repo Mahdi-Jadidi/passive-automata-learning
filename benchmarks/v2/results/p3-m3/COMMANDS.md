@@ -44,6 +44,18 @@ for fixture in tiny_choice small_choice medium_choice huge_choice_active hdfs_10
 done
 ```
 
-Use the paired run ID in the CI download and run-view commands and pass `--kind paired` to the exporter. Use a fresh evidence directory per run. The exporter writes standard and nonempty-journal data to separate files. Phase CSV provides coverage, counters, timings, peak RSS and proof sizes. JSON retains all native telemetry and exact command arrays, including any discovery metrics exposed by the producer. Missing telemetry stays empty. A cross-split count measures admitted splits. It cannot measure discovery attempts or rejected witnesses.
+To reproduce the paired CI export:
+
+```bash
+run=45636792736
+repo=Mahdi-Jadidi/passive-automata-learning
+gh run download "$run" -R "$repo" -p 'p3-m3-evaluation-*' -D paired-evidence
+gh run view "$run" -R "$repo" \
+  --json databaseId,headSha,status,conclusion,jobs > paired-ci.json
+python -B benchmarks/v2/p3_m3_export.py benchmarks/v2/results/p3-m3 \
+  --kind paired --download paired-evidence --ci paired-ci.json
+```
+
+Use a fresh evidence directory per run. The exporter writes standard and nonempty-journal data to separate files. Phase CSV provides coverage, counters, timings, peak RSS and proof sizes. JSON retains all native telemetry and exact command arrays. Discovery is measured in charged work, literal probes and local cap hits. A cross-split count measures admitted splits. M2 has no discovery counters and those cells stay empty.
 
 The arms share one CI runner per case/profile, with alternating order across fixture/profile pairs. Each arm gets independent fresh processes and independently rebuilt journal and scope, whose byte digests must match the other arm. Both run the full one/all, normal/-O matrix. Runtime includes CLI startup, parsing and serialization. Use the separate proof replay measurements for verifier cost. Work counters are native to each revision. Proof size reflects emitted search coverage as well as representation. Interpret byte or node ratios at equal verified coverage separately from ratios between partial frontiers. The v2 header and cross witness records carry wire overhead. No compressed or streaming proof format is involved.
