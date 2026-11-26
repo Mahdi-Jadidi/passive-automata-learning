@@ -78,7 +78,6 @@ def main():
             write_atomic(path/f"{mode}.partial.json", pending)
             resumed, resume_stats = solve(raw, scope, checkpoint=load(path/f"{mode}.partial.json"),
                                           caps=SearchCaps(seconds=30), **kwargs)
-            require(canonical(complete) == canonical(resumed), f"{case}/{mode} resume differs")
             require(complete["declared_status"] == "EXHAUSTED", f"{case}/{mode} not exhausted")
             result = reference["result"]
             require(complete["incumbent"]["cost"] == result["optimum"], f"{case}/{mode} cost")
@@ -86,7 +85,10 @@ def main():
             if mode == "all":
                 require(complete["optima"] == sorted(result["optima"]), f"{case} optimum set")
             write_atomic(path/f"{mode}.cert.json", complete)
+            write_atomic(path/f"{mode}.resumed.json", resumed)
             proof = (path/f"{mode}.cert.json").read_bytes()
+            require(proof == (path/f"{mode}.resumed.json").read_bytes(),
+                    f"{case}/{mode} serialized resume differs")
             partial = (path/f"{mode}.partial.json").read_bytes()
             verdicts = dict(
                 complete=verify_frontier(raw, journal, scope, proof),
