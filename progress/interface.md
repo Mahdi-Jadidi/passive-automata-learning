@@ -213,4 +213,10 @@ The all-four M2 verify-before-register item in Review 07, assignment #3, is comp
 
 ### M3 interface preparation
 
-The M2 job remains pinned to the v1-only verifier and tests rejection of the v2 format at the admission boundary. After independent M3 proof approval, pin the approved producer, verifier, RGS oracle, ledger and published certificate bytes in an opt-in replay. Use the same per-case registration gate and run both Python modes on the four approved inputs and a genuine nonempty-journal artifact. For that additional case, bind the exact pre-registration journal from the authoritative ledger, have the independent verifier derive its root owner from replay, and check the ordinary journal delta on the same ledger after verification. Require matching completed-resume evidence before admission. PR #6 remains draft and unmerged.
+The M2 job remains pinned to the v1-only verifier and tests rejection of the v2 format at the admission boundary.
+
+## M19 — Review 08 M3 opt-in offline admission
+
+Normal and optimized Python 3.13.5 each passed 21 tests and verified all eight native case/mode combinations before 29 candidate registrations. Both independently completed exact retained checkpoints and matched the fresh and retained resumed bytes. The nonempty fixture reproduced the exact RAW journal via the authoritative ledger, and the independent proof derived its contracted root before registration on that same ledger. The gate preserved UNKNOWN pending and proof-outside-journal semantics. Operational status remains `INCOMPLETE`. [Results and committed transcripts](../research/interface/p2/P3_M3_OFFLINE_RESULTS.md)
+
+The reconciliation audit found no shared changed file paths across the four draft snapshots and recorded their shared contracts, source and evidence dependencies. [Reconciliation plan](../research/interface/p2/P3_DRAFT_RECONCILIATION.md)
