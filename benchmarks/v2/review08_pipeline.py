@@ -32,7 +32,7 @@ started = monotonic()
 closure = component_closure(Sample.from_input(raw), budget)
 print(json.dumps(dict(phase="closure", elapsed_seconds=monotonic()-started,
                       state=closure["state"], records=len(closure["records"]),
-                      owner=closure["owner"])), flush=True)
+                      owner=closure["owner"], work=budget.used)), flush=True)
 if closure["records"]:
     started = monotonic()
     ledger.append_raw(closure["records"])
@@ -146,7 +146,7 @@ def main():
     producer = root / "producer-source" / "selector_v2"
     verifier, interface = (root / (role + "-source") for role in ("verifier", "interface"))
     for role, destination in (("producer", producer), ("verifier", verifier), ("interface", interface)):
-        stage_sources(getattr(args, role), config["sources"][role], destination)
+        stage_sources(getattr(args, role).resolve(), config["sources"][role], destination)
     runs = []
     for mode in ("one", "all"):
         for runtime in ("normal", "optimized"):
