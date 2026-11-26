@@ -36,3 +36,20 @@ Both verifier modes verified 72 runs, covering all three arms on tiny, small and
 | hdfs_holdout_1024_uncapped | 897,461 | 88,444 | 33 | 2,110–7,463 | 280–828 |
 
 Dense root compatibility consumed nearly all charged work in medium and huge. Sparse gets through medium's root check. On huge, the sparse estimator reached 67,108,800 charged index bytes before the next allocation would exceed the 64 MiB cap. The native stop reason is FRONTIER_CAP and discovery never starts. HDFS and holdout both pass the root check in all arms. On medium, discovery consumed 534,972 charged units in the sparse arm and 7,680,787 with join enabled. The HDFS join arms spent roughly 6.4–6.8 million charged units in discovery. Join produced one hit on medium and zero or one per HDFS run. All these frontier counts are censored, so they do not establish time to completion or an improvement in optimum coverage.
+
+## Authoritative RAW journal pipeline
+
+All eight jobs in [Actions run 45832542233](https://github.com/Mahdi-Jadidi/passive-automata-learning/actions/runs/45832542233) succeeded. They ran 32 fresh and 32 checkpoint/resume routes on the four original large inputs. Each route started with the pinned component closure and exported its RAW records through RegisteredLedger. A separately staged verifier rebuilt the trusted scope from the original input and journal bytes. M3 searched from that scope, and independent replay consumed the resulting proof. The pipeline used producer 9a361f6fa59414cc0ac262154d87c37f5aed0403, adapter 122844ee5668f1c898f85b08133a562f31719718 and verifier 5a10e649a91f8c5b159b818de7e71d4028b8170d with dense exact replay. [Phase and total CSV](pipeline.csv) · [CI, commands, counters and retained hashes](pipeline.json)
+
+All 64 RAW closures reached the rule's fixpoint. Independent scope construction succeeded on all routes. Medium and huge each contracted original symbol ID 1 into the class represented by ID 0. Both HDFS roots remained identity. The new journal exports for medium and huge were 126,364 and 3,333,809 bytes respectively. The exact journal and independent scope bytes for these nonidentity roots are [retained as gzip archives](trusted-roots/). The frozen input manifest supplies the expected raw SHA-256. The historical P2 huge journal is still missing.
+
+| Original fixture | Fresh nodes | Resumed nodes | Fresh proof bytes | Resumed proof bytes | Fresh total wall s | Restart total wall s | Peak RSS KiB |
+|---|---:|---:|---:|---:|---:|---:|---:|
+| medium_choice | 1 | 1 | 4,189 | 4,189 | 3.76–4.99 | 6.82–8.91 | 28,160 |
+| huge_choice_active | 1 | 1 | 589,189 | 589,189 | 16.74–22.16 | 25.76–30.05 | 148,336 |
+| hdfs_1024 | 29 | 35 | 8,485 | 10,758 | 3.78–7.01 | 4.77–9.06 | 27,512 |
+| hdfs_holdout_1024_uncapped | 33 | 39 | 9,980 | 12,377 | 3.76–6.08 | 4.77–7.82 | 27,452 |
+
+All 32 checkpoints independently replayed as unresolved. All resume invocations produced a partial proof. Fresh replay and 28 resumed replays returned unresolved frontier. The four huge 1536 MiB resumed replays used up the shared deadline. Reported wall time includes process cleanup and reached 30.05 s. No completed fresh or resumed proof was available to establish completion or completed-resume byte equality. The HDFS resume counts reflect renewed per-invocation work within the shared wall budget.
+
+The first CI attempt stopped at source staging because the checkout paths were relative. The second executed scope and search, but the pinned verifier CLI rejected the expected-format and expected-mode flags. Its green job status did not establish proof replay. The final run used the published verifier revision with those guards and checked that each replay exit code agreed with its verdict. [Staging failure](https://github.com/Mahdi-Jadidi/passive-automata-learning/actions/runs/45831207308) · [Superseded smoke run](https://github.com/Mahdi-Jadidi/passive-automata-learning/actions/runs/45831411364)

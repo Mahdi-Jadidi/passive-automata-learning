@@ -161,7 +161,8 @@ def main():
                         if checkpoint_metrics.is_file():
                             phase_metrics = json.loads(checkpoint_metrics.read_bytes())
                             run["checkpoint_metrics"] = phase_metrics
-                    verdict = run.get(phase.replace("-", "_"), {})
+                    verdict = (run.get(phase.replace("-", "_"), {})
+                               if phase in ("replay", "checkpoint-replay") else {})
                     rows.append(dict(total | dict(
                         phase=phase, wall_seconds=value.get("wall_seconds"),
                         peak_rss_kib=value.get("peak_rss_kib"), nodes=phase_metrics.get("nodes"),
