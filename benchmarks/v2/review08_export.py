@@ -1,11 +1,20 @@
 """Validate CI pipeline artifacts and export per-phase and end-to-end observations."""
 import argparse
 import csv
+import hashlib
 import json
 from pathlib import Path
 
-from p3_native import artifact
-from review08_pipeline import CASES, CONFIG
+CASES = ("medium_choice", "huge_choice_active", "hdfs_1024", "hdfs_holdout_1024_uncapped")
+CONFIG = Path(__file__).resolve().parent / "p3/review08-pipeline.json"
+
+
+def artifact(path):
+    if not path.is_file():
+        return None
+    with path.open("rb") as stream:
+        digest = hashlib.file_digest(stream, "sha256").hexdigest()
+    return {"sha256": digest, "bytes": path.stat().st_size}
 
 
 def main():
