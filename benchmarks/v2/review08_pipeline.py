@@ -64,6 +64,14 @@ def pipeline(args, config, root, raw, producer, verifier, interface, mode, runti
         record["hard_seconds_cap"] = remaining
         return record["returncode"] == 0 and monotonic() - started <= limit
 
+    def replay_verdict(name):
+        verdict = read_result(root / f"{name}.stdout") or {}
+        code = phases[name].get("returncode")
+        if code is not None and code != {"VERIFIED": 0, "INVALID": 1, "INCOMPLETE": 2}.get(
+                verdict.get("status")):
+            raise ValueError(f"{name} returned no consistent independent verdict")
+        return verdict
+
     def independent(name, values, caps, expected=False):
         argv = flags(config, name, values)
         argv += [arg for key, field in VERIFIER_LIMITS.items()
@@ -102,14 +110,18 @@ def pipeline(args, config, root, raw, producer, verifier, interface, mode, runti
                 if ready and checkpoint_metrics.get("status") == "PARTIAL":
                     stage("checkpoint-replay", lambda caps: independent(
                         "verifier", values | dict(certificate=checkpoint), caps, expected=True))
-                    verdict = read_result(root / "checkpoint-replay.stdout") or {}
+                    verdict = replay_verdict("checkpoint-replay")
+                    summary["checkpoint_replay"] = verdict
                     ready = (verdict.get("status") == "INCOMPLETE"
+                             and verdict.get("reason") == "unresolved frontier"
                              and phases["checkpoint-replay"].get("returncode") == 2)
+                    if verdict.get("status") == "INVALID":
+                        summary["status"] = "INVALID"
                 else:
                     ready = False
             if ready and stage("search", produce) and artifact(proof):
                 stage("replay", lambda caps: independent("verifier", values, caps, expected=True))
-                verdict = read_result(root / "replay.stdout") or {}
+                verdict = replay_verdict("replay")
                 summary["replay"] = verdict
                 code = phases["replay"].get("returncode")
                 if verdict.get("status") == "INVALID" and code == 1:
