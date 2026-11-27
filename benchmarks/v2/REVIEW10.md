@@ -13,7 +13,7 @@ Use staging commit `be52e6aa51dcbc6a7cc37d84608df97cfffd1f43`. The summary recor
 - Cross-ID uses two positional negative IDs with the same word. The deterministic reply policy varies the failing ID and the equal positive witness on three registered ab|c|d requests, licensing the ab path N0–P0–N1–P1. The ac and bc requests supply N0–P1. N2 and N3 also share a genuine free group on ab. A negative in a checked free group has no matching positive on that source block. The report's abstract same-block free-group-to-named chain is a theorem-only example under different information semantics.
 - Repeated order uses a duplicate positive and a repeated symbol to preserve positional IDs and ordered projection semantics.
 
-Snapshot exports and independently replayed scope timings are measured here. Producer index reuse, verified sidecars, literal parity, resource ablations and hostile sidecar controls remain pending exact named producer and checker pins. No evaluation labels are included in these inputs.
+Snapshot exports and independently replayed scope timings are measured here. The executed comparison below uses the subsequently published pins and measures index reuse, sidecar replay and literal parity. No evaluation labels are included in these inputs.
 
 ## Compact native v2
 
@@ -43,3 +43,26 @@ python -B benchmarks/v2/review10_scale_export.py /tmp/review10-scale-ci benchmar
 [History provenance CI](https://github.com/Mahdi-Jadidi/passive-automata-learning/actions/runs/46021650707)
 
 The frozen CLI pairing driver above covers a separate Review09-style end-to-end budget, including HDFS. The executed native gate used the published Agent #6 API and separate stage deadlines as documented here.
+
+## Executed AEFC comparison
+
+The comparison used producer `3fcb278d6562b76e5c75936425b39c57d02f2409` and independent checker `b8676e30917b8df4ca07086c54a9d38d09330abd`. It added the producer's separately pinned five-symbol cross-ID history to the three benchmark-generated histories. In that history the binary ab path uses N0–N1 from a checked free group on abe, followed by N1–P0 from a named zero on ab. In the benchmark cross-ID history, the sidecar used the distinct three-edge named path described above.
+
+| Fixture | Targets | Containment verified NO | Named verified NO | Literal NO |
+| --- | ---: | ---: | ---: | ---: |
+| Named stitch | 15 | 4 | 5 | 10 |
+| Cross-ID named path | 15 | 4 | 5 | 10 |
+| Repeated order | 15 | 4 | 5 | 10 |
+| Cross-ID free-group path | 52 | 9 | 10 | 37 |
+| Total | 97 | 21 | 25 | 67 |
+
+Containment returned 76 UNKNOWN and named returned 72. Every emitted sidecar independently verified and every proved candidate matched literal ordered-word NO. The named stitch and free-group targets both moved from UNKNOWN to verified NO. Each feedback arm prepared four indexes and reused them for 93 subsequent targets. The four offline histories used 15 simulator queries and zero external calls. The verifier replayed each proposed sidecar independently.
+
+Per interpreter, containment emitted 10,013 proof bytes and charged 5,275 producer work units across target checks. Named emitted 13,524 bytes and charged 17,205. Literal used 1,855 token visits and membership probes. Those counters have different definitions. Preparation work and timing are separate, and the producer work meter omits replay work. Process peak RSS includes interpreter, preparation, all target checks and any independent verification in that arm. Both interpreter modes reproduced verdicts, work counters and sidecar hashes. These four small histories measure evidence coverage, and give no estimate of operational queries saved.
+
+```sh
+gh run download 46023484318 -R Mahdi-Jadidi/passive-automata-learning -n review10-aefc -D /tmp/review10-aefc
+python -B benchmarks/v2/review10_aefc_compare.py /tmp/review10-aefc
+```
+
+[AEFC comparison CI and exact command log](https://github.com/Mahdi-Jadidi/passive-automata-learning/actions/runs/46023484318)
