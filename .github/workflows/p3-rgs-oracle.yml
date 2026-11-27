@@ -1,0 +1,38 @@
+name: P3 independent RGS oracle
+
+on:
+  push:
+    branches:
+      - research/v2-proof-audit
+    paths:
+      - tests/reference/rgs_oracle.py
+      - research/audit/P3_REGION_COVERAGE_CONTRACT.md
+      - .github/workflows/p3-rgs-oracle.yml
+
+permissions:
+  contents: read
+
+jobs:
+  exhaustive-reference:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - name: Checkout proof branch
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          ref: ${{ github.sha }}
+          sparse-checkout: tests/reference
+
+      - name: Set up Python 3.13.5
+        uses: actions/setup-python@v5
+        with:
+          python-version: 3.13.5
+          check-latest: false
+
+      - name: Run independent RGS oracle in normal mode
+        working-directory: tests/reference
+        run: python -B rgs_oracle.py
+
+      - name: Run independent RGS oracle in optimized mode
+        working-directory: tests/reference
+        run: python -B -O rgs_oracle.py

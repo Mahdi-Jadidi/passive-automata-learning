@@ -1,0 +1,107 @@
+name: P3 M3 proof-only native replay
+
+on:
+  push:
+    branches: [research/v2-proof-audit]
+    paths: [research/audit/p3-m3-producer-pin.json]
+
+permissions:
+  contents: read
+  actions: read
+
+jobs:
+  replay:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    strategy:
+      fail-fast: false
+      matrix:
+        case: [tiny_choice, small_choice, journal_root, mixed_path]
+        mode: [one, all]
+    env:
+      CASE: ${{ matrix.case }}
+      MODE: ${{ matrix.mode }}
+      PYTHONPATH: tests/reference
+      PYTHONNOUSERSITE: '1'
+      PYTHONSAFEPATH: '1'
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          sparse-checkout: |
+            tests/reference
+            research/audit
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13.5'
+      - name: Authenticate the published producer archive by immutable pins
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          pin=research/audit/p3-m3-producer-pin.json
+          core=$(jq -er '.commit | select(test("^[a-f0-9]{40}$"))' "$pin")
+          run=$(jq -er '.run | numbers' "$pin")
+          artifact=$(jq -er '.artifact | numbers' "$pin")
+          digest=$(jq -er '.sha256 | select(test("^[a-f0-9]{64}$"))' "$pin")
+          mkdir evidence incoming
+          cp "$pin" evidence/source-pin.json
+          gh api "repos/$GITHUB_REPOSITORY/actions/runs/$run" > evidence/run.json
+          jq -e --arg core "$core" '.head_sha == $core and .conclusion == "success"
+              and .head_branch == "research/v2-implementation-core"' evidence/run.json
+          gh api "repos/$GITHUB_REPOSITORY/actions/artifacts/$artifact" > evidence/artifact.json
+          jq -e --argjson run "$run" --arg digest "sha256:$digest" \
+            '.workflow_run.id == $run and .name == "p3-m3-core-1536mib" and
+             .digest == $digest and .expired == false and .size_in_bytes <= 16777216' evidence/artifact.json
+          gh api "repos/$GITHUB_REPOSITORY/actions/artifacts/$artifact/zip" > incoming.zip
+          printf '%s  incoming.zip\n' "$digest" | sha256sum --check
+          unzip -q incoming.zip -d incoming
+      - name: Independently replay certificate, checkpoint and RGS census
+        run: |
+          set -euo pipefail
+          ulimit -v 1572864
+          test ! -e implementation/partition_feedback_final/selector_v2
+          python --version
+          git rev-parse HEAD
+          git hash-object tests/reference/{p3_m3_artifact_replay,p3_frontier_verifier,p3_rgs12_oracle}.py
+          case_name="$CASE"
+          if test "$CASE" = journal_root; then case_name=nonempty_journal; fi
+          normal="incoming/normal/$CASE"
+          optimized="incoming/optimized/$CASE"
+          require_resumed=$(jq -r '.require_resumed == true' evidence/source-pin.json)
+          for name in raw.json journal.json trusted.json "$MODE.partial.json"; do
+            cmp "$normal/$name" "$optimized/$name"
+          done
+          for variant in normal optimized; do
+            flags=(-B)
+            if test "$variant" = optimized; then flags+=(-O); fi
+            base="incoming/$variant/$CASE"
+            resumed="$base/$MODE.resumed.json"
+            resume_args=(--resumed "$resumed")
+            if ! test -f "$resumed" && test "$require_resumed" = false; then
+              resume_args=(--resume-unavailable)
+            elif ! test -f "$resumed"; then
+              # Producer may retain only one copy if it publishes the exact
+              # resumed size and hash in its immutable artifact manifest.
+              digest=$(sha256sum "$base/$MODE.cert.json" | cut -d ' ' -f 1)
+              bytes=$(stat -c %s "$base/$MODE.cert.json")
+              jq -e --arg case "$CASE" --arg name "$MODE.resumed.json" \
+                --arg digest "$digest" --argjson bytes "$bytes" \
+                '.cases[$case].files[$name] == {bytes:$bytes,sha256:$digest}' \
+                "incoming/$variant/manifest.json"
+              resume_args=(--resumed "$base/$MODE.cert.json")
+            fi
+            /usr/bin/time -f 'wall=%e RSS_KiB=%M' -o "evidence/$variant.time" \
+              python "${flags[@]}" tests/reference/p3_m3_artifact_replay.py \
+                --case "$case_name" --mode "$MODE" --seconds 60 \
+                --raw "$base/raw.json" --journal "$base/journal.json" --scope "$base/trusted.json" \
+                --normal "$normal/$MODE.cert.json" --optimized "$optimized/$MODE.cert.json" \
+                --checkpoint "$base/$MODE.partial.json" "${resume_args[@]}" \
+                | tee "evidence/$variant.json"
+          done
+          cmp evidence/normal.json evidence/optimized.json
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: p3-m3-proof-${{ matrix.case }}-${{ matrix.mode }}
+          path: evidence/

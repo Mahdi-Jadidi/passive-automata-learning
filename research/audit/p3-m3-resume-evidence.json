@@ -1,0 +1,194 @@
+{
+  "python": "CPython 3.13.5",
+  "platform": "Windows",
+  "producer_commit": "9a361f6fa59414cc0ac262154d87c37f5aed0403",
+  "proof_commit": "316d4430538b8a9ef0c707b8c46727a830d42321",
+  "source_archive_id": 15032494625,
+  "source_proof_replay_run": 45637001978,
+  "cases": [
+    {
+      "case": "nonempty_journal",
+      "mode": "all",
+      "normal_and_optimized_equal": true,
+      "checkpoint": {
+        "bytes": 692,
+        "git_blob_calculated": "4c9ba16f801405b62e9786e308556ab92026245c",
+        "sha256": "52d1679687af98c4500ca7e4e8795e8a9e2eb32799c6387235a3874432499b41"
+      },
+      "resumed": {
+        "bytes": 1137,
+        "git_blob_calculated": "69d6bfbd9306623f8ec24183d7bef569e3eb9b4f",
+        "sha256": "ec2c6b5ea40be0dcbfc4bb089a328767d48a0bba02961d5908df927ccd64507b"
+      },
+      "nodes_checked": 4,
+      "optimum": 2,
+      "optimum_count": 2,
+      "rgs_partitions": 203,
+      "complete_status": "VERIFIED",
+      "checkpoint_status": "INCOMPLETE",
+      "false_exhausted_status": "INVALID",
+      "proof_byte_cap_status": "INCOMPLETE"
+    },
+    {
+      "case": "nonempty_journal",
+      "mode": "one",
+      "normal_and_optimized_equal": true,
+      "checkpoint": {
+        "bytes": 692,
+        "git_blob_calculated": "f75331f1c5364315b71535793587661f8c90a04d",
+        "sha256": "195ea26bf6c90aa0f2e9acbc620dae0fddd633678425d80cc34e3cd89bd81388"
+      },
+      "resumed": {
+        "bytes": 1102,
+        "git_blob_calculated": "f9787c12cc86913f22cf0d73db1be02ea28b29b3",
+        "sha256": "4e123a4e0a0a0c8a6629db2af108bdcc34dca5eb476881d57d6d2cb29cdef996"
+      },
+      "nodes_checked": 4,
+      "optimum": 2,
+      "optimum_count": 2,
+      "rgs_partitions": 203,
+      "complete_status": "VERIFIED",
+      "checkpoint_status": "INCOMPLETE",
+      "false_exhausted_status": "INVALID",
+      "proof_byte_cap_status": "INCOMPLETE"
+    },
+    {
+      "case": "mixed_path",
+      "mode": "all",
+      "normal_and_optimized_equal": true,
+      "checkpoint": {
+        "bytes": 572,
+        "git_blob_calculated": "4da65d9053c14e7b3622db00258be648243f9fee",
+        "sha256": "da5b2450407c0db8f5b7d79a1106da9603c0ca2489f8f8f3bb3f81b358111143"
+      },
+      "resumed": {
+        "bytes": 7821,
+        "git_blob_calculated": "7d720c5695e07ccbcfc4ee48e36b3a62d15cd44d",
+        "sha256": "e3d7b29f9293c4a94ca200df18fcaa106b51c0ca6c1523547fc2be28aa99aa3e"
+      },
+      "nodes_checked": 35,
+      "optimum": 1,
+      "optimum_count": 3,
+      "rgs_partitions": 52,
+      "complete_status": "VERIFIED",
+      "checkpoint_status": "INCOMPLETE",
+      "false_exhausted_status": "INVALID",
+      "proof_byte_cap_status": "INCOMPLETE"
+    },
+    {
+      "case": "mixed_path",
+      "mode": "one",
+      "normal_and_optimized_equal": true,
+      "checkpoint": {
+        "bytes": 572,
+        "git_blob_calculated": "6e3aac7c164aed6281f57202090f039e042790a5",
+        "sha256": "ce79db4658c86edb7670eea876cc7076c7e5ab11fe8b143d0ed8d376d5b048c1"
+      },
+      "resumed": {
+        "bytes": 4043,
+        "git_blob_calculated": "00a386c9582de294d3b7088611030627f26f3d19",
+        "sha256": "c407263ad755473d7c6e6c5e6a27fa907872059993126f40a51adafb2e5b3824"
+      },
+      "nodes_checked": 18,
+      "optimum": 1,
+      "optimum_count": 3,
+      "rgs_partitions": 52,
+      "complete_status": "VERIFIED",
+      "checkpoint_status": "INCOMPLETE",
+      "false_exhausted_status": "INVALID",
+      "proof_byte_cap_status": "INCOMPLETE"
+    },
+    {
+      "case": "small_choice",
+      "mode": "all",
+      "normal_and_optimized_equal": true,
+      "checkpoint": {
+        "bytes": 706,
+        "git_blob_calculated": "e398370b534b3aac48a97c2197b2d8af5c377cc2",
+        "sha256": "e6165d257e553672fc9e82a061ae8334eefe695d42edf477fdb2e3c65657e5f7"
+      },
+      "resumed": {
+        "bytes": 13244,
+        "git_blob_calculated": "de02dc2801f828c3a927d15690472363a3e6e41d",
+        "sha256": "8bfd0711bfed299c53dd4214ff5a296db6c83f9defafa2103faea8b023bedf81"
+      },
+      "nodes_checked": 46,
+      "optimum": 4,
+      "optimum_count": 16,
+      "rgs_partitions": 4213597,
+      "complete_status": "VERIFIED",
+      "checkpoint_status": "INCOMPLETE",
+      "false_exhausted_status": "INVALID",
+      "proof_byte_cap_status": "INCOMPLETE"
+    },
+    {
+      "case": "small_choice",
+      "mode": "one",
+      "normal_and_optimized_equal": true,
+      "checkpoint": {
+        "bytes": 706,
+        "git_blob_calculated": "fa2ca6c1e3ae05f7f4a1fb5cef516205789d82dc",
+        "sha256": "f07495f25f995c791ba2c97f380e578fa645ee16a19919ef7ba9444da1c78dc3"
+      },
+      "resumed": {
+        "bytes": 12693,
+        "git_blob_calculated": "e4d97c9fd12cecbfa4f204810a440f6f0c0e434f",
+        "sha256": "e16fc41c4d2a0ca4584b1eb8dd8029035d06e8a2378bdfc1059d7aea64c8e6b4"
+      },
+      "nodes_checked": 46,
+      "optimum": 4,
+      "optimum_count": 16,
+      "rgs_partitions": 4213597,
+      "complete_status": "VERIFIED",
+      "checkpoint_status": "INCOMPLETE",
+      "false_exhausted_status": "INVALID",
+      "proof_byte_cap_status": "INCOMPLETE"
+    },
+    {
+      "case": "tiny_choice",
+      "mode": "all",
+      "normal_and_optimized_equal": true,
+      "checkpoint": {
+        "bytes": 692,
+        "git_blob_calculated": "1e52b821f8d2ca82f4d24a3c4380dd8dc24cebb1",
+        "sha256": "336dc324c056555d6bff6fae45d5c68d99e3ace700413c4a04ae04de7486585e"
+      },
+      "resumed": {
+        "bytes": 2737,
+        "git_blob_calculated": "41f85e31479031fb8c099d326017d2c49f20d37b",
+        "sha256": "b0eed1a3b6bd15073f3d1da4f4f35e6042571efb3d82308b5b58be08ce8eeca7"
+      },
+      "nodes_checked": 10,
+      "optimum": 2,
+      "optimum_count": 4,
+      "rgs_partitions": 203,
+      "complete_status": "VERIFIED",
+      "checkpoint_status": "INCOMPLETE",
+      "false_exhausted_status": "INVALID",
+      "proof_byte_cap_status": "INCOMPLETE"
+    },
+    {
+      "case": "tiny_choice",
+      "mode": "one",
+      "normal_and_optimized_equal": true,
+      "checkpoint": {
+        "bytes": 692,
+        "git_blob_calculated": "f20ff6cfba0708f39b688ac4cf31c6d67778a7d7",
+        "sha256": "cb5f0c1e6d6e60c6bb631f1f93f315a2c209807a5d35c5357a09f627958d78dd"
+      },
+      "resumed": {
+        "bytes": 2658,
+        "git_blob_calculated": "9c696ddabac8a9e1b3a2bf5e99c3d45128fb421f",
+        "sha256": "e4f2c6f5c0d5c9fa79a20fc668893fbf7a80047fc6b5f82ae8d6f0a34dd9679e"
+      },
+      "nodes_checked": 10,
+      "optimum": 2,
+      "optimum_count": 4,
+      "rgs_partitions": 203,
+      "complete_status": "VERIFIED",
+      "checkpoint_status": "INCOMPLETE",
+      "false_exhausted_status": "INVALID",
+      "proof_byte_cap_status": "INCOMPLETE"
+    }
+  ]
+}

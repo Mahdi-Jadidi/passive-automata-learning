@@ -1,0 +1,144 @@
+name: P3 independent native candidate replay
+on:
+  push:
+    branches: [research/v2-proof-audit]
+    paths: ['.github/workflows/p3-native-independent-replay.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  replay:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 8
+    strategy:
+      fail-fast: false
+      matrix:
+        fixture: [tiny_choice, small_choice]
+        mode: [one, all]
+    env:
+      CORE_PIN: af0559ad7b9590c1a335ba0801f5504f00b5cdea
+      PROOF_PIN: 1c292a0b2027302d4ae77cf6b81e96dfe54e5bf5
+      FIXTURE: ${{ matrix.fixture }}
+      MODE: ${{ matrix.mode }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ env.CORE_PIN }}
+          path: core
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ env.PROOF_PIN }}
+          path: proof
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13.5'
+      - name: Run actual producer and isolated verifier
+        shell: bash
+        run: |
+          set -euo pipefail
+          ulimit -v 1572864
+          core="$GITHUB_WORKSPACE/core/implementation/partition_feedback_final"
+          proof="$GITHUB_WORKSPACE/proof/tests/reference"
+          out="$GITHUB_WORKSPACE/replay-$FIXTURE-$MODE"
+          mkdir -p "$out"
+          trap 'for f in "$out"/*; do if test -f "$f"; then printf "GIT_BLOB %s " "$(git hash-object "$f")"; sha256sum "$f"; fi; done' EXIT
+          python -VV
+          test "$(git -C "$GITHUB_WORKSPACE/core" rev-parse HEAD)" = "$CORE_PIN"
+          test "$(git -C "$GITHUB_WORKSPACE/proof" rev-parse HEAD)" = "$PROOF_PIN"
+          test "$(git hash-object "$core/selector_v2/edr_search.py")" = 5b2ea2636e624ea27b2b9d113c1aee6a1739ceff
+          test "$(git hash-object "$core/selector_v2/edr_bb.py")" = 657c4e0e4059b32cd9e6477e61c7a3673290f36d
+          test "$(git hash-object "$core/selector_v2/core.py")" = 997304c3adce9d3148d454b079639575f419ba0e
+          test "$(git hash-object "$proof/p3_frontier_verifier.py")" = 540a7cf9e7b048684d3ea03def744175ae629b65
+          test "$(git hash-object "$proof/rgs_oracle.py")" = 375c36bfb2602894ce783055d1edf31f265aafa0
+          cp "$core/research/p3-m2/inputs/$FIXTURE.json" "$out/raw.json"
+          if test "$FIXTURE" = tiny_choice; then
+            test "$(git hash-object "$out/raw.json")" = ef3f41b4c5e27da6ffd4882804399abf454d51a7
+          else
+            test "$(git hash-object "$out/raw.json")" = b361642873a73bae454d388cbfb2284559dbd69b
+          fi
+          PYTHONPATH="$proof" python -B - "$out/raw.json" "$out/journal.json" <<'PY'
+          import json, sys
+          from pathlib import Path
+          from independent_replay import sample_data
+          from p3_frontier_verifier import canonical
+          raw=json.loads(Path(sys.argv[1]).read_bytes())
+          sd=sample_data(raw)[3]
+          Path(sys.argv[2]).write_bytes(canonical(dict(version="selector-v2-journal/2",sample_digest=sd,events=[])))
+          PY
+          PYTHONPATH="$proof" python -B "$proof/p3_frontier_verifier.py" \
+            --make-trusted-scope --raw "$out/raw.json" --journal "$out/journal.json" \
+            --out "$out/scope.json" --seconds 30
+          failed=0
+          for variant in normal optimized; do
+            flags=(-B)
+            if test "$variant" = optimized; then flags+=(-O); fi
+            cert="$out/$variant.cert.json"
+            metrics="$out/$variant.producer.json"
+            result="$out/$variant.verifier.json"
+            set +e
+            PYTHONPATH="$core" /usr/bin/time -f 'producer wall=%e RSS_KiB=%M' \
+              timeout -k 2s 35s python "${flags[@]}" -m selector_v2.edr_search \
+              --raw "$out/raw.json" --scope "$out/scope.json" --mode "$MODE" \
+              --out "$cert" --metrics "$metrics" --seconds 30 --work 200000000 \
+              --entries 2000000 --frontier-bytes 67108864 \
+              >"$out/$variant.producer.stdout" 2>"$out/$variant.producer.stderr"
+            producer_rc=$?
+            set -e
+            printf '%s producer_rc=%s\n' "$variant" "$producer_rc"
+            cat "$out/$variant.producer.stdout" "$out/$variant.producer.stderr"
+            if ! test -s "$cert"; then
+              echo "$variant: no certificate bytes; independent replay NOT RUN"
+              failed=1
+              continue
+            fi
+            set +e
+            PYTHONPATH="$proof" /usr/bin/time -f 'verifier wall=%e RSS_KiB=%M' \
+              timeout -k 2s 35s python "${flags[@]}" "$proof/p3_frontier_verifier.py" \
+              --raw "$out/raw.json" --journal "$out/journal.json" --scope "$out/scope.json" \
+              --proof "$cert" --seconds 30 --max-work 200000000 --max-entries 2000000 \
+              >"$result" 2>"$out/$variant.verifier.stderr"
+            verifier_rc=$?
+            set -e
+            printf '%s verifier_rc=%s\n' "$variant" "$verifier_rc"
+            cat "$result" "$out/$variant.verifier.stderr"
+            if test "$producer_rc" != 0 || test "$verifier_rc" != 0; then
+              failed=1
+              continue
+            fi
+            PYTHONPATH="$proof" python "${flags[@]}" - "$out/raw.json" "$result" "$MODE" <<'PY'
+          import json, sys
+          from pathlib import Path
+          from rgs_oracle import oracle
+          raw=json.loads(Path(sys.argv[1]).read_bytes())
+          verified=json.loads(Path(sys.argv[2]).read_bytes())
+          mode=sys.argv[3]
+          if verified.get("status")!="VERIFIED" or "result" not in verified:
+              raise SystemExit("independent verifier did not certify complete coverage")
+          if len(raw["alphabet"])>8:
+              print("literal RGS oracle NOT RUN: alphabet exceeds independent n<=8 cap")
+          else:
+              reference=oracle(raw)
+              if reference["status"]!="VERIFIED": raise SystemExit("RGS capped")
+              truth=reference["result"]
+              winners=sorted([p.index(g) for g in p] for p in truth["optima"])
+              result=verified["result"]
+              if result["optimum"]!=truth["optimum"]: raise SystemExit("RGS optimum mismatch")
+              if winners and result["owner"] not in winners: raise SystemExit("RGS owner mismatch")
+              if not winners and result["owner"] is not None: raise SystemExit("false feasible result")
+              if mode=="all" and result["optima"]!=winners: raise SystemExit("RGS all-optima mismatch")
+              print("literal RGS VERIFIED",truth["visited"],truth["optimum"],winners)
+          PY
+          done
+          if test "$failed" = 0; then
+            cmp "$out/normal.cert.json" "$out/optimized.cert.json"
+            echo "Complete native certificate normal/-O bytes identical"
+          else
+            echo "Native candidate replay did not complete/verify in both modes; no acceptance"
+            exit 1
+          fi
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: native-replay-${{ matrix.fixture }}-${{ matrix.mode }}
+          path: replay-${{ matrix.fixture }}-${{ matrix.mode }}/
+          if-no-files-found: error
