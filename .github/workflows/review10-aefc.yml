@@ -1,0 +1,52 @@
+name: Review10 AEFC comparison
+on:
+  push:
+    branches: [research/v2-benchmarks]
+    paths:
+      - .github/workflows/review10-aefc.yml
+      - benchmarks/v2/review10_aefc*.py
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  compare:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+          sparse-checkout: benchmarks/v2
+      - uses: actions/checkout@v4
+        with:
+          ref: 3fcb278d6562b76e5c75936425b39c57d02f2409
+          path: core
+          persist-credentials: false
+          sparse-checkout: |
+            implementation/partition_feedback_final/selector_v2
+            implementation/partition_feedback_final/research/p3-m5/aefc
+      - uses: actions/checkout@v4
+        with:
+          ref: b8676e30917b8df4ca07086c54a9d38d09330abd
+          path: proof
+          persist-credentials: false
+          sparse-checkout: tests/reference
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13.5"
+      - name: Run separate bounded arms and compare
+        run: |
+          for runtime in normal optimized; do
+            flags=(-B)
+            if [ "$runtime" = optimized ]; then flags+=(-O); fi
+            for arm in containment named literal; do
+              (ulimit -v 524288; timeout 30 python "${flags[@]}" benchmarks/v2/review10_aefc.py \
+                --core core --proof proof --arm "$arm" --output "$RUNNER_TEMP/aefc/$runtime/$arm")
+            done
+          done
+          python -B benchmarks/v2/review10_aefc_compare.py "$RUNNER_TEMP/aefc"
+          cat "$RUNNER_TEMP/aefc/comparison.csv"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: review10-aefc
+          path: ${{ runner.temp }}/aefc
