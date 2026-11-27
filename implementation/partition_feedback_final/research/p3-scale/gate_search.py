@@ -38,7 +38,9 @@ def native(fixtures, output):
             source = M3 / case
             raw = load(source / "raw.json")
             journal = (source / "journal.json").read_bytes()
-            reference = oracle(raw, seconds=120)
+            # The pinned RGS12 result enumerated all 4,213,597 partitions.
+            # Reuse it for small_choice to keep this producer gate bounded.
+            reference = load(source / "rgs.json") if case == "small_choice" else oracle(raw)
             require(reference["status"] == "VERIFIED", case)
         scope = build_trusted_scope(raw, journal)
         inputs = output / case
@@ -63,6 +65,8 @@ def native(fixtures, output):
                     if mode == "all":
                         require(cert["optima"] == sorted(result["optima"]), name)
                 require(cert["incumbent"]["cost"] == frozen["incumbent"]["cost"], name)
+                if mode == "all":
+                    require(cert["optima"] == frozen["optima"], name + " all optima")
                 write(path / "complete.json", cert)
                 emitted = (path / "complete.json").read_bytes()
                 verified = replay(raw, journal, scope, emitted, mode)
