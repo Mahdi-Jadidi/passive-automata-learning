@@ -1,4 +1,4 @@
-"""M4 experimental P3 producer using the frozen M3 traversal and v2 proof grammar."""
+"""M4 experimental P3 producer using the frozen M3 traversal and versioned proof grammar."""
 import argparse
 import json
 import sys
@@ -10,11 +10,12 @@ from .edr_search import (REASONS, canonical, close, compatible, digest, load, op
 from .edr_cross import ALL_PAIRS, CROSS_SUPPORT, AllPairsPrefix, CrossPairs, CrossPrefix, discover
 
 from .edr_m3 import FORMAT_V2, RetainedBudget, child_payload, retained_payload, split_fields
+from .edr_rank import FORMAT_V3, MAX_BYTES, MAX_ENTRIES, discover_rank, payload_size
 from .edr_sparse import DEFAULT_INDEX_BYTES, DEFAULT_JOIN_WORK, discover_join, sparse_compatible
 
 
 def solve(raw, scope, mode="one", *, caps=None, checkpoint=None, split_rule=CROSS_SUPPORT,
-          sparse=False, join=False, index_bytes=DEFAULT_INDEX_BYTES, join_work=DEFAULT_JOIN_WORK):
+          sparse=False, join=False, rank=False, index_bytes=DEFAULT_INDEX_BYTES, join_work=DEFAULT_JOIN_WORK):
     """Return (certificate, telemetry). A checkpoint is a trusted local PARTIAL
     certificate. It is not an authority: only independent replay certifies
     the final result. Resume walks emitted DFS prefix without reevaluating
@@ -29,6 +30,9 @@ def solve(raw, scope, mode="one", *, caps=None, checkpoint=None, split_rule=CROS
     for name, limit in (("index_bytes", index_bytes), ("join_work", join_work)):
         if type(limit) is not int or limit < 0:
             raise ValueError("invalid " + name)
+    if rank and (not sparse or split_rule != CROSS_SUPPORT):
+        raise ValueError("rank requires the M4 sparse search")
+    proof_format = FORMAT_V3 if rank else FORMAT_V2
     if split_rule == ALL_PAIRS:
         if sparse or join:
             raise ValueError("M4 evaluators require the v2 search")
@@ -42,7 +46,7 @@ def solve(raw, scope, mode="one", *, caps=None, checkpoint=None, split_rule=CROS
     else:
         if (type(checkpoint) is not dict or set(checkpoint) !=
             {"format","scope_digest","mode","declared_status","root_owner","incumbent","optima","nodes"}
-            or checkpoint["format"] != FORMAT_V2 or checkpoint["scope_digest"] != sd
+            or checkpoint["format"] != proof_format or checkpoint["scope_digest"] != sd
             or checkpoint["mode"] != mode or checkpoint["declared_status"] != "PARTIAL"
             or canonical(checkpoint["root_owner"]) != canonical(scope["root_owner"])
             or checkpoint["optima"] != []):
@@ -76,6 +80,9 @@ def solve(raw, scope, mode="one", *, caps=None, checkpoint=None, split_rule=CROS
         counters[phase + "_work"] = 0
         counters[phase + "_seconds"] = 0
     stop = None
+    rank_entries = rank_bytes = 0
+    if rank:
+        counters.update(rank_calls=0, rank_leaves=0, rank_work=0)
 
     def measure(phase, root_phase, evaluate):
         started, before = monotonic(), budget.work
@@ -128,7 +135,18 @@ def solve(raw, scope, mode="one", *, caps=None, checkpoint=None, split_rule=CROS
 
     try:
         if checkpoint is not None:
-            budget.restore_retained_payload(*retained_payload(table, budget))
+            retained_bytes, retained_entries = retained_payload(table, budget)
+            if rank:
+                for node in table.values():
+                    budget.charge_work()
+                    closure = node.get("closure", {})
+                    if closure.get("reason") == "RANK_COST":
+                        entries, size = payload_size(closure, budget)
+                        rank_entries += entries
+                        rank_bytes += size
+                if rank_entries > MAX_ENTRIES or rank_bytes > MAX_BYTES:
+                    raise ValueError("checkpoint rank payload limit")
+            budget.restore_retained_payload(retained_bytes + rank_bytes, retained_entries)
         started = monotonic()
         try:
             conflict = raw_conflict(sample, budget)
@@ -184,6 +202,27 @@ def solve(raw, scope, mode="one", *, caps=None, checkpoint=None, split_rule=CROS
                         leaf(q,dict(reason="EXACT_NO"))
                         finish()
                         continue
+                    if rank and best is not None:
+                        counters["rank_calls"] += 1
+                        before = budget.work
+                        try:
+                            packing = discover_rank(region, sample, budget)
+                        finally:
+                            counters["rank_work"] += budget.work - before
+                        if packing is not None:
+                            floor, closure = packing
+                            cutoff = floor > best["cost"] or (mode == "one" and floor == best["cost"])
+                            if cutoff:
+                                entries, size = payload_size(closure, budget)
+                                if rank_entries + entries <= MAX_ENTRIES and rank_bytes + size <= MAX_BYTES:
+                                    budget.restore_retained_payload(budget.memory_bytes + size,
+                                                                    budget.frontier_entries)
+                                    rank_entries += entries
+                                    rank_bytes += size
+                                    counters["rank_leaves"] += 1
+                                    leaf(q, closure)
+                                    finish()
+                                    continue
                     witness = discover_witness(region.owner, "root_discovery" if ident == "root" else None)
                     if witness is not None:
                         family = CrossPairs.build(tuple(witness["support_s"]),
@@ -293,7 +332,7 @@ def solve(raw, scope, mode="one", *, caps=None, checkpoint=None, split_rule=CROS
         for q in table.values():
             if q["kind"]=="OPEN":
                 q["reason"]=stop
-    cert = dict(format=FORMAT_V2,scope_digest=sd,mode=mode,
+    cert = dict(format=proof_format,scope_digest=sd,mode=mode,
                 declared_status="PARTIAL" if stop else "EXHAUSTED",
                 root_owner=list(root.owner),incumbent=best,
                 optima=[list(p) for p in sorted(winners)] if not stop and mode=="all" else [],
@@ -314,6 +353,7 @@ def main():
     p.add_argument("--resume")
     p.add_argument("--split-rule",choices=(ALL_PAIRS,CROSS_SUPPORT),default=CROSS_SUPPORT)
     p.add_argument("--sparse", action="store_true")
+    p.add_argument("--rank", action="store_true")
     p.add_argument("--join", action="store_true")
     p.add_argument("--index-bytes", type=int, default=DEFAULT_INDEX_BYTES)
     p.add_argument("--join-work", type=int, default=DEFAULT_JOIN_WORK)
@@ -326,7 +366,7 @@ def main():
         cert,metrics=solve(load(a.raw),load(a.scope),a.mode,
                            caps=SearchCaps(a.seconds,a.work,a.entries,a.frontier_bytes),
                            checkpoint=load(a.resume) if a.resume else None,
-                           split_rule=a.split_rule, sparse=a.sparse, join=a.join,
+                           split_rule=a.split_rule, sparse=a.sparse, join=a.join, rank=a.rank,
                            index_bytes=a.index_bytes, join_work=a.join_work)
         write_atomic(a.out,cert)
         if a.metrics:

@@ -1,0 +1,54 @@
+name: P3 core M4-B rank producer gate
+on:
+  push:
+    branches: [research/v2-implementation-core]
+    paths:
+      - implementation/partition_feedback_final/selector_v2/edr_m4.py
+      - implementation/partition_feedback_final/selector_v2/edr_rank.py
+      - implementation/partition_feedback_final/research/p3-m4/**
+      - .github/workflows/p3-core-m4-rank.yml
+permissions:
+  contents: read
+jobs:
+  native:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    strategy:
+      fail-fast: false
+      matrix:
+        memory_mib: [512, 1536]
+    env:
+      PYTHONPATH: implementation/partition_feedback_final:independent-proof/tests/reference
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          persist-credentials: false
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          ref: 98e913a7e15d32638319832fc69edb36edb2f505
+          path: independent-proof
+          sparse-checkout: tests/reference
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13.5'
+      - name: Run native rank gate
+        run: |
+          set -eu
+          d=implementation/partition_feedback_final
+          for mode in normal optimized; do
+            flags=(-B)
+            if [ "$mode" = optimized ]; then flags+=(-O); fi
+            python "${flags[@]}" -m unittest discover -s "$d/selector_v2/tests"
+            python "${flags[@]}" -m unittest discover -s "$d/research/p3-m3"
+            python "${flags[@]}" -m unittest discover -s "$d/research/p3-m4"
+            python "${flags[@]}" "$d/research/p3-m4/run_rank.py" \
+              --memory-mib ${{ matrix.memory_mib }} --output "$mode"
+          done
+          diff -r normal optimized
+      - uses: actions/upload-artifact@v4
+        with:
+          name: rank-native-${{ matrix.memory_mib }}
+          path: |
+            normal/
+            optimized/
