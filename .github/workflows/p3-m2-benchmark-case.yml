@@ -1,0 +1,91 @@
+name: P3 M2 native benchmark case
+
+on:
+  workflow_call:
+    inputs:
+      case:
+        type: string
+        required: true
+      memory:
+        type: number
+        required: true
+
+permissions:
+  contents: read
+
+jobs:
+  benchmark:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+          sparse-checkout-cone-mode: false
+          sparse-checkout: |
+            /benchmarks/v2/p3_harness.py
+            /benchmarks/v2/test_p3_harness.py
+            /benchmarks/v2/p3_native.py
+            /benchmarks/v2/p3/native.json
+            /benchmarks/v2/p3/inputs/
+            /benchmarks/v2/review03/p3/input-manifest.json
+      - uses: actions/checkout@v4
+        with:
+          ref: 391abf97df3b67661082c907d9ce20b4f69636c2
+          path: native-producer
+          persist-credentials: false
+          sparse-checkout-cone-mode: false
+          sparse-checkout: /implementation/partition_feedback_final/selector_v2/*.py
+      - uses: actions/checkout@v4
+        with:
+          ref: d89bab4c005d17c8b27d4c1e6dd291135aca649a
+          path: native-verifier
+          persist-credentials: false
+          sparse-checkout-cone-mode: false
+          sparse-checkout: /tests/reference/*.py
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13.5"
+      - name: Check harness infrastructure
+        if: inputs.case == 'tiny_choice'
+        working-directory: benchmarks/v2
+        run: |
+          python -B -m unittest -v test_p3_harness
+          python -B -O -m unittest -v test_p3_harness
+      - name: Run benchmark
+        env:
+          CASE: ${{ inputs.case }}
+          MEMORY: ${{ inputs.memory }}
+        run: |
+          test ! -e benchmarks/v2/review03/p3/evaluation
+          python -B benchmarks/v2/p3_native.py --producer-root native-producer \
+            --verifier-root native-verifier --case "$CASE" --memory-mib "$MEMORY" --output "$RUNNER_TEMP/p3"
+      - name: Upload measurements and selected exact artifacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: p3-m2-${{ inputs.case }}-${{ inputs.memory }}
+          path: |
+            ${{ runner.temp }}/p3
+            !${{ runner.temp }}/p3/producer-source/**
+            !${{ runner.temp }}/p3/verifier-source/**
+            !${{ runner.temp }}/p3/**/producer-2/certificate.json
+            !${{ runner.temp }}/p3/**/resumed/certificate.json
+          if-no-files-found: error
+      - name: Gate larger jobs on smoke correctness
+        if: inputs.case == 'tiny_choice' || inputs.case == 'small_choice'
+        env:
+          CASE: ${{ inputs.case }}
+        run: |
+          python -B - "$RUNNER_TEMP/p3/summary.json" "$CASE" <<'PY'
+          import json, sys
+          from pathlib import Path
+          runs = json.loads(Path(sys.argv[1]).read_bytes())["runs"]
+          if len(runs) != 4 or any(run["status"] == "INVALID" for run in runs):
+              raise SystemExit("smoke run missing or rejected")
+          if sys.argv[2] == "tiny_choice" and any(
+              r["status"] != "VERIFIED" or r["certified_result"]["optimum"] != 2 or
+              r["checkpoint_resume"] != "MATCH" or r["normal_optimized_parity"] != "MATCH"
+              for r in runs):
+              raise SystemExit("tiny native correctness gate failed")
+          PY

@@ -1,0 +1,60 @@
+name: Review09 M4 sparse RAW pipeline
+on:
+  push:
+    branches: [research/v2-benchmarks]
+    paths:
+      - .github/workflows/review09-pipeline.yml
+      - benchmarks/v2/review09_pipeline.py
+      - benchmarks/v2/review08_pipeline.py
+      - benchmarks/v2/p3/review09-pipeline.json
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  pipeline:
+    runs-on: ubuntu-24.04
+    strategy:
+      fail-fast: false
+      matrix:
+        case: [medium_choice, huge_choice_active, hdfs_1024, hdfs_holdout_1024_uncapped]
+        memory: [512, 1536]
+        journal: [retained, fresh]
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+          sparse-checkout: benchmarks/v2
+      - uses: actions/checkout@v4
+        with:
+          ref: 140b4e51f89baf8c3e38e18d704d8c4d36c24f39
+          path: source-core
+          persist-credentials: false
+          sparse-checkout: implementation/partition_feedback_final/selector_v2
+      - uses: actions/checkout@v4
+        with:
+          ref: 5a10e649a91f8c5b159b818de7e71d4028b8170d
+          path: source-proof
+          persist-credentials: false
+          sparse-checkout: tests/reference
+      - uses: actions/checkout@v4
+        with:
+          ref: 122844ee5668f1c898f85b08133a562f31719718
+          path: source-interface
+          persist-credentials: false
+          sparse-checkout: research/interface/p2
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13.5"
+      - name: Run bounded RAW pipeline
+        run: |
+          python -B benchmarks/v2/review09_pipeline.py --case ${{ matrix.case }} \
+            --journal-origin ${{ matrix.journal }} --memory-mib ${{ matrix.memory }} --producer source-core --verifier source-proof \
+            --interface source-interface --output "$RUNNER_TEMP/review09"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: review09-pipeline-${{ matrix.case }}-${{ matrix.memory }}-${{ matrix.journal }}
+          path: |
+            ${{ runner.temp }}/review09
+            !${{ runner.temp }}/review09/*-source/**
+          if-no-files-found: error
