@@ -1,0 +1,44 @@
+name: Review10 offline history provenance
+on:
+  push:
+    branches: [research/v2-benchmarks]
+    paths:
+      - .github/workflows/review10-histories.yml
+      - benchmarks/v2/review10_histories.py
+      - benchmarks/v2/results/review10/**
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  replay:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+          sparse-checkout: benchmarks/v2
+      - uses: actions/checkout@v4
+        with:
+          ref: be52e6aa51dcbc6a7cc37d84608df97cfffd1f43
+          path: source
+          persist-credentials: false
+          sparse-checkout: |
+            implementation/partition_feedback_final/selector_v2
+            research/interface/p2
+            tests/reference
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13.5"
+      - name: Export and replay in both interpreter modes
+        run: |
+          python -B benchmarks/v2/review10_histories.py --source source --output "$RUNNER_TEMP/normal"
+          python -B -O benchmarks/v2/review10_histories.py --source source --output "$RUNNER_TEMP/optimized"
+          for mode in normal optimized; do
+            diff -r --exclude=summary.json --exclude=summary.csv benchmarks/v2/results/review10 "$RUNNER_TEMP/$mode"
+          done
+      - uses: actions/upload-artifact@v4
+        with:
+          name: review10-offline-histories
+          path: |
+            ${{ runner.temp }}/normal
+            ${{ runner.temp }}/optimized
