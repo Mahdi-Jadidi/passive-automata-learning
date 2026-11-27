@@ -1,5 +1,6 @@
 """Verify native M4 producer bytes offline, without loading producer code."""
 import argparse
+from collections import Counter
 from pathlib import Path
 
 from p3_frontier_verifier import build_trusted_scope, canonical, need, parse, verify_frontier
@@ -12,8 +13,10 @@ ARMS = ("dense", "sparse", "join", "sparse_join")
 CAP = 64 * 1024**2
 
 
-def audit(inputs, normal, optimized):
-    for case in CASES:
+def audit(inputs, normal, optimized, *, cases=CASES, rank=False):
+    arms = ("sparse", "rank") if rank else ARMS
+    rank_modes = set()
+    for case in cases:
         source = inputs / case
         raw, journal, scope = [read(source / name, CAP)
                                for name in ("raw.json", "journal.json", "trusted.json")]
@@ -29,17 +32,24 @@ def audit(inputs, normal, optimized):
         truth = census["result"]
         for mode in ("one", "all"):
             complete_by_arm = {}
-            for arm in ARMS:
+            for arm in arms:
                 relative = Path(case) / mode / arm
-                pins = {}
+                pins, replays = {}, {}
+                expected_version = 3 if arm == "rank" else 2
                 for name in ("complete", "partial", "resumed"):
                     path = relative / (name + ".json")
                     cert = read(normal / path, CAP)
                     need(cert == read(optimized / path, CAP), f"interpreter bytes: {path}")
                     pins[name] = fingerprint(cert)
                     answer = verify_frontier(raw, journal, scope, cert, sparse_exact=True,
-                                             expected_format="p3-region-frontier/v2",
+                                             expected_format=f"p3-region-frontier/v{expected_version}",
                                              expected_mode=mode)
+                    nodes = parse(cert, CAP, frontier=True)["nodes"]
+                    closures = Counter(node["closure"]["reason"] for node in nodes
+                                       if node["kind"] == "LEAF")
+                    if arm == "rank" and name == "complete" and closures["RANK_COST"]:
+                        rank_modes.add(mode)
+                    replays[name] = dict(answer, closure_counts=dict(closures))
                     if name == "partial":
                         need(answer["status"] == "INCOMPLETE" and "result" not in answer
                              and answer["reason"] == "unresolved frontier", str(answer))
@@ -53,19 +63,27 @@ def audit(inputs, normal, optimized):
                 need(pins["complete"] == pins["resumed"], f"resume mismatch: {relative}")
                 complete_by_arm[arm] = pins["complete"]
                 yield dict(case=case, mode=mode, arm=arm, pins=pins, replay=answer,
+                           **({'replays': replays} if rank else {}),
                            inputs=dict(raw=fingerprint(raw), journal=fingerprint(journal),
                                        scope=fingerprint(scope)),
                            rgs_visited=census["visited"], rgs_optima=len(truth["optima"]))
-            need(complete_by_arm["dense"] == complete_by_arm["sparse"],
-                 f"dense/sparse complete mismatch: {case}/{mode}")
+            if not rank:
+                need(complete_by_arm["dense"] == complete_by_arm["sparse"],
+                     f"dense/sparse complete mismatch: {case}/{mode}")
+    if rank:
+        need(rank_modes == {"one", "all"}, "missing genuine complete rank closures in both modes")
 
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     for name in ("inputs", "normal", "optimized"):
         parser.add_argument("--" + name, type=Path, required=True)
+    parser.add_argument("--rank", action="store_true",
+                        help="audit sparse v2 and native rank v3 arms")
+    parser.add_argument("--case", action="append", help="override default case directories")
     args = parser.parse_args()
-    for row in audit(args.inputs, args.normal, args.optimized):
+    for row in audit(args.inputs, args.normal, args.optimized,
+                     cases=args.case or CASES, rank=args.rank):
         print(canonical(row).decode("ascii"), flush=True)
 
 

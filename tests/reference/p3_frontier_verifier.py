@@ -1,9 +1,11 @@
-"""Independent flat P3 verifier for frozen v1 and Review 07 v2.
+"""Independent flat P3 verifier for v1, v2 and experimental v3.
 No producer imports. Path replay uses literal owner relabeling and prefix
 constraints from previously checked parent records; no full alternatives list.
 """
 import argparse
 from bisect import bisect_right
+from fractions import Fraction
+from itertools import zip_longest
 import hashlib
 import json
 import math
@@ -38,7 +40,13 @@ def sha(data):
 def scope_digest(obj):
     return sha(canonical(obj))
 
-def parse(obj, cap, budget=None):
+V3 = "p3-region-frontier/v3"
+FORMATS = ("p3-region-frontier/v1", "p3-region-frontier/v2", V3)
+RANK_ENTRY_LIMIT = 2_000_000
+RANK_BYTE_LIMIT = 64 * 1024**2
+
+
+def parse(obj, cap, budget=None, *, frontier=False):
     if type(obj) is dict:
         size = len(canonical(obj))
         if size > cap:
@@ -65,8 +73,22 @@ def parse(obj, cap, budget=None):
         v = float(s)
         need(math.isfinite(v), "nonfinite JSON number")
         return v
-    out = json.loads(obj.decode("utf-8"), object_pairs_hook=pairs,
-                     parse_constant=reject, parse_float=finite)
+    oversized = False
+
+    def bounded_int(s):
+        nonlocal oversized
+        # All v3 proof integers index bounded structures or are 32-bit weights.
+        if len(s) > 20:
+            oversized = True
+            return None
+        return int(s)
+
+    decoded = obj.decode("utf-8")
+    hooks = dict(object_pairs_hook=pairs, parse_constant=reject, parse_float=finite)
+    out = json.loads(decoded, parse_int=bounded_int if frontier else int, **hooks)
+    if oversized:
+        need(type(out) is dict and out.get("format") != V3, "oversized v3 integer")
+        out = json.loads(decoded, **hooks)
     need(type(out) is dict, "JSON top-level object")
     if budget is not None:
         budget.debit(0)
@@ -90,6 +112,7 @@ class Budget:
         self.max_journal_bytes, self.max_proof_bytes, self.max_raw_bytes = (
             max_journal_bytes, max_proof_bytes, max_raw_bytes)
         self.work = self.exact = self.nodes = 0
+        self.rank_entries = self.rank_bytes = 0
     def debit(self, amount=1):
         self.work += amount
         if self.work > self.max_work or time.monotonic() >= self.deadline:
@@ -472,6 +495,92 @@ def path_state(node, table, root, b, *, singleton_check=False, cross_families=No
         singleton_check and len(separated) == len(reps)*(len(reps)-1)//2)
     return p, reps, empty, singleton
 
+def rank_floor(closure, p, cost, X, Y, b):
+    fields(closure, "reason version packings")
+    need(closure["version"] == "p3-rank-cost/v1", "rank version")
+    rows = closure["packings"]
+    need(type(rows) is list and 1 <= len(rows) <= 128, "rank packing count")
+
+    def residue(word, removed):
+        for token in word:
+            b.debit()
+            if p[token] not in removed:
+                yield token
+
+    def charge_fraction(value):
+        num_bits = value.numerator.bit_length()
+        den_bits = value.denominator.bit_length()
+        need(num_bits <= 4112 and den_bits <= 4096, "rank arithmetic size")
+        b.debit(1 + num_bits + den_bits)
+
+    zero = Fraction(0)
+    loads = {}
+    total = zero
+    for row in rows:
+        b.debit()
+        fields(row, "negative_id deletions weight")
+        y = trace_id(row["negative_id"], "N", Y)
+        deletions = row["deletions"]
+        need(type(deletions) is list and 2 <= len(deletions) <= 64, "rank deletion count")
+        weight = row["weight"]
+        need(type(weight) is list and len(weight) == 2 and
+             all(type(v) is int and 0 <= v and v.bit_length() <= 32 for v in weight),
+             "rank weight shape or size")
+        num, den = weight
+        b.debit(1 + num.bit_length() + den.bit_length())
+        need(0 < den and num <= den and math.gcd(num, den) == 1, "rank weight rational")
+        weight = Fraction(num, den)
+        charge_fraction(weight)
+        union = set()
+        for deletion in deletions:
+            b.debit()
+            fields(deletion, "positive_id support")
+            x = trace_id(deletion["positive_id"], "P", X)
+            support = deletion["support"]
+            need(type(support) is list and 1 <= len(support) <= 4096, "rank support size")
+            b.rank_entries += 1 + len(support)
+            need(b.rank_entries <= RANK_ENTRY_LIMIT, "rank structural entry limit")
+            b.entries(b.rank_entries)
+            removed = set()
+            previous = -1
+            for rep in support:
+                b.debit()
+                need(type(rep) is int and previous < rep < len(p) and p[rep] == rep,
+                     "rank support must use ordered current representatives")
+                need(rep not in union, "rank overlapping deletion supports")
+                previous = rep
+                removed.add(rep)
+                union.add(rep)
+            b.check_exact()
+            for a, c in zip_longest(residue(x, removed), residue(y, removed)):
+                b.debit()
+                need(a == c, "false rank deletion residue")
+        for rep in union:
+            load = loads.get(rep, zero)
+            charge_fraction(load)
+            charge_fraction(weight)
+            load += weight
+            charge_fraction(load)
+            need(load.numerator <= load.denominator, "rank capacity exceeded")
+            loads[rep] = load
+        charge_fraction(weight)
+        weighted_floor = weight * (len(deletions) - 1)
+        charge_fraction(weighted_floor)
+        charge_fraction(total)
+        total += weighted_floor
+        charge_fraction(total)
+
+    b.debit(0)
+    size = len(canonical(closure))
+    b.rank_bytes += size
+    need(b.rank_bytes <= RANK_BYTE_LIMIT, "rank structural byte limit")
+    b.debit(size)
+    charge_fraction(total)
+    ceiling = -(-total.numerator // total.denominator)
+    b.debit(0)
+    return cost + ceiling
+
+
 def verify_frontier(raw, exact_journal2_bytes, trusted_scope, proof, *,
                     budgets=None, expected_format=None, expected_mode=None,
                     sparse_exact=False, **limits):
@@ -492,11 +601,15 @@ def verify_frontier(raw, exact_journal2_bytes, trusted_scope, proof, *,
         trusted, root, X, Y = _scope(raw, exact_journal2_bytes, b)
         supplied = parse(trusted_scope, b.max_raw_bytes, b)
         need(canonical(supplied) == canonical(trusted), "trusted scope mismatch")
-        cert = parse(proof, b.max_proof_bytes, b)
+        cert = parse(proof, b.max_proof_bytes, b, frontier=True)
         fields(cert, "format scope_digest mode declared_status root_owner incumbent optima nodes")
-        need(cert["format"] in ("p3-region-frontier/v1", "p3-region-frontier/v2"), "format")
+        need(cert["format"] in FORMATS, "format")
         need(expected_format is None or cert["format"] == expected_format, "unexpected format")
-        v2 = cert["format"] == "p3-region-frontier/v2"
+        v3 = cert["format"] == V3
+        if v3:
+            need(expected_format == V3 and expected_mode in ("one", "all"),
+                 "v3 requires explicit format and mode binding")
+        v2 = cert["format"] != FORMATS[0]
         need(cert["scope_digest"] == scope_digest(trusted), "scope digest")
         n = len(root)
         need(owner(cert["root_owner"], n, b) == root, "root owner mismatch")
@@ -626,6 +739,11 @@ def verify_frontier(raw, exact_journal2_bytes, trusted_scope, proof, *,
                 b.debit(min(len(x),len(y))+1)
                 need(x == y, "forged raw conflict")
                 continue
+            if v3 and reason == "RANK_COST":
+                need(not empty and U is not None, "rank requires nonempty region and incumbent")
+                floor = rank_floor(closure, p, cost, X, Y, b)
+                need(floor >= U if mode == "one" else floor > U, "invalid rank cutoff")
+                continue
             fields(closure, "reason")
             if reason == "UNKNOWN":
                 unresolved = True
@@ -677,7 +795,7 @@ def main(argv=None):
                           ("max-proof-bytes",64*1024*1024),("max-raw-bytes",64*1024*1024)):
         p.add_argument("--"+name, type=int, default=default)
     p.add_argument("--sparse-exact", action="store_true")
-    p.add_argument("--expected-format", choices=("p3-region-frontier/v1", "p3-region-frontier/v2"))
+    p.add_argument("--expected-format", choices=FORMATS)
     p.add_argument("--expected-mode", choices=("one", "all"))
     p.add_argument("--seconds", type=float, default=30)
     a = p.parse_args(argv)
