@@ -28,12 +28,18 @@ CAPS = SearchCaps(25, 10_000_000, 2_000_000, 67_108_864)
 
 
 def native(fixtures, output):
-    for case in ("tiny_choice", "small_choice", "mixed_path", "journal_root", "cover_path_8"):
-        if case == "cover_path_8":
-            raw = load(fixtures / (case + ".json"))
+    cases = ("tiny_choice", "small_choice", "mixed_path", "journal_root", "cover_path_8",
+             "target_hit")
+    for case in cases:
+        if case in ("cover_path_8", "target_hit"):
+            if case == "cover_path_8":
+                raw = load(fixtures / (case + ".json"))
+            else:
+                raw = dict(alphabet=["a", "b", "c"], positive=[["a"], ["b"]],
+                           negative=[["c"], ["a", "b"]])
             journal = canonical(dict(version="selector-v2-journal/2",
                                      sample_digest=Sample.from_input(raw).sample_digest, events=[]))
-            reference = None
+            reference = oracle(raw) if case == "target_hit" else None
         else:
             source = M3 / case
             raw = load(source / "raw.json")
@@ -56,6 +62,12 @@ def native(fixtures, output):
                 path.mkdir(parents=True)
                 cert, stats = solve(raw, scope, mode, caps=CAPS, **flags)
                 require(cert["declared_status"] == "EXHAUSTED", f"{name}: {stats}")
+                if case == "target_hit" and flags.get("targeted"):
+                    require(stats["target_hits"] > 0, name + " targeted witness")
+                    fallback, fallback_stats = solve(raw, scope, mode, join_work=0,
+                                                     caps=CAPS, **flags)
+                    require(canonical(fallback) == canonical(frozen)
+                            and fallback_stats["target_local_caps"] > 0, name + " fallback")
                 if not flags.get("targeted"):
                     require(canonical(cert) == canonical(frozen), name + " frozen parity")
                 if reference is not None:
@@ -71,7 +83,7 @@ def native(fixtures, output):
                 emitted = (path / "complete.json").read_bytes()
                 verified = replay(raw, journal, scope, emitted, mode)
                 require(verified["status"] == "VERIFIED", f"{name}: {verified}")
-                for entries in (1, 5):
+                for entries in ((0, 1, 5) if case == "target_hit" else (1, 5)):
                     pending, _ = solve(raw, scope, mode, caps=SearchCaps(entries=entries), **flags)
                     if pending["declared_status"] == "EXHAUSTED":
                         require(canonical(pending) == emitted, name)
