@@ -1,0 +1,70 @@
+name: P3 combined M4-A staging
+on:
+  push:
+    branches: [research/v2-staging-m4a]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  combined:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    strategy:
+      fail-fast: false
+      matrix:
+        mode: [normal, optimized]
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+          sparse-checkout: |
+            implementation/partition_feedback_final
+            research/interface/p2
+            tests/reference
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13.5'
+      - name: Verify frozen trees and run combined gates
+        env:
+          MODE: ${{ matrix.mode }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          exec > >(tee staging.log) 2>&1
+          test "$(git rev-parse HEAD)" = "$GITHUB_SHA"
+          printf 'staging=%s mode=%s\n' "$GITHUB_SHA" "$MODE"
+          root=implementation/partition_feedback_final
+          same_tree() {
+            test "$(git rev-parse "HEAD:$2")" = "$(git rev-parse "$1:$2")"
+            git ls-tree HEAD "$2"
+          }
+          same_tree f97dba1ecfc83ff4ed3452c26e949b262c87733a "$root/selector_v2"
+          same_tree a563e1b54f5e3c57edcb7d74cde96259fc7d3fc1 tests/reference
+          same_tree 096fd14b684624d00c68071db7450f4c0b9c717f "$root/research/p3-m3/evidence"
+          for file in adapter.py gateway.py strict_ledger.py test_p3_m3_integration.py; do
+            same_tree edc6425b4560652b66d3342a6d9ec53b9c307efc "research/interface/p2/$file"
+          done
+          export PYTHONPATH="$PWD/$root"
+          export P3_M3_PROOF="$PWD/tests/reference"
+          export P3_M3_EVIDENCE="$PWD/$root/research/p3-m3/evidence"
+          flags=(-B -u)
+          if [[ "$MODE" == optimized ]]; then flags+=(-O); fi
+          ulimit -v 1572864
+          python "${flags[@]}" -m unittest discover -s "$root/selector_v2/tests" -v
+          python "${flags[@]}" -m unittest discover -s "$P3_M3_PROOF" -p 'test_p3_frontier*.py' -v
+          (
+            cd research/interface/p2
+            python "${flags[@]}" -m unittest -v test_p3_contract test_gateway_v2 \
+              test_p3_m3_integration test_p3_staging
+          )
+          export PYTHONPATH="$PYTHONPATH:$P3_M3_PROOF"
+          python "${flags[@]}" "$root/research/p3-m4/run_native.py" \
+            --memory-mib 1536 --output "$RUNNER_TEMP/m4-native"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: staging-${{ matrix.mode }}
+          path: staging.log
