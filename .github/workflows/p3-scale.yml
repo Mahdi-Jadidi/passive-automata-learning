@@ -1,0 +1,55 @@
+name: P3 scale experiment
+
+on:
+  push:
+    branches: [research/v2-scale-experiment]
+    paths:
+      - ".github/workflows/p3-scale.yml"
+      - "implementation/partition_feedback_final/selector_v2/scale_*.py"
+      - "implementation/partition_feedback_final/research/p3-scale/*.py"
+  workflow_dispatch:
+
+jobs:
+  profile:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        memory: [512, 1536]
+        optimized: ["", "-O"]
+    env:
+      PYTHONPATH: implementation/partition_feedback_final
+      SCALE: implementation/partition_feedback_final/research/p3-scale
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          sparse-checkout: implementation/partition_feedback_final
+      - uses: actions/checkout@v4
+        with:
+          ref: 8484b8bff5b93e1be3a7924697161efc34e481d8
+          path: frozen-fixtures
+          sparse-checkout: benchmarks/v2/p3/inputs
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13.5"
+      - name: Literal parity and phase profiles
+        run: |
+          python -B ${{ matrix.optimized }} -m unittest discover -s "$SCALE" -v
+          mkdir evidence
+          profile() {
+            python -B ${{ matrix.optimized }} "$SCALE/profile_scale.py" \
+              "frozen-fixtures/benchmarks/v2/p3/inputs/$1.json" "$2" \
+              --memory-mib ${{ matrix.memory }} --output "evidence/$1-$2.json"
+          }
+          profile huge_choice_active sparse
+          profile huge_choice_active compact
+          for case in hdfs_1024 hdfs_holdout_1024_uncapped; do
+            for arm in literal join target; do
+              profile "$case" "$arm"
+            done
+          done
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: scale-${{ matrix.memory }}${{ matrix.optimized }}
+          path: evidence/
