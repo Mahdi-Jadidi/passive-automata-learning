@@ -26,4 +26,20 @@ python -B benchmarks/v2/review10_compact.py --compact-config /path/to/pinned-con
   --case huge_choice_active --memory-mib 512 --journal-origin retained --output /tmp/review10-pair
 ```
 
-The compact CLI and paired results remain pending the native search pin. The existing standalone compact root checkpoint does not establish search completion.
+The driver above expects a CLI adapter. The published native API gate below supplied the executed comparison.
+
+## Executed compact pair
+
+Agent #6's native entry point and workflow were pinned at `23883be28cbde727443d8d3c5d2a723d924e3aec`. The same six jobs ran both interpreter modes and both memory profiles. Search used 25 cooperative seconds, 10 million work units, 2 million entries and a 64 MiB frontier cap. The large searches and replay had separate 30-second process deadlines. The large gate regenerated the journal through the authoritative adapter and checked byte parity with the retained journal and independently reconstructed scope before search. The large gate ran mode one. Native fixtures ran modes one and all, with independent v2 proof replay and deterministic resume checks.
+
+The 200 native routes independently verified. All 32 contracted medium and huge routes remained incomplete. At the huge contracted root, compact completed the compatibility check in all four memory and interpreter combinations with 1,130,014 work units per check. Dense and sparse hit their root check caps. Root compatibility and whole-search completion are reported separately. Timing and process RSS belong to the measured stage. The native gate reports search counters but does not isolate per-route process RSS. These observations do not estimate time to optimum on the large fixtures.
+
+```sh
+gh run download 46021645996 -R Mahdi-Jadidi/passive-automata-learning -D /tmp/review10-scale-ci
+python -B benchmarks/v2/review10_scale_export.py /tmp/review10-scale-ci benchmarks/v2/results/review10-scale
+```
+
+[Native compact CI and exact command log](https://github.com/Mahdi-Jadidi/passive-automata-learning/actions/runs/46021645996)
+[History provenance CI](https://github.com/Mahdi-Jadidi/passive-automata-learning/actions/runs/46021650707)
+
+The frozen CLI pairing driver above covers a separate Review09-style end-to-end budget, including HDFS. The executed native gate used the published Agent #6 API and separate stage deadlines as documented here.
