@@ -1,0 +1,104 @@
+name: P3 M3 offline interface
+
+on:
+  push:
+    branches: [research/v2-interface-audit]
+    paths:
+      - .github/workflows/p3-m3-interface.yml
+      - research/interface/p2/**
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  offline-admission:
+    name: offline-admission (${{ matrix.mode }})
+    runs-on: ubuntu-24.04
+    timeout-minutes: 12
+    strategy:
+      fail-fast: false
+      matrix:
+        mode: [normal, optimized]
+    env:
+      PRODUCER_PIN: 9a361f6fa59414cc0ac262154d87c37f5aed0403
+      PROOF_PIN: 316d4430538b8a9ef0c707b8c46727a830d42321
+      RETAINED_PIN: 096fd14b684624d00c68071db7450f4c0b9c717f
+    steps:
+      - name: Checkout interface
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          sparse-checkout: research/interface/p2
+          persist-credentials: false
+      - name: Checkout exact producer and authoritative ledger
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          ref: ${{ env.PRODUCER_PIN }}
+          path: pinned-producer
+          sparse-checkout: implementation/partition_feedback_final/selector_v2
+          persist-credentials: false
+      - name: Checkout independent verifier and oracle
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          ref: ${{ env.PROOF_PIN }}
+          path: pinned-proof
+          sparse-checkout: tests/reference
+          persist-credentials: false
+      - name: Checkout retained fresh, partial and resumed proof files
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          ref: ${{ env.RETAINED_PIN }}
+          path: pinned-retained
+          sparse-checkout: implementation/partition_feedback_final/research/p3-m3/evidence
+          persist-credentials: false
+      - name: Set up Python 3.13.5
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.13.5"
+          check-latest: false
+      - name: Verify checkout and source pins
+        shell: bash
+        run: |
+          set -euo pipefail
+          test "$(git rev-parse HEAD)" = "$GITHUB_SHA"
+          test "$(git -C pinned-producer rev-parse HEAD)" = "$PRODUCER_PIN"
+          test "$(git -C pinned-proof rev-parse HEAD)" = "$PROOF_PIN"
+          test "$(git -C pinned-retained rev-parse HEAD)" = "$RETAINED_PIN"
+          test "$(git hash-object --no-filters research/interface/p2/gateway.py)" = 8b314e11c0d935122779365b08666c482697621f
+          test "$(git hash-object --no-filters research/interface/p2/adapter.py)" = c38e441c7327a44adad8a0fe1125d45c93e8ef69
+          test "$(git hash-object --no-filters research/interface/p2/strict_ledger.py)" = a66975de137e3ec556b8c7aacd108cf975c46344
+          core=pinned-producer/implementation/partition_feedback_final/selector_v2
+          proof=pinned-proof/tests/reference
+          test "$(git hash-object --no-filters "$core/edr_m3.py")" = 6dd0bdbc2d9436c2eeb15cc0812cf8a6fcf18655
+          test "$(git hash-object --no-filters "$core/edr_cross.py")" = c82e137d277644e6d880fb4295b674d897ef70d1
+          test "$(git hash-object --no-filters "$core/component_closure.py")" = 97844bc266556cc04cd54a75c0d57dc00d6709ea
+          test "$(git hash-object --no-filters "$core/registered_ledger.py")" = 092507fc156e604be242e3100117fedc27b96d04
+          test "$(git hash-object --no-filters "$proof/p3_frontier_verifier.py")" = 52e83aa9fdc952aacd7955e6d4ec1783e2fa4030
+          test "$(git hash-object --no-filters "$proof/p3_rgs12_oracle.py")" = da28e66ca4ff74388be79bf9549c8e02f0c60410
+          test "$(git hash-object --no-filters "$proof/p3_m3_artifact_replay.py")" = 8b1225295c1aad263e7003397cc0edc24b309259
+          test "$(git hash-object --no-filters "$proof/journal_v2_replay.py")" = 6c49013e809b5ac4d2b2a37850e6e6cece513072
+      - name: Run offline admission and v1 regressions
+        working-directory: research/interface/p2
+        env:
+          PYTHONPATH: ${{ github.workspace }}/pinned-producer/implementation/partition_feedback_final
+          P3_M3_PROOF: ${{ github.workspace }}/pinned-proof/tests/reference
+          P3_M3_EVIDENCE: ${{ github.workspace }}/pinned-retained/implementation/partition_feedback_final/research/p3-m3/evidence
+          PYTHON_MODE: ${{ matrix.mode }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          flags=(-B -u)
+          if [[ "$PYTHON_MODE" == optimized ]]; then flags+=(-O); fi
+          ulimit -v 1572864
+          {
+            printf 'interface=%s producer=%s proof=%s retained=%s mode=%s address_space_kib=%s\n' \
+              "$GITHUB_SHA" "$PRODUCER_PIN" "$PROOF_PIN" "$RETAINED_PIN" "$PYTHON_MODE" "$(ulimit -v)"
+            /usr/bin/time -v python "${flags[@]}" -m unittest -v test_p3_contract test_gateway_v2 test_p3_m3_integration
+          } 2>&1 | tee m3-offline.log
+      - name: Upload replay logs
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: p3-m3-offline-${{ github.run_id }}-${{ github.run_attempt }}-${{ matrix.mode }}
+          path: research/interface/p2/m3-offline.log
+          if-no-files-found: warn

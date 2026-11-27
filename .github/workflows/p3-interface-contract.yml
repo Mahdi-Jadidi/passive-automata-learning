@@ -1,0 +1,50 @@
+name: P3 interface boundary contract
+
+on:
+  push:
+    branches:
+      - research/v2-interface-audit
+    paths:
+      - research/interface/p2/**
+      - .github/workflows/p3-interface-contract.yml
+
+permissions:
+  contents: read
+
+jobs:
+  interface-contract:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - name: Checkout interface branch
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          ref: ${{ github.sha }}
+          sparse-checkout: research/interface/p2
+
+      - name: Checkout pinned core
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          repository: Mahdi-Jadidi/passive-automata-learning
+          ref: 4e21dbf0d06c030681e774cb15f1a5cf0c802f0d
+          path: pinned-core
+          sparse-checkout: implementation/partition_feedback_final
+          persist-credentials: false
+
+      - name: Set up Python 3.13.5
+        uses: actions/setup-python@v5
+        with:
+          python-version: 3.13.5
+          check-latest: false
+
+      - name: Run interface contract in normal mode
+        working-directory: research/interface/p2
+        env:
+          PYTHONPATH: ${{ github.workspace }}/pinned-core/implementation/partition_feedback_final
+        run: python -B -m unittest -v test_p3_contract test_gateway_v2
+
+      - name: Run interface contract in optimized mode
+        working-directory: research/interface/p2
+        env:
+          PYTHONPATH: ${{ github.workspace }}/pinned-core/implementation/partition_feedback_final
+        run: python -B -O -m unittest -v test_p3_contract test_gateway_v2

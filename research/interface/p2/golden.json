@@ -1,0 +1,108 @@
+[
+  {
+    "name": "unicode_duplicates_epsilon",
+    "raw": {
+      "alphabet": [
+        "\u03b2",
+        "a",
+        "\u672a"
+      ],
+      "positive": [
+        [
+          "\u03b2",
+          "a"
+        ],
+        []
+      ],
+      "negative": [
+        [
+          "a",
+          "\u03b2"
+        ],
+        [
+          "a",
+          "\u03b2"
+        ],
+        [
+          "a",
+          "\u03b2",
+          "\u03b2"
+        ]
+      ]
+    },
+    "canonical": "[\"sample-v2\",[\"\\u03b2\",\"a\",\"\\u672a\"],[[0,1],[]],[[1,0],[1,0],[1,0,0]]]",
+    "sha256": "dc0fb5b6ae1d4b0e5b4db7f3e839f9117d8ee3d410e5f4c31cd8ad7b64079c27"
+  },
+  {
+    "name": "declaration_order",
+    "raw": {
+      "alphabet": [
+        "a",
+        "\u03b2",
+        "\u672a"
+      ],
+      "positive": [
+        [
+          "\u03b2",
+          "a"
+        ],
+        []
+      ],
+      "negative": [
+        [
+          "a",
+          "\u03b2"
+        ],
+        [
+          "a",
+          "\u03b2"
+        ],
+        [
+          "a",
+          "\u03b2",
+          "\u03b2"
+        ]
+      ]
+    },
+    "canonical": "[\"sample-v2\",[\"a\",\"\\u03b2\",\"\\u672a\"],[[1,0],[]],[[0,1],[0,1],[0,1,1]]]",
+    "sha256": "b79bc32d4335cf3e0046e901058b00ec89d692f424b8214ec9ed00bad76b634f"
+  },
+  {
+    "name": "empty_alphabet_raw",
+    "raw": {
+      "alphabet": [],
+      "positive": [
+        []
+      ],
+      "negative": []
+    },
+    "canonical": "[\"sample-v2\",[],[[]],[]]",
+    "sha256": "55860bacb2ab0d7ee214c489b206145a14d1276e4a8fbbb17d547c3f1fdf89c9"
+  },
+  {
+    "name": "astral_and_escape",
+    "raw": {
+      "alphabet": [
+        "\ud83d\ude00",
+        "\\",
+        "\n",
+        "\""
+      ],
+      "positive": [
+        [
+          "\ud83d\ude00",
+          "\\"
+        ]
+      ],
+      "negative": [
+        [],
+        [
+          "\n",
+          "\""
+        ]
+      ]
+    },
+    "canonical": "[\"sample-v2\",[\"\\ud83d\\ude00\",\"\\\\\",\"\\n\",\"\\\"\"],[[0,1]],[[],[2,3]]]",
+    "sha256": "782f57dc844261699abd6c6b25988db1facddfe470d59a39c469bd794b151e1a"
+  }
+]

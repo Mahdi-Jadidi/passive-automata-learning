@@ -1,0 +1,183 @@
+name: P3 native certificate-to-ledger integration
+
+on:
+  push:
+    branches:
+      - research/v2-interface-audit
+    paths:
+      - research/interface/p2/test_p3_native_integration.py
+      - research/interface/p2/test_p3_contract.py
+      - .github/workflows/p3-native-integration.yml
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  actions: read
+
+jobs:
+  native-integration:
+    runs-on: ubuntu-24.04
+    name: native-integration (${{ matrix.python_mode }})
+    timeout-minutes: 45
+    strategy:
+      fail-fast: false
+      matrix:
+        python_mode: [normal, optimized]
+    env:
+      CORE_RUN: "45592454384"
+      CORE_PIN: "391abf97df3b67661082c907d9ce20b4f69636c2"
+      SMALL_ALL_RUN: "45593819618"
+      SMALL_ALL_WORKFLOW_PIN: "f8de4b6b14b3840d699d3c47ccc06a71eb5e04ae"
+      PROOF_PIN: "d89bab4c005d17c8b27d4c1e6dd291135aca649a"
+      CORE_LEDGER_PIN: "4e21dbf0d06c030681e774cb15f1a5cf0c802f0d"
+    steps:
+      - name: Checkout interface branch
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          ref: ${{ github.sha }}
+          sparse-checkout: research/interface/p2
+          persist-credentials: false
+
+      - name: Checkout exact producer source
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          repository: Mahdi-Jadidi/passive-automata-learning
+          ref: ${{ env.CORE_PIN }}
+          path: pinned-producer
+          sparse-checkout: |
+            implementation/partition_feedback_final/selector_v2
+            implementation/partition_feedback_final/research/p3-m2
+          persist-credentials: false
+
+      - name: Checkout expanded small-all workflow pin
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          repository: Mahdi-Jadidi/passive-automata-learning
+          ref: ${{ env.SMALL_ALL_WORKFLOW_PIN }}
+          path: pinned-small-all-workflow
+          sparse-checkout: .github/workflows/p3-core-m2-small-all.yml
+          persist-credentials: false
+
+      - name: Checkout independent proof verifier
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          repository: Mahdi-Jadidi/passive-automata-learning
+          ref: ${{ env.PROOF_PIN }}
+          path: pinned-proof
+          sparse-checkout: tests/reference
+          persist-credentials: false
+
+      - name: Checkout authoritative core ledger
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          repository: Mahdi-Jadidi/passive-automata-learning
+          ref: ${{ env.CORE_LEDGER_PIN }}
+          path: pinned-core
+          sparse-checkout: implementation/partition_feedback_final/selector_v2
+          persist-credentials: false
+
+      - name: Set up Python 3.13.5
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.13.5"
+          check-latest: false
+
+      - name: Verify exact interface, producer, verifier and core source pins
+        shell: bash
+        run: |
+          set -euo pipefail
+          test "$(git rev-parse HEAD)" = "$GITHUB_SHA"
+          test "$(git hash-object research/interface/p2/gateway.py)" = 8b314e11c0d935122779365b08666c482697621f
+          test "$(git hash-object research/interface/p2/adapter.py)" = c38e441c7327a44adad8a0fe1125d45c93e8ef69
+          test "$(git hash-object research/interface/p2/strict_ledger.py)" = a66975de137e3ec556b8c7aacd108cf975c46344
+
+          test "$(git -C pinned-producer rev-parse HEAD)" = "$CORE_PIN"
+          test "$(git -C pinned-producer hash-object implementation/partition_feedback_final/selector_v2/edr_search.py)" = 73da7bea551df73a8676b0adf0401cd7f2d307b5
+          test "$(git -C pinned-producer hash-object implementation/partition_feedback_final/selector_v2/edr_bb.py)" = 657c4e0e4059b32cd9e6477e61c7a3673290f36d
+          test "$(git -C pinned-producer hash-object implementation/partition_feedback_final/research/p3-m2/run_case.py)" = 9dd3c684dcae20dc5dec946878d61ac9647eb535
+
+          test "$(git -C pinned-small-all-workflow rev-parse HEAD)" = "$SMALL_ALL_WORKFLOW_PIN"
+          test "$(git -C pinned-small-all-workflow hash-object .github/workflows/p3-core-m2-small-all.yml)" = 1bde518e6e2036a74295f7287e54fc926f404687
+
+          test "$(git -C pinned-proof rev-parse HEAD)" = "$PROOF_PIN"
+          test "$(git -C pinned-proof hash-object tests/reference/p3_frontier_verifier.py)" = 540a7cf9e7b048684d3ea03def744175ae629b65
+          test "$(git -C pinned-proof hash-object tests/reference/p3_rgs12_oracle.py)" = da28e66ca4ff74388be79bf9549c8e02f0c60410
+
+          test "$(git -C pinned-core rev-parse HEAD)" = "$CORE_LEDGER_PIN"
+          test "$(git -C pinned-core hash-object implementation/partition_feedback_final/selector_v2/registered_ledger.py)" = 092507fc156e604be242e3100117fedc27b96d04
+
+          printf 'interface=%s\nproducer_run=%s\nproducer_commit=%s\nproof_commit=%s\ncore_ledger_commit=%s\n' \
+            "$GITHUB_SHA" "$CORE_RUN" "$CORE_PIN" "$PROOF_PIN" "$CORE_LEDGER_PIN"
+
+      - name: Download actual tiny_choice one certificate artifact
+        uses: actions/download-artifact@v4
+        with:
+          github-token: ${{ github.token }}
+          run-id: ${{ env.CORE_RUN }}
+          name: p3-m2-tiny_choice-one
+          path: incoming/p3-m2-tiny_choice-one
+
+      - name: Download actual tiny_choice all certificate artifact
+        uses: actions/download-artifact@v4
+        with:
+          github-token: ${{ github.token }}
+          run-id: ${{ env.CORE_RUN }}
+          name: p3-m2-tiny_choice-all
+          path: incoming/p3-m2-tiny_choice-all
+
+      - name: Download actual small_choice one certificate artifact
+        uses: actions/download-artifact@v4
+        with:
+          github-token: ${{ github.token }}
+          run-id: ${{ env.CORE_RUN }}
+          name: p3-m2-small_choice-one
+          path: incoming/p3-m2-small_choice-one
+
+      - name: Download actual small_choice all certificate artifact
+        uses: actions/download-artifact@v4
+        with:
+          github-token: ${{ github.token }}
+          run-id: ${{ env.SMALL_ALL_RUN }}
+          name: p3-m2-small_choice-all-expanded
+          path: incoming/p3-m2-small_choice-all
+
+      - name: Run gateway and journal/2 regressions
+        working-directory: research/interface/p2
+        env:
+          PYTHONPATH: ${{ github.workspace }}/pinned-core/implementation/partition_feedback_final
+          PYTHON_MODE: ${{ matrix.python_mode }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          flags=(-B)
+          if [[ "$PYTHON_MODE" == optimized ]]; then flags+=(-O); fi
+          mkdir -p integration-logs
+          python "${flags[@]}" -m unittest -v test_p3_contract test_gateway_v2 2>&1 | tee integration-logs/regressions.log
+
+      - name: Verify and register all four actual M2 certificates
+        working-directory: research/interface/p2
+        env:
+          PYTHONPATH: ${{ github.workspace }}/pinned-core/implementation/partition_feedback_final
+          P3_EVIDENCE_ROOT: ${{ github.workspace }}/incoming
+          P3_PROOF_ROOT: ${{ github.workspace }}/pinned-proof
+          PYTHON_MODE: ${{ matrix.python_mode }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          flags=(-B -u)
+          if [[ "$PYTHON_MODE" == optimized ]]; then flags+=(-O); fi
+          ulimit -v 13631488
+          {
+            printf 'interface=%s run=%s attempt=%s mode=%s address_space_kib=%s\n' "$GITHUB_SHA" "$GITHUB_RUN_ID" "$GITHUB_RUN_ATTEMPT" "$PYTHON_MODE" "$(ulimit -v)"
+            /usr/bin/time -v python "${flags[@]}" -m unittest -v test_p3_native_integration
+          } 2>&1 | tee integration-logs/native.log
+
+      - name: Upload reproducible interface integration logs
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: p3-native-interface-${{ github.run_id }}-${{ github.run_attempt }}-${{ matrix.python_mode }}
+          path: |
+            research/interface/p2/integration-logs/
+            incoming/*/summary.json
+          if-no-files-found: error

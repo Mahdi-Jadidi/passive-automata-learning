@@ -1,0 +1,645 @@
+{
+  "q": {
+    "schema": "audit-v1",
+    "requestId": "try-1",
+    "sampleDigest": "mock-sample",
+    "regimeDigest": "mock-unbounded",
+    "serviceVersion": "mock-only",
+    "family": "all",
+    "alphabet": [
+      "a",
+      "b",
+      "unused"
+    ],
+    "blocks": [
+      [
+        "a"
+      ],
+      [
+        "b"
+      ],
+      [
+        "unused"
+      ]
+    ],
+    "positives": [
+      {
+        "id": "p7",
+        "word": [
+          "a",
+          "b"
+        ]
+      }
+    ],
+    "negatives": [
+      {
+        "id": "n9",
+        "word": [
+          "b",
+          "a"
+        ]
+      },
+      {
+        "id": "n2",
+        "word": [
+          "b",
+          "a",
+          "a"
+        ]
+      },
+      {
+        "id": "n5",
+        "word": [
+          "a",
+          "b",
+          "a"
+        ]
+      },
+      {
+        "id": "n8",
+        "word": [
+          "b",
+          "a"
+        ]
+      }
+    ],
+    "mode": "unrestricted",
+    "bounds": null
+  },
+  "no": {
+    "status": "PROJECTION_NO",
+    "complete": true,
+    "binding": {
+      "requestId": "try-1",
+      "sampleDigest": "mock-sample",
+      "regimeDigest": "mock-unbounded",
+      "serviceVersion": "mock-only",
+      "family": "all",
+      "schema": "audit-v1",
+      "blocks": [
+        [
+          "a"
+        ],
+        [
+          "b"
+        ],
+        [
+          "unused"
+        ]
+      ],
+      "mode": "unrestricted",
+      "bounds": null,
+      "negativeIds": [
+        "n9",
+        "n2",
+        "n5",
+        "n8"
+      ]
+    },
+    "failed": "n9",
+    "tables": [
+      {
+        "kind": "unrestricted_base",
+        "complete": true,
+        "block": [
+          "a"
+        ],
+        "zeros": [
+          {
+            "negative": "n9",
+            "positive": "p7"
+          },
+          {
+            "negative": "n8",
+            "positive": null
+          }
+        ],
+        "free": [
+          [
+            "n2",
+            "n5"
+          ]
+        ]
+      },
+      {
+        "kind": "unrestricted_base",
+        "complete": true,
+        "block": [
+          "b"
+        ],
+        "zeros": [
+          {
+            "negative": "n9",
+            "positive": "p7"
+          },
+          {
+            "negative": "n2",
+            "positive": null
+          },
+          {
+            "negative": "n5",
+            "positive": null
+          },
+          {
+            "negative": "n8",
+            "positive": null
+          }
+        ],
+        "free": []
+      },
+      {
+        "kind": "unrestricted_base",
+        "complete": true,
+        "block": [
+          "unused"
+        ],
+        "zeros": [
+          {
+            "negative": "n9",
+            "positive": "p7"
+          },
+          {
+            "negative": "n2",
+            "positive": null
+          },
+          {
+            "negative": "n5",
+            "positive": null
+          },
+          {
+            "negative": "n8",
+            "positive": null
+          }
+        ],
+        "free": []
+      }
+    ]
+  },
+  "aq": {
+    "schema": "audit-v1",
+    "requestId": "try-2",
+    "sampleDigest": "mock-sample",
+    "regimeDigest": "mock-unbounded",
+    "serviceVersion": "mock-only",
+    "family": "all",
+    "alphabet": [
+      "a",
+      "b",
+      "unused"
+    ],
+    "blocks": [
+      [
+        "a",
+        "b"
+      ],
+      [
+        "unused"
+      ]
+    ],
+    "positives": [
+      {
+        "id": "p7",
+        "word": [
+          "a",
+          "b"
+        ]
+      }
+    ],
+    "negatives": [
+      {
+        "id": "n9",
+        "word": [
+          "b",
+          "a"
+        ]
+      },
+      {
+        "id": "n2",
+        "word": [
+          "b",
+          "a",
+          "a"
+        ]
+      },
+      {
+        "id": "n5",
+        "word": [
+          "a",
+          "b",
+          "a"
+        ]
+      },
+      {
+        "id": "n8",
+        "word": [
+          "b",
+          "a"
+        ]
+      }
+    ],
+    "mode": "unrestricted",
+    "bounds": null
+  },
+  "yes": {
+    "status": "ACCEPT",
+    "complete": true,
+    "binding": {
+      "requestId": "try-2",
+      "sampleDigest": "mock-sample",
+      "regimeDigest": "mock-unbounded",
+      "serviceVersion": "mock-only",
+      "family": "all",
+      "schema": "audit-v1",
+      "blocks": [
+        [
+          "a",
+          "b"
+        ],
+        [
+          "unused"
+        ]
+      ],
+      "mode": "unrestricted",
+      "bounds": null,
+      "negativeIds": [
+        "n9",
+        "n2",
+        "n5",
+        "n8"
+      ]
+    },
+    "dfas": [
+      {
+        "block": [
+          "a",
+          "b"
+        ],
+        "states": [
+          "s",
+          "a",
+          "ok",
+          "sink"
+        ],
+        "initial": "s",
+        "accepting": [
+          "ok"
+        ],
+        "transitions": [
+          [
+            "s",
+            "a",
+            "a"
+          ],
+          [
+            "s",
+            "b",
+            "sink"
+          ],
+          [
+            "a",
+            "a",
+            "sink"
+          ],
+          [
+            "a",
+            "b",
+            "ok"
+          ],
+          [
+            "ok",
+            "a",
+            "sink"
+          ],
+          [
+            "ok",
+            "b",
+            "sink"
+          ],
+          [
+            "sink",
+            "a",
+            "sink"
+          ],
+          [
+            "sink",
+            "b",
+            "sink"
+          ]
+        ]
+      },
+      {
+        "block": [
+          "unused"
+        ],
+        "states": [
+          "yes"
+        ],
+        "initial": "yes",
+        "accepting": [
+          "yes"
+        ],
+        "transitions": [
+          [
+            "yes",
+            "unused",
+            "yes"
+          ]
+        ]
+      }
+    ]
+  },
+  "bq": {
+    "schema": "audit-v1",
+    "requestId": "try-3",
+    "sampleDigest": "mock-sample",
+    "regimeDigest": "mock-bounded",
+    "serviceVersion": "mock-only",
+    "family": "all",
+    "alphabet": [
+      "a",
+      "b",
+      "unused"
+    ],
+    "blocks": [
+      [
+        "a",
+        "b"
+      ],
+      [
+        "unused"
+      ]
+    ],
+    "positives": [
+      {
+        "id": "p7",
+        "word": [
+          "a",
+          "b"
+        ]
+      }
+    ],
+    "negatives": [
+      {
+        "id": "n9",
+        "word": [
+          "b",
+          "a"
+        ]
+      },
+      {
+        "id": "n2",
+        "word": [
+          "b",
+          "a",
+          "a"
+        ]
+      },
+      {
+        "id": "n5",
+        "word": [
+          "a",
+          "b",
+          "a"
+        ]
+      },
+      {
+        "id": "n8",
+        "word": [
+          "b",
+          "a"
+        ]
+      }
+    ],
+    "mode": "bounded",
+    "bounds": [
+      1,
+      1
+    ]
+  },
+  "bn": {
+    "status": "BOUNDED_NO",
+    "complete": true,
+    "binding": {
+      "requestId": "try-3",
+      "sampleDigest": "mock-sample",
+      "regimeDigest": "mock-bounded",
+      "serviceVersion": "mock-only",
+      "family": "all",
+      "schema": "audit-v1",
+      "blocks": [
+        [
+          "a",
+          "b"
+        ],
+        [
+          "unused"
+        ]
+      ],
+      "mode": "bounded",
+      "bounds": [
+        1,
+        1
+      ],
+      "negativeIds": [
+        "n9",
+        "n2",
+        "n5",
+        "n8"
+      ]
+    },
+    "exact": true
+  },
+  "bsuccess": {
+    "schema": "audit-v1",
+    "requestId": "try-4",
+    "sampleDigest": "mock-sample",
+    "regimeDigest": "mock-bounded-success",
+    "serviceVersion": "mock-only",
+    "family": "all",
+    "alphabet": [
+      "a",
+      "b",
+      "unused"
+    ],
+    "blocks": [
+      [
+        "a",
+        "b"
+      ],
+      [
+        "unused"
+      ]
+    ],
+    "positives": [
+      {
+        "id": "p7",
+        "word": [
+          "a",
+          "b"
+        ]
+      }
+    ],
+    "negatives": [
+      {
+        "id": "n9",
+        "word": [
+          "b",
+          "a"
+        ]
+      },
+      {
+        "id": "n2",
+        "word": [
+          "b",
+          "a",
+          "a"
+        ]
+      },
+      {
+        "id": "n5",
+        "word": [
+          "a",
+          "b",
+          "a"
+        ]
+      },
+      {
+        "id": "n8",
+        "word": [
+          "b",
+          "a"
+        ]
+      }
+    ],
+    "mode": "bounded",
+    "bounds": [
+      4,
+      1
+    ]
+  },
+  "byes": {
+    "status": "ACCEPT",
+    "complete": true,
+    "binding": {
+      "requestId": "try-4",
+      "sampleDigest": "mock-sample",
+      "regimeDigest": "mock-bounded-success",
+      "serviceVersion": "mock-only",
+      "family": "all",
+      "schema": "audit-v1",
+      "blocks": [
+        [
+          "a",
+          "b"
+        ],
+        [
+          "unused"
+        ]
+      ],
+      "mode": "bounded",
+      "bounds": [
+        4,
+        1
+      ],
+      "negativeIds": [
+        "n9",
+        "n2",
+        "n5",
+        "n8"
+      ]
+    },
+    "dfas": [
+      {
+        "block": [
+          "a",
+          "b"
+        ],
+        "states": [
+          "s",
+          "a",
+          "ok",
+          "sink"
+        ],
+        "initial": "s",
+        "accepting": [
+          "ok"
+        ],
+        "transitions": [
+          [
+            "s",
+            "a",
+            "a"
+          ],
+          [
+            "s",
+            "b",
+            "sink"
+          ],
+          [
+            "a",
+            "a",
+            "sink"
+          ],
+          [
+            "a",
+            "b",
+            "ok"
+          ],
+          [
+            "ok",
+            "a",
+            "sink"
+          ],
+          [
+            "ok",
+            "b",
+            "sink"
+          ],
+          [
+            "sink",
+            "a",
+            "sink"
+          ],
+          [
+            "sink",
+            "b",
+            "sink"
+          ]
+        ]
+      },
+      {
+        "block": [
+          "unused"
+        ],
+        "states": [
+          "yes"
+        ],
+        "initial": "yes",
+        "accepting": [
+          "yes"
+        ],
+        "transitions": [
+          [
+            "yes",
+            "unused",
+            "yes"
+          ]
+        ]
+      }
+    ],
+    "jointRow": [
+      [
+        1,
+        1,
+        1,
+        1
+      ],
+      [
+        0,
+        0,
+        0,
+        0
+      ]
+    ]
+  }
+}
