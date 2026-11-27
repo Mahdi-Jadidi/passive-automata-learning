@@ -27,7 +27,6 @@ censored matrix and no expanded-budget runs. A verifier exit code of 2 with
 an unresolved frontier is represented as INCOMPLETE in the verdict and CSV.
 The generic process wrapper records any nonzero exit as PROCESS_ERROR.
 
-The Review08 dense M3 evidence remains intact. The paired rank study awaits
-the immutable rank producer pin and published proof-side replay pin.
+The Review08 dense M3 evidence remains intact. The paired rank study is summarized in [RANK_REPORT.md](RANK_REPORT.md).
 
 [Actions run and retained job artifacts](https://github.com/Mahdi-Jadidi/passive-automata-learning/actions/runs/46014832411)
