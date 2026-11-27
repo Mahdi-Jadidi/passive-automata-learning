@@ -1,0 +1,46 @@
+name: P3 independent M5-A verification
+
+on:
+  push:
+    branches: [research/v2-proof-audit]
+    paths:
+      - "tests/reference/**"
+      - "research/audit/m5a-native/**"
+      - ".github/workflows/p3-m5a-independent.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  proof-only:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 12
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - mode: normal
+            flags: ""
+          - mode: optimized
+            flags: "-O"
+    name: proof-only (${{ matrix.mode }})
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          sparse-checkout: |
+            tests/reference
+            research/audit/m5a-native
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13.5"
+      - name: Pin inputs and run the full reference suite
+        run: |
+          python --version
+          git rev-parse HEAD
+          git hash-object tests/reference/p3_aefc_verifier.py tests/reference/test_p3_aefc.py
+          sha256sum research/audit/m5a-native/*/*.json
+          test ! -e implementation/partition_feedback_final/selector_v2
+          ulimit -v 1572864
+          /usr/bin/time -f 'wall=%e RSS_KiB=%M' python -B ${{ matrix.flags }} -m unittest discover -s tests/reference -v

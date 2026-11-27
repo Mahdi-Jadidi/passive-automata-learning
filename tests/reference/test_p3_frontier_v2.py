@@ -167,7 +167,8 @@ class V2Tests(unittest.TestCase):
     def test_minima_against_literal_prefixes(self):
         rng = Random(703)
         count = 0
-        budget = Budget()
+        # This exhaustive correctness check is independent of machine speed.
+        budget = Budget(seconds=120)
         for n in range(2, 9):
             cases = {(tuple(range(0, n, 2)), tuple(range(1, n, 2)))}
             for _ in range(6):

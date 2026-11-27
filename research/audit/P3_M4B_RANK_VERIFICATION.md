@@ -47,18 +47,42 @@ Run both commands from the proof checkout.
     python -m unittest discover -s tests/reference
     python -O -m unittest discover -s tests/reference
 
-For native replay, provide producer inputs under INPUTS/CASE as raw.json,
-journal.json and trusted.json. Each producer runtime directory must contain
-CASE/MODE/ARM/{complete,partial,resumed}.json with arms sparse and rank.
-Use --case repeatedly for additional fixtures or a different case list.
+## Native v3 gate
 
-    python tests/reference/p3_m4_artifact_replay.py --rank --inputs INPUTS --normal NORMAL --optimized OPTIMIZED
-    python -O tests/reference/p3_m4_artifact_replay.py --rank --inputs INPUTS --normal NORMAL --optimized OPTIMIZED
+The proof-only replay is closed for the targeted matrix at producer pin
+`579a6b3b860854b158a8d71f61855228f0c70873`, evidence tree
+`e1e38bd8c0f876ba071f584c9030a094ff80275d`. Fresh producer processes ran
+under Python 3.13.5 normal and optimized. Each reproduced the retained
+manifest, nine input files and 40 certificates byte for byte. Separate
+proof-only processes used strict expected format and mode and independently
+replayed all 40 certificates in both interpreters. Complete and resumed
+results matched literal RGS over 203 partitions per six-symbol fixture.
+Fourteen checkpoints returned INCOMPLETE without a result. The equality/all
+and strict/all v3 checkpoints each included one verified RANK_COST leaf,
+and their resumes reproduced the respective retained complete bytes.
 
-The runner compares producer interpreter bytes and completed resume
-fingerprints, checks each replay against literal RGS, requires complete
-rank closures in both modes, and reports closure counts, proof fingerprints,
-exact results and replay work. Agent #2's published branch was still at
-f97dba1ecfc83ff4ed3452c26e949b262c87733a when checked for this milestone.
-Native v3 certificates, producer pruning measurements and producer checkpoint
-evidence remain pending.
+| Rank-bearing checkpoint | Bytes | SHA-256 |
+| --- | ---: | --- |
+| equality/all | 2631 | b779bb0bb886e08a977e2c508404e09e93873989d5906a5ca32f69d74c2d34d7 |
+| strict/all | 2039 | 49ef39c46aa5f73eb51fd2779c54b7dab61ee7f338fead9e5a81b012f11535a8 |
+
+[P3_M4B_NATIVE_REPLAY.jsonl](P3_M4B_NATIVE_REPLAY.jsonl) contains identical
+normal/optimized replay records, including input and certificate SHA-256s,
+Git blob hashes, closure counts and results. Its SHA-256 is
+`562d4ffa2dd719d8008b939fac3dd9cbc61fe9c1fa61852acafaa38a660825ac`.
+
+Set PYTHONPATH to the proof tests and producer implementation directories for
+the producer commands only. Use a separate process from the proof checkout
+for the two replay commands. RETAINED is the pinned producer checkout's
+`implementation/partition_feedback_final/research/p3-m4/evidence/rank-targeted`.
+
+    python PRODUCER/implementation/partition_feedback_final/research/p3-m4/run_rank.py --output NORMAL --case equality --case strict --case fractional
+    python -O PRODUCER/implementation/partition_feedback_final/research/p3-m4/run_rank.py --output OPTIMIZED --case equality --case strict --case fractional
+    python tests/reference/p3_rank_pin_replay.py RETAINED NORMAL OPTIMIZED
+    python -O tests/reference/p3_rank_pin_replay.py RETAINED NORMAL OPTIMIZED
+
+This replay covers the published targeted cases. Producer CI
+[46016164222](https://github.com/Mahdi-Jadidi/passive-automata-learning/actions/runs/46016164222)
+covers the broader producer matrix and Linux process memory profiles.
+See the [M5-A report](P3_M5A_AEFC_VERIFICATION.md) for the final full
+reference regression and proof-only CI.
