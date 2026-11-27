@@ -80,7 +80,8 @@ def pipeline(args, config, root, raw, producer, verifier, interface, mode, runti
                  for arg in ("--" + key, str(caps[field]))]
         if expected:
             argv += config.get("replay_flags", [])
-            argv += ["--expected-format", "p3-region-frontier/v2", "--expected-mode", mode]
+            argv += ["--expected-format", config.get("expected_format", "p3-region-frontier/v2"),
+                     "--expected-mode", mode]
         return cli(runtime, verifier, "p3_frontier_verifier", argv)
 
     values = dict(input=raw, journal=journal, scope=scope, mode=mode,

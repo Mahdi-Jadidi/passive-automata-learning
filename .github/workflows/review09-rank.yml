@@ -1,0 +1,54 @@
+name: Review09 paired sparse rank benchmark
+on:
+  push:
+    branches: [research/v2-benchmarks]
+    paths:
+      - .github/workflows/review09-rank.yml
+      - benchmarks/v2/review09_rank.py
+      - benchmarks/v2/p3/review09-rank.json
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  pipeline:
+    runs-on: ubuntu-24.04
+    strategy:
+      fail-fast: false
+      matrix:
+        case: [medium_choice, huge_choice_active, hdfs_1024, hdfs_holdout_1024_uncapped, tiny_choice, small_choice, cover_path_8, equality, strict, fractional]
+        memory: [512, 1536]
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+          sparse-checkout: benchmarks/v2
+      - uses: actions/checkout@v4
+        with:
+          ref: 579a6b3b860854b158a8d71f61855228f0c70873
+          path: source-core
+          persist-credentials: false
+          sparse-checkout: |
+            implementation/partition_feedback_final/selector_v2
+            implementation/partition_feedback_final/research/p3-m4/rank-inputs
+      - uses: actions/checkout@v4
+        with:
+          ref: 98e913a7e15d32638319832fc69edb36edb2f505
+          path: source-proof
+          persist-credentials: false
+          sparse-checkout: tests/reference
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13.5"
+      - name: Run bounded rank pair
+        run: |
+          python -B benchmarks/v2/review09_rank.py --case ${{ matrix.case }} \
+            --memory-mib ${{ matrix.memory }} --producer source-core --verifier source-proof \
+            --output "$RUNNER_TEMP/review09"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: review09-rank-${{ matrix.case }}-${{ matrix.memory }}
+          path: |
+            ${{ runner.temp }}/review09
+            !${{ runner.temp }}/review09/*-source/**
+          if-no-files-found: error
