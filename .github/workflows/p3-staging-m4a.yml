@@ -53,14 +53,16 @@ jobs:
           flags=(-B -u)
           if [[ "$MODE" == optimized ]]; then flags+=(-O); fi
           ulimit -v 1572864
-          python "${flags[@]}" -m unittest discover -s "$root/selector_v2/tests" -v
+          PYTHONPATH="$PYTHONPATH:$P3_M3_PROOF" python "${flags[@]}" -m unittest discover -s "$root/selector_v2/tests" -v
           python "${flags[@]}" -m unittest discover -s "$P3_M3_PROOF" -p 'test_p3_frontier*.py' -v
           (
             cd research/interface/p2
             python "${flags[@]}" -m unittest -v test_p3_contract test_gateway_v2 \
               test_p3_m3_integration test_p3_staging
           )
-          export PYTHONPATH="$PYTHONPATH:$P3_M3_PROOF"
+          export PYTHONPATH="$PYTHONPATH:$P3_M3_PROOF:$PWD/$root/selector_v2/tests"
+          python "${flags[@]}" -m unittest discover -s "$root/research/p3-m3" -v
+          python "${flags[@]}" -m unittest discover -s "$root/research/p3-m4" -v
           python "${flags[@]}" "$root/research/p3-m4/run_native.py" \
             --memory-mib 1536 --output "$RUNNER_TEMP/m4-native"
       - uses: actions/upload-artifact@v4
