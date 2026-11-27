@@ -1,0 +1,51 @@
+name: P3 core region engine M1
+
+on:
+  push:
+    branches:
+      - research/v2-implementation-core
+    paths:
+      - implementation/partition_feedback_final/selector_v2/**
+      - .github/workflows/p3-core-m1.yml
+
+permissions:
+  contents: read
+
+jobs:
+  region-engine:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - name: Checkout exact producer commit
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          ref: ${{ github.sha }}
+          persist-credentials: false
+
+      - name: Set up Python 3.13.5
+        uses: actions/setup-python@v5
+        with:
+          python-version: 3.13.5
+          check-latest: false
+
+      - name: Verify exact P3 M1 source blobs
+        run: |
+          test "$(git hash-object implementation/partition_feedback_final/selector_v2/edr_bb.py)" = "657c4e0e4059b32cd9e6477e61c7a3673290f36d"
+          test "$(git hash-object implementation/partition_feedback_final/selector_v2/tests/test_edr_bb.py)" = "b45a34b223b6d294373bd45b4f59c0059b5a983e"
+
+      - name: Run P3 region tests in normal mode
+        env:
+          PYTHONPATH: ${{ github.workspace }}/implementation/partition_feedback_final
+        run: python -B -m unittest discover -s implementation/partition_feedback_final/selector_v2/tests -p 'test_edr_bb.py' -v
+
+      - name: Run P3 region tests in optimized mode
+        env:
+          PYTHONPATH: ${{ github.workspace }}/implementation/partition_feedback_final
+        run: python -B -O -m unittest discover -s implementation/partition_feedback_final/selector_v2/tests -p 'test_edr_bb.py' -v
+
+      - name: Compile selector sources in both modes
+        env:
+          PYTHONPATH: ${{ github.workspace }}/implementation/partition_feedback_final
+        run: |
+          python -B -m compileall -q implementation/partition_feedback_final/selector_v2
+          python -B -O -m compileall -q implementation/partition_feedback_final/selector_v2

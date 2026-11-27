@@ -1,0 +1,61 @@
+name: P3 core M3 opt-in search
+on:
+  push:
+    branches: [research/v2-implementation-core]
+    paths:
+      - implementation/partition_feedback_final/selector_v2/edr_m3.py
+      - implementation/partition_feedback_final/selector_v2/edr_cross.py
+      - implementation/partition_feedback_final/research/p3-m3/**
+      - .github/workflows/p3-core-m3.yml
+permissions:
+  contents: read
+jobs:
+  core:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 12
+    strategy:
+      fail-fast: false
+      matrix:
+        memory_mib: [512, 1536]
+    env:
+      PYTHONPATH: implementation/partition_feedback_final:implementation/partition_feedback_final/selector_v2/tests:independent-proof/tests/reference
+      M3: implementation/partition_feedback_final/research/p3-m3
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          persist-credentials: false
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          ref: f24d34c6e812b23c3dbe8953a6f592653b44958e
+          path: independent-proof
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13.5'
+          check-latest: false
+      - name: Check frozen v1 blobs and run producer tests
+        run: |
+          test "$(git -C independent-proof rev-parse HEAD)" = f24d34c6e812b23c3dbe8953a6f592653b44958e
+          test "$(git -C independent-proof hash-object tests/reference/p3_frontier_verifier.py)" = 2f66ef48353ce3c240e359b797b72bea352b2fc9
+          test "$(git hash-object implementation/partition_feedback_final/selector_v2/edr_bb.py)" = 657c4e0e4059b32cd9e6477e61c7a3673290f36d
+          test "$(git hash-object implementation/partition_feedback_final/selector_v2/edr_search.py)" = 73da7bea551df73a8676b0adf0401cd7f2d307b5
+          python -B -m unittest discover -s "$M3" -v
+          python -B -O -m unittest discover -s "$M3" -v
+      - name: Generate and compare native certificate bytes
+        run: |
+          /usr/bin/time -v -o normal.time python -B "$M3/run_core_gate.py" --output normal --memory-mib ${{ matrix.memory_mib }}
+          /usr/bin/time -v -o optimized.time python -B -O "$M3/run_core_gate.py" --output optimized --memory-mib ${{ matrix.memory_mib }}
+          for name in normal/*/*.json; do
+            cmp "$name" "optimized/${name#normal/}"
+            cmp "$name" "$M3/evidence/$name"
+          done
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: p3-m3-core-${{ matrix.memory_mib }}mib
+          path: |
+            normal/
+            optimized/
+            *.time
+          if-no-files-found: error
+          retention-days: 30
