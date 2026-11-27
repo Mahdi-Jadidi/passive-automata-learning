@@ -18,7 +18,7 @@ jobs:
       matrix:
         memory_mib: [512, 1536]
     env:
-      PYTHONPATH: implementation/partition_feedback_final:independent-proof/tests/reference
+      PYTHONPATH: implementation/partition_feedback_final:implementation/partition_feedback_final/selector_v2/tests:independent-proof/tests/reference
     steps:
       - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
         with:
