@@ -17,7 +17,7 @@ jobs:
         memory: [512, 1536]
         suite: [native, medium_choice, huge_choice_active]
     env:
-      PYTHONPATH: implementation/partition_feedback_final:implementation/partition_feedback_final/selector_v2/tests:implementation/partition_feedback_final/research/p3-m4:proof/tests/reference
+      PYTHONPATH: implementation/partition_feedback_final:implementation/partition_feedback_final/selector_v2/tests:implementation/partition_feedback_final/research/p3-m4:proof/tests/reference:interface/research/interface/p2
       GATE: implementation/partition_feedback_final/research/p3-scale/gate_search.py
       FIXTURES: fixtures/benchmarks/v2/p3/inputs
       RETAINED: retained/benchmarks/v2/results/review08/trusted-roots
@@ -40,6 +40,11 @@ jobs:
           ref: 444cea666816a4faaf875a831ec4a3949c673a4b
           path: retained
           sparse-checkout: benchmarks/v2/results/review08/trusted-roots
+      - uses: actions/checkout@v4
+        with:
+          ref: 122844ee5668f1c898f85b08133a562f31719718
+          path: interface
+          sparse-checkout: research/interface/p2
       - uses: actions/setup-python@v5
         with:
           python-version: '3.13.5'
@@ -83,3 +88,4 @@ jobs:
         with:
           name: native-scale-${{ matrix.memory }}-${{ matrix.suite }}
           path: evidence/
+
