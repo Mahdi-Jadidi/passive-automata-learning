@@ -1,0 +1,41 @@
+name: P3 M2 small all expanded-resource validation
+on:
+  push:
+    branches: [research/v2-implementation-core]
+    paths: [.github/workflows/p3-core-m2-small-all.yml]
+permissions:
+  contents: read
+jobs:
+  small-all:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 75
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          ref: 391abf97df3b67661082c907d9ce20b4f69636c2
+          persist-credentials: false
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          ref: e1d022496f98bf50fd57d5ef3a7a0bc8194c817c
+          path: independent-proof
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13.5'
+          check-latest: false
+      - name: Bounded full all-optima certificate validation
+        run: |
+          set -e
+          test "$(git rev-parse HEAD)" = 391abf97df3b67661082c907d9ce20b4f69636c2
+          test "$(git hash-object implementation/partition_feedback_final/selector_v2/edr_search.py)" = 73da7bea551df73a8676b0adf0401cd7f2d307b5
+          test "$(git -C independent-proof rev-parse HEAD)" = e1d022496f98bf50fd57d5ef3a7a0bc8194c817c
+          test "$(git -C independent-proof hash-object tests/reference/p3_frontier_verifier.py)" = a35281492e2677f0c57d8955227bc233d95492ea
+          free -m
+          python -B implementation/partition_feedback_final/research/p3-m2/run_case.py --case small_choice --mode all --proof-root independent-proof --output evidence --seconds 600 --memory-mib 13312 --entries 6000000
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: p3-m2-small_choice-all-expanded
+          path: evidence/
+          if-no-files-found: error
+          retention-days: 30

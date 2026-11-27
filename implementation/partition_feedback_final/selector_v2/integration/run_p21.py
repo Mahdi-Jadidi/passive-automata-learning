@@ -1,0 +1,77 @@
+"""Run against byte-verified actual stream modules, never vendored substitutes."""
+import argparse
+from hashlib import sha1, sha256
+from pathlib import Path
+import os
+import json
+import sys
+import unittest
+
+CORE_HEAD = '539af04bb0b097de5704c28f2b82f23cea5ef783'
+INTERFACE_HEAD = 'b27850a667a55927fd3ad127dccce3956d8ead22'
+PROOF_HEAD = 'ed20d9b12ea9730e07e7d2d1e0581744a266eb02'
+CORE = dict(zip(('component_closure.py','core.py','evidence_store.py','schema.py','sparse_analysis.py',
+                 'tests/test_evidence_store.py','tests/test_schema_closure.py','tests/test_sparse_analysis.py'),
+                ('97844bc266556cc04cd54a75c0d57dc00d6709ea','997304c3adce9d3148d454b079639575f419ba0e',
+                 '42e38c8ee590267b292ebc0d678e9d4f3a56849b','65a7522a8442a184c14f7a0fa74fc307ce60229f',
+                 'f773cc1c6b1a852193ba2afb75aa2fce4941a5c2','56ffa92c8bb75606a0ffc70e20e57cda8f905bbe',
+                 'ad959bcd10615d951f4207a7b0e0cf8098c753db','965abe7e10fecf35b441fefa844aebf75e549646')))
+INTERFACE = {'adapter.py':'c38e441c7327a44adad8a0fe1125d45c93e8ef69',
+             'strict_ledger.py':'a66975de137e3ec556b8c7aacd108cf975c46344',
+             'shared_gateway.py':'33ef122814c409cc7c0d201b0cb4c3127b078862'}
+PROOF = {'independent_replay.py':'aa09243fa7ccc941c37609e959aefb419075df32',
+         'production_replay.py':'f0bfa1785b49aab010f2af69e0e14c0af46d577c',
+         'ledger_replay.py':'c2ae28e42a71aab91f329cf728ab7a95538cbf4e'}
+
+
+def verify_files(root, entries):
+    for name, expected in entries.items():
+        content = (root/name).read_bytes()
+        actual = sha1(b'blob '+str(len(content)).encode()+b'\0'+content).hexdigest()
+        if actual != expected:
+            raise SystemExit(f'blob mismatch: {root/name}: {actual} != {expected}')
+        print(f'blob OK {name} {actual}',flush=True)
+
+
+def main():
+    parser=argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('--interface-dir',required=True,type=Path)
+    parser.add_argument('--proof-dir',required=True,type=Path)
+    parser.add_argument('--artifact',required=True,type=Path)
+    parser.add_argument('--adversarial-artifact',type=Path)
+    parser.add_argument('--full',action='store_true')
+    args=parser.parse_args()
+    module=Path(__file__).resolve().parents[1]
+    interface=args.interface_dir.resolve(); proof=args.proof_dir.resolve()
+    print('Pinned predecessors:', CORE_HEAD, INTERFACE_HEAD, PROOF_HEAD,flush=True)
+    verify_files(module,CORE); verify_files(interface,INTERFACE); verify_files(proof,PROOF)
+    sys.path[:0]=[str(module.parent),str(interface),str(proof)]
+    other=args.adversarial_artifact or args.artifact.with_name(args.artifact.stem+'-adversarial.json')
+    if args.artifact.resolve()==other.resolve():
+        raise SystemExit('artifact paths must be different')
+    os.environ['P2_ARTIFACT']=str(args.artifact.resolve())
+    os.environ['P2_ADVERSARIAL_ARTIFACT']=str(other.resolve())
+    # Remove stale output so a failed run cannot be mistaken for a new artifact.
+    args.artifact.unlink(missing_ok=True)
+    other.unlink(missing_ok=True)
+    loader=unittest.TestLoader(); suite=unittest.TestSuite()
+    if args.full:
+        suite.addTests(loader.discover(str(module/'tests')))
+    suite.addTests(loader.loadTestsFromName('selector_v2.integration.test_roundtrip'))
+    suite.addTests(loader.loadTestsFromName('selector_v2.integration.test_journal_audit'))
+    suite.addTests(loader.loadTestsFromName('selector_v2.integration.test_gateway_parity'))
+    result=unittest.TextTestRunner(verbosity=2).run(suite)
+    if not result.wasSuccessful() or not args.artifact.is_file() or not other.is_file():
+        return 1
+    from selector_v2.integration.audit_journal import replay_journal, encoded
+    for path in (args.artifact,other):
+        b=path.read_bytes(); obj=json.loads(b)
+        out=replay_journal(obj['raw'],obj['scope'],encoded(obj['journal']))
+        expected=obj.get('records',obj.get('result',{}).get('records'))
+        if encoded(out['records'])!=encoded(expected):
+            raise SystemExit('artifact projection mismatch')
+        print('artifact',path.name,'bytes',len(b),'sha256',sha256(b).hexdigest(),flush=True)
+    return 0
+
+
+if __name__=='__main__': raise SystemExit(main())

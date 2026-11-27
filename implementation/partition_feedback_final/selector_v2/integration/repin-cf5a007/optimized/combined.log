@@ -1,0 +1,40 @@
+test_actual_producer_adapter_proof (selector_v2.integration.test_roundtrip.RoundtripTests.test_actual_producer_adapter_proof) ... ok
+test_concurrent_attempt_uniqueness_and_mutation (selector_v2.integration.test_roundtrip.RoundtripTests.test_concurrent_attempt_uniqueness_and_mutation) ... ok
+test_partial_conflict_and_false_exhaustion (selector_v2.integration.test_roundtrip.RoundtripTests.test_partial_conflict_and_false_exhaustion) ... ok
+test_transaction_rejections_and_retry (selector_v2.integration.test_roundtrip.RoundtripTests.test_transaction_rejections_and_retry) ... ok
+test_corruptions (selector_v2.integration.test_journal_audit.JournalAuditTests.test_corruptions) ... ok
+test_full_outer_roundtrip (selector_v2.integration.test_journal_audit.JournalAuditTests.test_full_outer_roundtrip) ... ok
+test_raw_atomic_rollback (selector_v2.integration.test_journal_audit.JournalAuditTests.test_raw_atomic_rollback) ... ok
+test_untrusted_and_reentrant_authentication (selector_v2.integration.test_journal_audit.JournalAuditTests.test_untrusted_and_reentrant_authentication) ... ok
+test_latest_gateway_projection_and_auth_binding (selector_v2.integration.test_gateway_parity.GatewayParityTests.test_latest_gateway_projection_and_auth_binding) ... ok
+test_actual_closed_diagnostic_not_authority (selector_v2.integration.test_replay_boundary.BoundaryTests.test_actual_closed_diagnostic_not_authority) ... ok
+test_actual_false_exhaustion_invalid (selector_v2.integration.test_replay_boundary.BoundaryTests.test_actual_false_exhaustion_invalid) ... ok
+test_actual_partial_not_closed (selector_v2.integration.test_replay_boundary.BoundaryTests.test_actual_partial_not_closed) ... ok
+test_contract_positive_is_unit_only (selector_v2.integration.test_replay_boundary.BoundaryTests.test_contract_positive_is_unit_only) ... ok
+test_resource_and_missing_verifier (selector_v2.integration.test_replay_boundary.BoundaryTests.test_resource_and_missing_verifier) ... ok
+test_bounded_and_dfa (test_gateway_v2.DelegationTests.test_bounded_and_dfa) ... ok
+test_concurrent_and_atomic_raw (test_gateway_v2.DelegationTests.test_concurrent_and_atomic_raw) ... ok
+test_exact_core_authority_and_version (test_gateway_v2.DelegationTests.test_exact_core_authority_and_version) ... ok
+test_raw_and_table_conversion (test_gateway_v2.DelegationTests.test_raw_and_table_conversion) ... ok
+test_receipt_exact_bytes_and_metadata (test_gateway_v2.DelegationTests.test_receipt_exact_bytes_and_metadata) ... ok
+test_reentrant_auth_rejected (test_gateway_v2.DelegationTests.test_reentrant_auth_rejected) ... ok
+test_retry_and_global_ids (test_gateway_v2.DelegationTests.test_retry_and_global_ids) ... ok
+test_strict_rejections (test_gateway_v2.DelegationTests.test_strict_rejections) ... ok
+test_duplicate_positive_index_is_deduplicated_and_bounded (test_bounded_deletion.BoundedDeletionTests.test_duplicate_positive_index_is_deduplicated_and_bounded) ... ok
+test_exhaustive_all_owners_and_forced_collisions (test_bounded_deletion.BoundedDeletionTests.test_exhaustive_all_owners_and_forced_collisions) ... ok
+test_long_diverse_trace (test_bounded_deletion.BoundedDeletionTests.test_long_diverse_trace) ... ok
+test_missing_extra_and_duplicate_conflict_rejected (test_bounded_deletion.BoundedDeletionTests.test_missing_extra_and_duplicate_conflict_rejected) ... ok
+test_random_duplicate_positives_and_negative_conflicts (test_bounded_deletion.BoundedDeletionTests.test_random_duplicate_positives_and_negative_conflicts) ... ok
+test_work_entry_length_and_deadline_caps (test_bounded_deletion.BoundedDeletionTests.test_work_entry_length_and_deadline_caps) ... ok
+
+----------------------------------------------------------------------
+Ran 28 tests in 0.796s
+
+OK
+actual roundtrip: 3 epochs, 12 records, 9 events, structural optimum 2
+outer provenance corruptions rejected: 20
+outer replay: 12 events, 13 records, 3 quarantines
+latest gateway parity: 18 byte-identical v1 records; exact-byte and registration auth binding PASS
+exhaustive_corpus_owner_cases= 4374 filter_checks= 13122
+long_diverse_symbols= 20000 index_entries= 20001 exact_checks= 2 work= 200010
+random_collision_cases=500
