@@ -1,0 +1,81 @@
+{
+  "schema": "p3-native-benchmark/1",
+  "sources": {
+    "producer": {
+      "commit": "391abf97df3b67661082c907d9ce20b4f69636c2",
+      "directory": "implementation/partition_feedback_final/selector_v2",
+      "blobs": {
+        "edr_search.py": "73da7bea551df73a8676b0adf0401cd7f2d307b5",
+        "edr_bb.py": "657c4e0e4059b32cd9e6477e61c7a3673290f36d",
+        "core.py": "997304c3adce9d3148d454b079639575f419ba0e"
+      }
+    },
+    "verifier": {
+      "commit": "d89bab4c005d17c8b27d4c1e6dd291135aca649a",
+      "directory": "tests/reference",
+      "blobs": {
+        "p3_frontier_verifier.py": "540a7cf9e7b048684d3ea03def744175ae629b65",
+        "independent_replay.py": "aa09243fa7ccc941c37609e959aefb419075df32",
+        "journal_v2_replay.py": "6c49013e809b5ac4d2b2a37850e6e6cece513072",
+        "bounded_deletion.py": "e1fc61b6f03484d4428642ca157e2dac43f0572d",
+        "production_replay.py": "4666c3f1aca6189331a83ff2f00de0e376e2a710",
+        "ledger_replay.py": "0b615b6c17258e621d73147baa262d791985d8d0",
+        "interface_artifact_replay.py": "51f928ee2311ab8995f88f0e9f195ac7c659e469"
+      }
+    }
+  },
+  "limits": {
+    "wall_seconds": 30,
+    "cooperative_seconds": 25,
+    "producer_work": 10000000,
+    "producer_entries": 2000000,
+    "frontier_bytes": 67108864,
+    "verifier_work": 200000000,
+    "verifier_nodes": 2000001,
+    "verifier_entries": 2000001,
+    "proof_bytes": 134217728,
+    "verifier_exact_checks": 20000000,
+    "verifier_depth": 10000,
+    "raw_bytes": 67108864,
+    "journal_bytes": 67108864
+  },
+  "producer": [
+    "--raw",
+    "{input}",
+    "--scope",
+    "{scope}",
+    "--mode",
+    "{mode}",
+    "--out",
+    "{certificate}",
+    "--metrics",
+    "{metrics}",
+    "--seconds",
+    "{cooperative_seconds}",
+    "--work",
+    "{producer_work}",
+    "--entries",
+    "{producer_entries}",
+    "--frontier-bytes",
+    "{frontier_bytes}"
+  ],
+  "verifier": [
+    "--raw",
+    "{input}",
+    "--journal",
+    "{journal}",
+    "--scope",
+    "{scope}",
+    "--proof",
+    "{certificate}"
+  ],
+  "scope": [
+    "--make-trusted-scope",
+    "--raw",
+    "{input}",
+    "--journal",
+    "{journal}",
+    "--out",
+    "{scope}"
+  ]
+}
